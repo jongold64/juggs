@@ -47,8 +47,11 @@ Last updated: 2026-09-29.
   Caps by tier — Focus Skills 3 / 4 / 5 / 6 / 7, other skills 2 / 3 / 4 / 5 / 6.
 - **Second Specialty**: free, from Level 5 (Seasoned). It gives Ability 1 and its 2 bonus Focus Skills.
 - **Domain Mastery** is added to rolls (skills, Initiative, Defend), not to the fixed Deflect number.
-- **Feat slots**: Levels 1, 3, 7, 11, 15, 17, 19. Highest tier per slot: L1 and L3 Basic, L7 Advanced, L11 and
-  L15 Mastery, L17 Mastery, L19 Legendary. **A slot can always take a lower-tier Feat.** The Level 1 Feat must be Basic and cannot unlock Specialty
+- **Feat Ranks A–D.** Feat tiers are renamed so they are not confused with the character tiers (Novice …
+  Legendary): **Rank A** = Basic, **Rank B** = Advanced, **Rank C** = Mastery, **Rank D** = Legendary. The rulebooks
+  still use the old names; the builder uses Ranks.
+- **Feat slots**: Levels 1, 3, 7, 11, 15, 17, 19. Highest Rank per slot: L1 and L3 Rank A, L7 Rank B, L11, L15 and
+  L17 Rank C, L19 Rank D. **A slot can always take a lower-Rank Feat.** The Level 1 Feat must be Basic and cannot unlock Specialty
   Ability 2, which is available from Level 3.
 - **Level 17 Capstone**: *to be decided*.
 - **Roles**: five Steps, using the wording in the Player Book's "All 22 Roles" section.
@@ -166,8 +169,6 @@ Last updated: 2026-09-29.
 - **Effect pools**: which pools can pay for each Effect. Chapter 1 and the "Effect types by pool" table disagree;
   the data keeps both readings and leaves `pools` empty.
 - The Channeler Suggested Build's sixth Focus Skill (Abjure was one of the six).
-- **Feat tier names** (Basic, Advanced, Mastery, Legendary) are misleading next to the character tiers (Novice …
-  Legendary) and will be renamed, numbered or lettered — the author's choice is pending.
 - Power list damage: Lay on Hands has no Power Level lines, and one Psionic Power lost its heading (the "Boon and
   Bane Severity Summary" sits in its place).
 - Side-by-side pool layout on the sheet — the author will judge it once the sheet exists.

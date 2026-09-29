@@ -107,9 +107,12 @@ check('A Feat taken at this level does not count for itself',
   R.requirementContext(D, make({ feats: { 1: 'toughened' } }), 1).feats.has('toughened'), false);
 
 // Feat slots
-check('Level 1 slot takes Basic', R.slotAccepts(D, 1, { tier: 'Basic' }), true);
-check('Level 1 slot refuses Advanced', R.slotAccepts(D, 1, { tier: 'Advanced' }), false);
-check('Level 19 slot takes Legendary', R.slotAccepts(D, 19, { tier: 'Legendary' }), true);
+check('Level 1 slot takes Rank A', R.slotAccepts(D, 1, { rank: 'A' }), true);
+check('Level 1 slot refuses Rank B', R.slotAccepts(D, 1, { rank: 'B' }), false);
+check('Level 19 slot takes Rank D', R.slotAccepts(D, 19, { rank: 'D' }), true);
+check('Level 11 slot takes a lower Rank', R.slotAccepts(D, 11, { rank: 'A' }), true);
+check('Level 17 slot refuses Rank D', R.slotAccepts(D, 17, { rank: 'D' }), false);
+check('Every Feat has a Rank', D.feats.every(f => ['A', 'B', 'C', 'D'].includes(f.rank)), true);
 
 // Costs and standing
 check('Caster Power cost: PL 3 at Novice is 2', R.powerCost(3, 1, true), 2);

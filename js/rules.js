@@ -302,11 +302,10 @@ export function specialtyAbilities(D, c, level = c.level) {
   return out;
 }
 
-// The highest Feat tier a slot accepts (core.advancement.feat_slot_tiers); lower tiers are also allowed.
-const TIER_ORDER = ['Basic', 'Advanced', 'Mastery', 'Legendary'];
+// Feat Ranks A-D (the book's Basic, Advanced, Mastery, Legendary). A slot takes a Feat of its Rank or lower.
+export const slotRank = (D, level) => D.core.advancement.feat_slot_max_rank?.[level] || 'A';
 export function slotAccepts(D, level, feat) {
-  const tiers = D.core.advancement.feat_slot_tiers?.[level] || ['Basic'];
-  return TIER_ORDER.indexOf(feat.tier) <= Math.max(...tiers.map(t => TIER_ORDER.indexOf(t)));
+  return feat.rank <= slotRank(D, level);
 }
 
 // Everything a requirement check needs to know about the character at a level.

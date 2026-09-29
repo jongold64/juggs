@@ -9,7 +9,6 @@ import { renderSheet } from './sheet.js';
 
 const TABS = ['character', 'skills', 'roles', 'advancement', 'sheet'];
 const LEVEL_MAPS = new Set(['skillPoints', 'feats', 'featChoices', 'roleAdvances', 'abilityIncreases']);
-const TIER_ORDER = ['Basic', 'Advanced', 'Mastery', 'Legendary'];
 
 let D = null;
 let state = null;
@@ -417,7 +416,7 @@ function renderRoles() {
 
   const feats = R.levelsUpTo(D.core.advancement.feat_levels, c.level).map(lv => {
     const f = D.featsById.get(c.feats[lv]);
-    return `<li><b>Level ${lv}</b> ${f ? `${esc(f.name)} <span class="hint">${esc(f.tier)}</span><div class="info">${paragraphs(f.text)}</div>`
+    return `<li><b>Level ${lv}</b> ${f ? `${esc(f.name)} <span class="hint">Rank ${esc(f.rank)}</span><div class="info">${paragraphs(f.text)}</div>`
       : '<span class="hint">not chosen — see Advancement</span>'}</li>`;
   }).join('');
   return card('Roles', roles, 'wide') + card('Specialties', specs, 'wide') + card('Feats', `<ul class="feat-list">${feats}</ul>`, 'wide');
@@ -434,10 +433,10 @@ function featOptions(level) {
   const eligible = D.feats.filter(f => R.slotAccepts(D, level, f) && (!taken.has(f.id) || f.repeatable)
     && !(level === 1 && f.unlocks) && !(f.available_from_level > level));
   const groups = ['universal', 'body', 'mind', 'spirit', 'social', 'any'].map(dom => [dom === 'any' ? 'Specialty' : cap(dom),
-    eligible.filter(f => f.domain === dom).sort((a, b) => TIER_ORDER.indexOf(a.tier) - TIER_ORDER.indexOf(b.tier))
+    eligible.filter(f => f.domain === dom).sort((a, b) => a.rank.localeCompare(b.rank))
       .map(f => {
         const check = R.checkRequirements(f.requires, ctx);
-        return { value: f.id, label: `${mark(check)} ${f.name} (${f.tier})`, disabled: check.ok === false && c.feats[level] !== f.id };
+        return { value: f.id, label: `${mark(check)} ${f.name} (Rank ${f.rank})`, disabled: check.ok === false && c.feats[level] !== f.id };
       })]);
   return groups;
 }
@@ -478,7 +477,7 @@ function levelCard(level) {
     const check = f ? R.checkRequirements(f.requires, R.requirementContext(D, c, level)) : null;
     const specChoice = f?.unlocks ? `<label class="row">Specialty <select data-bind="featChoices.${level}">${options(
       R.specialtiesHeld(D, c, level).map(s => ({ value: s.id, label: s.name })), c.featChoices[level] || '', 'Choose…')}</select></label>` : '';
-    parts.push(`<label class="field">Feat <span class="hint">(${(D.core.advancement.feat_slot_tiers[level] || []).join(' or ')})</span>
+    parts.push(`<label class="field">Feat <span class="hint">(Rank ${R.slotRank(D, level)} or lower)</span>
       <select data-bind="feats.${level}">${groupedOptions(featOptions(level), c.feats[level] || '', 'Choose a Feat…')}</select></label>
       ${specChoice}
       ${f ? `<div class="info"><p>${reqStatus(check)}</p>${paragraphs(f.text)}${f.at_the_table ? `<p class="hint">At the table: ${esc(f.at_the_table)}</p>` : ''}</div>` : ''}`);

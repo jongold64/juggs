@@ -160,7 +160,6 @@
       17,
       19
     ],
-    "first_feat_tier": "Basic",
     "capstone": {
       "level": 17,
       "text": null,
@@ -170,37 +169,16 @@
     },
     "second_specialty_level": 5,
     "governing_ability": "Any of the nine. Can be changed once per tier with GM approval.",
-    "feat_slot_tiers": {
-      "1": [
-        "Basic"
-      ],
-      "3": [
-        "Basic"
-      ],
-      "7": [
-        "Basic",
-        "Advanced"
-      ],
-      "11": [
-        "Advanced",
-        "Mastery"
-      ],
-      "15": [
-        "Advanced",
-        "Mastery"
-      ],
-      "17": [
-        "Mastery"
-      ],
-      "19": [
-        "Mastery",
-        "Legendary"
-      ]
+    "feat_slot_max_rank": {
+      "1": "A",
+      "3": "A",
+      "7": "B",
+      "11": "C",
+      "15": "C",
+      "17": "C",
+      "19": "D"
     },
-    "feat_slot_tiers_note": "From the Player Book progression table. A slot also accepts lower tiers (DECISIONS.md).",
-    "flags": [
-      "Feat tier names (Basic, Advanced, Mastery, Legendary) to be renamed, numbered or lettered."
-    ]
+    "feat_slot_note": "Each slot takes a Feat of its Rank or any lower Rank (DECISIONS.md)."
   },
   "pools": {
     "start": 15,
@@ -526,5 +504,27 @@
     "min": 0,
     "max": 5,
     "start": 1
-  }
+  },
+  "feat_ranks": [
+    {
+      "id": "A",
+      "name": "Rank A",
+      "book_name": "Basic"
+    },
+    {
+      "id": "B",
+      "name": "Rank B",
+      "book_name": "Advanced"
+    },
+    {
+      "id": "C",
+      "name": "Rank C",
+      "book_name": "Mastery"
+    },
+    {
+      "id": "D",
+      "name": "Rank D",
+      "book_name": "Legendary"
+    }
+  ]
 }

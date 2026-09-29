@@ -160,8 +160,8 @@ def main(folder):
             ck.err(w, 'steps must be numbered 1-5 in order')
     for f in ctx['feats'].values():
         w = f'feats.json {f["id"]}'
-        if f.get('tier') not in ('Basic', 'Advanced', 'Mastery', 'Legendary'):
-            ck.err(w, f'unknown tier {f.get("tier")!r}')
+        if f.get('rank') not in ('A', 'B', 'C', 'D'):
+            ck.err(w, f'unknown Rank {f.get("rank")!r} (use A, B, C or D)')
         ck.requires(w, f.get('requires', []), ctx)
     for s in ctx['specialties'].values():
         w = f'specialties.json {s["id"]}'
