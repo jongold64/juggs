@@ -1,0 +1,772 @@
+[
+  {
+    "id": "warrior",
+    "role": "warrior",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A gate-warden of eleven winters who stopped expecting thanks somewhere around the fourth."
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "A contract man with a knee that predicts rain and a reputation, in four security houses, as someone who does not run."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A levy corporal who cannot find the part of herself that should be afraid and has stopped looking for it."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Meara had held the north gate of Ardwyn Keep for eleven winters and could no longer remember which of the scars along her forearms had come from which spring, though she remembered every man who had stood the watch beside her and which of them had gone home. The keep was not important; that was the thing outsiders never understood about it. It sat astride the only pass wide enough for a supply train, and so whoever held it held the valley behind it, and the valley behind it held eleven thousand people who had never once thought about the gate. She had stopped expecting thanks somewhere around the fourth winter and found, to her mild surprise, that the work went easier without it.",
+        "title": "The Border Keep"
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "The corp paid Rennick by the shift and by the body, and he had long since stopped pretending those were separate arrangements. Twenty-two years of standing in doorways had left him with a knee that predicted rain, a spine that clicked when he turned too fast, and a reputation among the mid-tier security houses as a man who did not run, which was the only credential that had ever mattered in the work. He had watched three generations of younger operators cycle through the same doorways, all of them faster than him and most of them gone inside two years. The ones who lasted learned the same lesson he had learned outside a pharmaceutical arcology in the wet spring of his twenty-fourth year: you cannot win a fight you are already backing out of.",
+        "title": "Contract Security"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "Corporal Idrin Vas had been cut from the colony levy for insubordination and reinstated eight days later when the Compact discovered how few of the levy would actually walk into a breached hull. She was not brave in any way she recognized; she simply found that the part of her mind that should have been screaming had gone quiet somewhere in her first boarding action and had never quite come back. Her squad called her Quiet Vas and meant it kindly, mostly. The Compact gave her a commendation, a pay grade, and a new squad every time the old one thinned out too badly to field.",
+        "title": "Boarding Detail"
+      }
+    ]
+  },
+  {
+    "id": "defender",
+    "role": "defender",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A sworn shield whose house no longer exists, keeping the oath pointed at whoever needs it next."
+      },
+      {
+        "setting": "Post-Apocalyptic",
+        "text": "A caravan outrider who has walked the dangerous edge of the column for six years and never once asked to be relieved."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A breach specialist who does not find the work frightening, only the leave between postings."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Torvald had sworn the Oathward at nineteen to a merchant house that no longer existed, and when the house fell he simply kept the oath pointed at whoever needed it next. He was not clever and had never pretended otherwise; what he had was a tower shield, a great deal of patience, and an unshakable understanding that the man behind him was more useful alive than he was. Three separate employers had tried to promote him into command and all three had eventually given up. He had counted, once, the number of people standing because he had been in the way, and had stopped counting at forty because the number felt like vanity.",
+        "title": "The Oathward"
+      },
+      {
+        "setting": "Post-Apocalyptic",
+        "text": "When the caravan moved, Hess walked the outside edge, and had walked it for six years without asking to be relieved. The road between the settlements was not dangerous in any dramatic way; it was dangerous the way weather is dangerous, constantly and without malice, and the outside edge was where that arrived first. She wore forty pounds of scavenged plate that fit badly and had never once complained about the weight in the hearing of anyone younger. Two hundred and eleven people had made the crossing under her watch and one hundred and ninety-four had arrived, and she could still name all seventeen of the others.",
+        "title": "The Column"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "Sergeant Oduya's specialization was a narrow one — he stood in the gap where a corridor had opened to vacuum and held it long enough for the bulkheads to seal. The Compact trained perhaps forty such specialists a year and lost most of them inside a decade, which was understood by everyone involved and discussed by nobody. He had a wife on Tessaly Station and two children he saw eleven days out of the year, and he had made the arithmetic of that trade with his eyes open. What he could not explain to the counselor, or to his wife, was that he did not find the work frightening; he found the leave frightening, and the return to it a relief.",
+        "title": "Hull Breach Protocol"
+      }
+    ]
+  },
+  {
+    "id": "skirmisher",
+    "role": "skirmisher",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "An irregular who has never won a battle and has cost three armies their supply trains."
+      },
+      {
+        "setting": "Western",
+        "text": "A hired gun known as a coward in two territories and alive in both of them."
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "A vertical-city runner who has broken the same ankle twice and still outpaces everything that follows her."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "The Irregulars had never won a battle and had never been meant to; their work was the six weeks before a battle, when a supply train could be made to arrive late and hungry and convinced the woods were full of ghosts. Adric had run with them from fifteen to twenty-nine and had learned in that time that a man who fights only when he chooses to fight will outlive a great many braver men. The bows were secondary. The real weapon was the map in his head — every deadfall, every soft crossing, every stretch of the Thornwood where a mounted column had to string itself out single file and could be made to regret it.",
+        "title": "The Thornwood Irregulars"
+      },
+      {
+        "setting": "Western",
+        "text": "Callum Reyes rode for whoever was paying and had been careful, across nineteen years of it, never to be the man in the middle of the street at noon. He had watched four men die that way and had concluded, without any particular shame, that the whole ritual was a foolishness invented by people who had never been shot at from a rooftop. His method involved better ground, longer distances, and a considerable amount of walking away from confrontations that the other party assumed had ended in their favor. He had a reputation as a coward in two territories and was alive in both of them.",
+        "title": "The Long Draw"
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "Kestrel worked the vertical city, the two hundred meters of scaffold and service ladder and half-abandoned mezzanine that the corps had built over and forgotten about. Her contracts were rarely violent and never prolonged; she arrived, she took what she had been sent for, and she was four levels away before anyone had confirmed that a door had opened. She had broken her left ankle twice in the same place and had learned to run on it anyway, badly, which was still faster than most of what pursued her. The one time a job had turned into a standing fight she had lost it decisively, and she thought about that night more than she thought about any of her successes.",
+        "title": "Runner"
+      }
+    ]
+  },
+  {
+    "id": "hunter",
+    "role": "hunter",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A contract killer of monsters who has passed on eleven clean shots because none of them were certain."
+      },
+      {
+        "setting": "Western",
+        "text": "A bounty man who has brought in thirty-one and killed four, and mentions the ratio to nobody."
+      },
+      {
+        "setting": "Horror",
+        "text": "A man twenty years into a pursuit, aware that the thing he follows has been permitting it."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "The village had hired Sennah to kill a thing that had taken four children over two winters, and had paid her the customary half in advance with the customary expectation of never seeing her again. She had been on it now for nine months. In that time she had learned its range, its preferences, the two places it went when it felt safe, and the single stretch of streambed where it habitually drank without watching the treeline. She had passed up eleven opportunities to attempt the kill because none of them had been certain, and certainty was the entire discipline; a hunter who attempts and fails does not get a second animal, she gets an animal that knows.",
+        "title": "The Long Contract"
+      },
+      {
+        "setting": "Western",
+        "text": "Ezra Lyle had brought in thirty-one men and had killed four of them, a ratio he mentioned to nobody because it invited the wrong sort of conversation. The work was mostly sitting. It was asking the same four questions in a great many towns and remembering what the answers had been in the previous town, and it was understanding that a man running is a man spending money in a pattern. He had followed one particular fugitive across three territories and fourteen months, and when he finally took him it was in a boarding house at breakfast, without a shot, because the man was too tired to be surprised anymore.",
+        "title": "Bounty"
+      },
+      {
+        "setting": "Horror",
+        "text": "It had taken Devlin's sister in the November of his twenty-second year and he had been following it ever since, through six states and the better part of two decades. He knew a great deal about it now — what it fed on, how long it needed between feedings, the particular kind of town it preferred and why. He also knew, and had known for some years, that it was aware of him and had chosen to permit the pursuit for reasons he had never been able to establish. The not-knowing was worse than the hunt. He had come to suspect that the permission was itself part of what it fed on, and had continued anyway.",
+        "title": "The Thing That Was Owed"
+      }
+    ]
+  },
+  {
+    "id": "berserker",
+    "role": "berserker",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A mercenary whose own village has a word for what happens to him, and does not use it kindly."
+      },
+      {
+        "setting": "Post-Apocalyptic",
+        "text": "A pit fighter of eleven years who discovered that pain speeds her up, and has never called that a gift."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A reclamation hand whose commutation came through eight months ago, which he has told no one, having signed on again."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Halgrim's people had a word for what happened to him in a fight and it was not a complimentary one; the closest translation was something like the-red-hours, and it was spoken of the way other villages spoke of a wasting sickness in the family line. He had learned early that he could not summon it and could not reliably stop it. What he could do, with considerable effort, was arrange to be somewhere useful when it arrived — which accounted for the mercenary work, the distance he kept from his own children, and the arrangement he had made with two men he trusted regarding what should be done if it ever failed to pass.",
+        "title": "The Wrong Kind of Gift"
+      },
+      {
+        "setting": "Post-Apocalyptic",
+        "text": "The settlements ran fights for water rations and Vasquez had come up through eleven years of them without ever learning to lose gracefully, which was fortunate, because losing gracefully was not what the crowds paid for. Somewhere around the fourth year she had noticed that pain did not slow her down the way it seemed to slow everyone else — it did the opposite, and reliably, and it had taken her a long time to understand that this was not a strength but a kind of damage. She was thirty-four and had the joints of a woman twice that. She kept fighting because the ration was the ration, and because she had not yet found the thing she would be if she stopped.",
+        "title": "The Pit"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "The Compact used reclamation crews for boarding actions nobody would authorize on paper, and it recruited them from populations that would not be missed. Tesk had come aboard from a prison hulk with eleven years remaining and had discovered, in his first breach, a capacity in himself that the sentencing court had entirely failed to note. He was good at it in a way that troubled the crew who fought alongside him and troubled him more, on the quiet nights. His commutation had come through eight months ago; he had not told anyone, and had signed on for another rotation.",
+        "title": "Reclamation Crew"
+      }
+    ]
+  },
+  {
+    "id": "ascetic",
+    "role": "ascetic",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A monk who spent nine years facing a wall and understood it in a market square, sidestepping a knife he had not decided to avoid."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A long-transit adept whose six-hour daily practice has no name because he has never discussed it with anyone."
+      },
+      {
+        "setting": "Horror",
+        "text": "A brother who learned his order's fasting was never devotional, only conditioning, and has held his ground four times since."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "The order took Renshi at eleven and gave him a wall to face, and for nine years the wall was the entire curriculum. He learned to stand before it in the cold, to breathe in ways that made the cold negotiable, and eventually to strike it without damaging his hands, which took four of the nine years. Nobody explained the purpose and he had learned not to ask. He understood it finally at twenty, in a market square, when a man came at him with a knife and Renshi found that he had already stepped aside and had not decided to.",
+        "title": "Nine Years at the Wall"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "Eighteen months in transit will unmake most people, and the Compact had learned to screen for the few it would not. Adept Ivo Sarn had made the crossing eleven times and had developed, across those years, a practice of his own devising that occupied six hours of every ship-day and had no name because he had never discussed it with anyone. It kept him whole. The other passengers found him unsettling in a way none of them could articulate, and the crew had quietly stopped assigning him a bunkmate.",
+        "title": "The Long Transit"
+      },
+      {
+        "setting": "Horror",
+        "text": "Brother Aldous had entered the order at nineteen looking for peace and had found instead a curriculum that made a great deal more sense once he understood what the order actually did. The fasting, the silence, the endless repetitive forms in the cold hours before dawn — none of it was devotional. It was conditioning, for a body that would need to keep functioning in the presence of things the mind would prefer to flee, and it worked precisely as designed. He had held his ground four times now and had been sick afterward on all four occasions, which the older brothers assured him would never entirely stop.",
+        "title": "What the Discipline Is For"
+      }
+    ]
+  },
+  {
+    "id": "scout",
+    "role": "scout",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "An outrider two miles ahead of the column who has been first to see everything that went wrong for four campaigns."
+      },
+      {
+        "setting": "Western",
+        "text": "An army scout carrying a map that exists nowhere but behind his eyes, teaching each new officer that the paper one is fiction."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A survey pilot who has flown unarmed for six years and can name what she missed in every system that cost the fleet a ship."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Wren rode two miles ahead of the column and had done so for four campaigns, which meant that for four campaigns she had been the first person to see everything that went wrong. She had developed, out of necessity, a very precise vocabulary for reporting; commanders who received vague warnings tended to discount them, and commanders who discounted her warnings tended to get people killed in ways she then had to ride past. The work suited her. What did not suit her was the return to camp each evening, and the noise of it, and the questions.",
+        "title": "Ahead of the Column"
+      },
+      {
+        "setting": "Western",
+        "text": "The army employed Cass Tiller as a scout and paid him poorly, which he did not mind, because the pay was not the reason. He had crossed the territory in both directions more times than he could account for and had built, over nineteen years, a private map that existed nowhere but behind his eyes — every seep and dry wash and stretch of ground that would not hold a wagon after rain. The officers changed every eighteen months and each new one had to be taught, patiently, that the map on their table was a work of optimistic fiction. Most of them learned. The ones who did not tended to be reassigned before the second summer.",
+        "title": "The Territory"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "Survey pilots ran ahead of the fleet in ships stripped of everything that was not sensor array or engine, and Lira Voss had flown that configuration for six years without once carrying a weapon. Her job was to arrive somewhere, understand it faster than it understood her, and leave. She had been shot at eleven times and hit twice, both times while departing, which she considered evidence that the method was sound. The fleet had followed her into forty-three systems and had lost ships in three of them, and she could recite what she had missed in each of those three without being asked.",
+        "title": "Forward Survey"
+      }
+    ]
+  },
+  {
+    "id": "survivor",
+    "role": "survivor",
+    "concepts": [
+      {
+        "setting": "Post-Apocalyptic",
+        "text": "One of nine left from two hundred, who spends nothing she does not have to spend, including grief."
+      },
+      {
+        "setting": "Fantasy",
+        "text": "A man who was inside Kelm for all two hundred and eleven days and describes it never."
+      },
+      {
+        "setting": "Horror",
+        "text": "The only one of six who walked out of the Pell house, and who has quietly gone back twice."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Post-Apocalyptic",
+        "text": "Of the two hundred who had walked out of the city, Rosa was one of nine still alive at the fourth winter, and she had spent a great deal of that winter thinking about why. She was not the strongest of them and had never been the cleverest. What she had was a refusal to spend anything she did not have to spend — no wasted steps, no arguments carried past their usefulness, no calories burned on grief until the season allowed it. The others had called her cold in the first year and had stopped calling her anything by the third, which she understood and did not resent.",
+        "title": "The Fourth Winter"
+      },
+      {
+        "setting": "Fantasy",
+        "text": "Kelm held for two hundred and eleven days and Baret was inside for all of them, which he mentions rarely and describes never. What he took from it was not courage; courage had gone somewhere around day sixty and had not returned. What he took was a set of skills nobody would choose to learn — how to make a ration last past the point of sense, how to sleep in noise, how to keep a wound from souring without clean water. He is a difficult man to frighten now and an easy man to underestimate, and he has found both of those things useful.",
+        "title": "The Siege of Kelm"
+      },
+      {
+        "setting": "Horror",
+        "text": "Six went into the Pell house and Marguerite came out, and the investigation that followed could not establish what had happened to the other five or why she had been permitted to leave. She has been asked about that night perhaps four hundred times across the intervening eleven years and her account has never varied, which the skeptics find suspicious and which she finds unavoidable, given that she is telling the truth. What she does not tell them is that she has gone back twice. Neither visit produced anything she could report, and she is not certain she would report it if it had.",
+        "title": "The Only One Who Came Back"
+      }
+    ]
+  },
+  {
+    "id": "wayfinder",
+    "role": "wayfinder",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A salt-road guide of fifty years who has been wrong twice and remembers both occasions in detail."
+      },
+      {
+        "setting": "Age of Sail",
+        "text": "A master's mate passed over three times, whose reckoning the captain trusts over charts drawn by men who never sailed them."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A navigator who rereads the report on her one catastrophic error before every plotting, and has been told this is unhealthy."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Old Deshi had walked the salt roads since she was fourteen and could tell you, without consulting anything, how many days to the next reliable water from any point along four hundred miles of them. The caravans paid her more than they paid their guards and considered it a bargain. What she actually sold was not knowledge of the route — several people had that — but judgment about when the route was lying, which weather had changed, which crossing had silted, which of the three villages ahead would still trade this season. She had been wrong twice in fifty years and remembered both occasions in detail.",
+        "title": "The Salt Roads"
+      },
+      {
+        "setting": "Age of Sail",
+        "text": "Master's Mate Onwuka could fix a position from a bad horizon and a worse chronometer, and had done so on four occasions when doing so was the difference between a landfall and a reef. He had been passed over for advancement three times on grounds nobody would state plainly and had continued to do the work at the same standard, partly from stubbornness and partly because the alternative was letting the ship find its own way. The captain trusted his reckoning over the charts. The charts, Onwuka had observed, were drawn by men who had never been where the charts described.",
+        "title": "The Reckoning"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "The jump lanes are not fixed and the tables that describe them go stale, and somebody has to sit with eleven kinds of contradictory data and decide which route a convoy actually takes. Navigator Ashra Bey had made that call four hundred times and had been catastrophically wrong once, in her third year, in a way that had cost a hauler and thirty-one people. She kept the incident report in her personal file and reread it before every plotting. Her superiors considered this unhealthy and had said so; she had listened politely and had not stopped.",
+        "title": "Transit Authority"
+      }
+    ]
+  },
+  {
+    "id": "speaker",
+    "role": "speaker",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A woman with no office holding three valleys together, spending her last years trying to build something that outlives her."
+      },
+      {
+        "setting": "Spy",
+        "text": "A handler who has never given an order, because orders produce compliance and compliance produces the reports people want to hear."
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "A fixer whose whole position is made of unrepaid favors, one bad season from losing it, as he has been for a decade."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "The three valleys had never had a lord and had never wanted one, and so the arrangements between them were held together by whoever the valleys currently trusted, which for nineteen years had been Ilsabet Rue. She held no office and commanded nothing. What she had was an unbroken record of being right about difficult things in front of people who had not wanted to hear it, and the accumulated weight of that record was worth more than a title would have been. She was aware that the arrangement did not survive her. She had spent the last four years trying, without much success, to make it survive her anyway.",
+        "title": "The Voice of Threefold"
+      },
+      {
+        "setting": "Spy",
+        "text": "Prentiss ran eleven assets across two ministries and had never once given an order, because orders produced compliance and compliance produced the reports people thought you wanted. What she produced instead was the sense, in eleven separate people, that she was the only one who saw them accurately — which was true, and was also the mechanism. Two of her assets had eventually understood what was being done to them and had continued anyway. She thought about those two considerably more than she thought about the nine who never worked it out.",
+        "title": "The Handler"
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "Everybody in the district knew Mbeki and nobody could say precisely what he did, which was the whole architecture of it. He had spent eleven years assembling a position where the corps, the gangs, and the municipal remnant all found it more useful to route things through him than around him, and none of them liked it. The position was made entirely of obligations, some of them fifteen years old, all of them carefully unrepaid. He was one bad season from losing the whole structure and had been for most of a decade.",
+        "title": "The Fixer"
+      }
+    ]
+  },
+  {
+    "id": "infiltrator",
+    "role": "infiltrator",
+    "concepts": [
+      {
+        "setting": "Spy",
+        "text": "An archivist eleven years under, no longer certain which of the two women is the performance."
+      },
+      {
+        "setting": "Fantasy",
+        "text": "A wool factor on his sixth identity, five abandoned cleanly and this one containing a daughter."
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "A legend-builder whose fifth cover is still drawing a salary somewhere, and she has never worked out how to feel about it."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Spy",
+        "text": "The service had put Halloran into the ministry as a junior archivist in the spring of her twenty-eighth year and had left her there, by her own count, eleven years and four months. She had been promoted twice on merit, had made genuine friends among the clerical staff, and had attended the funeral of a department head whose grief she found she shared entirely and without pretense. The reports went out every eleventh day regardless. What troubled her was not the lying, which she had made peace with early, but the growing difficulty of saying which of the two women was the performance.",
+        "title": "Eleven Years Under"
+      },
+      {
+        "setting": "Fantasy",
+        "text": "Dessit had been six different wool factors in four cities and had turned an honest profit as every one of them, which he considered both good practice and good cover. The trick, he had learned early, was not the accent or the papers but the debts; a man with no creditors is a man nobody vouches for, and so he made certain each of his merchants owed money somewhere and paid it back slowly. He had abandoned five identities cleanly. The sixth had a daughter in it, and he had been sitting on that particular problem for going on two years now without arriving at anything he could stand to do about it.",
+        "title": "The Merchant Who Never Was"
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "Building a legend took Sook eight months on average and she had never yet shortened it, because the corps ran deep verification and the shallow work got people killed in ways that were slow and instructive to others. Her covers had school records, dental histories, three years of plausible social debris, and at least one embarrassing publicly-visible mistake, because a clean history reads as manufactured to anyone who has looked at enough of them. She had walked out of four contracts intact and left the legend behind each time like a shed skin. The fifth was still walking around inside a subsidiary somewhere, drawing a salary, and she had never quite worked out how to feel about that.",
+        "title": "Legend Work"
+      }
+    ]
+  },
+  {
+    "id": "empath",
+    "role": "empath",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A court reader whose salary is never discussed, tired of pretending that simple attention is a gift."
+      },
+      {
+        "setting": "Horror",
+        "text": "A woman who moved far from the city because the sense does not switch off, and who has felt something in her treeline for six years."
+      },
+      {
+        "setting": "Spy",
+        "text": "An interrogator of nine hundred interviews who has never raised his voice, because the useful part comes after they think they have won."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Every court of consequence keeps someone like Vashti, and every court pretends it does not. She stood behind the ambassador during negotiations and said nothing for hours at a stretch, and afterward, in a small room, she told him which of the four men across the table had already decided, which was afraid, and which had been lying about something that had nothing to do with the treaty. She was right often enough that her salary was never discussed. What she had never told the ambassador, in eleven years, was how much of it was simple attention and how tired she was of pretending it was a gift.",
+        "title": "The Court Reader"
+      },
+      {
+        "setting": "Horror",
+        "text": "Nell had always known what people were feeling and had assumed, until she was nearly thirty, that everyone did. The discovery that they did not was less disturbing than the discovery that followed it — that the sense did not switch off, that it worked through walls, and that it worked on things that were not people. She moved out of the city in her thirty-second year and took a house with considerable distance around it. It helped with the crowds. It did not help with the thing in the treeline, which she had been aware of for six years and had never once seen.",
+        "title": "The Wrong Sensitivity"
+      },
+      {
+        "setting": "Spy",
+        "text": "Ackroyd had conducted perhaps nine hundred interviews and had never raised his voice in any of them, which the younger officers found either admirable or suspect depending on their temperament. His method was not a method; it was the accumulated ability to hear what a man was avoiding and to sit with the silence until the avoidance became unbearable. He could usually tell inside four minutes whether someone was lying, and he never said so, because the useful part was not the lie but what came after they believed they had gotten away with it. He had been wrong twice in twenty years and both times it had cost somebody else.",
+        "title": "The Interview Room"
+      }
+    ]
+  },
+  {
+    "id": "artificer",
+    "role": "artificer",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A guild mechanist who rebuilt the device that killed a man, correctly, and never reported that it exists."
+      },
+      {
+        "setting": "Steampunk",
+        "text": "A woman holding eleven patents and no membership, who took a fortnight to decline it in writing when it finally came."
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "A builder who broke his own rule about asking once, in his fourth year, and has spent a decade thinking about where it ended up."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "The guild had taken Corrin at twelve because his hands were small enough for the escapement work and had kept him for thirty years because he turned out to have the rarer gift, which was understanding why a mechanism had failed rather than merely that it had. Aldmere ran on steam and clockwork and a quantity of bound elemental fire that the guild discussed with outsiders in only the vaguest terms. Corrin had built four things nobody had asked for and three of them had worked. The fourth had killed a man, and he had rebuilt it anyway, correctly, and had never told the guild it existed.",
+        "title": "The Foundry at Aldmere"
+      },
+      {
+        "setting": "Steampunk",
+        "text": "Miss Aurelia Fenn held eleven patents, had been refused membership by the Royal Society on four occasions, and had long since stopped submitting. Her workshop occupied a converted brewery in the industrial quarter and employed nine people, most of whom had also been refused things. The work was practical rather than theoretical — pumps, governors, a pressure regulator now fitted in two hundred mills across the north — and she was quietly wealthy in a way the Society would have found vulgar. She had been offered membership eventually, at fifty-one, and had taken a fortnight to decline it in writing.",
+        "title": "Patent Pending"
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "Okot built things that were not supposed to exist, out of components that were not supposed to be available, in a workshop that appeared on no municipal register. His clientele was narrow and did not haggle. He had a rule about not asking what the work was for and had broken it exactly once, in his fourth year, and had spent a considerable amount of the intervening decade thinking about what he had built and where it had ended up. He still does not ask. He has simply become very careful about who he agrees to see.",
+        "title": "Gray Hardware"
+      }
+    ]
+  },
+  {
+    "id": "investigator",
+    "role": "investigator",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A magistrate's investigator who has outlasted four employers by refusing to reach the conclusion each of them preferred."
+      },
+      {
+        "setting": "Horror",
+        "text": "A detective with a remarkable clearance rate and a private file of eleven cases that were closed rather than solved."
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "A corporate forensic who knows a staged scene is always too consistent, and who is still employed after four honest reports."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Sera Voss had served four magistrates across nineteen years and had outlasted all of them, which she attributed less to skill than to a temperamental unwillingness to reach the conclusion her employer preferred. The work was mostly walking. It was standing in a room where something had occurred and remaining there long enough for the room to stop performing and start describing. She had cleared thirty-one cases and had failed to clear nine, and it was the nine she kept written out in a book she carried, in case something came loose later.",
+        "title": "The Magistrate's Hand"
+      },
+      {
+        "setting": "Horror",
+        "text": "Detective Marcus Iyer had a clearance rate his captain described as remarkable and a private understanding that four of his cases had never actually been solved, merely closed. In each of those four the physical evidence had been complete, the confession had been offered freely, and something in the arrangement of the scene had refused to make sense in a way he could put into a report. He had begun keeping his own file. It had grown to eleven cases now, counting the ones he had only heard about, and the pattern that connected them was not one he could take to anybody.",
+        "title": "The Case That Would Not Close"
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "Corporate death investigations are not conducted to find the truth; they are conducted to establish liability, and Ines Delacroix had spent eleven years working the seam between those two things. She was very good at reading a scene that had been arranged for her benefit. The trick was that a staged scene is always too consistent — real events leave contradictions, and their absence is itself the evidence. She had filed forty reports that said what her employer wanted and four that did not, and she was still employed, which she found more troubling than reassuring.",
+        "title": "Forensic Reconstruction"
+      }
+    ]
+  },
+  {
+    "id": "polymath",
+    "role": "polymath",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A chandler, translator, ship's cook and surveyor, competent at all four and best at none."
+      },
+      {
+        "setting": "Steampunk",
+        "text": "A doctor who declined to specialize on eleven occasions, cost herself a chair, and stopped mentioning it at forty."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A freighter generalist who can hold a reactor stable and set a bone, and whom no port anywhere will license to do either."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Tibault had been a chandler, a translator, a ship's cook, and a surveyor, in that order, and had been genuinely competent at all four without ever being the best in any room. He did not consider this a failure. What he had accumulated instead was a very large stock of half-relevant knowledge and a habit of assuming that most problems were versions of problems he had already met. It had gotten him out of a great deal of trouble. It had also, on two notable occasions, gotten him into trouble he would not have recognized as trouble had he known less.",
+        "title": "The Fourth Profession"
+      },
+      {
+        "setting": "Steampunk",
+        "text": "The Institute had asked Dr. Halloway to choose a specialization on eleven separate occasions across her career and she had declined all eleven, which had cost her a chair and possibly a knighthood. She read four languages, held qualifications in three fields, and had published in two more without qualifications at all. Her colleagues found her difficult to place and consulted her constantly. She had made peace with the arrangement by about forty and had stopped mentioning the chair.",
+        "title": "The Generalist"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "Long-haul freighters carry a generalist because they cannot afford nine specialists, and Devi Rao had been that generalist on four different hulls across sixteen years. She could keep a reactor stable, set a bone, argue a customs declaration, and cook for eleven people, none of it brilliantly and all of it adequately. The captains valued her enormously and the specialists condescended to her constantly, which she had stopped noticing somewhere in her second decade. What she had never quite got over was that no port anywhere would license her to do any of it.",
+        "title": "Crew of One"
+      }
+    ]
+  },
+  {
+    "id": "caster",
+    "role": "caster",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "An apprentice taught four useless workings in ten years, who understood the gift the night the old man died."
+      },
+      {
+        "setting": "Horror",
+        "text": "A tenant who keeps a locked ledger of what the house has taken, the earliest entries in handwriting she no longer recognizes."
+      },
+      {
+        "setting": "Western",
+        "text": "A rainmaker who has succeeded eleven times and failed nineteen, and is honest about the ratio to anyone who asks."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Welderon had taken Corvin at nine and kept him at the copying desk until he was nineteen, and in all that decade the old man had taught him exactly four workings, none of them useful. What he had taught instead, relentlessly and without ever saying so plainly, was the grammar underneath them; how a working was assembled, where the seams were, what happened at the joins when a thing was pushed harder than its structure allowed. Corvin had resented every year of it. He understood the gift only on the night the old man died and he found he could build, from nothing and under considerable pressure, a working neither of them had ever seen written down. He has not resented it since.",
+        "title": "The Long Apprenticeship"
+      },
+      {
+        "setting": "Horror",
+        "text": "Nadia Okonkwo did not go looking for any of it; the house on Ellery Street simply began speaking to her in the fourth month of her tenancy and had not stopped in the six years since. She learned quickly that it would answer questions, that the answers were reliable, and that each one cost her something she could not name until much later — a childhood memory gone soft at the edges, a friend's face she could no longer picture, the smell of her mother's kitchen. She kept asking anyway. There is a ledger she maintains in a locked drawer listing what she believes she has traded away, and the earliest entries are in handwriting she no longer recognizes as her own.",
+        "title": "What the House Taught"
+      },
+      {
+        "setting": "Western",
+        "text": "They called him a rainmaker in three counties and a fraud in the two that had paid him, which Amos Teague considered a reasonable ratio for the work. He had found the trick of it at twenty-six in a dry wash outside Cordell, not taught and not inherited, simply present one afternoon the way a man discovers he can whistle. The doing of it left him sick for a day and a half afterward and he had never found a way around that, so he charged accordingly and rode on before anyone could ask for a second demonstration. He had made it rain eleven times and failed to nineteen, and he was honest about the ratio to anyone who asked directly, which almost nobody ever did.",
+        "title": "The Circuit Rider"
+      }
+    ]
+  },
+  {
+    "id": "channeler",
+    "role": "channeler",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A parish priest of thirty-one years, troubled that his fourth miracle worked perfectly for a man he believed did not deserve it."
+      },
+      {
+        "setting": "Western",
+        "text": "A preacher who has written to her bishop about none of the four things that happened at her hands."
+      },
+      {
+        "setting": "Horror",
+        "text": "One of four who can still perform the rite correctly, who has noticed that lately the answer arrives before he finishes calling."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Father Odran had served the same parish for thirty-one years and had performed, by his own reckoning, four genuine miracles and several thousand ordinary kindnesses, and he was reasonably certain which of the two the parish actually needed. The miracles had come unbidden and had frightened him. He had never learned to summon one and had eventually stopped trying, on the theory that a thing which arrives when it is required is not improved by being demanded. What troubled him, in the small hours, was the fourth miracle, which had worked perfectly and had been for a man he privately believed did not deserve it.",
+        "title": "The Village Priest"
+      },
+      {
+        "setting": "Western",
+        "text": "Reverend Sarah Wick had come out to the Flats with a Bible and a mule and no particular expectation of being useful, and had stayed eleven years past the point where either made sense. The territory was not devout. It was, however, badly in need of someone who would sit with the dying and bury the dead and occasionally stand between two armed men long enough for the moment to pass. She had done all three more times than she could count. On four occasions something had happened at her hands that she had not been able to account for theologically, and she had written to her bishop about none of them.",
+        "title": "The Preacher at Halloran Flats"
+      },
+      {
+        "setting": "Horror",
+        "text": "The order to which Brother Ephraim belonged had dwindled to nine members across two centuries, and the reason for its continued existence was a rite that four of the nine could still perform correctly. It worked. That was the difficulty — it worked, reliably, on things the modern world had agreed did not exist, and every successful performance made the performer harder to explain to the modern world. He had done it six times. After the fourth he had begun to notice that whatever answered the rite had started to arrive slightly before he finished calling it.",
+        "title": "The Rite That Still Works"
+      }
+    ]
+  },
+  {
+    "id": "weird",
+    "role": "weird",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A man every school declared ungifted, who once turned a river the wrong way for eleven minutes."
+      },
+      {
+        "setting": "Weird West",
+        "text": "The last of eleven men changed at the Cutter's Bend camp, who has found four graves and no answers."
+      },
+      {
+        "setting": "Horror",
+        "text": "A woman whose radio began telling her true things, some of which became true only because it described them first."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Every school that examined Perrin declared him ungifted, and every one of them was wrong in the same way — they were testing for a structure he did not have. What he had instead worked perhaps two times in three, produced effects nobody had described in any grimoire, and had on one memorable occasion turned a river the wrong way for eleven minutes. He had made his peace with the unreliability. What he had not made peace with was the growing suspicion that the thing working through him was not the same thing every time.",
+        "title": "Untaught"
+      },
+      {
+        "setting": "Weird West",
+        "text": "Something had happened at the Cutter's Bend rail camp in the winter of the survey and eleven men had come out of it changed, and Josiah Bell was the last of them still walking around. He could do things now. He could not explain them, predict them, or decline them, and the railroad had paid him a settlement on the understanding that he would go somewhere else and not write about it. He had honored both conditions. He had also, quietly, been looking for the other ten, and had found four graves and no answers.",
+        "title": "The Rail Camp"
+      },
+      {
+        "setting": "Horror",
+        "text": "It started for Yuki as a fault in the radio and progressed, across four years, into something she could no longer pretend was electrical. The static told her things. Some of them were true, some of them were true later, and a small number had been arrangements rather than predictions — things that happened because the static had described them to her first. She had tried living without any receiver in the house and had discovered that the receiver was never the point. She has begun, cautiously, to ask it questions.",
+        "title": "The Static"
+      }
+    ]
+  },
+  {
+    "id": "psion",
+    "role": "psion",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A village woman with the mind-touch, taught breathing exercises and discretion by an old woman who never knew where it came from either."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A fleet adept who reaches other minds across a ship's length, and has told no one she can hear the crew when she is not trying."
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "An unregistered sensitive who has stayed invisible for eleven years by never doing anything impressive, and whose headaches are getting shorter."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "The village called it the mind-touch and treated it roughly the way it treated a birthmark: unusual, faintly ominous, and not discussed in front of guests. Elin had it from childhood and had spent nineteen years learning what the old woman who shared the affliction could teach her, which amounted to breathing exercises and a great deal of practical advice about not doing it in public. She could move small things and know what a person intended a moment before they did. The old woman had died without ever explaining where the ability came from, and Elin had come to suspect she had not known either.",
+        "title": "The Mind-Touched"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "The Compact tested every colonial cohort and pulled perhaps four in ten thousand, and Adept Second Class Nomi Sarr had been one of them at eleven years old. The training was sixteen years long and had a completion rate the program did not publish. What she could do at the end of it was narrow and extremely useful — she could hold a thought steady enough to reach another mind across a ship's length, which made her a communications asset in a fleet where transmission was frequently a way of dying. She had never told anyone that she could also hear the crew when she was not trying to.",
+        "title": "Compact Adept Program"
+      },
+      {
+        "setting": "Cyberpunk",
+        "text": "The corps had a category for people like Aya and a budget for finding them, and she had stayed out of both for eleven years by the simple method of never doing anything impressive. Her ability was not dramatic. She could tell when someone was about to lie and could, with effort and a headache lasting most of a day, push a small conviction into a mind that was already leaning that way. It had kept her employed and unnoticed. What worried her was that the effort had been decreasing lately, and she did not know why.",
+        "title": "Off-Register"
+      }
+    ]
+  },
+  {
+    "id": "shaper",
+    "role": "shaper",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A stone-speaker who once asked the mountain for something it declined to give, and took a year to recover."
+      },
+      {
+        "setting": "Post-Apocalyptic",
+        "text": "A woman who made the eastern flats grow again and cannot promise a settlement that it will happen twice."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A terraform adept, thirty-four and looking sixty, who has made four worlds breathable and lived on none of them."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Berrin's people held that the mountains were awake and merely slow, and Berrin was one of the four in his generation who could hold a conversation at that speed. The work was mostly asking. He had opened a pass that had been closed since his grandmother's time, had persuaded a slide to come down somewhere other than the village, and had on one occasion asked something of the mountain that it had declined to give, which had taken him a year to recover from. He does not describe any of it as power. He describes it as a very old negotiation in which he is the junior party.",
+        "title": "The Stone-Speaker"
+      },
+      {
+        "setting": "Post-Apocalyptic",
+        "text": "Nothing had grown in the eastern flats for nineteen years and then, in the fourth spring after Mara arrived, something had. She could not entirely explain it and had learned not to try, because the settlements that heard about it arrived with expectations she could not reliably meet. What she could do was work with what was already trying to live and give it a reason to continue. It took months. It failed as often as it worked, and the failures were worse than never having tried, because a settlement that has been promised a harvest and does not get one will remember the promise.",
+        "title": "The Green"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "Terraforming is a two-century project and the Compact had discovered, in the Vashti Reach, that a small number of people could compress a piece of it into a season. Ori Kade was one of eleven such adepts still living and the only one who had never accepted a permanent posting. The work drew on something the Compact's science could describe but not replicate and it aged the practitioners at roughly twice the ordinary rate, which was in the contract and was not discussed. He was thirty-four and looked sixty. He had made four worlds breathable and had never lived on any of them.",
+        "title": "Terraform Adept"
+      }
+    ]
+  },
+  {
+    "id": "medic",
+    "role": "medic",
+    "concepts": [
+      {
+        "setting": "Fantasy",
+        "text": "A farrier turned camp surgeon who corrects anyone calling him a healer, having seen what a real physician can do."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A trauma chief who can sort forty casualties in six minutes and has never once been proud of it."
+      },
+      {
+        "setting": "Horror",
+        "text": "A night-shift doctor keeping private notebooks in a locker he paid to install, treating every cause as ordinary because the bleeding is."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Fantasy",
+        "text": "Bern had been a farrier before the levy took him and had discovered, in the mud outside Halden Ford, that the difference between a horse and a man was smaller than either would have liked to admit. He learned the rest of it from a physician who died at Halden Ford, from a book he could barely read, and from four hundred men who did not survive his early education. He does not describe himself as a healer and corrects anyone who does. The correction is not modesty; he has simply seen what a real physician can do and prefers that the word be reserved for them.",
+        "title": "The Camp Surgeon"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "Chief Petty Officer Anneke Rill had served eleven years on hospital tenders and could sort forty incoming casualties into the living, the dying, and the waiting in under six minutes, which was a skill she had never once been proud of. The sorting was the whole job. Everything after it was procedure that any competent hand could follow, but the sorting was judgment, and judgment meant that some mornings she chose who would still be aboard at the evening watch. She had a standing arrangement with the tender's counselor and kept it faithfully, which she considered the most important piece of equipment she maintained.",
+        "title": "Trauma Deck"
+      },
+      {
+        "setting": "Horror",
+        "text": "Dr. Marcus Vane took the overnight rotation at St. Brendan's because the overnight rotation was where the interesting cases came in, and it was fully four years before he admitted to himself what he meant by interesting. Some of what arrived in his bay after two in the morning did not correspond to any mechanism of injury he had been taught. He documented all of it, in a private notation of his own devising, in a set of notebooks he kept in a locker he had paid to have installed. He continued to treat every patient exactly as though the cause were ordinary, because whatever had done it, the bleeding was still just bleeding, and bleeding he knew how to stop.",
+        "title": "The Night Shift"
+      }
+    ]
+  },
+  {
+    "id": "netrunner",
+    "role": "netrunner",
+    "concepts": [
+      {
+        "setting": "Cyberpunk",
+        "text": "A runner down two fingers who declined the replacements because they would have been logged."
+      },
+      {
+        "setting": "Space Opera",
+        "text": "A tenth crewman on a nine-crew hauler who told the captain what he was running from in the fourth year."
+      },
+      {
+        "setting": "Horror",
+        "text": "A contractor who got out of a dead research array in four minutes and brought something with her, which is what happens."
+      }
+    ],
+    "backstories": [
+      {
+        "setting": "Cyberpunk",
+        "text": "Tsai had come up through the amateur boards at fourteen and had been good enough by nineteen that three separate corps had made her offers, all of which she declined for reasons she was no longer certain she could reconstruct. The work she took instead paid worse and cost more; she had lost two fingers on her left hand to a feedback cascade outside a municipal utility grid and had learned to run without them rather than accept the replacements, which would have been logged. Every system she had ever broken had taught her the same thing in a different accent — that the flaw is almost never in the architecture but in whoever last had to use it in a hurry. She had never once been caught. She had come close enough, twice, that she still ran the logs of both nights when she could not sleep.",
+        "title": "The Long Fall"
+      },
+      {
+        "setting": "Space Opera",
+        "text": "The freighter Ilmen Anash carried a crew of nine and a tenth presence that appeared on no manifest, drew no rations, and had been aboard for six years. Okonjo lived in a compartment behind the primary relay bank and did the work that let a marginal hauler keep flying — falsifying tonnage, rerouting inspection flags, and once, memorably, convincing a Compact customs cutter that the Ilmen Anash had never existed at all. The captain paid him in fuel credits and silence and had never asked what he was running from. He had told her anyway, in the fourth year, because six years is a long time to hold a thing alone.",
+        "title": "Ship's Ghost"
+      },
+      {
+        "setting": "Horror",
+        "text": "The contract was routine data recovery from a decommissioned research array, and Sera Byrne had priced it as routine, which she would spend a long time regretting. Something in the array's dead architecture had continued running after the facility closed, and it had noticed her the moment she entered. She extracted the data and got out inside four minutes, which was fast, and she brought something with her anyway, which is what happens. It speaks to her now through any system she connects to, patiently and without malice, and it has never yet lied to her about anything she could verify.",
+        "title": "What Answered Back"
+      }
+    ]
+  }
+]

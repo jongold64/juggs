@@ -1,0 +1,558 @@
+{
+  "rules": {
+    "weapons": "Weapons add +0 to +5 to Attack rolls. Melee uses Strength, ranged uses Agility, unless the fiction supports another Ability Score. Items stack with weapon quality (DECISIONS.md).",
+    "armor": "Armor and shields give DR against Stamina damage only. Light: no Agility penalty; Medium -1; Heavy -2; Powered/Legendary: none."
+  },
+  "quality": [
+    {
+      "id": "improvised",
+      "name": "Improvised",
+      "weapon_bonus": 0,
+      "armor_dr": "no DR",
+      "min_wealth_tier": 1,
+      "examples": "Table leg, hide wrap, makeshift shield. Anyone at any Wealth Tier."
+    },
+    {
+      "id": "light",
+      "name": "Light",
+      "weapon_bonus": 1,
+      "armor_dr": "DR 1",
+      "min_wealth_tier": 2,
+      "examples": "Dagger, padded vest. Functional but unremarkable."
+    },
+    {
+      "id": "standard",
+      "name": "Standard",
+      "weapon_bonus": 2,
+      "armor_dr": "DR 2-3",
+      "min_wealth_tier": 3,
+      "examples": "Sword, chain shirt, handgun. Default for working professionals."
+    },
+    {
+      "id": "quality",
+      "name": "Quality",
+      "weapon_bonus": 3,
+      "armor_dr": "DR 3-4",
+      "min_wealth_tier": 5,
+      "examples": "Named blade, flak jacket, precision bow. Noticeably better."
+    },
+    {
+      "id": "masterwork",
+      "name": "Masterwork",
+      "weapon_bonus": 4,
+      "armor_dr": "DR 4-5",
+      "min_wealth_tier": 6,
+      "examples": "Exceptional craftsmanship, rare technology, combat armor."
+    },
+    {
+      "id": "legendary",
+      "name": "Legendary",
+      "weapon_bonus": 5,
+      "armor_dr": "DR 5",
+      "min_wealth_tier": 7,
+      "examples": "Artifact, exo-suit, one-of-a-kind. Access is the constraint."
+    }
+  ],
+  "weapons": [
+    {
+      "id": "unarmed",
+      "name": "Unarmed",
+      "bonus": 0,
+      "type": "Physical",
+      "range": "Close",
+      "properties": "Always available. Can't be disarmed.",
+      "source_doc": "JUGGS_SRD_Updated.html"
+    },
+    {
+      "id": "improvised",
+      "name": "Improvised",
+      "bonus": 0,
+      "type": "Physical",
+      "range": "Close",
+      "properties": "Chairs, bottles, tools. Brawler Role: +1.",
+      "source_doc": "JUGGS_SRD_Updated.html",
+      "flags": [
+        "\"Brawler Role\" — Brawler is a Specialty."
+      ]
+    },
+    {
+      "id": "light-weapon",
+      "name": "Light weapon (knife, hatchet)",
+      "bonus": 1,
+      "type": "Physical",
+      "range": "Close / Near",
+      "properties": "Concealable. Can throw.",
+      "source_doc": "JUGGS_SRD_Updated.html"
+    },
+    {
+      "id": "standard-melee",
+      "name": "Standard melee (sword, axe)",
+      "bonus": 2,
+      "type": "Physical",
+      "range": "Close",
+      "properties": "One-handed. Standard carry.",
+      "source_doc": "JUGGS_SRD_Updated.html"
+    },
+    {
+      "id": "heavy-melee",
+      "name": "Heavy melee (greatsword, maul)",
+      "bonus": 3,
+      "type": "Physical",
+      "range": "Close",
+      "properties": "Two-handed. −1 to Evasion while wielded.",
+      "source_doc": "JUGGS_SRD_Updated.html"
+    },
+    {
+      "id": "bow-crossbow",
+      "name": "Bow / crossbow",
+      "bonus": 2,
+      "type": "Physical",
+      "range": "Near/Far",
+      "properties": "Reload 1 Action (crossbow).",
+      "source_doc": "JUGGS_SRD_Updated.html"
+    },
+    {
+      "id": "musket-flintlock",
+      "name": "Musket / flintlock",
+      "bonus": 3,
+      "type": "Physical / Energy",
+      "range": "Near/Far",
+      "properties": "TL 4+. Reload 1 Action after firing.",
+      "source_doc": "JUGGS_SRD_Updated.html",
+      "min_tech_level": 4
+    },
+    {
+      "id": "pistol",
+      "name": "Pistol (TL 8)",
+      "bonus": 3,
+      "type": "Physical",
+      "range": "Near",
+      "properties": "Semi-auto. 17 rounds.",
+      "source_doc": "JUGGS_SRD_Updated.html",
+      "min_tech_level": 8
+    },
+    {
+      "id": "assault-rifle",
+      "name": "Assault rifle (TL 8)",
+      "bonus": 4,
+      "type": "Physical",
+      "range": "Far",
+      "properties": "Piercing (halves DR). Auth required.",
+      "source_doc": "JUGGS_SRD_Updated.html",
+      "min_tech_level": 8
+    },
+    {
+      "id": "sniper-system",
+      "name": "Sniper system (TL 8)",
+      "bonus": 4,
+      "type": "Physical",
+      "range": "Distant",
+      "properties": "Piercing. Aimed Shot only. 2-round setup.",
+      "source_doc": "JUGGS_SRD_Updated.html",
+      "min_tech_level": 8
+    }
+  ],
+  "period_equipment": [
+    {
+      "id": "dagger",
+      "name": "Dagger",
+      "kind": "melee",
+      "tech_level": 4,
+      "quality": "light",
+      "bonus": 1,
+      "text": "Easily concealed. Common across all social classes. Bonus use: can be drawn as part of the same Action it is used."
+    },
+    {
+      "id": "smallsword",
+      "name": "Smallsword",
+      "kind": "melee",
+      "tech_level": 4,
+      "quality": "standard",
+      "bonus": 2,
+      "text": "Fashionable civilian weapon. Fast and precise. Bonus: +1 to Evasion rolls while wielded — the smallsword technique emphasises footwork and distance."
+    },
+    {
+      "id": "cutlass",
+      "name": "Cutlass",
+      "kind": "melee",
+      "tech_level": 4,
+      "quality": "standard",
+      "bonus": 2,
+      "text": "Robust naval and military blade. Resistant to the elements. Does not suffer penalties in wet or confined conditions."
+    },
+    {
+      "id": "rapier",
+      "name": "Rapier",
+      "kind": "melee",
+      "tech_level": 4,
+      "quality": "quality",
+      "bonus": 3,
+      "text": "Duelist’s weapon. Long reach, devastating thrust. Special: Reach property (attack from one range band further without moving)."
+    },
+    {
+      "id": "military-sword-broadsword",
+      "name": "Military Sword / Broadsword",
+      "kind": "melee",
+      "tech_level": 4,
+      "quality": "quality",
+      "bonus": 3,
+      "text": "Heavy cavalry and infantry blade. Special: Trip property (on a hit, target DC 12 Strength or falls Prone)."
+    },
+    {
+      "id": "halberd-pike",
+      "name": "Halberd / Pike",
+      "kind": "melee",
+      "tech_level": 4,
+      "quality": "quality",
+      "bonus": 3,
+      "text": "Polearm. Reach + Trip combined. Cannot be used in Close range. Requires 2 hands."
+    },
+    {
+      "id": "boarding-axe",
+      "name": "Boarding Axe",
+      "kind": "melee",
+      "tech_level": 4,
+      "quality": "standard",
+      "bonus": 2,
+      "text": "Naval tool and weapon. Crushing damage type. Can be thrown to Near range (Light +1 for thrown attacks)."
+    },
+    {
+      "id": "war-hammer",
+      "name": "War Hammer",
+      "kind": "melee",
+      "tech_level": 4,
+      "quality": "standard",
+      "bonus": 2,
+      "text": "Crushing damage type. Bonus: +1 against opponents in heavy armor (the impact transmits through plate)."
+    },
+    {
+      "id": "flintlock-pistol",
+      "name": "Flintlock Pistol",
+      "kind": "ranged",
+      "tech_level": 4,
+      "quality": "standard",
+      "bonus": 2,
+      "text": "1 shot. Reload: 2 Actions. Range: Near. Damage type: Piercing. Misfires on a Natural 1 (weapon unusable until cleared, 1 Action)."
+    },
+    {
+      "id": "flintlock-musket",
+      "name": "Flintlock Musket",
+      "kind": "ranged",
+      "tech_level": 4,
+      "quality": "quality",
+      "bonus": 3,
+      "text": "1 shot. Reload: 3 Actions. Range: Far. Damage type: Piercing. Special: Piercing damage halves armor DR. Misfires on Natural 1. Requires 2 hands."
+    },
+    {
+      "id": "blunderbuss",
+      "name": "Blunderbuss",
+      "kind": "ranged",
+      "tech_level": 4,
+      "quality": "standard",
+      "bonus": 2,
+      "text": "1 shot. Reload: 3 Actions. Area: Cone 15 ft (all targets in cone roll to Deflect). Damage type: Piercing. Misfires on Natural 1."
+    },
+    {
+      "id": "crossbow",
+      "name": "Crossbow",
+      "kind": "ranged",
+      "tech_level": 4,
+      "quality": "standard",
+      "bonus": 2,
+      "text": "1 shot. Reload: 2 Actions. Range: Near. Damage type: Piercing. Advantage: silent — does not alert nearby enemies. Does not misfire."
+    },
+    {
+      "id": "thrown-knife-stone",
+      "name": "Thrown Knife / Stone",
+      "kind": "ranged",
+      "tech_level": 4,
+      "quality": "light",
+      "bonus": 1,
+      "text": "Range: Near. No reload. A character carries up to 3 thrown weapons without encumbrance."
+    },
+    {
+      "id": "holy-water",
+      "name": "Holy Water",
+      "kind": "religious",
+      "tech_level": 4,
+      "quality": null,
+      "bonus": null,
+      "text": "Against supernatural entities only: counts as a Radiant Effect activation (free, no pool cost) on a successful hit. Treat as a thrown weapon at Near range, Light +1 to hit. Consumes the vial on use. Ineffective against mundane targets.",
+      "quality_text": "vial"
+    },
+    {
+      "id": "blessed-thurible",
+      "name": "Blessed Thurible",
+      "kind": "religious",
+      "tech_level": 4,
+      "quality": "standard",
+      "bonus": 2,
+      "text": "A censer on a chain. Counts as a divine weapon for Abjure purposes. An unblessed thurible is Improvised +0. Blessing requires a Bishop or equivalent authority — not self-administered."
+    },
+    {
+      "id": "crucifix-or-holy-relic",
+      "name": "Crucifix or Holy Relic",
+      "kind": "religious",
+      "tech_level": 4,
+      "quality": null,
+      "bonus": null,
+      "text": "Not a weapon. Enables Abjure without the Channel skill requirement (once per scene). Requires Belief 2+. Also grants +2 to Abjure rolls for characters who do have Channel. A relic of significant provenance (bishop’s blessing, cathedral origin) grants +3 instead."
+    },
+    {
+      "id": "silver-coated-weapon",
+      "name": "Silver-coated weapon",
+      "kind": "religious",
+      "tech_level": 4,
+      "quality": null,
+      "bonus": null,
+      "text": "Any standard weapon can be silver-coated at double the base cost. Grants +1 to Attack rolls against supernatural entities specifically. Stacks with the base weapon bonus. Silver coating wears off after a major battle — requires re-application."
+    },
+    {
+      "id": "salt",
+      "name": "Salt",
+      "kind": "religious",
+      "tech_level": 4,
+      "quality": null,
+      "bonus": null,
+      "text": "Ritual use only. A circle of salt (1 pouch, 10 ft radius) can contain a supernatural entity that has the Removed (Spirit) condition. The entity cannot cross the line without succeeding on a Morale check DC 16.",
+      "quality_text": "pouch"
+    }
+  ],
+  "armor_categories": [
+    {
+      "id": "light",
+      "name": "Light",
+      "dr": "1",
+      "text": "No Agility penalty. Leather, padded vest, light tactical gear."
+    },
+    {
+      "id": "medium",
+      "name": "Medium",
+      "dr": "2 to 3",
+      "text": "-1 Agility. Chain shirt, flak jacket, tactical vest."
+    },
+    {
+      "id": "heavy",
+      "name": "Heavy",
+      "dr": "3 to 4",
+      "text": "-2 Agility. Full plate, combat armor, blast suit."
+    },
+    {
+      "id": "powered-legendary",
+      "name": "Powered / Legendary",
+      "dr": "4 to 5",
+      "text": "No Agility penalty (technology negates it). Exo-suit, enchanted plate."
+    }
+  ],
+  "armor": [
+    {
+      "id": "no-armor",
+      "name": "No armor",
+      "dr": 0,
+      "agility_penalty": 0,
+      "tech_level": "Any",
+      "notes": "Full movement. No encumbrance."
+    },
+    {
+      "id": "light-armor",
+      "name": "Light armor (leather, padded)",
+      "dr": 1,
+      "agility_penalty": 0,
+      "tech_level": "1+",
+      "notes": "No Agility penalty. Concealable."
+    },
+    {
+      "id": "medium-armor",
+      "name": "Medium armor (chain, brigandine)",
+      "dr": 2,
+      "agility_penalty": -1,
+      "tech_level": "2+",
+      "notes": "Slight movement restriction. Standard military."
+    },
+    {
+      "id": "heavy-armor",
+      "name": "Heavy armor (plate, full plate)",
+      "dr": 3,
+      "agility_penalty": -2,
+      "tech_level": "3+",
+      "notes": "Significant restriction. +1 DR vs Physical only."
+    },
+    {
+      "id": "buff-coat",
+      "name": "Buff coat (early modern)",
+      "dr": 1,
+      "agility_penalty": 0,
+      "tech_level": "4",
+      "notes": "Standard TL 4 armor. Pistol-proof at Close range."
+    },
+    {
+      "id": "flak-jacket",
+      "name": "Flak jacket (modern)",
+      "dr": 2,
+      "agility_penalty": 0,
+      "tech_level": "8",
+      "notes": "Rifle-rated armor halves Piercing DR reduction."
+    },
+    {
+      "id": "combat-armor",
+      "name": "Combat armor (near-future)",
+      "dr": 3,
+      "agility_penalty": -1,
+      "tech_level": "9+",
+      "notes": "Integrated systems. Sensor package optional."
+    },
+    {
+      "id": "lobster-pot-helm",
+      "name": "Lobster-pot helm",
+      "dr": 1,
+      "agility_penalty": 0,
+      "tech_level": "4",
+      "notes": "+1 DR vs called shots to the head only."
+    },
+    {
+      "id": "cuirassier-half-armor",
+      "name": "Cuirassier half-armor",
+      "dr": 2,
+      "agility_penalty": -1,
+      "tech_level": "4",
+      "notes": "Breastplate and backplate. Cavalry standard."
+    },
+    {
+      "id": "full-harness-rare",
+      "name": "Full harness (rare)",
+      "dr": 3,
+      "agility_penalty": -2,
+      "tech_level": "4",
+      "notes": "Obsolete by 1660s. Expensive. Treated as curiosity."
+    }
+  ],
+  "shields": [
+    {
+      "id": "buckler",
+      "name": "Buckler",
+      "dr": 1,
+      "benefit": "Can be worn; frees weapon hand",
+      "tech_level": "2+"
+    },
+    {
+      "id": "round-shield",
+      "name": "Round shield",
+      "dr": 1,
+      "benefit": "Shield Bash Maneuver available (+1 attack, Prone on overage 3+)",
+      "tech_level": "1+"
+    },
+    {
+      "id": "tower-shield",
+      "name": "Tower shield",
+      "dr": 2,
+      "benefit": "Full cover (melee attackers must Disarm/bypass); −1 Attack",
+      "tech_level": "3+"
+    }
+  ],
+  "tech_levels": [
+    {
+      "level": 0,
+      "name": "Primitive",
+      "era": "Stone Age, pre-3500 BCE",
+      "technology": "Fire, stone tools, oral tradition",
+      "warfare": "Stone and bone, no armor",
+      "reference": "GURPS TL0"
+    },
+    {
+      "level": 1,
+      "name": "Ancient",
+      "era": "Bronze Age, 3500–1200 BCE",
+      "technology": "Writing, bronze, sailing ships",
+      "warfare": "Bronze swords, chariots",
+      "reference": "GURPS TL1"
+    },
+    {
+      "level": 2,
+      "name": "Classical",
+      "era": "Iron Age, 1200 BCE–600 CE",
+      "technology": "Iron, roads, geometry, medicine",
+      "warfare": "Iron swords, mail, siege engines",
+      "reference": "GURPS TL2"
+    },
+    {
+      "level": 3,
+      "name": "Medieval",
+      "era": "Middle Ages, 600–1450 CE",
+      "technology": "Steel, windmills, printing press",
+      "warfare": "Plate armor, longbow, catapult",
+      "reference": "GURPS TL3"
+    },
+    {
+      "level": 4,
+      "name": "Early Modern",
+      "era": "Age of Sail, 1450–1730",
+      "technology": "Muskets, navigation, clockwork",
+      "warfare": "Flintlocks, cannon, pike formations",
+      "reference": "GURPS TL4 · New Amsterdam"
+    },
+    {
+      "level": 5,
+      "name": "Industrial",
+      "era": "1730–1880 CE",
+      "technology": "Steam, railways, telegraph",
+      "warfare": "Repeating rifles, ironclads",
+      "reference": "GURPS TL5"
+    },
+    {
+      "level": 6,
+      "name": "Mechanized",
+      "era": "1880–1940 CE",
+      "technology": "Automobiles, aircraft, radio",
+      "warfare": "Automatics, tanks, aircraft",
+      "reference": "GURPS TL6 · CoC default"
+    },
+    {
+      "level": 7,
+      "name": "Nuclear",
+      "era": "1940–1980 CE",
+      "technology": "Nuclear power, jets, computers",
+      "warfare": "Nuclear weapons, guided missiles",
+      "reference": "GURPS TL7"
+    },
+    {
+      "level": 8,
+      "name": "Digital",
+      "era": "1980–present",
+      "technology": "Internet, smartphones, AI",
+      "warfare": "Smart weapons, drone warfare",
+      "reference": "GURPS TL8 · Modern default"
+    },
+    {
+      "level": 9,
+      "name": "Microtech",
+      "era": "Near future, 2030–2100",
+      "technology": "True AI, cybernetics, orbit",
+      "warfare": "Laser weapons, exosuits",
+      "reference": "GURPS TL9 · Altered Carbon"
+    },
+    {
+      "level": 10,
+      "name": "Stellar",
+      "era": "Far future, 2100–2300",
+      "technology": "Fusion economy, nanotech",
+      "warfare": "Gauss weapons, antimatter",
+      "reference": "GURPS TL10 · Mass Effect"
+    },
+    {
+      "level": 11,
+      "name": "Interstellar",
+      "era": "Speculative future",
+      "technology": "FTL travel, post-scarcity",
+      "warfare": "Particle beams, planet-scale",
+      "reference": "GURPS TL11 · Interstellar"
+    },
+    {
+      "level": 12,
+      "name": "Transcendent",
+      "era": "Far speculation",
+      "technology": "Time manipulation, post-human",
+      "warfare": "Black hole weapons, reality alteration",
+      "reference": "GURPS TL12"
+    }
+  ]
+}

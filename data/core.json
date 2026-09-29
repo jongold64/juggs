@@ -1,0 +1,499 @@
+{
+  "tiers": [
+    {
+      "id": "novice",
+      "name": "Novice",
+      "power_level": 1,
+      "levels": [
+        1,
+        4
+      ],
+      "actions": 1,
+      "reactions": 1,
+      "boon_threshold": 20,
+      "boon_choices": 1,
+      "surge_max": 3,
+      "focus_skill_cap": 3,
+      "other_skill_cap": 2,
+      "governing_ability_cap": 5,
+      "other_ability_cap": 5,
+      "mastery_floor_free_up_to": 0,
+      "bane": "−2 to all rolls until end of your next turn. Nothing else."
+    },
+    {
+      "id": "seasoned",
+      "name": "Seasoned",
+      "power_level": 2,
+      "levels": [
+        5,
+        8
+      ],
+      "actions": 2,
+      "reactions": 2,
+      "boon_threshold": 19,
+      "boon_choices": 1,
+      "surge_max": 4,
+      "focus_skill_cap": 4,
+      "other_skill_cap": 3,
+      "governing_ability_cap": 7,
+      "other_ability_cap": 5,
+      "mastery_floor_free_up_to": 1,
+      "bane": "−2 extended through round after next. Plus a Complication."
+    },
+    {
+      "id": "veteran",
+      "name": "Veteran",
+      "power_level": 3,
+      "levels": [
+        9,
+        12
+      ],
+      "actions": 3,
+      "reactions": 3,
+      "boon_threshold": 17,
+      "boon_choices": 2,
+      "surge_max": 5,
+      "focus_skill_cap": 5,
+      "other_skill_cap": 4,
+      "governing_ability_cap": 9,
+      "other_ability_cap": 5,
+      "mastery_floor_free_up_to": 2,
+      "bane": "All above. Plus a context-based Condition — see Context-Based Condition Assignment in the Conditions section. Combat physical: Prone or Stunned. Caster interrupted: Silenced or Drained (1 level). Stealth failure: Exposed. Movement failure: Slowed. Resist failure vs mental: Confused (1 round)."
+    },
+    {
+      "id": "heroic",
+      "name": "Heroic",
+      "power_level": 4,
+      "levels": [
+        13,
+        16
+      ],
+      "actions": 4,
+      "reactions": 4,
+      "boon_threshold": 15,
+      "boon_choices": 2,
+      "surge_max": 6,
+      "focus_skill_cap": 6,
+      "other_skill_cap": 5,
+      "governing_ability_cap": 11,
+      "other_ability_cap": 5,
+      "mastery_floor_free_up_to": 3,
+      "bane": "All above. Plus resource waste: Stamina on Physical Actions before the Bane is lost."
+    },
+    {
+      "id": "legendary",
+      "name": "Legendary",
+      "power_level": 5,
+      "levels": [
+        17,
+        20
+      ],
+      "actions": 5,
+      "reactions": 5,
+      "boon_threshold": 13,
+      "boon_choices": 3,
+      "surge_max": 7,
+      "focus_skill_cap": 7,
+      "other_skill_cap": 6,
+      "governing_ability_cap": 13,
+      "other_ability_cap": 5,
+      "mastery_floor_free_up_to": "all",
+      "bane": "All above. Plus Narrative Consequence: enemy may make one free attack immediately."
+    }
+  ],
+  "creation": {
+    "build_points": 20,
+    "ability_min": 1,
+    "ability_max": 4,
+    "ability_max_with_bonuses": 5,
+    "focus_skills": 6,
+    "focus_skill_start": 2,
+    "other_skill_start": 1,
+    "extra_languages": 2,
+    "starting_wealth": 3,
+    "starting_reputation": 1,
+    "level": 1,
+    "aptitude_ability_bonus": 1,
+    "aptitude_bonus_skills": 2,
+    "specialty_bonus_skills": 2,
+    "bonus_skill_overlap": "If a bonus skill is already a Focus Skill, +1 to any other skill instead."
+  },
+  "advancement": {
+    "skill_points": {
+      "from_level": 2,
+      "per_level": 6,
+      "one_per_skill_per_level": true
+    },
+    "ability_increase_levels": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20
+    ],
+    "pool_increase_levels": [
+      4,
+      8,
+      12,
+      16,
+      20
+    ],
+    "tier_change_levels": [
+      5,
+      9,
+      13,
+      17
+    ],
+    "role_advancement": "At each tier change: advance a Role you hold by one Step, or begin a new Role at Step 1.",
+    "focus_skill_swap": "At each tier change you may replace one Focus Skill with another.",
+    "feat_levels": [
+      1,
+      3,
+      7,
+      11,
+      15,
+      17,
+      19
+    ],
+    "first_feat_tier": "Basic",
+    "capstone": {
+      "level": 17,
+      "text": null,
+      "flags": [
+        "To be decided (DECISIONS.md)."
+      ]
+    },
+    "second_specialty_level": 5,
+    "governing_ability": "Any of the nine. Can be changed once per tier with GM approval."
+  },
+  "pools": {
+    "start": 15,
+    "bands": [
+      {
+        "id": "healthy",
+        "name": "Healthy",
+        "boxes": 5,
+        "penalty": 0
+      },
+      {
+        "id": "hurt",
+        "name": "Hurt",
+        "boxes": 5,
+        "penalty": -1
+      },
+      {
+        "id": "injured",
+        "name": "Injured",
+        "boxes": 4,
+        "penalty": -2
+      },
+      {
+        "id": "broken",
+        "name": "Broken",
+        "boxes": 1,
+        "penalty": null,
+        "effect": "Incapacitated"
+      }
+    ],
+    "growth_order": [
+      "healthy",
+      "hurt",
+      "injured"
+    ],
+    "scars": {
+      "stamina": "Wound Scar",
+      "mana": "Obsession Scar",
+      "resolve": "Soul Scar"
+    }
+  },
+  "domain_mastery": [
+    {
+      "name": "Basic",
+      "all_at_least": 2,
+      "bonus": 1
+    },
+    {
+      "name": "Expert",
+      "all_at_least": 4,
+      "bonus": 2
+    },
+    {
+      "name": "Superior",
+      "all_at_least": 6,
+      "bonus": 3
+    }
+  ],
+  "initiative": {
+    "roll": "d20 + the primary Domain's Deflect Ability (+ Reputation when opponents know the character)",
+    "methods": [
+      {
+        "id": "roll",
+        "name": "Roll",
+        "text": "d20 + primary Domain Deflect Ability. Ties: higher Deflect Ability, then roll again."
+      },
+      {
+        "id": "pick-your-place",
+        "name": "Pick Your Place",
+        "text": "Pick from 30, 26, 22, 18, 14, 10, continuing down in fours. No duplicates."
+      },
+      {
+        "id": "roll-and-swap",
+        "name": "Roll and Swap",
+        "text": "Everyone rolls as normal, then the table swaps numbers freely."
+      }
+    ]
+  },
+  "deflect": "10 + the Domain's Deflect Ability (Agility, Acuity, Serenity), plus armor/shield DR where it applies.",
+  "boon_menu": [
+    {
+      "id": "momentum",
+      "name": "Momentum",
+      "effect": "+2 to all your rolls until the end of your next turn"
+    },
+    {
+      "id": "recovery",
+      "name": "Recovery",
+      "effect": "Unmark 1 box from any one pool"
+    },
+    {
+      "id": "tempo",
+      "name": "Tempo",
+      "effect": "One additional Action this round (Seasoned tier and above)"
+    },
+    {
+      "id": "clarity",
+      "name": "Clarity",
+      "effect": "Clear one Condition affecting you"
+    },
+    {
+      "id": "guard",
+      "name": "Guard",
+      "effect": "+2 to Deflect and Defend until your next turn"
+    },
+    {
+      "id": "grace",
+      "name": "Grace",
+      "effect": "Give any one of the above to an ally in Near range instead of taking it yourself"
+    }
+  ],
+  "surge": [
+    {
+      "boxes": 0,
+      "roll_bonus": "none",
+      "effect_intensity": "none",
+      "fallout": "none"
+    },
+    {
+      "boxes": 1,
+      "roll_bonus": "+1",
+      "effect_intensity": "none",
+      "fallout": "none"
+    },
+    {
+      "boxes": 2,
+      "roll_bonus": "+2",
+      "effect_intensity": "1-box, minimal",
+      "fallout": "none"
+    },
+    {
+      "boxes": 3,
+      "roll_bonus": "+3",
+      "effect_intensity": "2-box, moderate",
+      "fallout": "Minor — +1 pool box crossed"
+    },
+    {
+      "boxes": 4,
+      "roll_bonus": "+4",
+      "effect_intensity": "3-box, strong",
+      "fallout": "Moderate — +2 boxes and one Condition"
+    },
+    {
+      "boxes": 5,
+      "roll_bonus": "+5",
+      "effect_intensity": "4-box, maximum",
+      "fallout": "Major — +3 boxes and Corruption +1"
+    },
+    {
+      "boxes": 6,
+      "roll_bonus": "+6",
+      "effect_intensity": "5-box, overwhelming",
+      "fallout": "Severe — +4 boxes, one Condition, Corruption +1"
+    },
+    {
+      "boxes": 7,
+      "roll_bonus": "+7",
+      "effect_intensity": "6-box, scene-defining",
+      "fallout": "Catastrophic — +5 boxes, two Conditions, Corruption +2"
+    }
+  ],
+  "effects_rule": "The Surge level sets an Effect's strength (Surge 2 = 1-box intensity). No separate Effect cost. A non-Signature Effect is -1 to the roll.",
+  "costs_rule": "Basic Attack, Basic Cast and Basic Press are free. Anything added costs at least 1 box. Maneuvers: Mastery Floor by tier. Surge: not reduced except by Surge Discipline.",
+  "skill_mastery": [
+    {
+      "rank": "1 (untrained)",
+      "dc_reduction": "-0"
+    },
+    {
+      "rank": "2 (Focus at creation)",
+      "dc_reduction": "-1"
+    },
+    {
+      "rank": "3 (Novice Focus cap)",
+      "dc_reduction": "-2"
+    },
+    {
+      "rank": "4 (Seasoned Focus cap)",
+      "dc_reduction": "-3"
+    },
+    {
+      "rank": "5 (Veteran Focus cap)",
+      "dc_reduction": "-4"
+    },
+    {
+      "rank": "6 (Heroic Focus cap / Legendary other)",
+      "dc_reduction": "-5"
+    },
+    {
+      "rank": "7 (Legendary Focus cap)",
+      "dc_reduction": "-6"
+    }
+  ],
+  "object_dc": [
+    {
+      "quality": "Improvised / Flimsy",
+      "dc": 8
+    },
+    {
+      "quality": "Light / Simple",
+      "dc": 10
+    },
+    {
+      "quality": "Standard",
+      "dc": 13
+    },
+    {
+      "quality": "Quality",
+      "dc": 16
+    },
+    {
+      "quality": "Masterwork",
+      "dc": 19
+    },
+    {
+      "quality": "Legendary",
+      "dc": 23
+    }
+  ],
+  "wealth_tiers": [
+    {
+      "tier": 1,
+      "name": "Destitute",
+      "cash_on_hand": "x1",
+      "gear_ceiling": "Improvised only (+0)",
+      "daily_life": "Survival mode. Homeless or completely cut off from resources."
+    },
+    {
+      "tier": 2,
+      "name": "Poor",
+      "cash_on_hand": "x4",
+      "gear_ceiling": "Improvised or Light (+0–+1)",
+      "daily_life": "Day-to-day survival. No savings. Basic needs barely met."
+    },
+    {
+      "tier": 3,
+      "name": "Struggling",
+      "cash_on_hand": "x8",
+      "gear_ceiling": "Light or Standard (+1–+2)",
+      "daily_life": "Working class. Functional but stretched. No financial cushion."
+    },
+    {
+      "tier": 4,
+      "name": "Average",
+      "cash_on_hand": "x16",
+      "gear_ceiling": "Standard (+2)",
+      "daily_life": "Stable income. Modest gear. Needs covered, small savings possible."
+    },
+    {
+      "tier": 5,
+      "name": "Comfortable",
+      "cash_on_hand": "x32",
+      "gear_ceiling": "Standard or Quality (+2–+3)",
+      "daily_life": "Professional class. Good equipment, socially respected."
+    },
+    {
+      "tier": 6,
+      "name": "Wealthy",
+      "cash_on_hand": "x64",
+      "gear_ceiling": "Quality or Masterwork (+3–+4)",
+      "daily_life": "Elite. Resources rarely a constraint. Doors open by default."
+    },
+    {
+      "tier": 7,
+      "name": "Very Wealthy",
+      "cash_on_hand": "x128",
+      "gear_ceiling": "Masterwork (+4)",
+      "daily_life": "Significant personal fortune. Institutional leverage available."
+    },
+    {
+      "tier": 8,
+      "name": "Filthy Rich",
+      "cash_on_hand": "x256",
+      "gear_ceiling": "Any — including Legendary (+5)",
+      "daily_life": "Unlimited resources. Access is the only constraint."
+    }
+  ],
+  "quality": [
+    {
+      "name": "Unarmed / Unfocused",
+      "bonus": 0,
+      "weapon": "Fists, elbows, boots",
+      "implement": "Bare hands and raw will"
+    },
+    {
+      "name": "Improvised",
+      "bonus": 0,
+      "weapon": "Chair leg, rock, bottle",
+      "implement": "A borrowed symbol, a sigil scratched in dirt"
+    },
+    {
+      "name": "Light",
+      "bonus": 1,
+      "weapon": "Dagger, sling, hatchet",
+      "implement": "Wand, charm, prayer beads"
+    },
+    {
+      "name": "Standard",
+      "bonus": 2,
+      "weapon": "Sword, bow, spear",
+      "implement": "Staff, holy symbol, focus stone"
+    },
+    {
+      "name": "Quality",
+      "bonus": 3,
+      "weapon": "Well-made blade",
+      "implement": "Runed staff, consecrated icon"
+    },
+    {
+      "name": "Masterwork",
+      "bonus": 4,
+      "weapon": "Master-forged weapon",
+      "implement": "Ancestral focus, bound implement"
+    },
+    {
+      "name": "Legendary",
+      "bonus": 5,
+      "weapon": "A weapon with a name",
+      "implement": "An implement with a history"
+    }
+  ],
+  "reputation": {
+    "min": 0,
+    "max": 5,
+    "start": 1
+  }
+}

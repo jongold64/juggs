@@ -1,0 +1,822 @@
+{
+  "rules": {
+    "structure": "Structure = Frame x 5 unless the entry says otherwise. It works like Stamina.",
+    "surge": "A vehicle's Surge ceiling is its Frame. Surge generates Heat in vehicles that track it.",
+    "crew": "Every crew member acts on their own initiative using their own Actions."
+  },
+  "flags": [
+    "Vehicle design is in progress (author). Only the Motorcycle has final Structure (7 boxes: Healthy 2, Hurt 2, Injured 2, Broken 1)."
+  ],
+  "stats": [
+    {
+      "id": "frame",
+      "name": "Frame",
+      "range": "0-5",
+      "text": "Size class. Sets scale, base Structure, and what the vehicle can meaningfully damage or be damaged by. The single most important number."
+    },
+    {
+      "id": "structure",
+      "name": "Structure",
+      "range": "Frame x 5",
+      "text": "The vehicle's pool. Works exactly like Stamina — boxes cross as damage lands, and threshold bands apply the same penalties."
+    },
+    {
+      "id": "handling",
+      "name": "Handling",
+      "range": "-2 to +3",
+      "text": "Applied to every Pilot check. A fighter is +2; a loaded freighter is -2."
+    },
+    {
+      "id": "speed",
+      "name": "Speed",
+      "range": "1-4",
+      "text": "Range bands crossed with one Move action. Also the ceiling on how many bands it can close in a round."
+    },
+    {
+      "id": "armor",
+      "name": "Armor",
+      "range": "DR 0-5",
+      "text": "Damage reduction against attacks of equal Frame. Scale rules apply before Armor."
+    }
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "class": "Personal",
+      "examples": "A character on foot, in powered armor, or riding an animal",
+      "structure": null,
+      "armor": "-"
+    },
+    {
+      "frame": 1,
+      "class": "Light",
+      "examples": "Motorcycle · rowboat · glider · horse and cart · scout drone",
+      "structure": 5,
+      "armor": "0-1"
+    },
+    {
+      "frame": 2,
+      "class": "Medium",
+      "examples": "Car · truck · patrol boat · light aircraft · light mech",
+      "structure": 10,
+      "armor": "1-2"
+    },
+    {
+      "frame": 3,
+      "class": "Heavy",
+      "examples": "Tank · fighter craft · trawler · assault mech · armored transport",
+      "structure": 15,
+      "armor": "2-3"
+    },
+    {
+      "frame": 4,
+      "class": "Massive",
+      "examples": "Bomber · destroyer · dropship · siege mech · airship",
+      "structure": 20,
+      "armor": "3-4"
+    },
+    {
+      "frame": 5,
+      "class": "Capital",
+      "examples": "Warship · station · colossal mech · dreadnought",
+      "structure": 25,
+      "armor": "4-5"
+    }
+  ],
+  "scale_rule": [
+    {
+      "difference": "Attacker is 2+ Frames higher",
+      "result": "Target is destroyed or removed from play. No roll needed if it cannot escape."
+    },
+    {
+      "difference": "Attacker is 1 Frame higher",
+      "result": "Double the overage. Armor still applies."
+    },
+    {
+      "difference": "Same Frame",
+      "result": "Normal overage. Standard combat."
+    },
+    {
+      "difference": "Attacker is 1 Frame lower",
+      "result": "Half the overage, rounded down. Armor applies first."
+    },
+    {
+      "difference": "Attacker is 2+ Frames lower",
+      "result": "No effect. A rifle does not hurt a tank. Requires a Scale-breaking weapon."
+    }
+  ],
+  "conditions": [
+    {
+      "id": "crippled",
+      "name": "Crippled",
+      "effect": "Speed reduced by 1. A second application halves Handling as well."
+    },
+    {
+      "id": "disarmed",
+      "name": "Disarmed",
+      "effect": "One named weapon system is offline until repaired."
+    },
+    {
+      "id": "venting",
+      "name": "Venting",
+      "effect": "Losing fuel, atmosphere, or coolant. 1 Structure box per round until sealed."
+    },
+    {
+      "id": "breached",
+      "name": "Breached",
+      "effect": "Crew compartment is open. Crew take personal-scale damage from external effects."
+    },
+    {
+      "id": "dead-stick",
+      "name": "Dead Stick",
+      "effect": "No power. Speed 0, Handling -3, all Systems offline. Restart with Operate DC 14."
+    },
+    {
+      "id": "listing",
+      "name": "Listing",
+      "effect": "Handling -2. Applies to boats taking water and aircraft losing a control surface."
+    }
+  ],
+  "stations": [
+    {
+      "id": "pilot",
+      "name": "Pilot",
+      "skill_text": "Pilot skill",
+      "roll": {
+        "ability": "acu",
+        "skill": "pilot"
+      },
+      "text": "Moves the vehicle, evades, and makes all Handling checks. One Pilot per vehicle."
+    },
+    {
+      "id": "gunner",
+      "name": "Gunner",
+      "skill_text": "Agility + Combat (Ranged) (DECISIONS.md; the book says \"Gunnery skill\")",
+      "roll": {
+        "ability": "agi",
+        "skill": "combat-ranged"
+      },
+      "text": "Fires one weapon System per Action. Multiple gunners may fire simultaneously."
+    },
+    {
+      "id": "engineer",
+      "name": "Engineer",
+      "skill_text": "Operate skill",
+      "roll": {
+        "ability": "int",
+        "skill": "operate"
+      },
+      "text": "Repairs one Structure box or clears one vehicle Condition per Action."
+    },
+    {
+      "id": "commander",
+      "name": "Commander",
+      "skill_text": "Tactics skill",
+      "roll": {
+        "ability": "int",
+        "skill": "tactics"
+      },
+      "text": "Grants one crew member +2 to their next check. Coordinates multi-vehicle actions."
+    },
+    {
+      "id": "sensors",
+      "name": "Sensors",
+      "skill_text": "Observe skill",
+      "roll": {
+        "ability": "acu",
+        "skill": "observe"
+      },
+      "text": "Detects, identifies, and marks targets. A marked target grants gunners +2."
+    }
+  ],
+  "actions": [
+    {
+      "id": "move",
+      "name": "Move",
+      "station": "Pilot",
+      "effect": "Cross up to Speed range bands."
+    },
+    {
+      "id": "evade",
+      "name": "Evade",
+      "station": "Pilot",
+      "effect": "+2 to the vehicle's Deflect until your next turn. Costs the Move action."
+    },
+    {
+      "id": "ram",
+      "name": "Ram",
+      "station": "Pilot",
+      "effect": "Attack using Frame + Speed. Both vehicles take the overage; scale applies to each."
+    },
+    {
+      "id": "fire",
+      "name": "Fire",
+      "station": "Gunner",
+      "effect": "Attack with one weapon System. Uses Gunnery, not personal Combat."
+    },
+    {
+      "id": "repair",
+      "name": "Repair",
+      "station": "Engineer",
+      "effect": "Restore 1 Structure box, or clear one vehicle Condition."
+    },
+    {
+      "id": "surge",
+      "name": "Surge",
+      "station": "Pilot",
+      "effect": "Commit Structure boxes before rolling for +1 each, exactly as a character Surges Stamina. Generates Heat in vehicles that track it."
+    },
+    {
+      "id": "eject",
+      "name": "Eject",
+      "station": "Any",
+      "effect": "Leave the vehicle. Frame 2+ vehicles assume a survivable ejection system."
+    }
+  ],
+  "heat": [
+    {
+      "heat": "0-2",
+      "band": "Nominal",
+      "effect": "No effect."
+    },
+    {
+      "heat": "3-4",
+      "band": "Warm",
+      "effect": "-1 to all Gunnery checks."
+    },
+    {
+      "heat": "5-6",
+      "band": "Hot",
+      "effect": "-2 to Gunnery. Pilot takes 1 Stamina box per round."
+    },
+    {
+      "heat": "7-8",
+      "band": "Critical",
+      "effect": "Movement halved. Weapons may misfire — Operate DC 12 to fire at all."
+    },
+    {
+      "heat": "9+",
+      "band": "Shutdown",
+      "effect": "Dead Stick applied automatically. Restart with Operate DC 16."
+    }
+  ],
+  "hit_locations": [
+    {
+      "d6": 1,
+      "location": "Legs / Drive",
+      "result": "Crippled — Speed -1"
+    },
+    {
+      "d6": 2,
+      "location": "Left Arm / Mount",
+      "result": "Disarmed — that mount's weapon offline"
+    },
+    {
+      "d6": 3,
+      "location": "Right Arm / Mount",
+      "result": "Disarmed — that mount's weapon offline"
+    },
+    {
+      "d6": 4,
+      "location": "Torso / Hull",
+      "result": "2 additional Structure boxes crossed"
+    },
+    {
+      "d6": 5,
+      "location": "Head / Cockpit",
+      "result": "Breached — pilot exposed and takes 2 Stamina boxes"
+    },
+    {
+      "d6": 6,
+      "location": "Reactor / Core",
+      "result": "Venting — 1 Structure per round, and Heat +2 each round"
+    }
+  ],
+  "catalog": [
+    {
+      "id": "riding-horse",
+      "name": "Riding Horse",
+      "setting": "Fantasy / Historical",
+      "genres": [
+        "fantasy"
+      ],
+      "frame": 1,
+      "handling": 1,
+      "speed": 3,
+      "armor": 0,
+      "structure": 5,
+      "notes": "Living. Panics at fire and loud noise."
+    },
+    {
+      "id": "war-chariot",
+      "name": "War Chariot",
+      "setting": "Fantasy / Historical",
+      "genres": [
+        "fantasy"
+      ],
+      "frame": 2,
+      "handling": 0,
+      "speed": 3,
+      "armor": 1,
+      "structure": 10,
+      "notes": "Two crew. Ram at no Handling penalty."
+    },
+    {
+      "id": "river-barge",
+      "name": "River Barge",
+      "setting": "Fantasy / Historical",
+      "genres": [
+        "fantasy"
+      ],
+      "frame": 2,
+      "handling": -2,
+      "speed": 1,
+      "armor": 1,
+      "structure": 10,
+      "notes": "Cargo capacity for a party and its gear."
+    },
+    {
+      "id": "sailing-ship",
+      "name": "Sailing Ship",
+      "setting": "Fantasy / Historical",
+      "genres": [
+        "fantasy"
+      ],
+      "frame": 4,
+      "handling": -1,
+      "speed": 2,
+      "armor": 2,
+      "structure": 20,
+      "notes": "Crew of twenty. Weather-dependent Speed."
+    },
+    {
+      "id": "siege-tower",
+      "name": "Siege Tower",
+      "setting": "Fantasy / Historical",
+      "genres": [
+        "fantasy"
+      ],
+      "frame": 3,
+      "handling": -3,
+      "speed": 1,
+      "armor": 3,
+      "structure": 15,
+      "notes": "Speed 1 only on prepared ground."
+    },
+    {
+      "id": "motorcycle",
+      "name": "Motorcycle",
+      "setting": "Modern / Espionage",
+      "genres": [
+        "modern",
+        "espionage"
+      ],
+      "frame": 1,
+      "handling": 3,
+      "speed": 4,
+      "armor": 0,
+      "structure": 7,
+      "notes": "Squeezes through gaps larger vehicles cannot.",
+      "structure_bands": {
+        "healthy": 2,
+        "hurt": 2,
+        "injured": 2,
+        "broken": 1
+      }
+    },
+    {
+      "id": "sedan",
+      "name": "Sedan",
+      "setting": "Modern / Espionage",
+      "genres": [
+        "modern",
+        "espionage"
+      ],
+      "frame": 2,
+      "handling": 1,
+      "speed": 3,
+      "armor": 1,
+      "structure": 10,
+      "notes": "Unremarkable. +2 to blend into traffic."
+    },
+    {
+      "id": "armored-suv",
+      "name": "Armored SUV",
+      "setting": "Modern / Espionage",
+      "genres": [
+        "modern",
+        "espionage"
+      ],
+      "frame": 2,
+      "handling": 0,
+      "speed": 3,
+      "armor": 3,
+      "structure": 10,
+      "notes": "Standard executive protection."
+    },
+    {
+      "id": "helicopter",
+      "name": "Helicopter",
+      "setting": "Modern / Espionage",
+      "genres": [
+        "modern",
+        "espionage"
+      ],
+      "frame": 3,
+      "handling": 1,
+      "speed": 4,
+      "armor": 1,
+      "structure": 15,
+      "notes": "Ignores terrain. Vulnerable to Frame 2+ fire."
+    },
+    {
+      "id": "speedboat",
+      "name": "Speedboat",
+      "setting": "Modern / Espionage",
+      "genres": [
+        "modern",
+        "espionage"
+      ],
+      "frame": 2,
+      "handling": 2,
+      "speed": 4,
+      "armor": 0,
+      "structure": 10,
+      "notes": "Handling -2 in heavy sea."
+    },
+    {
+      "id": "av-flyer",
+      "name": "AV Flyer",
+      "setting": "Cyberpunk / Transhumanist",
+      "genres": [
+        "cyberpunk",
+        "transhumanist"
+      ],
+      "frame": 2,
+      "handling": 2,
+      "speed": 4,
+      "armor": 1,
+      "structure": 10,
+      "notes": "Vertical takeoff. Corporate standard."
+    },
+    {
+      "id": "combat-drone",
+      "name": "Combat Drone",
+      "setting": "Cyberpunk / Transhumanist",
+      "genres": [
+        "cyberpunk",
+        "transhumanist"
+      ],
+      "frame": 1,
+      "handling": 3,
+      "speed": 4,
+      "armor": 0,
+      "structure": 5,
+      "notes": "Remote-piloted. Pilot is elsewhere and safe."
+    },
+    {
+      "id": "armored-van",
+      "name": "Armored Van",
+      "setting": "Cyberpunk / Transhumanist",
+      "genres": [
+        "cyberpunk",
+        "transhumanist"
+      ],
+      "frame": 3,
+      "handling": -1,
+      "speed": 2,
+      "armor": 3,
+      "structure": 15,
+      "notes": "Mobile base. Room for a full crew."
+    },
+    {
+      "id": "hover-bike",
+      "name": "Hover Bike",
+      "setting": "Cyberpunk / Transhumanist",
+      "genres": [
+        "cyberpunk",
+        "transhumanist"
+      ],
+      "frame": 1,
+      "handling": 3,
+      "speed": 4,
+      "armor": 0,
+      "structure": 5,
+      "notes": "Ignores ground terrain entirely."
+    },
+    {
+      "id": "powered-frame",
+      "name": "Powered Frame",
+      "setting": "Cyberpunk / Transhumanist",
+      "genres": [
+        "cyberpunk",
+        "transhumanist"
+      ],
+      "frame": 1,
+      "handling": 1,
+      "speed": 2,
+      "armor": 2,
+      "structure": 5,
+      "notes": "Worn, not ridden. Frame 1 while wearing it."
+    },
+    {
+      "id": "steam-carriage",
+      "name": "Steam Carriage",
+      "setting": "Steampunk",
+      "genres": [
+        "steampunk"
+      ],
+      "frame": 2,
+      "handling": 0,
+      "speed": 2,
+      "armor": 1,
+      "structure": 10,
+      "notes": "Requires a stoker. Speed 0 until pressure builds."
+    },
+    {
+      "id": "airship",
+      "name": "Airship",
+      "setting": "Steampunk",
+      "genres": [
+        "steampunk"
+      ],
+      "frame": 4,
+      "handling": -2,
+      "speed": 2,
+      "armor": 2,
+      "structure": 20,
+      "notes": "Crew of ten. Catastrophic if Breached."
+    },
+    {
+      "id": "iron-walker",
+      "name": "Iron Walker",
+      "setting": "Steampunk",
+      "genres": [
+        "steampunk"
+      ],
+      "frame": 3,
+      "handling": -1,
+      "speed": 2,
+      "armor": 3,
+      "structure": 15,
+      "notes": "Early mech. Heat rules apply.",
+      "heat": true
+    },
+    {
+      "id": "submersible",
+      "name": "Submersible",
+      "setting": "Steampunk",
+      "genres": [
+        "steampunk"
+      ],
+      "frame": 3,
+      "handling": -2,
+      "speed": 1,
+      "armor": 3,
+      "structure": 15,
+      "notes": "Crush depth is a real number the GM tracks."
+    },
+    {
+      "id": "aether-skiff",
+      "name": "Aether Skiff",
+      "setting": "Steampunk",
+      "genres": [
+        "steampunk"
+      ],
+      "frame": 1,
+      "handling": 2,
+      "speed": 3,
+      "armor": 0,
+      "structure": 5,
+      "notes": "One or two crew. Aether cell has a charge count."
+    },
+    {
+      "id": "shuttle",
+      "name": "Shuttle",
+      "setting": "Interstellar / Space Opera",
+      "genres": [
+        "interstellar",
+        "space-opera"
+      ],
+      "frame": 3,
+      "handling": 1,
+      "speed": 3,
+      "armor": 2,
+      "structure": 15,
+      "notes": "Atmosphere and orbit. Crew of six."
+    },
+    {
+      "id": "starfighter",
+      "name": "Starfighter",
+      "setting": "Interstellar / Space Opera",
+      "genres": [
+        "interstellar",
+        "space-opera"
+      ],
+      "frame": 2,
+      "handling": 3,
+      "speed": 4,
+      "armor": 2,
+      "structure": 10,
+      "notes": "One pilot. Built to be fast, not survivable."
+    },
+    {
+      "id": "freighter",
+      "name": "Freighter",
+      "setting": "Interstellar / Space Opera",
+      "genres": [
+        "interstellar",
+        "space-opera"
+      ],
+      "frame": 4,
+      "handling": -1,
+      "speed": 2,
+      "armor": 3,
+      "structure": 20,
+      "notes": "Cargo, crew of eight, and a mortgage."
+    },
+    {
+      "id": "corvette",
+      "name": "Corvette",
+      "setting": "Interstellar / Space Opera",
+      "genres": [
+        "interstellar",
+        "space-opera"
+      ],
+      "frame": 5,
+      "handling": 0,
+      "speed": 3,
+      "armor": 4,
+      "structure": 25,
+      "notes": "Warship. Multiple stations, real firepower."
+    },
+    {
+      "id": "escape-pod",
+      "name": "Escape Pod",
+      "setting": "Interstellar / Space Opera",
+      "genres": [
+        "interstellar",
+        "space-opera"
+      ],
+      "frame": 1,
+      "handling": -2,
+      "speed": 2,
+      "armor": 1,
+      "structure": 5,
+      "notes": "Speed 2 in one direction only. Life support counted in days."
+    },
+    {
+      "id": "scrap-buggy",
+      "name": "Scrap Buggy",
+      "setting": "Post-Apocalyptic",
+      "genres": [
+        "post-apocalyptic"
+      ],
+      "frame": 1,
+      "handling": 2,
+      "speed": 3,
+      "armor": 0,
+      "structure": 5,
+      "notes": "Fast, loud, and held together with hope."
+    },
+    {
+      "id": "war-rig",
+      "name": "War Rig",
+      "setting": "Post-Apocalyptic",
+      "genres": [
+        "post-apocalyptic"
+      ],
+      "frame": 4,
+      "handling": -2,
+      "speed": 3,
+      "armor": 3,
+      "structure": 20,
+      "notes": "Rolling fortress. Multiple gunner stations."
+    },
+    {
+      "id": "salvaged-tank",
+      "name": "Salvaged Tank",
+      "setting": "Post-Apocalyptic",
+      "genres": [
+        "post-apocalyptic"
+      ],
+      "frame": 3,
+      "handling": -1,
+      "speed": 2,
+      "armor": 4,
+      "structure": 15,
+      "notes": "Runs. Ammunition is the constraint."
+    },
+    {
+      "id": "sail-cart",
+      "name": "Sail Cart",
+      "setting": "Post-Apocalyptic",
+      "genres": [
+        "post-apocalyptic"
+      ],
+      "frame": 1,
+      "handling": 0,
+      "speed": 2,
+      "armor": 0,
+      "structure": 5,
+      "notes": "Wind-driven. Silent, which matters."
+    },
+    {
+      "id": "bunker-crawler",
+      "name": "Bunker Crawler",
+      "setting": "Post-Apocalyptic",
+      "genres": [
+        "post-apocalyptic"
+      ],
+      "frame": 3,
+      "handling": -3,
+      "speed": 1,
+      "armor": 4,
+      "structure": 15,
+      "notes": "Slow, sealed, and radiation-proof."
+    },
+    {
+      "id": "scout-mech",
+      "name": "Scout Mech",
+      "setting": "Mech",
+      "genres": [],
+      "frame": 2,
+      "handling": 2,
+      "speed": 3,
+      "armor": 2,
+      "structure": 10,
+      "notes": "Fast, lightly armed. Sensors station standard.",
+      "heat": true
+    },
+    {
+      "id": "line-mech",
+      "name": "Line Mech",
+      "setting": "Mech",
+      "genres": [],
+      "frame": 3,
+      "handling": 0,
+      "speed": 2,
+      "armor": 3,
+      "structure": 15,
+      "notes": "The workhorse. Two weapon mounts.",
+      "heat": true
+    },
+    {
+      "id": "assault-mech",
+      "name": "Assault Mech",
+      "setting": "Mech",
+      "genres": [],
+      "frame": 4,
+      "handling": -1,
+      "speed": 2,
+      "armor": 4,
+      "structure": 20,
+      "notes": "Three mounts. Heat is the limiting factor.",
+      "heat": true
+    },
+    {
+      "id": "siege-mech",
+      "name": "Siege Mech",
+      "setting": "Mech",
+      "genres": [],
+      "frame": 4,
+      "handling": -2,
+      "speed": 1,
+      "armor": 5,
+      "structure": 20,
+      "notes": "Fixed heavy weapon. Devastating and slow.",
+      "heat": true
+    },
+    {
+      "id": "colossus",
+      "name": "Colossus",
+      "setting": "Mech",
+      "genres": [],
+      "frame": 5,
+      "handling": -3,
+      "speed": 1,
+      "armor": 5,
+      "structure": 25,
+      "notes": "Frame 5. Battlefield-defining and impossible to hide.",
+      "heat": true
+    }
+  ],
+  "building": [
+    {
+      "decision": "Frame",
+      "how": "How big is it compared to a person? That sets Structure and scale at once."
+    },
+    {
+      "decision": "Handling and Speed",
+      "how": "Fast and nimble, or heavy and slow? Total the two to roughly +4 for a balanced vehicle, higher for a specialist."
+    },
+    {
+      "decision": "Armor",
+      "how": "0 for civilian, 1-2 for reinforced, 3-4 for military, 5 for capital-grade."
+    },
+    {
+      "decision": "Systems",
+      "how": "Weapons, sensors, and gear built with the five Item Templates. Two Systems for a light vehicle, up to five for capital."
+    }
+  ]
+}

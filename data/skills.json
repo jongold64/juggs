@@ -1,0 +1,1821 @@
+[
+  {
+    "id": "combat-melee",
+    "name": "Combat (Melee)",
+    "category": "body",
+    "governing": [
+      "str"
+    ],
+    "genres": [],
+    "description": "All close-range fighting with weapons or bare hands."
+  },
+  {
+    "id": "combat-ranged",
+    "name": "Combat (Ranged)",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [],
+    "description": "All ranged attacks — thrown, launched, or fired."
+  },
+  {
+    "id": "combat-maneuver",
+    "name": "Combat (Maneuver)",
+    "category": "body",
+    "governing": [
+      "str",
+      "agi"
+    ],
+    "genres": [],
+    "description": "Tripping, grappling, overrunning, throwing, shoving, and all combat maneuvers that are not direct strikes."
+  },
+  {
+    "id": "athletics",
+    "name": "Athletics",
+    "category": "body",
+    "governing": [
+      "str",
+      "agi"
+    ],
+    "genres": [],
+    "description": "Climbing, swimming, running, jumping, acrobatics, and carrying."
+  },
+  {
+    "id": "evasion",
+    "name": "Evasion",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [],
+    "description": "Dodging attacks, obstacles, and physical hazards."
+  },
+  {
+    "id": "endure",
+    "name": "Endure",
+    "category": "body",
+    "governing": [
+      "tou"
+    ],
+    "genres": [],
+    "description": "Physical hardship, pain, exhaustion, elements, travel, and injury."
+  },
+  {
+    "id": "stealth",
+    "name": "Stealth",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [],
+    "description": "Moving unseen, sleight of hand, and disguise in action."
+  },
+  {
+    "id": "legerdemain",
+    "name": "Legerdemain",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [],
+    "description": "Artful sleight of hand, stage trickery, pickpocketing, and physical misdirection."
+  },
+  {
+    "id": "operate",
+    "name": "Operate",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [],
+    "description": "Vehicles, machines, technology, crafting, and repair."
+  },
+  {
+    "id": "pilot",
+    "name": "Pilot",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [],
+    "description": "Operating vehicles and vessels at speed or under pressure."
+  },
+  {
+    "id": "knowledge",
+    "name": "Knowledge",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [],
+    "description": "Lore, research, recall, deciphering, appraising. Also covers cultural etiquette and customs."
+  },
+  {
+    "id": "language",
+    "name": "Language",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [],
+    "description": "Languages. Every character gets 2 additional languages at creation.",
+    "flags": [
+      "Description rewritten from DECISIONS.md (the \"per BP\" wording is removed); needs author text."
+    ]
+  },
+  {
+    "id": "analyze",
+    "name": "Analyze",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [],
+    "description": "Reading situations, risk assessment, and contingency planning."
+  },
+  {
+    "id": "observe",
+    "name": "Observe",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [],
+    "description": "Noticing details, intuition, sensing the supernatural, and vigilance. Covers reading social tells passively."
+  },
+  {
+    "id": "survive",
+    "name": "Survive",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [],
+    "description": "Navigation, foraging, shelter, improvising from available materials, field triage, and emergency treatment. Out of combat: DC 12 clears the Injured condition (requires a Quick Rest to take effect). DC 14 treats the Poisoned condition (requires a Full Rest to clear). DC 16 stabilises the Broken condition (prevents death — does not clear the condition; Full Rest and downtime care required). Cannot address Dread or spiritual damage — those require Channel-based methods.",
+    "notes": "First Aid is part of Survive."
+  },
+  {
+    "id": "tactics",
+    "name": "Tactics",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [],
+    "description": "Combat planning, reading the battlefield, and adapting to changing conditions."
+  },
+  {
+    "id": "concentrate",
+    "name": "Concentrate",
+    "category": "mind",
+    "governing": [
+      "wil"
+    ],
+    "genres": [],
+    "description": "Maintaining focus under pressure and resisting mental assault."
+  },
+  {
+    "id": "inspire",
+    "name": "Inspire",
+    "category": "spirit",
+    "governing": [
+      "mor"
+    ],
+    "genres": [],
+    "description": "Lifting allies’ spirits, rallying wavering fighters, and acts of courage."
+  },
+  {
+    "id": "lead",
+    "name": "Lead",
+    "category": "spirit",
+    "governing": [
+      "mor"
+    ],
+    "genres": [],
+    "description": "Commanding groups, coordinating action, leading by example."
+  },
+  {
+    "id": "handle",
+    "name": "Handle",
+    "category": "spirit",
+    "governing": [
+      "ser"
+    ],
+    "genres": [],
+    "description": "Calming animals and tense situations; providing grounded perspective."
+  },
+  {
+    "id": "luck",
+    "name": "Luck",
+    "category": "spirit",
+    "governing": [
+      "ser"
+    ],
+    "genres": [],
+    "description": "GM-called only. The GM calls for a Luck roll when an outcome is entirely outside the character’s influence and fate plays a genuine role — a random patrol arrives, a structure collapses, a stranger makes an unpredictable choice. Players may not initiate Luck rolls. Roll d20 + Serenity; the GM adjudicates the result.",
+    "gm_only": true
+  },
+  {
+    "id": "sixth-sense",
+    "name": "Sixth Sense",
+    "category": "spirit",
+    "governing": [
+      "ser"
+    ],
+    "genres": [],
+    "description": "An intuitive awareness of danger, deception, and hidden intent. The GM may call for a Sixth Sense roll when a character might perceive something without knowing why — an ambush around a corner, a lie buried in a friendly face, a trap that leaves no visible sign. Cannot be used to gather specific information; it only signals that something is wrong."
+  },
+  {
+    "id": "persuade",
+    "name": "Persuade",
+    "category": "social",
+    "governing": [
+      "primary_attack"
+    ],
+    "genres": [],
+    "description": "Argument, appeal, or pressure. Defaults to primary Domain’s Attack Ability; declaration overrides."
+  },
+  {
+    "id": "deceive",
+    "name": "Deceive",
+    "category": "social",
+    "governing": [
+      "acu"
+    ],
+    "genres": [],
+    "description": "Lying, bluffing, misdirection. Always Acuity regardless of approach. Covers long-term false identities."
+  },
+  {
+    "id": "intimidate",
+    "name": "Intimidate",
+    "category": "social",
+    "governing": [
+      "str",
+      "bel"
+    ],
+    "genres": [],
+    "description": "Body approach: Strength. Spirit approach: Belief. Speed/surprise: Agility."
+  },
+  {
+    "id": "perform",
+    "name": "Perform",
+    "category": "social",
+    "governing": [
+      "agi",
+      "mor"
+    ],
+    "genres": [],
+    "description": "Body approach: Agility. Spirit approach: Morale."
+  },
+  {
+    "id": "network",
+    "name": "Network",
+    "category": "social",
+    "governing": [
+      "mor",
+      "acu"
+    ],
+    "genres": [],
+    "description": "Contacts and reputation leverage. Spirit approach (Morale): warm networking. Mind approach (Acuity): intelligence gathering."
+  },
+  {
+    "id": "trade",
+    "name": "Trade",
+    "category": "social",
+    "governing": [
+      "int",
+      "acu"
+    ],
+    "genres": [],
+    "description": "Negotiating, appraising value, making deals."
+  },
+  {
+    "id": "resist",
+    "name": "Resist",
+    "category": "social",
+    "governing": [
+      "wil"
+    ],
+    "genres": [],
+    "description": "Holding firm against coercion and social pressure. Always Willpower."
+  },
+  {
+    "id": "alchemy",
+    "name": "Alchemy",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "fantasy",
+      "steampunk",
+      "weird-west",
+      "dark-renaissance"
+    ],
+    "description": "Creating compounds, reagents, tinctures, and pseudo-chemical agents. Mundane: poisons, medicines, accelerants. Magical: philosophers compounds, transmutation reagents. Used in Steampunk, Weird West, Fantasy, Dark Renaissance."
+  },
+  {
+    "id": "diplomacy",
+    "name": "Diplomacy",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "fantasy",
+      "steampunk",
+      "interstellar",
+      "space-opera"
+    ],
+    "description": "Formal negotiation between institutions, treaty-making, cross-cultural or cross-species first contact. Operates at a scale above personal Persuade. Failure has political rather than personal consequences. Used in Interstellar, Space Opera, Fantasy, Steampunk.",
+    "relation": "Extends Persuade"
+  },
+  {
+    "id": "ride",
+    "name": "Ride",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "fantasy",
+      "steampunk",
+      "weird-west",
+      "dark-renaissance",
+      "wuxia"
+    ],
+    "description": "Mounted movement — horsemanship, beast-riding, controlling mounts in combat and at speed. Includes care and handling of mounts when extended. Used in Fantasy, Weird West, Dark Renaissance, Steampunk, Pulp."
+  },
+  {
+    "id": "streetwise",
+    "name": "Streetwise",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "fantasy",
+      "modern"
+    ],
+    "description": "Urban fluency in a pre-modern setting — which tavern to trust, which guard is bribable, how to find a fence, and when to run.",
+    "relation": "Supplements Network"
+  },
+  {
+    "id": "cast-attack",
+    "name": "Cast (Attack)",
+    "category": "mind",
+    "governing": [
+      "int",
+      "bel"
+    ],
+    "genres": [
+      "magic"
+    ],
+    "description": "Offensive Power use: damaging, controlling, binding, or impairing a target. The base roll for most aggressive magical effects."
+  },
+  {
+    "id": "cast-defend",
+    "name": "Cast (Defend)",
+    "category": "mind",
+    "governing": [
+      "wil",
+      "bel"
+    ],
+    "genres": [
+      "magic"
+    ],
+    "description": "Protective and warding Power use: shields, absorption, countering incoming magical effects, protecting allies."
+  },
+  {
+    "id": "cast-utility",
+    "name": "Cast (Utility)",
+    "category": "mind",
+    "governing": [
+      "acu",
+      "int"
+    ],
+    "genres": [
+      "magic"
+    ],
+    "description": "Ritual, detection, utility, and information Powers. Extended casting time (30 min minimum). Cannot be Surged in the same way as combat casting."
+  },
+  {
+    "id": "channel",
+    "name": "Channel",
+    "category": "spirit",
+    "governing": [
+      "bel"
+    ],
+    "genres": [
+      "magic"
+    ],
+    "description": "Divine, spiritual, or empathic Power direction. Includes all healing Powers. The primary skill for Channeler Role characters.",
+    "notes": "Only available when the Magic Genre is switched on (DECISIONS.md)."
+  },
+  {
+    "id": "psi-alter",
+    "name": "Psi (Alter)",
+    "category": "spirit",
+    "governing": [
+      "bel"
+    ],
+    "genres": [
+      "magic",
+      "psionics"
+    ],
+    "description": "Self-directed psionic transformation: accelerated healing, metabolic control, altered sensory processing, physiological adaptation.",
+    "relation": "As Magic Genre"
+  },
+  {
+    "id": "psi-attack",
+    "name": "Psi (Attack)",
+    "category": "mind",
+    "governing": [
+      "wil"
+    ],
+    "genres": [
+      "magic",
+      "psionics"
+    ],
+    "description": "Psionic offensive use: telepathic assault, neural disruption, mental domination attempt. Opposed by target’s Willpower.",
+    "relation": "As Magic Genre"
+  },
+  {
+    "id": "psi-defend",
+    "name": "Psi (Defend)",
+    "category": "mind",
+    "governing": [
+      "wil"
+    ],
+    "genres": [
+      "magic",
+      "psionics"
+    ],
+    "description": "Mental shielding: blocking intrusion, thought-privacy, resisting memory tampering or psionic domination.",
+    "relation": "As Magic Genre"
+  },
+  {
+    "id": "psi-move",
+    "name": "Psi (Move)",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "magic",
+      "psionics"
+    ],
+    "description": "Telekinesis, pyrokinesis, and physical matter manipulation at a distance. Power Level determines scale.",
+    "relation": "As Magic Genre"
+  },
+  {
+    "id": "psi-sense",
+    "name": "Psi (Sense)",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "magic",
+      "psionics"
+    ],
+    "description": "Passive and active psionic perception: telepathy (surface thoughts), empathy, precognitive impressions, remote viewing.",
+    "relation": "As Magic Genre"
+  },
+  {
+    "id": "ritual",
+    "name": "Ritual",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "magic"
+    ],
+    "description": "Extended magical workings outside combat — identifying magical properties, dispelling persistent effects, creating wards, performing ceremonies."
+  },
+  {
+    "id": "dread-resist",
+    "name": "Dread Resist",
+    "category": "spirit",
+    "governing": [
+      "ser"
+    ],
+    "genres": [
+      "horror"
+    ],
+    "description": "Active resistance to Dread accumulation — hardened veterans, people who have seen too much. Reduces Dread fill rate from Horror Checks. Requires Veteran tier (Level 9+) to purchase."
+  },
+  {
+    "id": "exorcism",
+    "name": "Exorcism",
+    "category": "spirit",
+    "governing": [
+      "bel"
+    ],
+    "genres": [
+      "horror",
+      "cthulhu",
+      "dark-renaissance",
+      "weird-west"
+    ],
+    "description": "Driving out possessing or bound entities through focused spiritual force. Distinct from Abjure (which is combat-use banishment). Requires time, ritual components, and sustained contact with the target. Used in Horror, Dark Renaissance, Cthulhu, Weird West."
+  },
+  {
+    "id": "folklore",
+    "name": "Folklore",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "horror"
+    ],
+    "description": "Local stories, superstitions, and oral traditions. In Horror settings, folklore is often the only accurate information available about a threat. Covers identifying protective symbols, local taboos, and what the townspeople are afraid of.",
+    "relation": "Supplements Knowledge"
+  },
+  {
+    "id": "investigate",
+    "name": "Investigate",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "horror",
+      "cthulhu",
+      "modern",
+      "espionage",
+      "superhero",
+      "weird-west",
+      "dark-renaissance"
+    ],
+    "description": "Gathering and synthesising clues, crime scene analysis, interviewing witnesses, and building a theory of events from incomplete information. Differs from Analyze (which reads situations) in that it reconstructs the past rather than predicting the future. Used in Horror, Cthulhu, Modern, James Bond, Pulp.",
+    "relation": "Extends Analyze"
+  },
+  {
+    "id": "occult",
+    "name": "Occult",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "horror",
+      "cthulhu",
+      "fantasy",
+      "weird-west",
+      "dark-renaissance"
+    ],
+    "description": "Forbidden knowledge of supernatural entities, rituals, and the hidden architecture of reality. Identifying what something is, where it came from, and what it fears. Does not grant power — it grants information. Gaining ranks in Occult in Cthulhu-adjacent settings adds 1 Corruption per rank above 2. Used in Horror, Cthulhu, Dark Renaissance, Weird West, Fantasy, Pulp."
+  },
+  {
+    "id": "sanity-check",
+    "name": "Sanity Check",
+    "category": "spirit",
+    "governing": [
+      "ser"
+    ],
+    "genres": [
+      "horror",
+      "cthulhu"
+    ],
+    "description": "The mechanical trigger for Dread accumulation from forbidden knowledge or reality-breaking events. Not player-called. GM uses this when a character reads a cursed text, witnesses something that should not exist, or processes information the human mind was not built to hold.",
+    "relation": "GM-triggered only",
+    "gm_only": true
+  },
+  {
+    "id": "astronomy",
+    "name": "Astronomy",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "cthulhu"
+    ],
+    "description": "Celestial observation, star-chart reading, and the significance of astronomical events. In Cthulhu settings, astronomical knowledge occasionally reveals things that should not be visible from Earth.",
+    "relation": "Supplements Knowledge"
+  },
+  {
+    "id": "cult-lore",
+    "name": "Cult Lore",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "cthulhu"
+    ],
+    "description": "Understanding the structure, rituals, and social dynamics of Mythos cults. Knowing who leads, who can be turned, and what the cult is trying to accomplish. Differs from Mythos Lore (cosmology) in that Cult Lore is about people and organizations."
+  },
+  {
+    "id": "library-use",
+    "name": "Library Use",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "cthulhu"
+    ],
+    "description": "Navigating archives, libraries, and restricted collections. Finding the right text among thousands. Reading in degraded or archaic scripts. The original Call of Cthulhu investigators’ workhorse.",
+    "relation": "Supplements Knowledge"
+  },
+  {
+    "id": "mythos-lore",
+    "name": "Mythos Lore",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "cthulhu"
+    ],
+    "description": "Knowledge of the Great Old Ones, their cults, their texts (Necronomicon, Pnakotic Manuscripts, etc.), and the cosmological framework of the Cthulhu Mythos. Each rank above 2 adds 1 Corruption permanently. The more you know, the more it costs."
+  },
+  {
+    "id": "weird-control",
+    "name": "Weird Control",
+    "category": "mind",
+    "governing": [
+      "wil"
+    ],
+    "genres": [
+      "weird-magic"
+    ],
+    "description": "Attempting to direct or suppress a Weird Table result before it resolves. Roll Weird Control DC 14 to choose between the rolled result and re-rolling. Succeeding twice on Weird Control in one scene adds 1 Tainted regardless of outcome."
+  },
+  {
+    "id": "weird-read",
+    "name": "Weird Read",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "weird-magic"
+    ],
+    "description": "Interpreting the pattern of Weird Table results over time. After 3+ Weird rolls in a session, a Weird Read roll can give the GM-provided insight into what the Weird is responding to — not control, just information."
+  },
+  {
+    "id": "demolitions",
+    "name": "Demolitions",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "modern",
+      "espionage",
+      "superhero",
+      "space-opera",
+      "post-apocalyptic"
+    ],
+    "description": "Setting, timing, and disarming explosive charges. Includes improvised explosives, shaped charges, structural collapse planning. DC scales with complexity and consequence. Used in Modern, Cyberpunk, Post-Apocalyptic, Space Opera."
+  },
+  {
+    "id": "drive",
+    "name": "Drive",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "modern",
+      "espionage",
+      "post-apocalyptic"
+    ],
+    "description": "Ground vehicles at speed — pursuit driving, evasive manoeuvring, vehicle control under fire, and high-speed navigation. Pilot covers air and sea; Drive covers road.",
+    "relation": "Supplements Pilot"
+  },
+  {
+    "id": "forgery",
+    "name": "Forgery",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "modern",
+      "espionage",
+      "cyberpunk"
+    ],
+    "description": "Creating or detecting false documents, credentials, insignia, or currency. Opposed by Analyze or Observe when detected. Covers digital credentials in modern settings. Used in Modern, James Bond, Cyberpunk."
+  },
+  {
+    "id": "hack",
+    "name": "Hack",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "modern",
+      "espionage",
+      "cyberpunk",
+      "transhumanist",
+      "interstellar",
+      "space-opera",
+      "post-apocalyptic"
+    ],
+    "description": "Bypassing digital security, accessing locked systems, electronic surveillance, and subverting networked infrastructure. Opposed by target system rating. In advanced settings extends to neural ICE, ghost systems, and cyberspace navigation. Used in Modern, Cyberpunk, Transhumanist, Interstellar, Space Opera, Post-Apocalyptic.",
+    "relation": "Supplements Operate"
+  },
+  {
+    "id": "law",
+    "name": "Law",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "modern",
+      "superhero"
+    ],
+    "description": "Legal procedure, rights, court protocols, and the specific knowledge of what is and is not actionable in a given jurisdiction. Covers civilian law and military law depending on setting.",
+    "relation": "Supplements Knowledge"
+  },
+  {
+    "id": "medic",
+    "name": "Medic",
+    "category": "body",
+    "governing": [
+      "tou"
+    ],
+    "genres": [
+      "modern",
+      "espionage",
+      "cyberpunk",
+      "transhumanist",
+      "interstellar",
+      "space-opera",
+      "post-apocalyptic",
+      "horror"
+    ],
+    "description": "Advanced trauma care beyond field triage — surgery, pharmacology, long-term treatment planning. Requires tools and controlled conditions. Covers alien biology in sci-fi settings. DC lower than Survive for standard injuries but enables outcomes Survive cannot achieve (surgery, disease cure). Used in Modern, Interstellar, Space Opera, Cyberpunk, Post-Apocalyptic.",
+    "relation": "Extends Survive"
+  },
+  {
+    "id": "surveillance",
+    "name": "Surveillance",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "modern",
+      "espionage",
+      "cyberpunk"
+    ],
+    "description": "Running a physical or electronic tail. Identifying counter-surveillance. Placing and maintaining observation equipment. Distinct from Observe (which is passive) in that Surveillance is active, planned, and sustained over time. Used in Modern, James Bond, Cyberpunk."
+  },
+  {
+    "id": "underworld",
+    "name": "Underworld",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "modern",
+      "espionage",
+      "cyberpunk",
+      "space-opera",
+      "post-apocalyptic"
+    ],
+    "description": "Reading and navigating criminal ecosystems — gang hierarchies, black markets, smuggling networks, bounty protocols, and syndicate politics. Where Network is about reputation, Underworld is about leverage and street fluency. Used in Modern, Cyberpunk, Space Opera, Post-Apocalyptic, Pulp.",
+    "relation": "Extends Network"
+  },
+  {
+    "id": "cover",
+    "name": "Cover",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "espionage"
+    ],
+    "description": "Constructing, maintaining, and inhabiting a false identity over extended time. Covers backstory consistency, accent and mannerism adoption, and detecting when the cover is being probed. Extends the Infiltrator Specialty’s Cover Story ability."
+  },
+  {
+    "id": "seduction",
+    "name": "Seduction",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "espionage"
+    ],
+    "description": "Using personal charm, physical appeal, and intimate social engineering to obtain information, access, or compliance. Not a replacement for Persuade — Seduction requires proximity, time, and a target susceptible to this approach. Opposed by Observe or Willpower."
+  },
+  {
+    "id": "tradecraft",
+    "name": "Tradecraft",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "espionage"
+    ],
+    "description": "The professional knowledge of intelligence work: dead drops, brush passes, counter-surveillance routes, cipher protocols, and the doctrine of field agencies. What a professional spy knows that an amateur does not."
+  },
+  {
+    "id": "chrome",
+    "name": "Chrome",
+    "category": "body",
+    "governing": [
+      "tou"
+    ],
+    "genres": [
+      "cyberpunk"
+    ],
+    "description": "Operating and maintaining cybernetic implants, resisting cyber-rejection, managing the interface between biological and mechanical systems. Also covers identifying other characters’ implants by behavior and visible signs."
+  },
+  {
+    "id": "fabricate",
+    "name": "Fabricate",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "cyberpunk"
+    ],
+    "description": "Building, modifying, and reverse-engineering technology at the component level — not field repair (Operate) but original creation and deep modification.",
+    "relation": "Extends Operate"
+  },
+  {
+    "id": "ghost",
+    "name": "Ghost",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "cyberpunk"
+    ],
+    "description": "Electronic counter-presence — erasing digital footprints while moving, spoofing location data, counter-surveillance in both physical and digital space simultaneously."
+  },
+  {
+    "id": "interface",
+    "name": "Interface",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "cyberpunk",
+      "transhumanist"
+    ],
+    "description": "Directly reading, navigating, and manipulating cyberspace environments through a neural link. Requires implant. Without Interface, Hack is tools-only (slower, less capable). With Interface, the user is present in the space and faces physical risk."
+  },
+  {
+    "id": "street",
+    "name": "Street",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "cyberpunk"
+    ],
+    "description": "Reading the underclass, gang-territory dynamics, and the unwritten rules of the megacity. Covers gang etiquette, corporate enforcers, and fixers. Underworld handles black markets; Street handles the social geography.",
+    "relation": "Extends Underworld"
+  },
+  {
+    "id": "automaton",
+    "name": "Automaton",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "steampunk"
+    ],
+    "description": "Building, programming (in a rudimentary sense), repairing, and commanding clockwork and steam-driven automated servants and weapons. The Steampunk equivalent of Drone in Transhumanist settings."
+  },
+  {
+    "id": "engineering",
+    "name": "Engineering",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "steampunk",
+      "transhumanist",
+      "interstellar"
+    ],
+    "description": "Building, maintaining, and repairing complex mechanical or energy systems at a technical level. Covers starships, steam engines, power plants, aetheric machinery. Used in Steampunk, Interstellar, Transhumanist, Post-Apocalyptic.",
+    "relation": "Extends Operate"
+  },
+  {
+    "id": "gadgeteer",
+    "name": "Gadgeteer",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "steampunk",
+      "espionage"
+    ],
+    "description": "Deploying, improvising, and modifying small technical devices under field conditions. The intelligence-operative version of Engineer."
+  },
+  {
+    "id": "navigate",
+    "name": "Navigate",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "steampunk",
+      "transhumanist",
+      "interstellar",
+      "space-opera"
+    ],
+    "description": "Celestial, chart, and dead-reckoning navigation for vessels operating in unmapped or hazardous territory. Covers sea, air, and space. Differs from Pilot (which is control under pressure) in that Navigate is planning and orientation. Used in Steampunk, Interstellar, Space Opera, Fantasy, Age of Sail.",
+    "relation": "Extends Pilot"
+  },
+  {
+    "id": "pilot-airship",
+    "name": "Pilot (Airship)",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "steampunk"
+    ],
+    "description": "Operating lighter-than-air and heavier-than-air craft in a pre-standardised technology era. Covers reading weather at altitude, emergency protocols for steam failure, and docking at aerial moorings.",
+    "relation": "Extends Pilot"
+  },
+  {
+    "id": "society",
+    "name": "Society",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "steampunk"
+    ],
+    "description": "Navigating the rigid class structures, etiquette, and political networks of Victorian/Edwardian society. Covers knowing which fork to use, who owes whom a favor, and how to survive a dinner party at a duke’s estate."
+  },
+  {
+    "id": "bioengineer",
+    "name": "Bioengineer",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "transhumanist"
+    ],
+    "description": "Genetic modification, synthetic biology, nano-medicine delivery, and cellular-level intervention. Can construct new biological functions from scratch given time, equipment, and materials."
+  },
+  {
+    "id": "drone",
+    "name": "Drone",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "transhumanist"
+    ],
+    "description": "Operating remote-presence hardware, autonomous agent swarms, and delegated mechanical extensions of the self."
+  },
+  {
+    "id": "synth",
+    "name": "Synth",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "transhumanist"
+    ],
+    "description": "Reading, communicating with, and extending empathy to artificial consciousnesses. The skill for determining whether an AI is genuinely conscious, what it wants, and what it fears. Distinct from Hack: Hack forces entry; Synth opens a door."
+  },
+  {
+    "id": "upload",
+    "name": "Upload",
+    "category": "mind",
+    "governing": [
+      "wil"
+    ],
+    "genres": [
+      "transhumanist"
+    ],
+    "description": "Consciousness transfer, managing digital existence, resisting memory overwrite, and the psychological challenge of non-biological selfhood. Willpower governs this because it is fundamentally about maintaining a coherent sense of identity under severe pressure."
+  },
+  {
+    "id": "aerial",
+    "name": "Aerial",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "superhero"
+    ],
+    "description": "Three-dimensional movement — flight, controlled falling, zero-g manoeuvring, and aerial combat. Modifies all Agility-based rolls when the character is in flight or vertical space."
+  },
+  {
+    "id": "beam-weapons",
+    "name": "Beam Weapons",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "superhero",
+      "interstellar",
+      "space-opera"
+    ],
+    "description": "Energy-based ranged weapons — blasters, phasers, plasma rifles, laser pistols. Direct-fire only; area weapons use Combat (Maneuver). Used in Interstellar, Space Opera, Cyberpunk, Transhumanist, Superhero.",
+    "relation": "Supplements Combat (Ranged)"
+  },
+  {
+    "id": "hero-id",
+    "name": "Hero ID",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "superhero"
+    ],
+    "description": "Managing the divide between a heroic public identity and a private self — secret identity maintenance, public reputation management, and the psychological strain of living two lives simultaneously."
+  },
+  {
+    "id": "power-control",
+    "name": "Power Control",
+    "category": "mind",
+    "governing": [
+      "wil"
+    ],
+    "genres": [
+      "superhero"
+    ],
+    "description": "Precision calibration of innate powers — activating, deactivating, and modulating output. Relevant when a power must be used carefully (rescuing someone in a collapsing building) or suppressed (public identity maintenance). Contested by Power Resist when another force is trying to override control."
+  },
+  {
+    "id": "power-resist",
+    "name": "Power Resist",
+    "category": "body",
+    "governing": [
+      "tou"
+    ],
+    "genres": [
+      "superhero"
+    ],
+    "description": "Resisting the physical toll of using powers at high intensity or for sustained duration. Also resists power-dampening technology and external suppression attempts. The “can I keep going” skill."
+  },
+  {
+    "id": "presence",
+    "name": "Presence",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "superhero"
+    ],
+    "description": "The superhero’s social gravity — when they enter a scene, things change. Civilians stop. Villains hesitate. Media turns. Presence covers the management of that aura: inspiring hope, commanding authority, and the psychological weight of being known as something more."
+  },
+  {
+    "id": "command",
+    "name": "Command",
+    "category": "spirit",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "interstellar"
+    ],
+    "description": "The specific skill of a senior officer making split-second decisions under pressure with insufficient information and the lives of a crew at stake. Differs from Lead (which is personal) and Tactics (which is strategic) — Command is institutional authority in a crisis."
+  },
+  {
+    "id": "pilot-spacecraft",
+    "name": "Pilot (Spacecraft)",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "interstellar",
+      "space-opera",
+      "transhumanist"
+    ],
+    "description": "As base Pilot, extended to operate spacecraft, atmospheric craft, and zero-gravity manoeuvring. Includes docking, orbital mechanics, and combat manoeuvring at scale. Used in Interstellar, Space Opera, Transhumanist.",
+    "relation": "Extends Pilot"
+  },
+  {
+    "id": "sciences",
+    "name": "Sciences",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "interstellar",
+      "transhumanist"
+    ],
+    "description": "Sensor analysis, experimental method, anomaly identification, and first-contact scientific protocol. Covers physics, xenobiology, geology, and applied research in advanced settings. Used in Interstellar, Transhumanist.",
+    "relation": "Extends Knowledge"
+  },
+  {
+    "id": "sensors",
+    "name": "Sensors",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "interstellar"
+    ],
+    "description": "Active operation of ship-based or hand-held sensor systems: reading sensor output, distinguishing signal from noise, and using sensors creatively to solve problems. Extends Observe for technological contexts."
+  },
+  {
+    "id": "xenology",
+    "name": "Xenology",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "interstellar"
+    ],
+    "description": "Deep knowledge of alien species, cultures, biology, and psychology. The first-contact specialist’s core tool. Covers recognising when a communication is a greeting versus a threat, and knowing what gestures or postures mean in non-human contexts."
+  },
+  {
+    "id": "force-attack",
+    "name": "Force (Attack)",
+    "category": "spirit",
+    "governing": [
+      "bel"
+    ],
+    "genres": [
+      "space-opera"
+    ],
+    "description": "Offensive Force use: telekinetic assault, Force Lightning equivalents, crushing grips. Uses Belief because the Force’s offensive power draws on conviction and will.",
+    "relation": "Magic Genre — Force variant"
+  },
+  {
+    "id": "force-defend",
+    "name": "Force (Defend)",
+    "category": "mind",
+    "governing": [
+      "wil"
+    ],
+    "genres": [
+      "space-opera"
+    ],
+    "description": "Defensive Force use: Force Shield, deflecting blaster bolts, absorbing energy. Uses Willpower because it is sustained resistance.",
+    "relation": "Magic Genre — Force variant"
+  },
+  {
+    "id": "force-move",
+    "name": "Force (Move)",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "space-opera"
+    ],
+    "description": "Telekinesis, levitation, object manipulation, Force Jump. Intellect because this is applied will-as-tool.",
+    "relation": "Magic Genre — Force variant"
+  },
+  {
+    "id": "force-sense",
+    "name": "Force (Sense)",
+    "category": "spirit",
+    "governing": [
+      "ser"
+    ],
+    "genres": [
+      "space-opera"
+    ],
+    "description": "Foresight, danger-sense, reading living Force signatures, and sensing the emotional state of others across distance. Serenity because the Living Force is perceived through calm, not effort.",
+    "relation": "Magic Genre — Force variant"
+  },
+  {
+    "id": "mechanics",
+    "name": "Mechanics",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "space-opera"
+    ],
+    "description": "Droid programming, hyperdrive repair, and improvised starship maintenance. The “I have a bad feeling about this” skill — knowing what can go wrong and why.",
+    "relation": "Extends Operate"
+  },
+  {
+    "id": "survival-hostile",
+    "name": "Survival (Hostile)",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "space-opera"
+    ],
+    "description": "Surviving environments specifically hostile to humanoid life: volcanic planets, desert wastelands, ocean worlds, and jungle moons. Survival in Space Opera settings is often extreme.",
+    "relation": "Extends Survive"
+  },
+  {
+    "id": "barter",
+    "name": "Barter",
+    "category": "social",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "post-apocalyptic",
+      "weird-west"
+    ],
+    "description": "Non-currency economy negotiation — knowing the value of goods when money is meaningless, identifying fair trades, and reading the economic power dynamics of resource-scarce situations. Extends Trade for pre-monetary economies."
+  },
+  {
+    "id": "faction",
+    "name": "Faction",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "post-apocalyptic"
+    ],
+    "description": "Reading, navigating, and leveraging post-collapse tribal and faction politics. Every settlement has its own power structure, its own myths, and its own enemies. Faction covers knowing which is which and how to work within them without triggering blood feuds."
+  },
+  {
+    "id": "hunt",
+    "name": "Hunt",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "post-apocalyptic"
+    ],
+    "description": "Tracking and taking down mutated wildlife and hostile humans in a survival context. Combines the tracking function of Survive with the combat-preparation aspects of Tactics into a single outdoorsman skill.",
+    "relation": "Extends Survive"
+  },
+  {
+    "id": "jury-rig",
+    "name": "Jury-Rig",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "post-apocalyptic"
+    ],
+    "description": "Making functional equipment from salvaged parts without a workshop or standard materials. The result is always temporary (GM sets number of uses before failure) but can be anything from a weapon to a vehicle to a power source."
+  },
+  {
+    "id": "rad-resist",
+    "name": "Rad Resist",
+    "category": "body",
+    "governing": [
+      "tou"
+    ],
+    "genres": [
+      "post-apocalyptic"
+    ],
+    "description": "Physical resistance to radiation, toxic waste, and environmental contamination. Reduces the Stamina and Toughness cost of operating in contaminated zones. Also covers identifying radiation levels and decontamination procedures."
+  },
+  {
+    "id": "scavenge",
+    "name": "Scavenge",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "post-apocalyptic"
+    ],
+    "description": "Finding and evaluating usable materials in ruins — the difference between trash and resource. Covers chemical identification of salvaged compounds, structural evaluation of buildings, and identifying tech by function when labels are unreadable.",
+    "relation": "Extends Survive"
+  },
+  {
+    "id": "psi-deep-read",
+    "name": "Psi (Deep Read)",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "psionics"
+    ],
+    "description": "Reaching past surface thoughts into memory and subconscious. Requires physical contact or willing target. Deeply invasive — ethically significant at every table. Opposed by Willpower; failure means the target becomes aware of the intrusion."
+  },
+  {
+    "id": "psi-link",
+    "name": "Psi (Link)",
+    "category": "spirit",
+    "governing": [
+      "ser"
+    ],
+    "genres": [
+      "psionics"
+    ],
+    "description": "Establishing a lasting mental bond with another person — shared emotional awareness, crisis-sensing across distance, and coordinated action in combat without communication. The bond is mutual: what one feels, the other can feel too."
+  },
+  {
+    "id": "psi-shield-others",
+    "name": "Psi (Shield Others)",
+    "category": "mind",
+    "governing": [
+      "wil"
+    ],
+    "genres": [
+      "psionics"
+    ],
+    "description": "Extending mental shielding to protect another person’s mind. Requires sustained concentration (Concentrate rolls every round in combat). Psi (Defend) protects the self; Psi (Shield Others) covers allies."
+  },
+  {
+    "id": "telepath-lore",
+    "name": "Telepath Lore",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "psionics"
+    ],
+    "description": "The specific knowledge of psionic abilities, training methods, known psionic entities, and the institutional frameworks (academies, governments, black-market organizations) that deal in mental power."
+  },
+  {
+    "id": "fencing-historical",
+    "name": "Fencing (Historical)",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "weird-west"
+    ],
+    "description": "Period-accurate rapier and small-sword combat — the specific techniques of historical fencing schools (Spanish destreza, Italian rapier, etc.). Supplements Combat (Melee) with a +1 when using the appropriate historical weapon form."
+  },
+  {
+    "id": "gunfight",
+    "name": "Gunfight",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "weird-west"
+    ],
+    "description": "The specific micro-mechanics of the Old West quick-draw: initiative in a pistol duel, dual-wielding, the read of when someone is about to draw. Supplements Combat (Ranged) specifically for single-action revolvers and period firearms. Not applicable outside Weird West settings."
+  },
+  {
+    "id": "legend",
+    "name": "Legend",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "weird-west"
+    ],
+    "description": "Your reputation in a legend-economy — what the songs say, what the towns fear, what the newspapers print. In the Weird West and Pulp eras, reputation is a social resource: high Legend opens doors that money cannot. Distinct from Network (which is relationships) — Legend is fame."
+  },
+  {
+    "id": "society-renaissance",
+    "name": "Society (Renaissance)",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "weird-west"
+    ],
+    "description": "Court etiquette, patronage politics, guild hierarchies, and the social machinery of Renaissance Italian or Northern European city-states. Similar to Steampunk’s Society but specific to the period."
+  },
+  {
+    "id": "stunt",
+    "name": "Stunt",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "weird-west"
+    ],
+    "description": "The Pulp hero’s physical derring-do: swinging on ropes, diving through windows, sliding under closing doors, and generally doing the athletically implausible with style. Supplements Athletics for theatrical over-the-top physical action."
+  },
+  {
+    "id": "wits",
+    "name": "Wits",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "weird-west"
+    ],
+    "description": "Pulp-era street-smart quick thinking: fast deduction, fast talking, and the ability to improvise your way out of a situation before it fully develops. A faster, lower-resolution version of Analyze suitable for the high-speed pacing of Pulp adventure."
+  },
+  {
+    "id": "faith-combat",
+    "name": "Faith (Combat)",
+    "category": "spirit",
+    "governing": [
+      "bel"
+    ],
+    "genres": [
+      "dark-renaissance"
+    ],
+    "description": "Fighting with divine conviction — the sword or pistol as an instrument of God’s will. Provides a +1 to Combat (Melee) or Combat (Ranged) rolls when the target is demonstrably evil or supernatural and the character’s faith is engaged. This is a Spirit skill in a martial context."
+  },
+  {
+    "id": "gunfight-period",
+    "name": "Gunfight (Period)",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "dark-renaissance"
+    ],
+    "description": "Flintlock pistols, matchlock muskets, and period firearms. Covers the specific limitations of early firearms (reload time, weather vulnerability) as an ongoing tactical consideration rather than a round-by-round penalty. Supplements Combat (Ranged) for the period."
+  },
+  {
+    "id": "languages-period",
+    "name": "Languages (Period)",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "dark-renaissance"
+    ],
+    "description": "The specific linguistic demands of the early 17th century: Latin (universal scholarly), French (diplomatic), Spanish (colonial), Arabic (North Africa/Middle East), and tribal languages of West Africa. Each language point covers one major language group.",
+    "relation": "Extends Language"
+  },
+  {
+    "id": "theology",
+    "name": "Theology",
+    "category": "spirit",
+    "governing": [
+      "bel"
+    ],
+    "genres": [
+      "dark-renaissance"
+    ],
+    "description": "Deep religious knowledge — scripture, doctrine, heresy identification, and the specific arguments of 17th-century Protestantism. Functions like Occult but for institutional Christian knowledge rather than folk supernatural. Used to identify corrupted religious practices, determine the genuine holiness of relics, and resist spiritual manipulation."
+  },
+  {
+    "id": "wilderness-continental",
+    "name": "Wilderness (Continental)",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "dark-renaissance"
+    ],
+    "description": "Deep wilderness navigation and survival across multiple climate zones and continents. Extends Survive for extreme long-range overland travel where the terrain itself is a sustained challenge over weeks and months, not hours."
+  },
+  {
+    "id": "chi-flow",
+    "name": "Chi (Flow)",
+    "category": "body",
+    "governing": [
+      "tou"
+    ],
+    "genres": [
+      "wuxia"
+    ],
+    "description": "Chi-based defense and resilience: hardening the body against impacts, channelling pain away from vital areas, and sustaining physical function beyond normal limits."
+  },
+  {
+    "id": "chi-heal",
+    "name": "Chi (Heal)",
+    "category": "spirit",
+    "governing": [
+      "ser"
+    ],
+    "genres": [
+      "wuxia"
+    ],
+    "description": "Internal energy healing — accelerated recovery, treating specific injuries through pressure-point work, and extending the survival of dying allies through emergency chi transfer. The Wuxia equivalent of Channel healing."
+  },
+  {
+    "id": "chi-move",
+    "name": "Chi (Move)",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "wuxia"
+    ],
+    "description": "Wire-fu movement: running on water, leaping between rooftops, prolonged aerial combat, and the physics-defying mobility of perfected martial arts. Modifies all movement-based rolls when active."
+  },
+  {
+    "id": "chi-sense",
+    "name": "Chi (Sense)",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "wuxia"
+    ],
+    "description": "Perceiving the chi of others — reading their emotional state, health, and intent through their energy field. The Wuxia equivalent of Psi (Sense) without the telepathic component."
+  },
+  {
+    "id": "chi-strike",
+    "name": "Chi (Strike)",
+    "category": "body",
+    "governing": [
+      "str"
+    ],
+    "genres": [
+      "wuxia"
+    ],
+    "description": "Channelling internal energy into physical attacks — devastating precision strikes, chi-infused impacts, and pressure-point techniques. The offensive application of chi discipline. Mechanically identical to Cast (Attack) but draws from Stamina rather than Mana."
+  },
+  {
+    "id": "honor",
+    "name": "Honor",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "wuxia"
+    ],
+    "description": "The Wuxia social currency: a combination of reputation, martial respect, and the code of obligations that governs relationships between warriors, schools, and clans. High Honor opens doors and creates obligations simultaneously. Used to make demands of honourable opponents, resolve disputes, and call in martial debts."
+  },
+  {
+    "id": "poetry",
+    "name": "Poetry",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "wuxia"
+    ],
+    "description": "Composing, reciting, and weaponising classical poetry in social and emotional contexts. In Wuxia settings, a perfectly-timed poem can end a conflict, expose a villain’s weakness, or win a lover. The Wuxia equivalent of Perform but more specifically literary."
+  },
+  {
+    "id": "wushu",
+    "name": "Wushu",
+    "category": "mind",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "wuxia"
+    ],
+    "description": "Technical knowledge of specific martial arts schools, styles, and lineages — identifying an opponent’s school from their movement, recognising techniques, knowing weaknesses and counters. The martial-arts equivalent of Tactics."
+  },
+  {
+    "id": "divine-aspect",
+    "name": "Divine Aspect",
+    "category": "spirit",
+    "governing": [
+      "bel"
+    ],
+    "genres": [
+      "mythic"
+    ],
+    "description": "The active expression of divine heritage: calling on your divine parent’s domain for specific bonuses, resistances, or interventions. Mechanically functions like Channel but draws on bloodline rather than faith. Each Aspect invocation fills 1 Divine Bloodline track — using your power grows it."
+  },
+  {
+    "id": "divine-lore",
+    "name": "Divine Lore",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "mythic"
+    ],
+    "description": "Knowledge of the divine: which god has dominion over what, their relationships, enmities, sacred sites, and the specific protocols for approaching each one without being immediately destroyed. Distinct from Theology (which is institutional faith) — Divine Lore is direct cosmological knowledge.",
+    "relation": "Extends Occult"
+  },
+  {
+    "id": "epithet",
+    "name": "Epithet",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "mythic"
+    ],
+    "description": "The specific Homeric tradition of using a defined title that carries its own power. A character’s Epithet is a fixed phrase (“the Cunning”, “Breaker of Shields”, “the God-Touched”) that provides a mechanical bonus when the character acts in accordance with their defining characteristic. Works like a combination of Legend and Specialty Synergy in practice."
+  },
+  {
+    "id": "fate-read",
+    "name": "Fate (Read)",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "mythic"
+    ],
+    "description": "Interpreting omens, oracles, and prophetic dreams. Reading what the Fates have in store — specific enough to be useful, ambiguous enough to be arguable. GM determines how accurate a successful roll is; failed rolls provide false or dangerously misread prophecy."
+  },
+  {
+    "id": "fate-resist",
+    "name": "Fate (Resist)",
+    "category": "mind",
+    "governing": [
+      "wil"
+    ],
+    "genres": [
+      "mythic"
+    ],
+    "description": "Pushing back against prophesied fate — delaying, redirecting, or partially negating what has been decreed. This does not prevent fate; it costs enormously to resist it, and the GM may rule that certain prophesied outcomes are ultimately unavoidable. But the attempt is possible."
+  },
+  {
+    "id": "heroic-legend",
+    "name": "Heroic Legend",
+    "category": "social",
+    "governing": [
+      "mor"
+    ],
+    "genres": [
+      "mythic"
+    ],
+    "description": "As Legend, scaled to mythic proportions. Your deeds are being sung across civilisations. Monsters hesitate at your name. Minor divine beings are aware of you. High Heroic Legend provides passive effects the GM introduces into scenes without requiring rolls.",
+    "relation": "Extends Legend from Pulp/Weird West"
+  },
+  {
+    "id": "monster-lore",
+    "name": "Monster Lore",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "mythic"
+    ],
+    "description": "Encyclopaedic knowledge of legendary creatures — their weaknesses, their origins, their specific mythological roles, and the correct method of defeating each. A Mythic hero who fights a Hydra without Monster Lore doesn’t know about the growing-back heads."
+  },
+  {
+    "id": "pankration",
+    "name": "Pankration",
+    "category": "body",
+    "governing": [
+      "str"
+    ],
+    "genres": [
+      "mythic"
+    ],
+    "description": "Classical Greek martial art combining wrestling and striking — the original combat sport and the style of heroes in competition. Supplements Combat (Melee) and Combat (Maneuver) for classical period settings."
+  },
+  {
+    "id": "sacrifice",
+    "name": "Sacrifice",
+    "category": "spirit",
+    "governing": [
+      "bel"
+    ],
+    "genres": [
+      "mythic"
+    ],
+    "description": "The formal ritual of offering something of genuine value to a divine power in exchange for favor, information, or intervention. The GM determines whether the sacrifice is accepted and what it grants. Higher-value sacrifices (time, capability, a relationship) receive stronger responses than material goods."
+  },
+  {
+    "id": "craft",
+    "name": "Craft",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "fantasy"
+    ],
+    "description": "Producing equipment, weapons, armor, or trade goods through skilled physical labor. DC determines quality and time. Magical crafting uses Ritual instead."
+  },
+  {
+    "id": "lore-arcane",
+    "name": "Lore (Arcane)",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "fantasy"
+    ],
+    "description": "Specific recall of magical theory, spell components, arcane history, and the properties of magical creatures and items.",
+    "relation": "Supplements Knowledge"
+  },
+  {
+    "id": "lore-history",
+    "name": "Lore (History)",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "fantasy"
+    ],
+    "description": "Political history, genealogy, heraldry, and the great events of kingdoms. Covers identifying noble houses, treaties, and historical precedent.",
+    "relation": "Supplements Knowledge"
+  },
+  {
+    "id": "lore-religion",
+    "name": "Lore (Religion)",
+    "category": "spirit",
+    "governing": [
+      "bel"
+    ],
+    "genres": [
+      "fantasy"
+    ],
+    "description": "Theology, divine hierarchy, temple protocols, and the distinguishing traits of different faiths. Used to identify cults, blessings, and divine intervention.",
+    "relation": "Supplements Knowledge"
+  },
+  {
+    "id": "dungeoneering",
+    "name": "Dungeoneering",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "fantasy"
+    ],
+    "description": "Navigating underground environments — reading cave structure, identifying traps, estimating structural integrity, surviving without light."
+  },
+  {
+    "id": "herbalism",
+    "name": "Herbalism",
+    "category": "mind",
+    "governing": [
+      "acu"
+    ],
+    "genres": [
+      "fantasy"
+    ],
+    "description": "Identifying, harvesting, and preparing medicinal and toxic plants. Extends Survive for natural remedies; overlaps Alchemy for more complex preparations.",
+    "relation": "Supplements Survive"
+  },
+  {
+    "id": "siege",
+    "name": "Siege",
+    "category": "mind",
+    "governing": [
+      "int"
+    ],
+    "genres": [
+      "fantasy"
+    ],
+    "description": "Planning and executing attacks on or defense of fortified positions. Covers siege engines, castle vulnerability, supply-line interdiction.",
+    "relation": "Supplements Tactics"
+  },
+  {
+    "id": "shoot",
+    "name": "Shoot",
+    "category": "body",
+    "governing": [
+      "agi"
+    ],
+    "genres": [
+      "modern",
+      "espionage",
+      "cyberpunk",
+      "post-apocalyptic"
+    ],
+    "description": "Firearms specifically — pistols, rifles, shotguns, submachine guns. Covers maintenance, function-under-fire, and ammunition management. Combat (Ranged) still covers bows, thrown weapons, etc.",
+    "relation": "Supplements Combat (Ranged)"
+  },
+  {
+    "id": "heal",
+    "name": "Heal",
+    "category": "spirit",
+    "governing": [
+      "bel",
+      "ser"
+    ],
+    "genres": [
+      "magic"
+    ],
+    "description": "Supernatural or empathic healing; restoring pool boxes.",
+    "flags": [
+      "Domain to be confirmed: the SRD lists Heal among Mind skills (governing Belief / Serenity); drafted as Spirit."
+    ],
+    "notes": "Only available when the Magic Genre is switched on (DECISIONS.md)."
+  }
+]

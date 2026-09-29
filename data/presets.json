@@ -1,0 +1,396 @@
+[
+  {
+    "id": "warrior",
+    "role": "warrior",
+    "specialty": "striker",
+    "aptitude": "soldier",
+    "power_sources": [],
+    "signature_effect": "force",
+    "focus_skills": [
+      "combat-melee",
+      "combat-maneuver",
+      "athletics",
+      "endure",
+      "tactics",
+      "evasion"
+    ],
+    "reasoning": "Striker sharpens the attack the Role already favors; Soldier adds the Strength and Toughness to survive standing still."
+  },
+  {
+    "id": "defender",
+    "role": "defender",
+    "specialty": "guardian",
+    "aptitude": "sentinel",
+    "power_sources": [],
+    "signature_effect": "force",
+    "focus_skills": [
+      "combat-melee",
+      "endure",
+      "combat-maneuver",
+      "observe",
+      "tactics",
+      "athletics"
+    ],
+    "reasoning": "Guardian and Sentinel both reward holding position — the Aptitude supplies Toughness and the sustained attention the work needs."
+  },
+  {
+    "id": "skirmisher",
+    "role": "skirmisher",
+    "specialty": "skirmisher",
+    "aptitude": "duelist",
+    "power_sources": [],
+    "signature_effect": "force",
+    "focus_skills": [
+      "combat-ranged",
+      "evasion",
+      "athletics",
+      "observe",
+      "stealth",
+      "combat-melee"
+    ],
+    "reasoning": "Duelist gives the footwork; Skirmisher Specialty removes the penalty for moving and shooting in the same round."
+  },
+  {
+    "id": "hunter",
+    "role": "hunter",
+    "specialty": "skirmisher",
+    "aptitude": "explorer",
+    "power_sources": [],
+    "signature_effect": "force",
+    "focus_skills": [
+      "combat-ranged",
+      "observe",
+      "survive",
+      "stealth",
+      "athletics",
+      "endure"
+    ],
+    "reasoning": "Explorer supplies the tracking Ability Scores; Skirmisher keeps you at the range where a Marked target cannot close."
+  },
+  {
+    "id": "berserker",
+    "role": "berserker",
+    "specialty": "striker",
+    "aptitude": "savage",
+    "power_sources": [],
+    "signature_effect": "force",
+    "focus_skills": [
+      "combat-melee",
+      "athletics",
+      "endure",
+      "intimidate",
+      "survive",
+      "evasion"
+    ],
+    "reasoning": "Savage raises Toughness and Strength together, which is the whole arithmetic of a Role that escalates as it takes damage."
+  },
+  {
+    "id": "ascetic",
+    "role": "ascetic",
+    "specialty": "anchor",
+    "aptitude": "temple-trained",
+    "power_sources": [
+      "spirit"
+    ],
+    "signature_effect": "radiant",
+    "focus_skills": [
+      "combat-melee",
+      "athletics",
+      "evasion",
+      "endure",
+      "concentrate",
+      "channel"
+    ],
+    "reasoning": "Temple Trained is the only Aptitude that raises Belief, Toughness, and Willpower at once — exactly what a dual-source martial practice runs on."
+  },
+  {
+    "id": "scout",
+    "role": "scout",
+    "specialty": "skirmisher",
+    "aptitude": "operative",
+    "power_sources": [],
+    "signature_effect": "force",
+    "focus_skills": [
+      "stealth",
+      "observe",
+      "survive",
+      "evasion",
+      "athletics",
+      "combat-ranged"
+    ],
+    "reasoning": "Operative trains the surveillance half; Skirmisher Specialty covers the withdrawal when scouting goes wrong."
+  },
+  {
+    "id": "survivor",
+    "role": "survivor",
+    "specialty": "guardian",
+    "aptitude": "nomad",
+    "power_sources": [],
+    "signature_effect": "force",
+    "focus_skills": [
+      "endure",
+      "survive",
+      "athletics",
+      "observe",
+      "evasion",
+      "handle"
+    ],
+    "reasoning": "Nomad and Guardian both invest in not breaking — Toughness, Agility, and the Endure Skill that carries the Role."
+  },
+  {
+    "id": "wayfinder",
+    "role": "wayfinder",
+    "specialty": "seeker",
+    "aptitude": "explorer",
+    "power_sources": [],
+    "signature_effect": "force",
+    "focus_skills": [
+      "survive",
+      "observe",
+      "knowledge",
+      "athletics",
+      "handle",
+      "endure"
+    ],
+    "reasoning": "Explorer is the Aptitude built from the same work; Seeker adds the perception to read terrain before entering it."
+  },
+  {
+    "id": "speaker",
+    "role": "speaker",
+    "specialty": "orator",
+    "aptitude": "diplomat",
+    "power_sources": [],
+    "signature_effect": "psychic",
+    "focus_skills": [
+      "persuade",
+      "lead",
+      "inspire",
+      "observe",
+      "network",
+      "deceive"
+    ],
+    "reasoning": "Diplomat raises Morale, Acuity, and Serenity — read the room, hold the room, absorb what the room throws back."
+  },
+  {
+    "id": "infiltrator",
+    "role": "infiltrator",
+    "specialty": "infiltrator",
+    "aptitude": "criminal",
+    "power_sources": [],
+    "signature_effect": "psychic",
+    "focus_skills": [
+      "stealth",
+      "deceive",
+      "legerdemain",
+      "observe",
+      "persuade",
+      "network"
+    ],
+    "reasoning": "Criminal supplies the Aptitude Skills a cover identity actually needs; the matching Specialty deepens the deception."
+  },
+  {
+    "id": "empath",
+    "role": "empath",
+    "specialty": "empath",
+    "aptitude": "diplomat",
+    "power_sources": [],
+    "signature_effect": "psychic",
+    "focus_skills": [
+      "observe",
+      "persuade",
+      "inspire",
+      "analyze",
+      "network",
+      "concentrate"
+    ],
+    "reasoning": "Diplomat and Empath both run on Acuity and Serenity, which is what sustained close reading of people costs."
+  },
+  {
+    "id": "artificer",
+    "role": "artificer",
+    "specialty": "theorist",
+    "aptitude": "engineer",
+    "power_sources": [],
+    "signature_effect": "fire",
+    "focus_skills": [
+      "operate",
+      "knowledge",
+      "analyze",
+      "legerdemain",
+      "observe",
+      "trade"
+    ],
+    "reasoning": "Engineer is the only Aptitude pairing Intellect with Strength — design and the physical labor design actually involves."
+  },
+  {
+    "id": "investigator",
+    "role": "investigator",
+    "specialty": "seeker",
+    "aptitude": "academic",
+    "power_sources": [],
+    "signature_effect": "psychic",
+    "focus_skills": [
+      "observe",
+      "analyze",
+      "knowledge",
+      "persuade",
+      "stealth",
+      "network"
+    ],
+    "reasoning": "Academic gives the research foundation; Seeker adds the observation that turns a scene into a reconstruction."
+  },
+  {
+    "id": "polymath",
+    "role": "polymath",
+    "specialty": "theorist",
+    "aptitude": "polymath",
+    "power_sources": [],
+    "signature_effect": "force",
+    "focus_skills": [
+      "knowledge",
+      "analyze",
+      "observe",
+      "persuade",
+      "operate",
+      "survive"
+    ],
+    "reasoning": "The Polymath Aptitude and Role reinforce each other — broad Ability Scores and the ability to borrow any Skill once per session."
+  },
+  {
+    "id": "caster",
+    "role": "caster",
+    "specialty": "conduit",
+    "aptitude": "academic",
+    "power_sources": [
+      "arcane"
+    ],
+    "signature_effect": "fire",
+    "focus_skills": [
+      "cast-attack",
+      "cast-utility",
+      "concentrate",
+      "knowledge",
+      "analyze",
+      "observe"
+    ],
+    "reasoning": "Academic raises Intellect, Acuity, and Willpower together, covering casting, targeting, and holding concentration under pressure."
+  },
+  {
+    "id": "channeler",
+    "role": "channeler",
+    "specialty": "warden",
+    "aptitude": "celebrant",
+    "power_sources": [
+      "spirit"
+    ],
+    "signature_effect": "radiant",
+    "focus_skills": [
+      "channel",
+      "endure",
+      "lead",
+      "inspire",
+      "observe"
+    ],
+    "reasoning": "Celebrant supplies Belief and Morale; Warden turns that authority outward to protect the rest of the party.",
+    "flags": [
+      "Book says \"Spiritual / Divine\"; drafted as Spirit.",
+      "Abjure replaced by Channel, which is already listed; sixth Focus Skill to be decided."
+    ]
+  },
+  {
+    "id": "weird",
+    "role": "weird",
+    "specialty": "shaper",
+    "aptitude": "shaman",
+    "power_sources": [
+      "weird"
+    ],
+    "signature_effect": "void",
+    "focus_skills": [
+      "cast-attack",
+      "concentrate",
+      "resist",
+      "survive",
+      "observe",
+      "knowledge"
+    ],
+    "reasoning": "Shaman is the Aptitude nearest to untaught power; Shaper Specialty gives the chaos somewhere to land."
+  },
+  {
+    "id": "psion",
+    "role": "psion",
+    "specialty": "anchor",
+    "aptitude": "academic",
+    "power_sources": [
+      "psionic"
+    ],
+    "signature_effect": "psychic",
+    "focus_skills": [
+      "concentrate",
+      "resist",
+      "observe",
+      "analyze",
+      "persuade",
+      "knowledge"
+    ],
+    "reasoning": "Academic builds the mental discipline the Role runs on; Anchor holds you steady when the discipline is tested."
+  },
+  {
+    "id": "shaper",
+    "role": "shaper",
+    "specialty": "shaper",
+    "aptitude": "trained-by-nature",
+    "power_sources": [
+      "spirit"
+    ],
+    "signature_effect": "cold",
+    "focus_skills": [
+      "cast-utility",
+      "survive",
+      "channel",
+      "observe",
+      "endure",
+      "handle"
+    ],
+    "reasoning": "Trained by Nature raises Toughness, Strength, and Acuity — the endurance and perception that environmental work demands.",
+    "flags": [
+      "Book says \"Spiritual / Divine\"; drafted as Spirit."
+    ]
+  },
+  {
+    "id": "medic",
+    "role": "medic",
+    "specialty": "warden",
+    "aptitude": "healer",
+    "power_sources": [],
+    "signature_effect": "healing",
+    "focus_skills": [
+      "survive",
+      "handle",
+      "analyze",
+      "observe",
+      "endure",
+      "knowledge"
+    ],
+    "reasoning": "Healer is the Aptitude written for this Role; Warden extends the same protective instinct into a combat round."
+  },
+  {
+    "id": "netrunner",
+    "role": "netrunner",
+    "specialty": "theorist",
+    "aptitude": "operative",
+    "power_sources": [
+      "psionic"
+    ],
+    "signature_effect": "electric",
+    "focus_skills": [
+      "hack",
+      "operate",
+      "observe",
+      "analyze",
+      "stealth",
+      "knowledge"
+    ],
+    "reasoning": "Operative trains the intrusion mindset; Theorist supplies the analytical control a hostile system punishes you for lacking."
+  }
+]

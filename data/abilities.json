@@ -1,0 +1,99 @@
+{
+  "domains": [
+    {
+      "id": "body",
+      "name": "Body",
+      "pool": "stamina",
+      "abilities": [
+        "str",
+        "tou",
+        "agi"
+      ]
+    },
+    {
+      "id": "mind",
+      "name": "Mind",
+      "pool": "mana",
+      "abilities": [
+        "int",
+        "wil",
+        "acu"
+      ]
+    },
+    {
+      "id": "spirit",
+      "name": "Spirit",
+      "pool": "resolve",
+      "abilities": [
+        "bel",
+        "mor",
+        "ser"
+      ]
+    }
+  ],
+  "abilities": [
+    {
+      "id": "str",
+      "name": "Strength",
+      "domain": "body",
+      "slot": "attack",
+      "description": "The force behind a blow, the power in a grapple, the physical pressure that puts an opponent down."
+    },
+    {
+      "id": "tou",
+      "name": "Toughness",
+      "domain": "body",
+      "slot": "defend",
+      "description": "Absorbing punishment and staying functional. A tough character takes the same hits and keeps going."
+    },
+    {
+      "id": "agi",
+      "name": "Agility",
+      "domain": "body",
+      "slot": "deflect",
+      "description": "Speed, reflexes, and spatial awareness. Where Toughness absorbs, Agility avoids."
+    },
+    {
+      "id": "int",
+      "name": "Intellect",
+      "domain": "mind",
+      "slot": "attack",
+      "description": "Raw cognitive power — learning, recall, analysis, application. Drives the offensive use of knowledge and supernatural force."
+    },
+    {
+      "id": "wil",
+      "name": "Willpower",
+      "domain": "mind",
+      "slot": "defend",
+      "description": "Mental endurance. Sustains concentration, resists psychic assault, holds focus under pressure."
+    },
+    {
+      "id": "acu",
+      "name": "Acuity",
+      "domain": "mind",
+      "slot": "deflect",
+      "description": "Situational awareness and instinctive reading of circumstances. The gut sense something is wrong before it lands."
+    },
+    {
+      "id": "bel",
+      "name": "Belief",
+      "domain": "spirit",
+      "slot": "attack",
+      "description": "Channeling conviction into power — divine force, healing, and spiritual assault. Used with Channel in the Magic Overlay."
+    },
+    {
+      "id": "mor",
+      "name": "Morale",
+      "domain": "spirit",
+      "slot": "defend",
+      "description": "Rallying and holding ground under emotional pressure. The courage to keep going when everything says to stop."
+    },
+    {
+      "id": "ser",
+      "name": "Serenity",
+      "domain": "spirit",
+      "slot": "deflect",
+      "description": "Inner calm that withstands attacks on the soul. Where Morale resists, Serenity flows around."
+    }
+  ]
+}

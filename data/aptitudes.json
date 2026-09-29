@@ -1,0 +1,479 @@
+[
+  {
+    "id": "soldier",
+    "name": "Soldier",
+    "category": "Combat and Martial",
+    "description": "You trained to fight in an organized context — drills, ranks, orders. Combat is structured; so are you.",
+    "ability_bonuses": {
+      "str": 1,
+      "tou": 1,
+      "mor": 1
+    },
+    "bonus_skills": [
+      "combat-melee",
+      "endure"
+    ],
+    "signature_ability": "Once per scene, issue a short tactical command as a Free Action. One ally in Near range may immediately reposition up to 1 range band at no Action cost.",
+    "genres_text": "All genres. Fighter, guard, legionary, mercenary, marine.",
+    "starting_wealth": 3,
+    "ability_notes": "Strength (combat training and weapons work), Toughness (physical conditioning and enduring punishment), Morale (unit cohesion, command pressure, and the confidence that comes from belonging to something larger)."
+  },
+  {
+    "id": "duelist",
+    "name": "Duelist",
+    "category": "Combat and Martial",
+    "description": "You studied a specific martial tradition — fencing, kenjutsu, escrima, or something equally precise.",
+    "ability_bonuses": {
+      "agi": 1,
+      "acu": 1,
+      "ser": 1
+    },
+    "bonus_skills": [
+      "combat-melee",
+      "evasion"
+    ],
+    "signature_ability": "Once per encounter, when you successfully Deflect a melee attack, make a free Riposte — a single attack roll at no Action cost against the same attacker.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 4,
+    "ability_notes": "Agility (precise movement and footwork), Acuity (reading an opponent’s intentions from posture and weight), Serenity (the discipline and stillness at the core of formal martial traditions)."
+  },
+  {
+    "id": "savage",
+    "name": "Savage",
+    "category": "Combat and Martial",
+    "description": "You grew up in an environment where survival was daily negotiation. Civilised conventions were not available.",
+    "ability_bonuses": {
+      "str": 1,
+      "tou": 1,
+      "acu": 1
+    },
+    "bonus_skills": [
+      "athletics",
+      "survive"
+    ],
+    "signature_ability": "When fighting without weapons or armor, your Deflect is 10 + Strength instead of 10 + Agility. You are never impaired by natural environmental Conditions.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 2,
+    "ability_notes": "Strength (physical demands of survival), Toughness (enduring exposure, hunger, and constant physical stress), Acuity (reading terrain, weather, and threat before it arrives)."
+  },
+  {
+    "id": "sentinel",
+    "name": "Sentinel",
+    "category": "Combat and Martial",
+    "description": "You spent years holding a position, watching a door, or keeping someone alive. Patience is a discipline.",
+    "ability_bonuses": {
+      "tou": 1,
+      "acu": 1,
+      "wil": 1
+    },
+    "bonus_skills": [
+      "endure",
+      "observe"
+    ],
+    "signature_ability": "You never suffer Surprised. When standing guard or watching a space, ask the GM one yes/no question about what has moved through it in the last hour.",
+    "genres_text": "All genres. Guard, watchman, bodyguard, door warden.",
+    "starting_wealth": 3,
+    "ability_notes": "Toughness (holding a post through exhaustion and discomfort), Acuity (sustained attention and threat detection), Willpower (the mental endurance to stay alert when nothing happens for hours)."
+  },
+  {
+    "id": "academic",
+    "name": "Academic",
+    "category": "Knowledge and Technical",
+    "description": "You pursued formal learning. You know how to read a primary source, find an argument’s weak point, and locate information fast.",
+    "ability_bonuses": {
+      "int": 1,
+      "acu": 1,
+      "wil": 1
+    },
+    "bonus_skills": [
+      "knowledge",
+      "analyze"
+    ],
+    "signature_ability": "Once per scene, declare a field of study. Your next Knowledge or Analyze roll in that field automatically succeeds at Standard quality — no roll needed.",
+    "genres_text": "All genres. Scholar, historian, physician, lawyer, scientist.",
+    "starting_wealth": 5,
+    "ability_notes": "Intellect (knowledge acquisition and analysis), Acuity (discerning reliable from unreliable sources), Willpower (the mental discipline to sustain concentrated study)."
+  },
+  {
+    "id": "scientist",
+    "name": "Scientist",
+    "category": "Knowledge and Technical",
+    "description": "You think in systems and hypotheses. Every problem is a set of variables with a solution.",
+    "ability_bonuses": {
+      "int": 1,
+      "acu": 1,
+      "ser": 1
+    },
+    "bonus_skills": [
+      "operate",
+      "analyze"
+    ],
+    "signature_ability": "Given access to materials and one uninterrupted Task Block, identify any substance, mechanism, or compound with a successful Analyze roll — even without Genre-specific tools.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 5,
+    "ability_notes": "Intellect (systematic reasoning and hypothesis formation), Acuity (precise observation and measurement), Serenity (the patience to run an experiment properly rather than jumping to conclusions)."
+  },
+  {
+    "id": "engineer",
+    "name": "Engineer",
+    "category": "Knowledge and Technical",
+    "description": "You understand how things work at the level of systems and tolerances. If it was built, you can understand it.",
+    "ability_bonuses": {
+      "int": 1,
+      "acu": 1,
+      "str": 1
+    },
+    "bonus_skills": [
+      "operate",
+      "knowledge"
+    ],
+    "signature_ability": "Given tools and materials, repair, modify, or construct any mechanical or structural object within your Genre’s technology level. The result does not degrade unless deliberately damaged.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 4,
+    "ability_notes": "Intellect (systems thinking, design, calculation), Acuity (precise observation of mechanical failure), Strength (the physical labor engineering actually involves)."
+  },
+  {
+    "id": "healer",
+    "name": "Healer",
+    "category": "Knowledge and Technical",
+    "description": "You learned to put people back together before they knew they needed it. Triage is a skill; so is knowing when nothing more can be done.",
+    "ability_bonuses": {
+      "acu": 1,
+      "int": 1,
+      "ser": 1
+    },
+    "bonus_skills": [
+      "survive",
+      "handle"
+    ],
+    "signature_ability": "Once per scene outside combat, attempt to clear one Condition from an ally using available materials and a Survive roll (Difficulty 12). On success, the Condition clears immediately.",
+    "genres_text": "All genres. Physician, medic, field surgeon, herbalist, combat medic.",
+    "starting_wealth": 4,
+    "ability_notes": "Acuity (diagnosis, observation, spotting what others miss), Intellect (medical knowledge, pharmacology, anatomy, procedure), Serenity (the calm required to work on someone who is suffering)."
+  },
+  {
+    "id": "noble",
+    "name": "Noble",
+    "category": "Social and Influence",
+    "description": "You were born or elevated into a class that opens doors by name. The weight of expectation shaped everything.",
+    "ability_bonuses": {
+      "mor": 1,
+      "bel": 1,
+      "int": 1
+    },
+    "bonus_skills": [
+      "persuade",
+      "network"
+    ],
+    "signature_ability": "You start at Reputation 2 instead of 1. Once per session, invoke your standing to gain access, an audience, or a resource that would normally require a roll.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 6,
+    "ability_notes": "Morale (the confidence of lifelong social authority), Belief (the conviction that your position carries genuine moral weight), Intellect (formal education, languages, governance, and the theory of power).",
+    "starting_reputation": 2
+  },
+  {
+    "id": "criminal",
+    "name": "Criminal",
+    "category": "Social and Influence",
+    "description": "You operated outside sanctioned systems. The skills this required are not taught in schools.",
+    "ability_bonuses": {
+      "acu": 1,
+      "agi": 1,
+      "mor": 1
+    },
+    "bonus_skills": [
+      "legerdemain",
+      "deceive"
+    ],
+    "signature_ability": "Once per session, locate a fence, black market contact, or underground supplier in any settlement — no roll if the settlement has a criminal underworld.",
+    "genres_text": "All genres. Thief, smuggler, fixer, gang member, con artist.",
+    "starting_wealth": 3,
+    "ability_notes": "Acuity (reading marks, situations, and threats before they develop), Agility (movement in tight and contested environments), Morale (the nerve to hold a bluff or walk through a checkpoint)."
+  },
+  {
+    "id": "diplomat",
+    "name": "Diplomat",
+    "category": "Social and Influence",
+    "description": "You represented interests at a table, not a battlefield. Your victories were invisible — agreements reached, crises quietly defused.",
+    "ability_bonuses": {
+      "mor": 1,
+      "acu": 1,
+      "ser": 1
+    },
+    "bonus_skills": [
+      "persuade",
+      "lead"
+    ],
+    "signature_ability": "Once per session, call a pause in any non-lethal social or physical confrontation. All parties hold for one scene while terms are discussed. Cannot be used in active combat.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 5,
+    "ability_notes": "Morale (projecting calm authority in high-pressure situations), Acuity (reading the room, detecting unstated positions), Serenity (the patience to let silence do work, to absorb provocation without reacting)."
+  },
+  {
+    "id": "merchant",
+    "name": "Merchant",
+    "category": "Social and Influence",
+    "description": "You made your living knowing what things were worth and who needed them. Every relationship was also a transaction.",
+    "ability_bonuses": {
+      "acu": 1,
+      "int": 1,
+      "mor": 1
+    },
+    "bonus_skills": [
+      "trade",
+      "network"
+    ],
+    "signature_ability": "You always know the approximate true value of any item, service, or currency you examine. You cannot be meaningfully deceived about price.",
+    "genres_text": "All genres. Trader, merchant prince, deal-maker, fixer.",
+    "starting_wealth": 5,
+    "ability_notes": "Acuity (evaluating goods, reading buyer and seller intent, spotting counterfeits), Intellect (market analysis, futures, logistics, negotiation strategy), Morale (the confidence to name a price and hold it)."
+  },
+  {
+    "id": "commander",
+    "name": "Commander",
+    "category": "Social and Influence",
+    "description": "You led people in high-stakes situations. The weight of their decisions rested on your clarity.",
+    "ability_bonuses": {
+      "mor": 1,
+      "int": 1,
+      "wil": 1
+    },
+    "bonus_skills": [
+      "lead",
+      "tactics"
+    ],
+    "signature_ability": "Once per encounter, grant one ally an additional Reaction this round — not an Action. The ally must be able to hear or see you.",
+    "genres_text": "All genres. Officer, captain, team leader, warlord, general.",
+    "starting_wealth": 5,
+    "ability_notes": "Morale (the personal authority that makes people follow in difficult moments), Intellect (tactical analysis, logistics, reading a battlefield or a crisis), Willpower (holding your own nerve so others can hold theirs)."
+  },
+  {
+    "id": "polymath",
+    "name": "Polymath",
+    "category": "Social and Influence",
+    "description": "Everything you encountered, you learned from. You are broadly capable and specifically curious.",
+    "ability_bonuses": {
+      "int": 1,
+      "acu": 1,
+      "ser": 1
+    },
+    "bonus_skills": {
+      "choose": 2
+    },
+    "signature_ability": "Once per session, use any Skill you are untrained in as if you have rank 2 (Focus Skill level) for one roll. You have encountered something like this before.",
+    "genres_text": "All genres. Renaissance person, autodidact, jack-of-all-trades.",
+    "starting_wealth": 4,
+    "ability_notes": "Intellect (the foundational cognitive capacity to absorb and apply knowledge across domains), Acuity (the observational habit that turns every experience into learning), Serenity (the equanimity to be a beginner repeatedly)."
+  },
+  {
+    "id": "sailor",
+    "name": "Sailor",
+    "category": "Exploration and Survival",
+    "description": "You lived and worked on vessels. Your sense of balance is calibrated to decks, not floors. The sea taught you things land cannot.",
+    "ability_bonuses": {
+      "agi": 1,
+      "tou": 1,
+      "acu": 1
+    },
+    "bonus_skills": [
+      "athletics",
+      "pilot"
+    ],
+    "signature_ability": "You are never at a disadvantage on unstable surfaces. You can navigate by stars, current, and wind without instruments.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 3,
+    "ability_notes": "Agility (balance and movement on unstable surfaces, rope work), Toughness (the endurance of maritime life), Acuity (reading weather, currents, stars, and the behavior of the sea)."
+  },
+  {
+    "id": "pilot",
+    "name": "Pilot",
+    "category": "Exploration and Survival",
+    "description": "You know how machines move through space better than you know how people move through rooms.",
+    "ability_bonuses": {
+      "acu": 1,
+      "agi": 1,
+      "int": 1
+    },
+    "bonus_skills": [
+      "pilot",
+      "operate"
+    ],
+    "signature_ability": "Once per session, attempt a maneuver with any vehicle that would normally be impossible given its specs. The GM determines consequences — success is possible, not guaranteed.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 4,
+    "ability_notes": "Acuity (spatial awareness, reading instrument feedback, threat assessment at speed), Agility (precise physical control inputs), Intellect (understanding the machine’s systems, fuel management, navigation calculation)."
+  },
+  {
+    "id": "explorer",
+    "name": "Explorer",
+    "category": "Exploration and Survival",
+    "description": "You went where maps ran out and came back. The blank spaces of the world are where you feel most at home.",
+    "ability_bonuses": {
+      "acu": 1,
+      "tou": 1,
+      "int": 1
+    },
+    "bonus_skills": [
+      "survive",
+      "observe"
+    ],
+    "signature_ability": "You are never lost. Before committing to unmapped territory, the GM tells you one true thing about what is ahead.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 4,
+    "ability_notes": "Acuity (navigation, threat detection in unknown territory), Toughness (the physical endurance of long expeditions and travel without resupply), Intellect (cartography, ethnography, route planning)."
+  },
+  {
+    "id": "nomad",
+    "name": "Nomad",
+    "category": "Exploration and Survival",
+    "description": "You have no permanent home by choice or circumstance. Every place is temporary; every connection has an exit.",
+    "ability_bonuses": {
+      "agi": 1,
+      "tou": 1,
+      "acu": 1
+    },
+    "bonus_skills": [
+      "survive",
+      "handle"
+    ],
+    "signature_ability": "You never suffer Encumbered from personal gear. Your mount or vehicle never fails from fatigue while you tend to it. Once per session, find adequate shelter, water, and food for the group in any environment without a roll.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 2,
+    "ability_notes": "Agility (the physical ease of movement, packing light, moving fast through varied terrain), Toughness (the endurance of constant travel and sleeping rough), Acuity (reading new environments fast)."
+  },
+  {
+    "id": "trained-by-nature",
+    "name": "Trained by Nature",
+    "category": "Exploration and Survival",
+    "description": "The wilderness, the elements, or the raw material world was your instructor. No classroom — only consequence.",
+    "ability_bonuses": {
+      "tou": 1,
+      "str": 1,
+      "acu": 1
+    },
+    "bonus_skills": [
+      "survive",
+      "athletics"
+    ],
+    "signature_ability": "You are never impaired by natural environmental Conditions. Once per scene, clear one physical Condition affecting you without a roll if outdoors or in a natural environment.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 3,
+    "ability_notes": "Toughness (the physical hardening of sustained exposure to the natural world), Strength (the labor of wilderness survival), Acuity (reading the land, weather, animal behavior, and seasonal patterns).",
+    "starting_wealth_note": "No default in Ch 9; Struggling (DECISIONS.md)."
+  },
+  {
+    "id": "celebrant",
+    "name": "Celebrant",
+    "category": "Spiritual and Supernatural",
+    "description": "You dedicated yourself to a higher purpose — divinity, philosophy, or a cause larger than yourself.",
+    "ability_bonuses": {
+      "bel": 1,
+      "mor": 1,
+      "ser": 1
+    },
+    "bonus_skills": [
+      "channel",
+      "inspire"
+    ],
+    "signature_ability": "Your faith is recognized. Once per session, request aid from a related institution — shelter, information, resources, or passage — without a roll if the request is reasonable.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 4,
+    "ability_notes": "Belief (the foundational conviction driving the Celebrant’s identity and authority), Morale (the communal strength of belonging to something larger), Serenity (the inner quiet that genuine faith or deep conviction produces)."
+  },
+  {
+    "id": "shaman",
+    "name": "Shaman",
+    "category": "Spiritual and Supernatural",
+    "description": "You walk between the material world and the one beneath it. Not all doors open; not all doors should.",
+    "ability_bonuses": {
+      "bel": 1,
+      "acu": 1,
+      "ser": 1
+    },
+    "bonus_skills": [
+      "channel",
+      "survive"
+    ],
+    "signature_ability": "You can communicate with spirits of place. Once per scene, ask one honest question. The spirit answers from its own limited perspective.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 2,
+    "ability_notes": "Belief (the spiritual connection making communication with non-material entities possible), Acuity (perceiving things present but not visible), Serenity (the groundedness required to walk between worlds without losing your anchor to either)."
+  },
+  {
+    "id": "temple-trained",
+    "name": "Temple Trained",
+    "category": "Spiritual and Supernatural",
+    "description": "You were formed by an institution of physical and spiritual discipline — a monastery, sacred order, or devotional school.",
+    "ability_bonuses": {
+      "bel": 1,
+      "tou": 1,
+      "wil": 1
+    },
+    "bonus_skills": [
+      "channel",
+      "endure"
+    ],
+    "signature_ability": "Once per session, call on your order’s authority, shelter, or resources without a roll. The order must be able to plausibly provide what you ask for.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 3,
+    "ability_notes": "Belief (the faith underpinning the entire practice), Toughness (the physical conditioning monastic training produces), Willpower (the mental endurance cultivated through meditation, prayer, and structured discipline).",
+    "starting_wealth_note": "No default in Ch 9; Struggling (DECISIONS.md)."
+  },
+  {
+    "id": "operative",
+    "name": "Operative",
+    "category": "Fringe and Underworld",
+    "description": "You were trained to walk into rooms wrong and leave right. Tradecraft is a second language.",
+    "ability_bonuses": {
+      "acu": 1,
+      "agi": 1,
+      "wil": 1
+    },
+    "bonus_skills": [
+      "observe",
+      "legerdemain"
+    ],
+    "signature_ability": "You can read a scene for exits, threats, and cover as a Free Action on entering any space. The GM must answer truthfully.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 4,
+    "ability_notes": "Acuity (surveillance, pattern recognition, situational awareness), Agility (movement through contested spaces without drawing attention), Willpower (holding cover under pressure, resisting interrogation)."
+  },
+  {
+    "id": "street-survivor",
+    "name": "Street Survivor",
+    "category": "Fringe and Underworld",
+    "description": "You grew up where the ground was harder and the rules were different. You learned by necessity what others never needed to know.",
+    "ability_bonuses": {
+      "agi": 1,
+      "acu": 1,
+      "wil": 1
+    },
+    "bonus_skills": [
+      "stealth",
+      "intimidate"
+    ],
+    "signature_ability": "You are never flat-footed in urban environments. Once per session, find a useful item, contact, or piece of information in any settlement without a roll.",
+    "genres_text": "All genres. Urchin, street tough, gang survivor, urban drifter.",
+    "starting_wealth": 2,
+    "ability_notes": "Agility (constant movement, threading crowds, knowing how to move without drawing attention), Acuity (reading danger before it arrives), Willpower (the mental toughness that comes from surviving without a safety net)."
+  },
+  {
+    "id": "outlaw",
+    "name": "Outlaw",
+    "category": "Fringe and Underworld",
+    "description": "You lived outside the law, willingly or not. You know how pursuit works because you have been the one pursued.",
+    "ability_bonuses": {
+      "agi": 1,
+      "acu": 1,
+      "tou": 1
+    },
+    "bonus_skills": [
+      "stealth",
+      "deceive"
+    ],
+    "signature_ability": "Once per session, vanish into a crowd, terrain, or urban environment without a roll. You and any allies in Close range are untraceable for the scene unless actively and specifically searched.",
+    "genres_text": "Fantasy and any setting where the role fits.",
+    "starting_wealth": 3,
+    "ability_notes": "Agility (the physical ability to evade, escape, and disappear), Acuity (reading pursuers, anticipating checkpoints), Toughness (surviving on the run — sleeping rough, healing without proper care)."
+  }
+]

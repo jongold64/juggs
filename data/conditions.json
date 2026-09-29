@@ -1,0 +1,461 @@
+[
+  {
+    "id": "blinded",
+    "name": "Blinded",
+    "positive": false,
+    "domain": "body",
+    "ability": "agi",
+    "effect": "−4 to all Attack and Observe rolls. Cannot target unseen.",
+    "source": null,
+    "removed": "end of next turn or healing."
+  },
+  {
+    "id": "prone",
+    "name": "Prone",
+    "positive": false,
+    "domain": "body",
+    "ability": "agi",
+    "effect": "−2 to Attack. Melee attackers gain +2 vs you. Moving costs 1 extra Action.",
+    "source": null,
+    "removed": "spend 1 Action or Reaction."
+  },
+  {
+    "id": "restrained",
+    "name": "Restrained",
+    "positive": false,
+    "domain": "body",
+    "ability": "str",
+    "effect": "Cannot move. −2 to Evasion and Deflect.",
+    "source": null,
+    "removed": "opposed Strength roll."
+  },
+  {
+    "id": "frightened",
+    "name": "Frightened",
+    "positive": false,
+    "domain": "spirit",
+    "ability": "ser",
+    "effect": "−2 to all rolls while source is visible.",
+    "source": null,
+    "removed": "source removed, or Inspire/Resist vs DC 12."
+  },
+  {
+    "id": "stunned",
+    "name": "Stunned",
+    "positive": false,
+    "domain": "body",
+    "ability": "tou",
+    "effect": "Lose all Actions and Reactions this round. Deflect only.",
+    "source": null,
+    "removed": "end of next turn."
+  },
+  {
+    "id": "exhausted",
+    "name": "Exhausted",
+    "positive": false,
+    "domain": "body",
+    "ability": "tou",
+    "effect": "−2 to all rolls. Cumulative.",
+    "source": null,
+    "removed": "Full Recovery clears 1 level."
+  },
+  {
+    "id": "poisoned",
+    "name": "Poisoned",
+    "positive": false,
+    "domain": "body",
+    "ability": "tou",
+    "effect": "−1 to all Body rolls. 1 Stamina box per round until treated.",
+    "source": null,
+    "removed": "Survive DC 14 (requires a Full Rest to clear), or time (clears after 1 scene without exposure)."
+  },
+  {
+    "id": "burning",
+    "name": "Burning",
+    "positive": false,
+    "domain": "body",
+    "ability": "tou",
+    "effect": "1 Stamina box per round (Energy damage). Spreads to adjacent on Nat 1.",
+    "source": null,
+    "removed": "1 Action, or immersion in water."
+  },
+  {
+    "id": "silenced",
+    "name": "Silenced",
+    "positive": false,
+    "domain": "mind",
+    "ability": "wil",
+    "effect": "Cannot speak. Using Powers requires Concentrate DC 10 (Magic Overlay).",
+    "source": null,
+    "removed": "end of effect or Dispel."
+  },
+  {
+    "id": "exposed",
+    "name": "Exposed",
+    "positive": false,
+    "domain": "spirit",
+    "ability": "ser",
+    "effect": "All incoming attacks gain +2.",
+    "source": null,
+    "removed": "take a Defend or Evasion action."
+  },
+  {
+    "id": "bleeding",
+    "name": "Bleeding",
+    "positive": false,
+    "domain": "body",
+    "ability": "tou",
+    "effect": "1 Stamina box per round (Physical damage). Does not spread.",
+    "source": null,
+    "removed": "Survive DC 10, or Full Rest."
+  },
+  {
+    "id": "charmed",
+    "name": "Charmed",
+    "positive": false,
+    "domain": "mind",
+    "ability": "wil",
+    "effect": "Treats the source as a trusted ally. Cannot willingly attack the charmer. −4 to all social rolls made against the charmer.",
+    "source": null,
+    "removed": "charmer attacks the charmed character, or Resist vs DC 14."
+  },
+  {
+    "id": "confused",
+    "name": "Confused",
+    "positive": false,
+    "domain": "mind",
+    "ability": "wil",
+    "effect": "Must succeed on a Willpower check DC 12 at the start of each turn or direct all Actions at a random adjacent character (1–3 = nearest ally, 4–6 = nearest enemy).",
+    "source": null,
+    "removed": "end of effect, or Inspire/Resist vs DC 14."
+  },
+  {
+    "id": "dazed",
+    "name": "Dazed",
+    "positive": false,
+    "domain": "body",
+    "ability": "tou",
+    "effect": "Lose 1 Action per round (minimum 1 Action always remains). Lighter than Stunned — the character can still act.",
+    "source": null,
+    "removed": "end of next turn."
+  },
+  {
+    "id": "deafened",
+    "name": "Deafened",
+    "positive": false,
+    "domain": "mind",
+    "ability": "acu",
+    "effect": "−2 to all Observe rolls. Automatically fails hearing-based checks. Cannot benefit from verbal commands, Inspire, or social actions requiring speech.",
+    "source": null,
+    "removed": "end of effect or Heal DC 10."
+  },
+  {
+    "id": "slowed",
+    "name": "Slowed",
+    "positive": false,
+    "domain": "body",
+    "ability": "agi",
+    "effect": "Movement costs 1 extra Action per range band. Cannot use the free movement granted by Actions.",
+    "source": null,
+    "removed": "end of scene, or Heal DC 10."
+  },
+  {
+    "id": "removed",
+    "name": "Removed",
+    "positive": false,
+    "domain": null,
+    "ability": null,
+    "effect": "The character has lost contact with the source of their power. This is always a narrative event — a mage in a null-magic zone, a warrior stripped of their equipment and gifts, a spiritual leader whose faith has been shattered. Three variants exist, one per Domain. All three may apply simultaneously.",
+    "source": null,
+    "removed": null
+  },
+  {
+    "id": "removed-body",
+    "name": "Removed (Body)",
+    "positive": false,
+    "domain": "body",
+    "ability": null,
+    "effect": "Cannot add any Body Ability Score to rolls — all Body-based rolls use d20 only. Incoming Stamina damage is doubled. Physical skills may still be attempted but without Ability Score backing.",
+    "source": null,
+    "removed": "narrative restoration of the physical source — GM call only."
+  },
+  {
+    "id": "removed-mind",
+    "name": "Removed (Mind)",
+    "positive": false,
+    "domain": "mind",
+    "ability": null,
+    "effect": "Cannot cast Powers or spend Mana. All Mind-based rolls suffer −4. Mana pool still takes damage normally but boxes cannot be spent voluntarily.",
+    "source": null,
+    "removed": "narrative restoration of the mental or arcane source — GM call only."
+  },
+  {
+    "id": "removed-spirit",
+    "name": "Removed (Spirit)",
+    "positive": false,
+    "domain": "spirit",
+    "ability": null,
+    "effect": "Cannot use Spirit-based skills or Powers. Cannot spend Resolve. All Spirit-based rolls suffer −4. Social actions default to bare Ability Score only — no Skill bonus applies.",
+    "source": null,
+    "removed": "narrative restoration of the spiritual or emotional source — GM call only."
+  },
+  {
+    "id": "concealed",
+    "name": "Concealed",
+    "positive": false,
+    "domain": "body",
+    "ability": "acu",
+    "effect": "Partially obscured by fog, darkness, or cover. Attackers must succeed on a DC 11 Acuity check before rolling — on failure, the attack misses regardless of the roll.",
+    "source": null,
+    "removed": "obscurement cleared, or attacker moves to Close range."
+  },
+  {
+    "id": "doomed",
+    "name": "Doomed",
+    "positive": false,
+    "domain": "spirit",
+    "ability": "ser",
+    "effect": "A powerful curse or divine judgment reduces the character’s Broken threshold by 1 per Doomed level. Doomed 1 means Broken occurs at box 14. Doomed 2 at box 13. Maximum Doomed 3. At Doomed 3 + Broken, the character dies.",
+    "source": null,
+    "removed": "1 level per ritual cleansing (Channel DC 16); Doomed 3 requires divine intervention."
+  },
+  {
+    "id": "drained",
+    "name": "Drained",
+    "positive": false,
+    "domain": "body",
+    "ability": "tou",
+    "effect": "Life force has been sapped. Pool maximum reduced by 2 per Drained level (maximum Drained 3). Existing marked boxes remain; the ceiling drops.",
+    "source": null,
+    "removed": "1 level per Full Rest with magical healing. Does not clear on Quick Rest. Exception: Drained caused by the Necrotic Effect at 4–5 boxes requires divine healing specifically — arcane or other non-divine magical healing cannot clear it."
+  },
+  {
+    "id": "enfeebled",
+    "name": "Enfeebled",
+    "positive": false,
+    "domain": "body",
+    "ability": "str",
+    "effect": "−2 to all Strength-based rolls (Attack, Athletics, Intimidate). Does not affect Agility or Toughness rolls. Lighter than Exhausted — the body is weak but the mind and movement are intact.",
+    "source": null,
+    "removed": "Full Rest, or Heal DC 10."
+  },
+  {
+    "id": "fascinated",
+    "name": "Fascinated",
+    "positive": false,
+    "domain": "mind",
+    "ability": "acu",
+    "effect": "−2 to all rolls not directly related to the source of fascination. Cannot take actions with the Concentrate trait unless they target the source.",
+    "source": null,
+    "removed": "source removed, hostile action against you or an ally, or Resist DC 12."
+  },
+  {
+    "id": "invisible",
+    "name": "Invisible",
+    "positive": false,
+    "domain": "body",
+    "ability": "agi",
+    "effect": "Cannot be seen by creatures relying on normal sight. All attacks against you have −4 to roll (attackers are effectively Blinded toward you). Your own attacks gain +4 vs unaware targets.",
+    "source": null,
+    "removed": "end of effect, or taking any aggressive action — attacking or casting ends Invisible immediately."
+  },
+  {
+    "id": "petrified",
+    "name": "Petrified",
+    "positive": false,
+    "domain": "body",
+    "ability": "tou",
+    "effect": "Transformed to stone or rendered completely rigid. Cannot take any action. DR increases by +4 (the stone provides protection). Cannot be Broken by physical damage while Petrified — but box 15 may be reached when restored.",
+    "source": null,
+    "removed": "dispel magic, Radiant Effect (3+ boxes), or specific counter-ritual."
+  },
+  {
+    "id": "quickened",
+    "name": "Quickened",
+    "positive": true,
+    "domain": "body",
+    "ability": "agi",
+    "effect": "Gain 1 extra Action per round. Once per round, may re-roll a failed Deflect at −2 (take the second result).",
+    "source": "specific Powers, Haste effects, Boon Menu.",
+    "removed": "end of scene, or the source effect ends."
+  },
+  {
+    "id": "routed",
+    "name": "Routed",
+    "positive": false,
+    "domain": "spirit",
+    "ability": "mor",
+    "effect": "Psychological collapse — the character must flee or cower each round. Cannot take offensive actions. At the start of each turn, make a Morale check DC 12 to recover. On success, Routed ends. On failure, must spend all Actions fleeing or hiding.",
+    "source": null,
+    "removed": "Morale check DC 12 (start of turn), or Inspire from ally.",
+    "notes": "Renamed from “Broken (Psychology)” to avoid confusion with pool Broken."
+  },
+  {
+    "id": "sickened",
+    "name": "Sickened",
+    "positive": false,
+    "domain": "body",
+    "ability": "tou",
+    "effect": "−2 to all rolls and DCs. Cannot voluntarily eat, drink, or use consumables. Lighter than Poisoned — no per-round damage, no pool cost. Represents nausea, illness, or deep revulsion.",
+    "source": null,
+    "removed": "Full Rest, or Heal DC 10."
+  },
+  {
+    "id": "blessed",
+    "name": "Blessed",
+    "positive": true,
+    "domain": "spirit",
+    "ability": "bel",
+    "effect": "Divine authority is fully present. All Spirit-based Powers gain the Authority Over Supernatural bonus (+1 effective Power Level) against ALL targets this scene, not just supernatural ones.",
+    "source": "Radiant Effect (4–5 boxes), Channel DC 14, Bishop-level blessing.",
+    "removed": "end of scene, or character commits an act contrary to the blessing’s source."
+  },
+  {
+    "id": "braced",
+    "name": "Braced",
+    "positive": true,
+    "domain": "body",
+    "ability": "tou",
+    "effect": "Defensive stance hardened. DR +2 until end of next turn. Immune to knockback and push effects.",
+    "source": "Guardian’s Hold the Line, Stone Skin power (active), Boon Menu.",
+    "removed": "end of next turn, or character moves voluntarily."
+  },
+  {
+    "id": "focused",
+    "name": "Focused",
+    "positive": true,
+    "domain": "mind",
+    "ability": "acu",
+    "effect": "+2 to all Observe, Analyze, Knowledge, and Tactics rolls until end of scene. Unmark 1 Mana box on activation.",
+    "source": "successful Tactics roll DC 12, Boon Menu.",
+    "removed": "end of scene, or character takes Stamina damage — focus breaks under pain."
+  },
+  {
+    "id": "hasted",
+    "name": "Hasted",
+    "positive": true,
+    "domain": "body",
+    "ability": "agi",
+    "effect": "Speed and reactions dramatically enhanced. Gain 1 extra Action per round. Movement costs 0 extra Actions (Slowed cancels Hasted rather than both applying).",
+    "source": "Force Effect (4–5 boxes, positive use), specific Powers, Boon Menu.",
+    "removed": "end of scene, or 1 Stamina per round to maintain."
+  },
+  {
+    "id": "inspired",
+    "name": "Inspired",
+    "positive": true,
+    "domain": "mind",
+    "ability": "wil",
+    "effect": "+2 to the next roll of any kind. Expended on use (one roll only). Additionally unmark 1 Mana box.",
+    "source": "Inspire skill success (DC 10 grants Inspired to one ally), Lead DC 12 (grants to all allies in Close range).",
+    "removed": "used on a roll, or end of scene."
+  },
+  {
+    "id": "rallied",
+    "name": "Rallied",
+    "positive": true,
+    "domain": "spirit",
+    "ability": "mor",
+    "effect": "Clears 1 Fear level immediately. +1 to all Spirit rolls until end of scene. If this clears Fear entirely, the character is immune to the Routed condition for 1 scene.",
+    "source": "Inspire DC 12, Lead DC 12, completing a mission objective, Boon Menu.",
+    "removed": "end of scene."
+  },
+  {
+    "id": "resolute",
+    "name": "Resolute",
+    "positive": true,
+    "domain": "spirit",
+    "ability": "ser",
+    "effect": "Immune to Frightened, Charmed, Confused, and Routed for 1 round.",
+    "source": "Inspire DC 14, Boon Menu (Clarity on a Spirit roll), Radiant Effect (2+ boxes).",
+    "removed": "end of round."
+  },
+  {
+    "id": "cursed",
+    "name": "Cursed",
+    "positive": false,
+    "domain": "spirit",
+    "ability": null,
+    "effect": "−2 to all rolls until the curse’s stated condition is met. Removed only by satisfying that condition or by Abjure DC 16.",
+    "source": null,
+    "removed": null,
+    "source_doc": "Player Book, Conditions - full reference"
+  },
+  {
+    "id": "possessed",
+    "name": "Possessed",
+    "positive": false,
+    "domain": "mind",
+    "ability": null,
+    "effect": "Another will directs your actions. The GM controls you. Make a Willpower check vs DC 14 at the start of each of your turns to act freely for that round.",
+    "source": null,
+    "removed": null,
+    "source_doc": "Player Book, Conditions - full reference"
+  },
+  {
+    "id": "withered",
+    "name": "Withered",
+    "positive": false,
+    "domain": null,
+    "ability": null,
+    "effect": "Named pool maximum reduced by 2. Persists until a Restoration event or Full Rest in consecrated ground.",
+    "source": null,
+    "removed": null,
+    "source_doc": "Player Book, Conditions - full reference"
+  },
+  {
+    "id": "phased",
+    "name": "Phased",
+    "positive": false,
+    "domain": "body",
+    "ability": null,
+    "effect": "Cannot be targeted by physical attacks and cannot make them. Magical and Psionic effects still reach you. Ends at the start of your next turn unless sustained.",
+    "source": null,
+    "removed": null,
+    "source_doc": "Player Book, Conditions - full reference"
+  },
+  {
+    "id": "soul-marked",
+    "name": "Soul-Marked",
+    "positive": false,
+    "domain": "spirit",
+    "ability": null,
+    "effect": "A named entity always knows your direction and rough distance. Removed only by Abjure DC 16 or the entity’s death.",
+    "source": null,
+    "removed": null,
+    "source_doc": "Player Book, Conditions - full reference"
+  },
+  {
+    "id": "enthralled",
+    "name": "Enthralled",
+    "positive": false,
+    "domain": "mind",
+    "ability": null,
+    "effect": "Cannot willingly act against a named person. Attempting it costs 1 Action and a Willpower check vs DC 13. Removed by Abjure DC 14 or the thrall-holder’s death.",
+    "source": null,
+    "removed": null,
+    "source_doc": "Player Book, Conditions - full reference"
+  },
+  {
+    "id": "blighted",
+    "name": "Blighted",
+    "positive": false,
+    "domain": null,
+    "ability": null,
+    "effect": "All healing and pool restoration you receive is halved, rounded down. Removed by Restoration, or Survive DC 14 over a Full Rest.",
+    "source": null,
+    "removed": null,
+    "source_doc": "Player Book, Conditions - full reference"
+  },
+  {
+    "id": "suppressed",
+    "name": "Suppressed",
+    "positive": false,
+    "domain": null,
+    "ability": null,
+    "effect": "Names one Power Source (e.g. Suppressed (Arcane)). Abilities drawing from that source cannot be used.",
+    "removed": "End of scene; a Restoration event, Dispel (Cast DC 14), or a Full Rest.",
+    "source_doc": "JUGGS_SRD_Updated.html",
+    "choice": "power_source"
+  }
+]

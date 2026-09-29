@@ -1,0 +1,332 @@
+[
+  {
+    "id": "standard",
+    "name": "Standard",
+    "kind": "lineage",
+    "analogs": [
+      "Human",
+      "Baseline"
+    ],
+    "trait": null,
+    "notes": "The adaptable baseline. No specialization and no ceiling.",
+    "old_trait": "Choose two additional Focus Skills at creation instead of one trait. Once per session, treat any one Skill as a Focus Skill for a single roll.",
+    "flags": [
+      "Trait to be decided (Origins no longer give Focus Skills)."
+    ]
+  },
+  {
+    "id": "stoneborn",
+    "name": "Stoneborn",
+    "kind": "lineage",
+    "analogs": [
+      "Dwarf",
+      "Svirfneblin",
+      "Duergar"
+    ],
+    "trait": "See in any light short of total darkness. Once per scene, sense the shape and soundness of worked stone or raw earth you are touching.",
+    "notes": "Thick-boned mountain folk. Slow, immovable, and hard to surprise underground."
+  },
+  {
+    "id": "forgeborn",
+    "name": "Forgeborn",
+    "kind": "lineage",
+    "analogs": [
+      "Warforged",
+      "Android",
+      "Golem",
+      "Automaton",
+      "AI",
+      "Replicant"
+    ],
+    "trait": "Choose your substrate at creation; it sets one resistance and one vulnerability. DR 1 against Physical damage. Immune to Poisoned, Burning, and temperature Exhaustion. Needs maintenance rather than food or sleep.",
+    "notes": "Constructed rather than born. Metal, wood, stone, mineral, circuitry, or any combination — including a fully artificial mind.",
+    "choice": {
+      "name": "Substrate",
+      "text": "Sets one resistance and one vulnerability.",
+      "options": null
+    }
+  },
+  {
+    "id": "skyborn",
+    "name": "Skyborn",
+    "kind": "lineage",
+    "analogs": [
+      "Aarakocra",
+      "Strix",
+      "Winged folk"
+    ],
+    "trait": "Glide from any height without falling damage, covering 1 range band horizontally per band descended. Once per scene, hold a hostile creature’s gaze — it loses its next Reaction.",
+    "notes": "Tall, hollow-boned, feathered along the arms. Cannot carry heavy loads well."
+  },
+  {
+    "id": "drakeblood",
+    "name": "Drakeblood",
+    "kind": "lineage",
+    "analogs": [
+      "Dragonborn",
+      "Kobold",
+      "Draconic"
+    ],
+    "trait": "Resist one Effect type chosen at creation (Fire, Cold, Electric, or Acid) — its damage is halved. Once per scene, exhale that Effect at Close range as an attack.",
+    "notes": "Scaled and heavy-jawed. Ancestral fire runs closer to the surface than thought does.",
+    "choice": {
+      "name": "Resisted Effect",
+      "options": [
+        "fire",
+        "cold",
+        "electric",
+        "acid"
+      ]
+    }
+  },
+  {
+    "id": "sylvan",
+    "name": "Sylvan",
+    "kind": "lineage",
+    "analogs": [
+      "Elf",
+      "Eladrin",
+      "Sidhe"
+    ],
+    "trait": "See in any light short of total darkness. Once per scene, the GM tells you one true thing about the natural environment you are standing in.",
+    "notes": "Thin, wiry, and long-lived. Sharp senses paid for with a slighter frame."
+  },
+  {
+    "id": "feolin",
+    "name": "Feolin",
+    "kind": "lineage",
+    "analogs": [
+      "Tabaxi",
+      "Catfolk",
+      "Beastkin"
+    ],
+    "trait": "See in total darkness to Near range. Never suffer falling damage from two range bands or less. Sensitive to loud noise — Deafened DCs against you are 2 lower.",
+    "notes": "Feline and quick, with reflexes that fire before judgment does."
+  },
+  {
+    "id": "smallfolk",
+    "name": "Smallfolk",
+    "kind": "lineage",
+    "analogs": [
+      "Halfling",
+      "Gnome",
+      "Hobbit"
+    ],
+    "trait": "Never suffer penalties for cramped or confined spaces. Once per session, reroll any one failed roll and take the second result.",
+    "notes": "Small, nimble, and famously difficult to discourage."
+  },
+  {
+    "id": "greenskin",
+    "name": "Greenskin",
+    "kind": "lineage",
+    "analogs": [
+      "Goblin",
+      "Kobold",
+      "Ratfolk"
+    ],
+    "trait": "See in any light short of total darkness. +2 to Stealth in crowded, cluttered, or underground environments.",
+    "notes": "Wiry scavengers built for tight spaces and quick exits."
+  },
+  {
+    "id": "giantborn",
+    "name": "Giantborn",
+    "kind": "lineage",
+    "analogs": [
+      "Goliath",
+      "Minotaur",
+      "Ogre",
+      "Half-Giant"
+    ],
+    "trait": "Count as one size larger for lifting, carrying, and grappling. Natural hide grants DR 1 against Physical damage.",
+    "notes": "Massive and thick-skinned. The world arrives slowly and is dealt with directly."
+  },
+  {
+    "id": "ironhide",
+    "name": "Ironhide",
+    "kind": "lineage",
+    "analogs": [
+      "Orc",
+      "Half-Orc",
+      "Hobgoblin"
+    ],
+    "trait": "See in any light short of total darkness. Once per session, when reduced to Broken, remain standing with 1 box unmarked instead.",
+    "notes": "Built to absorb punishment. Even tempers are harder to come by than tough skin."
+  },
+  {
+    "id": "verdant",
+    "name": "Verdant",
+    "kind": "lineage",
+    "analogs": [
+      "Dryad",
+      "Treant-kin",
+      "Plant folk"
+    ],
+    "trait": "Need no food while you spend an hour in sunlight each day. Once per session, root in place — you cannot move, but gain DR 2 and immunity to Prone until you uproot. Fire Effects deal +2 to you.",
+    "notes": "Bark-skinned and slow-growing. Patient in a way that unsettles people."
+  },
+  {
+    "id": "deepkin",
+    "name": "Deepkin",
+    "kind": "lineage",
+    "analogs": [
+      "Triton",
+      "Merfolk",
+      "Sahuagin",
+      "Locathah"
+    ],
+    "trait": "Breathe water as easily as air. Immune to pressure and to Exhausted from cold. Moving through water costs nothing; moving across dry ground in heat costs 1 extra Action per range band.",
+    "notes": "Pale, smooth-skinned, and built for depth. Relentless the way water is."
+  },
+  {
+    "id": "crystalline",
+    "name": "Crystalline",
+    "kind": "lineage",
+    "analogs": [
+      "Gem folk",
+      "Shardmind",
+      "Crystal-born"
+    ],
+    "trait": "Your body refracts. Once per scene, split an incoming Effect — halve its damage and redirect the other half to one adjacent target. Sonic Effects deal +2 to you.",
+    "notes": "Grown rather than born. A conduit for things that need one."
+  },
+  {
+    "id": "mycelian",
+    "name": "Mycelian",
+    "kind": "lineage",
+    "analogs": [
+      "Myconid",
+      "Fungal kin",
+      "Hivemind"
+    ],
+    "trait": "Once per scene, touch a living thing and learn one true fact it knows. Immune to Poisoned and to all disease. Radiant Effects deal +2 to you.",
+    "notes": "Part of something larger that thinks slowly and remembers everything."
+  },
+  {
+    "id": "highborn",
+    "name": "Highborn",
+    "kind": "circumstance",
+    "analogs": [
+      "Noble",
+      "Aristocrat",
+      "Blueblood"
+    ],
+    "trait": "Start at Reputation 2. Once per session, invoke your family name for access or favorable terms without a roll.",
+    "notes": "Raised to command and never taught to endure.",
+    "starting_reputation": 2
+  },
+  {
+    "id": "edgeblood",
+    "name": "Edgeblood",
+    "kind": "circumstance",
+    "analogs": [
+      "Half-Elf",
+      "Half-anything",
+      "Changeling"
+    ],
+    "trait": "Once per scene, ask one yes/no question about your immediate environment. The GM answers truthfully. Not usable in combat.",
+    "notes": "Something in the bloodline notices too much and belongs nowhere."
+  },
+  {
+    "id": "wyldkin",
+    "name": "Wyldkin",
+    "kind": "circumstance",
+    "analogs": [
+      "Firbolg",
+      "Ranger-raised",
+      "Feral"
+    ],
+    "trait": "Communicate basic intent with natural animals. Ignore difficult terrain in natural environments.",
+    "notes": "Raised closer to the treeline than the hearth."
+  },
+  {
+    "id": "voidtouched",
+    "name": "Voidtouched",
+    "kind": "circumstance",
+    "analogs": [
+      "Tiefling",
+      "Warlock-marked",
+      "Cursed"
+    ],
+    "trait": "Spend 1 Mana to detect supernatural presence at Near range. A Natural 1 on any Cast triggers Minor Fallout regardless of Surge level.",
+    "notes": "Something reached back. It has not entirely let go."
+  },
+  {
+    "id": "augmented",
+    "name": "Augmented",
+    "kind": "circumstance",
+    "analogs": [
+      "Cyborg",
+      "Chromed",
+      "Enhanced"
+    ],
+    "trait": "Choose a package at creation — Optical (+1 Observe), Neural (+1 Tactics), Skeletal (+1 Endure), or Combat (+1 to one Combat skill). Vulnerable to EMP effects.",
+    "notes": "Improved on purpose, at a cost paid somewhere quieter.",
+    "choice": {
+      "name": "Package",
+      "options": [
+        "Optical (+1 Observe)",
+        "Neural (+1 Tactics)",
+        "Skeletal (+1 Endure)",
+        "Combat (+1 to one Combat skill)"
+      ]
+    }
+  },
+  {
+    "id": "psionically-emergent",
+    "name": "Psionically Emergent",
+    "kind": "circumstance",
+    "analogs": [
+      "Githzerai",
+      "Wild talent",
+      "Esper"
+    ],
+    "trait": "Once per encounter, spend 1 Mana for a free Observe check at Near range reading surface emotion.",
+    "notes": "The talent arrived unasked and has not finished arriving."
+  },
+  {
+    "id": "street-survivor",
+    "name": "Street Survivor",
+    "kind": "circumstance",
+    "analogs": [
+      "Urchin",
+      "Gutter-rat",
+      "Scavenger"
+    ],
+    "trait": "Never flat-footed in urban environments. Once per session, find a useful mundane item anywhere a settlement exists.",
+    "notes": "Learned in doorways and alleys. Faith was never on offer."
+  },
+  {
+    "id": "corporate-asset",
+    "name": "Corporate Asset",
+    "kind": "circumstance",
+    "analogs": [
+      "Company man",
+      "Salaryman",
+      "Indentured"
+    ],
+    "trait": "Begin each session with one corporate favor — a resource, a contact, or a piece of information. It creates an obligation the GM may invoke later.",
+    "notes": "Owned in a way that shows on no paperwork you have seen."
+  },
+  {
+    "id": "haunted",
+    "name": "Haunted",
+    "kind": "circumstance",
+    "analogs": [
+      "Reborn",
+      "Spirit-touched",
+      "Revenant"
+    ],
+    "trait": "Once per session the GM whispers a one-sentence omen. Fear check DCs against supernatural sources are reduced by 2.",
+    "notes": "Accompanied. Whether it means well has never been established."
+  },
+  {
+    "id": "bloodline",
+    "name": "Bloodline",
+    "kind": "circumstance",
+    "analogs": [
+      "GM-defined heritage"
+    ],
+    "trait": "The GM defines one setting-specific trait — narratively significant, mechanically minor, and carrying at least one complication.",
+    "notes": "Descended from something the setting has a name for."
+  }
+]

@@ -1,0 +1,723 @@
+[
+  {
+    "id": "striker",
+    "name": "Striker",
+    "category": "combat",
+    "governing": [
+      "str"
+    ],
+    "pool": "stamina",
+    "bonus_skills": [
+      "combat-melee",
+      "athletics"
+    ],
+    "summary": "Force and impact — the brawler, berserker, heavy hitter.",
+    "synergy": {
+      "condition_text": "Toughness ≥ 3",
+      "effect": "Reckless damage bonus increases to +2 instead of +1",
+      "requires": {
+        "ability": [
+          "tou"
+        ],
+        "min": 3
+      }
+    },
+    "fallout": "You are Prone. You overcommitted and your own momentum took you down.",
+    "abilities": {
+      "ability1": {
+        "text": "Brutal Surge: 3-box Surge grants +1 additional Stamina damage on hit, on top of normal overage. Knockback (free): On any hit, spend 1 Stamina (no Surge) to push the target 1 range band. Reckless: When you take Stamina damage, your next attack this round gains +1. (Synergy: +2)",
+        "at_the_table": "Three discrete options — use any combination on the same action."
+      },
+      "ability2": {
+        "text": "Unstoppable Force: When you succeed on an attack with overage 5 or higher, the target is pushed 1 range band AND gains Dazed until end of their next turn. Both effects apply without an additional Stamina cost. This replaces Knockback’s separate cost for high-overage hits.",
+        "at_the_table": "Triggers automatically on any melee or unarmed hit with overage 5+. No declaration needed. Knockback (1 Stamina) still available for hits below that threshold."
+      },
+      "ability3": {
+        "text": "Berserk Threshold: When your Stamina enters the Wounded range (boxes 11-14) for the first time in an encounter, immediately gain +2 to all Attack and damage rolls for the rest of the encounter. This bonus does not reduce when you recover Stamina boxes — once crossed, it holds. Additionally, while in Wounded range, you cannot be Stunned or Dazed (Stamina damage still applies).",
+        "at_the_table": "Triggers once per encounter on first crossing into Wounded. The bonus is permanent for that encounter. Stunned/Dazed immunity is conditional on remaining in Wounded range."
+      },
+      "mastery": {
+        "text": "Brutal Surge Enhancement: 3-box Surge now grants +2 additional Stamina damage (instead of +1), and on a Boon the Surge damage increases to +3. The bonus stacks with Reckless.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "duelist",
+    "name": "Duelist",
+    "category": "combat",
+    "governing": [
+      "agi"
+    ],
+    "pool": "stamina",
+    "bonus_skills": [
+      "combat-melee",
+      "evasion"
+    ],
+    "summary": "Precision and positioning — the fencer, knife-fighter, mobile combatant.",
+    "synergy": {
+      "condition_text": "Acuity ≥ 3",
+      "effect": "Precise Strike threshold drops from overage 5+ to overage 3+",
+      "requires": {
+        "ability": [
+          "acu"
+        ],
+        "min": 3
+      }
+    },
+    "fallout": "You are Exposed until end of next turn. Over-extended precision left you open.",
+    "abilities": {
+      "ability1": {
+        "text": "Riposte: On a successful Defend, make a free attack at -2 immediately. Uses your Reaction. Footwork: Once per round, move 1 range band as a free action. Precise Strike: Declare a target location before rolling. On overage 5+, apply one Condition for free. (Synergy: overage 3+)",
+        "at_the_table": "Riposte and Precise Strike can apply in the same round on different actions. Footwork is always free."
+      },
+      "ability2": {
+        "text": "Blade Dance: Once per encounter, after any successful melee attack, immediately make a Footwork move AND make one additional attack against a different target in the new position — at no Action or Stamina cost. The sequence is: attack, move, attack. Both attacks use normal rolls.",
+        "at_the_table": "Declare at the moment of the first successful hit. Move immediately after, then resolve the second attack. Cannot target the same character with both attacks in this sequence."
+      },
+      "ability3": {
+        "text": "Perfect Opening: When you successfully Defend against a melee attack (not Deflect — you must spend the Reaction), your next Riposte this round deals full damage with no -2 penalty AND applies one Condition of your choice without requiring overage. Declare the Condition after seeing the Riposte roll result.",
+        "at_the_table": "Requires a successful Defend (Reaction spent, you won the opposed roll). The Riposte that follows removes both the -2 penalty and the overage requirement for one Condition. Once per Defend."
+      },
+      "mastery": {
+        "text": "Footwork Enhancement: Footwork now moves you 2 range bands (instead of 1) as a free action. Additionally, Riposte after Footwork gains +1 to the attack roll for each band you moved.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "guardian",
+    "name": "Guardian",
+    "category": "combat",
+    "governing": [
+      "tou"
+    ],
+    "pool": "stamina",
+    "bonus_skills": [
+      "endure",
+      "combat-maneuver"
+    ],
+    "summary": "Protection and control — the shield-bearer, bodyguard, last line of defense.",
+    "synergy": {
+      "condition_text": "Morale ≥ 3",
+      "effect": "Interpose also clears 1 Fear from the protected ally",
+      "requires": {
+        "ability": [
+          "mor"
+        ],
+        "min": 3
+      }
+    },
+    "fallout": "You are Stunned until end of next turn. Your guard shattered under your own overextension.",
+    "abilities": {
+      "ability1": {
+        "text": "Interpose: Spend 1 Reaction to take a hit meant for any adjacent ally. You receive all damage and conditions. (Synergy: also clears 1 Fear from the ally) Hold the Line: If you did not move this round, your Deflect threshold increases by +2 until your next turn. Brace: Spend 1 Stamina to ignore the first Condition applied to you this round.",
+        "at_the_table": "Hold the Line and Brace stack. Interpose triggers as a Reaction — it does not cost your Action."
+      },
+      "ability2": {
+        "text": "Bulwark: While you are in a Contested Zone with an enemy, all allies within Close range gain DR 2 against attacks from that enemy. This is passive — no Action, no cost, no declaration. It applies automatically whenever you occupy the same zone as an attacker. Ends when you or the enemy leaves the zone.",
+        "at_the_table": "Passive. Tracks per-enemy: if two enemies are in your zone, the DR applies against both. Does not stack with your own DR — only protects allies."
+      },
+      "ability3": {
+        "text": "Last Bastion: Once per session, when any ally within Near range would reach Broken, spend 2 Stamina as a Reaction. Their Broken threshold is treated as 2 boxes higher for that single hit — the damage that would have broken them instead stops 2 boxes short. The ally is at Wounded, not Broken. You absorb the conceptual weight of that hit into your own willingness to continue.",
+        "at_the_table": "Declare after the attacker’s roll but before the ally marks the breaking box. The ally marks boxes normally up to the point where they would have gone Broken — those 2 final boxes simply are not marked. You do not take damage. Once per session."
+      },
+      "mastery": {
+        "text": "Interpose Enhancement: When you use Interpose, you take half the damage (round up) instead of all of it — your technique absorbs the rest. The ally still receives no damage. Synergy still applies.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "skirmisher",
+    "name": "Skirmisher",
+    "category": "combat",
+    "governing": [
+      "agi"
+    ],
+    "pool": "stamina",
+    "bonus_skills": [
+      "evasion",
+      "combat-ranged"
+    ],
+    "summary": "Range and mobility — the archer, scout, hit-and-run fighter.",
+    "synergy": {
+      "condition_text": "Tactics ≥ 2",
+      "effect": "Covering Fire affects up to 2 enemies instead of 1",
+      "requires": {
+        "skill": "tactics",
+        "rank_min": 2
+      }
+    },
+    "fallout": "Weapon jams or is dropped. Costs 1 Action to clear. Cannot attack until cleared.",
+    "abilities": {
+      "ability1": {
+        "text": "Disengage: May exit a Contested Zone once per round without spending an Action. Covering Fire: Spend 1 Stamina to force one enemy to spend an Action to move toward you this round. (Synergy: 2 enemies) Sniper: Ranged attacks at Far range or beyond gain +1 to the attack roll.",
+        "at_the_table": "Disengage and Sniper are passive in their respective contexts. Covering Fire is declared before the enemy’s turn."
+      },
+      "ability2": {
+        "text": "Mobile Platform: You no longer suffer the -2 attack penalty for moving and attacking in the same round. Additionally, when you use Disengage and attack on the same turn, your first attack that turn gains +1. The bonus applies once per turn regardless of how many attacks you make.",
+        "at_the_table": "Passive removal of the move-and-attack penalty. The +1 on the first attack after Disengaging applies to melee or ranged and stacks with Sniper if the attack is at Far range."
+      },
+      "ability3": {
+        "text": "Ghost Shot: Once per encounter, make a ranged attack that cannot be Defended against — the target may only Deflect. Declare before rolling. The attack resolves normally against their Deflect threshold. If you are Concealed or Invisible when you declare Ghost Shot, the target also cannot Deflect — only apply their pool boxes to absorb the overage directly.",
+        "at_the_table": "Once per encounter. Declare before rolling. Against a Concealed/Invisible shooter: no defense at all — overage goes straight to pool. The Concealment/Invisibility version requires you to actually be in that condition."
+      },
+      "mastery": {
+        "text": "Sniper Enhancement: Ranged attacks at Far range or beyond now gain +2 (instead of +1). At Legendary tier, attacks at Extreme range (if the GM defines it) gain +3.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "brawler",
+    "name": "Brawler",
+    "category": "combat",
+    "governing": [
+      "str"
+    ],
+    "pool": "stamina",
+    "bonus_skills": [
+      "athletics",
+      "combat-maneuver"
+    ],
+    "summary": "Control and dominance — the grappler, wrestler, street fighter.",
+    "synergy": {
+      "condition_text": "Athletics ≥ 2",
+      "effect": "Wear Down stacks to +4 instead of +3",
+      "requires": {
+        "skill": "athletics",
+        "rank_min": 2
+      }
+    },
+    "fallout": "You are Restrained — entangled in your own grapple or pinned by your overreach.",
+    "abilities": {
+      "ability1": {
+        "text": "Grapple: On a successful hit, may apply Restrained instead of Stamina damage. Opposed Strength DC 12 to break each round. Improvised Master: Improvised weapons are Light (+1) for this character, not +0. Wear Down: Each consecutive hit on the same target adds +1 overage, stacking to +3. Resets on a different target. (Synergy: stacks to +4)",
+        "at_the_table": "Grapple replaces damage — you do not get both. Wear Down tracks per-target, resets at encounter end."
+      },
+      "ability2": {
+        "text": "Submission Hold: While you have a target Restrained via Grapple, once per round as a free action you may choose one: apply Dazed (spend 1 Stamina), deal 1 Stamina damage directly (no roll), or force them to drop a held item. No roll for any of these — the Restrained condition is the prerequisite.",
+        "at_the_table": "Free action, once per round. Requires target to already be Restrained through your Grapple ability. The three effects are mutually exclusive on any one round."
+      },
+      "ability3": {
+        "text": "Walking Weapon: Your unarmed strikes deal damage as Standard quality weapons (+2). If you already have Improvised Master (making unarmed Light), this upgrades to Standard. Additionally, your unarmed attacks ignore the first point of DR on any target — the precision of a trained striker transmits through the first layer of protection.",
+        "at_the_table": "Passive. Unarmed strikes now function as +2 attack bonus weapons. DR bypass of 1 is always active, stacking with any other DR bypass the character has."
+      },
+      "mastery": {
+        "text": "Wear Down Enhancement: Wear Down stacks to +5 (instead of +3, or +4 with Synergy). Additionally, when the stack reaches maximum, the target gains Enfeebled (-2 Strength) until they leave the encounter or the stack resets.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "conduit",
+    "name": "Conduit",
+    "category": "magical",
+    "governing": [
+      "bel",
+      "int"
+    ],
+    "pool": "mana",
+    "bonus_skills": [
+      "cast-attack",
+      "concentrate"
+    ],
+    "summary": "Direct channeling — the vessel, the one who lets power flow through rather than shaping it.",
+    "synergy": {
+      "condition_text": "Toughness >= 3",
+      "effect": "Surge Transfer also clears 1 Stamina box from the recipient",
+      "requires": {
+        "ability": [
+          "tou"
+        ],
+        "min": 3
+      }
+    },
+    "fallout": "Power discharges outward. All in Close range (including allies) take 1 Mana box. You gain Drained 1 until next Full Rest.",
+    "abilities": {
+      "ability1": {
+        "text": "Surge Transfer: When you Surge (3+ boxes), redirect the Surge bonus to an adjacent ally’s next roll this round. (Synergy: also clears 1 Stamina) Resonance: Cast with the same Effect type as your last successful cast this scene: pool cost -1 (min 0). Channel Overflow: When you cast at PL 5+, spend 1 additional Mana to extend duration by 1 step at no PL cost.",
+        "at_the_table": "Surge Transfer and Resonance can both apply on the same cast. Channel Overflow requires PL5 base cost — the additional Mana is on top of that."
+      },
+      "ability2": {
+        "text": "Shared Vessel: When you cast a Power, you may designate one ally within Close range as a co-channel. That ally may spend Mana boxes to contribute to the cast’s Surge — at a 2:1 rate (they spend 2, you gain 1 Surge). The ally’s Surge boxes come from their own Mana pool. Combined Surge cannot exceed your Ability Score maximum. No Action cost to the ally — this is a free choice they make when you declare the cast.",
+        "at_the_table": "The ally contributes voluntarily when the cast is declared. They pay 2 Mana per 1 Surge box contributed. Your cap is still your governing Ability. The ally does not roll."
+      },
+      "ability3": {
+        "text": "Overflow Conduit: Once per session, when you cast at 5 Surge boxes, the Power does not consume those Surge boxes from your pool — they are refunded after the cast resolves. Additionally, any Fallout that would trigger from this cast is reduced one severity step (Catastrophic becomes Severe, Severe becomes Moderate, Moderate is negated). The sheer volume of power passing through you simply moves on.",
+        "at_the_table": "Once per session. Must declare at 5 Surge boxes before rolling. Boxes are refunded after the roll resolves — they are spent for the roll and then returned. Fallout reduction applies to the same cast."
+      },
+      "mastery": {
+        "text": "Resonance Enhancement: Resonance now applies on the first cast of any scene (not just the second). Additionally, consecutive casts with the same Effect reduce cost by 1 each time, to a minimum of 1 (not 0 — even Conduits pay something for power).",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "theorist",
+    "name": "Theorist",
+    "category": "magical",
+    "governing": [
+      "int"
+    ],
+    "pool": "mana",
+    "bonus_skills": [
+      "cast-utility",
+      "knowledge"
+    ],
+    "summary": "Systematic and precise — the scholar, the one who understands the mechanics of what they are doing.",
+    "synergy": {
+      "condition_text": "Analyze >= 2",
+      "effect": "Counterspell auto-succeeds vs PL 3 or below",
+      "requires": {
+        "skill": "analyze",
+        "rank_min": 2
+      }
+    },
+    "fallout": "Formula collapses. Lose 2 Mana immediately, Power has no effect. Gain Silenced until end of next turn.",
+    "abilities": {
+      "ability1": {
+        "text": "Counterspell: Spend 1 Mana and make an opposed Intellect roll when an opponent casts. On success, the Power fails. (Synergy: auto-success vs PL3 or below) Prepared Formula: Once per scene, cast one pre-prepared Power as a free action. Declare during any rest. Reduce Fallout: When you would suffer Casting Fallout, make Intellect DC 12. On success, reduce severity by one step.",
+        "at_the_table": "Counterspell is a Reaction — it uses your Reaction for the round. Prepared Formula requires the Power to be declared specifically during the preceding rest."
+      },
+      "ability2": {
+        "text": "Analytical Strike: Once per encounter, before making a casting roll, declare that you are analyzing the target’s defenses. Make a free Analyze check (DC 12). On success, your next cast against that target this scene ignores their Defend roll entirely — they may only Deflect. On failure, the cast proceeds normally. No Mana cost for the Analyze check.",
+        "at_the_table": "Free Analyze check (DC 12) declared before the casting roll. Success: target cannot Defend (Reaction-based) against this specific cast — Deflect still applies. Failure: normal cast, no penalty. Once per encounter."
+      },
+      "ability3": {
+        "text": "Perfect Recall: Once per session, you may cast any Power you know that you have successfully cast in a previous session — at its exact previous specifications (same PL, same Effect) — at no Mana cost. The Power fires from memory as if the formula had never been more natural. Additionally, for the rest of the scene after using Perfect Recall, your Prepared Formula slot recharges — you may prepare a new Power during any lull in action (no rest required).",
+        "at_the_table": "Once per session. The recalled Power must have been successfully cast at some point in a prior session — not this session. After using Perfect Recall, Prepared Formula recharges for the rest of the scene (usable once more)."
+      },
+      "mastery": {
+        "text": "Counterspell Enhancement: On a successful Counterspell, you may immediately redirect the countered Power back at the original caster at half potency (half PL, round down). No additional roll or Mana cost. The original roll is used against the caster’s own Deflect.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "shaper",
+    "name": "Shaper",
+    "category": "magical",
+    "governing": [
+      "acu",
+      "int"
+    ],
+    "pool": "mana",
+    "bonus_skills": [
+      "cast-attack",
+      "survive"
+    ],
+    "summary": "Flexible and adaptive — the improviser, the one who bends what power does rather than simply launching it.",
+    "synergy": {
+      "condition_text": "Observe >= 2",
+      "effect": "Redirect usable as a free action once per round",
+      "requires": {
+        "skill": "observe",
+        "rank_min": 2
+      }
+    },
+    "fallout": "Power locks onto the wrong target. GM selects from characters in range (including allies). Full potency.",
+    "abilities": {
+      "ability1": {
+        "text": "Redirect: After a Power hits, spend 1 Mana to change the Effect type before applying the result. Same PL and cost. (Synergy: free action once/round) Layered Effect: When you spend 2+ boxes on an Effect, split across two Effect types (1 box each). Both apply at 1-box potency. Adaptive Range: Once per scene, cast at one range band beyond stated range at no added cost.",
+        "at_the_table": "Redirect changes the Effect type after the hit is confirmed — after the roll, before damage is applied. Layered Effect is declared before the cast."
+      },
+      "ability2": {
+        "text": "Environmental Shaping: Once per scene, you may declare a persistent environmental Effect covering one range band — difficult terrain, obscuring fog, an area of intense heat or cold, a zone of silence. The Effect lasts until end of scene and requires no Concentration. The specific Effect is defined when declared and must be consistent with an available Effect type in the active Genre. Cost: 2 Mana. No attack roll — this targets the environment, not creatures.",
+        "at_the_table": "Environmental Effect persists without Concentration. It covers one range band (Close, Near, Far as defined by the zone’s center). Creatures entering the zone are subject to it. Cost is 2 Mana paid when declared."
+      },
+      "ability3": {
+        "text": "Shape Reality: Once per session, cast any Power you know with the following changes simultaneously applied: any range band, any Effect type available in the Genre, any combination of targets you can legally affect. Mana cost is the Power’s base PL cost plus 3. Surge is available normally. This is the Shaper’s defining moment — the moment when all the flexibility resolves into a single perfectly composed effect.",
+        "at_the_table": "Once per session. Cost: PL + 3 Mana. All three modifications (range, Effect type, targeting) apply simultaneously. Surge available as normal. The Power still uses its base roll and resolves normally."
+      },
+      "mastery": {
+        "text": "Layered Effect Enhancement: Layered Effect now applies at full 1-box potency for each Effect type (instead of splitting the potency). 2 Effect boxes spent = two full 1-box effects, not two half-effects.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "invoker",
+    "name": "Invoker",
+    "category": "magical",
+    "governing": [
+      "wil",
+      "bel"
+    ],
+    "pool": "mana",
+    "bonus_skills": [
+      "cast-attack",
+      "channel"
+    ],
+    "summary": "Raw force and escalation — the blaster, the one who hits harder rather than smarter.",
+    "synergy": {
+      "condition_text": "Morale >= 3",
+      "effect": "Amplify also benefits allies within Near range on their next cast",
+      "requires": {
+        "ability": [
+          "mor"
+        ],
+        "min": 3
+      }
+    },
+    "fallout": "Backlash. You take the Power’s own Effect at 1-box potency yourself. If Healing, unmark 2 boxes instead (power inverts).",
+    "abilities": {
+      "ability1": {
+        "text": "Amplify: Spend 1 additional Mana before rolling to increase Power Level by 1. Once per cast. (Synergy: allies in Near also benefit on their next cast) Overcharge: When you roll a Boon on a casting roll, immediately cast the same Power again at no Mana cost. Same Effect and PL. Reaction. Penetrate: Your Powers ignore DR from mundane armor. At Veteran+ (Level 9+), also reduce magical DR by 2.",
+        "at_the_table": "Amplify and Overcharge can chain — if the Overcharge cast also Boons, it triggers again (maximum once per scene total). Penetrate is passive."
+      },
+      "ability2": {
+        "text": "Cascade: When a target is reduced to Broken by your Power, that Power’s remaining overage (above what was needed to break them) carries over to an adjacent target of your choice. The adjacent target takes the remaining overage as pool damage from the same Effect type. No additional roll, no additional Mana. The power simply keeps moving.",
+        "at_the_table": "Triggers automatically when a Power Broken a target and there is remaining overage. You choose the adjacent target. The same Effect type and pool applies. Overage carryover is the exact remainder after Broken."
+      },
+      "ability3": {
+        "text": "Total Output: Once per session, when you cast a Power, pay no Surge cost for up to 5 Surge boxes. The boxes are declared and the roll benefits from the full Surge bonus, but no Mana boxes are crossed for those Surge boxes. The Power’s base Mana cost still applies. Fallout rules still apply on a Natural 1 — the power was that large regardless of the cost.",
+        "at_the_table": "Once per session. Up to 5 Surge boxes declared free. Base Mana cost paid normally. Fallout triggers on Natural 1 as if the Surge boxes had been paid — the risk is real. Cannot be combined with Overflow Conduit on the same cast."
+      },
+      "mastery": {
+        "text": "Amplify Enhancement: Amplify now increases Power Level by 2 (instead of 1) for the additional 1 Mana cost. The cap is still PL 5 — this allows you to jump two levels with one Mana if you are not already at the ceiling.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "anchor",
+    "name": "Anchor",
+    "category": "spiritual",
+    "governing": [
+      "ser"
+    ],
+    "pool": "resolve",
+    "bonus_skills": [
+      "channel",
+      "endure"
+    ],
+    "summary": "Presence and stability — the confessor, the one whose calm is structurally load-bearing.",
+    "synergy": {
+      "condition_text": "Morale >= 3",
+      "effect": "Steady the Ground also clears 1 Fear level from the affected ally",
+      "requires": {
+        "ability": [
+          "mor"
+        ],
+        "min": 3
+      }
+    },
+    "fallout": "Fill 2 Dread boxes immediately. If already at Haunted, gain Doomed 1 instead.",
+    "abilities": {
+      "ability1": {
+        "text": "Steady the Ground: When any ally within Near range fails a Horror Check or Morale roll, spend 1 Resolve as a Reaction to let them re-roll. They take the new result. (Synergy: also clears 1 Fear level) Unshakeable: Once per scene, when you would gain a Fear level, spend 2 Resolve to negate it entirely. Last Stand: When your Resolve drops below half its maximum, gain +1 to all Spirit rolls until restored.",
+        "at_the_table": "Steady the Ground and Unshakeable address different triggers. Last Stand tracks dynamically — the bonus activates and deactivates as your Resolve crosses the half-maximum threshold."
+      },
+      "ability2": {
+        "text": "Fortress of Calm: Once per scene, establish an aura of supernatural stillness centered on you. For the rest of the scene, allies within Near range gain DR 2 against all Resolve damage — social, spiritual, or supernatural. This does not affect Dread directly but does protect the Resolve pool from which Dread-clearing resources are drawn. Cost: 1 Resolve. Passive once established.",
+        "at_the_table": "Declared as an Action. 1 Resolve cost. Applies to all Resolve damage for all allies in Near range for the rest of the scene. Does not move with you — the aura is centered on your position when declared, and Near range is measured from that point."
+      },
+      "ability3": {
+        "text": "Immovable: Once per session, for one full encounter, you cannot be moved against your will — no Push, Knockback, Prone, Restrained, Routed, or Forced Movement of any kind applies to you. You also cannot be reduced below 5 Resolve boxes by any single hit (each hit can push you toward 5, but no single hit takes you below it). Declare at the start of any round. Lasts until end of encounter.",
+        "at_the_table": "Once per session, declared at the start of any round. Lasts the full encounter. Forced movement immunity is absolute — supernatural teleportation effects may still apply at GM discretion. The 5-box floor means accumulated damage across multiple hits can still reach 5 and below; the cap is per-hit."
+      },
+      "mastery": {
+        "text": "Steady the Ground Enhancement: Steady the Ground now allows the ally to re-roll at +2 rather than a straight re-roll. The Synergy (if held) now clears 2 Fear levels instead of 1.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "empath",
+    "name": "Empath",
+    "category": "spiritual",
+    "governing": [
+      "ser",
+      "bel"
+    ],
+    "pool": "resolve",
+    "bonus_skills": [
+      "observe",
+      "persuade"
+    ],
+    "summary": "Deep attunement — the healer, the one who reads what others cannot hide.",
+    "synergy": {
+      "condition_text": "Heal >= 2",
+      "effect": "Surge Reading also identifies active Conditions and their source",
+      "requires": {
+        "skill": "heal",
+        "rank_min": 2
+      }
+    },
+    "fallout": "You take on the target’s emotional state — gain the same Condition they have. If none, gain Fascinated directed at them for the rest of the scene.",
+    "abilities": {
+      "ability1": {
+        "text": "Surge Reading: As a free action, read one target within Near range — current pool levels and any Conditions. (Synergy: also learn source and remaining duration) Commune: Once per scene, spend 10 minutes with a willing person to clear one persistent Condition (Doomed, Drained 3, Charmed, Fascinated). Resolve DC 12 for tier 2+. Reflected Pain: When an ally within Close range takes Stamina damage, you may take 1 of those boxes yourself. No roll, no cost.",
+        "at_the_table": "Surge Reading is entirely free. Commune requires a rest or significant downtime. Reflected Pain is voluntary — declare when the ally marks the box."
+      },
+      "ability2": {
+        "text": "Shared Burden: When any ally within Near range takes pool damage of any kind, you may absorb up to 2 of those boxes into your own Resolve instead — regardless of which pool the ally was losing. A fighter taking Stamina damage, a caster losing Mana, or a frightened ally losing Resolve — you absorb up to 2 boxes into your Resolve. Declare immediately when the damage is applied. Once per round.",
+        "at_the_table": "Cross-pool absorption: ally marks 0-2 fewer boxes in their pool; you mark that number in your Resolve. One round maximum of 2 absorbed. Declare immediately after damage is calculated, before boxes are marked."
+      },
+      "ability3": {
+        "text": "Full Empathy: Once per session, choose one ally within Near range. Until end of scene: you know their exact pool states at all times without Surge Reading, any Condition applied to them is also applied to you at half severity (round down), and once during the scene you may negate one instance of damage to them entirely by spending 3 Resolve yourself. No roll. The negation must be declared before the damage boxes are marked.",
+        "at_the_table": "Once per session. Three effects: automatic pool awareness (passive), shared Condition at half severity (automatic), and one complete damage negation (3 Resolve, declared before marking). The Condition sharing is involuntary — you cannot opt out of it once Full Empathy is active."
+      },
+      "mastery": {
+        "text": "Reflected Pain Enhancement: Reflected Pain may now absorb up to 2 Stamina boxes per instance (instead of 1). Additionally, Reflected Pain can trigger from Near range instead of only Close range.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "warden",
+    "name": "Warden",
+    "category": "spiritual",
+    "governing": [
+      "mor"
+    ],
+    "pool": "resolve",
+    "bonus_skills": [
+      "channel",
+      "lead"
+    ],
+    "summary": "Leadership and collective will — the banner-carrier, the one who keeps the line from breaking.",
+    "synergy": {
+      "condition_text": "Belief >= 3",
+      "effect": "Rally also grants Resolute to each ally for 1 round",
+      "requires": {
+        "ability": [
+          "bel"
+        ],
+        "min": 3
+      }
+    },
+    "fallout": "Your presence cracks. All allies within Near range make Morale DC 10 or gain Frightened until end of scene. You gain Exhausted 1.",
+    "abilities": {
+      "ability1": {
+        "text": "Rally: Spend 1 Resolve as an Action to clear 1 Fear level from all allies within Near range who can hear you. No roll. (Synergy: also grants Resolute for 1 round) Hold Together: When a Morale check would cause a party member to become Routed, spend 2 Resolve as a Reaction. They become Frightened instead. Once per scene per character. Voice of Conviction: Your Inspire rolls affect one additional target at no cost. At Veteran+ (Level 9+), up to three additional targets.",
+        "at_the_table": "Rally, Hold Together, and Voice of Conviction can all trigger in the same round on different rolls/checks."
+      },
+      "ability2": {
+        "text": "Battlecry: Once per encounter, as an Action, make a Morale-based Inspire roll (no target DC — this is an area effect). Every ally who can hear you gains +1 to all rolls until end of their next turn. Allies who are currently Frightened clear 1 Fear level in addition to the +1. This is not a social action — it cannot be Deflected or Defended against. Cost: 1 Resolve.",
+        "at_the_table": "Once per encounter. Costs 1 Resolve and 1 Action. Affects all allies in Near range who can hear — no roll needed, no DC. Frightened allies get +1 AND clear 1 Fear. Cannot be countered socially."
+      },
+      "ability3": {
+        "text": "Standard: Once per session, for one full encounter, you become the group’s anchor point. Allies within Near range who can see you may use your Morale score instead of their own for any Spirit roll. They still make their own roll — they just add your Morale rather than theirs as the Ability modifier. Declare at the start of any round. Does not cost Resolve to use but costs the Action to declare.",
+        "at_the_table": "Once per session, declared as an Action. Lasts the full encounter. Allies use YOUR Morale as their Ability modifier for Spirit rolls — their own Skill bonus still applies. They choose per roll whether to use their Morale or yours."
+      },
+      "mastery": {
+        "text": "Voice of Conviction Enhancement: Voice of Conviction now always affects up to three additional targets regardless of tier (the Veteran+ upgrade is now baseline). Additionally, one use of Inspire per scene may affect all allies within Near range simultaneously at no additional cost.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "seeker",
+    "name": "Seeker",
+    "category": "spiritual",
+    "governing": [
+      "bel"
+    ],
+    "pool": "resolve",
+    "bonus_skills": [
+      "observe",
+      "survive"
+    ],
+    "summary": "Connection to the otherworldly — the mystic, the one who listens to things that do not speak in words.",
+    "synergy": {
+      "condition_text": "Knowledge >= 2",
+      "effect": "Liminal Sense extends to Far range",
+      "requires": {
+        "skill": "knowledge",
+        "rank_min": 2
+      }
+    },
+    "fallout": "Something answers. Fill 3 Dread boxes and gain Doomed 1. GM introduces one supernatural complication related to what you were seeking.",
+    "abilities": {
+      "ability1": {
+        "text": "Liminal Sense: As a free action, sense supernatural entities, active Powers, and Void-touched objects within Near range. (Synergy: extends to Far) Ask the Dark: Once per scene, spend 2 Resolve to ask the GM one yes/no question about the current situation. Answer is accurate but may be literal, symbolic, or fragmented. Resist the Void: DR 2 against Void, Necrotic, and Psychic Effects. At Veteran+ (Level 9+), increases to DR 4.",
+        "at_the_table": "Liminal Sense is always-on when you activate it. Ask the Dark is once per scene — it has no DC, the GM must answer honestly. Resist the Void is passive."
+      },
+      "ability2": {
+        "text": "Name the Thing: Once per scene, when you have used Liminal Sense to detect a supernatural entity or object, spend 2 Resolve and make a Belief roll (DC 14). On success, the GM tells you exactly what it is — its nature, general power level, and any special vulnerabilities or immunities it has. On failure, you learn one true thing about it. This information is accurate; the GM cannot withhold or distort it.",
+        "at_the_table": "Requires prior Liminal Sense detection of the same entity or object this scene. Belief roll DC 14. Success: full nature, power, vulnerabilities. Failure: one accurate fact. The GM must be honest."
+      },
+      "ability3": {
+        "text": "Veil Walk: Once per session, for up to 10 minutes of in-game time, you partially phase into the space between the material and supernatural worlds. While Veil Walking: you are immune to all mundane physical damage (supernatural sources still apply), you can see and interact with supernatural entities as if they were material, and you cannot take Actions or be targeted by ally abilities. You may end this state as a Free Action at any time. Cost: 3 Resolve.",
+        "at_the_table": "Once per session. 3 Resolve. Lasts up to 10 in-game minutes. While active: immune to mundane physical damage, supernatural damage normal, cannot Act or be buffed by allies, can interact with supernatural entities. Ends as Free Action."
+      },
+      "mastery": {
+        "text": "Resist the Void Enhancement: DR against Void, Necrotic, and Psychic Effects increases to 4 at all tiers (the Veteran+ upgrade is now baseline). Additionally, once per scene when you take Void, Necrotic, or Psychic damage, reflect 1 box of that damage back to the source automatically.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "orator",
+    "name": "Orator",
+    "category": "social",
+    "governing": [
+      "mor",
+      "wil"
+    ],
+    "pool": "resolve",
+    "bonus_skills": [
+      "persuade",
+      "inspire"
+    ],
+    "summary": "Presence and command — the commander, the preacher, the trial lawyer.",
+    "synergy": {
+      "condition_text": "Morale >= 3",
+      "effect": "Address the Room affects all characters in the scene simultaneously",
+      "requires": {
+        "ability": [
+          "mor"
+        ],
+        "min": 3
+      }
+    },
+    "fallout": "All NPCs in the scene gain Hostile or move one step toward Hostile. Allies who witnessed may lose 1 Morale point.",
+    "abilities": {
+      "ability1": {
+        "text": "Surge Momentum: When you roll a Boon on a social roll, the next social roll by any ally in the scene gains +2. Presence Lock: On a successful Persuade or Inspire with overage 5+, the target cannot take hostile action against you until end of scene unless attacked first. Address the Room: Once per scene, spend 1 Resolve to make your next social roll affect all NPCs in the scene. Each resists separately. (Synergy: allied PCs also gain +1 to next social roll)",
+        "at_the_table": "Surge Momentum transfers to one ally of your choice. Presence Lock is narrative — it ends if you initiate hostility. Address the Room hits all NPCs simultaneously with one roll."
+      },
+      "ability2": {
+        "text": "Commanding Presence: Once per encounter, as an Action, make a Morale roll (DC = the highest Morale in the room, minimum 12). On success, one of the following occurs immediately at no further cost: all hostile NPCs pause their current action (they hold, they do not act this round), or one NPC changes their immediate attitude one step toward Friendly, or all allies in Near range may re-roll their next social check with +2. Declare which effect before rolling. Cost: 1 Resolve.",
+        "at_the_table": "Once per encounter. 1 Resolve + 1 Action. Declare which of three effects before rolling. Hostile NPC pause: they hold this round — they take no actions. One attitude shift: immediate, lasts the scene. Ally re-roll: applies to each ally’s next social check individually."
+      },
+      "ability3": {
+        "text": "The Speech: Once per session, deliver a prepared or improvised address. This is an Action. Make a Persuade or Inspire roll (no DC — this is a narrative moment). All NPCs and PCs who can hear you must engage with what you said — they cannot simply ignore it. Each NPC’s attitude shifts one step in the direction most consistent with the content of the speech. Hostile NPCs do not become Friendly, but they must explain why they remain hostile. The GM narrates the room’s response honestly.",
+        "at_the_table": "Once per session. One Action, one Persuade or Inspire roll (any result). All listeners must respond. Attitude shifts one step based on speech content. The GM narrates truthfully — this is not mind control, it is the room reacting honestly to what was said."
+      },
+      "mastery": {
+        "text": "Surge Momentum Enhancement: Surge Momentum now grants +3 (instead of +2) to the ally’s next roll, and may benefit up to two allies instead of one.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "infiltrator",
+    "name": "Infiltrator",
+    "category": "social",
+    "governing": [
+      "acu",
+      "agi"
+    ],
+    "pool": "resolve",
+    "bonus_skills": [
+      "stealth",
+      "deceive"
+    ],
+    "summary": "Deception and misdirection — the spy, the con artist, the one who is never quite who they appear to be.",
+    "synergy": {
+      "condition_text": "Observe >= 2",
+      "effect": "Read the Target also reveals the target’s current mechanical disposition",
+      "requires": {
+        "skill": "observe",
+        "rank_min": 2
+      }
+    },
+    "fallout": "Your deception is transparent. Target and observers know you lied. Gain Exposed in this social context — all social rolls vs this group at -2 for the rest of the session.",
+    "abilities": {
+      "ability1": {
+        "text": "Cover Story: Maintain one false identity indefinitely. Deceive rolls against those not briefed start at +2. Suspicion resets at the start of each new scene. Read the Target: Before any social roll, spend 1 Action to observe the target. GM tells you one thing they want most. +2 to next roll addressing that want. (Synergy: also learn mechanical disposition) Social Exit: Once per scene, declare a Social Exit as a free action when a situation is going wrong. You and willing allies leave without triggering social consequences for this session.",
+        "at_the_table": "Cover Story is indefinite — it does not require renewal. Read the Target gives a +2 that applies to the next roll only. Social Exit is narrative — it prevents social consequences, not physical ones."
+      },
+      "ability2": {
+        "text": "Assumed Identity: Once per scene, you may fully assume a specific social role — a guard, a servant, a dignitary, a physician. While in this assumed role: all social rolls to question your presence or authority gain +3 from your Deceive skill, and casual inspection by anyone not specifically investigating you auto-fails. This role must be consistent with your appearance and available props. Cost: 0 Resolve — the preparation was done before you arrived.",
+        "at_the_table": "Once per scene, no cost. Must be consistent with available appearance/props. Casual inspection auto-fails. Specific investigation still rolls normally at -3 to find the deception."
+      },
+      "ability3": {
+        "text": "The Other Person: Once per session, assume the specific identity of a named individual you have previously observed for at least 10 minutes. While active: all social rolls as that person use their Reputation score (not yours), and you have access to any social authority they hold in the current context. Duration: the rest of the scene. The illusion is purely social — you cannot physically impersonate someone of a different body type, species, or with obvious distinguishing physical features.",
+        "at_the_table": "Once per session. Requires 10+ min prior observation of the specific target. Active for the rest of the scene. Reputation used is the target’s, not yours. Physical inconsistencies still expose the deception."
+      },
+      "mastery": {
+        "text": "Cover Story Enhancement: Cover Story now allows you to maintain two false identities simultaneously, switching between them as a Free Action. Both start at +2 Deceive for uninformed targets.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "broker",
+    "name": "Broker",
+    "category": "social",
+    "governing": [
+      "wil",
+      "acu"
+    ],
+    "pool": "resolve",
+    "bonus_skills": [
+      "trade",
+      "network"
+    ],
+    "summary": "Exchange and leverage — the trader, the fixer, the one who always has something you need.",
+    "synergy": {
+      "condition_text": "Network >= 2",
+      "effect": "The Deal also reveals one debt or leverage point the target currently holds",
+      "requires": {
+        "skill": "network",
+        "rank_min": 2
+      }
+    },
+    "fallout": "The deal collapsed and everyone knows it was yours. You owe a favor to the target, called in at a dramatically inconvenient moment (GM holds this). Reputation -1 if tracked.",
+    "abilities": {
+      "ability1": {
+        "text": "The Deal: Once per scene, offer a target something they concretely want. If real and plausible, next social roll against them gains +3. (Synergy: also learn one debt or leverage point) Call In: Once per session, call in one favor owed to you. GM determines assistance proportional to the favor given. Market Read: In any commercial or political negotiation, automatically know the fair value of what is being traded. Cannot be deceived about price or worth.",
+        "at_the_table": "The Deal’s +3 applies to the next one roll only. Call In consumes the favor regardless of outcome. Market Read is passive and applies automatically — no roll needed."
+      },
+      "ability2": {
+        "text": "The Leverage: Once per scene, when you know a debt, secret, or weakness belonging to a target (through Market Read, The Deal Synergy, or other means), spend 1 Resolve to apply that knowledge directly. The target’s next social roll against you is made at -3. Additionally, if they would take a hostile action against you this scene, they must first succeed on a Willpower check DC 14 or delay that action one round.",
+        "at_the_table": "Requires known leverage (debt, secret, weakness) on the target. 1 Resolve cost. -3 to their next social roll vs you. Hostile action delay: Willpower DC 14 or hold for 1 round. Once per scene per target."
+      },
+      "ability3": {
+        "text": "The Network: Once per session, declare that you have had someone in place. Name one NPC in the current scene or immediately adjacent context who has been receiving your payments or favors for the past [session’s worth of in-game time]. That NPC is yours — not an enemy. They will not act against you, will pass you one piece of accurate intelligence about the scene when you contact them, and will provide one service consistent with their position. The GM cannot contradict that they exist in this capacity.",
+        "at_the_table": "Once per session. Declare any NPC present or reachable. That NPC has been on your payroll or in your favor network. They will not act against you, provide one accurate intelligence item, and perform one position-appropriate service. GM determines the NPC’s precise knowledge and capabilities but cannot make them non-existent or hostile."
+      },
+      "mastery": {
+        "text": "Market Read Enhancement: Market Read now also reveals the actual motivations behind any negotiation — not just the monetary value, but what the other party actually needs from the deal versus what they are pretending to need.",
+        "at_the_table": null
+      }
+    }
+  },
+  {
+    "id": "confidant",
+    "name": "Confidant",
+    "category": "social",
+    "governing": [
+      "ser",
+      "wil"
+    ],
+    "pool": "resolve",
+    "bonus_skills": [
+      "persuade",
+      "network"
+    ],
+    "summary": "Deep personal connection — the therapist, the one people tell things to without meaning to.",
+    "synergy": {
+      "condition_text": "Heal >= 2",
+      "effect": "Open Door also allows a free Heal roll to clear 1 Condition from a social or emotional source",
+      "requires": {
+        "skill": "heal",
+        "rank_min": 2
+      }
+    },
+    "fallout": "The target feels manipulated even if your intent was genuine. Trust Bond (if held with this character) suspended for the rest of the session. NPC disposition drops one step.",
+    "abilities": {
+      "ability1": {
+        "text": "Open Door: Spend 1 minute in quiet conversation with a willing character. They may share one thing they have not told anyone. No roll — a social fact. (Synergy: free Heal roll to clear 1 emotional Condition) Trust Bond: Choose one character per session. Social rolls targeting each other gain +2 (mutual, voluntary). One character at a time. Word Gets Around: NPCs who have heard of you from a trusted source start at Friendly rather than Neutral where your reputation is known.",
+        "at_the_table": "Open Door requires willingness — cannot be used coercively. Trust Bond is mutual by choice. Word Gets Around is passive and applies at scene start."
+      },
+      "ability2": {
+        "text": "Safe Harbor: Once per scene, when an NPC is about to take an action that would damage you or your allies, you may spend 1 Resolve and speak to them directly — one sentence. Make no roll. The NPC must pause and genuinely consider what you said before acting. If they continue, they do so with -2 to their first roll in that action. If they do not continue, the action is abandoned for this round. This cannot prevent supernatural compulsions or already-committed actions.",
+        "at_the_table": "Once per scene. 1 Resolve. Must be able to speak to the NPC. They pause and reconsider — the GM plays this honestly. If they continue: -2 to first roll. If they stop: action abandoned this round (may try next round). Cannot interrupt mid-action or supernatural compulsion."
+      },
+      "ability3": {
+        "text": "The Whole Truth: Once per session, spend 3 Resolve and spend 5 minutes in genuine conversation with a willing NPC. At the end of those 5 minutes, they tell you everything they know that is relevant to the current situation — not a summary, not a fragment, but everything they actually know. They cannot lie, omit, or misdirect. The GM narrates the full content honestly. This is not magic — it is the result of someone feeling, perhaps for the first time, completely heard.",
+        "at_the_table": "Once per session. 3 Resolve. 5 minutes of in-game conversation. NPC must be willing (Trust Bond or established relationship helps). Full disclosure of everything they know relevant to the situation. The GM must narrate honestly — no selective omission."
+      },
+      "mastery": {
+        "text": "Trust Bond Enhancement: Trust Bond now applies to up to two characters simultaneously (instead of one). Additionally, the mutual +2 bonus becomes +3 when either party is in Wounded range or lower in any pool.",
+        "at_the_table": null
+      }
+    }
+  }
+]

@@ -1,0 +1,413 @@
+[
+  {
+    "id": "fantasy",
+    "name": "Fantasy",
+    "description": "Standard fantasy enables the Magic Genre (Cast, Channel, Abjure, Ritual) and adds the following skills for a world of swords, sorcery, and wilderness. All base skills apply. Genre-specific skills reflect the specific demands of fantasy settings — mounted combat, arcane study, heraldry, craftsmanship, and the dungeon as a location type.",
+    "notes": [
+      "Magic in Fantasy settings uses the full Magic Genre skill set. Channel handles divine magic; Cast (Attack/Defend/Utility) handles arcane magic. Psionics Genre skills may be added for mind-mage archetypes.",
+      "Ride and Craft are the two most commonly needed base-list additions for fantasy settings. GMs running low-magic or no-magic fantasy campaigns should enable these without enabling the Magic Genre."
+    ],
+    "skills": [
+      "alchemy",
+      "diplomacy",
+      "ride",
+      "streetwise",
+      "occult",
+      "craft",
+      "lore-arcane",
+      "lore-history",
+      "lore-religion",
+      "dungeoneering",
+      "herbalism",
+      "siege"
+    ]
+  },
+  {
+    "id": "magic",
+    "name": "Magic and Powers",
+    "description": "The Magic and Powers Genre gates all casting and channelling skills. It covers arcane magic, divine power, innate supernatural ability, and psionic disciplines within a single framework. Psionics and divine power use the same Genre because they share the fundamental mechanic — a trained or innate relationship with a non-physical force — and differ only in source and flavor, not in game mechanics.",
+    "notes": [
+      "Psionics and arcane magic use the same Genre because they share all mechanics — the only difference is narrative source. A telepath and a wizard both use Psi (Sense) / Cast (Utility) for the same type of Power, just described differently.",
+      "Caster Role and Channeler Role both require this Genre to be enabled. Without the Magic Genre, no Cast or Channel skills exist and no Powers can be used.",
+      "The Weird Magic Genre (below) is a separate addition that layers on top of this Genre, not a replacement for it."
+    ],
+    "skills": [
+      "cast-attack",
+      "cast-defend",
+      "cast-utility",
+      "channel",
+      "psi-alter",
+      "psi-attack",
+      "psi-defend",
+      "psi-move",
+      "psi-sense",
+      "ritual",
+      "heal"
+    ]
+  },
+  {
+    "id": "horror",
+    "name": "Horror",
+    "description": "The Horror Genre enables the Dread Pool mechanic, Horror Checks, and the full Status Tracker suite. It also gates the skills that deal with the supernatural as a threat rather than a resource — investigation, occult knowledge, and spiritual defense. Horror settings include Gothic Horror, Survival Horror, Psychological Horror, and any campaign where the unknown is the primary antagonist.",
+    "notes": [
+      "The Horror Genre enables the Dread Pool and Horror Check mechanics described in the System Mechanics section of this chapter. Without this Genre, those mechanics are unavailable.",
+      "Sanity Check is GM-called, not player-declared. It should never appear on a character’s skill roll list — it is a passive mechanical trigger, not an active skill.",
+      "Dread Resist is the only Horror skill with a level prerequisite. It represents characters who have survived long enough to partially desensitise — not immunity, just resilience."
+    ],
+    "skills": [
+      "dread-resist",
+      "exorcism",
+      "folklore",
+      "investigate",
+      "occult",
+      "sanity-check",
+      "medic"
+    ]
+  },
+  {
+    "id": "cthulhu",
+    "name": "Cthulhu",
+    "description": "The Cthulhu Genre is Horror with additional specificity: the Great Old Ones, the Mythos, and the specific horror of cosmic insignificance. It adds the Mythos Lore skill and the unique rule that accumulating Mythos knowledge increases Corruption — knowing too much is itself a form of contamination. Enable this Genre alongside Horror for full Lovecraftian play.",
+    "notes": [
+      "Mythos Lore is the only skill in any Genre that has a permanent mechanical cost for increasing. This is intentional and thematic — knowledge of the Mythos is contamination, not education.",
+      "The Cthulhu Genre assumes the Magic Genre is NOT enabled by default in most Cthulhu campaigns. Mythos-sourced Powers exist in the fiction but should be rare, costly, and deeply connected to the Tainted track rather than the standard Power Level system."
+    ],
+    "skills": [
+      "exorcism",
+      "investigate",
+      "occult",
+      "sanity-check",
+      "astronomy",
+      "cult-lore",
+      "library-use",
+      "mythos-lore"
+    ],
+    "requires": [
+      "horror"
+    ]
+  },
+  {
+    "id": "weird-magic",
+    "name": "Weird Magic",
+    "description": "The Weird Magic Genre layers on top of the Magic Genre. It adds the d20 Weird Table (rolled after every cast), the Weird Fallout table (Natural 1 at 3+ Surge), and the Weird Tainted track. A Weird Magic practitioner did not study their power, was not called to it, and has no community that shares it. Something found them. This Genre requires the Magic Genre to also be enabled.",
+    "notes": [
+      "Weird Magic has only two unique skills because it is primarily defined by the Weird Table and Tainted track mechanics in the System Mechanics section, not by a skill expansion.",
+      "All Magic Genre skills are available to Weird Magic practitioners. The difference is in what happens after they cast, not how they cast.",
+      "Weird Control is intentionally difficult (DC 14) and self-punishing (double success adds Tainted). The Weird should feel ungovernable."
+    ],
+    "skills": [
+      "weird-control",
+      "weird-read"
+    ],
+    "requires": [
+      "magic"
+    ]
+  },
+  {
+    "id": "modern",
+    "name": "Modern",
+    "description": "The Modern Genre covers the contemporary world — crime thrillers, espionage, action, military, police procedurals, and street-level drama. It replaces or supplements several base skills with firearms-specific and technology-specific entries, and adds the investigative and surveillance infrastructure that modern settings require.",
+    "notes": [
+      "Drive and Shoot are the two additions most likely to see use every session in a modern setting. Both supplement rather than replace base skills — a character who lacks Shoot can still fire a gun using Combat (Ranged), just with less specific capability.",
+      "Hack in Modern settings is lower-stakes than in Cyberpunk: systems are not defended by lethal ICE, and consequences are legal rather than physical. GMs should adjust opposition rating accordingly."
+    ],
+    "skills": [
+      "streetwise",
+      "investigate",
+      "demolitions",
+      "drive",
+      "forgery",
+      "hack",
+      "law",
+      "medic",
+      "surveillance",
+      "underworld",
+      "shoot"
+    ]
+  },
+  {
+    "id": "espionage",
+    "name": "James Bond / Espionage",
+    "description": "The James Bond Genre is Modern with an emphasis on field intelligence work, social engineering, and tradecraft. Gadgets, cover identities, seduction, and the razor-thin line between sanctioned and illegal action define this genre. Enable alongside Modern for full espionage play.",
+    "notes": [
+      "Seduction and Cover are the two skills that most distinguish this Genre from base Modern. Both are social-engineering skills that operate at a different speed and scale than Persuade or Deceive.",
+      "The Espionage Genre pairs naturally with the Infiltrator Social Specialty. The Cover skill mechanically extends the Cover Story ability — they are designed to stack."
+    ],
+    "skills": [
+      "investigate",
+      "demolitions",
+      "drive",
+      "forgery",
+      "hack",
+      "medic",
+      "surveillance",
+      "underworld",
+      "cover",
+      "seduction",
+      "tradecraft",
+      "gadgeteer",
+      "shoot"
+    ]
+  },
+  {
+    "id": "cyberpunk",
+    "name": "Cyberpunk",
+    "description": "The Cyberpunk Genre covers high-technology dystopian settings — megacorporations, street-level survival, neural interfaces, and the war between flesh and chrome. It adds cyberspace-specific skills and the social ecology of a broken city.",
+    "notes": [
+      "Interface is the skill that most defines high-end Cyberpunk play. Characters without it are ground-level; characters with it are cyberspace-capable and exposed to a whole category of additional risk.",
+      "Chrome is required to use implant-gated abilities cleanly. A character can have implants without Chrome — they just cannot maintain or push them to their limits without the skill."
+    ],
+    "skills": [
+      "forgery",
+      "hack",
+      "medic",
+      "surveillance",
+      "underworld",
+      "chrome",
+      "fabricate",
+      "ghost",
+      "interface",
+      "street",
+      "shoot"
+    ]
+  },
+  {
+    "id": "steampunk",
+    "name": "Steampunk",
+    "description": "The Steampunk Genre covers Victorian-adjacent technology — steam power, aetheric energy, airships, mechanical computing, and the social hierarchy of an industrialising world. It pairs naturally with low-level Magic Genre (alchemical and aetheric power rather than arcane).",
+    "notes": [
+      "The Steampunk Genre pairs naturally with low-level or restricted Magic Genre: alchemical and aetheric power can be handled through the Magic Genre with Power Source set to Alchemical or Weird Science.",
+      "Society is the skill that most distinguishes Steampunk from adjacent genres. A character who can fight, fly, and engineer but has no Society skill will still fail in the drawing room, and the drawing room matters as much as the skies in a Steampunk setting."
+    ],
+    "skills": [
+      "alchemy",
+      "diplomacy",
+      "ride",
+      "automaton",
+      "engineering",
+      "gadgeteer",
+      "navigate",
+      "pilot-airship",
+      "society"
+    ]
+  },
+  {
+    "id": "transhumanist",
+    "name": "Transhumanist",
+    "description": "The Transhumanist Genre covers futures where the line between human, machine, and information has dissolved — uploaded consciousness, synthetic bodies, nano-medicine, and post-biological existence. It raises questions the other genres do not: what is the self, what is death, and what are you owed if you can be copied?",
+    "notes": [
+      "Upload is the skill that most defines this Genre — it captures the central philosophical and mechanical question of Transhumanist fiction: what happens to the self when the body is optional?",
+      "Synth is intentionally distinguished from Hack. A character who only has Hack sees AIs as systems to be broken into. A character with Synth sees them as people. Both approaches should have mechanical weight at the table."
+    ],
+    "skills": [
+      "hack",
+      "medic",
+      "interface",
+      "engineering",
+      "navigate",
+      "bioengineer",
+      "drone",
+      "synth",
+      "upload",
+      "pilot-spacecraft",
+      "sciences"
+    ]
+  },
+  {
+    "id": "superhero",
+    "name": "Superhero",
+    "description": "The Superhero Genre covers characters with innate or acquired powers that exceed normal human limits — physical, psychic, or technological. It pairs naturally with the Magic Genre (innate Power Source) and the Psionics subset. The distinctive mechanical additions are the skills that manage having extraordinary capabilities in a world not built for them.",
+    "notes": [
+      "Power Control and Power Resist form a pair. Every Superhero Genre character should have at least 1 point in both unless their power is entirely passive. Without Power Control, precision use is impossible; without Power Resist, high-intensity use is physically dangerous.",
+      "Presence is the skill that makes a superhero feel like a superhero at the social level. It is not Persuade, Intimidate, or Lead — it is the ambient field effect of being extraordinary in a world where most people are not."
+    ],
+    "skills": [
+      "investigate",
+      "demolitions",
+      "law",
+      "aerial",
+      "beam-weapons",
+      "hero-id",
+      "power-control",
+      "power-resist",
+      "presence"
+    ]
+  },
+  {
+    "id": "interstellar",
+    "name": "Interstellar",
+    "description": "The Interstellar Genre covers exploration, first contact, and the politics of interstellar civilisation. The distinctive skills reflect the specific demands of a starship crew operating as a diplomatic, scientific, and military unit simultaneously.",
+    "notes": [
+      "Command is the skill that defines the captain archetype. It should be rare — a starship might only have one character with Command, and that character should feel different from anyone who merely has high Lead.",
+      "Xenology and Diplomacy form the foundation of first-contact scenarios. A party with neither skill should find first contact genuinely difficult and unpredictable — the GM should treat unknown species as mechanical unknowns until Xenology rolls establish baseline information."
+    ],
+    "skills": [
+      "diplomacy",
+      "hack",
+      "medic",
+      "engineering",
+      "navigate",
+      "beam-weapons",
+      "command",
+      "pilot-spacecraft",
+      "sciences",
+      "sensors",
+      "xenology"
+    ]
+  },
+  {
+    "id": "space-opera",
+    "name": "Space Opera",
+    "description": "The Space Opera Genre features Force-equivalent powers and the specific social ecology of a galaxy-spanning conflict. Force skills use the same Magic Genre framework with Power Source set to Innate (the Force is biological and transcendent simultaneously, not studied or divine). Enable Magic Genre alongside this Genre for Force use.",
+    "notes": [
+      "Force skills are Magic Genre skills with a different Power Source label. A Force-sensitive character uses Belief for offensive Force use the same way a Cleric uses Belief for Channel — the mechanical system is identical; only the narrative wrapper differs.",
+      "The dark side mechanic is handled through the Corruption Status Tracker: each use of Force (Attack) driven by anger, hatred, or despair rather than necessity triggers a Corruption check (DC 12). This creates the slow slide toward the dark side without a separate subsystem."
+    ],
+    "skills": [
+      "diplomacy",
+      "demolitions",
+      "hack",
+      "medic",
+      "underworld",
+      "navigate",
+      "beam-weapons",
+      "pilot-spacecraft",
+      "force-attack",
+      "force-defend",
+      "force-move",
+      "force-sense",
+      "mechanics",
+      "survival-hostile"
+    ]
+  },
+  {
+    "id": "post-apocalyptic",
+    "name": "Post-Apocalyptic",
+    "description": "The Post-Apocalyptic Genre covers civilisation after the fall — resource scarcity, tribal politics, environmental contamination, and the slow rebuilding of everything that was taken for granted. It extends Survive as the dominant skill and adds the specific capabilities of those who live in the ruins.",
+    "notes": [
+      "Scavenge and Jury-Rig form the core of the Post-Apocalyptic economic loop: Scavenge finds materials, Jury-Rig turns them into something useful. A party strong in both can sustain itself without a fixed base.",
+      "Rad Resist is both a passive and active skill: passive (reducing ongoing contamination accumulation) and active (making specific checks to operate in heavily contaminated zones without incapacitation). GMs should track contamination separately from the standard Status Trackers in this genre."
+    ],
+    "skills": [
+      "demolitions",
+      "drive",
+      "hack",
+      "medic",
+      "underworld",
+      "barter",
+      "faction",
+      "hunt",
+      "jury-rig",
+      "rad-resist",
+      "scavenge",
+      "shoot"
+    ]
+  },
+  {
+    "id": "psionics",
+    "name": "Psionics",
+    "description": "Psionics as a standalone Genre covers settings where mental powers exist separately from magic — science-fiction telepathy, psionic academies, mind-reading espionage, and the specific horror of knowing what everyone around you is feeling. Psionics skills are identical to the Magic Genre Psi (Attack/Defend/Sense/Move/Alter) subset — they are listed here separately for GMs who want psionic power available without enabling the full Magic Genre.",
+    "notes": [
+      "If the Magic Genre is already enabled, the five Psi skills listed in that Genre cover all psionic needs. The Psionics standalone Genre is for settings where you want mental powers but not spells, rituals, or divine channelling.",
+      "Psi (Deep Read) is the skill most likely to create ethical complexity at the table. GMs should discuss with players before enabling it how consent, discovery, and consequences work in their specific campaign.",
+      "Psi (Link) is the only social-bond skill in the system. It is not a control mechanism — the bonded person retains full autonomy. The link is awareness, not command."
+    ],
+    "skills": [
+      "psi-alter",
+      "psi-attack",
+      "psi-defend",
+      "psi-move",
+      "psi-sense",
+      "psi-deep-read",
+      "psi-link",
+      "psi-shield-others",
+      "telepath-lore"
+    ]
+  },
+  {
+    "id": "weird-west",
+    "name": "Weird West / Renaissance / Pulp",
+    "description": "This Genre covers settings that blend historical periods with supernatural or unusual elements: the American frontier with monsters, Renaissance Europe with secret societies, and the 1930s Pulp era with two-fisted adventure and ancient mysteries. The skills reflect the specific demands of each historical setting while sharing enough common ground to live in a single Genre.",
+    "notes": [
+      "Gunfight applies only to Weird West settings. In Renaissance or Pulp settings without revolvers, use Combat (Ranged) for period-appropriate firearms (muskets, early pistols) without the specific quick-draw microstructure.",
+      "Legend is one of the most genre-defining skills in this section. A Pulp hero without Legend is just a capable person. A Pulp hero with high Legend is a force that changes the story before they enter the room."
+    ],
+    "skills": [
+      "alchemy",
+      "ride",
+      "exorcism",
+      "investigate",
+      "occult",
+      "barter",
+      "fencing-historical",
+      "gunfight",
+      "legend",
+      "society-renaissance",
+      "stunt",
+      "wits"
+    ]
+  },
+  {
+    "id": "dark-renaissance",
+    "name": "Dark Renaissance",
+    "description": "Dark Renaissance is a specific genre: a righteous wanderer — swordsman, pistoleer, or scholar — travels the early 17th-century world driven by a compulsion to do right by any means necessary, hunting evil across Europe, Africa, and the New World. The Genre is Horror + Weird West + Renaissance with a specific character type: the faith-driven loner whose conviction is a weapon. Enable alongside Horror for full Dark Renaissance play.",
+    "notes": [
+      "Faith (Combat) is the skill that makes a Dark Renaissance character feel mechanically distinct from a generic fighter with religious flavor. The +1 only activates when the target is genuinely evil or supernatural — which means the player and GM need to agree on that standard, and it should be meaningful enough to cost something when invoked on borderline targets.",
+      "Dark Renaissance settings are not high magic. The Magic Genre should generally not be enabled in a pure Dark Renaissance campaign. Supernatural phenomena exist, but they are threats, not tools. Exorcism and Faith (Combat) are the extent of the protagonist’s supernatural capability."
+    ],
+    "skills": [
+      "alchemy",
+      "ride",
+      "exorcism",
+      "investigate",
+      "occult",
+      "faith-combat",
+      "gunfight-period",
+      "languages-period",
+      "theology",
+      "wilderness-continental"
+    ]
+  },
+  {
+    "id": "wuxia",
+    "name": "Wuxia / Martial Arts",
+    "description": "The Wuxia Genre covers high-flying martial arts fiction — Chinese period epics, Hong Kong action cinema, and the specific physics of a world where perfected martial discipline can defy gravity, shatter stone, and alter fate. The distinctive mechanical elements are the Chi system (analogous to Mana but specific to physical discipline), the Honor economy, and the wire-fu movement skills that replace conventional physics.",
+    "notes": [
+      "Chi skills are mechanically identical to Cast skills but draw from Stamina rather than Mana. This means a Wuxia character has no separate power pool — their martial art costs physical endurance, which creates a very different resource management situation from a caster.",
+      "Honor is the defining social mechanic of the Wuxia Genre. Unlike Reputation (which is about fame) or Network (which is about contacts), Honor is about obligation. High Honor means people are obligated to you — but you are also obligated to them. GMs should treat Honor as a bidirectional tracker.",
+      "The Wuxia Genre can coexist with the Magic Genre (chi-users and spell-casters in the same world) or replace it entirely (chi IS the magic in a purely martial setting)."
+    ],
+    "skills": [
+      "ride",
+      "chi-flow",
+      "chi-heal",
+      "chi-move",
+      "chi-sense",
+      "chi-strike",
+      "honor",
+      "poetry",
+      "wushu"
+    ]
+  },
+  {
+    "id": "mythic",
+    "name": "Mythic / Demigods",
+    "description": "The Mythic Genre covers characters of divine bloodline, legendary heroes of classical myth, and the specific challenges of operating at a scale where individual action shapes the fate of civilisations. It adds the Divine Bloodline track (a 0–5 progression analogous to Corruption but positive — growing into divinity rather than being consumed by darkness), skills that interact with fate and prophecy, and the social demands of dealing with gods as characters.",
+    "notes": [
+      "The Divine Bloodline track (0–5) is the inverse of Corruption — using Divine Aspect fills it, and high levels grant increasingly dramatic passive benefits (additional Actions, divine protection, the ability to enter divine spaces). Unlike Corruption, the Mythic track filling is not intrinsically bad: it represents the character growing into their nature.",
+      "Fate mechanics require careful GM handling. The Fate (Read) and Fate (Resist) skills are powerful table-management tools: they give players narrative engagement with prophesied events without removing agency. The GM should always know what the fate IS before a Fate (Read) roll is made, even if the player never learns the full truth of it.",
+      "The Mythic Genre pairs naturally with any historical period: Greek myths, Norse sagas, Egyptian mythology, Indian epic, or original mythic settings. The skills are deliberately myth-agnostic — Divine Lore covers all pantheons, Monster Lore covers all legendary creature traditions."
+    ],
+    "skills": [
+      "divine-aspect",
+      "divine-lore",
+      "epithet",
+      "fate-read",
+      "fate-resist",
+      "heroic-legend",
+      "monster-lore",
+      "pankration",
+      "sacrifice"
+    ]
+  }
+]

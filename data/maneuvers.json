@@ -1,0 +1,102 @@
+[
+  {
+    "id": "knockdown",
+    "name": "Knockdown",
+    "cost_text": "1 Stamina",
+    "effect": "Target becomes Prone on hit. Requires overage 2+.",
+    "cost": {
+      "boxes": 1,
+      "pool": "stamina"
+    }
+  },
+  {
+    "id": "disarm",
+    "name": "Disarm",
+    "cost_text": "1 Stamina",
+    "effect": "Target drops held weapon on hit. Opposed Strength.",
+    "cost": {
+      "boxes": 1,
+      "pool": "stamina"
+    }
+  },
+  {
+    "id": "feint",
+    "name": "Feint",
+    "cost_text": "1 Stamina",
+    "effect": "Target’s next Defend vs you is at −2.",
+    "cost": {
+      "boxes": 1,
+      "pool": "stamina"
+    }
+  },
+  {
+    "id": "called-shot",
+    "name": "Called Shot",
+    "cost_text": "2 Stamina",
+    "effect": "Declare a specific location. On hit: apply relevant Condition (Blinded, Restrained, etc.).",
+    "cost": {
+      "boxes": 2,
+      "pool": "stamina"
+    }
+  },
+  {
+    "id": "overrun",
+    "name": "Overrun",
+    "cost_text": "1 Stamina",
+    "effect": "Move through a target’s zone. Target may Defend or be pushed.",
+    "cost": {
+      "boxes": 1,
+      "pool": "stamina"
+    }
+  },
+  {
+    "id": "shield-bash",
+    "name": "Shield Bash",
+    "cost_text": "1 Stamina",
+    "effect": "Requires shield. +1 attack; target Prone on overage 3+.",
+    "cost": {
+      "boxes": 1,
+      "pool": "stamina"
+    }
+  },
+  {
+    "id": "aimed-shot",
+    "name": "Aimed Shot",
+    "cost_text": "1 Stamina",
+    "effect": "Spend 1 Action aiming. Next ranged attack this round +2, ignores partial cover.",
+    "cost": {
+      "boxes": 1,
+      "pool": "stamina"
+    }
+  },
+  {
+    "id": "flurry",
+    "name": "Flurry",
+    "cost_text": "2 Stamina",
+    "effect": "Make two attacks at −1 each. Both use the same Action.",
+    "cost": {
+      "boxes": 2,
+      "pool": "stamina"
+    }
+  },
+  {
+    "id": "counter",
+    "name": "Counter",
+    "cost_text": "1 Reaction",
+    "effect": "On successful Defend: immediately make a free attack at −2 (no Action cost).",
+    "cost": {
+      "reactions": 1
+    },
+    "notes": "Overlaps the Duelist Specialty's Riposte. Kept for now (DECISIONS.md)."
+  },
+  {
+    "id": "shove",
+    "name": "Shove",
+    "cost_text": "1 Stamina",
+    "effect": "Opposed Strength. On win: push target 1 band and Prone.",
+    "cost": {
+      "boxes": 1,
+      "pool": "stamina"
+    }
+  }
+]

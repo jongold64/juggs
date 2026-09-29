@@ -1,0 +1,943 @@
+[
+  {
+    "id": "warrior",
+    "name": "Warrior",
+    "category": "combat",
+    "identity": "Frontline combatant.",
+    "summary": "Frontline combatant. Hits harder, takes punishment, closes fights decisively.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Soldier or Duelist background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "+1 to all Attack rolls when Stamina is in Fresh range (boxes 1–5)."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "When Combat Fallout triggers, choose the Condition applied to you — it must be a standard Condition."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per encounter, reroll a Maneuver attack after paying the Stamina cost. Take the second result."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Once per round, one Combat Maneuver costs 0 Stamina. Declare before rolling. The effect still applies."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "On a Boon (threshold 13–20 at Legendary), all Combat Maneuvers this round cost 0 Stamina."
+      }
+    ],
+    "design_note": "Warrior gets stronger when fresh. Berserker inverts this — gets stronger when hurt. They are complementary, not redundant."
+  },
+  {
+    "id": "defender",
+    "name": "Defender",
+    "category": "combat",
+    "identity": "Shield for the group.",
+    "summary": "Shield for the group. Absorbs damage and controls who gets targeted.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Sentinel or Soldier background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "+1 DR (stacks with armor). Interpose costs 0 Reactions once per round."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Broken threshold +1 — Stamina pool holds until box 16 before Broken."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Successful Interpose grants the protected ally Braced until end of round."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "DR bonus increases to +2. Passive, always on."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per encounter, completely absorb one hit targeting any ally in Close range. No damage to either character."
+      }
+    ],
+    "design_note": "Defender is outward-facing — protects others. Survivor is inward-facing — cannot be stopped. Both are defensive identities but mechanically and narratively distinct."
+  },
+  {
+    "id": "skirmisher",
+    "name": "Skirmisher",
+    "category": "combat",
+    "identity": "Hit-and-run combatant.",
+    "summary": "Hit-and-run combatant. Controls tempo through movement, never stands still.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Duelist or Outlaw background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "After making a melee attack — hit or miss — Disengage as a free action."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "If you attack and move in the same round, your Deflect increases by 2 until your next turn."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per encounter, make one attack before Initiative is determined — before the round starts."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "The free Disengage after an attack may move you up to 2 range bands, not 1."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "On a Boon, your attack and Disengage both trigger — then make a second free attack against any target in range."
+      }
+    ],
+    "design_note": "Skirmisher is combat tempo control. Scout is reconnaissance and positioning. Hunter is single-target pursuit. Three distinct identities sharing the Agility/Acuity foundation."
+  },
+  {
+    "id": "hunter",
+    "name": "Hunter",
+    "category": "combat",
+    "identity": "Relentless pursuit.",
+    "summary": "Relentless pursuit. Designates one target and becomes increasingly lethal against it.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Explorer or Operative background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Designate one creature as your Mark as a free action. +2 to all Observe, Track, and Attack rolls against your Mark. One Mark at a time."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Your Mark cannot benefit from Concealed or Invisible against you specifically."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per encounter, your attack against your Mark ignores DR entirely."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "When your Mark moves, you may move up to 1 range band toward them as a free Reaction, once per round."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Your first attack each scene against your Mark automatically hits — no roll. Treated as the minimum needed to succeed."
+      }
+    ],
+    "design_note": "Step 5 auto-hit is the most powerful single benefit in the set. The Mark constraint justifies it — you commit your defining ability to one target, which the GM can exploit."
+  },
+  {
+    "id": "berserker",
+    "name": "Berserker",
+    "category": "combat",
+    "identity": "Escalating fury.",
+    "summary": "Escalating fury. Trades defense for offense — gets more dangerous as the situation worsens.",
+    "prerequisite_text": "No prerequisite. Pairs naturally with Striker Fighting Style.",
+    "requires": [],
+    "suggested_aptitudes_text": "Savage or Soldier background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "When Stamina enters Battered range (boxes 6–10), gain +1 to all Attack rolls. When it enters Wounded range (boxes 11–14), gain +2 instead. These replace each other — they do not stack."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "While the Berserker bonus is active (Stamina Battered or Wounded), you cannot be Stunned or Dazed. Attacks still deal their Stamina damage — the Condition does not apply."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per encounter, when a single hit crosses at least 2 Stamina boxes, make one free Attack against the attacker as a Reaction. No Action cost. Declare after damage is applied."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Berserker bonuses increase: Battered now grants +2, Wounded now grants +3. Additionally, when Stamina enters Wounded range for the first time in an encounter, unmark 1 Stamina box immediately."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, enter a full Berserk state until end of scene. Attack rolls use the higher of Strength or Toughness. No single hit can reduce Stamina below 1 box — each hit can reach 1, not past it. When the state ends, cross 3 Stamina boxes immediately."
+      }
+    ],
+    "design_note": "Step 1 deliberately inverts the Warrior — Warrior peaks when fresh, Berserker peaks when hurt. Step 5 cost (3 Stamina boxes on exit) makes it a genuine trade, not a free win condition."
+  },
+  {
+    "id": "ascetic",
+    "name": "Ascetic",
+    "category": "combat",
+    "identity": "Physical and spiritual perfection unified.",
+    "summary": "Physical and spiritual perfection unified. Unarmed and unarmored by choice — the body is the instrument.",
+    "prerequisite_text": "No prerequisite. Gains no benefit from wearing armor (and no penalty either).",
+    "requires": [],
+    "suggested_aptitudes_text": "Savage, Sentinel, Celebrant, or Shaman. See also Temple Trained (suggested new Aptitude).",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Unarmed strikes use the higher of Strength or Agility as their Attack bonus — equivalent to a Standard weapon. Never treated as Improvised. Deflect uses the higher of Toughness or Agility."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Once per round, after any unarmed attack — hit or miss — make one additional unarmed strike as a free action against the same or an adjacent target. Declare after seeing the first result."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per encounter, when you would gain a Condition from a physical source, negate it entirely. Stamina damage still applies. Works against Dazed, Stunned, Prone, Bleeding, Burning, Poisoned, Slowed, Restrained, Exposed. Does not work against supernatural or social Conditions."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Unarmed strikes ignore DR entirely. Passive, always on. Additionally, the Step 2 free strike can now target any creature in Close range."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, enter a state of perfect stillness for one full round. You cannot be targeted by any attack, Power, or effect. You take no actions. At the end of that round, your next attack ignores all active Conditions on the target and cannot be Deflected — only Defended against."
+      }
+    ],
+    "design_note": "Step 5 stillness is not invisibility — attackers can see the Ascetic, they simply cannot reach them. The follow-up attack is the payoff. Once per session keeps it a signature moment, not a routine."
+  },
+  {
+    "id": "scout",
+    "name": "Scout",
+    "category": "exploration",
+    "identity": "Mobile awareness.",
+    "summary": "Mobile awareness. Controls positioning and knows the terrain before anyone else.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Operative or Explorer background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Disengage free once per round. +2 to all Observe rolls outside combat."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "First attack each encounter from Concealed or Invisible bypasses Defend — target may only Deflect."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per scene, move up to 2 range bands as a free action."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Once per scene, apply Concealed to yourself as a free action."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Your first attack each round is always treated as coming from Concealed — target may only Deflect. Passive, no declaration needed."
+      }
+    ],
+    "design_note": "Scout is environmental positioning and reconnaissance. Skirmisher is combat tempo. Hunter is pursuit. All share the Agility/Acuity base but grow into genuinely different play patterns."
+  },
+  {
+    "id": "survivor",
+    "name": "Survivor",
+    "category": "exploration",
+    "identity": "Inward-facing endurance.",
+    "summary": "Inward-facing endurance. Cannot be stopped by attrition — outlasts everything.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Savage or Nomad background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "When Stamina reaches the Broken threshold, make a free Endure roll (Difficulty 12). On success, ignore the Broken penalty until end of scene."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Once per scene, clear one Condition affecting you as a free action."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Your pools do not trigger Broken until 2 boxes past the normal threshold."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Once per encounter, when an attack would reduce Stamina to 0, reduce it to 1 instead. No roll required."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, ignore all Conditions and pool penalties for one full round. Everything functions at full capacity regardless of current state."
+      }
+    ],
+    "design_note": "Distinct from Defender (protects others) and Berserker (offensive escalation). Survivor is cold, inward endurance — the person who walks out of disasters they should not have survived."
+  },
+  {
+    "id": "wayfinder",
+    "name": "Wayfinder",
+    "category": "exploration",
+    "identity": "Navigation and safe passage through any environment — literal and metaphorical.",
+    "summary": "Navigation and safe passage through any environment — literal and metaphorical.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Explorer or Nomad background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "+2 to all Survive, Navigate, and Observe rolls in natural or unmapped environments. The group never gets lost while you lead."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Before entering any unmapped area, the GM tells you one true thing about it — a threat, a resource, or a route — before commitment."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per scene, identify the fastest or safest route between any two points without a roll. Works in any environment including urban and supernatural."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Allies moving as part of your group ignore difficult terrain and environmental penalties while you lead."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, guarantee safe passage for the entire group through any physical obstacle or hazard. No rolls, no attrition. The GM determines how, not whether."
+      }
+    ],
+    "design_note": "Step 5 says the GM determines how, not whether — this keeps the GM in control of the fiction while honoring the Role’s promise. It is not a ‘skip encounter’ button."
+  },
+  {
+    "id": "speaker",
+    "name": "Speaker",
+    "category": "social",
+    "identity": "Social authority through Reputation and genuine leadership.",
+    "summary": "Social authority through Reputation and genuine leadership.",
+    "prerequisite_text": "No prerequisite. Typically pairs with high Morale and social Focus Skills.",
+    "requires": [],
+    "suggested_aptitudes_text": "Diplomat or Noble background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "+2 to all social skill rolls when Reputation applies."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Inspire used on Close range allies costs 0 Actions once per round."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per session, reroll any failed social skill roll after seeing the result."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "The +2 bonus now applies to all social skill rolls unconditionally — not only when Reputation applies."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Reputation applies even when you are unknown: the +2 bonus fires on all social rolls regardless of context."
+      }
+    ],
+    "design_note": "Speaker wins by being themselves more effectively. Infiltrator wins by not being themselves at all. Empath wins by knowing what the other person actually wants. Three social identities, three different methods."
+  },
+  {
+    "id": "infiltrator",
+    "name": "Infiltrator",
+    "category": "social",
+    "identity": "Assumed identity and social deception.",
+    "summary": "Assumed identity and social deception. Becomes whoever the situation requires.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Criminal or Operative background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "+2 to all Deceive and Perform rolls when maintaining a false identity. Casual inspection never breaks cover without active suspicion first."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Once per scene, adopt the social standing or credentials of any role you portray — access it grants is real until actively investigated."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per session, retroactively establish that you have been in place, under cover, for any length of time up to one week. The GM cannot contradict it unless you were demonstrably elsewhere."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Your Deceive rolls to maintain cover are never subject to opposed checks — only a specifically suspicious active investigation can challenge your identity."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, assume the identity, credentials, and social authority of any specific named individual you have observed. All social rolls as that person use their Reputation score, not yours."
+      }
+    ],
+    "design_note": "Step 3 (retroactive cover) is intentionally narrative — it rewards players who think ahead. Step 5 requires prior observation of the specific target, preventing unlimited impersonation."
+  },
+  {
+    "id": "empath",
+    "name": "Empath",
+    "category": "social",
+    "identity": "Reading people.",
+    "summary": "Reading people. Detects deception, senses motivation, knows what others want before they say it.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Diplomat or Merchant background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "+2 to all Observe rolls targeting emotional state, intent, or honesty. You always know when someone is actively lying to you — not what the truth is, only that the lie is present."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Once per scene, ask the GM one yes/no question about any person in Near range. The GM answers from that person’s genuine perspective, not their stated one."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "In social conflict, the GM tells you which of the three Social Actions (Press, Hold, Deflect) is optimal for your goal before you commit."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Once per session, read one person’s current primary motivation in full — a complete honest statement of what they most want right now."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Deception against you becomes unreliable. NPCs and players who attempt to deceive you in any social context must succeed on an opposed Deceive vs. your Observe roll at −4 to their roll."
+      }
+    ],
+    "design_note": "No classic equivalent exists — the closest D&D analogue is Divination Wizard or Insight-focused Cleric. Empath is the first JUGGS Role where the primary tactical tool is knowing the truth rather than affecting others."
+  },
+  {
+    "id": "artificer",
+    "name": "Artificer",
+    "category": "knowledge",
+    "identity": "Technical mastery.",
+    "summary": "Technical mastery. Builds, modifies, and repairs — with scope expanding each tier.",
+    "prerequisite_text": "Intellect 2+ at Step 1",
+    "requires": [
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 2
+      }
+    ],
+    "suggested_aptitudes_text": "Engineer or Scientist background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Given tools and one uninterrupted Task Block, repair any damaged item to full function without a roll. Jury-rig improvised equipment from available materials — functions at −1 Rating until properly repaired."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Modify any weapon or equipment to grant a specific +1 bonus (player-defined, GM approved) that persists until the item is used in combat. One active modification at a time."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per session, create a single-use item that replicates any non-magical Skill effect — a smoke device, a lock-breaking tool, a signal apparatus. No materials cost assumed."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Modifications are now permanent. Apply one permanent +1 effect to any item between sessions. No limit on items modified over time."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, create an item that exceeds the Genre’s normal technology ceiling by one step — something that should not exist yet in this setting. The GM defines the limits; you define the function."
+      }
+    ],
+    "design_note": "The Artificer Role is genre-scaled — what it can build is bounded by the active Genre’s technology level. A Fantasy Artificer makes alchemical devices; a Cyberpunk Artificer builds ICE-breakers."
+  },
+  {
+    "id": "investigator",
+    "name": "Investigator",
+    "category": "knowledge",
+    "identity": "Deduction and scene reconstruction.",
+    "summary": "Deduction and scene reconstruction. Wins encounters before they happen by knowing what happened.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Academic or Operative background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "+2 to all Analyze and Observe rolls when examining a scene, object, or person for information. Once per scene, ask the GM one yes/no question about physical evidence present — the answer is always accurate."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "When you enter any location where a significant event occurred, the GM tells you one true fact about that event unprompted — before you roll anything."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per session, name a specific conclusion about a scene or person. The GM tells you whether you are correct. If wrong, they tell you one true thing that would have led you to the right answer."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Your Investigate actions never produce false results from the scene itself. Environmental misdirection, staged evidence, and mundane forgeries do not fool you. Supernatural concealment still applies."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, reconstruct any past event you have evidence of in complete accurate detail — who, what, when, and why — without rolling. The GM provides this as a full narrative account."
+      }
+    ],
+    "design_note": "Step 5 is explicitly a GM-facing ability — it hands control to the GM rather than bypassing them. It is powerful without being unbalanceable because the GM delivers the reconstruction."
+  },
+  {
+    "id": "polymath",
+    "name": "Polymath",
+    "category": "knowledge",
+    "identity": "Adaptability as a tactical resource.",
+    "summary": "Adaptability as a tactical resource. Breadth over depth — the group’s answer to problems no specialist prepared for.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Polymath or Academic background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Once per scene, use any non-Focus Skill as if it were a Focus Skill (+2 instead of +1) for one roll. Declare before rolling."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Once per session, assist any ally on any Skill roll regardless of whether you are trained — your assist die contributes your full Ability Score rather than only your tier."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "When you succeed on a Skill roll using a non-Focus Skill, that skill counts as a Focus Skill until the end of the session. Triggers once per scene, not once per roll."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "The once-per-scene limit on Step 1 is removed. Treat any Skill as a Focus Skill for any roll, any number of times per scene."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, declare you are exactly the right person for the current situation. Name any single Skill. For the rest of the scene, your relevant Ability Score is treated as 2 higher than its current value."
+      }
+    ],
+    "design_note": "Step 3 fits the Polymath’s identity — learning from doing. It fits because the Polymath’s identity is learning from doing. Step 5 (+2 Ability Score for a scene) is the strongest single-scene benefit available to any Role."
+  },
+  {
+    "id": "caster",
+    "name": "Caster",
+    "category": "supernatural",
+    "identity": "Arcane magic, learned or innate.",
+    "summary": "Arcane magic, learned or innate. Grows toward unrestricted power at lower cost.",
+    "prerequisite_text": "Magic Overlay required. Cast skill 2+ required. Intellect 2+ or Belief 2+.",
+    "requires": [
+      {
+        "genre": [
+          "magic"
+        ]
+      },
+      {
+        "any": [
+          {
+            "skill": "cast-attack",
+            "rank_min": 2
+          },
+          {
+            "skill": "cast-defend",
+            "rank_min": 2
+          },
+          {
+            "skill": "cast-utility",
+            "rank_min": 2
+          }
+        ]
+      },
+      {
+        "ability": [
+          "int",
+          "bel"
+        ],
+        "min": 2
+      }
+    ],
+    "suggested_aptitudes_text": "Academic or Scientist background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Cantrips free (Cast 2+). Level Discount active on all Powers."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Maximum usable Power Level = Character Level + 1 (cap 5)."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Surge cost on primary Cast school reduced by 1 box (minimum 1)."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Once per scene, cast one Power at Level 1 or Level 2 for free — no Mana, no Surge cost."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, cast any Power at any Level for free. No Mana cost. Surge is not free — if Surged, those boxes are still paid."
+      }
+    ],
+    "design_note": "A single framework covers Wizard, Sorcerer, and Warlock concepts. No spell slots — Mana pool plus Level Discount. The cantrip rule means dedicated casters never pay for baseline magical attacks."
+  },
+  {
+    "id": "channeler",
+    "name": "Channeler",
+    "category": "supernatural",
+    "identity": "Divine or spiritual healing and authority.",
+    "summary": "Divine or spiritual healing and authority. Faith-sourced restoration and supernatural protection.",
+    "prerequisite_text": "Magic Overlay required. Channel or Heal 2+ required.",
+    "requires": [
+      {
+        "genre": [
+          "magic"
+        ]
+      },
+      {
+        "any": [
+          {
+            "skill": "channel",
+            "rank_min": 2
+          },
+          {
+            "skill": "heal",
+            "rank_min": 2
+          }
+        ]
+      }
+    ],
+    "suggested_aptitudes_text": "Celebrant or Shaman background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Spiritual Powers clear 2 Resolve (not 1). Abjure costs 1 Resolve."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Corruption points 1–2 clear per Full Rest with prayer."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Spiritual Fallout duration reduced to 1 hour. No relational requirement."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Abjure costs 0 Resolve once per scene. Additionally, all Spiritual Powers automatically gain the Authority Over Supernatural bonus (+1 effective Power Level vs supernatural targets)."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, nullify any supernatural effect targeting any ally within Near range. Declare after the effect’s success is determined, before consequences apply. No Mana, no Resolve, no roll."
+      }
+    ],
+    "design_note": "No deity is required by the rules — Channeler describes the mechanical relationship, not the theology. A warrior-priest, a shamanic healer, and a faith-based field medic all qualify."
+  },
+  {
+    "id": "weird",
+    "name": "Weird",
+    "category": "supernatural",
+    "identity": "Chaotic, tradition-less magic.",
+    "summary": "Chaotic, tradition-less magic. The chaos is the identity, not a side effect.",
+    "prerequisite_text": "Magic Overlay required. Weird Magic Overlay required.",
+    "requires": [
+      {
+        "genre": [
+          "magic"
+        ]
+      },
+      {
+        "genre": [
+          "weird-magic"
+        ]
+      }
+    ],
+    "suggested_aptitudes_text": "Shaman or Outlaw background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Weird Table access. Roll twice per cast, choose result. Grants Corruption 1 on first use."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Revelation (roll 8) fills 0 Resolve. Corruption check DC reduced to 12 (from 14)."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per scene, declare a Weird Table result instead of rolling."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "When the Drain result (4) fires on the Weird Table, choose which pool is drained instead of random."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "When the Backlash result (1) fires on the Weird Table, redirect the effect to one visible target."
+      }
+    ],
+    "design_note": "At Step 3 (declare instead of roll) the Weird character gains meaningful control for the first time. Steps 4 and 5 narrow the remaining chaos around its two worst outcomes. Full control is never reached — that is the design.",
+    "notes": "Step 1 grants Corruption 1 (Weird results add to Corruption; no separate Tainted track)."
+  },
+  {
+    "id": "psion",
+    "name": "Psion",
+    "category": "supernatural",
+    "identity": "Mind-sourced power.",
+    "summary": "Mind-sourced power. Draws from the character’s own mental capacity — no external source, no Fallout, only Strain.",
+    "prerequisite_text": "Psionic Overlay required. Willpower 2+.",
+    "requires": [
+      {
+        "genre": [
+          "psionics"
+        ]
+      },
+      {
+        "ability": [
+          "wil"
+        ],
+        "min": 2
+      }
+    ],
+    "suggested_aptitudes_text": "Academic or Operative background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Psionic Powers cost 1 fewer Mana box (minimum 1). Surface-level emotional reading at Near range costs 0 Mana and requires no roll."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Psionic Strain effects (backlash) are reduced by one severity step — Moderate becomes Mild, Mild becomes negligible."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per encounter, project one Psionic effect at Far range without range penalty."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Psionic Powers targeting a willing subject cost 0 Mana. No resource cost for cooperative use."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, project a Psionic effect simultaneously into the minds of every creature in Near range. One roll, one Mana cost, all valid targets."
+      }
+    ],
+    "design_note": "Psion is deliberately distinct from Caster — it draws from Willpower rather than Intellect or Belief, costs no Fallout, and cannot be countered by Arcane Defend rolls. The Psionic Overlay must be enabled at Session Zero."
+  },
+  {
+    "id": "shaper",
+    "name": "Shaper",
+    "category": "supernatural",
+    "identity": "Environmental and elemental manipulation.",
+    "summary": "Environmental and elemental manipulation. Changes the conditions of the scene rather than targeting creatures.",
+    "prerequisite_text": "Magic Overlay required. Any element-based Effects available in the Genre.",
+    "requires": [
+      {
+        "genre": [
+          "magic"
+        ]
+      }
+    ],
+    "suggested_aptitudes_text": "Shaman or Explorer background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Environmental Effects you create (terrain alteration, weather influence, elemental shaping) last until end of scene without requiring Concentration."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Once per scene, create a zone of difficult terrain, elemental hazard, or environmental condition at Near range — one range band across. Lasts the scene. No Mana cost."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Your environmental Effects affect all creatures within the zone simultaneously. You designate which creatures are excluded."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Once per scene, permanently alter a physical feature of the environment — seal a door, open a passage, collapse a section of terrain. No roll for mundane features."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, reshape the physical conditions of the entire scene — every surface, every feature, every terrain element — into any physically possible configuration. Lasts indefinitely."
+      }
+    ],
+    "design_note": "Shaper changes conditions; Caster changes creatures. Step 5 is the most scene-reshaping ability in the Role set — it rewrites the terrain permanently. The GM and player agree on what is physically possible.",
+    "flags": [
+      "Prerequisite also says \"Any element-based Effects available in the Genre\" (not checkable)."
+    ]
+  },
+  {
+    "id": "medic",
+    "name": "Medic",
+    "category": "supernatural",
+    "identity": "Secular technical healing.",
+    "summary": "Secular technical healing. Surgery, trauma care, and pharmacology — keeps the group functional without supernatural resources.",
+    "prerequisite_text": "No prerequisite. No magic overlay required. Pairs with Toughness and Acuity.",
+    "requires": [],
+    "suggested_aptitudes_text": "Healer or Scientist background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Your Tend action in combat automatically succeeds on one ally per round at no Action cost — you stabilize without rolling. Out of combat, Survive field triage DC is reduced by 4 (DC 8 instead of DC 12)."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Once per scene, clear one ongoing Condition (Bleeding, Burning, Poisoned, Dazed, Stunned, Sickened, or Exhausted 1 level) from any ally as a free action — no roll, no pool cost."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "A successful Survive field triage check out of combat now clears the Wounded condition (boxes 11–14). Normally this requires magical healing. Requires one uninterrupted Task Block."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Once per scene, in-combat triage unmars 2 Stamina boxes. Roll d20 + Toughness + Survive or Medic vs DC 12. On success: 2 boxes. On failure: 1 box. No pool cost to you."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, perform emergency intervention on any ally at any Stamina state including Broken. No roll required. The ally transitions from Broken to Impaired immediately and can act this round. Additionally unmark all Strained boxes (6–10) from their Stamina pool. Does not require a Full Rest."
+      }
+    ],
+    "design_note": "Step 3 is the key unlock — mundane healing clearing Wounded is normally impossible without magic. This makes the Medic Role essential in non-magical genres rather than a lesser Channeler. Step 5 parallels Channeler Step 5 in scope but uses no Mana or Belief — it runs entirely from skill and Toughness."
+  },
+  {
+    "id": "netrunner",
+    "name": "Netrunner",
+    "category": "supernatural",
+    "identity": "Digital infiltration and network combat.",
+    "summary": "Digital infiltration and network combat. Operates in virtual and electronic spaces as a primary domain.",
+    "prerequisite_text": "Cyberpunk, Transhumanist, Interstellar, or Space Opera Genre required. Hack skill must be available. Intellect 2+.",
+    "requires": [
+      {
+        "genre": [
+          "cyberpunk",
+          "transhumanist",
+          "interstellar",
+          "space-opera"
+        ]
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 2
+      }
+    ],
+    "suggested_aptitudes_text": "Operative or Engineer background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Hack skill rolls gain +2. When using the Fix-It Framework for digital tasks, Phase 1 (Diagnose) automatically succeeds — skip straight to Phase 2 without a roll or Complication risk."
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "Once per scene, access any networked system within Near range without physical interface — you connect remotely. If the system has active countermeasures, you learn their rating before committing."
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "When a Hack roll succeeds with overage 3+, choose one: extract all available data, disable the system for the scene, or plant a persistent backdoor the GM cannot remove without a full scene of countermeasures."
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "In settings with neural interface, engage in direct network combat — opposed Intellect + Hack vs target system rating. Overage damages system integrity (treat as a Mana pool, 10 boxes). Broken integrity: system permanently offline until physically repaired. Hack rolls against neural-linked opponents deal Mana damage on overage."
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, execute a Master Intrusion affecting any digital system or network you have previously accessed, regardless of current location. No roll required for access. The GM sets a Difficulty for any specific consequence within the system — roll against it normally."
+      }
+    ],
+    "design_note": "Step 1 integrates with the Fix-It Framework’s Phase 1 — the most common Netrunner death in fiction is detection on the approach, not the execution. Step 5 requires prior access, rewarding reconnaissance over omnipotence.",
+    "flags": [
+      "Prerequisite also says \"Hack skill must be available\"."
+    ]
+  }
+]

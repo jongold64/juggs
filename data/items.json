@@ -1,0 +1,1443 @@
+{
+  "rules": "An item is a Template, a Rating (1-5 for Enhancement, Ward and Reservoir; DECISIONS.md) and any number of Descriptors. Descriptors never change the Rating. Enhancement and Ward values equal the Rating (DECISIONS.md). Items stack with weapon quality.",
+  "templates": [
+    {
+      "id": "enhancement",
+      "name": "Enhancement",
+      "summary": "Adds to a roll you were already making.",
+      "grants": "+1 / +2 / +3 to one named Skill, Attack, Deflect, Defend, or Ability Score.",
+      "rating": "Rating 1-5 = +1 to +5 (the bonus equals the Rating). Only the highest Enhancement to a given roll applies; they do not stack with each other.",
+      "examples": "Flame Tongue, Belt of Giant Strength, Headband of Intellect, Bracers of Defense, Cloak of Protection, weapon and armor runes",
+      "has_rating": true,
+      "rating_values": {
+        "1": "+1",
+        "2": "+2",
+        "3": "+3",
+        "4": "+4",
+        "5": "+5"
+      }
+    },
+    {
+      "id": "ward",
+      "name": "Ward",
+      "summary": "Subtracts from what reaches you.",
+      "grants": "DR against one damage source, resistance to one Effect type, or immunity to one named Condition.",
+      "rating": "Rating 1-5 = DR 1-5 (DR equals the Rating). Instead of DR: halve one Effect type (Rating 1+), immunity to one Condition (Rating 3+), or immunity to one Effect type entirely (Rating 5).",
+      "examples": "Adamantine Armor, Dragon Scale Mail, Ring of Free Action, Periapt of Wound Closure, Brooch of Shielding, Necklace of Adaptation",
+      "has_rating": true,
+      "rating_values": {
+        "1": "DR 1",
+        "2": "DR 2",
+        "3": "DR 3",
+        "4": "DR 4",
+        "5": "DR 5"
+      }
+    },
+    {
+      "id": "reservoir",
+      "name": "Reservoir",
+      "summary": "Holds Powers or Effects and spends them as charges.",
+      "grants": "A number of charges equal to Rating, refreshing at dawn or on a Full Rest. Each charge casts a stored Power at a fixed Power Level, or applies a stored Effect.",
+      "rating": "Rating 1 = 1 charge, PL 1 · Rating 3 = 3 charges, PL 3 · Rating 5 = 5 charges, PL 5. The wielder does not need the Cast skill; the item supplies the roll at 10 + Rating.",
+      "examples": "Wand of Fireballs, Staff of Healing, Ring of Spell Storing, Necklace of Fireballs, Horn of Blasting, staves and wands generally",
+      "has_rating": true,
+      "rating_values": {
+        "1": "1 charges, PL 1",
+        "2": "2 charges, PL 2",
+        "3": "3 charges, PL 3",
+        "4": "4 charges, PL 4",
+        "5": "5 charges, PL 5"
+      }
+    },
+    {
+      "id": "faculty",
+      "name": "Faculty",
+      "summary": "Grants a capability the character did not previously have.",
+      "grants": "One named ability: a movement mode, a sense, a form of access, or a means of carrying, communicating, or perceiving.",
+      "rating": "Faculties have no Rating — you either have the capability or you do not. Some carry a per-scene or per-session limit, noted on the item.",
+      "examples": "Winged Boots, Bag of Holding, Goggles of Night, Ring of Water Walking, Amulet of the Planes, Decanter of Endless Water, Crystal Ball",
+      "has_rating": false
+    },
+    {
+      "id": "reserve",
+      "name": "Reserve",
+      "summary": "Once per session, decisively changes one outcome.",
+      "grants": "Negate a hit, reroll any roll, auto-succeed at one Check, escape any Condition, or undo one consequence. Declared after the result is known.",
+      "rating": "Reserve items have no Rating and no charges — one use, refreshing at session end. A character may benefit from only one Reserve item per session regardless of how many they carry.",
+      "examples": "Luck Blade, Stone of Good Luck, Ring of Evasion, Rod of Security, Deck of Many Things, Elder Sign",
+      "has_rating": false
+    }
+  ],
+  "descriptors": [
+    {
+      "id": "mithral",
+      "name": "Mithral",
+      "group": "material",
+      "effect": "Weightless. Removes any encumbrance or Stealth penalty the item would impose."
+    },
+    {
+      "id": "adamantine",
+      "name": "Adamantine",
+      "group": "material",
+      "effect": "Cannot be broken by ordinary means. Ignores DR 1 when used as a weapon."
+    },
+    {
+      "id": "cold-iron",
+      "name": "Cold Iron",
+      "group": "material",
+      "effect": "+2 damage against fae, and Fae Bargain effects cannot target the bearer."
+    },
+    {
+      "id": "silvered",
+      "name": "Silvered",
+      "group": "material",
+      "effect": "+2 damage against lycanthropes and their wounds do not close."
+    },
+    {
+      "id": "obsidian",
+      "name": "Obsidian",
+      "group": "material",
+      "effect": "+2 damage against the incorporeal; shatters on a Natural 1."
+    },
+    {
+      "id": "bone",
+      "name": "Bone",
+      "group": "material",
+      "effect": "Cheap and unsettling. −1 to social rolls where it is visible."
+    },
+    {
+      "id": "living-wood",
+      "name": "Living Wood",
+      "group": "material",
+      "effect": "Repairs itself over a Full Rest. Cannot be enchanted with Fire."
+    },
+    {
+      "id": "starmetal",
+      "name": "Starmetal",
+      "group": "material",
+      "effect": "Ignores Ward effects of Rating 1. Rare beyond reckoning."
+    },
+    {
+      "id": "elven",
+      "name": "Elven",
+      "group": "origin",
+      "effect": "Silent and light. +1 to Stealth while carried."
+    },
+    {
+      "id": "dwarven",
+      "name": "Dwarven",
+      "group": "origin",
+      "effect": "Bonus applies to Endure as well as its named use."
+    },
+    {
+      "id": "draconic",
+      "name": "Draconic",
+      "group": "origin",
+      "effect": "Carries one elemental Effect type at no additional cost."
+    },
+    {
+      "id": "celestial",
+      "name": "Celestial",
+      "group": "origin",
+      "effect": "Radiant Effect type. Cannot be wielded at Corruption 3 or higher."
+    },
+    {
+      "id": "fiendish",
+      "name": "Fiendish",
+      "group": "origin",
+      "effect": "Void Effect type. Grants +1 Rating but adds Corruption +1 on first use."
+    },
+    {
+      "id": "fae",
+      "name": "Fae",
+      "group": "origin",
+      "effect": "Its benefit is real and its terms are not stated. GM defines one condition."
+    },
+    {
+      "id": "ancient",
+      "name": "Ancient",
+      "group": "origin",
+      "effect": "Predates the current age. Once per session it does something nobody expected."
+    },
+    {
+      "id": "improvised",
+      "name": "Improvised",
+      "group": "origin",
+      "effect": "Made in the field. Rating 1 maximum; breaks on a Natural 1."
+    },
+    {
+      "id": "sentient",
+      "name": "Sentient",
+      "group": "quirk",
+      "effect": "Has goals. Willpower check vs DC 13 to act against them while attuned."
+    },
+    {
+      "id": "attuned",
+      "name": "Attuned",
+      "group": "quirk",
+      "effect": "Only one character may benefit. Reattuning takes a Full Rest."
+    },
+    {
+      "id": "bound",
+      "name": "Bound",
+      "group": "quirk",
+      "effect": "Cannot be dropped, sold, or given away while its condition holds."
+    },
+    {
+      "id": "consuming",
+      "name": "Consuming",
+      "group": "quirk",
+      "effect": "Costs 1 box from a named pool each time its benefit is used."
+    },
+    {
+      "id": "waning",
+      "name": "Waning",
+      "group": "quirk",
+      "effect": "Rating drops by 1 each time a Natural 1 is rolled while using it."
+    },
+    {
+      "id": "conditional",
+      "name": "Conditional",
+      "group": "quirk",
+      "effect": "Works only under a stated circumstance — moonlight, on holy ground, at sea."
+    },
+    {
+      "id": "loud",
+      "name": "Loud",
+      "group": "quirk",
+      "effect": "Its use is obvious and unmistakable to anyone watching."
+    },
+    {
+      "id": "cursed",
+      "name": "Cursed",
+      "group": "quirk",
+      "effect": "The benefit is real. So is the drawback, and it is not disclosed."
+    }
+  ],
+  "universal_items": [
+    {
+      "id": "restore-a-pool",
+      "name": "Restore a pool",
+      "template": "reservoir",
+      "rating_text": "1-5 charges, 3 boxes each",
+      "names": {
+        "fantasy": "Potion of Healing",
+        "horror": "Blessed Water",
+        "cthulhu": "Laudanum",
+        "modern": "Trauma Kit",
+        "espionage": "Field Stims",
+        "cyberpunk": "Trauma Patch",
+        "steampunk": "Restorative Tonic",
+        "transhumanist": "Repair Nanites",
+        "superhero": "Serum Dose",
+        "interstellar": "Hypospray",
+        "space-opera": "Medbay Injector",
+        "post-apocalyptic": "Pre-War Medkit",
+        "weird-west": "Snake Oil (it works)",
+        "dark-renaissance": "Apothecary's Draft",
+        "wuxia": "Golden Pill",
+        "mythic": "Ambrosia"
+      }
+    },
+    {
+      "id": "light-the-dark",
+      "name": "Light the dark",
+      "template": "faculty",
+      "rating_text": "No Rating",
+      "names": {
+        "fantasy": "Everburning Torch",
+        "horror": "Lantern That Will Not Gutter",
+        "cthulhu": "Storm Lantern",
+        "modern": "Tactical Light",
+        "espionage": "IR Illuminator",
+        "cyberpunk": "Optical Suite",
+        "steampunk": "Aether Lamp",
+        "transhumanist": "Ocular Mod",
+        "superhero": "Beam Projector",
+        "interstellar": "Palm Light",
+        "space-opera": "Glowstrip",
+        "post-apocalyptic": "Wind-Up Torch",
+        "weird-west": "Bullseye Lantern",
+        "dark-renaissance": "Warded Candle",
+        "wuxia": "Moonstone",
+        "mythic": "Ever-Flame"
+      }
+    },
+    {
+      "id": "speak-at-distance",
+      "name": "Speak at distance",
+      "template": "faculty",
+      "rating_text": "No Rating",
+      "names": {
+        "fantasy": "Sending Stone",
+        "horror": "The Tape Recording",
+        "cthulhu": "Telephone Exchange",
+        "modern": "Encrypted Phone",
+        "espionage": "Burst Transmitter",
+        "cyberpunk": "Neural Link",
+        "steampunk": "Aetheric Telegraph",
+        "transhumanist": "Mesh Node",
+        "superhero": "Team Comm",
+        "interstellar": "Communicator",
+        "space-opera": "Subspace Relay",
+        "post-apocalyptic": "Salvaged Radio",
+        "weird-west": "Telegraph Key",
+        "dark-renaissance": "Whispering Glass",
+        "wuxia": "Signal Rocket",
+        "mythic": "Messenger Bird"
+      }
+    },
+    {
+      "id": "reduce-incoming-harm",
+      "name": "Reduce incoming harm",
+      "template": "ward",
+      "rating_text": "Rating 1-5 = DR 1-5",
+      "names": {
+        "fantasy": "Adamantine Armor",
+        "horror": "Grandmother's Rosary",
+        "cthulhu": "Elder Sign",
+        "modern": "Ballistic Vest",
+        "espionage": "Lined Overcoat",
+        "cyberpunk": "Subdermal Plating",
+        "steampunk": "Pressure Harness",
+        "transhumanist": "Dermal Weave",
+        "superhero": "Reinforced Suit",
+        "interstellar": "Personal Shield",
+        "space-opera": "Deflector Harness",
+        "post-apocalyptic": "Scrap Plate",
+        "weird-west": "Duster and Faith",
+        "dark-renaissance": "Breastplate of Saints",
+        "wuxia": "Iron Shirt Cultivation",
+        "mythic": "Aegis Fragment"
+      }
+    },
+    {
+      "id": "improve-a-weapon",
+      "name": "Improve a weapon",
+      "template": "enhancement",
+      "rating_text": "Rating 1-5 = +1 to +5",
+      "names": {
+        "fantasy": "Flame Tongue",
+        "horror": "Silver Bullet",
+        "cthulhu": "Service Revolver",
+        "modern": "Match-Grade Barrel",
+        "espionage": "Concealed Sidearm",
+        "cyberpunk": "Smartlink",
+        "steampunk": "Steam Lance",
+        "transhumanist": "Targeting Cortex",
+        "superhero": "Signature Weapon",
+        "interstellar": "Phaser",
+        "space-opera": "Pulse Rifle",
+        "post-apocalyptic": "Zeroed Rifle",
+        "weird-west": "Peacemaker",
+        "dark-renaissance": "Dueling Rapier",
+        "wuxia": "Named Blade",
+        "mythic": "God-Forged Spear"
+      }
+    },
+    {
+      "id": "go-unseen",
+      "name": "Go unseen",
+      "template": "faculty",
+      "rating_text": "No Rating",
+      "names": {
+        "fantasy": "Cloak of Elvenkind",
+        "horror": "Warding Chalk",
+        "cthulhu": "Unremarkable Coat",
+        "modern": "Signal Blocker",
+        "espionage": "Cover Documents",
+        "cyberpunk": "Ghost Routine",
+        "steampunk": "Soot Cloak",
+        "transhumanist": "Sensor Baffles",
+        "superhero": "Civilian Identity",
+        "interstellar": "Damping Field",
+        "space-opera": "Personal Cloak",
+        "post-apocalyptic": "Rag Wrappings",
+        "weird-west": "Road Dust",
+        "dark-renaissance": "Plague Mask",
+        "wuxia": "Shadowless Step",
+        "mythic": "Helm of Darkness"
+      }
+    },
+    {
+      "id": "carry-more-than-you-should",
+      "name": "Carry more than you should",
+      "template": "faculty",
+      "rating_text": "No Rating",
+      "names": {
+        "fantasy": "Bag of Holding",
+        "horror": "Hunting Trunk",
+        "cthulhu": "Gladstone Bag",
+        "modern": "Go Bag",
+        "espionage": "Diplomatic Pouch",
+        "cyberpunk": "Smuggling Compartment",
+        "steampunk": "Compression Case",
+        "transhumanist": "Fabricator Feedstock",
+        "superhero": "Utility Belt",
+        "interstellar": "Cargo Module",
+        "space-opera": "Dimensional Locker",
+        "post-apocalyptic": "Pack Frame",
+        "weird-west": "Saddlebags",
+        "dark-renaissance": "Merchant's Chest",
+        "wuxia": "Qiankun Pouch",
+        "mythic": "Horn of Plenty"
+      }
+    },
+    {
+      "id": "detect-what-is-hidden",
+      "name": "Detect what is hidden",
+      "template": "faculty",
+      "rating_text": "No Rating",
+      "names": {
+        "fantasy": "Gem of Seeing",
+        "horror": "Mirror Shard",
+        "cthulhu": "Tillinghast Resonator",
+        "modern": "Bug Sweeper",
+        "espionage": "Countersurveillance Kit",
+        "cyberpunk": "Ice Scanner",
+        "steampunk": "Aether Goggles",
+        "transhumanist": "Spectral Overlay",
+        "superhero": "Enhanced Senses",
+        "interstellar": "Tricorder",
+        "space-opera": "Sensor Drone",
+        "post-apocalyptic": "Geiger Counter",
+        "weird-west": "Dowsing Rod",
+        "dark-renaissance": "Alchemist's Lens",
+        "wuxia": "Inner Eye",
+        "mythic": "Sight of the Oracle"
+      }
+    },
+    {
+      "id": "move-where-you-could-not",
+      "name": "Move where you could not",
+      "template": "faculty",
+      "rating_text": "No Rating",
+      "names": {
+        "fantasy": "Winged Boots",
+        "horror": "Skeleton Key",
+        "cthulhu": "Steamer Ticket",
+        "modern": "Grapple Gun",
+        "espionage": "Escape Kit",
+        "cyberpunk": "Ripper Spurs",
+        "steampunk": "Spring-Heel Boots",
+        "transhumanist": "Grav Harness",
+        "superhero": "Flight",
+        "interstellar": "Environmental Suit",
+        "space-opera": "Grav Boots",
+        "post-apocalyptic": "Climbing Rig",
+        "weird-west": "Sure-Footed Horse",
+        "dark-renaissance": "Rope and Grapnel",
+        "wuxia": "Lightness Skill",
+        "mythic": "Winged Sandals"
+      }
+    },
+    {
+      "id": "escape-once-decisively",
+      "name": "Escape once, decisively",
+      "template": "reserve",
+      "rating_text": "No Rating · once per session",
+      "names": {
+        "fantasy": "Stone of Good Luck",
+        "horror": "Family Photograph",
+        "cthulhu": "Sheer Dumb Luck",
+        "modern": "Burner Identity",
+        "espionage": "Cyanide Tooth",
+        "cyberpunk": "Trauma Team Card",
+        "steampunk": "Emergency Vent",
+        "transhumanist": "Backup Restore",
+        "superhero": "Second Wind",
+        "interstellar": "Transporter Tag",
+        "space-opera": "Jump Beacon",
+        "post-apocalyptic": "The Last Bullet",
+        "weird-west": "An Ace Up the Sleeve",
+        "dark-renaissance": "Papal Writ",
+        "wuxia": "Sealed Technique",
+        "mythic": "Divine Intervention"
+      }
+    },
+    {
+      "id": "open-what-is-closed",
+      "name": "Open what is closed",
+      "template": "enhancement",
+      "rating_text": "Rating 1-5 = +1 to +5",
+      "names": {
+        "fantasy": "Chime of Opening",
+        "horror": "Crowbar",
+        "cthulhu": "Janitor's Keys",
+        "modern": "Lockpick Set",
+        "espionage": "Electronic Bypass",
+        "cyberpunk": "Black ICE Breaker",
+        "steampunk": "Skeleton Mechanism",
+        "transhumanist": "Protocol Override",
+        "superhero": "Brute Force",
+        "interstellar": "Engineering Kit",
+        "space-opera": "Plasma Torch",
+        "post-apocalyptic": "Pry Bar",
+        "weird-west": "Dynamite",
+        "dark-renaissance": "Locksmith's Picks",
+        "wuxia": "Palm of Opening",
+        "mythic": "Key of Ways"
+      }
+    },
+    {
+      "id": "impose-a-condition",
+      "name": "Impose a Condition",
+      "template": "reservoir",
+      "rating_text": "1-5 charges",
+      "names": {
+        "fantasy": "Wand of Web",
+        "horror": "Consecrated Salt",
+        "cthulhu": "Chloroform",
+        "modern": "Taser",
+        "espionage": "Truth Serum",
+        "cyberpunk": "Neural Jammer",
+        "steampunk": "Ether Grenade",
+        "transhumanist": "Paralytic Cloud",
+        "superhero": "Restraint Foam",
+        "interstellar": "Phaser on Stun",
+        "space-opera": "Stunner",
+        "post-apocalyptic": "Bola",
+        "weird-west": "Lasso",
+        "dark-renaissance": "Nightshade",
+        "wuxia": "Pressure Point Strike",
+        "mythic": "Binding Word"
+      }
+    }
+  ],
+  "genre_items": [
+    {
+      "id": "fantasy-bag-of-tricks",
+      "name": "Bag of Tricks",
+      "genre": "fantasy",
+      "template": "faculty",
+      "text": "Draws out a random living beast, once per scene."
+    },
+    {
+      "id": "fantasy-figurine-of-wondrous-power",
+      "name": "Figurine of Wondrous Power",
+      "genre": "fantasy",
+      "template": "faculty",
+      "text": "Statuette becomes a loyal mount or guardian."
+    },
+    {
+      "id": "fantasy-deck-of-many-things",
+      "name": "Deck of Many Things",
+      "genre": "fantasy",
+      "template": "reserve",
+      "text": "Draw once. The GM decides what you have done."
+    },
+    {
+      "id": "fantasy-horn-of-valhalla",
+      "name": "Horn of Valhalla",
+      "genre": "fantasy",
+      "template": "reservoir",
+      "text": "3 charges. Each summons spectral warriors for a scene."
+    },
+    {
+      "id": "fantasy-instrument-of-the-bards",
+      "name": "Instrument of the Bards",
+      "genre": "fantasy",
+      "template": "enhancement",
+      "text": "+2 to Persuade and Inspire when performed."
+    },
+    {
+      "id": "fantasy-ioun-stone",
+      "name": "Ioun Stone",
+      "genre": "fantasy",
+      "template": "enhancement",
+      "text": "Orbits the head. +1 to one Ability Score, never removed."
+    },
+    {
+      "id": "fantasy-robe-of-the-archmagi",
+      "name": "Robe of the Archmagi",
+      "genre": "fantasy",
+      "template": "ward",
+      "text": "DR 2 and +2 against hostile Powers."
+    },
+    {
+      "id": "fantasy-rod-of-lordly-might",
+      "name": "Rod of Lordly Might",
+      "genre": "fantasy",
+      "template": "faculty",
+      "text": "Becomes six different weapons and tools on command."
+    },
+    {
+      "id": "fantasy-manual-of-bodily-health",
+      "name": "Manual of Bodily Health",
+      "genre": "fantasy",
+      "template": "faculty",
+      "text": "Read over a month. One Ability Score +1, permanently."
+    },
+    {
+      "id": "fantasy-portable-hole",
+      "name": "Portable Hole",
+      "genre": "fantasy",
+      "template": "faculty",
+      "text": "A hole you fold up and carry. Ten feet deep."
+    },
+    {
+      "id": "horror-iron-nail",
+      "name": "Iron Nail",
+      "genre": "horror",
+      "template": "ward",
+      "text": "Immunity to Possessed while held. Rusts away after one use."
+    },
+    {
+      "id": "horror-cursed-locket",
+      "name": "Cursed Locket",
+      "genre": "horror",
+      "template": "enhancement",
+      "text": "+2 to a chosen Ability Score. Affliction advances one stage per session worn."
+    },
+    {
+      "id": "horror-hunting-journal",
+      "name": "Hunting Journal",
+      "genre": "horror",
+      "template": "enhancement",
+      "text": "+2 Knowledge about any creature recorded in it."
+    },
+    {
+      "id": "horror-the-photograph-that-changes",
+      "name": "The Photograph That Changes",
+      "genre": "horror",
+      "template": "faculty",
+      "text": "Shows the truth of a place, updating without being touched."
+    },
+    {
+      "id": "horror-grave-dirt",
+      "name": "Grave Dirt",
+      "genre": "horror",
+      "template": "reservoir",
+      "text": "3 charges. Each forces an undead to answer one honest question."
+    },
+    {
+      "id": "horror-bell-book-and-candle",
+      "name": "Bell, Book and Candle",
+      "genre": "horror",
+      "template": "reservoir",
+      "text": "3 charges of Abjure at Rating 4 against the possessing."
+    },
+    {
+      "id": "horror-rope-of-the-hanged",
+      "name": "Rope of the Hanged",
+      "genre": "horror",
+      "template": "faculty",
+      "text": "Binds the incorporeal as though it were solid."
+    },
+    {
+      "id": "horror-last-rites-kit",
+      "name": "Last Rites Kit",
+      "genre": "horror",
+      "template": "reserve",
+      "text": "Once per session, deny one death its aftermath."
+    },
+    {
+      "id": "cthulhu-mythos-tome",
+      "name": "Mythos Tome",
+      "genre": "cthulhu",
+      "template": "enhancement",
+      "text": "+3 Knowledge (Mythos). Each reading costs 1 Sanity permanently."
+    },
+    {
+      "id": "cthulhu-elder-sign",
+      "name": "Elder Sign",
+      "genre": "cthulhu",
+      "template": "ward",
+      "text": "Immunity to one named Mythos entity's direct attention."
+    },
+    {
+      "id": "cthulhu-shining-trapezohedron",
+      "name": "Shining Trapezohedron",
+      "genre": "cthulhu",
+      "template": "reservoir",
+      "text": "Charges you cannot count. Something answers each time."
+    },
+    {
+      "id": "cthulhu-nitroglycerin",
+      "name": "Nitroglycerin",
+      "genre": "cthulhu",
+      "template": "reservoir",
+      "text": "2 charges. Structural damage. Bring the building down."
+    },
+    {
+      "id": "cthulhu-field-notes",
+      "name": "Field Notes",
+      "genre": "cthulhu",
+      "template": "faculty",
+      "text": "What you wrote before the memory went. Read them again."
+    },
+    {
+      "id": "cthulhu-laudanum",
+      "name": "Laudanum",
+      "genre": "cthulhu",
+      "template": "reservoir",
+      "text": "3 doses. Clears Fear. Costs 1 Resolve box that does not return."
+    },
+    {
+      "id": "cthulhu-star-stone",
+      "name": "Star-Stone",
+      "genre": "cthulhu",
+      "template": "ward",
+      "text": "Halve all Void Effect damage. Cold to the touch, always."
+    },
+    {
+      "id": "cthulhu-the-photograph-from-the-expedition",
+      "name": "The Photograph From The Expedition",
+      "genre": "cthulhu",
+      "template": "faculty",
+      "text": "Names one thing nobody else survived to name."
+    },
+    {
+      "id": "modern-body-camera",
+      "name": "Body Camera",
+      "genre": "modern",
+      "template": "faculty",
+      "text": "Records everything. Admissible, and therefore dangerous."
+    },
+    {
+      "id": "modern-burner-phone",
+      "name": "Burner Phone",
+      "genre": "modern",
+      "template": "faculty",
+      "text": "One clean line of contact. Discard after use."
+    },
+    {
+      "id": "modern-prescription-bottle",
+      "name": "Prescription Bottle",
+      "genre": "modern",
+      "template": "reservoir",
+      "text": "5 doses. Each suppresses one Condition for a scene."
+    },
+    {
+      "id": "modern-press-credentials",
+      "name": "Press Credentials",
+      "genre": "modern",
+      "template": "faculty",
+      "text": "Access to places that would otherwise refuse you."
+    },
+    {
+      "id": "modern-unmarked-van",
+      "name": "Unmarked Van",
+      "genre": "modern",
+      "template": "faculty",
+      "text": "Mobile base, surveillance platform, and exit."
+    },
+    {
+      "id": "modern-cash-untraceable",
+      "name": "Cash, Untraceable",
+      "genre": "modern",
+      "template": "faculty",
+      "text": "Solves problems money solves. No paper trail."
+    },
+    {
+      "id": "modern-legal-retainer",
+      "name": "Legal Retainer",
+      "genre": "modern",
+      "template": "reserve",
+      "text": "Once per session, walk out of official custody."
+    },
+    {
+      "id": "modern-police-scanner",
+      "name": "Police Scanner",
+      "genre": "modern",
+      "template": "faculty",
+      "text": "You hear it coming before it arrives."
+    },
+    {
+      "id": "espionage-garrote-watch",
+      "name": "Garrote Watch",
+      "genre": "espionage",
+      "template": "enhancement",
+      "text": "+2 Combat (Melee) for a silent kill. Once per scene."
+    },
+    {
+      "id": "espionage-dead-drop-key",
+      "name": "Dead Drop Key",
+      "genre": "espionage",
+      "template": "faculty",
+      "text": "Access to a network's caches wherever they operate."
+    },
+    {
+      "id": "espionage-micro-camera",
+      "name": "Micro Camera",
+      "genre": "espionage",
+      "template": "faculty",
+      "text": "Photograph anything without being observed doing it."
+    },
+    {
+      "id": "espionage-handler-contact",
+      "name": "Handler Contact",
+      "genre": "espionage",
+      "template": "faculty",
+      "text": "One call per session. Resources arrive, and so does the debt."
+    },
+    {
+      "id": "espionage-ejector-seat",
+      "name": "Ejector Seat",
+      "genre": "espionage",
+      "template": "reserve",
+      "text": "Once per session, exit any vehicle situation intact."
+    },
+    {
+      "id": "espionage-wire-recorder",
+      "name": "Wire Recorder",
+      "genre": "espionage",
+      "template": "faculty",
+      "text": "Captures a conversation you were not supposed to hear."
+    },
+    {
+      "id": "espionage-forged-seal",
+      "name": "Forged Seal",
+      "genre": "espionage",
+      "template": "enhancement",
+      "text": "+3 Deceive on any document bearing it."
+    },
+    {
+      "id": "espionage-poisoned-pen",
+      "name": "Poisoned Pen",
+      "genre": "espionage",
+      "template": "reservoir",
+      "text": "3 doses, delivered by handshake or signature."
+    },
+    {
+      "id": "cyberpunk-neural-interface",
+      "name": "Neural Interface",
+      "genre": "cyberpunk",
+      "template": "faculty",
+      "text": "Direct connection to any networked system. Required for Hack at Far range."
+    },
+    {
+      "id": "cyberpunk-reflex-booster",
+      "name": "Reflex Booster",
+      "genre": "cyberpunk",
+      "template": "enhancement",
+      "text": "+2 Agility for Deflect and initiative. 1 Stamina per scene active."
+    },
+    {
+      "id": "cyberpunk-monowire",
+      "name": "Monowire",
+      "genre": "cyberpunk",
+      "template": "enhancement",
+      "text": "+2 Combat (Melee), ignores DR 2. Passes as jewelry."
+    },
+    {
+      "id": "cyberpunk-cortex-bomb",
+      "name": "Cortex Bomb",
+      "genre": "cyberpunk",
+      "template": "faculty",
+      "text": "Someone else holds the trigger. This is why you took the job."
+    },
+    {
+      "id": "cyberpunk-synthskin",
+      "name": "Synthskin",
+      "genre": "cyberpunk",
+      "template": "faculty",
+      "text": "Alter face and build. +2 Deceive under a false identity."
+    },
+    {
+      "id": "cyberpunk-dermal-nanites",
+      "name": "Dermal Nanites",
+      "genre": "cyberpunk",
+      "template": "ward",
+      "text": "Immunity to Poisoned and Bleeding. Monthly resupply required."
+    },
+    {
+      "id": "cyberpunk-braindance-rig",
+      "name": "Braindance Rig",
+      "genre": "cyberpunk",
+      "template": "faculty",
+      "text": "Experience a recorded memory as though it were yours."
+    },
+    {
+      "id": "cyberpunk-corporate-credentials",
+      "name": "Corporate Credentials",
+      "genre": "cyberpunk",
+      "template": "faculty",
+      "text": "Doors open. The corporation notices which ones."
+    },
+    {
+      "id": "steampunk-clockwork-arm",
+      "name": "Clockwork Arm",
+      "genre": "steampunk",
+      "template": "enhancement",
+      "text": "+2 Strength for one named use. Winds down after a scene."
+    },
+    {
+      "id": "steampunk-difference-engine",
+      "name": "Difference Engine",
+      "genre": "steampunk",
+      "template": "faculty",
+      "text": "Given a Task Block, computes what no person could."
+    },
+    {
+      "id": "steampunk-aetheric-compass",
+      "name": "Aetheric Compass",
+      "genre": "steampunk",
+      "template": "faculty",
+      "text": "Points to a chosen person or object, never to north."
+    },
+    {
+      "id": "steampunk-automaton-servant",
+      "name": "Automaton Servant",
+      "genre": "steampunk",
+      "template": "faculty",
+      "text": "Obeys simple instruction. Cannot fight, cannot judge."
+    },
+    {
+      "id": "steampunk-phlogiston-cell",
+      "name": "Phlogiston Cell",
+      "genre": "steampunk",
+      "template": "reservoir",
+      "text": "5 charges powering any one steam or aether device."
+    },
+    {
+      "id": "steampunk-calculating-monocle",
+      "name": "Calculating Monocle",
+      "genre": "steampunk",
+      "template": "enhancement",
+      "text": "+2 Analyze on anything mechanical."
+    },
+    {
+      "id": "steampunk-vulcanized-suit",
+      "name": "Vulcanized Suit",
+      "genre": "steampunk",
+      "template": "ward",
+      "text": "Immunity to Burning. Halves all Fire Effect damage."
+    },
+    {
+      "id": "steampunk-letter-of-patent",
+      "name": "Letter of Patent",
+      "genre": "steampunk",
+      "template": "faculty",
+      "text": "Your invention is legally yours. Somebody disputes this."
+    },
+    {
+      "id": "transhumanist-backup-restore",
+      "name": "Backup Restore",
+      "genre": "transhumanist",
+      "template": "reserve",
+      "text": "Once per campaign, death becomes a setback and a bill."
+    },
+    {
+      "id": "transhumanist-cortical-stack",
+      "name": "Cortical Stack",
+      "genre": "transhumanist",
+      "template": "faculty",
+      "text": "Your mind exists independent of this body."
+    },
+    {
+      "id": "transhumanist-morph-swap",
+      "name": "Morph Swap",
+      "genre": "transhumanist",
+      "template": "faculty",
+      "text": "Change body. Ability Scores follow the new one, not the old."
+    },
+    {
+      "id": "transhumanist-mesh-node",
+      "name": "Mesh Node",
+      "genre": "transhumanist",
+      "template": "faculty",
+      "text": "Persistent presence in every networked space at once."
+    },
+    {
+      "id": "transhumanist-skillsoft",
+      "name": "Skillsoft",
+      "genre": "transhumanist",
+      "template": "enhancement",
+      "text": "+2 to any one Skill. Swappable over a Full Rest."
+    },
+    {
+      "id": "transhumanist-nanite-swarm",
+      "name": "Nanite Swarm",
+      "genre": "transhumanist",
+      "template": "reservoir",
+      "text": "3 charges: repair, disassemble, or fabricate."
+    },
+    {
+      "id": "transhumanist-emotion-regulator",
+      "name": "Emotion Regulator",
+      "genre": "transhumanist",
+      "template": "ward",
+      "text": "Immunity to Frightened and Charmed. You notice the absence."
+    },
+    {
+      "id": "transhumanist-fork",
+      "name": "Fork",
+      "genre": "transhumanist",
+      "template": "faculty",
+      "text": "A copy of you, running elsewhere. It has opinions now."
+    },
+    {
+      "id": "superhero-utility-belt",
+      "name": "Utility Belt",
+      "genre": "superhero",
+      "template": "faculty",
+      "text": "Whatever the scene requires, once per scene, within reason."
+    },
+    {
+      "id": "superhero-power-dampener",
+      "name": "Power Dampener",
+      "genre": "superhero",
+      "template": "ward",
+      "text": "Suppress one named Power Source for a scene."
+    },
+    {
+      "id": "superhero-signature-costume",
+      "name": "Signature Costume",
+      "genre": "superhero",
+      "template": "enhancement",
+      "text": "+2 to social rolls where your reputation precedes you."
+    },
+    {
+      "id": "superhero-secret-identity",
+      "name": "Secret Identity",
+      "genre": "superhero",
+      "template": "faculty",
+      "text": "A whole second life. Losing it changes the campaign."
+    },
+    {
+      "id": "superhero-sidekick",
+      "name": "Sidekick",
+      "genre": "superhero",
+      "template": "faculty",
+      "text": "One ally who acts on your turn but has their own opinions."
+    },
+    {
+      "id": "superhero-headquarters",
+      "name": "Headquarters",
+      "genre": "superhero",
+      "template": "faculty",
+      "text": "A base with resources, and an address villains can find."
+    },
+    {
+      "id": "superhero-origin-artifact",
+      "name": "Origin Artifact",
+      "genre": "superhero",
+      "template": "reservoir",
+      "text": "5 charges of whatever gave you this in the first place."
+    },
+    {
+      "id": "superhero-the-oath",
+      "name": "The Oath",
+      "genre": "superhero",
+      "template": "reserve",
+      "text": "Once per session, refusing to kill produces a better outcome."
+    },
+    {
+      "id": "interstellar-tricorder",
+      "name": "Tricorder",
+      "genre": "interstellar",
+      "template": "enhancement",
+      "text": "+2 Analyze on any substance, lifeform, or phenomenon."
+    },
+    {
+      "id": "interstellar-universal-translator",
+      "name": "Universal Translator",
+      "genre": "interstellar",
+      "template": "faculty",
+      "text": "Any language with a discernible pattern becomes intelligible."
+    },
+    {
+      "id": "interstellar-transporter-tag",
+      "name": "Transporter Tag",
+      "genre": "interstellar",
+      "template": "reserve",
+      "text": "Once per session, remove yourself from any situation."
+    },
+    {
+      "id": "interstellar-data-padd",
+      "name": "Data Padd",
+      "genre": "interstellar",
+      "template": "faculty",
+      "text": "The full library of an interstellar civilisation."
+    },
+    {
+      "id": "interstellar-diplomatic-credentials",
+      "name": "Diplomatic Credentials",
+      "genre": "interstellar",
+      "template": "faculty",
+      "text": "Standing to negotiate on behalf of something larger."
+    },
+    {
+      "id": "interstellar-emergency-beacon",
+      "name": "Emergency Beacon",
+      "genre": "interstellar",
+      "template": "faculty",
+      "text": "Broadcasts position. Someone is coming — eventually."
+    },
+    {
+      "id": "interstellar-holodeck-program",
+      "name": "Holodeck Program",
+      "genre": "interstellar",
+      "template": "faculty",
+      "text": "Rehearse anything before attempting it. +2 on the first try."
+    },
+    {
+      "id": "interstellar-prime-directive",
+      "name": "Prime Directive",
+      "genre": "interstellar",
+      "template": "faculty",
+      "text": "The rule that makes the easy solution unavailable."
+    },
+    {
+      "id": "space-opera-void-suit",
+      "name": "Void Suit",
+      "genre": "space-opera",
+      "template": "faculty",
+      "text": "Survive vacuum, pressure, and temperature indefinitely."
+    },
+    {
+      "id": "space-opera-jump-beacon",
+      "name": "Jump Beacon",
+      "genre": "space-opera",
+      "template": "reserve",
+      "text": "Once per session, extract yourself and allies in Close range."
+    },
+    {
+      "id": "space-opera-sensor-drone",
+      "name": "Sensor Drone",
+      "genre": "space-opera",
+      "template": "faculty",
+      "text": "Scout one range band ahead and report."
+    },
+    {
+      "id": "space-opera-fleet-transponder",
+      "name": "Fleet Transponder",
+      "genre": "space-opera",
+      "template": "faculty",
+      "text": "Identifies you as friendly to any allied system."
+    },
+    {
+      "id": "space-opera-ancient-artifact",
+      "name": "Ancient Artifact",
+      "genre": "space-opera",
+      "template": "reservoir",
+      "text": "5 charges. Nobody knows who built it or why."
+    },
+    {
+      "id": "space-opera-ships-berth",
+      "name": "Ship's Berth",
+      "genre": "space-opera",
+      "template": "faculty",
+      "text": "Passage, cargo capacity, and a crew with opinions."
+    },
+    {
+      "id": "space-opera-astrogation-charts",
+      "name": "Astrogation Charts",
+      "genre": "space-opera",
+      "template": "enhancement",
+      "text": "+2 Pilot on any route they cover."
+    },
+    {
+      "id": "space-opera-letter-of-marque",
+      "name": "Letter of Marque",
+      "genre": "space-opera",
+      "template": "faculty",
+      "text": "Legal cover for what would otherwise be piracy."
+    },
+    {
+      "id": "post-apocalyptic-water-purifier",
+      "name": "Water Purifier",
+      "genre": "post-apocalyptic",
+      "template": "faculty",
+      "text": "Makes anything drinkable. The most valuable object you own."
+    },
+    {
+      "id": "post-apocalyptic-pre-war-medkit",
+      "name": "Pre-War Medkit",
+      "genre": "post-apocalyptic",
+      "template": "reservoir",
+      "text": "3 charges of 4 boxes each. Irreplaceable."
+    },
+    {
+      "id": "post-apocalyptic-geiger-counter",
+      "name": "Geiger Counter",
+      "genre": "post-apocalyptic",
+      "template": "faculty",
+      "text": "Tells you where not to go. Usually in time."
+    },
+    {
+      "id": "post-apocalyptic-working-vehicle",
+      "name": "Working Vehicle",
+      "genre": "post-apocalyptic",
+      "template": "faculty",
+      "text": "Movement, shelter, and a target painted on your back."
+    },
+    {
+      "id": "post-apocalyptic-seed-vault",
+      "name": "Seed Vault",
+      "genre": "post-apocalyptic",
+      "template": "faculty",
+      "text": "A future, if anywhere is stable enough to plant it."
+    },
+    {
+      "id": "post-apocalyptic-gas-mask",
+      "name": "Gas Mask",
+      "genre": "post-apocalyptic",
+      "template": "ward",
+      "text": "Immunity to airborne Poisoned. Filters have a count."
+    },
+    {
+      "id": "post-apocalyptic-trade-goods",
+      "name": "Trade Goods",
+      "genre": "post-apocalyptic",
+      "template": "faculty",
+      "text": "Currency where currency stopped meaning anything."
+    },
+    {
+      "id": "post-apocalyptic-the-map",
+      "name": "The Map",
+      "genre": "post-apocalyptic",
+      "template": "faculty",
+      "text": "Marks what is still standing. Out of date in places."
+    },
+    {
+      "id": "weird-west-peacemaker",
+      "name": "Peacemaker",
+      "genre": "weird-west",
+      "template": "enhancement",
+      "text": "+2 Combat (Ranged). Six shots, and everyone counts them."
+    },
+    {
+      "id": "weird-west-dowsing-rod",
+      "name": "Dowsing Rod",
+      "genre": "weird-west",
+      "template": "faculty",
+      "text": "Finds water, ore, or the unnatural — you choose which."
+    },
+    {
+      "id": "weird-west-snake-oil",
+      "name": "Snake Oil",
+      "genre": "weird-west",
+      "template": "reservoir",
+      "text": "3 doses. It genuinely works, which is the problem."
+    },
+    {
+      "id": "weird-west-sure-footed-horse",
+      "name": "Sure-Footed Horse",
+      "genre": "weird-west",
+      "template": "faculty",
+      "text": "Never fails you on terrain. Has opinions about strangers."
+    },
+    {
+      "id": "weird-west-dynamite",
+      "name": "Dynamite",
+      "genre": "weird-west",
+      "template": "reservoir",
+      "text": "3 sticks. Opens anything, including situations."
+    },
+    {
+      "id": "weird-west-wanted-poster",
+      "name": "Wanted Poster",
+      "genre": "weird-west",
+      "template": "faculty",
+      "text": "Your face, a number, and a reason people look twice."
+    },
+    {
+      "id": "weird-west-medicine-bundle",
+      "name": "Medicine Bundle",
+      "genre": "weird-west",
+      "template": "ward",
+      "text": "Halve damage from one named supernatural source."
+    },
+    {
+      "id": "weird-west-an-ace-up-the-sleeve",
+      "name": "An Ace Up the Sleeve",
+      "genre": "weird-west",
+      "template": "reserve",
+      "text": "Once per session, the odds were never what they seemed."
+    },
+    {
+      "id": "dark-renaissance-dueling-rapier",
+      "name": "Dueling Rapier",
+      "genre": "dark-renaissance",
+      "template": "enhancement",
+      "text": "+2 Combat (Melee). Riposte costs no Reaction once per scene."
+    },
+    {
+      "id": "dark-renaissance-plague-mask",
+      "name": "Plague Mask",
+      "genre": "dark-renaissance",
+      "template": "ward",
+      "text": "Immunity to disease. Nobody meets your eye."
+    },
+    {
+      "id": "dark-renaissance-alchemists-lens",
+      "name": "Alchemist's Lens",
+      "genre": "dark-renaissance",
+      "template": "faculty",
+      "text": "Identify any substance given an uninterrupted minute."
+    },
+    {
+      "id": "dark-renaissance-papal-writ",
+      "name": "Papal Writ",
+      "genre": "dark-renaissance",
+      "template": "reserve",
+      "text": "Once per session, authority overrules whatever stands in the way."
+    },
+    {
+      "id": "dark-renaissance-poisoners-ring",
+      "name": "Poisoner's Ring",
+      "genre": "dark-renaissance",
+      "template": "reservoir",
+      "text": "3 doses delivered by touch, drink, or handshake."
+    },
+    {
+      "id": "dark-renaissance-astrolabe",
+      "name": "Astrolabe",
+      "genre": "dark-renaissance",
+      "template": "enhancement",
+      "text": "+2 Navigate and +2 Knowledge on celestial matters."
+    },
+    {
+      "id": "dark-renaissance-bankers-letter",
+      "name": "Banker's Letter",
+      "genre": "dark-renaissance",
+      "template": "faculty",
+      "text": "Credit in any city with a counting house."
+    },
+    {
+      "id": "dark-renaissance-warded-candle",
+      "name": "Warded Candle",
+      "genre": "dark-renaissance",
+      "template": "ward",
+      "text": "While lit, the unnatural cannot cross its light."
+    },
+    {
+      "id": "wuxia-named-blade",
+      "name": "Named Blade",
+      "genre": "wuxia",
+      "template": "enhancement",
+      "text": "+2 Combat (Melee). The name carries obligations."
+    },
+    {
+      "id": "wuxia-golden-pill",
+      "name": "Golden Pill",
+      "genre": "wuxia",
+      "template": "reservoir",
+      "text": "3 doses. Each restores 4 boxes and advances cultivation."
+    },
+    {
+      "id": "wuxia-qiankun-pouch",
+      "name": "Qiankun Pouch",
+      "genre": "wuxia",
+      "template": "faculty",
+      "text": "Holds a mountain. Weighs nothing."
+    },
+    {
+      "id": "wuxia-sealed-technique",
+      "name": "Sealed Technique",
+      "genre": "wuxia",
+      "template": "reserve",
+      "text": "Once per session, a form you swore never to use again."
+    },
+    {
+      "id": "wuxia-iron-shirt-cultivation",
+      "name": "Iron Shirt Cultivation",
+      "genre": "wuxia",
+      "template": "ward",
+      "text": "DR 2. Requires daily practice or it fades."
+    },
+    {
+      "id": "wuxia-lightness-skill",
+      "name": "Lightness Skill",
+      "genre": "wuxia",
+      "template": "faculty",
+      "text": "Run on water, roof tiles, and bamboo tips."
+    },
+    {
+      "id": "wuxia-sect-token",
+      "name": "Sect Token",
+      "genre": "wuxia",
+      "template": "faculty",
+      "text": "Recognition, shelter, and enemies you inherited."
+    },
+    {
+      "id": "wuxia-manual-of-the-ancients",
+      "name": "Manual of the Ancients",
+      "genre": "wuxia",
+      "template": "enhancement",
+      "text": "+1 to one Ability Score after a month of study."
+    },
+    {
+      "id": "mythic-god-forged-spear",
+      "name": "God-Forged Spear",
+      "genre": "mythic",
+      "template": "enhancement",
+      "text": "+3 Combat (Melee). Cannot be broken by mortal means."
+    },
+    {
+      "id": "mythic-aegis-fragment",
+      "name": "Aegis Fragment",
+      "genre": "mythic",
+      "template": "ward",
+      "text": "DR 3 and immunity to Frightened."
+    },
+    {
+      "id": "mythic-winged-sandals",
+      "name": "Winged Sandals",
+      "genre": "mythic",
+      "template": "faculty",
+      "text": "Flight at will, as easily as walking."
+    },
+    {
+      "id": "mythic-horn-of-plenty",
+      "name": "Horn of Plenty",
+      "genre": "mythic",
+      "template": "faculty",
+      "text": "Feeds any number of people indefinitely."
+    },
+    {
+      "id": "mythic-thread-of-fate",
+      "name": "Thread of Fate",
+      "genre": "mythic",
+      "template": "reserve",
+      "text": "Once per session, an outcome was always going to go your way."
+    },
+    {
+      "id": "mythic-ambrosia",
+      "name": "Ambrosia",
+      "genre": "mythic",
+      "template": "reservoir",
+      "text": "3 doses. Each restores all pools completely."
+    },
+    {
+      "id": "mythic-oracles-sight",
+      "name": "Oracle's Sight",
+      "genre": "mythic",
+      "template": "faculty",
+      "text": "One honest answer per session about what is coming."
+    },
+    {
+      "id": "mythic-divine-favor",
+      "name": "Divine Favor",
+      "genre": "mythic",
+      "template": "faculty",
+      "text": "A god is watching. This is not entirely good news."
+    }
+  ],
+  "building": {
+    "text": [
+      "A player asks for an item you have not written. Four questions settle it.",
+      "If an item does two things, it is two items in one object — price it at the higher Rating plus one. If it does three, it is an artifact and should have a name, a history, and somebody who wants it back."
+    ],
+    "questions": [
+      {
+        "question": "Does it already exist as a Universal Item?",
+        "decides": "If three or more genres would want it, it is Universal. Give it the local name and move on."
+      },
+      {
+        "question": "Which of the five shapes is it?",
+        "decides": "Enhancement, Ward, Reservoir, Faculty, or Reserve."
+      },
+      {
+        "question": "How strong, 1 to 5?",
+        "decides": "The Rating. Match it to the Power Level the party could already reach — an item should not outrun the tier."
+      },
+      {
+        "question": "What makes it interesting to own?",
+        "decides": "One or two Descriptors. This is where the item stops being a number and becomes a thing."
+      }
+    ]
+  }
+}

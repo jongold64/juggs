@@ -1,0 +1,467 @@
+[
+  {
+    "id": "fire",
+    "name": "Fire",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "stamina",
+        "mana"
+      ],
+      "effect_types_table": [
+        "stamina",
+        "mana",
+        "resolve"
+      ]
+    },
+    "use": "Weapons and Powers",
+    "primary_condition": "Burning (1 Stamina/rd)",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Target gains the Burning condition (1 Stamina box per round). Lasts until extinguished."
+      },
+      {
+        "boxes": "2",
+        "text": "Burning spreads to one adjacent target on a hit."
+      },
+      {
+        "boxes": "3",
+        "text": "Burning applies to all targets in Close range. Area ignites."
+      },
+      {
+        "boxes": "4–5",
+        "text": "Inferno — area-wide Burning, structural fire begins, scene consequence by GM."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "electric",
+    "name": "Electric",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "stamina",
+        "mana"
+      ],
+      "effect_types_table": [
+        "stamina",
+        "mana",
+        "resolve"
+      ]
+    },
+    "use": "Weapons and Powers",
+    "primary_condition": "Stunned or Paralyzed",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Target is Stunned until end of their next turn."
+      },
+      {
+        "boxes": "2",
+        "text": "Target is Stunned and knocked Prone."
+      },
+      {
+        "boxes": "3",
+        "text": "Target is Paralyzed — Stunned for 2 full rounds, no Reactions."
+      },
+      {
+        "boxes": "4–5",
+        "text": "System collapse — powered systems fail, target incapacitated for the scene."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "cold",
+    "name": "Cold",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "mana",
+        "stamina"
+      ],
+      "effect_types_table": [
+        "stamina",
+        "mana",
+        "resolve"
+      ]
+    },
+    "use": "Powers primarily; weapons with GM approval",
+    "primary_condition": "Slowed or Frozen or Restrained",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Target’s movement reduced by 1 range band until end of next turn."
+      },
+      {
+        "boxes": "2",
+        "text": "Target’s movement halved — 1 Action to move any distance."
+      },
+      {
+        "boxes": "3",
+        "text": "Target is Frozen — Restrained and takes 1 Stamina box per round until freed."
+      },
+      {
+        "boxes": "4–5",
+        "text": "Target is Encased — Restrained indefinitely, requires scene-level effort to free."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "force",
+    "name": "Force",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "mana",
+        "stamina"
+      ],
+      "effect_types_table": [
+        "stamina",
+        "mana",
+        "resolve"
+      ]
+    },
+    "use": "Powers primarily; weapons with GM approval",
+    "primary_condition": "Push / Knockback / Prone",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Push target 1 range band in any direction on a hit."
+      },
+      {
+        "boxes": "2",
+        "text": "Push 2 range bands, or push and knock Prone."
+      },
+      {
+        "boxes": "3",
+        "text": "Area knockback — all targets in Close range pushed 1 band and knocked Prone."
+      },
+      {
+        "boxes": "4–5",
+        "text": "Structural — walls breached, vehicles overturned, GM determines scope."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "toxic",
+    "name": "Toxic",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "stamina",
+        "mana"
+      ],
+      "effect_types_table": [
+        "stamina",
+        "mana"
+      ]
+    },
+    "use": "Weapons and Powers",
+    "primary_condition": "Poisoned",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Target gains Poisoned (−1 to Body rolls, 1 Stamina box per round until treated)."
+      },
+      {
+        "boxes": "2",
+        "text": "Poisoned applies immediately and deals 1 Stamina box on activation."
+      },
+      {
+        "boxes": "3",
+        "text": "Poison spreads — any character touching target risks Poisoned (Toughness DC 12)."
+      },
+      {
+        "boxes": "4–5",
+        "text": "Lethal dose — target crosses 3 Stamina boxes now. Survive DC 16 to stabilize."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "psychic",
+    "name": "Psychic",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "mana",
+        "resolve"
+      ],
+      "effect_types_table": [
+        "mana",
+        "resolve"
+      ]
+    },
+    "use": "Powers and social actions",
+    "primary_condition": "Frightened or Confused",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Target gains Frightened (−2 to all rolls while source is visible)."
+      },
+      {
+        "boxes": "2",
+        "text": "Target is Frightened and Blinded until end of their next turn."
+      },
+      {
+        "boxes": "3",
+        "text": "Target is Confused — Morale DC 14 each round or attacks a random adjacent character."
+      },
+      {
+        "boxes": "4–5",
+        "text": "Domination — target acts on activating character’s behalf for 1 round. GM adjudicates."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "void",
+    "name": "Void",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "mana",
+        "stamina"
+      ],
+      "effect_types_table": [
+        "stamina",
+        "mana",
+        "resolve"
+      ]
+    },
+    "use": "Powers and weapons",
+    "primary_condition": "DR bypass / Exposed / pool drain",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Attack bypasses all armor and shield DR."
+      },
+      {
+        "boxes": "2",
+        "text": "Bypasses DR and leaves target Exposed until end of next round."
+      },
+      {
+        "boxes": "3",
+        "text": "Bypasses DR, Exposed, and drains 1 box from the target’s highest pool."
+      },
+      {
+        "boxes": "4–5",
+        "text": "Unravelling — target’s highest pool maximum reduced by 2 until Full Recovery."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "radiant",
+    "name": "Radiant",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "mana",
+        "resolve"
+      ],
+      "effect_types_table": [
+        "stamina",
+        "mana",
+        "resolve"
+      ]
+    },
+    "use": "Powers and Spirit-based actions",
+    "primary_condition": "Exposed / Cleanse / Divine wrath",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Target gains Exposed (all incoming attacks gain +2)."
+      },
+      {
+        "boxes": "2",
+        "text": "Exposed and Blinded against undead, Void-touched, or supernatural opponents."
+      },
+      {
+        "boxes": "3",
+        "text": "Cleanses — remove one Condition from any ally in Close range, plus Exposed on target."
+      },
+      {
+        "boxes": "4–5",
+        "text": "Divine wrath — area Exposed, all Conditions removed from allies in Near range."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "healing",
+    "name": "Healing",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "mana",
+        "resolve"
+      ],
+      "effect_types_table": [
+        "mana",
+        "resolve"
+      ]
+    },
+    "use": "Powers and Spirit-based actions only — cannot be used to target self in active combat",
+    "primary_condition": "Unmark pool boxes",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Unmark 1 box from any pool of the target’s choice."
+      },
+      {
+        "boxes": "2",
+        "text": "Unmark 2 boxes from any pool."
+      },
+      {
+        "boxes": "3",
+        "text": "Unmark all Healthy boxes (1–5) from any pool."
+      },
+      {
+        "boxes": "4–5",
+        "text": "Full Recovery — clears Healthy and Hurt from any one pool."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "acid",
+    "name": "Acid",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "stamina",
+        "mana"
+      ],
+      "effect_types_table": [
+        "stamina",
+        "mana"
+      ]
+    },
+    "use": "Weapons and Powers",
+    "primary_condition": "Armor degradation / Sickened",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Target takes 1 Stamina box (corrosive, Physical type). Armor DR −1 until repaired."
+      },
+      {
+        "boxes": "2",
+        "text": "Target takes 1 Stamina box/round and armor DR −2 total. Requires repair between scenes."
+      },
+      {
+        "boxes": "3",
+        "text": "Target takes 1 Stamina box/round, DR −3, and gains Sickened."
+      },
+      {
+        "boxes": "4–5",
+        "text": "Armor destroyed — DR reduced to 0 until fully repaired. 2 Stamina boxes/round."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "necrotic",
+    "name": "Necrotic",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "mana",
+        "stamina"
+      ],
+      "effect_types_table": [
+        "stamina",
+        "mana",
+        "resolve"
+      ]
+    },
+    "use": "Powers and supernatural weapons only",
+    "primary_condition": "Pool maximum reduction / Drained",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Target’s highest pool maximum −1 (reduces ceiling, doesn’t cross boxes). Gains Drained 1."
+      },
+      {
+        "boxes": "2",
+        "text": "Highest pool maximum −2. Target gains Drained 2."
+      },
+      {
+        "boxes": "3",
+        "text": "Target’s highest pool maximum −3. Drained 3. All pools affected at half effect."
+      },
+      {
+        "boxes": "4–5",
+        "text": "All pool maximums −2. Drained 3 persists until divine healing + Full Rest."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree)."
+    ]
+  },
+  {
+    "id": "sonic",
+    "name": "Sonic",
+    "pools": null,
+    "pools_in_sources": {
+      "chapter_1": [
+        "mana",
+        "stamina"
+      ],
+      "effect_types_table": [
+        "stamina",
+        "mana",
+        "resolve"
+      ]
+    },
+    "use": "Powers primarily; TL 6+ sonic weapons with GM approval",
+    "primary_condition": "Mana damage / Deafened",
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "1 Mana box damage (cognitive disruption). Target gains Deafened."
+      },
+      {
+        "boxes": "2",
+        "text": "2 Mana boxes. Deafened. Area burst: all in Close make Toughness DC 12 or take 1 Mana box."
+      },
+      {
+        "boxes": "3",
+        "text": "3 Mana boxes. Deafened. All in Near range affected. Stunned on overage 5+."
+      },
+      {
+        "boxes": "4–5",
+        "text": "System shock — all in Far range take 3 Mana boxes. All Deafened. Structural consequence."
+      }
+    ],
+    "flags": [
+      "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree).",
+      "Chapter 1 lists \"Mind\" as a pool; read as Mana."
+    ]
+  }
+]

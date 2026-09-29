@@ -1,0 +1,238 @@
+{
+  "rules": [
+    "Do not advance a stage as punishment for a failed roll. Advance it when the player reaches for the Affliction’s power because it was the best option available — that is the moment the bargain tightens. A player who never uses what the Affliction gives them should be able to hold at their current stage indefinitely.",
+    "Afflictions and Corruption are separate tracks and do not interact, with one exception: feeding, shifting, or otherwise indulging an Affliction in a way that harms an innocent is exactly the kind of overreach a GM may call for a Corruption check."
+  ],
+  "afflictions": [
+    {
+      "id": "lycanthropy",
+      "name": "Lycanthropy",
+      "domain": "body",
+      "contracted_by": "A wound from an infected creature that crosses 3 or more Stamina boxes in a single hit.",
+      "incubation": "Three nights. A Toughness check vs DC 15 on the third night resists it entirely — success means no Affliction and immunity to that strain.",
+      "cure": "Wolfsbane distillation prepared by someone with Survive 4+, taken during a full moon, followed by a Willpower check vs DC 14 + current stage. Success removes one stage. Stage 5 cannot be cured.",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "Bitten",
+          "gives": "Your sense of smell sharpens — +1 to Observe rolls that depend on scent.",
+          "takes": "Restless sleep in the three nights around a full moon. No mechanical penalty yet."
+        },
+        {
+          "stage": 1,
+          "name": "Stirring",
+          "gives": "+1 Toughness. You heal naturally at twice the normal rate.",
+          "takes": "−1 Serenity. Silver weapons deal +2 damage to you and their wounds do not close."
+        },
+        {
+          "stage": 2,
+          "name": "Marked",
+          "gives": "Regenerate 1 Stamina box per round while out of combat.",
+          "takes": "On the night of a full moon you shift involuntarily. The GM plays one scene as the beast; you learn afterward what happened."
+        },
+        {
+          "stage": 3,
+          "name": "Half-Blood",
+          "gives": "Once per scene, shift deliberately: +2 Strength, natural weapons that ignore DR 2, and Fast Movement.",
+          "takes": "−2 to all social rolls with anyone who knows. Under significant stress, Serenity check vs DC 13 or shift involuntarily."
+        },
+        {
+          "stage": 4,
+          "name": "Beast-Ridden",
+          "gives": "Shift at will as a Free Action. In beast form: +3 Strength, +2 Toughness, DR 2, and natural weapons that ignore DR entirely.",
+          "takes": "The sight or smell of fresh blood triggers a shift with no check. −3 Serenity. Human form now feels like the costume."
+        },
+        {
+          "stage": 5,
+          "name": "Turned",
+          "gives": "In beast form permanently: +4 Strength, +3 Toughness, DR 3, regeneration 2 per round, and immunity to non-silver Physical damage.",
+          "takes": "Loss of humanity. The character passes to GM control. What remains recognizes faces but not obligations. Retirement or a hunt."
+        }
+      ]
+    },
+    {
+      "id": "vampirism",
+      "name": "Vampirism",
+      "domain": "spirit",
+      "contracted_by": "Drained to Broken by a vampire, then given that vampire’s blood before the next sunrise.",
+      "incubation": "One full day, spent apparently dead. There is no resisting roll — the exchange was already consensual or already forced.",
+      "cure": "Consuming the blood of the sire’s own sire, or destruction of the sire before Stage 4. After Stage 4, only a Restoration performed on consecrated ground at dawn, and even then the character loses one Ability Score point permanently.",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "Tainted",
+          "gives": "You no longer age. Ordinary disease cannot touch you.",
+          "takes": "Your reflection is slightly wrong in ways people notice without naming."
+        },
+        {
+          "stage": 1,
+          "name": "Thirst",
+          "gives": "+1 Acuity. You see clearly in total darkness to Near range.",
+          "takes": "You must consume blood once per session or take −1 to all rolls until you do."
+        },
+        {
+          "stage": 2,
+          "name": "Cold Flesh",
+          "gives": "DR 1 against all Physical damage. Immune to Poisoned and Bleeding.",
+          "takes": "Direct sunlight inflicts 1 Stamina box per round. −2 Morale in daylight regardless of cover."
+        },
+        {
+          "stage": 3,
+          "name": "The Hunger",
+          "gives": "Feeding restores 3 boxes to any pool. +2 Strength. Charm as a Mind Effect at no Mana cost once per scene.",
+          "takes": "Cannot enter a private dwelling uninvited. Running water blocks your passage. Willpower check vs DC 14 to refuse an offered throat."
+        },
+        {
+          "stage": 4,
+          "name": "Nocturnal",
+          "gives": "+3 Strength, Fast Movement, and the ability to assume mist or bat form once per scene.",
+          "takes": "Sunlight inflicts 3 Stamina boxes per round. You cast no reflection at all. Must rest in your grave-earth each day or gain a stage."
+        },
+        {
+          "stage": 5,
+          "name": "Risen",
+          "gives": "Full undeath: no aging, no breath, no need for rest. +4 Strength, DR 3, regeneration 2 per round except from fire and holy sources.",
+          "takes": "Loss of humanity. The character passes to GM control. The hunger is now the whole personality. Sire or be hunted."
+        }
+      ]
+    },
+    {
+      "id": "mummy-rot",
+      "name": "Mummy Rot",
+      "domain": "body",
+      "contracted_by": "The touch of a bound or preserved undead, or the violation of a warded tomb.",
+      "incubation": "Immediate. A Toughness check vs DC 16 at the moment of contact prevents it.",
+      "cure": "Restoration performed by a Channeler with Belief 4+, on consecrated ground, removing one stage per attempt. Each attempt costs the Channeler 3 Resolve boxes that do not recover until a Full Rest.",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "Touched",
+          "gives": "Pain registers dimly — ignore the first Condition applied to you each scene.",
+          "takes": "Skin greys at the point of contact. Cosmetic only."
+        },
+        {
+          "stage": 1,
+          "name": "Drying",
+          "gives": "Immune to Bleeding. Wounds close without care.",
+          "takes": "−1 Toughness. Your Stamina pool maximum drops by 1."
+        },
+        {
+          "stage": 2,
+          "name": "Withering",
+          "gives": "Mindless undead ignore you entirely unless you attack them first.",
+          "takes": "−2 Toughness. Stamina maximum drops by 2 total. Healing you receive is halved."
+        },
+        {
+          "stage": 3,
+          "name": "Hollowing",
+          "gives": "You require no food or water. Exhaustion no longer accumulates.",
+          "takes": "−3 Toughness. Stamina maximum drops by 3 total. Any Full Rest restores only half the usual boxes."
+        },
+        {
+          "stage": 4,
+          "name": "Desiccation",
+          "gives": "DR 2 against Physical damage — there is little left to damage.",
+          "takes": "−4 Toughness. Stamina maximum drops by 4 total. You cannot be healed above half your remaining maximum by any means."
+        },
+        {
+          "stage": 5,
+          "name": "Preserved",
+          "gives": "You do not die. You cannot be destroyed by ordinary means, and you continue.",
+          "takes": "Loss of humanity. The character passes to GM control as a bound undead. Whatever animated the rot now animates you."
+        }
+      ]
+    },
+    {
+      "id": "ghoul-fever",
+      "name": "Ghoul Fever",
+      "domain": "body",
+      "contracted_by": "A ghoul’s bite, or consuming meat that a ghoul had already claimed.",
+      "incubation": "One night. A Toughness check vs DC 14 on waking resists it.",
+      "cure": "A full month of clean food, isolation, and a Survive check vs DC 15 each week. Three consecutive successes remove one stage. Relapse resets the count.",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "Feverish",
+          "gives": "Your night vision improves — see clearly in dim light to Far range.",
+          "takes": "Cooked food tastes like ash. No mechanical effect."
+        },
+        {
+          "stage": 1,
+          "name": "Craving",
+          "gives": "Immune to ordinary disease and to Poisoned from natural sources.",
+          "takes": "You must eat raw meat once per session. Failing to costs −1 to all Body rolls."
+        },
+        {
+          "stage": 2,
+          "name": "Sallow",
+          "gives": "+1 Agility. Your nails harden into usable natural weapons.",
+          "takes": "−1 Morale. Living creatures find your presence subtly wrong; −2 to first-impression social rolls."
+        },
+        {
+          "stage": 3,
+          "name": "The Hunger",
+          "gives": "+2 Agility. Once per scene, a bite attack that ignores DR and applies Paralyzed on overage 3+.",
+          "takes": "Willpower check vs DC 13 when exposed to fresh corpses or you feed. Feeding on the dead grants Corruption +1."
+        },
+        {
+          "stage": 4,
+          "name": "Carrion-Kin",
+          "gives": "Fast Movement, DR 1, and immunity to Frightened and Sickened.",
+          "takes": "You can no longer digest anything but corpse-flesh. Without it, 2 Stamina boxes per day. −3 Morale."
+        },
+        {
+          "stage": 5,
+          "name": "Ghoul",
+          "gives": "Full transformation: +3 Agility, +2 Strength, paralytic bite, immunity to disease, poison, and Fear.",
+          "takes": "Loss of humanity. The character passes to GM control. Ghouls remember where they buried people they loved."
+        }
+      ]
+    },
+    {
+      "id": "fae-bargain",
+      "name": "Fae Bargain",
+      "domain": "spirit",
+      "contracted_by": "Accepting food, shelter, a gift, or a name from one of the Fair Folk — or striking any explicit deal with one.",
+      "incubation": "None. The bargain binds at the moment of acceptance.",
+      "cure": "Return the gift precisely as given, in the place it was given, at the same hour and season. Each returned gift removes one stage. Stage 5 cannot be returned — what was given at that point was not a gift.",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "Noticed",
+          "gives": "Once per session, ask the GM one yes/no question about the immediate area. The answer is true but unhelpfully phrased.",
+          "takes": "The Fair Folk know your face. You cannot lie to one of them, though you may decline to speak."
+        },
+        {
+          "stage": 1,
+          "name": "Indebted",
+          "gives": "+1 to any one Ability Score, chosen by the fae, not by you.",
+          "takes": "Once per session the GM names a small obligation. Refusing it costs 1 Resolve box and −1 Morale for the scene."
+        },
+        {
+          "stage": 2,
+          "name": "Bound",
+          "gives": "Once per scene, reroll any one failed roll. The luck comes from somewhere.",
+          "takes": "Iron burns you — cold iron weapons deal +2 damage and iron restraints cannot be escaped by any means."
+        },
+        {
+          "stage": 3,
+          "name": "Claimed",
+          "gives": "+2 to a second Ability Score, again chosen by the fae. You can see through glamour automatically.",
+          "takes": "You must accept any formal invitation from the Fair Folk. Willpower DC 15 to delay, never to refuse."
+        },
+        {
+          "stage": 4,
+          "name": "Half-Kept",
+          "gives": "You no longer age. Glamour of your own: once per scene, appear as anyone you have seen.",
+          "takes": "Your true name is known and held. Anyone who learns it commands one action from you per scene."
+        },
+        {
+          "stage": 5,
+          "name": "Taken",
+          "gives": "Immortality, beauty, and a place at a court that has stood for ten thousand years.",
+          "takes": "Loss of humanity. The character passes to GM control and joins the Fair Folk. Something that looks like them may come back. It will not be them."
+        }
+      ]
+    }
+  ]
+}

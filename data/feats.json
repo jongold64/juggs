@@ -1,0 +1,2875 @@
+[
+  {
+    "id": "toughened",
+    "name": "Toughened",
+    "domain": "universal",
+    "tier": "Basic",
+    "prerequisite_text": "None",
+    "cross_domain": false,
+    "text": "+1 to all three pool maximums permanently. This stacks with every automatic level gain — it is purely additive. No other effect. Simple and always relevant.",
+    "at_the_table": "Record +1 on each pool track. Stamina, Mana, and Resolve each gain one additional box that persists for the rest of the campaign.",
+    "requires": []
+  },
+  {
+    "id": "fleet",
+    "name": "Fleet",
+    "domain": "universal",
+    "tier": "Basic",
+    "prerequisite_text": "Agility 2+",
+    "cross_domain": false,
+    "text": "Move to Near range as a true Free Action — this does not consume your movement allocation for the round. You may do this twice per round rather than once. In practice, you can reposition before and after your primary action without burning Actions.",
+    "at_the_table": "During your turn, announce free repositions before declaring actions. Two per round. Stacks with Hasted if you have it.",
+    "requires": [
+      {
+        "ability": [
+          "agi"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "iron-will",
+    "name": "Iron Will",
+    "domain": "universal",
+    "tier": "Basic",
+    "prerequisite_text": "Willpower 2+",
+    "cross_domain": false,
+    "text": "Once per session, reroll any failed Resist or Concentrate check after seeing the result. You must take the second result — you cannot reroll twice. This is the baseline of mental toughness: not immunity, but a second chance at the worst moment.",
+    "at_the_table": "Declare after the GM announces failure but before consequences are described. Roll again immediately. One use resets at the next session.",
+    "requires": [
+      {
+        "ability": [
+          "wil"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "linguist",
+    "name": "Linguist",
+    "domain": "universal",
+    "tier": "Basic",
+    "prerequisite_text": "Intellect 2+ or Language skill as Focus Skill",
+    "cross_domain": false,
+    "text": "Gain two additional languages per Feat spend. Languages may be chosen freely — living, dead, regional dialects, non-human communication systems available in the active Genre. This Feat may be taken multiple times; each spend grants two more languages.",
+    "at_the_table": "Record on character sheet. No roll needed to speak, read, or write these languages in normal conditions. Specialized technical vocabulary or archaic forms still require Knowledge rolls.",
+    "repeatable": true,
+    "requires": [
+      {
+        "any": [
+          {
+            "ability": [
+              "int"
+            ],
+            "min": 2
+          },
+          {
+            "focus": [
+              "language"
+            ],
+            "all": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "situational-awareness",
+    "name": "Situational Awareness",
+    "domain": "universal",
+    "tier": "Basic",
+    "prerequisite_text": "Observe as Focus Skill",
+    "cross_domain": false,
+    "text": "You are never Surprised. When you enter any encounter where Initiative would place you lower than enemies who attacked first, you still act before Surprised enemies in the opening round. You have learned to read the room so thoroughly that ambushes simply do not land on you.",
+    "at_the_table": "You are immune to the Surprised condition. In ambush scenarios, you act in Round 1 at your normal Initiative position regardless of how the scene was framed.",
+    "requires": [
+      {
+        "focus": [
+          "observe"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "light-sleeper",
+    "name": "Light Sleeper",
+    "domain": "universal",
+    "tier": "Basic",
+    "prerequisite_text": "None",
+    "cross_domain": false,
+    "text": "A Full Rest requires half the normal time for you. More importantly, the Exhausted condition cannot render you incapacitated — it peaks at the −4 penalty level and stops there, regardless of how many Exhausted stacks accumulate. You can be exhausted almost to death and still function.",
+    "at_the_table": "Full Rest takes roughly 4 hours instead of 8. Exhausted condition maximum effect is −4 regardless of stacking. Still applies all other Exhausted penalties up to that point.",
+    "requires": []
+  },
+  {
+    "id": "second-wind",
+    "name": "Second Wind",
+    "domain": "universal",
+    "tier": "Advanced",
+    "prerequisite_text": "Toughened or Toughness 3+",
+    "cross_domain": false,
+    "text": "Once per encounter as a Free Action, immediately after taking damage and before the next roll, unmark 2 Stamina boxes. No pool cost, no roll. This is the classic fighter’s recovery — the moment of catching your breath in the middle of a brawl. It does not clear Conditions and does not affect Wounded or Broken.",
+    "at_the_table": "Declare after damage is applied. Immediately unmark 2 Stamina boxes. Cannot be used when already Broken. Resets at encounter end.",
+    "requires": [
+      {
+        "any": [
+          {
+            "feat": [
+              "toughened"
+            ]
+          },
+          {
+            "ability": [
+              "tou"
+            ],
+            "min": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rapid-recovery",
+    "name": "Rapid Recovery",
+    "domain": "universal",
+    "tier": "Advanced",
+    "prerequisite_text": "Survive as Focus Skill, PL2+",
+    "cross_domain": false,
+    "text": "Your Quick Rest clears Strained boxes (6–10) in addition to Fresh boxes (1–5). Normally a Quick Rest only clears boxes 1–5. With this Feat, you recover at twice the normal depth from a short break — the result of years of trained physical recovery. Does not stack with magical healing on the same rest.",
+    "at_the_table": "After any Quick Rest, unmark all boxes in the Fresh and Strained ranges (1–10). Does not clear Wounded (11–14) or Broken (15). Cannot combine with magical healing in the same rest.",
+    "requires": [
+      {
+        "focus": [
+          "survive"
+        ],
+        "all": false
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "danger-sense",
+    "name": "Danger Sense",
+    "domain": "universal",
+    "tier": "Advanced",
+    "prerequisite_text": "Situational Awareness, Acuity 3+",
+    "cross_domain": false,
+    "text": "You always act in the first round of any combat, regardless of Initiative result. You cannot be flanked — enemies gain no positional bonus from surrounding you, attacking from behind, or coordinating their approach. Your spatial awareness eliminates the tactical vulnerabilities that positioning normally creates.",
+    "at_the_table": "You act in Round 1 of every encounter regardless of Initiative. Flanking bonuses from any source do not apply against you. Passive, always on.",
+    "requires": [
+      {
+        "feat": [
+          "situational-awareness"
+        ]
+      },
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 3
+      }
+    ]
+  },
+  {
+    "id": "versatile-training",
+    "name": "Versatile Training",
+    "domain": "universal",
+    "tier": "Advanced",
+    "prerequisite_text": "PL2+, any two Focus Skills from different Domains",
+    "cross_domain": false,
+    "text": "Once per session, treat any one non-Focus Skill as a Focus Skill for an entire scene — not just one roll. Every roll using that skill for the scene’s duration benefits from the +2 Focus bonus. This represents the broad practitioner who can, for a time, perform at specialist level in any domain they turn their attention to.",
+    "at_the_table": "Declare at scene start or when you first use the skill. The bonus applies to every qualifying roll in the scene. One use per session. Cannot designate a skill you already have as Focus.",
+    "requires": [
+      {
+        "power_level_min": 2
+      },
+      {
+        "text": "any two Focus Skills from different Domains"
+      }
+    ],
+    "flags": [
+      "Part of the prerequisite is not machine-readable."
+    ]
+  },
+  {
+    "id": "unconquerable",
+    "name": "Unconquerable",
+    "domain": "universal",
+    "tier": "Advanced",
+    "prerequisite_text": "Iron Will, Willpower 3+, PL3+",
+    "cross_domain": false,
+    "text": "When your Resolve pool would reach Broken, you may make a free Willpower check (DC 14) immediately. On success, your Resolve holds at box 14 — one box above Broken — and you remain functional until end of scene. On failure, Broken proceeds normally. This Feat does not prevent Broken; it gives you a chance to deny it once per encounter.",
+    "at_the_table": "When box 15 of Resolve would be marked, roll d20 + Willpower vs DC 14 as a free interrupt. Success: hold at 14 until scene ends. Failure: mark box 15 normally. Once per encounter.",
+    "requires": [
+      {
+        "feat": [
+          "iron-will"
+        ]
+      },
+      {
+        "ability": [
+          "wil"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "legendary-endurance",
+    "name": "Legendary Endurance",
+    "domain": "universal",
+    "tier": "Mastery",
+    "prerequisite_text": "Toughened, Second Wind, Toughness 4+, PL3+",
+    "cross_domain": false,
+    "text": "Your Stamina Broken threshold moves permanently to box 17 — you can absorb two additional boxes of damage before going down. Your Stamina pool maximum also increases by 2 boxes permanently. This does not affect Mana or Resolve. You are harder to kill than anyone who does not have this Feat, period.",
+    "at_the_table": "Record Stamina pool maximum as current maximum +2. Record Broken threshold as box 17 instead of box 15. Broken still incapacitates — it just takes more damage to reach it.",
+    "requires": [
+      {
+        "feat": [
+          "toughened"
+        ]
+      },
+      {
+        "feat": [
+          "second-wind"
+        ]
+      },
+      {
+        "ability": [
+          "tou"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "ghost",
+    "name": "Ghost",
+    "domain": "universal",
+    "tier": "Mastery",
+    "prerequisite_text": "Fleet, Stealth as Focus Skill, Agility 4+, PL3+",
+    "cross_domain": false,
+    "text": "Once per scene, you may become Invisible as a Free Action. No Power source required, no Mana cost. The invisibility lasts until you make an attack roll or the scene ends, whichever comes first. This is not magic — it is the perfected application of stillness, shadow, and movement learned over a career.",
+    "at_the_table": "Declare as Free Action. Gain Invisible condition. Ends immediately on any Attack roll (before or after the roll). Ends at scene end if not used for attack. No pool cost. Once per scene.",
+    "requires": [
+      {
+        "feat": [
+          "fleet"
+        ]
+      },
+      {
+        "focus": [
+          "stealth"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "agi"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "master-of-self",
+    "name": "Master of Self",
+    "domain": "universal",
+    "tier": "Mastery",
+    "prerequisite_text": "Unconquerable, PL4+",
+    "cross_domain": false,
+    "text": "Once per session, ignore all Conditions currently affecting you for one full round. Every Condition — physical, mental, spiritual, social, positive and negative alike — is suspended. You act at full capacity regardless of current state. At the end of the round, all Conditions resume. This is not removal; it is temporary transcendence.",
+    "at_the_table": "Declare at start of your turn. Ignore all active Conditions for this round only. All Conditions resume at start of your next turn. Pools and their current state are unchanged. Once per session.",
+    "requires": [
+      {
+        "feat": [
+          "unconquerable"
+        ]
+      },
+      {
+        "power_level_min": 4
+      }
+    ]
+  },
+  {
+    "id": "paragon",
+    "name": "Paragon",
+    "domain": "universal",
+    "tier": "Legendary",
+    "prerequisite_text": "Any two Mastery Feats, PL5+",
+    "cross_domain": false,
+    "text": "Once per session, any single roll you make automatically succeeds without rolling. The result is treated as meeting the minimum threshold needed to succeed on that roll — not a critical success, simply an assured one. This cannot be used for death stabilization, to override explicit GM narrative rulings on physically impossible actions, or to force a social outcome that the target cannot plausibly accept.",
+    "at_the_table": "Declare instead of rolling. Result equals the minimum success threshold. Applies to any roll type. Cannot be used reactively (for Defend or Deflect). One use per session.",
+    "requires": [
+      {
+        "text": "Any two Mastery Feats"
+      },
+      {
+        "power_level_min": 5
+      }
+    ],
+    "flags": [
+      "Part of the prerequisite is not machine-readable."
+    ]
+  },
+  {
+    "id": "specialty-ability-2",
+    "name": "Specialty: Ability 2",
+    "domain": "any",
+    "tier": "Basic",
+    "prerequisite_text": "An active Specialty at Ability 1, PL1+",
+    "cross_domain": false,
+    "text": "Unlock the second ability in your chosen Combat Specialty. This is the primary use of a Basic Feat slot for Body-primary characters — the single most efficient way to deepen your combat identity. Each Specialty’s Ability 2 is listed in the Specialtys chapter.",
+    "at_the_table": "Record Ability 2 on your character sheet as active. Refer to your Specialty table for the specific text. Available from Level 3.",
+    "domains": [
+      "body",
+      "mind",
+      "spirit",
+      "social"
+    ],
+    "available_from_level": 3,
+    "unlocks": "ability2",
+    "requires": [
+      {
+        "specialty_ability": "ability1"
+      }
+    ]
+  },
+  {
+    "id": "weapon-specialist",
+    "name": "Weapon Specialist",
+    "domain": "body",
+    "tier": "Basic",
+    "prerequisite_text": "Combat (Melee) or Combat (Ranged) as Focus Skill",
+    "cross_domain": false,
+    "text": "Choose one weapon type at the time you take this Feat: blades, bludgeons, axes, bows, crossbows, firearms, thrown, or unarmed. All attack rolls with that weapon type gain a permanent +1. This is narrow and permanent — it is the result of thousands of hours of practice with one category of instrument. Cannot be taken twice for the same type.",
+    "at_the_table": "+1 to all Attack rolls using the designated weapon type. Permanent. Record on sheet with weapon type noted. Stacks with weapon quality bonus.",
+    "requires": [
+      {
+        "focus": [
+          "combat-melee",
+          "combat-ranged"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "armor-training",
+    "name": "Armor Training",
+    "domain": "body",
+    "tier": "Basic",
+    "prerequisite_text": "Toughness 2+",
+    "cross_domain": false,
+    "text": "Reduce the Agility penalty of any armor you wear by 1, to a minimum of 0. Heavy armor that normally imposes −2 imposes −1 for you; medium armor imposes 0. You are also never considered Encumbered from wearing armor — only from additional carried gear if the optional Encumbrance rule is active.",
+    "at_the_table": "When recording armor, reduce its Agility penalty by 1 (min 0). Cannot reduce below 0. Encumbered condition from armor alone does not apply.",
+    "requires": [
+      {
+        "ability": [
+          "tou"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "brutal-strike",
+    "name": "Brutal Strike",
+    "domain": "body",
+    "tier": "Basic",
+    "prerequisite_text": "Strength 3+, Combat (Melee) as Focus Skill",
+    "cross_domain": false,
+    "text": "When your melee attack overage is 3 or higher, you may push the target 1 range band as a free bonus effect. No Stamina cost, no Knockdown declaration required. The push happens automatically if you choose to apply it. This represents the kind of raw physical force that sends opponents stumbling backward.",
+    "at_the_table": "On any melee hit with overage 3+, optionally push target 1 range band. Free, automatic, no cost. Does not stack with a declared Knockdown Maneuver on the same roll.",
+    "requires": [
+      {
+        "ability": [
+          "str"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "combat-melee"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "skirmishers-step",
+    "name": "Skirmisher’s Step",
+    "domain": "body",
+    "tier": "Basic",
+    "prerequisite_text": "Agility 2+, Evasion as Focus Skill",
+    "cross_domain": false,
+    "text": "Disengaging from Contested Zones costs 0 Stamina for you — you simply leave without triggering the normal cost. Additionally, you may Disengage as part of your free movement once per round, meaning you can exit a contested zone and reposition without spending Actions or Stamina. Your footwork is precise enough to deny the grab.",
+    "at_the_table": "Disengage: 0 Stamina cost. May Disengage once per round as part of free movement (not an Action). Cannot use this to Disengage while Restrained.",
+    "requires": [
+      {
+        "ability": [
+          "agi"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "evasion"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "unbroken-guard",
+    "name": "Unbroken Guard",
+    "domain": "body",
+    "tier": "Basic",
+    "prerequisite_text": "Toughness 2+, Endure as Focus Skill",
+    "cross_domain": false,
+    "text": "Whenever you take a Defend or Deflect action against an incoming attack, you gain the Braced condition until end of your next turn at no cost. Braced grants DR +2 and immunity to knockback. You don’t need to announce this — it applies automatically each time you defend.",
+    "at_the_table": "After any Defend or Deflect action (successful or not), gain Braced until end of next turn. Passive, automatic. No pool cost. Braced: DR +2, immune to knockback and push.",
+    "requires": [
+      {
+        "ability": [
+          "tou"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "endure"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "specialty-ability-3",
+    "name": "Specialty: Ability 3",
+    "domain": "any",
+    "tier": "Advanced",
+    "prerequisite_text": "Specialty Ability 2 (Basic), PL2+",
+    "cross_domain": false,
+    "text": "Unlock the third and final ability in your chosen Combat Specialty. This completes the Specialty’s three-ability progression. Ability 3 represents the full expression of the fighting style — the technique that defines what this Specialty looks like at its ceiling.",
+    "at_the_table": "Record Ability 3 on your character sheet as active. Refer to your Specialty table for the specific text. Available from Level 7.",
+    "domains": [
+      "body",
+      "mind",
+      "spirit",
+      "social"
+    ],
+    "available_from_level": 7,
+    "unlocks": "ability3",
+    "requires": [
+      {
+        "specialty_ability": "ability2"
+      }
+    ]
+  },
+  {
+    "id": "cleave",
+    "name": "Cleave",
+    "domain": "body",
+    "tier": "Advanced",
+    "prerequisite_text": "Strength 3+, Brutal Strike, PL2+",
+    "cross_domain": false,
+    "text": "When your attack reduces a target to Broken or kills them outright, make one free attack against any adjacent target in the same action. No Action cost, no Stamina cost. The momentum of the first strike carries directly into the second. This happens once per round — not once per Action — so multiple kills in one round do not chain.",
+    "at_the_table": "On Broken or kill, make one free Attack vs adjacent target. No Action, no Stamina. Once per round maximum. Resolve the free attack at the same time as the triggering action.",
+    "requires": [
+      {
+        "ability": [
+          "str"
+        ],
+        "min": 3
+      },
+      {
+        "feat": [
+          "brutal-strike"
+        ]
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "ricochet",
+    "name": "Ricochet",
+    "domain": "body",
+    "tier": "Advanced",
+    "prerequisite_text": "Agility 3+, Combat (Ranged) as Focus Skill, PL2+",
+    "cross_domain": false,
+    "text": "Once per encounter, when a ranged attack misses its target, you may redirect it — rerolling the attack against a different target in the same range band. No additional Stamina is spent. This represents either a physical ricochet off a surface, or the rapid adjustment of aim before the opportunity closes.",
+    "at_the_table": "On a missed ranged attack, declare redirect immediately. Reroll against a different target in the same range band. No additional Stamina. Once per encounter. Cannot redirect to the original target.",
+    "requires": [
+      {
+        "ability": [
+          "agi"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "combat-ranged"
+        ],
+        "all": false
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "counter-stance",
+    "name": "Counter-Stance",
+    "domain": "body",
+    "tier": "Advanced",
+    "prerequisite_text": "Toughness 3+, Unbroken Guard, PL2+",
+    "cross_domain": false,
+    "text": "On any round you successfully Defend (not merely Deflect — you must spend a Reaction and win the opposed roll), your next attack roll gains +2. The bonus expires at end of round if unused. Your defensive posture feeds directly into offensive opportunity — a style built around reading the opponent’s attack to find the opening it creates.",
+    "at_the_table": "+2 to next Attack roll after successful Defend. Expires at round end. Does not apply on Deflect (free). Resets on each successful Defend — only the most recent one counts.",
+    "requires": [
+      {
+        "ability": [
+          "tou"
+        ],
+        "min": 3
+      },
+      {
+        "feat": [
+          "unbroken-guard"
+        ]
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "reckless-assault",
+    "name": "Reckless Assault",
+    "domain": "body",
+    "tier": "Advanced",
+    "prerequisite_text": "Strength 3+, Striker Fighting Style or PL2+",
+    "cross_domain": false,
+    "text": "Declare before rolling. Add your Toughness score as a bonus to your attack roll. Immediately cross Stamina boxes equal to half your Toughness score (round down) — this cost is paid whether the attack hits or misses. You throw yourself into the strike with everything, accepting damage as the price of power.",
+    "at_the_table": "Declare before attack roll. +Toughness to attack roll. Cross Stamina boxes equal to half Toughness (rounded down, min 1) paid immediately. Cost applied win or lose. Cannot use if Broken.",
+    "requires": [
+      {
+        "ability": [
+          "str"
+        ],
+        "min": 3
+      },
+      {
+        "any": [
+          {
+            "specialty": [
+              "striker"
+            ]
+          },
+          {
+            "power_level_min": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "predators-eye",
+    "name": "Predator’s Eye",
+    "domain": "body",
+    "tier": "Advanced",
+    "prerequisite_text": "Acuity 3+, Observe as Focus Skill, PL2+",
+    "cross_domain": false,
+    "text": "Designate one creature as your Mark as a Free Action. Your attacks against your Mark ignore the Concealed condition — you do not need to make the pre-roll Acuity check that Concealed normally requires before targeting. Only one Mark at a time; reassigning costs another Free Action. If you also have the Hunter Role, this stacks with the Hunter’s Step 2 benefit.",
+    "at_the_table": "Free Action to Mark. Attacks vs Mark ignore Concealed pre-roll check. One Mark at a time. Stacks with Hunter Role Step 2 (which also denies Invisible). Both must be taken separately.",
+    "requires": [
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "observe"
+        ],
+        "all": false
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "specialty-mastery-enhancement",
+    "name": "Specialty: Mastery Enhancement",
+    "domain": "any",
+    "tier": "Mastery",
+    "prerequisite_text": "Specialty Ability 3 (Advanced), PL3+",
+    "cross_domain": false,
+    "text": "Enhance one ability within your Combat Specialty to its upgraded form. Each Specialty has defined enhanced versions of its three abilities. The enhancement is permanent — it replaces the base version. Choose which ability to enhance; you can take this Feat multiple times to enhance others.",
+    "at_the_table": "Select one Specialty ability. Its upgraded version (defined in the Specialty table) replaces the base version permanently. Available from Level 11.",
+    "domains": [
+      "body",
+      "mind",
+      "spirit",
+      "social"
+    ],
+    "available_from_level": 11,
+    "unlocks": "mastery",
+    "requires": [
+      {
+        "specialty_ability": "ability3"
+      }
+    ]
+  },
+  {
+    "id": "titan-strike",
+    "name": "Titan Strike",
+    "domain": "body",
+    "tier": "Mastery",
+    "prerequisite_text": "Strength 4+, Cleave, PL3+",
+    "cross_domain": false,
+    "text": "Your melee attacks ignore Damage Reduction entirely. DR from armor, shields, natural toughness, magical protection, and any other physical source does not apply against your strikes. This is not a bypass activated by spending resources — it is the permanent result of technique and force refined to the point where physical protection becomes conceptually irrelevant.",
+    "at_the_table": "All your melee attacks ignore all DR from all sources. Passive, permanent, always on. Does not affect pool-based damage resistance or supernatural protection that is not listed as DR.",
+    "requires": [
+      {
+        "ability": [
+          "str"
+        ],
+        "min": 4
+      },
+      {
+        "feat": [
+          "cleave"
+        ]
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "evasive-mastery",
+    "name": "Evasive Mastery",
+    "domain": "body",
+    "tier": "Mastery",
+    "prerequisite_text": "Agility 4+, Skirmisher’s Step, PL3+",
+    "cross_domain": false,
+    "text": "Once per round, when an attack would connect, you may commit to a full-body evasion as a free Reaction: your Deflect threshold for that specific hit becomes 10 + Agility + 4, rather than 10 + Agility. This represents committing your entire body to the dodge — not a Defend roll, but a dramatically more effective Deflect. Can be used in addition to your normal Reactions.",
+    "at_the_table": "Once per round, when an attack hits: replace your normal Deflect threshold (10 + Agility) with 10 + Agility + 4 for that one hit. Free, no pool cost. Declare after attacker’s roll, before damage is applied.",
+    "requires": [
+      {
+        "ability": [
+          "agi"
+        ],
+        "min": 4
+      },
+      {
+        "feat": [
+          "skirmishers-step"
+        ]
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "berserkers-threshold",
+    "name": "Berserker’s Threshold",
+    "domain": "body",
+    "tier": "Mastery",
+    "prerequisite_text": "Toughness 4+, PL4+",
+    "cross_domain": false,
+    "text": "Your Stamina Broken threshold moves to box 17 (two boxes later than normal). When your Stamina enters the Wounded range (boxes 11–14) for the first time in any encounter, you may immediately make one free attack against any target in range. No Action cost, no Stamina cost. The threshold is crossed and your body responds with aggression.",
+    "at_the_table": "Broken at box 17 instead of 15. On first entry into Wounded range per encounter: one free Attack vs any target in range. No Action, no Stamina. Triggers once per encounter regardless of how many times you pass through Wounded.",
+    "requires": [
+      {
+        "ability": [
+          "tou"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 4
+      }
+    ]
+  },
+  {
+    "id": "blade-immortal",
+    "name": "Blade Immortal",
+    "domain": "body",
+    "tier": "Legendary",
+    "prerequisite_text": "Any two Body Mastery Feats, Strength or Agility 5+, PL5+",
+    "cross_domain": false,
+    "text": "Once per session, on the round your Stamina would reach Broken, it holds at 1 box instead. No single hit can reduce your Stamina below 1 box for the remainder of the scene — each attack can push you to 1, but not past it, until the scene ends or you choose to end the state. The cost: when the scene ends, cross 3 Stamina boxes immediately that cannot be recovered until a Full Rest. You survived. The body pays later.",
+    "at_the_table": "When Stamina would reach Broken: holds at 1 box. For rest of scene: no single hit below 1 box. Scene end: cross 3 Stamina (recoverable only on Full Rest). Once per session. Declare immediately when Broken threshold is reached.",
+    "requires": [
+      {
+        "text": "Any two Body Mastery Feats"
+      },
+      {
+        "ability": [
+          "str",
+          "agi"
+        ],
+        "min": 5
+      },
+      {
+        "power_level_min": 5
+      }
+    ],
+    "flags": [
+      "Part of the prerequisite is not machine-readable."
+    ]
+  },
+  {
+    "id": "uncanny-reflexes",
+    "name": "Uncanny Reflexes",
+    "domain": "body",
+    "tier": "Legendary",
+    "prerequisite_text": "Agility 5+, Evasive Mastery, PL5+",
+    "cross_domain": false,
+    "text": "Once per session, negate any single attack targeting you entirely — no roll needed, no pool cost. Declare after the attack roll has been made and before damage is applied. The attack simply does not connect. No explanation is required in the fiction, but one usually emerges naturally: you were somewhere else, the angle was wrong, luck intervened at the finest possible margin.",
+    "at_the_table": "After attacker’s roll, before damage: declare negation. Attack has no effect. No Reaction required, no Deflect roll, no pool cost. One use per session. Cannot negate area effects that do not require an attack roll.",
+    "requires": [
+      {
+        "ability": [
+          "agi"
+        ],
+        "min": 5
+      },
+      {
+        "feat": [
+          "evasive-mastery"
+        ]
+      },
+      {
+        "power_level_min": 5
+      }
+    ]
+  },
+  {
+    "id": "analytical-eye",
+    "name": "Analytical Eye",
+    "domain": "mind",
+    "tier": "Basic",
+    "prerequisite_text": "Acuity 2+, Analyze as Focus Skill",
+    "cross_domain": false,
+    "text": "On any successful Analyze or Observe roll, you learn one additional fact beyond what the result would normally grant. If the roll would grant one fact, you get two. If it would grant two, you get three. This is passive — it fires on every qualifying success without declaration. The world simply gives you more when you look at it.",
+    "at_the_table": "On any successful Analyze or Observe roll: +1 fact to the normal result. Passive, no declaration needed. Applies in combat and out. GM determines which additional fact is most useful to the situation.",
+    "requires": [
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "analyze"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "mental-fortress",
+    "name": "Mental Fortress",
+    "domain": "mind",
+    "tier": "Basic",
+    "prerequisite_text": "Willpower 2+, Concentrate as Focus Skill",
+    "cross_domain": false,
+    "text": "Mind-affecting Conditions (Silenced, Charmed, Confused, Dazed) have their duration halved when applied to you. Charmed additionally requires a Willpower check DC 14 before it can take hold at all — this is not a removal, it is resistance at the moment of application. Failing the check means Charmed proceeds normally with halved duration.",
+    "at_the_table": "Silenced, Confused, Dazed, Charmed: duration halved. Charmed: additionally requires d20 + Willpower vs DC 14 before applying. On success: Charmed does not apply. On failure: Charmed applies with halved duration.",
+    "requires": [
+      {
+        "ability": [
+          "wil"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "concentrate"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "deep-knowledge",
+    "name": "Deep Knowledge",
+    "domain": "mind",
+    "tier": "Basic",
+    "prerequisite_text": "Intellect 3+, Knowledge as Focus Skill",
+    "cross_domain": false,
+    "text": "Once per scene, you may make a Knowledge roll about any subject — including subjects outside your stated expertise — at Difficulty 14. On success, the GM provides accurate, detailed information as if you had studied the topic. On failure, the GM tells you specifically what you don’t know, which is itself useful. The range of subjects is genuinely unlimited: magic, history, engineering, biology, criminal organizations, whatever the fiction contains.",
+    "at_the_table": "Once per scene: Knowledge roll DC 14 on any topic. Success: GM provides accurate detail. Failure: GM identifies the knowledge gap. This is not a research action — it is immediate recall. Cannot be retried on the same topic in the same scene.",
+    "requires": [
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "knowledge"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "cantrip-access",
+    "name": "Cantrip Access",
+    "domain": "mind",
+    "tier": "Basic",
+    "prerequisite_text": "Intellect 2+ or Belief 2+, Magic Overlay active, PL2+",
+    "cross_domain": true,
+    "text": "You gain access to a single Level 1 Power with no Mana cost — a cantrip. You cannot Surge it. You cannot add Effects to it. The specific manifestation is defined when you take this Feat: a flicker of fire, a spark of light, a small levitation, a whisper across distance. The effect is minor and defined. This is the first step on the warrior-to-mage path: one small repeatable magical act, earned through training rather than identity.",
+    "at_the_table": "One specific Level 1 Power, defined at Feat acquisition, usable at no Mana cost. No Surge. No Effects. GM approves the specific manifestation. This is not a general casting ability — it is one specific thing you can do.",
+    "requires": [
+      {
+        "any": [
+          {
+            "ability": [
+              "int"
+            ],
+            "min": 2
+          },
+          {
+            "ability": [
+              "bel"
+            ],
+            "min": 2
+          }
+        ]
+      },
+      {
+        "genre": [
+          "magic"
+        ]
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "tactical-mind",
+    "name": "Tactical Mind",
+    "domain": "mind",
+    "tier": "Basic",
+    "prerequisite_text": "Intellect 2+, Tactics as Focus Skill",
+    "cross_domain": false,
+    "text": "At the start of each encounter, you may make one tactical observation as a Free Action before the first roll. The GM tells you one true thing about the opposition: a weakness in their formation, their tactical priority, a specific vulnerability, which target is most dangerous, or what they are trying to accomplish. This is not a guess — it is accurate.",
+    "at_the_table": "At encounter start, before any roll: Free Action to observe. GM states one true tactical fact about the opposition. One use per encounter. Must be used in the first round.",
+    "requires": [
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "tactics"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "power-access",
+    "name": "Power Access",
+    "domain": "mind",
+    "tier": "Advanced",
+    "prerequisite_text": "Cantrip Access (Basic), Intellect 3+ or Belief 3+, PL3+",
+    "cross_domain": true,
+    "text": "You may now use Powers up to Level 2, paying full Mana cost and Surge costs with no discount. You receive no Level Discount of any kind. You cannot take Caster, Channeler, or Weird Role Steps while you hold this Feat — your relationship with magic is deliberate practice, not innate identity. You are the warrior-mage: real capability, real cost, never the efficiency of a dedicated caster.",
+    "at_the_table": "Powers up to Level 2 available. Full Mana and Surge costs — no discount. Cannot take Caster, Channeler, or Weird Role Steps while this Feat is held. If those Role Steps are already held, consult GM for conflict resolution. Available from Level 9.",
+    "requires": [
+      {
+        "feat": [
+          "cantrip-access"
+        ]
+      },
+      {
+        "any": [
+          {
+            "ability": [
+              "int"
+            ],
+            "min": 3
+          },
+          {
+            "ability": [
+              "bel"
+            ],
+            "min": 3
+          }
+        ]
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "countermind",
+    "name": "Countermind",
+    "domain": "mind",
+    "tier": "Advanced",
+    "prerequisite_text": "Willpower 3+, Mental Fortress, PL2+",
+    "cross_domain": false,
+    "text": "Once per encounter, when you are the target of a Power, you may interrupt the resolution with an opposed Willpower check against the caster’s cast roll — declared after the cast roll is made, before the effect resolves. On success, the Power fails entirely and produces no effect. On failure, the Power resolves normally. This is not a dodge; it is mental rejection.",
+    "at_the_table": "When targeted by a Power: declare interrupt. Make d20 + Willpower vs caster’s cast roll. Success: Power fails with no effect. Failure: Power resolves normally. Once per encounter. Cannot Countermind area effects if you are not the primary target.",
+    "requires": [
+      {
+        "ability": [
+          "wil"
+        ],
+        "min": 3
+      },
+      {
+        "feat": [
+          "mental-fortress"
+        ]
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "pattern-recognition",
+    "name": "Pattern Recognition",
+    "domain": "mind",
+    "tier": "Advanced",
+    "prerequisite_text": "Intellect 3+, Analytical Eye, PL2+",
+    "cross_domain": false,
+    "text": "After observing an opponent make the same type of roll twice in a scene — two attacks, two spell casts, two social presses, two of anything — you read the pattern. Your Deflect or Defend against that specific roll type gains +2 for the rest of the encounter. The pattern must be the same roll type, not just the same action broadly.",
+    "at_the_table": "After observing the same roll type twice from one opponent: +2 to your Deflect or Defend against that roll type for the encounter. Passive accumulation — you just need to observe two of the same type. Applies per opponent, per roll type.",
+    "requires": [
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 3
+      },
+      {
+        "feat": [
+          "analytical-eye"
+        ]
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "precision-caster",
+    "name": "Precision Caster",
+    "domain": "mind",
+    "tier": "Advanced",
+    "prerequisite_text": "Active Magical Specialty, Intellect 4+ or Belief 4+, PL3+",
+    "cross_domain": false,
+    "text": "When one of your Powers would affect an area, you may designate up to three creatures within the effect as excluded — they receive no damage, no Condition, and no effect even if physically within the area of effect. You must name the exclusions before the roll is made. This is the mark of a caster who controls their power with surgical precision.",
+    "at_the_table": "Before rolling an area Power: name up to three creatures as excluded. Exclusions receive no effect. Must be declared before the roll. Does not affect the Power’s cost or roll.",
+    "requires": [
+      {
+        "specialty_category": "magical"
+      },
+      {
+        "any": [
+          {
+            "ability": [
+              "int"
+            ],
+            "min": 4
+          },
+          {
+            "ability": [
+              "bel"
+            ],
+            "min": 4
+          }
+        ]
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "information-broker",
+    "name": "Information Broker",
+    "domain": "mind",
+    "tier": "Advanced",
+    "prerequisite_text": "Intellect 3+, Network as Focus Skill, PL2+",
+    "cross_domain": false,
+    "text": "Between sessions, you may ask the GM one factual yes/no question about the upcoming session’s events, factions, or threats. The GM answers truthfully from what is true in the fiction at that moment — not what will be true by session end, but what exists now. One question per inter-session gap. This represents a network of informants, research habits, or intelligence gathering that happens off-screen.",
+    "at_the_table": "Between sessions: one yes/no question to GM. Answer reflects current fiction truth. One per inter-session period. Cannot ask about information the character has no plausible avenue to obtain.",
+    "requires": [
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "network"
+        ],
+        "all": false
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "power-surge-mastery",
+    "name": "Power Surge Mastery",
+    "domain": "mind",
+    "tier": "Mastery",
+    "prerequisite_text": "Active Magical Specialty, Intellect 4+, PL3+",
+    "cross_domain": false,
+    "text": "Your Surge costs for all Powers are reduced by 1 Mana box, to a minimum of 1. This stacks with the Caster Role’s Step 3 (which reduces the Surge cost on your primary cast school by 1). A dedicated Caster who takes this Feat becomes notably more resource-efficient — the combination represents mastery of the cost structure of magical power.",
+    "at_the_table": "All Surge costs reduced by 1 Mana box (min 1 per Surge box). Stacks with Caster Role Step 3 on the relevant school. Permanent. Applies to all schools of casting.",
+    "requires": [
+      {
+        "specialty_category": "magical"
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "arcane-rebound",
+    "name": "Arcane Rebound",
+    "domain": "mind",
+    "tier": "Mastery",
+    "prerequisite_text": "Countermind, Willpower 4+, PL4+",
+    "cross_domain": false,
+    "text": "When your Countermind check succeeds, you may redirect the countered Power back at the original caster at half potency. The original attack roll is used against the caster’s own Deflect — no additional roll is made. Damage or effects are calculated at half overage (round down). The caster is struck by their own reflected Power.",
+    "at_the_table": "On successful Countermind: use the original cast roll vs caster’s Deflect. Overage at half value (round down). No additional roll. The reflected effect uses the same Power type, Effect, and source as the original.",
+    "requires": [
+      {
+        "feat": [
+          "countermind"
+        ]
+      },
+      {
+        "ability": [
+          "wil"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 4
+      }
+    ]
+  },
+  {
+    "id": "power-unleashed",
+    "name": "Power Unleashed",
+    "domain": "mind",
+    "tier": "Mastery",
+    "prerequisite_text": "Power Access (Advanced), Intellect 4+ or Belief 4+, PL4+",
+    "cross_domain": true,
+    "text": "You may now use Powers up to Level 4, paying full cost. You also gain one Level Discount point — a single reduction to Mana costs that does not stack with Caster discounts and applies to your highest-cost cast per scene. You still cannot take Caster, Channeler, or Weird Role Steps. At this tier your magic is undeniably real — limited and costly, but real. This is the ceiling of the warrior-mage path within the Feat system.",
+    "at_the_table": "Powers up to Level 4. Full cost minus 1 Mana on one cast per scene (the highest-cost one). Still cannot take Caster, Channeler, or Weird Role Steps. Available from Level 13.",
+    "requires": [
+      {
+        "feat": [
+          "power-access"
+        ]
+      },
+      {
+        "any": [
+          {
+            "ability": [
+              "int"
+            ],
+            "min": 4
+          },
+          {
+            "ability": [
+              "bel"
+            ],
+            "min": 4
+          }
+        ]
+      },
+      {
+        "power_level_min": 4
+      }
+    ]
+  },
+  {
+    "id": "arcane-supremacy",
+    "name": "Arcane Supremacy",
+    "domain": "mind",
+    "tier": "Legendary",
+    "prerequisite_text": "Power Unleashed (Mastery) or any Mastery-tier Magical Specialty Feat, PL5+",
+    "cross_domain": true,
+    "text": "Once per session, cast any Power you know at any Level with no Mana cost. Surge costs still apply if you choose to Surge. This is the warrior-mage’s single moment of unrestricted magical expression — the culmination of a career spent practicing something you were told was not yours. You were wrong. The cost (Surge, if any) remains because commitment to power is its own price.",
+    "at_the_table": "Once per session: cast any known Power at any Level, 0 Mana cost. Surge costs apply if declared. One use resets each session. Cannot exceed Level 5 regardless of this Feat.",
+    "requires": [
+      {
+        "text": "Power Unleashed (Mastery) or any Mastery-tier Magical Specialty Feat"
+      },
+      {
+        "power_level_min": 5
+      }
+    ],
+    "flags": [
+      "Part of the prerequisite is not machine-readable."
+    ]
+  },
+  {
+    "id": "the-perfect-theory",
+    "name": "The Perfect Theory",
+    "domain": "mind",
+    "tier": "Legendary",
+    "prerequisite_text": "Precision Caster, Intellect 5+, PL5+",
+    "cross_domain": false,
+    "text": "Once per session, your next Power automatically hits every intended target and misses every intended exclusion, regardless of any rolls. Declare all targets and all exclusions. The effect resolves. No attack roll, no defense, no Deflect. Surge costs still apply. This is the Theorist’s ideal: a Power executed so precisely that chance becomes irrelevant.",
+    "at_the_table": "Once per session: next Power auto-hits all declared targets, auto-misses all declared exclusions. No attack roll. Defenders cannot Deflect or Defend. Surge costs apply. Declare before resolving.",
+    "requires": [
+      {
+        "feat": [
+          "precision-caster"
+        ]
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 5
+      },
+      {
+        "power_level_min": 5
+      }
+    ]
+  },
+  {
+    "id": "courage-under-fire",
+    "name": "Courage Under Fire",
+    "domain": "spirit",
+    "tier": "Basic",
+    "prerequisite_text": "Morale 2+, Inspire as Focus Skill",
+    "cross_domain": false,
+    "text": "Once per scene, when you or any ally within Near range fails a Horror Check or Fear roll, you may immediately make a free Inspire check (DC 12) before the failed result takes effect. On success, the failed roll is treated as a success — the Condition is not applied and the Dread is not filled. On failure, consequences proceed normally. You may use this on yourself.",
+    "at_the_table": "On any failed Horror or Fear roll within Near range: free Inspire DC 12 as interrupt. Success: treat original roll as success. Failure: original consequences apply. Once per scene. Works on self or allies. Declare immediately after the failed roll.",
+    "requires": [
+      {
+        "ability": [
+          "mor"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "inspire"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "spiritual-armor",
+    "name": "Spiritual Armor",
+    "domain": "spirit",
+    "tier": "Basic",
+    "prerequisite_text": "Serenity 2+",
+    "cross_domain": false,
+    "text": "You gain DR 1 against all supernatural damage — damage from Powers, spiritual attacks, and Conditions inflicted by supernatural sources. This is not physical protection; it is the composure and grounding of a spirit that does not flinch at what lies beyond the natural world. It applies even when caught off guard, and it stacks with physical armor DR against supernatural attacks that also deal physical damage.",
+    "at_the_table": "DR 1 against all supernatural damage and supernatural Conditions. Passive, always on. Stacks with physical DR if the source is both supernatural and physical. Does not apply to mundane damage.",
+    "requires": [
+      {
+        "ability": [
+          "ser"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "channel-access",
+    "name": "Channel Access",
+    "domain": "spirit",
+    "tier": "Basic",
+    "prerequisite_text": "Belief 2+, Magic Overlay active, PL2+",
+    "cross_domain": true,
+    "text": "You gain access to a single Level 1 Healing Power, paying full Mana cost. You cannot Surge it. The effect is limited: the healing roll unmars up to 2 boxes from the target’s chosen pool. This is the fighter who has learned to lay hands — not channel miracles, not perform divine acts, but offer a trained, earnest act of healing that costs real resources and produces real results.",
+    "at_the_table": "One Level 1 Healing Power available. Full Mana cost. No Surge. Unmarks up to 2 boxes from one pool (target’s choice). Requires a healing roll against DC 15. One defined manifestation, chosen when Feat is taken.",
+    "requires": [
+      {
+        "ability": [
+          "bel"
+        ],
+        "min": 2
+      },
+      {
+        "genre": [
+          "magic"
+        ]
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "unshakeable-faith",
+    "name": "Unshakeable Faith",
+    "domain": "spirit",
+    "tier": "Basic",
+    "prerequisite_text": "Belief 3+, active spiritual commitment (narrative)",
+    "cross_domain": false,
+    "text": "+2 to all Abjure rolls and Spirit rolls made against supernatural sources. Fear DCs from supernatural sources are reduced by 2 for you — what frightens others does not touch you the same way, because you carry something with you that the supernatural cannot easily reach. The narrative prerequisite is not a formal religious requirement — it is a genuine conviction of any kind that the GM acknowledges.",
+    "at_the_table": "+2 to all Abjure rolls. +2 to Spirit rolls vs supernatural sources. Supernatural Fear DCs reduced by 2 for you. Permanent. Passive. Requires ongoing narrative justification — if the character loses their faith, this Feat may be suspended at GM discretion.",
+    "requires": [
+      {
+        "ability": [
+          "bel"
+        ],
+        "min": 3
+      },
+      {
+        "text": "active spiritual commitment (narrative)"
+      }
+    ],
+    "flags": [
+      "Part of the prerequisite is not machine-readable."
+    ]
+  },
+  {
+    "id": "steady-presence",
+    "name": "Steady Presence",
+    "domain": "spirit",
+    "tier": "Basic",
+    "prerequisite_text": "Serenity 2+, Handle as Focus Skill",
+    "cross_domain": false,
+    "text": "Once per scene, when any ally is about to make a Fear, Horror, or Resist check, you may transfer your Serenity score as a bonus to their roll. When you do this, your own check for the rest of the scene uses only the base d20 + Serenity (no other bonuses) — you have given them what you had. This is not a skill roll; it is a declaration of solidarity.",
+    "at_the_table": "Once per scene: transfer Serenity score as flat bonus to one ally’s Fear, Horror, or Resist check. After transfer: your Spirit checks for the scene use d20 + Serenity only (no skill, no Feat bonuses). Declare before the ally rolls.",
+    "requires": [
+      {
+        "ability": [
+          "ser"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "handle"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "divine-intervention",
+    "name": "Divine Intervention",
+    "domain": "spirit",
+    "tier": "Advanced",
+    "prerequisite_text": "Channel Access (Basic), Belief 3+, PL3+",
+    "cross_domain": true,
+    "text": "You may now use Healing Powers up to Level 2, paying full cost. You receive no Channeler discount and cannot take Channeler Role Steps. Your healing is genuine in this range — you can restore meaningful capacity, clear Strained boxes, address Poisoned or Bleeding conditions. The divine source answers when you call. It is simply not your primary relationship.",
+    "at_the_table": "Healing Powers up to Level 2. Full cost. No Channeler discount. Cannot take Channeler Role Steps while this Feat is held. Available from Level 9.",
+    "requires": [
+      {
+        "feat": [
+          "channel-access"
+        ]
+      },
+      {
+        "ability": [
+          "bel"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "abjurers-authority",
+    "name": "Abjurer’s Authority",
+    "domain": "spirit",
+    "tier": "Advanced",
+    "prerequisite_text": "Belief 3+, Unshakeable Faith (Basic), Abjure as Focus Skill, PL2+",
+    "cross_domain": false,
+    "text": "When your Abjure roll succeeds with overage 5+, the supernatural entity gains Removed (Spirit) for the rest of the session — not just the scene. This is a significant escalation from the normal rule, which suppresses for the scene. Additionally, Abjure costs 1 fewer Resolve box than normal (minimum 1). You have refined the authority behind the act.",
+    "at_the_table": "Abjure with overage 5+: entity gains Removed (Spirit) for session (not scene). Abjure costs 1 fewer Resolve (min 1). Both effects apply on the same successful Abjure. No change to the Abjure roll itself.",
+    "requires": [
+      {
+        "ability": [
+          "bel"
+        ],
+        "min": 3
+      },
+      {
+        "feat": [
+          "unshakeable-faith"
+        ]
+      },
+      {
+        "focus": [
+          "channel"
+        ],
+        "all": false,
+        "note": "Abjure replaced by Channel (DECISIONS.md)"
+      },
+      {
+        "power_level_min": 2
+      }
+    ],
+    "flags": [
+      "Prerequisite named Abjure as a skill; drafted as Channel (DECISIONS.md)."
+    ]
+  },
+  {
+    "id": "rallying-cry",
+    "name": "Rallying Cry",
+    "domain": "spirit",
+    "tier": "Advanced",
+    "prerequisite_text": "Morale 3+, Lead as Focus Skill, PL2+",
+    "cross_domain": false,
+    "text": "Once per encounter, your Inspire action affects all allies within Near range simultaneously — one Inspire roll, one result, everyone in range benefits. Each ally who benefits clears 1 Fear level in addition to the normal Inspire effect. This is the battlefield shout, the moment that turns a wavering group into a held line.",
+    "at_the_table": "Once per encounter: one Inspire roll applies to all allies in Near range. Each affected ally clears 1 Fear level. Normal Inspire effects also apply. One roll covers all. Uses your Action normally.",
+    "requires": [
+      {
+        "ability": [
+          "mor"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "lead"
+        ],
+        "all": false
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "still-water",
+    "name": "Still Water",
+    "domain": "spirit",
+    "tier": "Advanced",
+    "prerequisite_text": "Serenity 4+, Spiritual Armor (Basic), PL3+",
+    "cross_domain": false,
+    "text": "Your Resolve Broken threshold moves to box 17 — two boxes later than normal. Additionally, when your Resolve enters the Strained range (boxes 6–10) for the first time in an encounter, you immediately gain Resolute for 1 round at no cost. Resolute grants immunity to Frightened, Charmed, Confused, and Routed for that round. The pressure comes in and you are already prepared for it.",
+    "at_the_table": "Resolve Broken at box 17 instead of 15. On first entry into Strained range (6–10) per encounter: free Resolute for 1 round. No cost, no roll. Resolute: immune to Frightened, Charmed, Confused, Routed for that round.",
+    "requires": [
+      {
+        "ability": [
+          "ser"
+        ],
+        "min": 4
+      },
+      {
+        "feat": [
+          "spiritual-armor"
+        ]
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "true-sight",
+    "name": "True Sight",
+    "domain": "spirit",
+    "tier": "Advanced",
+    "prerequisite_text": "Serenity 3+, Sixth Sense as Focus Skill, PL2+",
+    "cross_domain": false,
+    "text": "When any supernatural ability is used within Near range of you, you know it happened automatically — no roll, no declaration, no action required. The GM tells you that a supernatural ability was used and in which direction. You do not automatically know what it was, who used it, or what the effect is. You know something happened. Everything else you may still investigate. Supernatural concealment (a hidden caster, an invisible effect) does not prevent this knowledge.",
+    "at_the_table": "Automatic awareness of supernatural ability use within Near range. GM informs you: “Something supernatural happened [direction/zone].” No roll. Passive, always on. What it was, who used it, and its effect still require normal investigation.",
+    "requires": [
+      {
+        "ability": [
+          "ser"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "sixth-sense"
+        ],
+        "all": false
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "channel-mastery",
+    "name": "Channel Mastery",
+    "domain": "spirit",
+    "tier": "Mastery",
+    "prerequisite_text": "Divine Intervention (Advanced), Belief 4+, PL4+",
+    "cross_domain": true,
+    "text": "You may now use Healing and Protection Powers up to Level 4, paying full cost. You gain one Level Discount point — one Mana reduction on your highest-cost healing or protection cast per scene. You still cannot take Channeler Role Steps. Your faith is genuine enough that the source answers with real power. The conversation is real. It is simply not the central relationship of your identity.",
+    "at_the_table": "Healing and Protection Powers up to Level 4. Full cost minus 1 Mana on one cast per scene (the highest-cost qualifying cast). Cannot take Channeler Role Steps. Available from Level 13.",
+    "requires": [
+      {
+        "feat": [
+          "divine-intervention"
+        ]
+      },
+      {
+        "ability": [
+          "bel"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 4
+      }
+    ]
+  },
+  {
+    "id": "resolve-incarnate",
+    "name": "Resolve Incarnate",
+    "domain": "spirit",
+    "tier": "Mastery",
+    "prerequisite_text": "Still Water (Advanced), Serenity 4+, PL4+",
+    "cross_domain": false,
+    "text": "Once per session, when your Resolve would reach Broken, it holds at 1 box instead. You remain fully functional for the rest of the scene — no penalties, no incapacitation — at 1 box. After the scene ends, the pool registers as Broken for recovery purposes. You have not avoided the breaking. You have deferred it until the crisis is over.",
+    "at_the_table": "When Resolve would reach Broken: holds at 1 box. Fully functional for rest of scene. After scene: registers as Broken (requires recovery). Once per session. Does not reset the pool — recovery proceeds normally after the scene.",
+    "requires": [
+      {
+        "feat": [
+          "still-water"
+        ]
+      },
+      {
+        "ability": [
+          "ser"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 4
+      }
+    ]
+  },
+  {
+    "id": "warden-of-the-group",
+    "name": "Warden of the Group",
+    "domain": "spirit",
+    "tier": "Mastery",
+    "prerequisite_text": "Rallying Cry (Advanced), Morale 4+, PL3+",
+    "cross_domain": false,
+    "text": "Your Inspire action becomes a Free Action once per round. You may Inspire and use your primary Action (Attack, cast a Power, press a social action) in the same round without splitting your Action economy. You lead and fight at the same time — the people around you benefit from your presence without it costing the party your combat contribution.",
+    "at_the_table": "Inspire: Free Action once per round. May be used in addition to your normal Action allocation. Normal Inspire mechanics apply. Does not affect Inspire used as a Rallying Cry (which is still once per encounter).",
+    "requires": [
+      {
+        "feat": [
+          "rallying-cry"
+        ]
+      },
+      {
+        "ability": [
+          "mor"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "radiant-authority",
+    "name": "Radiant Authority",
+    "domain": "spirit",
+    "tier": "Legendary",
+    "prerequisite_text": "Abjurer’s Authority (Advanced), Belief 5+, PL5+",
+    "cross_domain": false,
+    "text": "Once per session, your Abjure automatically succeeds against any supernatural entity — no roll required. The entity gains Removed (Spirit) for the session. No opposed check, no Willpower contest, no chance of failure. Against Legendary-tier entities (major demons, gods, elder things), this may only be used once per campaign arc — the entity’s power eventually reasserts. Against anything below Legendary tier, once per session.",
+    "at_the_table": "Once per session: Abjure with no roll. Automatic success. Target gains Removed (Spirit) for session. Against Legendary-tier entities: once per campaign arc only. GM defines what qualifies as Legendary-tier in the active Genre.",
+    "requires": [
+      {
+        "feat": [
+          "abjurers-authority"
+        ]
+      },
+      {
+        "ability": [
+          "bel"
+        ],
+        "min": 5
+      },
+      {
+        "power_level_min": 5
+      }
+    ]
+  },
+  {
+    "id": "unbreakable",
+    "name": "Unbreakable",
+    "domain": "spirit",
+    "tier": "Legendary",
+    "prerequisite_text": "Resolve Incarnate, Warden of the Group (Mastery), PL5+",
+    "cross_domain": false,
+    "text": "Your Resolve holds at 1 box twice per session instead of once. Additionally, once per session, any one ally within Near range who would reach Resolve Broken may substitute your Serenity score for their own on the triggering roll — the roll that caused their Broken. They roll d20 + your Serenity. You do not make this roll; it is their roll with your Serenity. Your presence is itself a resource.",
+    "at_the_table": "Resolve holds at 1 box: two uses per session (not one). Once per session: one ally in Near range uses your Serenity score (not their own) for one Spirit roll. They still make the roll. Both effects are session resources that reset independently.",
+    "requires": [
+      {
+        "feat": [
+          "resolve-incarnate"
+        ]
+      },
+      {
+        "feat": [
+          "warden-of-the-group"
+        ]
+      },
+      {
+        "power_level_min": 5
+      }
+    ]
+  },
+  {
+    "id": "read-the-room",
+    "name": "Read the Room",
+    "domain": "social",
+    "tier": "Basic",
+    "prerequisite_text": "Acuity 2+, Observe as Focus Skill",
+    "cross_domain": false,
+    "text": "On entering any social environment — a court, a negotiation, a tavern, a crime scene, a diplomatic function — the GM tells you one true thing about the dominant social dynamic before you commit to any action or roll. This is not a roll and cannot be negated by deception or social armor. The information is factual, present-tense, and relevant to navigating what is in front of you.",
+    "at_the_table": "On scene entry into a social environment: GM states one true social fact. No roll. Cannot be blocked. Passive — it simply happens each time you enter a new social context. What the GM tells you is the most useful single truth they can give.",
+    "requires": [
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "observe"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "silver-tongue",
+    "name": "Silver Tongue",
+    "domain": "social",
+    "tier": "Basic",
+    "prerequisite_text": "Persuade as Focus Skill",
+    "cross_domain": false,
+    "text": "Once per scene, after making a Persuade roll and seeing the result, you may reroll before the GM declares consequences. You must take the second result — this is not a free success, it is a second chance. The scene has not moved on yet when you invoke this; you catch your phrasing before the moment closes.",
+    "at_the_table": "After any failed Persuade roll, before GM declares consequences: reroll. Take second result. Once per scene. Declare immediately after seeing the original result.",
+    "requires": [
+      {
+        "focus": [
+          "persuade"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "unreadable",
+    "name": "Unreadable",
+    "domain": "social",
+    "tier": "Basic",
+    "prerequisite_text": "Serenity 2+, Resist as Focus Skill",
+    "cross_domain": false,
+    "text": "By default, no mundane attempt to read your emotional state succeeds — not Observe rolls, not Empath Role passive awareness, not the Rapid Read Social Maneuver. Your face and body communicate only what you choose. You may voluntarily make yourself readable at any time. Supernatural empathy that reads minds or emotions still functions. This is social control, not mental shielding.",
+    "at_the_table": "All mundane emotional-read attempts against you auto-fail. Empath Role Step 1 passive awareness does not trigger on you unless you choose to be readable. Supernatural empathy unaffected. Toggle readable/unreadable at will.",
+    "requires": [
+      {
+        "ability": [
+          "ser"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "resist"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "social-grace",
+    "name": "Social Grace",
+    "domain": "social",
+    "tier": "Basic",
+    "prerequisite_text": "Morale 2+, Network as Focus Skill",
+    "cross_domain": false,
+    "text": "You always know the correct social protocol for any context you enter — the proper form of address, the expected greeting, the order of precedence, the right gift to bring, the correct opening for any formal or informal interaction. This never requires a roll. You do not accidentally cause social offense through ignorance of custom. You may still choose to give offense deliberately.",
+    "at_the_table": "Automatic knowledge of social protocol in any context. No roll for etiquette. Cannot inadvertently offend through ignorance. Deliberate social offense functions normally. Passive, always on.",
+    "requires": [
+      {
+        "ability": [
+          "mor"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "network"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "fear-no-one",
+    "name": "Fear No One",
+    "domain": "social",
+    "tier": "Basic",
+    "prerequisite_text": "Morale 3+ or Willpower 3+",
+    "cross_domain": false,
+    "text": "Intimidation attempts against you automatically fail, regardless of the attacker’s roll. You cannot be rendered Frightened or Charmed when those Conditions are applied through social means rather than supernatural ones. Your composure under social pressure is not a discipline you maintain — it is simply who you are. Supernatural Frightened and Charmed still apply.",
+    "at_the_table": "Mundane Intimidate rolls against you: auto-fail. Mundane source Frightened and Charmed: immune. Supernatural source Frightened and Charmed: normal rules apply. Passive, permanent.",
+    "requires": [
+      {
+        "any": [
+          {
+            "ability": [
+              "mor"
+            ],
+            "min": 3
+          },
+          {
+            "ability": [
+              "wil"
+            ],
+            "min": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "master-deceiver",
+    "name": "Master Deceiver",
+    "domain": "social",
+    "tier": "Advanced",
+    "prerequisite_text": "Acuity 3+, Deceive as Focus Skill, Unreadable (Basic), PL2+",
+    "cross_domain": false,
+    "text": "Your lies do not trigger suspicion checks without active investigation. Casual observers, bystanders, and characters not specifically trying to catch you in a lie receive no roll to detect the deception — the lie simply registers as normal conversation. When someone does actively investigate your cover, they do so at −2 to their roll. Your deception is structural, not situational.",
+    "at_the_table": "Passive lies: no mundane suspicion roll triggered. Active investigation: −2 to investigator’s roll. Supernatural detection unaffected. Applies to lies, cover stories, and false identities maintained in normal social interaction.",
+    "requires": [
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "deceive"
+        ],
+        "all": false
+      },
+      {
+        "feat": [
+          "unreadable"
+        ]
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "command-presence",
+    "name": "Command Presence",
+    "domain": "social",
+    "tier": "Advanced",
+    "prerequisite_text": "Morale 3+, Lead as Focus Skill, Reputation 2+, PL2+",
+    "cross_domain": false,
+    "text": "Your Reputation bonus applies even in contexts where you are unknown — your bearing carries weight before your name does. Additionally, once per session you may reset any hostile NPC to Neutral disposition through one sentence of dialog. No roll required. The sentence must be plausible in context — it does not need to be a speech, just something that opens a door. The GM may not refuse this, but the NPC’s Neutral disposition is the starting point, not a lasting change.",
+    "at_the_table": "Reputation applies even when unknown. Once per session: one sentence resets one hostile NPC to Neutral. No roll. Must be contextually plausible. Neutral disposition is not permanent — the NPC can become hostile again.",
+    "requires": [
+      {
+        "ability": [
+          "mor"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "lead"
+        ],
+        "all": false
+      },
+      {
+        "reputation_min": 2
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "the-right-word",
+    "name": "The Right Word",
+    "domain": "social",
+    "tier": "Advanced",
+    "prerequisite_text": "Intellect 3+, Persuade and Network both as Focus Skills, PL3+",
+    "cross_domain": false,
+    "text": "You always know which of the three Social Actions (Press, Hold, Deflect) is optimal for achieving your current goal in this specific social moment. Before you commit to your Social Action, the GM tells you privately which of the three gives you the best chance of what you want. This is not a guaranteed success — it is perfect situational awareness of the social mechanics. You still have to execute it.",
+    "at_the_table": "Before declaring Social Action: GM privately tells you the optimal action for your goal. You then declare normally. No guarantee of success. GM must be honest. Once per social conflict, not per round.",
+    "requires": [
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "persuade",
+          "network"
+        ],
+        "all": true
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "shadow-broker",
+    "name": "Shadow Broker",
+    "domain": "social",
+    "tier": "Advanced",
+    "prerequisite_text": "Acuity 3+, Network and Deceive both as Focus Skills, PL3+",
+    "cross_domain": false,
+    "text": "Once per session, establish that you have a contact in any organization, community, or faction you have previously visited or interacted with. No roll. The contact is real — they exist in the fiction and the GM confirms it. What they know, their loyalty, and what access they can provide is determined by the GM to reflect their position and relationship to you. You cannot invent contacts in places you have never been.",
+    "at_the_table": "Once per session: name an organization or community you have visited. You have a real contact there. GM determines contact’s position, knowledge, and loyalty. Contact established as fact, not as a roll result.",
+    "requires": [
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "network",
+          "deceive"
+        ],
+        "all": true
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "iron-negotiator",
+    "name": "Iron Negotiator",
+    "domain": "social",
+    "tier": "Advanced",
+    "prerequisite_text": "Willpower 3+, Resist as Focus Skill, PL2+",
+    "cross_domain": false,
+    "text": "Social overage against your Resolve is halved (round down). If an attacker generates 6 overage in social conflict against you, you take 3 boxes of Resolve damage rather than 6. You endure social pressure at twice the normal rate. Your Resolve Broken threshold for social damage effectively sits 2 boxes higher — not permanently, but through resistance to the rate of damage.",
+    "at_the_table": "Social combat overage against your Resolve: halved (round down). Does not affect supernatural Resolve damage. Does not change your Broken threshold number — it changes how fast you reach it. Physical and spiritual Resolve damage unaffected.",
+    "requires": [
+      {
+        "ability": [
+          "wil"
+        ],
+        "min": 3
+      },
+      {
+        "focus": [
+          "resist"
+        ],
+        "all": false
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "untouchable-reputation",
+    "name": "Untouchable Reputation",
+    "domain": "social",
+    "tier": "Mastery",
+    "prerequisite_text": "Command Presence (Advanced), Reputation 3+, PL4+",
+    "cross_domain": false,
+    "text": "Your Reputation score adds directly to your social Deflect threshold — the passive defense against social attacks. Instead of 10 + Serenity, your social Deflect is 10 + Serenity + Reputation. At Reputation 3 and Serenity 3, your social Deflect threshold is 16 — any social attack roll of 16 or lower passes over you without damage. You have become difficult to reach.",
+    "at_the_table": "Social Deflect threshold: 10 + Serenity + Reputation (instead of 10 + Serenity). Passive, always on. Applies to all social attack rolls (Press actions). Does not affect supernatural social attacks unless they function as Social Actions.",
+    "requires": [
+      {
+        "feat": [
+          "command-presence"
+        ]
+      },
+      {
+        "reputation_min": 3
+      },
+      {
+        "power_level_min": 4
+      }
+    ]
+  },
+  {
+    "id": "perfect-liar",
+    "name": "Perfect Liar",
+    "domain": "social",
+    "tier": "Mastery",
+    "prerequisite_text": "Master Deceiver (Advanced), Acuity 4+, PL3+",
+    "cross_domain": false,
+    "text": "Your deliberate lies cannot be detected by any mundane means. Period. Truth-detection that relies on reading behavior, micro-expression, heartbeat, voice stress, or any observation of you as a person fails when you choose to deceive. Once per session, you may also make one statement undetectable even to supernatural scrutiny that would normally pierce mundane deception. Outside that one use, supernatural truth-detection still functions.",
+    "at_the_table": "Mundane lie detection: auto-fail against you. Once per session: one statement bypasses supernatural detection too. Outside that one use: supernatural detection normal. Must be actively choosing to deceive — honest statements are just honest statements.",
+    "requires": [
+      {
+        "feat": [
+          "master-deceiver"
+        ]
+      },
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "social-supremacy",
+    "name": "Social Supremacy",
+    "domain": "social",
+    "tier": "Mastery",
+    "prerequisite_text": "The Right Word (Advanced), Morale 4+, PL4+",
+    "cross_domain": false,
+    "text": "In social conflicts where you clearly and unambiguously outrank, outrepute, or socially outclass the target — and no supernatural ability is involved on either side — you may resolve the conflict in your favor without a roll. The GM retains final authority on what constitutes clear outclassing. This is not available against equals or near-equals. It is available when the social gap is so obvious that rolling would be theater.",
+    "at_the_table": "GM may call this available when social disparity is clear and unambiguous. No roll. Outcome in your favor. Cannot be used against social equals. Cannot be used when supernatural social abilities are active. GM always has final call.",
+    "requires": [
+      {
+        "feat": [
+          "the-right-word"
+        ]
+      },
+      {
+        "ability": [
+          "mor"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 4
+      }
+    ]
+  },
+  {
+    "id": "legendary-presence",
+    "name": "Legendary Presence",
+    "domain": "social",
+    "tier": "Legendary",
+    "prerequisite_text": "Untouchable Reputation (Mastery), Reputation 4+, PL5+",
+    "cross_domain": false,
+    "text": "Once per session, your name and reputation precede you in a way that reshapes the encounter before it begins. All NPCs present begin at the most favorable attitude their nature permits toward someone of your reputation. Enemies who hate what you stand for may still be hostile — but they are hostile while knowing exactly who you are, which changes everything. This is not a mind control effect. It is the consequence of being genuinely legendary.",
+    "at_the_table": "Once per session: at scene start, all NPCs begin at their most favorable attitude consistent with their nature. Enemies hostile by nature remain hostile. All NPCs know who you are. Applies to the opening social state, which then evolves normally.",
+    "requires": [
+      {
+        "feat": [
+          "untouchable-reputation"
+        ]
+      },
+      {
+        "reputation_min": 4
+      },
+      {
+        "power_level_min": 5
+      }
+    ]
+  },
+  {
+    "id": "the-long-game",
+    "name": "The Long Game",
+    "domain": "social",
+    "tier": "Legendary",
+    "prerequisite_text": "Shadow Broker (Advanced), Perfect Liar (Mastery), PL5+",
+    "cross_domain": false,
+    "text": "Once per campaign arc (not per session), reveal that you have been operating several steps ahead. Name one specific outcome of the current scene that you have been engineering since before it began. The GM cannot contradict it unless the fiction makes it literally impossible — if you say you had someone bribed, they were bribed. If you say you had an escape route prepared, it exists. The move you reveal must be something your character could plausibly have arranged given their capabilities and access. You were always five steps ahead.",
+    "at_the_table": "Once per campaign arc: name one pre-arranged outcome of the current scene. GM cannot contradict if physically plausible given character’s capabilities. Must be declared at a dramatically appropriate moment. Cannot retroactively contradict established facts already confirmed in the fiction.",
+    "requires": [
+      {
+        "feat": [
+          "shadow-broker"
+        ]
+      },
+      {
+        "feat": [
+          "perfect-liar"
+        ]
+      },
+      {
+        "power_level_min": 5
+      }
+    ]
+  },
+  {
+    "id": "rapid-fabrication",
+    "name": "Rapid Fabrication",
+    "domain": "body",
+    "tier": "Basic",
+    "prerequisite_text": "Artificer Role Step 1, Intellect 2+, Operate as Focus Skill",
+    "cross_domain": false,
+    "text": "The Task Block requirement for field repairs is eliminated for items of Standard quality or below. You can fabricate basic tools, devices, or structural repairs in a single Action during combat — the output functions for the scene but degrades to Flimsy quality after. Between scenes, full-quality repairs complete in one minute rather than one Task Block.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "role": [
+          "artificer"
+        ],
+        "step": 1
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 2
+      },
+      {
+        "focus": [
+          "operate"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "salvage-expert",
+    "name": "Salvage Expert",
+    "domain": "body",
+    "tier": "Basic",
+    "prerequisite_text": "Artificer Role Step 1, Survive as Focus Skill",
+    "cross_domain": false,
+    "text": "You can treat any scavenged materials as Standard quality components for the purpose of the Artificer Role’s fabrication abilities, regardless of their actual condition. Once per session, identify a discarded or broken object’s potential — the GM tells you one non-obvious useful function it could serve if repurposed.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "role": [
+          "artificer"
+        ],
+        "step": 1
+      },
+      {
+        "focus": [
+          "survive"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "overclock",
+    "name": "Overclock",
+    "domain": "body",
+    "tier": "Advanced",
+    "prerequisite_text": "Rapid Fabrication, Artificer Role Step 2, Intellect 3+, PL2+",
+    "cross_domain": false,
+    "text": "Push a weapon, piece of equipment, or vehicle beyond its rated specifications for one scene. The item gains +2 to its effective Rating or output (GM defines the specific mechanical expression for the item type). At the end of the scene, make an Operate Check vs DC 12 — on a failure, the item degrades one Quality tier. On a natural 1, it fails entirely and requires Artificer Role Step 1 repair to restore.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "rapid-fabrication"
+        ]
+      },
+      {
+        "role": [
+          "artificer"
+        ],
+        "step": 2
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "modular-design",
+    "name": "Modular Design",
+    "domain": "body",
+    "tier": "Advanced",
+    "prerequisite_text": "Salvage Expert, Artificer Role Step 2, Intellect 3+, PL2+",
+    "cross_domain": false,
+    "text": "Your modifications (from Artificer Role Step 2) can now be swapped in or out as a Free Action once per round. You may maintain up to two active modifications simultaneously — one offensive, one defensive or utility. Switching which modification is active does not cost an Action.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "salvage-expert"
+        ]
+      },
+      {
+        "role": [
+          "artificer"
+        ],
+        "step": 2
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "masterwork",
+    "name": "Masterwork",
+    "domain": "body",
+    "tier": "Mastery",
+    "prerequisite_text": "Overclock or Modular Design, Artificer Role Step 3, Intellect 4+, PL3+",
+    "cross_domain": false,
+    "text": "Between sessions, create or designate one item as your Masterwork. Work with the GM to define a single unique rule for the Masterwork item — something it does that no standard item of its type can do. The Masterwork cannot be replicated and cannot be confiscated permanently (you can always rebuild it given one Task Block and available materials). You may have only one Masterwork at a time.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "overclock",
+          "modular-design"
+        ]
+      },
+      {
+        "role": [
+          "artificer"
+        ],
+        "step": 3
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "system-exploit",
+    "name": "System Exploit",
+    "domain": "mind",
+    "tier": "Basic",
+    "prerequisite_text": "Netrunner Role Step 1, Hack as Focus Skill, Intellect 2+",
+    "cross_domain": false,
+    "text": "When you make a Hack Check against a networked system and succeed, you may choose one additional effect beyond your declared goal at no extra cost: extract a cached data fragment, leave a passive monitoring routine, or reduce the system’s countermeasure rating by 1 (minimum 1) for the rest of the scene. Each effect is chosen after the roll succeeds.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "role": [
+          "netrunner"
+        ],
+        "step": 1
+      },
+      {
+        "focus": [
+          "hack"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "ghost-protocol",
+    "name": "Ghost Protocol",
+    "domain": "mind",
+    "tier": "Basic",
+    "prerequisite_text": "Netrunner Role Step 1, Stealth or Operate as Focus Skill, Acuity 2+",
+    "cross_domain": false,
+    "text": "Your network presence generates no traceable signature while this Feat is active. Passive security systems cannot detect your intrusion — only active countermeasure protocols with a rating of 3+ can spot you, and only if they make an opposed Check. Activating or deactivating Ghost Protocol is a Free Action.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "role": [
+          "netrunner"
+        ],
+        "step": 1
+      },
+      {
+        "focus": [
+          "stealth",
+          "operate"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "neural-overload",
+    "name": "Neural Overload",
+    "domain": "mind",
+    "tier": "Advanced",
+    "prerequisite_text": "System Exploit, Netrunner Role Step 2, Intellect 3+, PL2+",
+    "cross_domain": false,
+    "text": "Once per encounter, as an Action, target one networked or augmented opponent in Near range. Make a Hack Check opposed by their Willpower Score. On success: the target gains the Stunned condition for one round and loses their next Action. On overage 3+: they also lose a Reaction. This has no effect on targets with no cybernetic implants or networked equipment.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "system-exploit"
+        ]
+      },
+      {
+        "role": [
+          "netrunner"
+        ],
+        "step": 2
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "adaptive-countermeasures",
+    "name": "Adaptive Countermeasures",
+    "domain": "mind",
+    "tier": "Advanced",
+    "prerequisite_text": "Ghost Protocol, Netrunner Role Step 2, Acuity 3+, PL2+",
+    "cross_domain": false,
+    "text": "When any system or opponent attempts a counter-hack or trace against you, make an opposed Hack Check as a Free Reaction — no Action cost. On success, the counter-hack fails entirely and you learn the attacker’s network address or system location. Once per scene, you may pre-load a countermeasure before entering a known hostile network: the first counter-hack against you this scene automatically fails.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "ghost-protocol"
+        ]
+      },
+      {
+        "role": [
+          "netrunner"
+        ],
+        "step": 2
+      },
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "zero-day",
+    "name": "Zero-Day",
+    "domain": "mind",
+    "tier": "Mastery",
+    "prerequisite_text": "Neural Overload or Adaptive Countermeasures, Netrunner Role Step 3, PL3+",
+    "cross_domain": false,
+    "text": "Once per session, identify and exploit an unknown vulnerability in any networked system — security rating is irrelevant, countermeasures are bypassed, and access is immediate. The intrusion succeeds automatically. The GM determines what is available inside the system; you determine what you do with the access. After the session, the vulnerability is patched — this Feat cannot be used on the same system twice.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "neural-overload",
+          "adaptive-countermeasures"
+        ]
+      },
+      {
+        "role": [
+          "netrunner"
+        ],
+        "step": 3
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "combat-triage",
+    "name": "Combat Triage",
+    "domain": "mind",
+    "tier": "Basic",
+    "prerequisite_text": "Medic Role Step 1, Survive as Focus Skill",
+    "cross_domain": false,
+    "text": "Your in-combat stabilization (from Medic Role Step 1) now also clears one of the following Conditions as part of the same Free Action: Bleeding, Burning, or Poisoned. This does not require a roll. Additionally, when you use Survive for field triage, you may attempt it on yourself as well as allies — no penalty for self-treatment.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "role": [
+          "medic"
+        ],
+        "step": 1
+      },
+      {
+        "focus": [
+          "survive"
+        ],
+        "all": false
+      }
+    ]
+  },
+  {
+    "id": "pharmacology",
+    "name": "Pharmacology",
+    "domain": "mind",
+    "tier": "Advanced",
+    "prerequisite_text": "Combat Triage, Medic Role Step 2, Intellect 3+, PL2+",
+    "cross_domain": false,
+    "text": "Given access to a medical kit or scavenged materials and one minute, prepare a compound targeting one specific Condition. The compound clears that Condition instantly on application — no roll required. You may prepare a number of compounds between scenes equal to your Intellect Score. Unused compounds expire at session end. Each compound is single-use and targets only the Condition it was prepared for.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "combat-triage"
+        ]
+      },
+      {
+        "role": [
+          "medic"
+        ],
+        "step": 2
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "surgical-precision",
+    "name": "Surgical Precision",
+    "domain": "mind",
+    "tier": "Advanced",
+    "prerequisite_text": "Combat Triage, Medic Role Step 2, Acuity 3+, PL2+",
+    "cross_domain": false,
+    "text": "During any uninterrupted Task Block outside combat, make a Survive Check vs DC 10. On success: restore 3 Stamina boxes to one ally rather than the standard 2, and your patient clears one Condition of your choice. On overage 3+: restore 4 boxes instead and clear two Conditions. Critical failures (natural 1 on this check) restore only 1 box — surgical precision requires focus.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "combat-triage"
+        ]
+      },
+      {
+        "role": [
+          "medic"
+        ],
+        "step": 2
+      },
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "trauma-specialist",
+    "name": "Trauma Specialist",
+    "domain": "mind",
+    "tier": "Mastery",
+    "prerequisite_text": "Pharmacology or Surgical Precision, Medic Role Step 3, Intellect 4+, PL3+",
+    "cross_domain": false,
+    "text": "Once per scene, clear the Broken condition from one ally without a Full Rest — requires one uninterrupted minute of treatment and a Survive Check vs DC 14. On success: the ally is restored to Injured range (boxes 11–14 unmarked) and clears one Condition. On overage 3+: they are restored to Hurt range instead. This is the non-magical equivalent of the Channeler Role’s Step 5 restoration ability.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "pharmacology",
+          "surgical-precision"
+        ]
+      },
+      {
+        "role": [
+          "medic"
+        ],
+        "step": 3
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "martial-training",
+    "name": "Martial Training",
+    "domain": "body",
+    "tier": "Basic",
+    "prerequisite_text": "Caster or Channeler Role Step 1, Strength or Agility 2+, PL2+",
+    "cross_domain": true,
+    "text": "Gain Combat (Melee) or Combat (Ranged) as a Focus Skill (your choice) even if it was not selected at creation. Your Deflect calculation may now use the higher of your Agility Score or Willpower Score — whichever is naturally higher from your build. You are no longer considered untrained in physical combat for the purpose of Maneuver access.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "role": [
+          "caster",
+          "channeler"
+        ],
+        "step": 1
+      },
+      {
+        "ability": [
+          "str",
+          "agi"
+        ],
+        "min": 2
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "combat-conditioning",
+    "name": "Combat Conditioning",
+    "domain": "body",
+    "tier": "Advanced",
+    "prerequisite_text": "Martial Training (Basic), Strength or Agility 3+, PL3+",
+    "cross_domain": true,
+    "text": "Your physical Surge ceiling increases by 1 box when using Combat (Melee) or Combat (Ranged) skills — you can commit one more Surge box than your Strength or Agility Score would normally allow. Additionally, once per encounter, use a physical Maneuver as a Free Action (no Stamina cost, no Mastery Floor required) immediately after completing a successful Cast or Channel action.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "martial-training"
+        ]
+      },
+      {
+        "ability": [
+          "str",
+          "agi"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "iron-body",
+    "name": "Iron Body",
+    "domain": "body",
+    "tier": "Mastery",
+    "prerequisite_text": "Combat Conditioning (Advanced), Strength or Agility 4+, PL4+",
+    "cross_domain": true,
+    "text": "Your physical pool (Stamina) maximum increases by 3 boxes permanently. When both Stamina and Mana (or Resolve) pools are active in the same round, you may split Actions between them freely — using one pool for a Cast action and another for a Combat action in the same round is no longer subject to the standard “one primary action type per round” limitation. The Caster who reaches Iron Body is genuinely dangerous in close quarters.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "combat-conditioning"
+        ]
+      },
+      {
+        "ability": [
+          "str",
+          "agi"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 4
+      }
+    ]
+  },
+  {
+    "id": "surge-discipline-1",
+    "name": "Surge Discipline (I)",
+    "domain": "universal",
+    "tier": "Basic",
+    "prerequisite_text": "Seasoned tier (L5+)",
+    "cross_domain": false,
+    "text": "Reduce the Structure or pool cost of any Surge by 1 box. You still commit the full number of boxes for the purpose of the roll bonus, Effect intensity, and Fallout severity — you simply pay one fewer.",
+    "at_the_table": null,
+    "series": "surge-discipline",
+    "prerequisite_text_detail": "Seasoned tier (Level 5 or higher)",
+    "summary": "Reduce the pool cost of any Surge. Fallout severity still keys off boxes committed. A Surge always costs at least 1 box.",
+    "requires": [
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "surge-discipline-2",
+    "name": "Surge Discipline (II)",
+    "domain": "universal",
+    "tier": "Advanced",
+    "prerequisite_text": "Surge Discipline I, Veteran tier (L9+)",
+    "cross_domain": false,
+    "text": "The reduction increases to 2 boxes.",
+    "at_the_table": null,
+    "series": "surge-discipline",
+    "prerequisite_text_detail": "Surge Discipline I, Veteran tier (Level 9+)",
+    "summary": "Reduce the pool cost of any Surge. Fallout severity still keys off boxes committed. A Surge always costs at least 1 box.",
+    "requires": [
+      {
+        "feat": [
+          "surge-discipline-1"
+        ]
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "surge-discipline-3",
+    "name": "Surge Discipline (III)",
+    "domain": "universal",
+    "tier": "Advanced",
+    "prerequisite_text": "Surge Discipline II, Heroic tier (L13+)",
+    "cross_domain": false,
+    "text": "The reduction increases to 3 boxes.",
+    "at_the_table": null,
+    "series": "surge-discipline",
+    "prerequisite_text_detail": "Surge Discipline II, Heroic tier (Level 13+)",
+    "summary": "Reduce the pool cost of any Surge. Fallout severity still keys off boxes committed. A Surge always costs at least 1 box.",
+    "requires": [
+      {
+        "feat": [
+          "surge-discipline-2"
+        ]
+      },
+      {
+        "power_level_min": 4
+      }
+    ]
+  },
+  {
+    "id": "surge-discipline-4",
+    "name": "Surge Discipline (IV)",
+    "domain": "universal",
+    "tier": "Mastery",
+    "prerequisite_text": "Surge Discipline III, Legendary tier (L17+)",
+    "cross_domain": false,
+    "text": "The reduction increases to 4 boxes. This is the maximum.",
+    "at_the_table": null,
+    "series": "surge-discipline",
+    "prerequisite_text_detail": "Surge Discipline III, Legendary tier (Level 17+)",
+    "summary": "Reduce the pool cost of any Surge. Fallout severity still keys off boxes committed. A Surge always costs at least 1 box.",
+    "requires": [
+      {
+        "feat": [
+          "surge-discipline-3"
+        ]
+      },
+      {
+        "power_level_min": 5
+      }
+    ]
+  },
+  {
+    "id": "shadow-step",
+    "name": "Shadow Step",
+    "domain": "body",
+    "tier": "Basic",
+    "prerequisite_text": "Stealth as Focus Skill, Agility 2+",
+    "cross_domain": false,
+    "text": "+1 to all Stealth rolls. When you fail a Stealth roll by 3 or fewer — the result misses the DC by 1 to 3 — the GM describes the near-miss but you are not yet detected. You have one chance to reposition before detection resolves. Near-misses become tense recoveries rather than immediate exposure.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "focus": [
+          "stealth"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "agi"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "pickpockets-instinct",
+    "name": "Pickpocket’s Instinct",
+    "domain": "body",
+    "tier": "Basic",
+    "prerequisite_text": "Legerdemain as Focus Skill, Acuity 2+",
+    "cross_domain": false,
+    "text": "+1 to all Legerdemain rolls against unaware targets (additionally +1 for a total of +2 if the target is completely unaware). All fine manual dexterity tasks — forgery, lockpicking, sleight of hand, intricate mechanical work — fall under Legerdemain without requiring a separate skill declaration. You are a generalist of the hands.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "focus": [
+          "legerdemain"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "sure-footed",
+    "name": "Sure-Footed",
+    "domain": "body",
+    "tier": "Advanced",
+    "prerequisite_text": "Athletics as Focus Skill, Agility 3+, PL2+",
+    "cross_domain": false,
+    "text": "Athletics checks involving balance, climbing, swimming, or movement through difficult terrain automatically succeed unless conditions are extreme (GM sets DC 18+ as the threshold for a roll to still be required). When a roll is still required at extreme difficulty, gain +2. You move through the world’s physical obstacles the way other characters move through open ground.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "focus": [
+          "athletics"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "agi"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "ghost-step",
+    "name": "Ghost Step",
+    "domain": "body",
+    "tier": "Mastery",
+    "prerequisite_text": "Shadow Step, Stealth rank 4+, Agility 4+, PL3+",
+    "cross_domain": false,
+    "text": "Once per scene, become completely undetectable for one round — no roll, no opposed check against you can succeed. You cannot attack or take obviously loud actions during this round. After the round, normal Stealth applies. Additionally, twice per session, reroll any failed Stealth check and take the higher result. Declare before the GM describes the consequence.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "shadow-step"
+        ]
+      },
+      {
+        "skill": "stealth",
+        "rank_min": 4
+      },
+      {
+        "ability": [
+          "agi"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "sharp-eye",
+    "name": "Sharp Eye",
+    "domain": "mind",
+    "tier": "Basic",
+    "prerequisite_text": "Observe as Focus Skill, Acuity 2+",
+    "cross_domain": false,
+    "text": "+1 to all Observe rolls. When you succeed on an Observe check, the GM must volunteer one additional true detail beyond what you specifically asked for — something present that you notice without looking for it. This bonus detail cannot be a misdirection and cannot be withheld. You see more than you look for.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "focus": [
+          "observe"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "acu"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "lore-master",
+    "name": "Lore Master",
+    "domain": "mind",
+    "tier": "Basic",
+    "prerequisite_text": "Knowledge as Focus Skill, Intellect 3+",
+    "cross_domain": false,
+    "text": "+1 to all Knowledge rolls. Once per scene, treat a Knowledge roll as automatically succeeding at Standard quality (DC 13) — declare before rolling. On topics where you hold a declared specialty (noted at creation or with GM agreement), the automatic success extends to Quality difficulty (DC 16). You may take this Feat twice — the second spend adds a second declared specialty.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "focus": [
+          "knowledge"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 3
+      }
+    ]
+  },
+  {
+    "id": "field-analyst",
+    "name": "Field Analyst",
+    "domain": "mind",
+    "tier": "Advanced",
+    "prerequisite_text": "Analyze as Focus Skill, Intellect 3+, PL2+",
+    "cross_domain": false,
+    "text": "+2 to Analyze rolls made under time pressure or in active scenes (combat, chases, social conflicts). When you succeed on any Analyze check, the GM must answer one follow-up question honestly: “what is the most important thing I don’t know about this?” This answer comes free — it does not require an additional roll.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "focus": [
+          "analyze"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "master-investigator",
+    "name": "Master Investigator",
+    "domain": "mind",
+    "tier": "Mastery",
+    "prerequisite_text": "Sharp Eye or Lore Master, Observe and Knowledge as Focus Skills, Intellect 4+, PL3+",
+    "cross_domain": false,
+    "text": "Once per scene, reconstruct a past event from physical evidence without a roll. The GM narrates what happened as if you witnessed it directly. You may then ask three follow-up questions the GM must answer honestly based on what evidence could plausibly reveal. The event can be as complex as the evidence supports — there is no mechanical scope limit.",
+    "at_the_table": null,
+    "prerequisite_text_detail": "Sharp Eye or Lore Master, Observe and Knowledge both as Focus Skills, Intellect 4+, PL3+",
+    "requires": [
+      {
+        "feat": [
+          "sharp-eye",
+          "lore-master"
+        ]
+      },
+      {
+        "focus": [
+          "observe",
+          "knowledge"
+        ],
+        "all": true
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  },
+  {
+    "id": "compelling-voice",
+    "name": "Compelling Voice",
+    "domain": "spirit",
+    "tier": "Basic",
+    "prerequisite_text": "Persuade or Inspire as Focus Skill, Morale 2+",
+    "cross_domain": false,
+    "text": "+1 to all Persuade and Inspire rolls. When you succeed on a Persuade check with overage 3+, the effect lasts one step longer than the fiction would normally support — a moment’s persuasion becomes a scene, a scene’s conviction becomes a session. The effect degrades naturally rather than ending abruptly.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "focus": [
+          "persuade",
+          "inspire"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "mor"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "network-runner",
+    "name": "Network Runner",
+    "domain": "spirit",
+    "tier": "Basic",
+    "prerequisite_text": "Network as Focus Skill, Morale or Acuity 2+",
+    "cross_domain": false,
+    "text": "+1 to all Network rolls. In any settlement of meaningful size, you always know someone — the GM identifies who and their rough capabilities, no roll required to establish the contact. What that contact can provide still requires normal interaction. Once per session, call in a favor from an established contact without a roll if the request is reasonable given the relationship.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "focus": [
+          "network"
+        ],
+        "all": false
+      },
+      {
+        "ability": [
+          "mor",
+          "acu"
+        ],
+        "min": 2
+      }
+    ]
+  },
+  {
+    "id": "born-leader",
+    "name": "Born Leader",
+    "domain": "spirit",
+    "tier": "Advanced",
+    "prerequisite_text": "Lead and Inspire as Focus Skills, Morale 3+, PL2+",
+    "cross_domain": false,
+    "text": "When you succeed on a Lead check, each ally who follows the instruction gains +1 to their next roll made in executing it. Once per encounter, issue a command as a Free Action — no Action cost. The ally acts on that command on their next available turn. Your leadership doesn’t wait for your turn.",
+    "at_the_table": null,
+    "prerequisite_text_detail": "Lead and Inspire both as Focus Skills, Morale 3+, PL2+",
+    "requires": [
+      {
+        "focus": [
+          "lead",
+          "inspire"
+        ],
+        "all": true
+      },
+      {
+        "ability": [
+          "mor"
+        ],
+        "min": 3
+      },
+      {
+        "power_level_min": 2
+      }
+    ]
+  },
+  {
+    "id": "ironclad-argument",
+    "name": "Ironclad Argument",
+    "domain": "spirit",
+    "tier": "Mastery",
+    "prerequisite_text": "Compelling Voice, Persuade rank 4+, Morale 4+, PL3+",
+    "cross_domain": false,
+    "text": "Your Persuade checks cannot be countered by a simple opposed roll. An opponent who wishes to actively resist must first spend an Action and succeed on a Willpower Check (DC equals your Persuade roll result) before they may roll against you. Once per session, one Persuade check is treated as having achieved the maximum possible result regardless of the actual die roll — declare before rolling.",
+    "at_the_table": null,
+    "requires": [
+      {
+        "feat": [
+          "compelling-voice"
+        ]
+      },
+      {
+        "skill": "persuade",
+        "rank_min": 4
+      },
+      {
+        "ability": [
+          "mor"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
+      }
+    ]
+  }
+]
