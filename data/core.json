@@ -197,9 +197,9 @@
         "Legendary"
       ]
     },
-    "feat_slot_tiers_note": "From the Player Book progression table. A slot also accepts lower tiers.",
+    "feat_slot_tiers_note": "From the Player Book progression table. A slot also accepts lower tiers (DECISIONS.md).",
     "flags": [
-      "Feat slot tiers to be confirmed: Chapter 6b says Mastery at 11/15/17 and Legendary at 19 only; the progression table allows Mastery at 19. Can a slot take a lower-tier Feat?"
+      "Feat tier names (Basic, Advanced, Mastery, Legendary) to be renamed, numbered or lettered."
     ]
   },
   "pools": {
