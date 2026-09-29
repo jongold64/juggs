@@ -390,6 +390,52 @@ export function maneuverCost(D, level, cost) {
   return free === 'all' || cost <= free ? 0 : cost;
 }
 
+// ---------------------------------------------------------------------------------------------------------------
+// Powers (the Spell Builder). A Power spec: { name, source, range, targets, duration, effect, summon,
+// conditions: [ids], focusItem, entityBlessing } — option ids from D.powers.builder.
+// ---------------------------------------------------------------------------------------------------------------
+
+const optionPoints = (list, id) => list.find(o => o.id === id)?.points || 0;
+
+export function powerPoints(D, p) {
+  const b = D.powers.builder;
+  let pts = optionPoints(b.range, p.range) + optionPoints(b.targets, p.targets) + optionPoints(b.duration, p.duration)
+    + optionPoints(b.summons, p.summon) + Math.min(b.max_conditions, (p.conditions || []).length) * b.condition_points;
+  if (p.focusItem && focusItemAllowed(D, p)) pts -= 1;
+  return Math.max(0, pts);
+}
+
+export const focusItemAllowed = (D, p) =>
+  D.powers.builder.modifiers.find(m => m.id === 'focus-item').sources.includes(p.source);
+
+export function powerLevelFor(D, points) {
+  return D.powers.builder.power_levels.find(l => points >= l.min && (l.max === null || points <= l.max)).power_level;
+}
+
+export const isCaster = (D, c, level = c.level) => (roleSteps(D, c, level).caster || 0) >= 1;
+
+// Anyone with a Cast or Channel skill at rank 2+ casts Cantrips for free.
+export function isPractitioner(D, c, level = c.level) {
+  return ['cast-attack', 'cast-defend', 'cast-utility', 'channel'].some(s => skillRank(D, c, s, level) >= 2);
+}
+
+// { points, powerLevel (what it was built at), effectiveLevel (with Entity Blessing, max 5), mana, discounted }
+export function powerSummary(D, c, p) {
+  const points = powerPoints(D, p);
+  const powerLevel = powerLevelFor(D, points);
+  const effectiveLevel = Math.min(5, powerLevel + (p.entityBlessing ? 1 : 0));
+  let mana;
+  let discounted = false;
+  if (powerLevel === 0) {
+    mana = isPractitioner(D, c) ? 0 : 1;
+  } else {
+    const caster = isCaster(D, c);
+    mana = powerCost(powerLevel, tierFor(D, c.level).power_level, caster);
+    discounted = caster && mana < powerLevel;
+  }
+  return { points, powerLevel, effectiveLevel, mana, discounted };
+}
+
 export function startingWealth(D, c) {
   const apt = D.aptitudesById.get(c.aptitude);
   return apt?.starting_wealth ?? D.core.creation.starting_wealth;

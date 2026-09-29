@@ -6,8 +6,9 @@ import * as R from './rules.js';
 import { $, esc, signed, paragraphs, options, groupedOptions, cap } from './dom.js';
 import { openRoster, saveRoster, loadCharacter, saveCharacter, removeCharacter, newId, exportData, importData } from './storage.js';
 import { renderSheet } from './sheet.js';
+import { renderPowers, setDraft, toggleCondition, powerAction, resetDraft } from './tab-powers.js';
 
-const TABS = ['character', 'skills', 'roles', 'advancement', 'sheet'];
+const TABS = ['character', 'skills', 'roles', 'advancement', 'powers', 'sheet'];
 const LEVEL_MAPS = new Set(['skillPoints', 'feats', 'featChoices', 'roleAdvances', 'abilityIncreases']);
 
 let D = null;
@@ -32,6 +33,7 @@ function open(id) {
   roster.current = id;
   saveRoster(roster);
   state = clean(D, loadCharacter(id));
+  resetDraft();
   render();
 }
 
@@ -67,7 +69,10 @@ function update() {
 
 function onChange(e) {
   const el = e.target;
-  if (el.dataset.bind) {
+  if (el.dataset.draft) {  // the Power being built (not saved until "Save to character")
+    setDraft(D, el.dataset.draft, readValue(el));
+    render();
+  } else if (el.dataset.bind) {
     setPath(state, el.dataset.bind, readValue(el));
     update();
   } else if (el.dataset.toggle) {  // a checkbox list stored as an array of ids
@@ -92,7 +97,16 @@ function onClick(e) {
   if (!b) return;
   const d = b.dataset;
   if (d.tab) { tab = d.tab; render(); return; }
-  if (d.step) {  // +/- on a number
+  if (d.draftCond) {
+    toggleCondition(D, d.draftCond);
+    render();
+  } else if (d.power) {
+    const list = powerAction(D, state, d.power, d.arg);
+    if (list) { state.powers = list; update(); } else render();
+  } else if (d.copy) {
+    const text = $(d.copy)?.textContent || '';
+    navigator.clipboard?.writeText(text).then(() => { b.textContent = 'Copied'; }, () => {});
+  } else if (d.step) {  // +/- on a number
     const cur = Number(getPath(state, d.step)) || 0;
     setPath(state, d.step, cur + Number(d.by));
     update();
@@ -514,7 +528,7 @@ function render() {
   const panel = $(`tab-${tab}`);
   const scroll = window.scrollY;
   panel.innerHTML = { character: renderCharacter, skills: renderSkills, roles: renderRoles, advancement: renderAdvancement,
-                      sheet: () => renderSheet(D, c) }[tab]();
+                      powers: () => renderPowers(D, c), sheet: () => renderSheet(D, c) }[tab]();
   window.scrollTo(0, scroll);
 }
 

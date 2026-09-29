@@ -463,5 +463,160 @@
       "Pools to be decided (Chapter 1 and the \"Effect types by pool\" table disagree).",
       "Chapter 1 lists \"Mind\" as a pool; read as Mana."
     ]
+  },
+  {
+    "id": "bleed",
+    "name": "Bleed",
+    "supplemental": true,
+    "pools": null,
+    "pools_in_sources": {},
+    "use": "persistent Bleed damage and cumulative blood loss",
+    "primary_condition": null,
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Bleeding (1 Stamina/round)"
+      },
+      {
+        "boxes": "2",
+        "text": "Bleeding + -1 STR rolls"
+      },
+      {
+        "boxes": "3",
+        "text": "Bleeding + Sickened"
+      },
+      {
+        "boxes": "4-5",
+        "text": "Arterial - 2 Stamina now, Bleeding persists"
+      }
+    ],
+    "source_doc": "JUGGS_Spell_Builder_Mobile_3.html",
+    "flags": [
+      "Supplemental Effect (GM approval); kept from the Spell Builder (DECISIONS.md)."
+    ]
+  },
+  {
+    "id": "concussive",
+    "name": "Concussive",
+    "supplemental": true,
+    "pools": null,
+    "pools_in_sources": {},
+    "use": "Dazed, then Stunned, then area stun",
+    "primary_condition": null,
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Dazed (-1 Action)"
+      },
+      {
+        "boxes": "2",
+        "text": "Dazed + Prone"
+      },
+      {
+        "boxes": "3",
+        "text": "Stunned (lose all Actions)"
+      },
+      {
+        "boxes": "4-5",
+        "text": "Area Stun (Close)"
+      }
+    ],
+    "source_doc": "JUGGS_Spell_Builder_Mobile_3.html",
+    "flags": [
+      "Supplemental Effect (GM approval); kept from the Spell Builder (DECISIONS.md)."
+    ]
+  },
+  {
+    "id": "gravity",
+    "name": "Gravity",
+    "supplemental": true,
+    "pools": null,
+    "pools_in_sources": {},
+    "use": "slowing, levitating or crushing",
+    "primary_condition": null,
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Move -1 band or levitate"
+      },
+      {
+        "boxes": "2",
+        "text": "Slowed or uncontrolled float"
+      },
+      {
+        "boxes": "3",
+        "text": "Crush (2 Stamina + Prone)"
+      },
+      {
+        "boxes": "4-5",
+        "text": "Area Prone + Slowed"
+      }
+    ],
+    "source_doc": "JUGGS_Spell_Builder_Mobile_3.html",
+    "flags": [
+      "Supplemental Effect (GM approval); kept from the Spell Builder (DECISIONS.md)."
+    ]
+  },
+  {
+    "id": "nature",
+    "name": "Nature",
+    "supplemental": true,
+    "pools": null,
+    "pools_in_sources": {},
+    "use": "entangling roots and thorns",
+    "primary_condition": null,
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Slowed (entangle)"
+      },
+      {
+        "boxes": "2",
+        "text": "Restrained (Athletics DC 12)"
+      },
+      {
+        "boxes": "3",
+        "text": "Area Restrained + 1 Stamina"
+      },
+      {
+        "boxes": "4-5",
+        "text": "Area Restrained + 1/round thorns"
+      }
+    ],
+    "source_doc": "JUGGS_Spell_Builder_Mobile_3.html",
+    "flags": [
+      "Supplemental Effect (GM approval); kept from the Spell Builder (DECISIONS.md)."
+    ]
+  },
+  {
+    "id": "shadow",
+    "name": "Shadow",
+    "supplemental": true,
+    "pools": null,
+    "pools_in_sources": {},
+    "use": "concealing and blinding darkness",
+    "primary_condition": null,
+    "intensity": [
+      {
+        "boxes": "1",
+        "text": "Concealed (from non-adjacent)"
+      },
+      {
+        "boxes": "2",
+        "text": "Concealed + Blinded"
+      },
+      {
+        "boxes": "3",
+        "text": "Darkness Close (all Blinded)"
+      },
+      {
+        "boxes": "4-5",
+        "text": "Darkness Near + Frightened (DC 12)"
+      }
+    ],
+    "source_doc": "JUGGS_Spell_Builder_Mobile_3.html",
+    "flags": [
+      "Supplemental Effect (GM approval); kept from the Spell Builder (DECISIONS.md)."
+    ]
   }
 ]

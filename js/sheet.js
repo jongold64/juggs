@@ -2,6 +2,7 @@
 // boxes, trackers and conditions can be marked during play, and rolled values have a d20 button.
 import * as R from './rules.js';
 import { esc, signed, cap } from './dom.js';
+import { summaryFor, describe, powerName } from './tab-powers.js';
 
 const rollBtn = (what, bonus) =>
   `<button type="button" class="roll no-print" data-roll="${esc(what)}" data-bonus="${bonus}" aria-label="Roll ${esc(what)}">d20</button>`;
@@ -140,6 +141,15 @@ export function renderSheet(D, c) {
     <h4>Specialty Abilities</h4><ul class="s-list">${specList || '<li class="s-hint">—</li>'}</ul>
     <h4>Feats</h4><ul class="s-list">${featList}</ul></section>`;
 
+  const powerRows = c.powers.map(p => {
+    const s = summaryFor(D, c, p);
+    const ex = p.example && D.powers.examples.find(e => e.id === p.example)?.levels.find(l => l.level === p.exampleLevel);
+    return `<tr><td><b>${esc(powerName(D, p))}</b></td><td>${s.powerLevel === 0 ? 'Cantrip' : `PL ${s.effectiveLevel}`}</td><td>${s.mana}</td>
+      <td>${esc(ex ? `${ex.profile} → ${ex.result || ''}` : describe(D, p, s).replace(/ Power Level.*$| Cantrip ·.*$/, ''))}</td></tr>`;
+  }).join('');
+  const powers = c.powers.length ? `<section class="s-box s-wide"><h3>Powers</h3><table class="s-powers">
+    <thead><tr><th>Power</th><th>Level</th><th>Mana</th><th>What it does</th></tr></thead><tbody>${powerRows}</tbody></table></section>` : '';
+
   const trackers = `<section class="s-box"><h3>Status Trackers</h3>
     ${[['corruption', 5, 'persistent · never resets'], ['fear', 4, 'individual, acute'], ['morale', 5, 'party shared'],
        ['sanity', 4, 'horror campaigns']].map(([k, n, note]) =>
@@ -155,6 +165,6 @@ export function renderSheet(D, c) {
     <section class="s-box"><h3>Notes, Bonds &amp; Story Hooks</h3><p class="s-pre">${esc(c.notes)}</p></section>`;
 
   const page2 = `<div class="sheet-page"><div class="s-title"><b>JUGGS</b> Features · Trackers · Gear · Notes<span>Page 2</span></div>
-    ${features}<div class="s-row">${trackers}${conditions}</div><div class="s-row">${notes}</div></div>`;
+    ${features}${powers}<div class="s-row">${trackers}${conditions}</div><div class="s-row">${notes}</div></div>`;
   return page1 + page2;
 }

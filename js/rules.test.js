@@ -131,6 +131,30 @@ check('Physical is always a Power Source', R.powerSources(D, make()), ['physical
 check('Channel Focus defaults to Spirit',
   R.powerSources(D, make({ genres: ['magic'], focus: ['channel'] })).includes('spirit'), true);
 
+// Powers
+const bolt = { source: 'arcane', range: 'near', targets: 'single', duration: 'instant', effect: 'fire', conditions: [] };
+check('Near single instant = 1 point', R.powerPoints(D, bolt), 1);
+check('1 point is PL 1', R.powerLevelFor(D, 1), 1);
+check('0 points is a Cantrip', R.powerLevelFor(D, 0), 0);
+check('6 points is PL 2', R.powerLevelFor(D, 6), 2);
+check('21 points is PL 5', R.powerLevelFor(D, 25), 5);
+check('Effect type costs nothing', R.powerPoints(D, { ...bolt, effect: 'void' }), 1);
+check('Conditions 1 point each', R.powerPoints(D, { ...bolt, conditions: ['prone', 'dazed'] }), 3);
+check('At most 3 Conditions count', R.powerPoints(D, { ...bolt, conditions: ['prone', 'dazed', 'blinded', 'slowed'] }), 4);
+check('Summon (Rival) is 8 points', R.powerPoints(D, { ...bolt, summon: 'rival' }), 9);
+check('Focus Item: -1 point for Arcane', R.powerPoints(D, { ...bolt, range: 'far', focusItem: true }), 1);
+check('Focus Item ignored for Psionic', R.powerPoints(D, { ...bolt, source: 'psionic', range: 'far', focusItem: true }), 2);
+const storm = { ...bolt, range: 'far', targets: 'multi-6', duration: 'rounds', conditions: ['prone'] };  // 2+5+1+1 = 9
+check('Storm is PL 2', R.powerSummary(D, make(), storm).powerLevel, 2);
+check('Non-Caster pays full Mana', R.powerSummary(D, make(), storm).mana, 2);
+check('Caster at Novice pays PL - 1', R.powerSummary(D, make({ genres: ['magic'], role: 'caster' }), storm).mana, 1);
+check('Entity Blessing raises the level, not the cost',
+  [R.powerSummary(D, make(), { ...storm, entityBlessing: true }).effectiveLevel, R.powerSummary(D, make(), { ...storm, entityBlessing: true }).mana], [3, 2]);
+const cantrip = { ...bolt, range: 'close' };
+check('Cantrip costs 1 Mana without Cast or Channel 2+', R.powerSummary(D, make(), cantrip).mana, 1);
+check('Cantrip is free for a practitioner',
+  R.powerSummary(D, make({ genres: ['magic'], focus: ['cast-attack'] }), cantrip).mana, 0);
+
 // Loading old or broken saves
 check('Unknown ids are dropped', clean(D, { role: 'no-such-role', feats: { 3: 'nope', 1: 'toughened' } }).feats, { 1: 'toughened' });
 check('Level is kept within 1-20', clean(D, { level: 40 }).level, 20);

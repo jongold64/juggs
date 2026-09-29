@@ -135,8 +135,47 @@ table.abilities, table.skills { width: 100%; border-collapse: collapse; }
   max-width: calc(100% - 32px);
 }
 
+/* Powers tab: the Spell Builder */
+.sb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-bottom: 10px; }
+@media (max-width: 720px) { .sb-grid, .two-col { grid-template-columns: minmax(0, 1fr); } }
+.sb-cat { border-top: 2px solid var(--accent); padding-top: 6px; margin-bottom: 10px; }
+.sb-cat select + select { margin-top: 6px; }
+.sb-label { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin-bottom: 4px; font-weight: 600; }
+.sb-label.small { margin-top: 8px; }
+.sb-scale { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .9rem; color: var(--muted); margin: -2px 0 12px; }
+.sb-conds { display: flex; flex-wrap: wrap; gap: 5px; }
+.sb-cond { min-height: 32px; padding: 0 10px; border-radius: 16px; }
+.sb-cond.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.sb-cond:disabled { opacity: .45; cursor: default; }
+.sb-mods { display: flex; flex-direction: column; gap: 2px; margin: 8px 0 12px; }
+.check.dim { opacity: .55; }
+.sb-result { background: #1f1d1a; color: #f5edd8; border: 1px solid var(--accent); border-radius: 6px; padding: 14px;
+             display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center; }
+.sb-rl { display: block; font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: #d8b25a; }
+.sb-rv { display: block; font-size: 1.6rem; font-weight: 800; line-height: 1.2; }
+.sb-rv.big { font-size: 2.1rem; color: #e8b44a; }
+.sb-rs { display: block; font-size: .8rem; color: #c8b89a; }
+.sb-chips, .sb-desc, .sb-buttons { grid-column: 1 / -1; }
+.sb-chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; border-top: 1px solid #d8b25a44; padding-top: 10px; }
+.sb-chip { font-size: .85rem; padding: 2px 8px; border: 1px solid #d8b25a55; border-radius: 3px; color: #d8c8a8; }
+.sb-chip b { color: #e8b44a; }
+.sb-chip.dim { opacity: .5; }
+.sb-desc { font-style: italic; text-align: left; margin: 4px 0; line-height: 1.6; }
+.sb-buttons { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.sb-buttons button { background: transparent; color: #f5edd8; border-color: #d8b25a88; }
+.sb-buttons button.primary { background: #d8b25a; color: #1f1d1a; border-color: #d8b25a; font-weight: 700; }
+.power-list { list-style: none; padding: 0; }
+.power-list li { border-bottom: 1px solid var(--border); padding: 8px 0; }
+.power-list .tiny { margin-right: 6px; }
+details.example { border-bottom: 1px solid var(--border); padding: 6px 0; }
+details.example summary { cursor: pointer; }
+details.example ul { padding-left: 18px; }
+details.example li { margin: 4px 0; }
+.s-powers { width: 100%; border-collapse: collapse; }
+.s-powers th, .s-powers td { text-align: left; padding: 2px 6px; border-bottom: 1px dotted #cfc8ba; vertical-align: top; }
+
 /* ------------------------------------------------------------------------------------------------------------- */
-/* Character sheet                                                                                               */
+/* Character sheet                                                                                            */
 /* ------------------------------------------------------------------------------------------------------------- */
 
 .sheet-panel { max-width: 960px; margin: 0 auto; }

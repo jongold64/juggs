@@ -208,6 +208,18 @@ def main(folder):
         cost = m.get('cost', {})
         if 'pool' in cost:
             ck.ref(f'maneuvers.json {m["id"]}', cost['pool'], POOLS, 'pool')
+    builder = powers.get('builder', {})
+    for key in ('range', 'targets', 'duration', 'summons'):
+        for o in ck.records(f'powers.json builder {key}', builder.get(key, [])).values():
+            if not isinstance(o.get('points'), int):
+                ck.err(f'powers.json builder {key} {o["id"]}', '"points" must be a whole number')
+    for m in ck.records('powers.json builder modifiers', builder.get('modifiers', [])).values():
+        ck.ref(f'powers.json modifier {m["id"]}', m.get('sources', []), sources, 'Power Source')
+    levels = builder.get('power_levels', [])
+    for a, b in zip(levels, levels[1:]):
+        if a.get('max') is None or b.get('min') != a['max'] + 1:
+            ck.err('powers.json builder power_levels', 'point bands must follow on with no gaps')
+
     for s in sources.values():
         w = f'powers.json source {s["id"]}'
         ck.ref(w, s.get('abilities') or [], abilities, 'Ability Score')

@@ -1226,5 +1226,191 @@
         }
       ]
     }
-  ]
+  ],
+  "builder": {
+    "note": "Point budget from the Player Book (Calculating Without the Tools); layout from juggs_spell_builder_v2.html; extras from JUGGS_Spell_Builder_Mobile (DECISIONS.md).",
+    "range": [
+      {
+        "id": "close",
+        "name": "Close / Touch",
+        "detail": "Same zone or physical contact",
+        "points": 0
+      },
+      {
+        "id": "near",
+        "name": "Near",
+        "detail": "30-59 ft",
+        "points": 1
+      },
+      {
+        "id": "far",
+        "name": "Far",
+        "detail": "60+ ft",
+        "points": 2
+      },
+      {
+        "id": "sight",
+        "name": "Sight",
+        "detail": "Anywhere you can see",
+        "points": 3
+      },
+      {
+        "id": "anywhere",
+        "name": "Anywhere known",
+        "detail": "Known location, any distance",
+        "points": 5
+      }
+    ],
+    "targets": [
+      {
+        "id": "single",
+        "name": "Single target",
+        "detail": "One creature or object",
+        "points": 0
+      },
+      {
+        "id": "line",
+        "name": "Line 30 ft",
+        "detail": "All in a straight line",
+        "points": 1
+      },
+      {
+        "id": "cone",
+        "name": "Cone 15 ft",
+        "detail": "Fan-shaped burst ahead",
+        "points": 2
+      },
+      {
+        "id": "burst",
+        "name": "Burst 20 ft",
+        "detail": "Sphere centred on a point",
+        "points": 3
+      },
+      {
+        "id": "multi-3",
+        "name": "Up to 3 targets",
+        "detail": "Chosen targets",
+        "points": 3
+      },
+      {
+        "id": "multi-6",
+        "name": "Up to 6 targets",
+        "detail": "Chosen targets",
+        "points": 5
+      }
+    ],
+    "duration": [
+      {
+        "id": "instant",
+        "name": "Instant",
+        "detail": "Resolves immediately",
+        "points": 0
+      },
+      {
+        "id": "rounds",
+        "name": "1 round / level",
+        "detail": "",
+        "points": 1
+      },
+      {
+        "id": "concentration",
+        "name": "Concentration (up to 1 minute)",
+        "detail": "",
+        "points": 2
+      },
+      {
+        "id": "minutes",
+        "name": "1 minute / level",
+        "detail": "",
+        "points": 3
+      },
+      {
+        "id": "ten-minutes",
+        "name": "10 minutes / level",
+        "detail": "",
+        "points": 4
+      },
+      {
+        "id": "hours",
+        "name": "1 hour / level",
+        "detail": "",
+        "points": 5
+      }
+    ],
+    "summons": [
+      {
+        "id": "grunt",
+        "name": "Summon (Grunt)",
+        "detail": "A Grunt-tier creature for the scene",
+        "points": 4
+      },
+      {
+        "id": "rival",
+        "name": "Summon (Rival)",
+        "detail": "A Rival-tier creature for the scene",
+        "points": 8
+      }
+    ],
+    "condition_points": 1,
+    "max_conditions": 3,
+    "power_levels": [
+      {
+        "min": 0,
+        "max": 0,
+        "power_level": 0,
+        "name": "Cantrip"
+      },
+      {
+        "min": 1,
+        "max": 5,
+        "power_level": 1,
+        "name": "PL 1"
+      },
+      {
+        "min": 6,
+        "max": 10,
+        "power_level": 2,
+        "name": "PL 2"
+      },
+      {
+        "min": 11,
+        "max": 15,
+        "power_level": 3,
+        "name": "PL 3"
+      },
+      {
+        "min": 16,
+        "max": 20,
+        "power_level": 4,
+        "name": "PL 4"
+      },
+      {
+        "min": 21,
+        "max": null,
+        "power_level": 5,
+        "name": "PL 5"
+      }
+    ],
+    "effect_points": 0,
+    "effect_note": "The Effect type is declared only; the Surge level sets its strength (Surge 2 = 1-box intensity).",
+    "modifiers": [
+      {
+        "id": "focus-item",
+        "name": "Focus Item",
+        "text": "-1 point. Arcane or Divine Powers only.",
+        "points": -1,
+        "sources": [
+          "arcane",
+          "divine"
+        ]
+      },
+      {
+        "id": "entity-blessing",
+        "name": "Entity Blessing",
+        "text": "A patron adds +1 Power Level for free (Mana is paid for the lower level).",
+        "power_level_bonus": 1
+      }
+    ],
+    "cantrip_rule": "A Cantrip (0 points) costs no Mana for a practitioner: anyone with a Cast or Channel skill at rank 2 or higher. Others pay 1 Mana."
+  }
 }

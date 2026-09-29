@@ -128,6 +128,22 @@ Last updated: 2026-09-29.
 
 - Defaults from Focus Skills: **Cast → Arcane**, **Channel → Spirit**.
 
+## Powers (the Spell Builder)
+
+- Layout from `source/juggs_spell_builder_v2.html` (the version that works best); numbers from the Player Book's
+  point budget.
+- **A · Range** Close 0, Near 1, Far 2, Sight 3, Anywhere known 5. **B · Targets** Single 0, Line 1, Cone 2,
+  Burst 3, up to 3 targets 3, up to 6 targets 5. **C · Duration** Instant 0, rounds 1, Concentration 2, minutes 3,
+  10 minutes 4, hours 5.
+- **D · Effect** is declared only (0 points); the Surge level sets its strength. **Summons** cost points: Grunt 4,
+  Rival 8.
+- **E · Conditions**: 1 point each, up to 3.
+- Points → Power Level: 0 Cantrip, 1–5 PL 1, 6–10 PL 2, 11–15 PL 3, 16–20 PL 4, 21+ PL 5. Base Mana = PL; Casters
+  pay PL − tier Power Level, minimum 1. A Cantrip is free for anyone with Cast or Channel at rank 2+, else 1 Mana.
+- Kept from the mobile Spell Builder (not in the Player Book): the supplemental Effects **Bleed, Concussive,
+  Gravity, Nature, Shadow** (GM approval); **Summons**; **Focus Item** (−1 point, Arcane or Divine only); **Entity
+  Blessing** (+1 Power Level free; Mana is paid for the level it was built at).
+
 ## Weird Magic
 
 - The Weird Table is rolled on a **d20** with ranged results (Book of Genres version). Weird Role references to

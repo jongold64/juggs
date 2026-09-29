@@ -24,6 +24,7 @@ export function newCharacter() {
     featChoices: {},            // Feat level -> Specialty id, for the "Specialty: Ability 2/3/Mastery" Feats
     signature: { offensive: '', utility: '' },
     powerSources: [],           // declared beyond Physical and the Focus Skill defaults
+    powers: [],                 // Powers built in the Powers tab (see rules.js powerSummary for the fields)
     wealth: null, reputation: null,     // null = the starting default
     languages: '', gear: '', notes: '',
     play: { marked: { stamina: 0, mana: 0, resolve: 0 }, conditions: [], boonTokens: 0,
@@ -44,6 +45,37 @@ function levelMap(x, ok) {
     if (Number.isInteger(lv) && lv >= 1 && lv <= 20 && ok(v)) out[lv] = v;
   }
   return out;
+}
+
+export function newPower() {
+  return { name: '', source: '', range: 'close', targets: 'single', duration: 'instant', effect: '', summon: '',
+           conditions: [], focusItem: false, entityBlessing: false, notes: '' };
+}
+
+// One Power: unknown option ids fall back to the free option.
+export function cleanPower(D, raw) {
+  const b = D.powers.builder;
+  const p = newPower();
+  const pick = (list, id, d) => (list.some(o => o.id === id) ? id : d);
+  p.name = str(raw.name).slice(0, 80);
+  p.source = D.sourcesById.has(raw.source) ? raw.source : '';
+  p.range = pick(b.range, raw.range, 'close');
+  p.targets = pick(b.targets, raw.targets, 'single');
+  p.duration = pick(b.duration, raw.duration, 'instant');
+  p.effect = D.effectsById.has(raw.effect) ? raw.effect : '';
+  p.summon = pick(b.summons, raw.summon, '');
+  p.conditions = Array.isArray(raw.conditions)
+    ? [...new Set(raw.conditions.filter(x => D.conditionsById.has(x)))].slice(0, b.max_conditions) : [];
+  p.focusItem = raw.focusItem === true;
+  p.entityBlessing = raw.entityBlessing === true;
+  p.notes = str(raw.notes).slice(0, 500);
+  // A Player Book example Power added at one of its levels.
+  const ex = D.powers.examples.find(e => e.id === raw.example);
+  if (ex && ex.levels.some(l => l.level === raw.exampleLevel)) {
+    p.example = ex.id;
+    p.exampleLevel = raw.exampleLevel;
+  }
+  return p;
 }
 
 export function clean(D, raw) {
@@ -80,6 +112,7 @@ export function clean(D, raw) {
     for (const k of ['offensive', 'utility']) c.signature[k] = has(D.effectsById, raw.signature[k]) ? raw.signature[k] : '';
   }
   c.powerSources = Array.isArray(raw.powerSources) ? raw.powerSources.filter(s => has(D.sourcesById, s)) : [];
+  c.powers = Array.isArray(raw.powers) ? raw.powers.filter(isObj).map(p => cleanPower(D, p)).slice(0, 100) : [];
   c.wealth = raw.wealth === null ? null : int(raw.wealth, null, 1, 8);
   c.reputation = raw.reputation === null ? null : int(raw.reputation, null, 0, 5);
   c.languages = str(raw.languages); c.gear = str(raw.gear); c.notes = str(raw.notes);
