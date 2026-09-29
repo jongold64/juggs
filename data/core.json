@@ -169,7 +169,38 @@
       ]
     },
     "second_specialty_level": 5,
-    "governing_ability": "Any of the nine. Can be changed once per tier with GM approval."
+    "governing_ability": "Any of the nine. Can be changed once per tier with GM approval.",
+    "feat_slot_tiers": {
+      "1": [
+        "Basic"
+      ],
+      "3": [
+        "Basic"
+      ],
+      "7": [
+        "Basic",
+        "Advanced"
+      ],
+      "11": [
+        "Advanced",
+        "Mastery"
+      ],
+      "15": [
+        "Advanced",
+        "Mastery"
+      ],
+      "17": [
+        "Mastery"
+      ],
+      "19": [
+        "Mastery",
+        "Legendary"
+      ]
+    },
+    "feat_slot_tiers_note": "From the Player Book progression table. A slot also accepts lower tiers.",
+    "flags": [
+      "Feat slot tiers to be confirmed: Chapter 6b says Mastery at 11/15/17 and Legendary at 19 only; the progression table allows Mastery at 19. Can a slot take a lower-tier Feat?"
+    ]
   },
   "pools": {
     "start": 15,

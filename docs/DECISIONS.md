@@ -45,6 +45,8 @@ Last updated: 2026-09-29.
 - **Skills** (Player Book Ch 7): from Level 2, 6 skill points per level, each to a different skill. Level 1 gets
   none (its skills come from creation), so 114 points across twenty levels.
   Caps by tier — Focus Skills 3 / 4 / 5 / 6 / 7, other skills 2 / 3 / 4 / 5 / 6.
+- **Second Specialty**: free, from Level 5 (Seasoned). It gives Ability 1 and its 2 bonus Focus Skills.
+- **Domain Mastery** is added to rolls (skills, Initiative, Defend), not to the fixed Deflect number.
 - **Feat slots**: Levels 1, 3, 7, 11, 15, 17, 19. The Level 1 Feat must be Basic and cannot unlock Specialty
   Ability 2, which is available from Level 3.
 - **Level 17 Capstone**: *to be decided*.
@@ -163,6 +165,11 @@ Last updated: 2026-09-29.
 - **Effect pools**: which pools can pay for each Effect. Chapter 1 and the "Effect types by pool" table disagree;
   the data keeps both readings and leaves `pools` empty.
 - The Channeler Suggested Build's sixth Focus Skill (Abjure was one of the six).
+- **Feat slot tiers.** The builder uses the Player Book progression table (L1/L3 Basic; L7 Basic or Advanced;
+  L11/L15 Advanced or Mastery; L17 Mastery; L19 Mastery or Legendary) and lets a slot take a lower tier. Chapter 6b
+  says Legendary at 19 only and Mastery at 11/15/17. To be confirmed.
+- **Feat tier names** (Basic, Advanced, Mastery, Legendary) are misleading next to the character tiers (Novice …
+  Legendary) and will be renamed, numbered or lettered — the author's choice is pending.
 - Power list damage: Lay on Hands has no Power Level lines, and one Psionic Power lost its heading (the "Boon and
   Bane Severity Summary" sits in its place).
 - Side-by-side pool layout on the sheet — the author will judge it once the sheet exists.

@@ -23,6 +23,22 @@ rules data in plain JSON, and a static web app that builds characters from it.
   record's `flags`.
 - `scripts/` — `docx_reader.py` (reads .docx without extra libraries), `draft_data.py` (the one-time draft),
   `validate.py` (checks the data).
+- `index.html`, `css/style.css`, `js/` — the app. `js/app.js` owns the page (state, `render()`, one delegated
+  change handler: controls carry `data-bind="path"`, e.g. `base.str` or `skillPoints.5.2`); `js/rules.js` holds the
+  rules as pure functions; `js/character.js` is the saved character (`clean()` migrates old saves and drops unknown
+  ids); `js/sheet.js` draws the printable sheet; `js/data.js` loads `data/*.json` and builds `…ById` maps.
+- `tests.html` + `js/rules.test.js` — the browser test page for `rules.js` and `character.js`.
+
+## Run and test
+
+```
+python -m http.server 8000     # from the repo root, then open http://localhost:8000/
+```
+
+- The page must be served over HTTP (it fetches `data/*.json`). Tests: open `http://localhost:8000/tests.html`.
+- Headless Edge `--dump-dom` prints nothing on this machine; use `--screenshot=<file>` or `--print-to-pdf=<file>`
+  via `Start-Process -Wait` with a fresh `--user-data-dir`, and read the image/PDF. `.scratch/setup.html?tab=sheet`
+  (git-ignored) stores a sample character and opens a tab; `index.html#sheet` opens a tab directly.
 
 ## Commands
 
