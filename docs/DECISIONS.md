@@ -69,8 +69,10 @@ Last updated: 2026-09-29.
 
 ## Boons and Banes
 
-- **Boon at Level 1** is always +2 to all rolls until the end of your next turn. From **Level 2** the character
-  chooses from the Boon Menu (Novice: one choice).
+- **Boon.** At **Novice** tier a Boon is simply +2 (**Momentum**) to all rolls until the end of your next turn.
+  From **Seasoned** up you gain Momentum *and* choose from the Boon Menu (Seasoned one choice, Veteran two, Heroic
+  two, Legendary three). Momentum lasts **one extra turn per tier** (Novice 1, Seasoned 2 … Legendary 5 turns).
+  (Replaces the earlier "+2 at Level 1, menu from Level 2" ruling.)
 - **Bane severity** uses the Player Book's **Chapter 9** table (the GM may add a second Condition at Heroic; the
   Legendary Bane adds a free enemy Reaction attack with a 1-box typed Effect).
 
@@ -90,8 +92,9 @@ Last updated: 2026-09-29.
   | 20 | 1–7 | 8–14 | 15–19 | 20 |
 
 - Band penalties (Hurt −1, Injured −2) apply **only to rolls in that pool's Domain**.
-- **Pool Transfer**: once per encounter, a free action, up to 5 boxes, from **any pool to any other** (the old
-  linked/cross pairs are gone). The rate is to be decided.
+- **Pool Transfer**: once per encounter, a free action, from **any pool to any other** (the old linked/cross pairs
+  are gone), at **2 boxes spent to restore 1**. Most boxes spent: 6 at Novice, +2 per tier (6 / 8 / 10 / 12 / 14),
+  so it always restores a whole number. (Answered in the How to Play doc.)
 - **Surge** uses the "Calculating Without the Tools" box table (+1 per box; Effect strength by boxes); Chapter 1's
   points table (1/3/5/8/13) is superseded.
 - **Effects**: for now, pay from the pool you are using.

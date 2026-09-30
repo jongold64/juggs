@@ -169,8 +169,9 @@ let toastTimer = null;
 function roll(what, bonus) {
   const die = 1 + Math.floor(Math.random() * 20);
   const tier = R.tierFor(D, state.level);
-  const boon = state.level === 1 ? ' — Boon! +2 to your rolls until the end of your next turn'
-    : ` — Boon! Choose ${tier.boon_choices === 1 ? 'one' : tier.boon_choices} from the Boon Menu`;
+  const turns = tier.momentum_turns === 1 ? 'until the end of your next turn' : `for ${tier.momentum_turns} turns`;
+  const boon = ` — Boon! Momentum: +2 to your rolls ${turns}${
+    tier.boon_choices ? `, and choose ${tier.boon_choices === 1 ? 'one' : tier.boon_choices} from the Boon Menu` : ''}`;
   const note = die === 1 ? ' — Bane (Natural 1)' : die >= tier.boon_threshold ? boon : '';
   const toast = $('roll-toast');
   toast.innerHTML = `<b>${esc(what)}</b>: d20 (${die}) ${signed(bonus)} = <b>${die + bonus}</b>${esc(note)}`;

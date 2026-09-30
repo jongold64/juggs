@@ -79,7 +79,8 @@ export function renderSheet(D, c) {
       <div><span class="s-big">${signed(init)}</span> ${rollBtn('Initiative', init)}<span class="s-hint">Initiative</span></div>
       <div><span class="s-big">${tier.actions} / ${tier.reactions}</span><span class="s-hint">Actions / Reactions</span></div>
       <div><span class="s-big">${tier.surge_max}</span><span class="s-hint">Surge max</span></div>
-      <div><span class="s-big">${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span><span class="s-hint">${c.level === 1 ? 'Boon: +2 automatically' : `Boon (${tier.boon_choices} choice${tier.boon_choices > 1 ? 's' : ''})`}</span></div>
+      <div><span class="s-big">${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span><span class="s-hint">Boon: Momentum ${tier.momentum_turns === 1 ? '1 turn' : `${tier.momentum_turns} turns`}${
+        tier.boon_choices ? ` + ${tier.boon_choices} choice${tier.boon_choices > 1 ? 's' : ''}` : ''}</span></div>
     </div>
     <table class="s-def"><thead><tr><th></th><th>Deflect</th><th>Defend</th></tr></thead><tbody>${defRows}</tbody></table>
     ${(() => {
