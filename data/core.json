@@ -40,7 +40,7 @@
       "governing_ability_cap": 7,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": 1,
-      "bane": "All above + extended through round after next. Plus a Complication (narrative obstacle - not a second mechanical penalty).",
+      "bane": "All above + a Complication (narrative obstacle - not a second mechanical penalty).",
       "momentum_turns": 2,
       "pool_transfer_max": 8
     },
@@ -545,6 +545,6 @@
   },
   "regression": {
     "name": "Regression",
-    "effect": "The -2 to all rolls from a Bane (natural 1), until the end of your next turn; longer at higher tiers."
+    "effect": "The -2 to all rolls from a Bane (natural 1), until the end of your next turn. The same at every tier."
   }
 }

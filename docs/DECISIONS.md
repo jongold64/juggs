@@ -74,7 +74,8 @@ Last updated: 2026-09-29.
   two, Legendary three). Momentum lasts **one extra turn per tier** (Novice 1, Seasoned 2 … Legendary 5 turns).
   (Replaces the earlier "+2 at Level 1, menu from Level 2" ruling.) Momentum is **no longer a Boon Menu option**;
   the menu is Recovery, Tempo, Clarity, Guard, Grace.
-- The −2 from a Bane is called **Regression**.
+- The −2 from a Bane is called **Regression**. It lasts until the end of your next turn **at every tier** (the
+  Chapter 9 Seasoned extension "through round after next" is removed); higher tiers add consequences, not duration.
 - **Bane severity** uses the Player Book's **Chapter 9** table (the GM may add a second Condition at Heroic; the
   Legendary Bane adds a free enemy Reaction attack with a 1-box typed Effect).
 
