@@ -165,8 +165,12 @@ Last updated: 2026-09-29.
     the Score without items). The highest Enhancement per target counts.
   - **Ward items stack** with armor and shield DR.
   - **Legendary** quality is available from Wealth Tier 7 (Very Wealthy), per the Gear Quality list.
-  - The armor's Agility penalty applies to Agility rolls (skills, Initiative, ranged attacks), not to the Deflect
-    number. The Ascetic ignores armor.
+  - **Armor is a weight and a quality** (author's choice, option C). Quality sets DR: Light 1, Standard 2,
+    Quality 3, Masterwork 4, Legendary 5; Heavy and Powered add +1 (max DR 5). Weight sets the Agility penalty:
+    Light 0, Medium −1, Heavy −2, Powered 0; Masterwork and Legendary armor fits better (1 less penalty). The
+    penalty applies to Agility rolls (skills, Initiative, ranged attacks) **and lowers Body Deflect** — armor absorbs
+    more than it dodges. Shields add DR with no Agility penalty. The Ascetic gets no benefit and no penalty from armor
+    (no DR either). The SRD's named armors are kept as examples only.
   - DR = armor + shield + Defender (+1, +2 from Step 4) + Ward items — **all DR counts** (for now). DR is **added to
     the Body Defend roll and the Body Deflect number** (Deflect is not rolled but still benefits). It is **not taken
     off Stamina damage**; it reduces damage through the roll. Mind and Spirit Defend/Deflect get a bonus only from

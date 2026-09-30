@@ -403,9 +403,11 @@ export function defendBonus(D, c, domain) {
   return rollBonus(D, scores, ability) + bodyDR(D, c, domain) + domainEnh(c, 'defend', domain) + gearRollBonus(D, c, ability);
 }
 
-// Deflect threshold for a Domain: 10 + Deflect Ability + DR (Body) + a Deflect Enhancement.
+// Deflect threshold for a Domain: 10 + Deflect Ability + DR and the armor's Agility penalty (Body) + a Deflect
+// Enhancement. Heavy armor absorbs more than it dodges.
 export function deflectFor(D, c, domain) {
-  return deflect(abilityScores(D, c), domain) + bodyDR(D, c, domain) + domainEnh(c, 'deflect', domain);
+  const armorPenalty = domain === 'body' ? armorInfo(D, c).agilityPenalty : 0;
+  return deflect(abilityScores(D, c), domain) + bodyDR(D, c, domain) + armorPenalty + domainEnh(c, 'deflect', domain);
 }
 
 // Mana for a Power: Casters pay the Power Level minus their tier's Power Level, minimum 1; others pay in full.
@@ -482,9 +484,25 @@ export function enhancements(c) {
   return out;
 }
 
-// Armor, shield, Defender Steps and Ward items (all DR counts). See bodyDR for how DR is used.
+// Worn armor from its weight and quality: { name, dr, agilityPenalty } or null. Quality sets DR, Heavy and Powered
+// add +1 (max 5); weight sets the Agility penalty, 1 less for Masterwork and Legendary armor.
+export function armorStats(D, armor) {
+  if (!armor?.weight) return null;
+  const w = D.gear.armor_weights.find(x => x.id === armor.weight);
+  const q = D.gear.quality.find(x => x.id === armor.quality);
+  if (!w || !q) return null;
+  return {
+    name: armor.name || `${w.name} armor`,
+    dr: Math.min(5, q.armor_dr_base + w.dr_bonus),
+    agilityPenalty: Math.min(0, w.agility_penalty + q.armor_fit),
+  };
+}
+
+// Armor, shield, Defender Steps and Ward items (all DR count). See bodyDR and deflectFor for how they are used.
+// The Ascetic gains no benefit and no penalty from armor.
 export function armorInfo(D, c, level = c.level) {
-  const armor = D.gear.armor.find(a => a.id === c.armor);
+  const ascetic = (roleSteps(D, c, level).ascetic || 0) >= 1;
+  const armor = ascetic ? null : armorStats(D, c.armor);
   const shield = D.gear.shields.find(s => s.id === c.shield);
   const steps = roleSteps(D, c, level).defender || 0;
   const parts = [];
@@ -494,12 +512,7 @@ export function armorInfo(D, c, level = c.level) {
   for (const it of c.items || []) {
     if (it.template === 'ward' && it.appliesTo === 'dr' && it.rating > 0) parts.push([it.name || 'Ward', it.rating]);
   }
-  const ascetic = (roleSteps(D, c, level).ascetic || 0) >= 1;
-  return {
-    armor, shield, parts, dr: sum(parts.map(p => p[1])),
-    // Ascetic gains no benefit (and no penalty) from armor.
-    agilityPenalty: ascetic ? 0 : Math.min(0, armor?.agility_penalty || 0),
-  };
+  return { armor, shield, parts, dr: sum(parts.map(p => p[1])), agilityPenalty: armor?.agilityPenalty || 0, ascetic };
 }
 
 // What gear adds to a roll made with an Ability Score (and, optionally, a skill): skill Enhancements and the armor's

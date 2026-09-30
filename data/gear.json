@@ -1,7 +1,7 @@
 {
   "rules": {
     "weapons": "Weapons add +0 to +5 to Attack rolls. Melee uses Strength, ranged uses Agility, unless the fiction supports another Ability Score. Items stack with weapon quality.",
-    "armor": "Armor and shields give DR. All DR (armor, shield, Defender, Ward items) is added to the Body Defend roll and the Body Deflect number; it is not taken off Stamina damage. Enhanced armor can also add to Mind or Spirit Defend and Deflect. Light armor: no Agility penalty; Medium -1; Heavy -2; Powered/Legendary: none."
+    "armor": "Armor is a weight and a quality. Quality sets DR (Light 1, Standard 2, Quality 3, Masterwork 4, Legendary 5); Heavy and Powered add +1 (max DR 5). Weight sets the Agility penalty (Light 0, Medium -1, Heavy -2, Powered 0); Masterwork and Legendary armor fits better: 1 less penalty. DR (armor, shield, Defender, Ward items) adds to the Body Defend roll and the Body Deflect number; the Agility penalty applies to Agility rolls and also lowers Body Deflect. Armor absorbs more than it dodges."
   },
   "quality": [
     {
@@ -10,7 +10,9 @@
       "weapon_bonus": 0,
       "armor_dr": "no DR",
       "min_wealth_tier": 1,
-      "examples": "Table leg, hide wrap, makeshift shield. Anyone at any Wealth Tier."
+      "examples": "Table leg, hide wrap, makeshift shield. Anyone at any Wealth Tier.",
+      "armor_dr_base": 0,
+      "armor_fit": 0
     },
     {
       "id": "light",
@@ -18,7 +20,9 @@
       "weapon_bonus": 1,
       "armor_dr": "DR 1",
       "min_wealth_tier": 2,
-      "examples": "Dagger, padded vest. Functional but unremarkable."
+      "examples": "Dagger, padded vest. Functional but unremarkable.",
+      "armor_dr_base": 1,
+      "armor_fit": 0
     },
     {
       "id": "standard",
@@ -26,7 +30,9 @@
       "weapon_bonus": 2,
       "armor_dr": "DR 2-3",
       "min_wealth_tier": 3,
-      "examples": "Sword, chain shirt, handgun. Default for working professionals."
+      "examples": "Sword, chain shirt, handgun. Default for working professionals.",
+      "armor_dr_base": 2,
+      "armor_fit": 0
     },
     {
       "id": "quality",
@@ -34,7 +40,9 @@
       "weapon_bonus": 3,
       "armor_dr": "DR 3-4",
       "min_wealth_tier": 5,
-      "examples": "Named blade, flak jacket, precision bow. Noticeably better."
+      "examples": "Named blade, flak jacket, precision bow. Noticeably better.",
+      "armor_dr_base": 3,
+      "armor_fit": 0
     },
     {
       "id": "masterwork",
@@ -42,7 +50,9 @@
       "weapon_bonus": 4,
       "armor_dr": "DR 4-5",
       "min_wealth_tier": 6,
-      "examples": "Exceptional craftsmanship, rare technology, combat armor."
+      "examples": "Exceptional craftsmanship, rare technology, combat armor.",
+      "armor_dr_base": 4,
+      "armor_fit": 1
     },
     {
       "id": "legendary",
@@ -50,7 +60,9 @@
       "weapon_bonus": 5,
       "armor_dr": "DR 5",
       "min_wealth_tier": 7,
-      "examples": "Artifact, exo-suit, one-of-a-kind. Access is the constraint."
+      "examples": "Artifact, exo-suit, one-of-a-kind. Access is the constraint.",
+      "armor_dr_base": 5,
+      "armor_fit": 1
     }
   ],
   "weapons": [
@@ -344,88 +356,6 @@
       "text": "No Agility penalty (technology negates it). Exo-suit, enchanted plate."
     }
   ],
-  "armor": [
-    {
-      "id": "no-armor",
-      "name": "No armor",
-      "dr": 0,
-      "agility_penalty": 0,
-      "tech_level": "Any",
-      "notes": "Full movement. No encumbrance."
-    },
-    {
-      "id": "light-armor",
-      "name": "Light armor (leather, padded)",
-      "dr": 1,
-      "agility_penalty": 0,
-      "tech_level": "1+",
-      "notes": "No Agility penalty. Concealable."
-    },
-    {
-      "id": "medium-armor",
-      "name": "Medium armor (chain, brigandine)",
-      "dr": 2,
-      "agility_penalty": -1,
-      "tech_level": "2+",
-      "notes": "Slight movement restriction. Standard military."
-    },
-    {
-      "id": "heavy-armor",
-      "name": "Heavy armor (plate, full plate)",
-      "dr": 3,
-      "agility_penalty": -2,
-      "tech_level": "3+",
-      "notes": "Significant restriction. +1 DR vs Physical only."
-    },
-    {
-      "id": "buff-coat",
-      "name": "Buff coat (early modern)",
-      "dr": 1,
-      "agility_penalty": 0,
-      "tech_level": "4",
-      "notes": "Standard TL 4 armor. Pistol-proof at Close range."
-    },
-    {
-      "id": "flak-jacket",
-      "name": "Flak jacket (modern)",
-      "dr": 2,
-      "agility_penalty": 0,
-      "tech_level": "8",
-      "notes": "Rifle-rated armor halves Piercing DR reduction."
-    },
-    {
-      "id": "combat-armor",
-      "name": "Combat armor (near-future)",
-      "dr": 3,
-      "agility_penalty": -1,
-      "tech_level": "9+",
-      "notes": "Integrated systems. Sensor package optional."
-    },
-    {
-      "id": "lobster-pot-helm",
-      "name": "Lobster-pot helm",
-      "dr": 1,
-      "agility_penalty": 0,
-      "tech_level": "4",
-      "notes": "+1 DR vs called shots to the head only."
-    },
-    {
-      "id": "cuirassier-half-armor",
-      "name": "Cuirassier half-armor",
-      "dr": 2,
-      "agility_penalty": -1,
-      "tech_level": "4",
-      "notes": "Breastplate and backplate. Cavalry standard."
-    },
-    {
-      "id": "full-harness-rare",
-      "name": "Full harness (rare)",
-      "dr": 3,
-      "agility_penalty": -2,
-      "tech_level": "4",
-      "notes": "Obsolete by 1660s. Expensive. Treated as curiosity."
-    }
-  ],
   "shields": [
     {
       "id": "buckler",
@@ -554,5 +484,118 @@
       "warfare": "Black hole weapons, reality alteration",
       "reference": "GURPS TL12"
     }
-  ]
+  ],
+  "armor_weights": [
+    {
+      "id": "light",
+      "name": "Light",
+      "dr_bonus": 0,
+      "agility_penalty": 0,
+      "examples": "Leather, padded vest, buff coat, light tactical gear"
+    },
+    {
+      "id": "medium",
+      "name": "Medium",
+      "dr_bonus": 0,
+      "agility_penalty": -1,
+      "examples": "Chain shirt, brigandine, flak jacket, tactical vest"
+    },
+    {
+      "id": "heavy",
+      "name": "Heavy",
+      "dr_bonus": 1,
+      "agility_penalty": -2,
+      "examples": "Plate, full harness, combat armor, blast suit"
+    },
+    {
+      "id": "powered",
+      "name": "Powered",
+      "dr_bonus": 1,
+      "agility_penalty": 0,
+      "examples": "Exo-suit, powered armor (technology negates the penalty)"
+    }
+  ],
+  "armor_examples": [
+    {
+      "id": "no-armor",
+      "name": "No armor",
+      "dr": 0,
+      "agility_penalty": 0,
+      "tech_level": "Any",
+      "notes": "Full movement. No encumbrance."
+    },
+    {
+      "id": "light-armor",
+      "name": "Light armor (leather, padded)",
+      "dr": 1,
+      "agility_penalty": 0,
+      "tech_level": "1+",
+      "notes": "No Agility penalty. Concealable."
+    },
+    {
+      "id": "medium-armor",
+      "name": "Medium armor (chain, brigandine)",
+      "dr": 2,
+      "agility_penalty": -1,
+      "tech_level": "2+",
+      "notes": "Slight movement restriction. Standard military."
+    },
+    {
+      "id": "heavy-armor",
+      "name": "Heavy armor (plate, full plate)",
+      "dr": 3,
+      "agility_penalty": -2,
+      "tech_level": "3+",
+      "notes": "Significant restriction. +1 DR vs Physical only."
+    },
+    {
+      "id": "buff-coat",
+      "name": "Buff coat (early modern)",
+      "dr": 1,
+      "agility_penalty": 0,
+      "tech_level": "4",
+      "notes": "Standard TL 4 armor. Pistol-proof at Close range."
+    },
+    {
+      "id": "flak-jacket",
+      "name": "Flak jacket (modern)",
+      "dr": 2,
+      "agility_penalty": 0,
+      "tech_level": "8",
+      "notes": "Rifle-rated armor halves Piercing DR reduction."
+    },
+    {
+      "id": "combat-armor",
+      "name": "Combat armor (near-future)",
+      "dr": 3,
+      "agility_penalty": -1,
+      "tech_level": "9+",
+      "notes": "Integrated systems. Sensor package optional."
+    },
+    {
+      "id": "lobster-pot-helm",
+      "name": "Lobster-pot helm",
+      "dr": 1,
+      "agility_penalty": 0,
+      "tech_level": "4",
+      "notes": "+1 DR vs called shots to the head only."
+    },
+    {
+      "id": "cuirassier-half-armor",
+      "name": "Cuirassier half-armor",
+      "dr": 2,
+      "agility_penalty": -1,
+      "tech_level": "4",
+      "notes": "Breastplate and backplate. Cavalry standard."
+    },
+    {
+      "id": "full-harness-rare",
+      "name": "Full harness (rare)",
+      "dr": 3,
+      "agility_penalty": -2,
+      "tech_level": "4",
+      "notes": "Obsolete by 1660s. Expensive. Treated as curiosity."
+    }
+  ],
+  "armor_examples_note": "Named armors from the SRD, for reference. The builder uses weight + quality."
 }

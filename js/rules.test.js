@@ -185,8 +185,20 @@ check('Without the item, no Spirit Mastery', R.domainMastery(D, R.abilityScores(
 check('Ability Score Enhancement counts for Domain Mastery', R.domainMastery(D, R.abilityScores(D, make({ base: lowBelief,
   items: [{ template: 'enhancement', rating: 1, appliesTo: 'ability:bel' }] }))).spirit, 1);
 check('Legendary quality from Very Wealthy (Tier 7)', R.overWealth(D, make({ wealth: 7 }), 'legendary'), false);
-const armored = make({ base: spread, armor: 'medium-armor', shield: 'buckler' });  // DR 3
-check('DR adds to Body Deflect', R.deflectFor(D, armored, 'body'), 10 + 3 + 3);
+const armored = make({ base: spread, armor: 'medium-armor', shield: 'buckler' });  // old save: DR 2 + 1, Agility -1
+check('DR adds to Body Deflect, armor penalty lowers it', R.deflectFor(D, armored, 'body'), 10 + 3 + 3 - 1);
+const wear = (weight, quality) => R.armorInfo(D, make({ armor: { weight, quality } }));
+check('Light Standard armor: DR 2, no penalty', [wear('light', 'standard').dr, wear('light', 'standard').agilityPenalty], [2, 0]);
+check('Heavy Standard armor: DR 3, Agility -2', [wear('heavy', 'standard').dr, wear('heavy', 'standard').agilityPenalty], [3, -2]);
+check('Heavy Masterwork armor: DR 5, Agility -1', [wear('heavy', 'masterwork').dr, wear('heavy', 'masterwork').agilityPenalty], [5, -1]);
+check('Heavy Legendary armor stops at DR 5', wear('heavy', 'legendary').dr, 5);
+check('Medium Masterwork armor fits: no penalty', wear('medium', 'masterwork').agilityPenalty, 0);
+check('Powered armor: no penalty', wear('powered', 'standard').agilityPenalty, 0);
+check('Heavy Standard: Body Deflect +1 net', R.deflectFor(D, make({ base: spread, armor: { weight: 'heavy', quality: 'standard' } }), 'body')
+  - R.deflectFor(D, make({ base: spread }), 'body'), 1);
+check('Ascetic gets no DR from armor', R.armorInfo(D, make({ role: 'ascetic', armor: { weight: 'heavy', quality: 'standard' } })).dr, 0);
+check('Old saved armor id becomes weight + quality', clean(D, { armor: 'heavy-armor' }).armor.weight, 'heavy');
+check('No armor', clean(D, { armor: { weight: '' } }).armor, null);
 check('DR adds to the Body Defend roll', R.defendBonus(D, armored, 'body') - R.defendBonus(D, make({ base: spread }), 'body'), 3);
 check('DR does not add to Mind Deflect', R.deflectFor(D, armored, 'mind'), 12);
 check('Enhanced armor can add to Spirit Deflect', R.deflectFor(D, make({ base: spread,

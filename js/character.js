@@ -27,7 +27,8 @@ export function newCharacter() {
     powers: [],                 // Powers built in the Powers tab (see rules.js powerSummary for the fields)
     weapons: [],                // [{ name, quality, kind: 'melee' | 'ranged', effect, notes }]
     implements: [],             // [{ name, quality, notes }] — a caster's focus
-    armor: '', shield: '',      // ids in data/gear.json
+    armor: null,                // { weight, quality, name } — see rules.js armorStats
+    shield: '',                 // id in data/gear.json shields
     items: [],                  // [{ name, template, rating, appliesTo, descriptors, genre, notes }]
     wealth: null, reputation: null,     // null = the starting default
     languages: '', gear: '', notes: '',
@@ -95,6 +96,25 @@ export function itemTargets(D) {
   ];
 }
 
+// Worn armor: { weight, quality, name } or null. Saves from before armor had a weight and quality stored the id of a
+// named armor; those become the nearest weight and quality.
+export function cleanArmor(D, raw) {
+  if (typeof raw === 'string' && raw) {
+    const old = D.gear.armor_examples.find(a => a.id === raw);
+    if (!old || !old.dr) return null;
+    const weight = old.agility_penalty <= -2 ? 'heavy' : old.agility_penalty === -1 ? 'medium' : 'light';
+    const base = old.dr - (weight === 'heavy' ? 1 : 0);
+    const quality = D.gear.quality.find(q => q.armor_dr_base === base)?.id || 'standard';
+    return { weight, quality, name: old.name.replace(/\s*\(.*\)$/, '') };
+  }
+  if (!isObj(raw) || !D.gear.armor_weights.some(w => w.id === raw.weight)) return null;
+  return {
+    weight: raw.weight,
+    quality: D.gear.quality.some(q => q.id === raw.quality && q.armor_dr_base > 0) ? raw.quality : 'standard',
+    name: str(raw.name).slice(0, 80),
+  };
+}
+
 export function newItem() {
   return { name: '', template: 'enhancement', rating: 1, appliesTo: '', descriptors: [], genre: '', notes: '' };
 }
@@ -157,7 +177,7 @@ export function clean(D, raw) {
   c.implements = Array.isArray(raw.implements) ? raw.implements.filter(isObj).slice(0, 10).map(w => ({
     name: str(w.name).slice(0, 80), quality: quality(w.quality), notes: str(w.notes).slice(0, 300),
   })) : [];
-  c.armor = D.gear.armor.some(a => a.id === raw.armor) ? raw.armor : '';
+  c.armor = cleanArmor(D, raw.armor);
   c.shield = D.gear.shields.some(s => s.id === raw.shield) ? raw.shield : '';
   c.items = Array.isArray(raw.items) ? raw.items.filter(isObj).slice(0, 60).map(it => cleanItem(D, it)) : [];
   c.wealth = raw.wealth === null ? null : int(raw.wealth, null, 1, 8);

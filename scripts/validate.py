@@ -229,7 +229,13 @@ def main(folder):
 
     gear = ck.load('gear.json') or {}
     quality = ck.records('gear.json quality', gear.get('quality', []))
-    for key in ('weapons', 'period_equipment', 'armor_categories', 'armor', 'shields'):
+    for q in quality.values():
+        if not isinstance(q.get('armor_dr_base'), int) or q.get('armor_fit') not in (0, 1):
+            ck.err(f'gear.json quality {q["id"]}', 'needs armor_dr_base (whole number) and armor_fit (0 or 1)')
+    for w in ck.records('gear.json armor_weights', gear.get('armor_weights', [])).values():
+        if not isinstance(w.get('dr_bonus'), int) or not isinstance(w.get('agility_penalty'), int):
+            ck.err(f'gear.json armor_weights {w["id"]}', 'dr_bonus and agility_penalty must be whole numbers')
+    for key in ('weapons', 'period_equipment', 'armor_categories', 'armor_examples', 'shields'):
         recs = ck.records(f'gear.json {key}', gear.get(key, []))
         for r in recs.values():
             if r.get('quality') is not None:

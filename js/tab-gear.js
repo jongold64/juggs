@@ -119,16 +119,26 @@ export function renderGear(D, c, rollBtn) {
 
   // Armor and shield
   const info = R.armorInfo(D, c);
+  const a = c.armor || {};
+  const weight = D.gear.armor_weights.find(w => w.id === a.weight);
+  const armorQuality = D.gear.quality.filter(q => q.armor_dr_base > 0);
   const armorCard = `<section class="card wide"><h2>Armor &amp; Shield</h2>
-    <div class="two-col">
-      <label class="field">Armor <select data-bind="armor">${options(D.gear.armor.filter(a => a.id !== 'no-armor').map(a => ({ value: a.id,
-        label: `${a.name} (DR ${a.dr}${a.agility_penalty ? `, Agility ${a.agility_penalty}` : ''}, TL ${a.tech_level})` })), c.armor, 'None')}</select></label>
-      <label class="field">Shield <select data-bind="shield">${options(D.gear.shields.map(s => ({ value: s.id,
-        label: `${s.name} (DR ${s.dr}, TL ${s.tech_level})` })), c.shield, 'None')}</select></label>
+    <div class="gear-main">
+      <input type="text" data-bind="armor.name" value="${esc(a.name || '')}" placeholder="${esc(weight ? weight.examples.split(',')[0] : 'Armor name')}"
+        aria-label="Armor name"${weight ? '' : ' disabled'}>
+      <select data-bind="armor.weight" aria-label="Armor weight">${options(D.gear.armor_weights.map(w => ({ value: w.id,
+        label: `${w.name} (Agility ${w.agility_penalty || 0}${w.dr_bonus ? `, DR +${w.dr_bonus}` : ''})` })), a.weight || '', 'No armor')}</select>
+      <select data-bind="armor.quality" aria-label="Armor quality"${weight ? '' : ' disabled'}>${options(armorQuality.map(q => ({ value: q.id,
+        label: `${q.name} (DR ${q.armor_dr_base}${q.armor_fit ? ', fits: 1 less penalty' : ''})` })), a.quality || 'standard')}</select>
+      <select data-bind="shield" aria-label="Shield">${options(D.gear.shields.map(s => ({ value: s.id,
+        label: `${s.name} (DR ${s.dr})` })), c.shield, 'No shield')}</select>
     </div>
-    <p><b>DR ${info.dr}</b> — added to the Body Defend roll and the Body Deflect number ${info.parts.length ? `<span class="hint">(${info.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')})</span>` : ''}
-      ${info.agilityPenalty ? ` · <b>Agility rolls ${info.agilityPenalty}</b>` : ''}</p>
-    <p class="hint">${esc(D.gear.rules.armor)} ${info.armor?.notes ? esc(info.armor.notes) : ''} ${info.shield?.benefit ? esc(info.shield.benefit) : ''}</p>
+    ${weight ? `<p class="hint">${esc(weight.name)}: ${esc(weight.examples)}. ${overWarn(a.quality)}</p>` : ''}
+    ${info.ascetic && weight ? '<p class="warn">Ascetic: armor gives no benefit and no penalty.</p>' : ''}
+    <p><b>DR ${info.dr}</b> ${info.parts.length ? `<span class="hint">(${info.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')})</span>` : ''}
+      → Body Defend ${signed(info.dr)}, Body Deflect ${signed(info.dr + info.agilityPenalty)}${
+      info.agilityPenalty ? ` · <b>Agility rolls ${info.agilityPenalty}</b>` : ''}</p>
+    <p class="hint">${esc(D.gear.rules.armor)} ${info.shield?.benefit ? esc(info.shield.benefit) : ''}</p>
   </section>`;
 
   // Items
