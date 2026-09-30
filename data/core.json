@@ -18,7 +18,7 @@
       "governing_ability_cap": 5,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": 0,
-      "bane": "−2 to all rolls until end of your next turn. Nothing else."
+      "bane": "-2 to all rolls until end of next turn. Nothing else."
     },
     {
       "id": "seasoned",
@@ -38,7 +38,7 @@
       "governing_ability_cap": 7,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": 1,
-      "bane": "−2 extended through round after next. Plus a Complication."
+      "bane": "All above + extended through round after next. Plus a Complication (narrative obstacle - not a second mechanical penalty)."
     },
     {
       "id": "veteran",
@@ -58,7 +58,7 @@
       "governing_ability_cap": 9,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": 2,
-      "bane": "All above. Plus a context-based Condition — see Context-Based Condition Assignment in the Conditions section. Combat physical: Prone or Stunned. Caster interrupted: Silenced or Drained (1 level). Stealth failure: Exposed. Movement failure: Slowed. Resist failure vs mental: Confused (1 round)."
+      "bane": "All above + one context-based Condition (GM selects). Combat physical: Prone or Stunned. Caster interrupted: Silenced or Drained (1 level). Stealth failure: Exposed. Social loss: Charmed or Fascinated. Movement failure: Slowed. Resist failure vs mental: Confused (1 round)."
     },
     {
       "id": "heroic",
@@ -78,7 +78,7 @@
       "governing_ability_cap": 11,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": 3,
-      "bane": "All above. Plus resource waste: Stamina on Physical Actions before the Bane is lost."
+      "bane": "All above + resource waste (Stamina or Mana spent on the triggering Action is lost this scene). GM may apply a second Condition if fiction strongly supports it. Suggested pairings: Prone + Exposed; Silenced + Drained; Slowed + Frightened. Never three from one Bane."
     },
     {
       "id": "legendary",
@@ -98,7 +98,7 @@
       "governing_ability_cap": 13,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": "all",
-      "bane": "All above. Plus Narrative Consequence: enemy may make one free attack immediately."
+      "bane": "All above + enemy makes one free Reaction attack immediately. Plus one typed Effect at 1-box potency at no pool cost - the Bane pays it. Fire: Burning. Necrotic: Drained 1. Psychic: Frightened or Charmed. Toxic: Poisoned. Void: Exposed + pool drain. Dark power: Doomed 1."
     }
   ],
   "creation": {
@@ -218,7 +218,8 @@
       "stamina": "Wound Scar",
       "mana": "Obsession Scar",
       "resolve": "Soul Scar"
-    }
+    },
+    "band_penalty_applies_to": "rolls in that pool's Domain"
   },
   "domain_mastery": [
     {
@@ -340,7 +341,7 @@
       "fallout": "Catastrophic — +5 boxes, two Conditions, Corruption +2"
     }
   ],
-  "effects_rule": "The Surge level sets an Effect's strength (Surge 2 = 1-box intensity). No separate Effect cost. A non-Signature Effect is -1 to the roll.",
+  "effects_rule": "The Surge level sets an Effect's strength (Surge 2 = 1-box intensity). No separate Effect cost. A non-Signature Effect is -1 to the roll. Pay from the pool you are using.",
   "costs_rule": "Basic Attack, Basic Cast and Basic Press are free. Anything added costs at least 1 box. Maneuvers: Mastery Floor by tier. Surge: not reduced except by Surge Discipline.",
   "skill_mastery": [
     {
@@ -526,5 +527,13 @@
       "name": "Rank D",
       "book_name": "Legendary"
     }
-  ]
+  ],
+  "boon_level_1": "At Level 1 a Boon is +2 to all rolls until the end of your next turn. From Level 2, choose from the Boon Menu.",
+  "pool_transfer": {
+    "text": "Once per encounter, as a free action, spend boxes from any pool to restore boxes in any other, up to 5 in total.",
+    "rate": null,
+    "flags": [
+      "Rate to be decided (was 2:1 linked, 3:1 cross)."
+    ]
+  }
 }

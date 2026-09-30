@@ -67,6 +67,13 @@ Last updated: 2026-09-29.
 - **Effects**: the Surge level sets an Effect's strength (Surge 2 = 1-box intensity, and so on). There is no
   separate Effect box cost.
 
+## Boons and Banes
+
+- **Boon at Level 1** is always +2 to all rolls until the end of your next turn. From **Level 2** the character
+  chooses from the Boon Menu (Novice: one choice).
+- **Bane severity** uses the Player Book's **Chapter 9** table (the GM may add a second Condition at Heroic; the
+  Legendary Bane adds a free enemy Reaction attack with a 1-box typed Effect).
+
 ## Pools
 
 - Pools start at 15 boxes: Healthy 1–5, Hurt 6–10, Injured 11–14, Broken 15.
@@ -82,6 +89,12 @@ Last updated: 2026-09-29.
   | 19 | 1–7 | 8–13 | 14–18 | 19 |
   | 20 | 1–7 | 8–14 | 15–19 | 20 |
 
+- Band penalties (Hurt −1, Injured −2) apply **only to rolls in that pool's Domain**.
+- **Pool Transfer**: once per encounter, a free action, up to 5 boxes, from **any pool to any other** (the old
+  linked/cross pairs are gone). The rate is to be decided.
+- **Surge** uses the "Calculating Without the Tools" box table (+1 per box; Effect strength by boxes); Chapter 1's
+  points table (1/3/5/8/13) is superseded.
+- **Effects**: for now, pay from the pool you are using.
 - **Defender Step 2** ("Broken threshold +1") adds 1 box to **Healthy**.
 - **Legendary Endurance** ("Broken at box 17, +2 max") adds 2 boxes at the **end of Injured**, moving Broken two
   boxes.

@@ -11,6 +11,8 @@ function field(label, value, cls = '') {
   return `<div class="sf ${cls}"><span class="sf-label">${esc(label)}</span><span class="sf-value">${esc(value || '')}</span></div>`;
 }
 
+const POOL_DOMAIN = { stamina: 'Body', mana: 'Mind', resolve: 'Spirit' };
+
 function poolTrack(D, c, pool, info) {
   const marked = c.play.marked[pool];
   const band = R.bandAt(info.bands, marked);
@@ -22,7 +24,7 @@ function poolTrack(D, c, pool, info) {
     }
   }
   const legend = info.bands.map(b => `<span class="band-${b.id}-text">${esc(b.name)} ${b.from === b.to ? b.from : `${b.from}–${b.to}`}${
-    b.penalty ? ` (${b.penalty})` : ''}</span>`).join(' · ');
+    b.penalty ? ` (${b.penalty} ${POOL_DOMAIN[pool]})` : ''}</span>`).join(' · ');
   return { boxes: boxes.join(''), legend, marked, band };
 }
 
@@ -77,7 +79,7 @@ export function renderSheet(D, c) {
       <div><span class="s-big">${signed(init)}</span> ${rollBtn('Initiative', init)}<span class="s-hint">Initiative</span></div>
       <div><span class="s-big">${tier.actions} / ${tier.reactions}</span><span class="s-hint">Actions / Reactions</span></div>
       <div><span class="s-big">${tier.surge_max}</span><span class="s-hint">Surge max</span></div>
-      <div><span class="s-big">${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span><span class="s-hint">Boon (${tier.boon_choices} choice${tier.boon_choices > 1 ? 's' : ''})</span></div>
+      <div><span class="s-big">${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span><span class="s-hint">${c.level === 1 ? 'Boon: +2 automatically' : `Boon (${tier.boon_choices} choice${tier.boon_choices > 1 ? 's' : ''})`}</span></div>
     </div>
     <table class="s-def"><thead><tr><th></th><th>Deflect</th><th>Defend</th></tr></thead><tbody>${defRows}</tbody></table>
     ${(() => {
