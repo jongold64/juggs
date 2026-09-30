@@ -18,7 +18,7 @@
       "governing_ability_cap": 5,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": 0,
-      "bane": "-2 to all rolls until end of next turn. Nothing else.",
+      "bane": "Regression: -2 to all rolls until end of next turn. Nothing else.",
       "momentum_turns": 1,
       "pool_transfer_max": 6
     },
@@ -270,11 +270,6 @@
   },
   "deflect": "10 + the Domain's Deflect Ability (Agility, Acuity, Serenity), plus armor/shield DR where it applies.",
   "boon_menu": [
-    {
-      "id": "momentum",
-      "name": "Momentum",
-      "effect": "+2 to all your rolls until the end of your next turn"
-    },
     {
       "id": "recovery",
       "name": "Recovery",
@@ -543,5 +538,13 @@
     "rate": 2,
     "max_spent_by_tier": "tiers[].pool_transfer_max"
   },
-  "boon_rule": "A Boon always gives Momentum: +2 to all rolls until the end of your next turn at Novice, lasting one extra turn per tier. From Seasoned you also choose from the Boon Menu (tier boon_choices)."
+  "boon_rule": "A Boon always gives Momentum: +2 to all rolls until the end of your next turn at Novice, lasting one extra turn per tier. From Seasoned you also choose from the Boon Menu (tier boon_choices).",
+  "momentum": {
+    "name": "Momentum",
+    "effect": "+2 to all rolls, until the end of your next turn at Novice and one turn longer per tier. Every Boon gives it; it is no longer a Boon Menu choice."
+  },
+  "regression": {
+    "name": "Regression",
+    "effect": "The -2 to all rolls from a Bane (natural 1), until the end of your next turn; longer at higher tiers."
+  }
 }

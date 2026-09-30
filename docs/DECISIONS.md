@@ -72,7 +72,9 @@ Last updated: 2026-09-29.
 - **Boon.** At **Novice** tier a Boon is simply +2 (**Momentum**) to all rolls until the end of your next turn.
   From **Seasoned** up you gain Momentum *and* choose from the Boon Menu (Seasoned one choice, Veteran two, Heroic
   two, Legendary three). Momentum lasts **one extra turn per tier** (Novice 1, Seasoned 2 … Legendary 5 turns).
-  (Replaces the earlier "+2 at Level 1, menu from Level 2" ruling.)
+  (Replaces the earlier "+2 at Level 1, menu from Level 2" ruling.) Momentum is **no longer a Boon Menu option**;
+  the menu is Recovery, Tempo, Clarity, Guard, Grace.
+- The −2 from a Bane is called **Regression**.
 - **Bane severity** uses the Player Book's **Chapter 9** table (the GM may add a second Condition at Heroic; the
   Legendary Bane adds a free enemy Reaction attack with a 1-box typed Effect).
 
