@@ -3,9 +3,12 @@
 A character builder for JUGGS (Jon's Universal Genre Gaming System). Plain HTML, CSS and JavaScript: no
 installation beyond Python, which serves the files.
 
-## Try it
+## Use it
 
-From this folder:
+Online: **https://jongold64.github.io/juggs/** (rules checks: https://jongold64.github.io/juggs/tests.html).
+It updates a minute or two after each push to `main`.
+
+To run it on your own computer instead, from this folder:
 
 ```
 python -m http.server 8000

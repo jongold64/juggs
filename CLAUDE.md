@@ -62,4 +62,6 @@ python scripts/draft_data.py source drafts      # re-draft into a scratch folder
   resolve`.
 - Hand-entered facts missing from the sources go in the override dicts at the top of `draft_data.py`, and after
   the draft, directly in the JSON.
-- Commit only when the user asks.
+- Commit when a piece of work is done; the user pushes (`! git -C C:/Users/jongo/Projects/juggs push`). The site is
+  published by GitHub Pages from `main` at https://jongold64.github.io/juggs/ (public repo). Never add `source/` to
+  git — the rulebooks stay private.
