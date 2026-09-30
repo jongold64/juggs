@@ -135,6 +135,16 @@ table.abilities, table.skills { width: 100%; border-collapse: collapse; }
   max-width: calc(100% - 32px);
 }
 
+/* Gear tab */
+.gear-row { border-top: 1px solid var(--border); padding: 10px 0; }
+.gear-main { display: grid; grid-template-columns: 2fr 1.3fr 1fr 1.3fr; gap: 6px; }
+@media (max-width: 720px) { .gear-main { grid-template-columns: 1fr 1fr; } }
+.gear-result { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.gear-row details { margin: 6px 0; }
+.gear-row .roll { font-size: .85em; min-height: 26px; }
+.row > select { flex: 1 1 260px; }
+.s-armor { margin: 6px 0 0; }
+
 /* Powers tab: the Spell Builder */
 .sb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-bottom: 10px; }
 @media (max-width: 720px) { .sb-grid, .two-col { grid-template-columns: minmax(0, 1fr); } }

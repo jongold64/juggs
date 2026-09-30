@@ -237,13 +237,13 @@ export function skillAbility(D, c, skill, scores) {
   return options.reduce((best, a) => (scores[a] > scores[best] ? a : best), options[0]);
 }
 
-// d20 + Ability + Skill rank + Domain Mastery for the Ability's Domain.
+// d20 + Ability + Skill rank + Domain Mastery for the Ability's Domain + gear (Enhancements, armor penalty).
 export function skillTotal(D, c, skill, level = c.level) {
   const scores = abilityScores(D, c, level);
   const ability = skillAbility(D, c, skill, scores);
   if (!ability) return null;
   const mastery = domainMastery(D, scores)[DOMAIN_OF[ability]];
-  return scores[ability] + skillRank(D, c, skill, level) + mastery;
+  return scores[ability] + skillRank(D, c, skill, level) + mastery + gearRollBonus(D, c, ability, skill);
 }
 
 // Skill Mastery: fixed-DC tasks are 1 easier per rank above 1.
@@ -376,7 +376,20 @@ export function rollBonus(D, scores, ability) {
 
 export function initiativeBonus(D, c, level = c.level) {
   const scores = abilityScores(D, c, level);
-  return rollBonus(D, scores, SLOT_ABILITY[primaryDomain(c)].deflect);
+  const ability = SLOT_ABILITY[primaryDomain(c)].deflect;
+  return rollBonus(D, scores, ability) + gearRollBonus(D, c, ability);
+}
+
+// Defend roll for a Domain: Defend Ability + Domain Mastery + Defend Enhancement + gear on that Ability.
+export function defendBonus(D, c, domain) {
+  const scores = abilityScores(D, c);
+  const ability = SLOT_ABILITY[domain].defend;
+  return rollBonus(D, scores, ability) + (enhancements(c).defend || 0) + gearRollBonus(D, c, ability);
+}
+
+// Deflect threshold for a Domain: 10 + Deflect Ability + a Deflect Enhancement.
+export function deflectFor(D, c, domain) {
+  return deflect(abilityScores(D, c), domain) + (enhancements(c).deflect || 0);
 }
 
 // Mana for a Power: Casters pay the Power Level minus their tier's Power Level, minimum 1; others pay in full.
@@ -434,6 +447,83 @@ export function powerSummary(D, c, p) {
     discounted = caster && mana < powerLevel;
   }
   return { points, powerLevel, effectiveLevel, mana, discounted };
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Gear and items
+// ---------------------------------------------------------------------------------------------------------------
+
+export const qualityBonus = (D, id) => D.gear.quality.find(q => q.id === id)?.weapon_bonus ?? 0;
+
+// Enhancement items: the highest one for each roll counts (they do not stack with each other). Keys:
+// 'attack', 'defend', 'deflect', 'skill:<id>', 'ability:<id>'.
+export function enhancements(c) {
+  const out = {};
+  for (const it of c.items || []) {
+    if (it.template !== 'enhancement' || !it.appliesTo || !(it.rating > 0)) continue;
+    out[it.appliesTo] = Math.max(out[it.appliesTo] || 0, it.rating);
+  }
+  return out;
+}
+
+// Armor, shield, Defender Steps and Ward items. DR counts against Stamina damage.
+export function armorInfo(D, c, level = c.level) {
+  const armor = D.gear.armor.find(a => a.id === c.armor);
+  const shield = D.gear.shields.find(s => s.id === c.shield);
+  const steps = roleSteps(D, c, level).defender || 0;
+  const parts = [];
+  if (armor?.dr) parts.push([armor.name, armor.dr]);
+  if (shield?.dr) parts.push([shield.name, shield.dr]);
+  if (steps >= 1) parts.push(['Defender', steps >= 4 ? 2 : 1]);
+  for (const it of c.items || []) {
+    if (it.template === 'ward' && it.appliesTo === 'dr' && it.rating > 0) parts.push([it.name || 'Ward', it.rating]);
+  }
+  const ascetic = (roleSteps(D, c, level).ascetic || 0) >= 1;
+  return {
+    armor, shield, parts, dr: sum(parts.map(p => p[1])),
+    // Ascetic gains no benefit (and no penalty) from armor.
+    agilityPenalty: ascetic ? 0 : Math.min(0, armor?.agility_penalty || 0),
+  };
+}
+
+// What gear adds to a roll made with an Ability Score (and, optionally, a skill): Ability-Score Enhancements,
+// skill Enhancements, and the armor's Agility penalty on Agility rolls.
+export function gearRollBonus(D, c, ability, skill = null) {
+  const enh = enhancements(c);
+  let bonus = (enh[`ability:${ability}`] || 0) + (skill ? enh[`skill:${skill}`] || 0 : 0);
+  if (ability === 'agi') bonus += armorInfo(D, c).agilityPenalty;
+  return bonus;
+}
+
+// A weapon attack: d20 + Strength (melee) or Agility (ranged) + Combat skill rank + Domain Mastery + quality
+// + Enhancements (items stack with weapon quality).
+export function weaponAttack(D, c, w) {
+  const scores = abilityScores(D, c);
+  const ability = w.kind === 'ranged' ? 'agi' : 'str';
+  const skill = w.kind === 'ranged' ? 'combat-ranged' : 'combat-melee';
+  const enh = enhancements(c);
+  return {
+    ability, skill,
+    total: rollBonus(D, scores, ability) + skillRank(D, c, skill) + qualityBonus(D, w.quality)
+      + (enh.attack || 0) + gearRollBonus(D, c, ability, skill),
+  };
+}
+
+// A Basic Cast with an implement: d20 + the best Attack Ability for Cast (Intellect or Belief) + the best of the
+// character's Cast (Attack) / Channel ranks + Domain Mastery + implement quality.
+export function basicCast(D, c, implement) {
+  const scores = abilityScores(D, c);
+  const ability = scores.bel > scores.int ? 'bel' : 'int';
+  const skill = ['cast-attack', 'channel'].reduce((best, s) => (skillRank(D, c, s) > skillRank(D, c, best) ? s : best), 'cast-attack');
+  return { ability, skill, total: rollBonus(D, scores, ability) + skillRank(D, c, skill)
+    + qualityBonus(D, implement?.quality) + gearRollBonus(D, c, ability, skill) };
+}
+
+// Gear above the character's Wealth ceiling needs a story reason or a Wealth check.
+export function overWealth(D, c, qualityId) {
+  const q = D.gear.quality.find(x => x.id === qualityId);
+  const wealth = c.wealth ?? startingWealth(D, c);
+  return q ? q.min_wealth_tier > wealth : false;
 }
 
 export function startingWealth(D, c) {

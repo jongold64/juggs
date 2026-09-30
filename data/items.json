@@ -1,5 +1,5 @@
 {
-  "rules": "An item is a Template, a Rating (1-5 for Enhancement, Ward and Reservoir; DECISIONS.md) and any number of Descriptors. Descriptors never change the Rating. Enhancement and Ward values equal the Rating (DECISIONS.md). Items stack with weapon quality.",
+  "rules": "An item is a Template, a Rating (1-5 for Enhancement, Ward and Reservoir) and any number of Descriptors. Descriptors never change the Rating. Enhancement and Ward values equal the Rating. Items stack with weapon quality.",
   "templates": [
     {
       "id": "enhancement",

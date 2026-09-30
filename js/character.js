@@ -25,6 +25,10 @@ export function newCharacter() {
     signature: { offensive: '', utility: '' },
     powerSources: [],           // declared beyond Physical and the Focus Skill defaults
     powers: [],                 // Powers built in the Powers tab (see rules.js powerSummary for the fields)
+    weapons: [],                // [{ name, quality, kind: 'melee' | 'ranged', effect, notes }]
+    implements: [],             // [{ name, quality, notes }] — a caster's focus
+    armor: '', shield: '',      // ids in data/gear.json
+    items: [],                  // [{ name, template, rating, appliesTo, descriptors, genre, notes }]
     wealth: null, reputation: null,     // null = the starting default
     languages: '', gear: '', notes: '',
     play: { marked: { stamina: 0, mana: 0, resolve: 0 }, conditions: [], boonTokens: 0,
@@ -78,6 +82,35 @@ export function cleanPower(D, raw) {
   return p;
 }
 
+// What an item can apply to: Enhancements name a roll, Wards give DR (other Ward kinds are written in notes).
+export function itemTargets(D) {
+  return [
+    { value: 'attack', label: 'Attack rolls' }, { value: 'defend', label: 'Defend rolls' },
+    { value: 'deflect', label: 'Deflect' },
+    ...D.abilities.abilities.map(a => ({ value: `ability:${a.id}`, label: `${a.name} rolls` })),
+    ...D.skills.map(s => ({ value: `skill:${s.id}`, label: s.name })),
+  ];
+}
+
+export function newItem() {
+  return { name: '', template: 'enhancement', rating: 1, appliesTo: '', descriptors: [], genre: '', notes: '' };
+}
+
+export function cleanItem(D, raw) {
+  const it = newItem();
+  it.name = str(raw.name).slice(0, 80);
+  it.template = D.items.templates.some(t => t.id === raw.template) ? raw.template : 'enhancement';
+  const rated = D.items.templates.find(t => t.id === it.template).has_rating;
+  it.rating = rated ? int(raw.rating, 1, 1, 5) : null;
+  const targets = it.template === 'ward' ? ['dr'] : it.template === 'enhancement' ? itemTargets(D).map(t => t.value) : [];
+  it.appliesTo = targets.includes(raw.appliesTo) ? raw.appliesTo : (it.template === 'ward' ? 'dr' : '');
+  it.descriptors = Array.isArray(raw.descriptors)
+    ? [...new Set(raw.descriptors.filter(d => D.items.descriptors.some(x => x.id === d)))] : [];
+  it.genre = D.genresById.has(raw.genre) ? raw.genre : '';
+  it.notes = str(raw.notes).slice(0, 500);
+  return it;
+}
+
 export function clean(D, raw) {
   const d = newCharacter();
   if (!isObj(raw)) return d;
@@ -113,6 +146,17 @@ export function clean(D, raw) {
   }
   c.powerSources = Array.isArray(raw.powerSources) ? raw.powerSources.filter(s => has(D.sourcesById, s)) : [];
   c.powers = Array.isArray(raw.powers) ? raw.powers.filter(isObj).map(p => cleanPower(D, p)).slice(0, 100) : [];
+  const quality = q => (D.gear.quality.some(x => x.id === q) ? q : 'standard');
+  c.weapons = Array.isArray(raw.weapons) ? raw.weapons.filter(isObj).slice(0, 30).map(w => ({
+    name: str(w.name).slice(0, 80), quality: quality(w.quality), kind: w.kind === 'ranged' ? 'ranged' : 'melee',
+    effect: D.effectsById.has(w.effect) ? w.effect : '', notes: str(w.notes).slice(0, 300),
+  })) : [];
+  c.implements = Array.isArray(raw.implements) ? raw.implements.filter(isObj).slice(0, 10).map(w => ({
+    name: str(w.name).slice(0, 80), quality: quality(w.quality), notes: str(w.notes).slice(0, 300),
+  })) : [];
+  c.armor = D.gear.armor.some(a => a.id === raw.armor) ? raw.armor : '';
+  c.shield = D.gear.shields.some(s => s.id === raw.shield) ? raw.shield : '';
+  c.items = Array.isArray(raw.items) ? raw.items.filter(isObj).slice(0, 60).map(it => cleanItem(D, it)) : [];
   c.wealth = raw.wealth === null ? null : int(raw.wealth, null, 1, 8);
   c.reputation = raw.reputation === null ? null : int(raw.reputation, null, 0, 5);
   c.languages = str(raw.languages); c.gear = str(raw.gear); c.notes = str(raw.notes);

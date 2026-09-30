@@ -156,6 +156,16 @@ Last updated: 2026-09-29.
 - Item **Ratings** can be any number from 1 to 5, and values match the Rating: an Enhancement gives +Rating
   (+1 to +5), a Ward gives DR equal to its Rating (DR 1 to 5), a Reservoir holds Rating charges at PL Rating.
 - Armor and shield tables come from the SRD (the Player Book's armor section stops after "Light").
+- How the builder uses gear (interim — see Open):
+  - Weapon attack = Strength (melee) or Agility (ranged) + Combat (Melee / Ranged) rank + Domain Mastery + quality
+    bonus + Enhancements. Basic Cast with an implement = Intellect or Belief + Cast (Attack) or Channel + Mastery +
+    implement quality.
+  - An Enhancement names a roll: Attack, Defend, Deflect, one skill, or rolls with one Ability Score. The highest
+    Enhancement per roll counts.
+  - The armor's Agility penalty applies to Agility rolls (skills, Initiative, ranged attacks), not to the Deflect
+    number. The Ascetic ignores armor.
+  - DR = armor + shield + Defender (+1, +2 from Step 4) + Ward items, shown as its own number against Stamina damage.
+  - Gear above the Wealth ceiling (the Player Book's Gear Quality list) is allowed with a warning.
 
 ## Vehicles (structure)
 
@@ -185,6 +195,10 @@ Last updated: 2026-09-29.
 - **Effect pools**: which pools can pay for each Effect. Chapter 1 and the "Effect types by pool" table disagree;
   the data keeps both readings and leaves `pools` empty.
 - The Channeler Suggested Build's sixth Focus Skill (Abjure was one of the six).
+- **Armor DR and Deflect.** Chapter 1 adds Armor/Shield DR to the Deflect threshold; the gear chapter subtracts
+  DR from Stamina damage. The builder shows DR separately and does not add it to Deflect.
+- **Ward items and armor**: do Ward DR, armor and shield DR all add together?
+- **Legendary quality**: the Gear Quality list says Very Wealthy (Tier 7); the Wealth table says Tier 8.
 - Power list damage: Lay on Hands has no Power Level lines, and one Psionic Power lost its heading (the "Boon and
   Bane Severity Summary" sits in its place).
 - Side-by-side pool layout on the sheet — the author will judge it once the sheet exists.

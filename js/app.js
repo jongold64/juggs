@@ -7,8 +7,11 @@ import { $, esc, signed, paragraphs, options, groupedOptions, cap } from './dom.
 import { openRoster, saveRoster, loadCharacter, saveCharacter, removeCharacter, newId, exportData, importData } from './storage.js';
 import { renderSheet } from './sheet.js';
 import { renderPowers, setDraft, toggleCondition, powerAction, resetDraft } from './tab-powers.js';
+import { renderGear, gearAction } from './tab-gear.js';
 
-const TABS = ['character', 'skills', 'roles', 'advancement', 'powers', 'sheet'];
+const TABS = ['character', 'skills', 'roles', 'advancement', 'powers', 'gear', 'sheet'];
+export const rollBtn = (what, bonus) =>
+  `<button type="button" class="roll no-print" data-roll="${esc(what)}" data-bonus="${bonus}" aria-label="Roll ${esc(what)}">d20</button>`;
 const LEVEL_MAPS = new Set(['skillPoints', 'feats', 'featChoices', 'roleAdvances', 'abilityIncreases']);
 
 let D = null;
@@ -103,6 +106,8 @@ function onClick(e) {
   } else if (d.power) {
     const list = powerAction(D, state, d.power, d.arg);
     if (list) { state.powers = list; update(); } else render();
+  } else if (d.gear) {
+    if (gearAction(D, state, d.gear, d.arg, id => $(id)?.value)) update();
   } else if (d.copy) {
     const text = $(d.copy)?.textContent || '';
     navigator.clipboard?.writeText(text).then(() => { b.textContent = 'Copied'; }, () => {});
@@ -528,7 +533,8 @@ function render() {
   const panel = $(`tab-${tab}`);
   const scroll = window.scrollY;
   panel.innerHTML = { character: renderCharacter, skills: renderSkills, roles: renderRoles, advancement: renderAdvancement,
-                      powers: () => renderPowers(D, c), sheet: () => renderSheet(D, c) }[tab]();
+                      powers: () => renderPowers(D, c), gear: () => renderGear(D, c, rollBtn),
+                      sheet: () => renderSheet(D, c) }[tab]();
   window.scrollTo(0, scroll);
 }
 

@@ -155,6 +155,32 @@ check('Cantrip costs 1 Mana without Cast or Channel 2+', R.powerSummary(D, make(
 check('Cantrip is free for a practitioner',
   R.powerSummary(D, make({ genres: ['magic'], focus: ['cast-attack'] }), cantrip).mana, 0);
 
+// Gear and items
+const warrior = make({ base: spread, focus, weapons: [{ name: 'Sword', quality: 'standard', kind: 'melee' }] });
+check('Sword attack = Str 4 + Mastery 1 + Combat (Melee) 2 + Standard 2',
+  R.weaponAttack(D, warrior, warrior.weapons[0]).total, 9);
+const bow = { name: 'Bow', quality: 'quality', kind: 'ranged' };
+check('Ranged uses Agility and Combat (Ranged)', R.weaponAttack(D, make({ base: spread, focus }), bow).total, 3 + 1 + 1 + 3);
+check('Attack Enhancement stacks with quality', R.weaponAttack(D, make({ base: spread, focus,
+  items: [{ name: 'Flame Tongue', template: 'enhancement', rating: 3, appliesTo: 'attack' }] }), warrior.weapons[0]).total, 12);
+check('Only the highest Enhancement counts', R.enhancements(make({ items: [
+  { template: 'enhancement', rating: 2, appliesTo: 'attack' }, { template: 'enhancement', rating: 4, appliesTo: 'attack' }] })).attack, 4);
+check('Skill Enhancement adds to that skill', R.skillTotal(D, make({ base: spread, focus,
+  items: [{ template: 'enhancement', rating: 2, appliesTo: 'skill:stealth' }] }), 'stealth') - R.skillTotal(D, make({ base: spread, focus }), 'stealth'), 2);
+check('Armor DR', R.armorInfo(D, make({ armor: 'medium-armor', shield: 'buckler' })).dr, 3);
+check('Medium armor: Agility rolls -1', R.armorInfo(D, make({ armor: 'medium-armor' })).agilityPenalty, -1);
+check('Armor penalty lowers Agility skills', R.skillTotal(D, make({ base: spread, armor: 'heavy-armor' }), 'stealth')
+  - R.skillTotal(D, make({ base: spread }), 'stealth'), -2);
+check('Ascetic ignores armor penalty', R.armorInfo(D, make({ role: 'ascetic', armor: 'heavy-armor' })).agilityPenalty, 0);
+check('Defender Step 1 adds DR 1', R.armorInfo(D, make({ role: 'defender' })).dr, 1);
+check('Ward item adds DR', R.armorInfo(D, make({ items: [{ template: 'ward', rating: 2, appliesTo: 'dr' }] })).dr, 2);
+check('Deflect Enhancement raises Deflect', R.deflectFor(D, make({ base: spread,
+  items: [{ template: 'enhancement', rating: 1, appliesTo: 'deflect' }] }), 'body'), 14);
+check('Masterwork is above Struggling Wealth', R.overWealth(D, make(), 'masterwork'), true);
+check('Standard is within Struggling Wealth', R.overWealth(D, make(), 'standard'), false);
+check('Unknown weapon quality becomes Standard', clean(D, { weapons: [{ name: 'x', quality: 'nope' }] }).weapons[0].quality, 'standard');
+check('Faculty items have no Rating', clean(D, { items: [{ template: 'faculty', rating: 3 }] }).items[0].rating, null);
+
 // Loading old or broken saves
 check('Unknown ids are dropped', clean(D, { role: 'no-such-role', feats: { 3: 'nope', 1: 'toughened' } }).feats, { 1: 'toughened' });
 check('Level is kept within 1-20', clean(D, { level: 40 }).level, 20);

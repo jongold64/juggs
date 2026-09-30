@@ -68,8 +68,8 @@ export function renderSheet(D, c) {
   const init = R.initiativeBonus(D, c);
   const defRows = R.DOMAINS.map(dom => {
     const slot = R.SLOT_ABILITY[dom];
-    const defend = R.rollBonus(D, scores, slot.defend);
-    return `<tr class="dom-${dom}"><th>${cap(dom)}</th><td><b>${R.deflect(scores, dom)}</b><span class="s-hint">10 + ${esc(D.abilitiesById.get(slot.deflect).name)}</span></td>
+    const defend = R.defendBonus(D, c, dom);
+    return `<tr class="dom-${dom}"><th>${cap(dom)}</th><td><b>${R.deflectFor(D, c, dom)}</b><span class="s-hint">10 + ${esc(D.abilitiesById.get(slot.deflect).name)}</span></td>
       <td><b>${signed(defend)}</b> ${rollBtn(`Defend (${cap(dom)})`, defend)}<span class="s-hint">${esc(D.abilitiesById.get(slot.defend).name)}</span></td></tr>`;
   }).join('');
   const defenses = `<section class="s-box"><h3>Defenses</h3>
@@ -79,7 +79,31 @@ export function renderSheet(D, c) {
       <div><span class="s-big">${tier.surge_max}</span><span class="s-hint">Surge max</span></div>
       <div><span class="s-big">${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span><span class="s-hint">Boon (${tier.boon_choices} choice${tier.boon_choices > 1 ? 's' : ''})</span></div>
     </div>
-    <table class="s-def"><thead><tr><th></th><th>Deflect</th><th>Defend</th></tr></thead><tbody>${defRows}</tbody></table></section>`;
+    <table class="s-def"><thead><tr><th></th><th>Deflect</th><th>Defend</th></tr></thead><tbody>${defRows}</tbody></table>
+    ${(() => {
+      const a = R.armorInfo(D, c);
+      return `<p class="s-armor"><b>DR ${a.dr}</b> vs Stamina damage${a.parts.length ? ` <span class="s-hint">(${a.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')})</span>` : ''}${
+        a.agilityPenalty ? ` · Agility rolls ${a.agilityPenalty}` : ''}</p>`;
+    })()}</section>`;
+
+  // Weapons and implements
+  const effName = id => D.effectsById.get(id)?.name || '';
+  const weaponRows = [
+    ...c.weapons.map(w => {
+      const atk = R.weaponAttack(D, c, w);
+      const q = D.gear.quality.find(x => x.id === w.quality);
+      return `<tr><td><b>${esc(w.name)}</b></td><td>${esc(q.name)} ${signed(q.weapon_bonus)}</td><td>${cap(w.kind)}</td><td>${esc(effName(w.effect))}</td>
+        <td><b>${signed(atk.total)}</b> ${rollBtn(`${w.name} attack`, atk.total)}</td></tr>`;
+    }),
+    ...c.implements.map(m => {
+      const cast = R.basicCast(D, c, m);
+      const q = D.gear.quality.find(x => x.id === m.quality);
+      return `<tr><td><b>${esc(m.name)}</b></td><td>${esc(q.name)} ${signed(q.weapon_bonus)}</td><td>Implement</td><td></td>
+        <td><b>${signed(cast.total)}</b> ${rollBtn(`Basic Cast (${m.name})`, cast.total)}</td></tr>`;
+    }),
+  ].join('');
+  const weaponBox = weaponRows ? `<section class="s-box s-wide"><h3>Weapons &amp; Implements</h3><table class="s-powers">
+    <thead><tr><th>Name</th><th>Quality</th><th>Kind</th><th>Effect</th><th>Attack / Cast</th></tr></thead><tbody>${weaponRows}</tbody></table></section>` : '';
 
   // Pools, side by side
   const pools = R.pools(D, c);
@@ -122,7 +146,7 @@ export function renderSheet(D, c) {
         <button type="button" class="tiny no-print" data-step="play.boonTokens" data-by="1" aria-label="Bank a Boon Token">+</button></span></div></section>`;
 
   const page1 = `<div class="sheet-page"><div class="s-title"><b>JUGGS</b> Jon's Universal Genre Gaming System · Character Sheet<span>d20 + Ability + Skill</span></div>
-    ${identity}<div class="s-row">${abilities}${defenses}</div>${poolRow}${skillBox}<div class="s-row s-three">${small}</div></div>`;
+    ${identity}<div class="s-row">${abilities}${defenses}</div>${poolRow}${weaponBox}${skillBox}<div class="s-row s-three">${small}</div></div>`;
 
   // Page 2: features
   const roleList = Object.entries(steps).map(([id, n]) => {
@@ -160,7 +184,17 @@ export function renderSheet(D, c) {
     `<label><input type="checkbox" data-toggle="play.conditions" value="${x.id}"${c.play.conditions.includes(x.id) ? ' checked' : ''}> ${esc(x.name)}</label>`).join('')}</div>
     <h4>Positive</h4><div class="s-conds">${D.conditions.filter(x => x.positive).map(x =>
     `<label><input type="checkbox" data-toggle="play.conditions" value="${x.id}"${c.play.conditions.includes(x.id) ? ' checked' : ''}> ${esc(x.name)}</label>`).join('')}</div></section>`;
-  const notes = `<section class="s-box"><h3>Gear &amp; Equipment</h3><p class="s-pre">${esc(c.gear)}</p>
+  const itemList = c.items.map(it => {
+    const t = D.items.templates.find(x => x.id === it.template);
+    const target = it.appliesTo && it.appliesTo !== 'dr'
+      ? (it.appliesTo.includes(':') ? (D.skillsById.get(it.appliesTo.split(':')[1]) || D.abilitiesById.get(it.appliesTo.split(':')[1]))?.name
+        : cap(it.appliesTo)) : '';
+    const value = t.rating_values?.[it.rating] || '';
+    return `<li><b>${esc(it.name || t.name)}</b> <span class="s-hint">${esc(t.name)}${value ? ` ${esc(value)}` : ''}${target ? ` to ${esc(target)}` : ''}${
+      it.descriptors.length ? ` · ${esc(it.descriptors.map(d => D.items.descriptors.find(x => x.id === d).name).join(', '))}` : ''}</span></li>`;
+  }).join('');
+  const notes = `<section class="s-box"><h3>Gear &amp; Equipment</h3>
+      ${itemList ?`<ul class="s-list">${itemList}</ul>` : ''}<p class="s-pre">${esc(c.gear)}</p>
       ${c.languages ? `<h4>Languages</h4><p>${esc(c.languages)}</p>` : ''}</section>
     <section class="s-box"><h3>Notes, Bonds &amp; Story Hooks</h3><p class="s-pre">${esc(c.notes)}</p></section>`;
 

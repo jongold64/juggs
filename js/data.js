@@ -1,7 +1,7 @@
 // Loads data/*.json once and adds lookup maps (D.skillsById and so on). Every module gets the same object.
 
 const FILES = ['core', 'abilities', 'skills', 'genres', 'roles', 'presets', 'aptitudes', 'origins', 'specialties',
-               'feats', 'effects', 'conditions', 'powers', 'maneuvers', 'concepts'];
+               'feats', 'effects', 'conditions', 'powers', 'maneuvers', 'concepts', 'gear', 'items'];
 
 export function prepare(raw) {
   const D = { ...raw };

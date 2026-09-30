@@ -1,6 +1,6 @@
 {
   "rules": {
-    "weapons": "Weapons add +0 to +5 to Attack rolls. Melee uses Strength, ranged uses Agility, unless the fiction supports another Ability Score. Items stack with weapon quality (DECISIONS.md).",
+    "weapons": "Weapons add +0 to +5 to Attack rolls. Melee uses Strength, ranged uses Agility, unless the fiction supports another Ability Score. Items stack with weapon quality.",
     "armor": "Armor and shields give DR against Stamina damage only. Light: no Agility penalty; Medium -1; Heavy -2; Powered/Legendary: none."
   },
   "quality": [
