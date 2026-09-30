@@ -276,15 +276,16 @@ function renderCharacter() {
   const spent = R.bpSpent(c.base);
   const rows = R.DOMAINS.map(dom => {
     const domain = D.domainsById.get(dom);
-    return `<tr class="domain-row"><th colspan="6">${esc(domain.name)} <span class="hint">· ${esc(cap(domain.pool))}</span></th></tr>` +
+    return `<tr class="domain-row"><th colspan="7">${esc(domain.name)} <span class="hint">· ${esc(cap(domain.pool))}</span></th></tr>` +
       domain.abilities.map(a => {
         const ab = D.abilitiesById.get(a);
-        const levelUps = scores[a] - c.base[a] - (apt[a] || 0);
+        const item = R.enhancements(c)[`ability:${a}`] || 0;
+        const levelUps = scores[a] - c.base[a] - (apt[a] || 0) - item;
         return `<tr><td class="left">${esc(ab.name)} <span class="hint">${cap(ab.slot)}</span></td>
           <td class="stepper"><button type="button" data-step="base.${a}" data-by="-1" aria-label="Lower ${esc(ab.name)}">−</button>
             <b>${c.base[a]}</b>
             <button type="button" data-step="base.${a}" data-by="1" aria-label="Raise ${esc(ab.name)}">+</button></td>
-          <td>${apt[a] ? '+1' : ''}</td><td>${levelUps ? signed(levelUps) : ''}</td>
+          <td>${apt[a] ? '+1' : ''}</td><td>${levelUps ? signed(levelUps) : ''}</td><td>${item ? signed(item) : ''}</td>
           <td><b>${scores[a]}</b></td><td class="hint">${R.abilityCap(D, c, a)}</td></tr>`;
       }).join('');
   }).join('');
@@ -292,7 +293,7 @@ function renderCharacter() {
   const mastery = R.domainMastery(D, scores);
   const abilities = card('Ability Scores', `
     <p class="points${spent !== D.core.creation.build_points ? ' over' : ''}">Build Points: ${spent} / ${D.core.creation.build_points}</p>
-    <table class="abilities"><thead><tr><th class="left">Score</th><th>BP</th><th>Apt</th><th>Levels</th><th>Total</th><th>Cap</th></tr></thead>
+    <table class="abilities"><thead><tr><th class="left">Score</th><th>BP</th><th>Apt</th><th>Levels</th><th>Items</th><th>Total</th><th>Cap</th></tr></thead>
     <tbody>${rows}</tbody></table>
     ${problems([...R.creationProblems(D, c), ...R.increaseProblems(D, c)])}
     <label class="row">Primary Domain ${top.length > 1

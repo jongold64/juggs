@@ -176,6 +176,15 @@ check('Defender Step 1 adds DR 1', R.armorInfo(D, make({ role: 'defender' })).dr
 check('Ward item adds DR', R.armorInfo(D, make({ items: [{ template: 'ward', rating: 2, appliesTo: 'dr' }] })).dr, 2);
 check('Deflect Enhancement raises Deflect', R.deflectFor(D, make({ base: spread,
   items: [{ template: 'enhancement', rating: 1, appliesTo: 'deflect' }] }), 'body'), 14);
+const belt = make({ base: spread, level: 2, abilityIncreases: { 2: 'str' },
+  items: [{ template: 'enhancement', rating: 2, appliesTo: 'ability:str' }] });
+check('Ability Score Enhancement adds to the Score', R.abilityScores(D, belt).str, 4 + 1 + 2);
+check('Item bonus does not count against the advancement cap', R.increaseProblems(D, belt), []);
+const lowBelief = { ...spread, str: 3, mor: 2 };  // Belief 1 is the only Spirit Score below 2
+check('Without the item, no Spirit Mastery', R.domainMastery(D, R.abilityScores(D, make({ base: lowBelief }))).spirit, 0);
+check('Ability Score Enhancement counts for Domain Mastery', R.domainMastery(D, R.abilityScores(D, make({ base: lowBelief,
+  items: [{ template: 'enhancement', rating: 1, appliesTo: 'ability:bel' }] }))).spirit, 1);
+check('Legendary quality from Very Wealthy (Tier 7)', R.overWealth(D, make({ wealth: 7 }), 'legendary'), false);
 check('Masterwork is above Struggling Wealth', R.overWealth(D, make(), 'masterwork'), true);
 check('Standard is within Struggling Wealth', R.overWealth(D, make(), 'standard'), false);
 check('Unknown weapon quality becomes Standard', clean(D, { weapons: [{ name: 'x', quality: 'nope' }] }).weapons[0].quality, 'standard');

@@ -58,13 +58,19 @@ export function aptitudeBonuses(D, c) {
   return apt ? apt.ability_bonuses : {};
 }
 
-// Ability Scores at a level: 20 BP spread + Aptitude bonuses + even-level increases.
-export function abilityScores(D, c, level = c.level) {
+// Ability Scores at a level: 20 BP spread + Aptitude bonuses + even-level increases, plus Ability Score
+// Enhancement items (which add to the Score itself). `withGear: false` leaves the items out — the advancement caps
+// apply to what the character built, not to what they carry.
+export function abilityScores(D, c, level = c.level, { withGear = true } = {}) {
   const scores = {};
   const apt = aptitudeBonuses(D, c);
   for (const a of ABILITIES) scores[a] = (c.base[a] || 0) + (apt[a] || 0);
   for (const [lv, a] of byLevel(c.abilityIncreases, level)) {
     if (a && isAbilityLevel(D, Number(lv))) scores[a] += 1;
+  }
+  if (withGear) {
+    const enh = enhancements(c);
+    for (const a of ABILITIES) scores[a] += enh[`ability:${a}`] || 0;
   }
   return scores;
 }
@@ -99,7 +105,7 @@ export function increaseProblems(D, c) {
   for (const [lv, a] of byLevel(c.abilityIncreases, c.level)) {
     if (!a) continue;
     const level = Number(lv);
-    const score = abilityScores(D, c, level)[a];
+    const score = abilityScores(D, c, level, { withGear: false })[a];
     const cap = abilityCap(D, c, a, level);
     if (score > cap) out.push(`Level ${level}: ${D.abilitiesById.get(a).name} ${score} is over its cap of ${cap}.`);
   }
@@ -486,11 +492,11 @@ export function armorInfo(D, c, level = c.level) {
   };
 }
 
-// What gear adds to a roll made with an Ability Score (and, optionally, a skill): Ability-Score Enhancements,
-// skill Enhancements, and the armor's Agility penalty on Agility rolls.
+// What gear adds to a roll made with an Ability Score (and, optionally, a skill): skill Enhancements and the armor's
+// Agility penalty on Agility rolls. (Ability Score Enhancements are already in the Score; see abilityScores.)
 export function gearRollBonus(D, c, ability, skill = null) {
   const enh = enhancements(c);
-  let bonus = (enh[`ability:${ability}`] || 0) + (skill ? enh[`skill:${skill}`] || 0 : 0);
+  let bonus = skill ? enh[`skill:${skill}`] || 0 : 0;
   if (ability === 'agi') bonus += armorInfo(D, c).agilityPenalty;
   return bonus;
 }
