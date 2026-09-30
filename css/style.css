@@ -135,6 +135,20 @@ table.abilities, table.skills { width: 100%; border-collapse: collapse; }
   max-width: calc(100% - 32px);
 }
 
+/* Roles & Feats tab */
+.subtabs { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px; }
+.subtabs button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.rf-card { border-top: 1px solid var(--border); padding: 8px 0; }
+.rf-card > summary { cursor: pointer; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.rf-card > summary .good { margin-left: auto; }
+.rf-mark { margin-left: auto; font-weight: 700; }
+.rf-card[open] > summary { margin-bottom: 6px; }
+.rf-buttons { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.rf-filters { display: grid; grid-template-columns: 2fr 1fr 1fr auto; gap: 8px; align-items: center; margin-bottom: 10px; }
+.rf-filters input[type="search"] { font: inherit; min-height: 40px; border: 1px solid var(--border); border-radius: 8px;
+  background: var(--bg); color: var(--text); padding: 0 10px; width: 100%; }
+@media (max-width: 720px) { .rf-filters { grid-template-columns: 1fr 1fr; } .rf-filters input[type="search"] { grid-column: 1 / -1; } }
+
 /* Gear tab */
 .gear-row { border-top: 1px solid var(--border); padding: 10px 0; }
 .gear-main { display: grid; grid-template-columns: 2fr 1.3fr 1fr 1.3fr; gap: 6px; }

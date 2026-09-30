@@ -8,6 +8,8 @@ import { openRoster, saveRoster, loadCharacter, saveCharacter, removeCharacter, 
 import { renderSheet } from './sheet.js';
 import { renderPowers, setDraft, toggleCondition, powerAction, resetDraft } from './tab-powers.js';
 import { renderGear, gearAction } from './tab-gear.js';
+import { reqStatus as reqStatusText, mark } from './requirements-text.js';
+import { renderRoles, rolesAction, setRolesFilter } from './tab-roles.js';
 
 const TABS = ['character', 'skills', 'roles', 'advancement', 'powers', 'gear', 'sheet'];
 export const rollBtn = (what, bonus) =>
@@ -72,7 +74,10 @@ function update() {
 
 function onChange(e) {
   const el = e.target;
-  if (el.dataset.draft) {  // the Power being built (not saved until "Save to character")
+  if (el.dataset.rfFilter) {  // Roles & Feats filters (page state, not saved)
+    setRolesFilter(el.dataset.rfFilter, readValue(el));
+    render();
+  } else if (el.dataset.draft) {  // the Power being built (not saved until "Save to character")
     setDraft(D, el.dataset.draft, readValue(el));
     render();
   } else if (el.dataset.bind) {
@@ -89,7 +94,10 @@ function onChange(e) {
 // Text boxes save as you type but only redraw when you leave them, so the cursor stays put.
 function onInput(e) {
   const el = e.target;
-  if (el.dataset.bind && (el.tagName === 'TEXTAREA' || el.type === 'text')) {
+  if (el.dataset.rfFilter === 'query') {  // search as you type
+    setRolesFilter('query', el.value);
+    render();
+  } else if (el.dataset.bind && (el.tagName === 'TEXTAREA' || el.type === 'text')) {
     setPath(state, el.dataset.bind, el.value);
     save();
   }
@@ -106,6 +114,8 @@ function onClick(e) {
   } else if (d.power) {
     const list = powerAction(D, state, d.power, d.arg);
     if (list) { state.powers = list; update(); } else render();
+  } else if (d.rf) {
+    if (rolesAction(D, state, d.rf, d.arg)) update(); else render();
   } else if (d.gear) {
     if (gearAction(D, state, d.gear, d.arg, id => $(id)?.value)) update();
   } else if (d.copy) {
@@ -176,33 +186,7 @@ const skillName = s => D.skillsById.get(s)?.name || s;
 const card = (title, body, cls = '') => `<section class="card ${cls}"><h2>${esc(title)}</h2>${body}</section>`;
 const problems = list => (list.length ? `<ul class="problems">${list.map(p => `<li>${esc(p)}</li>`).join('')}</ul>` : '');
 
-function reqText(clause) {
-  if (clause.text) return clause.text;
-  if (clause.ability) return `${clause.ability.map(abilityName).join(' or ')} ${clause.min}+`;
-  if (clause.skill) return `${skillName(clause.skill)} rank ${clause.rank_min}+`;
-  if (clause.focus) return `${clause.focus.map(skillName).join(clause.all ? ' and ' : ' or ')} as Focus Skill`;
-  if (clause.role) return `${clause.role.map(r => D.rolesById.get(r).name).join(' or ')} Role Step ${clause.step}`;
-  if (clause.feat) return clause.feat.map(f => D.featsById.get(f).name).join(' or ');
-  if (clause.genre) return `${clause.genre.map(g => D.genresById.get(g).name).join(' or ')} Genre`;
-  if (clause.power_level_min) return `Power Level ${clause.power_level_min}+`;
-  if (clause.reputation_min) return `Reputation ${clause.reputation_min}+`;
-  if (clause.specialty) return `${clause.specialty.map(s => D.specialtiesById.get(s)?.name || s).join(' or ')} Specialty`;
-  if (clause.specialty_category) return `an active ${cap(clause.specialty_category)} Specialty`;
-  if (clause.specialty_ability) return `a Specialty at ${clause.specialty_ability.replace('ability', 'Ability ')}`;
-  if (clause.any) return clause.any.map(reqText).join(' or ');
-  return JSON.stringify(clause);
-}
-
-// "✓ met" / "✗ Strength 3+" / "? check by hand: ..." for a list of requirements.
-function reqStatus(check) {
-  if (check.ok === true) return '<span class="good">✓ Requirements met</span>';
-  const parts = [];
-  if (check.failed.length) parts.push(`<span class="bad">✗ Needs ${esc(check.failed.map(reqText).join(', '))}</span>`);
-  if (check.unknown.length) parts.push(`<span class="warn">? Check by hand: ${esc(check.unknown.map(reqText).join(', '))}</span>`);
-  return parts.join(' ');
-}
-
-const mark = check => (check.ok === true ? '✓' : check.ok === false ? '✗' : '?');
+const reqStatus = check => reqStatusText(D, check);
 
 // ---------------------------------------------------------------------------------------------------------------
 // Character tab
@@ -413,36 +397,6 @@ function renderSkills() {
 }
 
 // ---------------------------------------------------------------------------------------------------------------
-// Roles & Feats tab
-// ---------------------------------------------------------------------------------------------------------------
-
-function renderRoles() {
-  const c = state;
-  const steps = R.roleSteps(D, c);
-  const roles = Object.entries(steps).map(([id, n]) => {
-    const role = D.rolesById.get(id);
-    return `<h3>${esc(role.name)} <span class="hint">Step ${n} of 5</span></h3><ol class="steps">${role.steps.map(s =>
-      `<li class="${s.step <= n ? '' : 'locked'}"><b>Step ${s.step}</b> <span class="hint">(${s.step === 1 ? 'Level 1' : `tier change`})</span> ${esc(s.text)}</li>`).join('')}</ol>`;
-  }).join('') || '<p class="hint">Choose a starting Role on the Character tab.</p>';
-
-  const unlocked = R.specialtyAbilities(D, c);
-  const specs = R.specialtiesHeld(D, c).map(sp => {
-    const have = unlocked[sp.id] || [];
-    const row = (key, title) => `<li class="${have.includes(key) ? '' : 'locked'}"><b>${title}</b> ${esc(sp.abilities[key].text)}</li>`;
-    return `<h3>${esc(sp.name)} <span class="hint">${esc(cap(sp.category))} · ${sp.governing.map(abilityName).join(' or ')} · ${cap(sp.pool)}</span></h3>
-      <ul class="steps">${row('ability1', 'Ability 1')}${row('ability2', 'Ability 2')}${row('ability3', 'Ability 3')}${row('mastery', 'Mastery Enhancement')}</ul>
-      <p class="hint">Synergy (${esc(sp.synergy?.condition_text || '')}): ${esc(sp.synergy?.effect || '')}. Fallout: ${esc(sp.fallout || '')}</p>`;
-  }).join('') || '<p class="hint">No Specialty.</p>';
-
-  const feats = R.levelsUpTo(D.core.advancement.feat_levels, c.level).map(lv => {
-    const f = D.featsById.get(c.feats[lv]);
-    return `<li><b>Level ${lv}</b> ${f ? `${esc(f.name)} <span class="hint">Rank ${esc(f.rank)}</span><div class="info">${paragraphs(f.text)}</div>`
-      : '<span class="hint">not chosen — see Advancement</span>'}</li>`;
-  }).join('');
-  return card('Roles', roles, 'wide') + card('Specialties', specs, 'wide') + card('Feats', `<ul class="feat-list">${feats}</ul>`, 'wide');
-}
-
-// ---------------------------------------------------------------------------------------------------------------
 // Advancement tab
 // ---------------------------------------------------------------------------------------------------------------
 
@@ -533,7 +487,16 @@ function render() {
   for (const t of TABS) $(`tab-${t}`).hidden = t !== tab;
   const panel = $(`tab-${tab}`);
   const scroll = window.scrollY;
-  panel.innerHTML = { character: renderCharacter, skills: renderSkills, roles: renderRoles, advancement: renderAdvancement,
+  // Keep the cursor in a search box that redraws as you type.
+  const active = document.activeElement?.id ? { id: document.activeElement.id, pos: document.activeElement.selectionStart } : null;
+  requestAnimationFrame(() => {
+    const el = active && $(active.id);
+    if (el && document.activeElement !== el) {
+      el.focus();
+      try { if (active.pos != null) el.setSelectionRange(active.pos, active.pos); } catch { /* not a text box */ }
+    }
+  });
+  panel.innerHTML = { character: renderCharacter, skills: renderSkills, roles: () => renderRoles(D, c), advancement: renderAdvancement,
                       powers: () => renderPowers(D, c), gear: () => renderGear(D, c, rollBtn),
                       sheet: () => renderSheet(D, c) }[tab]();
   window.scrollTo(0, scroll);
