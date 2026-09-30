@@ -1,7 +1,7 @@
 {
   "rules": {
     "weapons": "Weapons add +0 to +5 to Attack rolls. Melee uses Strength, ranged uses Agility, unless the fiction supports another Ability Score. Items stack with weapon quality.",
-    "armor": "Armor and shields give DR against Stamina damage only. Light: no Agility penalty; Medium -1; Heavy -2; Powered/Legendary: none."
+    "armor": "Armor and shields give DR. All DR (armor, shield, Defender, Ward items) is added to the Body Defend roll and the Body Deflect number; it is not taken off Stamina damage. Enhanced armor can also add to Mind or Spirit Defend and Deflect. Light armor: no Agility penalty; Medium -1; Heavy -2; Powered/Legendary: none."
   },
   "quality": [
     {

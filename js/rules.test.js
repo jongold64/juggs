@@ -185,6 +185,14 @@ check('Without the item, no Spirit Mastery', R.domainMastery(D, R.abilityScores(
 check('Ability Score Enhancement counts for Domain Mastery', R.domainMastery(D, R.abilityScores(D, make({ base: lowBelief,
   items: [{ template: 'enhancement', rating: 1, appliesTo: 'ability:bel' }] }))).spirit, 1);
 check('Legendary quality from Very Wealthy (Tier 7)', R.overWealth(D, make({ wealth: 7 }), 'legendary'), false);
+const armored = make({ base: spread, armor: 'medium-armor', shield: 'buckler' });  // DR 3
+check('DR adds to Body Deflect', R.deflectFor(D, armored, 'body'), 10 + 3 + 3);
+check('DR adds to the Body Defend roll', R.defendBonus(D, armored, 'body') - R.defendBonus(D, make({ base: spread }), 'body'), 3);
+check('DR does not add to Mind Deflect', R.deflectFor(D, armored, 'mind'), 12);
+check('Enhanced armor can add to Spirit Deflect', R.deflectFor(D, make({ base: spread,
+  items: [{ template: 'enhancement', rating: 2, appliesTo: 'deflect:spirit' }] }), 'spirit'), 14);
+check('A Mind-only Enhancement leaves Body alone', R.deflectFor(D, make({ base: spread,
+  items: [{ template: 'enhancement', rating: 2, appliesTo: 'deflect:mind' }] }), 'body'), 13);
 check('Masterwork is above Struggling Wealth', R.overWealth(D, make(), 'masterwork'), true);
 check('Standard is within Struggling Wealth', R.overWealth(D, make(), 'standard'), false);
 check('Unknown weapon quality becomes Standard', clean(D, { weapons: [{ name: 'x', quality: 'nope' }] }).weapons[0].quality, 'standard');

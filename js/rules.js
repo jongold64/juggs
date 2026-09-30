@@ -386,16 +386,26 @@ export function initiativeBonus(D, c, level = c.level) {
   return rollBonus(D, scores, ability) + gearRollBonus(D, c, ability);
 }
 
-// Defend roll for a Domain: Defend Ability + Domain Mastery + Defend Enhancement + gear on that Ability.
+// DR (armor, shield, Defender, Ward items) works through the roll: it adds to the Body Defend roll and the Body
+// Deflect number, and is not taken off Stamina damage. Mind and Spirit get a bonus only from items that name them.
+export const bodyDR = (D, c, domain) => (domain === 'body' ? armorInfo(D, c).dr : 0);
+
+// Enhancements to Defend or Deflect: "defend" / "deflect" cover all three Domains, "defend:mind" one Domain.
+const domainEnh = (c, kind, domain) => {
+  const enh = enhancements(c);
+  return Math.max(enh[kind] || 0, enh[`${kind}:${domain}`] || 0);
+};
+
+// Defend roll for a Domain: Defend Ability + Domain Mastery + DR (Body) + Defend Enhancement + gear on the Ability.
 export function defendBonus(D, c, domain) {
   const scores = abilityScores(D, c);
   const ability = SLOT_ABILITY[domain].defend;
-  return rollBonus(D, scores, ability) + (enhancements(c).defend || 0) + gearRollBonus(D, c, ability);
+  return rollBonus(D, scores, ability) + bodyDR(D, c, domain) + domainEnh(c, 'defend', domain) + gearRollBonus(D, c, ability);
 }
 
-// Deflect threshold for a Domain: 10 + Deflect Ability + a Deflect Enhancement.
+// Deflect threshold for a Domain: 10 + Deflect Ability + DR (Body) + a Deflect Enhancement.
 export function deflectFor(D, c, domain) {
-  return deflect(abilityScores(D, c), domain) + (enhancements(c).deflect || 0);
+  return deflect(abilityScores(D, c), domain) + bodyDR(D, c, domain) + domainEnh(c, 'deflect', domain);
 }
 
 // Mana for a Power: Casters pay the Power Level minus their tier's Power Level, minimum 1; others pay in full.
@@ -472,7 +482,7 @@ export function enhancements(c) {
   return out;
 }
 
-// Armor, shield, Defender Steps and Ward items. DR counts against Stamina damage.
+// Armor, shield, Defender Steps and Ward items (all DR counts). See bodyDR for how DR is used.
 export function armorInfo(D, c, level = c.level) {
   const armor = D.gear.armor.find(a => a.id === c.armor);
   const shield = D.gear.shields.find(s => s.id === c.shield);

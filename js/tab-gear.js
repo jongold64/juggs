@@ -126,7 +126,7 @@ export function renderGear(D, c, rollBtn) {
       <label class="field">Shield <select data-bind="shield">${options(D.gear.shields.map(s => ({ value: s.id,
         label: `${s.name} (DR ${s.dr}, TL ${s.tech_level})` })), c.shield, 'None')}</select></label>
     </div>
-    <p><b>DR ${info.dr}</b> ${info.parts.length ? `<span class="hint">(${info.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')})</span>` : ''}
+    <p><b>DR ${info.dr}</b> — added to the Body Defend roll and the Body Deflect number ${info.parts.length ? `<span class="hint">(${info.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')})</span>` : ''}
       ${info.agilityPenalty ? ` · <b>Agility rolls ${info.agilityPenalty}</b>` : ''}</p>
     <p class="hint">${esc(D.gear.rules.armor)} ${info.armor?.notes ? esc(info.armor.notes) : ''} ${info.shield?.benefit ? esc(info.shield.benefit) : ''}</p>
   </section>`;

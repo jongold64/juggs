@@ -167,7 +167,10 @@ Last updated: 2026-09-29.
   - **Legendary** quality is available from Wealth Tier 7 (Very Wealthy), per the Gear Quality list.
   - The armor's Agility penalty applies to Agility rolls (skills, Initiative, ranged attacks), not to the Deflect
     number. The Ascetic ignores armor.
-  - DR = armor + shield + Defender (+1, +2 from Step 4) + Ward items, shown as its own number against Stamina damage.
+  - DR = armor + shield + Defender (+1, +2 from Step 4) + Ward items — **all DR counts** (for now). DR is **added to
+    the Body Defend roll and the Body Deflect number** (Deflect is not rolled but still benefits). It is **not taken
+    off Stamina damage**; it reduces damage through the roll. Mind and Spirit Defend/Deflect get a bonus only from
+    enhanced armor or items that name them (Enhancement targets "Defend (Mind)", "Deflect (Spirit)", …).
   - Gear above the Wealth ceiling (the Player Book's Gear Quality list) is allowed with a warning.
 
 ## Vehicles (structure)
@@ -198,9 +201,6 @@ Last updated: 2026-09-29.
 - **Effect pools**: which pools can pay for each Effect. Chapter 1 and the "Effect types by pool" table disagree;
   the data keeps both readings and leaves `pools` empty.
 - The Channeler Suggested Build's sixth Focus Skill (Abjure was one of the six).
-- **Armor raises Deflect** (author ruling) — details being confirmed: which Deflects (Body only, or all three), which
-  DR counts (armor and shield only, or Defender and Ward items too), and whether DR still also reduces Stamina
-  damage.
 - Power list damage: Lay on Hands has no Power Level lines, and one Psionic Power lost its heading (the "Boon and
   Bane Severity Summary" sits in its place).
 - Side-by-side pool layout on the sheet — the author will judge it once the sheet exists.

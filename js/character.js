@@ -85,8 +85,11 @@ export function cleanPower(D, raw) {
 // What an item can apply to: Enhancements name a roll, Wards give DR (other Ward kinds are written in notes).
 export function itemTargets(D) {
   return [
-    { value: 'attack', label: 'Attack rolls' }, { value: 'defend', label: 'Defend rolls' },
-    { value: 'deflect', label: 'Deflect' },
+    { value: 'attack', label: 'Attack rolls' },
+    { value: 'defend', label: 'Defend rolls (all)' },
+    ...['body', 'mind', 'spirit'].map(d => ({ value: `defend:${d}`, label: `Defend (${d[0].toUpperCase()}${d.slice(1)})` })),
+    { value: 'deflect', label: 'Deflect (all)' },
+    ...['body', 'mind', 'spirit'].map(d => ({ value: `deflect:${d}`, label: `Deflect (${d[0].toUpperCase()}${d.slice(1)})` })),
     ...D.abilities.abilities.map(a => ({ value: `ability:${a.id}`, label: `${a.name} rolls` })),
     ...D.skills.map(s => ({ value: `skill:${s.id}`, label: s.name })),
   ];

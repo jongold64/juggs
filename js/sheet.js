@@ -69,7 +69,7 @@ export function renderSheet(D, c) {
   const defRows = R.DOMAINS.map(dom => {
     const slot = R.SLOT_ABILITY[dom];
     const defend = R.defendBonus(D, c, dom);
-    return `<tr class="dom-${dom}"><th>${cap(dom)}</th><td><b>${R.deflectFor(D, c, dom)}</b><span class="s-hint">10 + ${esc(D.abilitiesById.get(slot.deflect).name)}</span></td>
+    return `<tr class="dom-${dom}"><th>${cap(dom)}</th><td><b>${R.deflectFor(D, c, dom)}</b><span class="s-hint">10 + ${esc(D.abilitiesById.get(slot.deflect).name)}${dom === 'body' && R.armorInfo(D, c).dr ? ' + DR' : ''}</span></td>
       <td><b>${signed(defend)}</b> ${rollBtn(`Defend (${cap(dom)})`, defend)}<span class="s-hint">${esc(D.abilitiesById.get(slot.defend).name)}</span></td></tr>`;
   }).join('');
   const defenses = `<section class="s-box"><h3>Defenses</h3>
@@ -82,7 +82,7 @@ export function renderSheet(D, c) {
     <table class="s-def"><thead><tr><th></th><th>Deflect</th><th>Defend</th></tr></thead><tbody>${defRows}</tbody></table>
     ${(() => {
       const a = R.armorInfo(D, c);
-      return `<p class="s-armor"><b>DR ${a.dr}</b> vs Stamina damage${a.parts.length ? ` <span class="s-hint">(${a.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')})</span>` : ''}${
+      return `<p class="s-armor"><b>DR ${a.dr}</b> added to Body Defend and Deflect${a.parts.length ? ` <span class="s-hint">(${a.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')})</span>` : ''}${
         a.agilityPenalty ? ` · Agility rolls ${a.agilityPenalty}` : ''}</p>`;
     })()}</section>`;
 
