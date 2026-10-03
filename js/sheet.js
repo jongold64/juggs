@@ -48,7 +48,11 @@ export function renderSheet(D, c) {
 
   // Identity
   const identity = `<section class="s-box s-wide"><h3>Identity</h3><div class="sf-grid">
-    ${field('Character name', c.name, 'span2')}${field('Player', c.player)}${field('Concept', c.concept, 'span3')}
+    ${field('Character name', c.name, 'span2')}
+    <div class="sf s-tokens"><span class="sf-label">Boon Tokens</span><span class="sf-value"><b>${c.play.boonTokens}</b>
+      <button type="button" class="tiny no-print" data-step="play.boonTokens" data-by="-1" aria-label="Spend a Boon Token">−</button>
+      <button type="button" class="tiny no-print" data-step="play.boonTokens" data-by="1" aria-label="Bank a Boon Token">+</button></span></div>
+    ${field('Player', c.player)}${field('Concept', c.concept, 'span3')}
     ${field('Role', roleNames)}${field('Specialty', specs.map(s => s.name).join(', '))}${field('Aptitude', apt?.name)}
     ${field('Origin', origin ? `${origin.name}${c.originChoice ? ` (${c.originChoice})` : ''}` : '')}
     ${field('Genre', genres)}${field('Level', `${c.level} · ${tier.name}`)}</div></section>`;
@@ -143,10 +147,7 @@ export function renderSheet(D, c) {
     <section class="s-box"><h3>Power Source</h3><p>${R.powerSources(D, c).map(s => esc(D.sourcesById.get(s).name)).join(' · ')}</p>
       <p class="s-hint">Physical always applies.</p></section>
     <section class="s-box"><h3>Wealth &amp; Standing</h3>${field('Wealth Tier', `${wealth} · ${w.name}`)}${field('Cash on Hand', w.cash_on_hand)}
-      ${field('Reputation', String(R.reputation(D, c)))}
-      <div class="sf"><span class="sf-label">Boon Tokens</span><span class="sf-value">${c.play.boonTokens}
-        <button type="button" class="tiny no-print" data-step="play.boonTokens" data-by="-1" aria-label="Spend a Boon Token">−</button>
-        <button type="button" class="tiny no-print" data-step="play.boonTokens" data-by="1" aria-label="Bank a Boon Token">+</button></span></div></section>`;
+      ${field('Reputation', String(R.reputation(D, c)))}</section>`;
 
   const page1 = `<div class="sheet-page"><div class="s-title"><b>JUGGS</b> Jon's Universal Genre Gaming System · Character Sheet<span>d20 + Ability + Skill</span></div>
     ${identity}<div class="s-row">${abilities}${defenses}</div>${poolRow}${weaponBox}${skillBox}<div class="s-row s-three">${small}</div></div>`;
