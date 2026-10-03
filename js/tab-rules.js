@@ -3,6 +3,8 @@
 import * as R from './rules.js';
 import { esc } from './dom.js';
 
+const HOW_TO_PLAY = 'https://claude.ai/code/artifact/5ea00859-2298-46d0-b0ad-aaf4fb2c4806';
+
 // The cheat sheet from the How to Play doc.
 const CHEAT = [
   ['The roll', 'd20 + Ability + Skill (+ gear, + Domain Mastery); the margin is overage, 1 overage = 1 box'],
@@ -34,7 +36,7 @@ export function renderRules(D, c) {
   const tier = R.tierFor(D, c.level);
   const card = (title, body) => `<section class="card wide"><h2>${title}</h2>${body}</section>`;
 
-  const cheat = card('Cheat sheet', table(['Rule', 'In one line'],
+  const cheat = card('Cheat sheet', `<p class="hint">One line per rule. The full rules are in <a href="${HOW_TO_PLAY}" target="_blank" rel="noopener">How to Play ↗</a>.</p>` + table(['Rule', 'In one line'],
     CHEAT.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`)));
 
   const menu = card('Boon Menu', `<p>${tier.boon_choices

@@ -58,6 +58,7 @@ h1 { margin: 0; font-size: 1.5rem; color: var(--accent); }
 h2 { margin: 0 0 10px; font-size: 1.1rem; }
 h3 { margin: 12px 0 6px; font-size: 1rem; }
 .subtitle { margin: 0; color: var(--muted); }
+.howto-link { margin-left: auto; font-weight: 600; color: var(--accent); }
 
 main {
   display: grid;
