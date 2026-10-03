@@ -46,92 +46,85 @@ export function renderSheet(D, c) {
   const origin = D.originsById.get(c.origin);
   const genres = c.genres.map(g => D.genresById.get(g).name).join(', ');
 
-  // Identity
-  const identity = `<section class="s-box s-wide"><h3>Identity</h3><div class="sf-grid">
+  // Identity: two rows
+  const identity = `<section class="s-box s-wide s-compact"><h3>Identity</h3><div class="sf-grid six">
     ${field('Character name', c.name, 'span2')}
     <div class="sf s-tokens"><span class="sf-label">Boon Tokens</span><span class="sf-value"><b>${c.play.boonTokens}</b>
       <button type="button" class="tiny no-print" data-step="play.boonTokens" data-by="-1" aria-label="Spend a Boon Token">−</button>
       <button type="button" class="tiny no-print" data-step="play.boonTokens" data-by="1" aria-label="Bank a Boon Token">+</button></span></div>
-    ${field('Player', c.player)}${field('Concept', c.concept, 'span3')}
-    ${field('Role', roleNames)}${field('Specialty', specs.map(s => s.name).join(', '))}${field('Aptitude', apt?.name)}
-    ${field('Origin', origin ? `${origin.name}${c.originChoice ? ` (${c.originChoice})` : ''}` : '')}
-    ${field('Genre', genres)}${field('Level', `${c.level} · ${tier.name}`)}</div></section>`;
+    ${field('Player', c.player)}${field('Level', `${c.level} · ${tier.name}`)}${field('Genre', genres)}
+    ${field('Concept', c.concept, 'span2')}${field('Role', roleNames)}${field('Specialty', specs.map(s => s.name).join(', '))}
+    ${field('Aptitude', apt?.name)}${field('Origin', origin ? `${origin.name}${c.originChoice ? ` (${c.originChoice})` : ''}` : '')}</div></section>`;
 
-  // Ability Scores
-  const abilityRows = R.DOMAINS.map(dom => {
+  // Ability Scores: the three Domains side by side
+  const abilityCols = R.DOMAINS.map(dom => {
     const d = D.domainsById.get(dom);
-    return `<tr class="s-domain dom-${dom}"><th colspan="2">${esc(d.name)}${dom === primary ? ' ★' : ''}</th>
-      <td class="s-mastery" rowspan="4">${mastery[dom] ? signed(mastery[dom]) : '—'}<span>Mastery</span></td></tr>` +
-      d.abilities.map(a => {
+    return `<div class="s-ab-col dom-${dom}"><div class="s-ab-head">${esc(d.name)}${dom === primary ? ' ★' : ''}
+        <span class="s-ab-mastery">${mastery[dom] ? signed(mastery[dom]) : '—'}</span></div>
+      ${d.abilities.map(a => {
         const ab = D.abilitiesById.get(a);
-        return `<tr><td>${esc(ab.name)}${a === c.governing ? ' ◆' : ''} <span class="s-hint">(${cap(ab.slot)})</span></td><td class="s-num">${scores[a]}</td></tr>`;
-      }).join('');
+        return `<div class="s-ab-row"><span>${esc(ab.name)}${a === c.governing ? ' ◆' : ''} <span class="s-hint">${cap(ab.slot)}</span></span><b>${scores[a]}</b></div>`;
+      }).join('')}</div>`;
   }).join('');
-  const abilities = `<section class="s-box"><h3>Ability Scores</h3><table class="s-abilities">${abilityRows}</table>
-    <p class="s-hint">★ Primary Domain · ◆ governing Ability</p></section>`;
+  const abilities = `<section class="s-box s-compact"><h3>Ability Scores <span class="s-hint">★ Primary · ◆ governing · top right: Mastery</span></h3>
+    <div class="s-ab-grid">${abilityCols}</div></section>`;
 
-  // Defenses
+  // Defenses: one stats line, then Deflect / Defend per Domain
   const init = R.initiativeBonus(D, c);
+  const armor = R.armorInfo(D, c);
   const defRows = R.DOMAINS.map(dom => {
     const slot = R.SLOT_ABILITY[dom];
     const defend = R.defendBonus(D, c, dom);
-    return `<tr class="dom-${dom}"><th>${cap(dom)}</th><td><b>${R.deflectFor(D, c, dom)}</b><span class="s-hint">10 + ${esc(D.abilitiesById.get(slot.deflect).name)}${dom === 'body' && R.armorInfo(D, c).dr ? ' + DR' : ''}${dom === 'body' && R.armorInfo(D, c).agilityPenalty ? ' − armor' : ''}</span></td>
-      <td><b>${signed(defend)}</b> ${rollBtn(`Defend (${cap(dom)})`, defend)}<span class="s-hint">${esc(D.abilitiesById.get(slot.defend).name)}</span></td></tr>`;
+    return `<tr class="dom-${dom}"><th>${cap(dom)}</th><td><b>${R.deflectFor(D, c, dom)}</b> <span class="s-hint">${esc(D.abilitiesById.get(slot.deflect).name)}${
+      dom === 'body' && armor.dr ? ' + DR' : ''}${dom === 'body' && armor.agilityPenalty ? ' − armor' : ''}</span></td>
+      <td><b>${signed(defend)}</b> ${rollBtn(`Defend (${cap(dom)})`, defend)} <span class="s-hint">${esc(D.abilitiesById.get(slot.defend).name)}${dom === 'body' && armor.dr ? ' + DR' : ''}</span></td></tr>`;
   }).join('');
-  const defenses = `<section class="s-box"><h3>Defenses</h3>
-    <div class="s-stats">
-      <div><span class="s-big">${signed(init)}</span> ${rollBtn('Initiative', init)}<span class="s-hint">Initiative</span></div>
-      <div><span class="s-big">${tier.actions} / ${tier.reactions}</span><span class="s-hint">Actions / Reactions</span></div>
-      <div><span class="s-big">${tier.surge_max}</span><span class="s-hint">Surge max</span></div>
-      <div><span class="s-big">${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span><span class="s-hint">Boon: Momentum ${tier.momentum_turns === 1 ? '1 turn' : `${tier.momentum_turns} turns`}${
-        tier.boon_choices ? ` + ${tier.boon_choices} choice${tier.boon_choices > 1 ? 's' : ''}` : ''}</span></div>
-    </div>
+  const defenses = `<section class="s-box s-compact"><h3>Defenses</h3>
+    <div class="s-statline"><span>Initiative <b>${signed(init)}</b> ${rollBtn('Initiative', init)}</span>
+      <span>Actions / Reactions <b>${tier.actions} / ${tier.reactions}</b></span><span>Surge max <b>${tier.surge_max}</b></span></div>
     <table class="s-def"><thead><tr><th></th><th>Deflect</th><th>Defend</th></tr></thead><tbody>${defRows}</tbody></table>
-    ${(() => {
-      const a = R.armorInfo(D, c);
-      return `<p class="s-armor"><b>DR ${a.dr}</b> added to Body Defend and Deflect${a.agilityPenalty ? ' (armor lowers Deflect and Agility rolls)' : ''}${a.parts.length ? ` <span class="s-hint">(${a.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')})</span>` : ''}${
-        a.agilityPenalty ? ` · Agility rolls ${a.agilityPenalty}` : ''}</p>`;
-    })()}</section>`;
+    <p class="s-armor"><b>DR ${armor.dr}</b>${armor.parts.length ? ` <span class="s-hint">${armor.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')}</span>` : ''}${
+      armor.agilityPenalty ? ` · <b>Agility rolls ${armor.agilityPenalty}</b>` : ''}</p></section>`;
 
-  // Weapons and implements
+  // Weapons and implements: one line each
   const effName = id => D.effectsById.get(id)?.name || '';
   const weaponRows = [
     ...c.weapons.map(w => {
       const atk = R.weaponAttack(D, c, w);
       const q = D.gear.quality.find(x => x.id === w.quality);
-      return `<tr><td><b>${esc(w.name)}</b></td><td>${esc(q.name)} ${signed(q.weapon_bonus)}</td><td>${cap(w.kind)}</td><td>${esc(effName(w.effect))}</td>
-        <td><b>${signed(atk.total)}</b> ${rollBtn(`${w.name} attack`, atk.total)}</td></tr>`;
+      return `<tr><td><b>${esc(w.name)}</b> <span class="s-hint">${cap(w.kind)}</span></td><td>${esc(q.name)} ${signed(q.weapon_bonus)}</td>
+        <td>${esc(effName(w.effect))}</td><td class="s-atk"><b>${signed(atk.total)}</b> ${rollBtn(`${w.name} attack`, atk.total)}</td></tr>`;
     }),
     ...c.implements.map(m => {
       const cast = R.basicCast(D, c, m);
       const q = D.gear.quality.find(x => x.id === m.quality);
-      return `<tr><td><b>${esc(m.name)}</b></td><td>${esc(q.name)} ${signed(q.weapon_bonus)}</td><td>Implement</td><td></td>
-        <td><b>${signed(cast.total)}</b> ${rollBtn(`Basic Cast (${m.name})`, cast.total)}</td></tr>`;
+      return `<tr><td><b>${esc(m.name)}</b> <span class="s-hint">Implement</span></td><td>${esc(q.name)} ${signed(q.weapon_bonus)}</td>
+        <td></td><td class="s-atk"><b>${signed(cast.total)}</b> ${rollBtn(`Basic Cast (${m.name})`, cast.total)}</td></tr>`;
     }),
   ].join('');
-  const weaponBox = weaponRows ? `<section class="s-box s-wide"><h3>Weapons &amp; Implements</h3><table class="s-powers">
-    <thead><tr><th>Name</th><th>Quality</th><th>Kind</th><th>Effect</th><th>Attack / Cast</th></tr></thead><tbody>${weaponRows}</tbody></table></section>` : '';
+  const weaponBox = weaponRows ? `<section class="s-box s-wide s-compact"><h3>Weapons &amp; Implements</h3><table class="s-powers s-weapons">
+    <thead><tr><th>Name</th><th>Quality</th><th>Effect</th><th>Attack / Cast</th></tr></thead><tbody>${weaponRows}</tbody></table></section>` : '';
 
-  // Boon Menu: what a Boon gives this character, and the options
+  // Boon: one line, the menu inline
+  const SHORT = { recovery: 'unmark 1 box', tempo: '+1 Action this round', clarity: 'clear a Condition on you',
+                  guard: '+2 Deflect and Defend', grace: 'give one to an ally in Near range' };
   const momentum = tier.momentum_turns === 1 ? 'until the end of your next turn' : `for ${tier.momentum_turns} turns`;
-  const boonBox = `<section class="s-box s-wide"><h3>Boon <span class="s-hint">natural ${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span></h3>
-    <p class="s-boon-line"><b>Momentum</b>: +2 to all your rolls ${momentum}${tier.boon_choices
-      ? `, and pick <b>${tier.boon_choices === 1 ? 'one' : tier.boon_choices}</b> from the Boon Menu (never the same twice):`
-      : '. The Boon Menu opens at Seasoned:'}</p>
-    <div class="s-boon-menu">${D.core.boon_menu.map(b => `<div><b>${esc(b.name)}</b> <span class="s-hint">${esc(b.effect)}</span></div>`).join('')}</div></section>`;
+  const boonBox = `<section class="s-box s-wide s-compact"><h3>Boon <span class="s-hint">natural ${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span></h3>
+    <p class="s-boon-line"><b>Momentum</b> +2 to all rolls ${momentum}${tier.boon_choices
+      ? ` · pick <b>${tier.boon_choices === 1 ? 'one' : tier.boon_choices}</b> (never the same twice):` : ' · from Seasoned, also pick from:'}
+      ${D.core.boon_menu.map(b => `<span class="s-boon-opt"><b>${esc(b.name)}</b> ${esc(SHORT[b.id] || b.effect)}</span>`).join(' · ')}</p></section>`;
 
   // Pools, side by side
   const pools = R.pools(D, c);
   const poolCols = R.DOMAINS.map(dom => {
     const pool = R.POOLS[dom];
     const t = poolTrack(D, c, pool, pools[pool]);
-    return `<div class="s-pool dom-${dom}"><div class="s-pool-head"><b>${cap(pool)}</b> <span class="s-hint">${cap(dom)}</span>
+    return `<div class="s-pool dom-${dom}"><div class="s-pool-head"><b>${cap(pool)}</b>
       <span class="s-pool-max">${t.marked} / ${pools[pool].size}${t.band ? ` · ${esc(t.band.name)}` : ''}</span></div>
       <div class="s-boxes s-pool-boxes" style="grid-template-columns: repeat(${pools[pool].size}, minmax(0, 1fr))">${t.boxes}</div>
-      <div class="s-hint">${t.legend}</div></div>`;
+      <div class="s-hint s-legend">${t.legend}</div></div>`;
   }).join('');
-  const poolRow = `<section class="s-box s-wide"><h3>Pools</h3><div class="s-pools">${poolCols}</div>
-    <p class="s-hint">Mark left to right; unmark right to left. Tap a box to mark up to it.</p></section>`;
+  const poolRow = `<section class="s-box s-wide s-compact"><h3>Pools <span class="s-hint">tap a box to mark up to it</span></h3><div class="s-pools">${poolCols}</div></section>`;
 
   // Skills
   const { focus } = R.focusInfo(D, c);
