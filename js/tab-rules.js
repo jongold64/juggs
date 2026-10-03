@@ -14,6 +14,7 @@ const CHEAT = [
   ['Effects', 'description below Surge 2; from Surge 2, Surge sets strength; off-Signature −1'],
   ['Fallout', 'natural 1 while Surging 3+: extra boxes, then Conditions and Corruption'],
   ['Boon', 'natural 20 (wider at higher tiers): Momentum (+2) until the end of your next turn; from Seasoned also the Boon Menu, a turn longer per tier; banks a Token'],
+  ['Boon Menu', 'from Seasoned, pick (never the same twice): Recovery, unmark 1 box · Tempo, +1 Action this round · Clarity, clear a Condition on you · Guard, +2 to Deflect and Defend until your next turn · Grace, give one of these to an ally in Near range'],
   ['Bane', 'natural 1: Regression (−2) until the end of your next turn, plus more consequences at higher tiers'],
   ['Pools', '15 boxes; Hurt 6–10 −1, Injured 11–14 −2 (that Domain), last box Broken'],
   ['Rest', 'Quick: Healthy boxes · Full: Healthy and Hurt · Broken: magic + Full Rest'],
