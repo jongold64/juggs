@@ -144,6 +144,9 @@ table.abilities, table.skills { width: 100%; border-collapse: collapse; }
 .qr-table tr.current { background: color-mix(in srgb, var(--accent) 14%, transparent); font-weight: 600; }
 .qr-table tr.beyond { opacity: .45; }
 .qr-list { padding-left: 20px; }
+.qr-menu { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+.qr-menu li { border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 6px; padding: 8px 10px; }
+.qr-menu li b { display: block; color: var(--accent); }
 .qr-cond { border-bottom: 1px solid var(--border); padding: 5px 0; }
 .qr-cond summary { cursor: pointer; }
 

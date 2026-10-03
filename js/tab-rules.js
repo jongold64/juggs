@@ -37,6 +37,11 @@ export function renderRules(D, c) {
   const cheat = card('Cheat sheet', table(['Rule', 'In one line'],
     CHEAT.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`)));
 
+  const menu = card('Boon Menu', `<p>${tier.boon_choices
+      ? `On a Boon you get Momentum and pick <b>${tier.boon_choices === 1 ? 'one' : tier.boon_choices}</b> of these (never the same one twice):`
+      : 'From Seasoned tier, a Boon gives Momentum and choices from this menu (never the same one twice). At Novice a Boon is Momentum only.'}</p>
+    <ul class="qr-menu">${D.core.boon_menu.map(b => `<li><b>${esc(b.name)}</b> ${esc(b.effect)}</li>`).join('')}</ul>`);
+
   const free = t => (t.mastery_floor_free_up_to === 'all' ? 'all' : t.mastery_floor_free_up_to ? `${t.mastery_floor_free_up_to}-box` : '—');
   const tiers = card(`Tiers <span class="hint">you are ${esc(tier.name)}, Level ${c.level}</span>`, table(
     ['Tier', 'Levels', 'Actions / Reactions', 'Boon on', 'Momentum', 'Menu choices', 'Surge max', 'Skill caps (Focus / other)',
@@ -51,9 +56,8 @@ export function renderRules(D, c) {
   const boons = card('Boons and Banes', `
     <p><b>Boon</b> (natural ${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`} for you): Momentum, +2 to all your rolls
       ${tier.momentum_turns === 1 ? 'until the end of your next turn' : `for ${tier.momentum_turns} turns`}${
-      tier.boon_choices ? `, plus ${tier.boon_choices === 1 ? 'one choice' : `${tier.boon_choices} choices`} from the Boon Menu` : ''}.
+      tier.boon_choices ? `, plus ${tier.boon_choices === 1 ? 'one choice' : `${tier.boon_choices} choices`} from the Boon Menu (above)` : ''}.
       Every natural Boon banks a Boon Token (1 token: Fallout one step milder; 2: cancel it).</p>
-    <ul class="qr-list">${D.core.boon_menu.map(b => `<li><b>${esc(b.name)}</b> — ${esc(b.effect)}</li>`).join('')}</ul>
     <p><b>Bane</b> (natural 1): Regression, −2 to all your rolls until the end of your next turn, plus:</p>
     ${table(['Tier', 'What happens'], D.core.tiers.map(t => `<tr${t.id === tier.id ? ' class="current"' : ''}><th scope="row">${esc(t.name)}</th><td>${esc(t.bane)}</td></tr>`))}`);
 
@@ -76,5 +80,5 @@ export function renderRules(D, c) {
     ${conds(D.conditions.filter(x => !x.positive && x.id !== 'removed'))}
     <h3>Positive</h3>${conds(D.conditions.filter(x => x.positive))}`);
 
-  return cheat + tiers + boons + surge + maneuvers + conditions;
+  return cheat + menu + tiers + boons + surge + maneuvers + conditions;
 }
