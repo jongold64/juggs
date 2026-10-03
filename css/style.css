@@ -135,6 +135,18 @@ table.abilities, table.skills { width: 100%; border-collapse: collapse; }
   max-width: calc(100% - 32px);
 }
 
+/* Quick Rules tab */
+.qr-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.qr-table th, .qr-table td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+.qr-table thead th { font-size: .85rem; color: var(--muted); }
+.qr-table tbody th { white-space: nowrap; }
+.qr-table.tiers td, .qr-table.tiers th { text-align: center; white-space: nowrap; }
+.qr-table tr.current { background: color-mix(in srgb, var(--accent) 14%, transparent); font-weight: 600; }
+.qr-table tr.beyond { opacity: .45; }
+.qr-list { padding-left: 20px; }
+.qr-cond { border-bottom: 1px solid var(--border); padding: 5px 0; }
+.qr-cond summary { cursor: pointer; }
+
 /* Roles & Feats tab */
 .subtabs { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px; }
 .subtabs button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
