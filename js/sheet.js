@@ -112,6 +112,14 @@ export function renderSheet(D, c) {
   const weaponBox = weaponRows ? `<section class="s-box s-wide"><h3>Weapons &amp; Implements</h3><table class="s-powers">
     <thead><tr><th>Name</th><th>Quality</th><th>Kind</th><th>Effect</th><th>Attack / Cast</th></tr></thead><tbody>${weaponRows}</tbody></table></section>` : '';
 
+  // Boon Menu: what a Boon gives this character, and the options
+  const momentum = tier.momentum_turns === 1 ? 'until the end of your next turn' : `for ${tier.momentum_turns} turns`;
+  const boonBox = `<section class="s-box s-wide"><h3>Boon <span class="s-hint">natural ${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span></h3>
+    <p class="s-boon-line"><b>Momentum</b>: +2 to all your rolls ${momentum}${tier.boon_choices
+      ? `, and pick <b>${tier.boon_choices === 1 ? 'one' : tier.boon_choices}</b> from the Boon Menu (never the same twice):`
+      : '. The Boon Menu opens at Seasoned:'}</p>
+    <div class="s-boon-menu">${D.core.boon_menu.map(b => `<div><b>${esc(b.name)}</b> <span class="s-hint">${esc(b.effect)}</span></div>`).join('')}</div></section>`;
+
   // Pools, side by side
   const pools = R.pools(D, c);
   const poolCols = R.DOMAINS.map(dom => {
@@ -150,7 +158,7 @@ export function renderSheet(D, c) {
       ${field('Reputation', String(R.reputation(D, c)))}</section>`;
 
   const page1 = `<div class="sheet-page"><div class="s-title"><b>JUGGS</b> Jon's Universal Genre Gaming System · Character Sheet<span>d20 + Ability + Skill</span></div>
-    ${identity}<div class="s-row">${abilities}${defenses}</div>${poolRow}${weaponBox}${skillBox}<div class="s-row s-three">${small}</div></div>`;
+    ${identity}<div class="s-row">${abilities}${defenses}</div>${boonBox}${poolRow}${weaponBox}${skillBox}<div class="s-row s-three">${small}</div></div>`;
 
   // Page 2: features
   const roleList = Object.entries(steps).map(([id, n]) => {
