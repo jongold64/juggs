@@ -230,3 +230,7 @@ Last updated: 2026-09-29.
 - Power list damage: Lay on Hands has no Power Level lines, and one Psionic Power lost its heading (the "Boon and
   Bane Severity Summary" sits in its place).
 - Side-by-side pool layout on the sheet — the author will judge it once the sheet exists.
+- **Weird Role Step 2** is kept as written for now ("Revelation fills 0 Resolve. Corruption check DC 12 (not 14)").
+  Its DC 14 Corruption check comes from the older d8 Weird Table (Back to Basics); the current d20 table (Book of
+  Genres) adds Corruption automatically, so the DC half has nothing to change. Removing or rewriting it is undecided.
+  The Weird Role text also still uses the d8 numbers (Revelation 8, Drain 4, Backlash 1), read as the named results.
