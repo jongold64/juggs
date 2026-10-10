@@ -1412,5 +1412,109 @@
       }
     ],
     "cantrip_rule": "A Cantrip (0 points) costs no Mana for a practitioner: anyone with a Cast or Channel skill at rank 2 or higher. Others pay 1 Mana."
+  },
+  "weird": {
+    "source": "Book of Genres, Weird Magic. Tainted is tracked as Corruption (DECISIONS.md).",
+    "when": "Whenever you cast a Weird Magic Power, roll d20 after the Power's success or failure is resolved. The result applies on top of the normal Power effect. A Bane (natural 1) on the cast, or a Backlash or Revelation result, adds 1 Corruption.",
+    "table": [
+      {
+        "min": 1,
+        "max": 2,
+        "name": "Backlash",
+        "effect": "The Power also targets the caster at half effect. Add 1 Corruption immediately."
+      },
+      {
+        "min": 3,
+        "max": 5,
+        "name": "Bleed",
+        "effect": "The Power leaves a visible mark on the caster — a scorch, a sigil, a color in the eye. Narrative only; the GM tracks it and may use it later."
+      },
+      {
+        "min": 6,
+        "max": 8,
+        "name": "Echo",
+        "effect": "The Power fires again next round at the same target. No Action or pool cost required."
+      },
+      {
+        "min": 9,
+        "max": 11,
+        "name": "Drain",
+        "effect": "The pool cost drains from a random pool. Roll d20: 1–7 Mana, 8–14 Stamina, 15–20 Resolve.",
+        "drain": [
+          {
+            "min": 1,
+            "max": 7,
+            "pool": "Mana"
+          },
+          {
+            "min": 8,
+            "max": 14,
+            "pool": "Stamina"
+          },
+          {
+            "min": 15,
+            "max": 20,
+            "pool": "Resolve"
+          }
+        ]
+      },
+      {
+        "min": 12,
+        "max": 14,
+        "name": "Surge Free",
+        "effect": "The Power gains 1 free Surge box this cast at no cost."
+      },
+      {
+        "min": 15,
+        "max": 17,
+        "name": "Stable",
+        "effect": "No additional effect. The Weird was quiet this time."
+      },
+      {
+        "min": 18,
+        "max": 19,
+        "name": "Shift",
+        "effect": "The Effect type changes to an adjacent type. GM and player agree on adjacency (Fire→Electric, Psychic→Void, Toxic→Cold, etc.)."
+      },
+      {
+        "min": 20,
+        "max": 20,
+        "name": "Revelation",
+        "effect": "The caster briefly perceives something they were not meant to see. The GM narrates a fragment of forbidden knowledge. Mark 1 Resolve box. Add 1 Corruption."
+      }
+    ],
+    "fallout_when": "Weird Fallout happens on a natural 1 while Surging 3+ boxes. Roll d20:",
+    "fallout": [
+      {
+        "min": 1,
+        "max": 5,
+        "name": "Uncontrolled outward",
+        "effect": "The Power manifests in the environment (as Arcane Fallout). Add 1 Corruption."
+      },
+      {
+        "min": 6,
+        "max": 10,
+        "name": "Inward",
+        "effect": "The caster gains Removed (Spirit) for the rest of the scene (as Spiritual Fallout). Add 1 Corruption."
+      },
+      {
+        "min": 11,
+        "max": 15,
+        "name": "Unravelling",
+        "effect": "The Power fails completely — no effect, pool cost still paid. Add 1 Corruption."
+      },
+      {
+        "min": 16,
+        "max": 20,
+        "name": "Something notices",
+        "effect": "The GM introduces a supernatural consequence in the next scene — an entity drawn by the signal, a shift in local reality, an uninvited presence. Add 2 Corruption."
+      }
+    ],
+    "notes": [
+      "Weird Control (Willpower, DC 14): try to direct or suppress a Weird Table result before it resolves — choose between the rolled result and a re-roll.",
+      "Weird Read (Acuity): after 3+ Weird rolls in a session, the GM gives insight into what the Weird is doing.",
+      "Witnesses to Weird Magic, allies included, make a Horror Check DC 12 when they see it cast. The caster is exempt.",
+      "The Weird Role changes these rolls: roll twice and choose (Step 1), Revelation marks no Resolve (Step 2), declare a result once per scene (Step 3), choose the Drain pool (Step 4), redirect Backlash to a visible target (Step 5)."
+    ]
   }
 }

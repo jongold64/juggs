@@ -9,6 +9,7 @@ import { renderSheet } from './sheet.js';
 import { renderPowers, setDraft, toggleCondition, powerAction, resetDraft } from './tab-powers.js';
 import { renderGear, gearAction } from './tab-gear.js';
 import { renderRules } from './tab-rules.js';
+import { weirdRoll } from './weird.js';
 import { reqStatus as reqStatusText, mark } from './requirements-text.js';
 import { renderRoles, rolesAction, setRolesFilter } from './tab-roles.js';
 
@@ -143,6 +144,10 @@ function onClick(e) {
     update();
   } else if (d.roll) {
     roll(d.roll, Number(d.bonus));
+  } else if (d.weird) {
+    const r = weirdRoll(D, d.weird);
+    showToast(`<b>${d.weird === 'fallout' ? 'Weird Fallout' : 'Weird Table'}</b>: d20 (${r.die}) <b>${esc(r.row.name)}</b> — ${esc(r.row.effect)}${
+      r.drain ? ` Drain roll d20 (${r.drain.die}): <b>${esc(r.drain.pool)}</b>.` : ''}`, 10000);
   }
 }
 
@@ -175,11 +180,15 @@ function roll(what, bonus) {
     tier.boon_choices ? `, and choose ${tier.boon_choices === 1 ? 'one' : tier.boon_choices} from the Boon Menu` : ''}`;
   const note = die === 1 ? ' — Bane (natural 1): Regression, −2 to your rolls until the end of your next turn'
     : die >= tier.boon_threshold ? boon : '';
+  showToast(`<b>${esc(what)}</b>: d20 (${die}) ${signed(bonus)} = <b>${die + bonus}</b>${esc(note)}`);
+}
+
+function showToast(html, ms = 6000) {
   const toast = $('roll-toast');
-  toast.innerHTML = `<b>${esc(what)}</b>: d20 (${die}) ${signed(bonus)} = <b>${die + bonus}</b>${esc(note)}`;
+  toast.innerHTML = html;
   toast.hidden = false;
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { toast.hidden = true; }, 6000);
+  toastTimer = setTimeout(() => { toast.hidden = true; }, ms);
 }
 
 // ---------------------------------------------------------------------------------------------------------------

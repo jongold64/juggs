@@ -2,6 +2,7 @@
 // character's tier highlighted and Maneuver costs after their Mastery Floor.
 import * as R from './rules.js';
 import { esc } from './dom.js';
+import { weirdOn, weirdCard } from './weird.js';
 
 const HOW_TO_PLAY = 'https://claude.ai/code/artifact/5ea00859-2298-46d0-b0ad-aaf4fb2c4806';
 
@@ -82,5 +83,5 @@ export function renderRules(D, c) {
     ${conds(D.conditions.filter(x => !x.positive && x.id !== 'removed'))}
     <h3>Positive</h3>${conds(D.conditions.filter(x => x.positive))}`);
 
-  return cheat + menu + tiers + boons + surge + maneuvers + conditions;
+  return cheat + menu + tiers + boons + surge + (weirdOn(c) ? weirdCard(D) : '') + maneuvers + conditions;
 }

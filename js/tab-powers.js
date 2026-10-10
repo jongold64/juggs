@@ -3,6 +3,7 @@
 import * as R from './rules.js';
 import { newPower, cleanPower } from './character.js';
 import { esc, options, groupedOptions } from './dom.js';
+import { weirdOn, weirdCard } from './weird.js';
 
 // The Power being built. It is not saved until "Save to character"; editing = index in state.powers, or null.
 let draft = null;
@@ -232,5 +233,5 @@ export function renderPowers(D, c) {
       ${e.surge.length ? `<p class="hint">${e.surge.map(x => `${esc(x.boxes)} box: ${esc(x.text)}`).join(' · ')}</p>` : ''}</details>`).join('');
   const exampleCard = `<section class="card wide"><h2>Example Powers <span class="hint">from the Player Book</span></h2>${examples}</section>`;
 
-  return builder + mine + exampleCard;
+  return builder + (weirdOn(c) ? weirdCard(D) : '') + mine + exampleCard;
 }

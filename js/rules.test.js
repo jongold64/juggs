@@ -2,6 +2,7 @@
 import { loadData } from './data.js';
 import { newCharacter, clean } from './character.js';
 import * as R from './rules.js';
+import { weirdResult } from './weird.js';
 
 const results = [];
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
@@ -214,6 +215,14 @@ check('Faculty items have no Rating', clean(D, { items: [{ template: 'faculty', 
 check('Unknown ids are dropped', clean(D, { role: 'no-such-role', feats: { 3: 'nope', 1: 'toughened' } }).feats, { 1: 'toughened' });
 check('Level is kept within 1-20', clean(D, { level: 40 }).level, 20);
 check('Missing fields get defaults', clean(D, {}).play.trackers.corruption, 0);
+
+// Weird Table
+const W = D.powers.weird;
+const covers = rows => [...Array(20)].every((_, i) => rows.filter(r => i + 1 >= r.min && i + 1 <= r.max).length === 1);
+check('Weird Table covers 1-20 once each', covers(W.table), true);
+check('Weird Fallout covers 1-20 once each', covers(W.fallout), true);
+check('Weird Drain covers 1-20 once each', covers(W.table.find(r => r.drain).drain), true);
+check('Weird 1 is Backlash, 10 Drain, 20 Revelation', [1, 10, 20].map(n => weirdResult(W.table, n).name), ['Backlash', 'Drain', 'Revelation']);
 
 // Report
 const failed = results.filter(r => !r.pass);
