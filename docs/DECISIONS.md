@@ -168,6 +168,9 @@ Last updated: 2026-09-29.
 - The Weird Table is rolled on a **d20** with ranged results (Book of Genres version). Weird Role references to
   results by number (1 Backlash, 4 Drain, 8 Revelation) mean the named results.
 - Weird results add to **Corruption** (no separate Tainted track).
+- **Weird Fallout replaces normal Fallout**: on a Weird Magic cast, a natural 1 while Surging 3+ uses the Weird
+  Fallout table instead of the Surge table's Fallout.
+- The Weird Table shows for every character when the Weird Magic Genre is on (not only Weird Role or Weird source).
 
 ## Gear and items
 

@@ -1483,7 +1483,7 @@
         "effect": "The caster briefly perceives something they were not meant to see. The GM narrates a fragment of forbidden knowledge. Mark 1 Resolve box. Add 1 Corruption."
       }
     ],
-    "fallout_when": "Weird Fallout happens on a natural 1 while Surging 3+ boxes. Roll d20:",
+    "fallout_when": "On a Weird Magic cast, a natural 1 while Surging 3+ boxes is Weird Fallout instead of the normal Surge Fallout. Roll d20:",
     "fallout": [
       {
         "min": 1,
@@ -1511,7 +1511,7 @@
       }
     ],
     "notes": [
-      "Weird Control (Willpower, DC 14): try to direct or suppress a Weird Table result before it resolves — choose between the rolled result and a re-roll.",
+      "Weird Control (Willpower, DC 14): try to direct or suppress a Weird Table result before it resolves — choose between the rolled result and a re-roll. Succeeding twice on Weird Control in one scene adds 1 Corruption.",
       "Weird Read (Acuity): after 3+ Weird rolls in a session, the GM gives insight into what the Weird is doing.",
       "Witnesses to Weird Magic, allies included, make a Horror Check DC 12 when they see it cast. The caster is exempt.",
       "The Weird Role changes these rolls: roll twice and choose (Step 1), Revelation marks no Resolve (Step 2), declare a result once per scene (Step 3), choose the Drain pool (Step 4), redirect Backlash to a visible target (Step 5)."
