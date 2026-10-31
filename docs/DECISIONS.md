@@ -257,7 +257,16 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 - **Deafened stays its own condition** (decided 2026-10-31). No change needed.
 - **Element and Void (decided 2026-10-31, not yet applied).** Element is absorbed into the expansion Sources; the closest is
   Nature / Primal, which is the proposed home for old saves. Void stays as its own Source: negative energy, from Space or
-  "the Old Ones". Its rules are still to be approved.
+  "the Old Ones". Its rules:
+  - Ability Intellect or Willpower; pools Mana / Stamina; Basic Cast crosses Stamina. Origin chosen at creation: Space
+    (impersonal) or the Old Ones (may notice you). No visible components. Learned from forbidden texts or contact.
+  - The Void Effect never takes the -1 for being non-Signature.
+  - **Corruption**: the Void Effect check is made only on a Bane (natural 1), for every Source except Innate and Spirit,
+    which stay exempt. Read as replacing the check on every use; Arcane and Void DC 14, Divine DC 12.
+  - **Opposition**: Divine Powers (positive energy) and Nature / Primal Earth Effects count as 1 Power Level higher
+    against Void-sourced targets. Positive Energy is not a separate Effect. Void casters can be Abjured.
+  - **Demonic is separate**: Demonic is a deal with something that wants you; Void is contact with something that does
+    not care. A patron who bargains, like The Bound, is Demonic. Pantara's Void is ignored for now (work in progress).
 
 - Standard Origin trait.
 - Void Power Source details.
