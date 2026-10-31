@@ -13,6 +13,7 @@ export function prepare(raw) {
     D[`${name}ById`] = index(raw[name]);
   }
   D.sourcesById = index(raw.powers.sources);
+  D.spellsById = index(raw.powers.spells);
   return D;
 }
 

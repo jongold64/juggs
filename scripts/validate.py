@@ -126,7 +126,6 @@ def main(folder):
     ck.records('afflictions.json', aff.get('afflictions', []))
     powers = ck.load('powers.json') or {}
     sources = ck.records('powers.json sources', powers.get('sources', []))
-    ck.records('powers.json examples', powers.get('examples', []))
     abilities, domains = ctx['abilities'], ctx['domains']
     ability_or_primary = set(abilities) | {'primary_attack'}
 
@@ -208,17 +207,16 @@ def main(folder):
         cost = m.get('cost', {})
         if 'pool' in cost:
             ck.ref(f'maneuvers.json {m["id"]}', cost['pool'], POOLS, 'pool')
-    builder = powers.get('builder', {})
-    for key in ('range', 'targets', 'duration', 'summons'):
-        for o in ck.records(f'powers.json builder {key}', builder.get(key, [])).values():
-            if not isinstance(o.get('points'), int):
-                ck.err(f'powers.json builder {key} {o["id"]}', '"points" must be a whole number')
-    for m in ck.records('powers.json builder modifiers', builder.get('modifiers', [])).values():
-        ck.ref(f'powers.json modifier {m["id"]}', m.get('sources', []), sources, 'Power Source')
-    levels = builder.get('power_levels', [])
-    for a, b in zip(levels, levels[1:]):
-        if a.get('max') is None or b.get('min') != a['max'] + 1:
-            ck.err('powers.json builder power_levels', 'point bands must follow on with no gaps')
+    for key, opts in powers.get('upgrades', {}).items():
+        for o in ck.records(f'powers.json upgrades {key}', opts).values():
+            if not isinstance(o.get('pl'), int):
+                ck.err(f'powers.json upgrades {key} {o["id"]}', '"pl" must be a whole number')
+    for s in ck.records('powers.json spells', powers.get('spells', [])).values():
+        w = f'powers.json spell {s["id"]}'
+        if [x.get('pl') for x in s.get('steps', [])] != [1, 2, 3, 4, 5]:
+            ck.err(w, 'steps must be Power Levels 1-5 in order')
+        if s.get('steps') and s['steps'][0].get('level') != 1:
+            ck.err(w, 'every spell starts at Level 1')
 
     for s in sources.values():
         w = f'powers.json source {s["id"]}'

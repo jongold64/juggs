@@ -1,194 +1,5 @@
 {
-  "cost_rule": "Casters only: Mana cost = the Power's Power Level - the character's tier Power Level (Novice 1 ... Legendary 5), minimum 1. Non-Casters pay the base Mana. Surge is paid in full. Basic Cast is free. (DECISIONS.md)",
-  "power_levels": [
-    {
-      "level": 1,
-      "base_mana": 1,
-      "targets": "1 target",
-      "range": "Touch",
-      "duration": "Instant",
-      "damage_heal": "1 box",
-      "scope": "Minor effect"
-    },
-    {
-      "level": 2,
-      "base_mana": 2,
-      "targets": "1 target",
-      "range": "Near",
-      "duration": "Scene",
-      "damage_heal": "2 boxes",
-      "scope": "Focused"
-    },
-    {
-      "level": 3,
-      "base_mana": 3,
-      "targets": "Up to 6 or 1 Rival",
-      "range": "Far",
-      "duration": "Minutes",
-      "damage_heal": "3 boxes or clear Wound",
-      "scope": "Real ability"
-    },
-    {
-      "level": 4,
-      "base_mana": 4,
-      "targets": "6+ or 1 Antagonist",
-      "range": "Distant",
-      "duration": "Hours",
-      "damage_heal": "4 boxes or all pools",
-      "scope": "Scene-reshaping"
-    },
-    {
-      "level": 5,
-      "base_mana": 5,
-      "targets": "Unlimited or 1 Boss",
-      "range": "Anywhere known",
-      "duration": "Permanent",
-      "damage_heal": "Catastrophic",
-      "scope": "Narrative-altering"
-    }
-  ],
-  "construction": {
-    "components": [
-      {
-        "component": "A - Range",
-        "options": [
-          {
-            "option": "Close / Touch",
-            "points": "0"
-          },
-          {
-            "option": "Near (30-59 ft)",
-            "points": "1"
-          },
-          {
-            "option": "Far (60+ ft)",
-            "points": "2"
-          },
-          {
-            "option": "Sight / Distant",
-            "points": "3"
-          },
-          {
-            "option": "Anywhere Known",
-            "points": "5"
-          }
-        ]
-      },
-      {
-        "component": "B - Targets",
-        "options": [
-          {
-            "option": "Single Target",
-            "points": "0"
-          },
-          {
-            "option": "Line 30 ft",
-            "points": "1"
-          },
-          {
-            "option": "Cone 15 ft",
-            "points": "2"
-          },
-          {
-            "option": "Multi-Target 3 or Burst 20 ft",
-            "points": "3"
-          },
-          {
-            "option": "Multi-Target 6",
-            "points": "5"
-          }
-        ]
-      },
-      {
-        "component": "C - Duration",
-        "options": [
-          {
-            "option": "Instant",
-            "points": "0"
-          },
-          {
-            "option": "1 Round/level",
-            "points": "1"
-          },
-          {
-            "option": "Concentration 1 min",
-            "points": "2"
-          },
-          {
-            "option": "1 Minute/level",
-            "points": "3"
-          },
-          {
-            "option": "10 Minutes/level",
-            "points": "4"
-          },
-          {
-            "option": "1 Hour/level",
-            "points": "5"
-          }
-        ]
-      },
-      {
-        "component": "D - Effect Type",
-        "options": [
-          {
-            "option": "Declare only",
-            "points": "Intensity set by Surge level"
-          }
-        ]
-      },
-      {
-        "component": "E - Conditions",
-        "options": [
-          {
-            "option": "Per condition applied on hit",
-            "points": "1 pt each (max 3)"
-          }
-        ]
-      }
-    ],
-    "points_to_power_level": [
-      {
-        "points": "0",
-        "power_level": "Cantrip",
-        "base_mana": "0 (free for Casters with Cast 2+)"
-      },
-      {
-        "points": "1-5",
-        "power_level": "PL 1",
-        "base_mana": "1"
-      },
-      {
-        "points": "6-10",
-        "power_level": "PL 2",
-        "base_mana": "2"
-      },
-      {
-        "points": "11-15",
-        "power_level": "PL 3",
-        "base_mana": "3"
-      },
-      {
-        "points": "16-20",
-        "power_level": "PL 4",
-        "base_mana": "4"
-      },
-      {
-        "points": "21+",
-        "power_level": "PL 5",
-        "base_mana": "5"
-      }
-    ]
-  },
-  "setting_the_power_level": [
-    "The player describes what they want to do. The GM uses the scope guidelines to assign a level. This should be a two-line conversation, not a rules argument.",
-    "Flavor swap, minor range/duration shift, fewer targets than max: No change.",
-    "One tier up in a single dimension (more targets, larger area, or longer duration): Raise by +1.",
-    "Add a meaningful secondary effect (damage + slow, attack + reveal): Raise by +1.",
-    "Push two or more dimensions simultaneously: Raise by +2.",
-    "Player scales back scope mid-negotiation: GM may reduce by −1.",
-    "→ Weird Magic: The Weird Magic system — including the d20 Weird Table, Weird Fallout, Tainted track, and Dread interactions — is in the Overlays chapter."
-  ],
+  "cost_rule": "Mana = Power Level. Casters and Channelers subtract Character Level / 6, rounded down, minimum 1 Mana. Paid win or lose. Surge and Effect boxes are never discounted. Basic Cast is free.",
   "sources": [
     {
       "id": "physical",
@@ -205,8 +16,18 @@
         "int",
         "bel"
       ],
+      "pools_text": "Mana",
+      "tier": "core",
       "basic_cast_pool": "mana",
-      "rules": "arcane",
+      "text": [
+        "Any setting with a magic tradition. TL 1+.",
+        "Components: Gestures, spoken words, runes, ritual components. Always visible.",
+        "Learning: Arcane powers can be taught, copied, and learned from written sources.",
+        "Disruption: Silenced prevents verbal components (Cast DC 10 to continue). Restrained at -2.",
+        "Void: Using Void Effect via Arcane requires Corruption check DC 14 regardless of Surge level. | Visible to others: Any bystander can see Arcane in use.",
+        "Counterable: Arcane can be Abjured. Spirit/Shamanic cannot.",
+        "The most common Power Source in fantasy settings. Arcane magic is systematic — it follows rules that can be discovered and codified. A character with Arcane can, in principle, teach another character Arcane."
+      ],
       "default_from_focus": [
         "cast-attack",
         "cast-defend",
@@ -220,8 +41,235 @@
         "bel",
         "mor"
       ],
+      "pools_text": "Mana / Resolve",
+      "tier": "core",
       "basic_cast_pool": "resolve",
-      "rules": "divine"
+      "text": [
+        "Any setting with a faith tradition. TL 1+.",
+        "Components: Holy symbols, prayer, laying on hands. Faith-powered.",
+        "Source: Power comes from genuine faith, not the deity directly. A crisis of faith Drains Mana -2 until resolved.",
+        "Void: Divine characters who use Void Effect must make a Corruption check DC 12 (lower than Arcane — doctrine may permit it).",
+        "Healing: Only Power Source with native access to Healing Effect at no additional cost flag. | Cannot be Silenced: Prayer is internal — Silenced condition does not prevent Divine use.",
+        "Abjurable: Divine can be Abjured. Innate cannot.",
+        "Divine power does not require the deity's conscious approval for each action — it is stored faith, not a direct phone line. A character can use Divine powers while their deity sleeps, is absent, or does not exist."
+      ],
+      "default_from_focus": []
+    },
+    {
+      "id": "innate",
+      "name": "Innate",
+      "abilities": [],
+      "pools_text": "Any matching the Power",
+      "tier": "core",
+      "basic_cast_pool": "stamina",
+      "text": [
+        "Any setting. TL 1+. ML 0 possible for subtle innate abilities.",
+        "Components: None. Biological, bloodline, or cosmic gift. No words, no gestures.",
+        "Learning: Cannot be taught. Cannot be copied. Narrative source defines what is possible.",
+        "Suppression: Innate cannot be Abjured. It can be Negated by specific powers designed for it.",
+        "Versatility: Uses whatever Ability fits the specific power. A fire-blooded character uses STR for fire breath; a telepath uses INT. | No Corruption check: Innate Void use does not trigger Corruption.",
+        "Setting-specific: GM defines the narrative source at character creation.",
+        "Innate is the broadest Power Source — it covers dragons, mutants, superheroes, blessed bloodlines, alien physiology, and anything else that cannot be explained by training or faith. The specific Ability is chosen at character creation and does not change."
+      ],
+      "default_from_focus": []
+    },
+    {
+      "id": "psionic",
+      "name": "Psionic",
+      "abilities": [
+        "int",
+        "acu"
+      ],
+      "pools_text": "Mana",
+      "tier": "core",
+      "basic_cast_pool": "mana",
+      "text": [
+        "Settings with ML 2+. Present in high-tech settings as standard.",
+        "Components: Silent. No visible manifestation. No words, no gestures, no components.",
+        "Mindless immunity: Creatures with no Intellect (Constructs, undead without minds) may be immune to Psychic Effects at 1-3 boxes via Psionic. GM adjudicates.",
+        "Suppression: Psionic cannot be Silenced. It can be blocked by psionic shielding (specific powers or TL 9+ technology).",
+        "Social: Psionic is the only Power Source that can be used in social situations without detection. | Undetectable: No visible tell unless the character chooses to make one.",
+        "Detection: Other psionics can detect psionic activity at ACU DC 13.",
+        "The silent Power Source. Psionic characters frequently have to decide whether to reveal their abilities or use them covertly. In settings where psionics are feared or regulated (Shadowrun, Dark Sun, many sci-fi settings), this becomes a major character and social factor."
+      ],
+      "default_from_focus": []
+    },
+    {
+      "id": "spirit",
+      "name": "Spirit / Shamanic",
+      "abilities": [
+        "bel",
+        "ser"
+      ],
+      "pools_text": "Mana / Resolve",
+      "tier": "core",
+      "basic_cast_pool": "resolve",
+      "text": [
+        "Settings with animist or shamanic traditions. TL 1+.",
+        "Components: Varies — ritual objects, offerings, spoken bargains, drumming, dance.",
+        "Source: Power is bargained or gifted from external entities (spirits, ancestors, nature forces). The power is not yours alone.",
+        "Entity agenda: The GM may introduce entity complications. A spirit that granted power may later want something in return.",
+        "Abjure immunity: Spirit/Shamanic powers cannot be Abjured (the spirit is not casting — the character is relaying). | Entity relationship: Character must maintain relationship with source entity.",
+        "No Void Corruption: Spirit/Shamanic Void use does not trigger the Arcane Corruption check.",
+        "Distinct from Divine: Divine power comes from the character's own faith. Shamanic power comes from an agreement with something outside. The entity can renege. The entity can upgrade the deal. The entity has opinions about how its power is used."
+      ],
+      "default_from_focus": [
+        "channel"
+      ]
+    },
+    {
+      "id": "weird-science",
+      "name": "Weird Science",
+      "abilities": [
+        "int",
+        "acu"
+      ],
+      "pools_text": "Mana / Stamina",
+      "tier": "core",
+      "basic_cast_pool": null,
+      "text": [
+        "TL 5+. Cannot be used at TL 1-4 without GM exception.",
+        "Components: Gadgets, serums, devices, formulae. Always has a physical component.",
+        "Preparation: Most Weird Science powers require preparation time outside of combat (GM discretion, typically 10 minutes to 1 hour for complex devices).",
+        "Destruction: Physical gadgets can be targeted (DR 0, Stamina 6 for a standard device). If destroyed, the power is unavailable until rebuilt.",
+        "Reproducible: Weird Science can be explained and replicated by anyone with sufficient Intellect and materials. It is technology, not magic. | No Corruption: Weird Science has no Corruption track.",
+        "TL-limited: Specific devices only available at appropriate Technology Level.",
+        "Weird Science is technology that should not work yet does — it is D&D's Artificer, GURPS' gadgeteer, Shadowrun' s technomancer adjacent. Distinct from Arcane because it is repeatable, physical, and teachable to anyone regardless of Ability. The character's Intellect determines reliability and power, not some innate gift."
+      ],
+      "default_from_focus": []
+    },
+    {
+      "id": "alchemical",
+      "name": "Alchemical",
+      "abilities": [
+        "int"
+      ],
+      "pools_text": "Stamina (physical lab work); Mana (reactive formulas)",
+      "tier": "expansion",
+      "basic_cast_pool": null,
+      "text": [
+        "TL 3+. Pre-industrial chemistry settings, fantasy apothecary traditions.",
+        "Components: Prepared substances — potions, bombs, salves, reagents. Must be crafted in advance.",
+        "Preparation: All Alchemical powers are crafted out of combat. Activation in combat is instantaneous (draw and use).",
+        "Supply limit: Characters carry a limited number of prepared substances (GM sets inventory cap, typically 3-6 per scene).",
+        "No Mana pool cost: Alchemical activation costs Stamina (physical exertion of use), not Mana. The preparation was the hard part."
+      ],
+      "default_from_focus": []
+    },
+    {
+      "id": "blood-magic",
+      "name": "Blood Magic",
+      "abilities": [
+        "str",
+        "tou"
+      ],
+      "pools_text": "Stamina (life force as fuel)",
+      "tier": "expansion",
+      "basic_cast_pool": null,
+      "text": [
+        "Any TL / ML with a tradition of sacrifice. Often restricted or forbidden.",
+        "Cost structure: Instead of spending Mana, Blood Magic powers cost Stamina boxes directly. 1 Stamina = 1 Mana for Power purposes.",
+        "No Mana required: A Blood Magic character does not need a Mana pool. Stamina serves as the fuel.",
+        "Pool risk: Stamina spent on Blood Magic counts as damage taken — it crosses boxes and may trigger Hurt/Injured thresholds.",
+        "Corruption: Using Blood Magic on an unwilling target's blood (forced sacrifice) requires a Corruption check DC 16."
+      ],
+      "default_from_focus": []
+    },
+    {
+      "id": "chi",
+      "name": "Chi / Ki",
+      "abilities": [
+        "str",
+        "tou",
+        "agi"
+      ],
+      "pools_text": "Stamina (physical mastery)",
+      "tier": "expansion",
+      "basic_cast_pool": null,
+      "text": [
+        "Any TL. Requires trained discipline — not a gift.",
+        "Components: None. Internal. Breath control, body movement, trained focus.",
+        "Source: Trained discipline, not bloodline gift. Anyone can learn with sufficient time (GM sets training requirements).",
+        "Vs Innate: Innate = you were born with it. Chi = you trained for it. Mechanically similar, narratively opposite.",
+        "Suppression: Chi cannot be Abjured. It can be disrupted by specific anti-ki techniques (other Chi practitioners or specific Powers)."
+      ],
+      "default_from_focus": []
+    },
+    {
+      "id": "cybernetic",
+      "name": "Cybernetic",
+      "abilities": [
+        "int",
+        "acu"
+      ],
+      "pools_text": "Mana (system processing); Stamina (physical enhancement)",
+      "tier": "expansion",
+      "basic_cast_pool": null,
+      "text": [
+        "TL 8+. Implanted technology — not carried, not destroyable without surgery.",
+        "Components: Implanted technology. No preparation required — always active or on-demand.",
+        "Vs Weird Science: Weird Science = external gadgets. Cybernetic = implanted. Cybernetics cannot be dropped, pickpocketed, or targeted separately without surgery.",
+        "Disruption: Electric Effect at 3+ boxes can disrupt Cybernetic powers (system short-out). EMP disables all Cybernetic powers for the scene.",
+        "Humanity cost: High-Cybernetic characters may develop social penalties at GM discretion (TL 9+ settings with Humanity mechanics)."
+      ],
+      "default_from_focus": []
+    },
+    {
+      "id": "demonic",
+      "name": "Demonic / Pact-Bound",
+      "abilities": [
+        "bel",
+        "ser"
+      ],
+      "pools_text": "Mana / Resolve (and sometimes Stamina — see notes)",
+      "tier": "expansion",
+      "basic_cast_pool": null,
+      "text": [
+        "Any setting with supernatural entities willing to make deals.",
+        "Components: Varies by pact terms. Often involves a symbol, trigger word, or ritual gesture.",
+        "Source: Power granted by a demonic, infernal, or significantly powerful entity. The deal was bad. The character may not know how bad.",
+        "Corruption: Every use of Pact-Bound powers requires a Corruption check (DC 10 + Power Level). This is not negotiable. It is in the contract.",
+        "Vs Shamanic: Spirit/Shamanic = entity can be reasoned with. Demonic = entity has a fixed agenda and the contract is non-negotiable."
+      ],
+      "default_from_focus": []
+    },
+    {
+      "id": "nature",
+      "name": "Nature / Primal",
+      "abilities": [
+        "bel",
+        "ser"
+      ],
+      "pools_text": "Mana / Stamina",
+      "tier": "expansion",
+      "basic_cast_pool": null,
+      "text": [
+        "Settings with a living natural world. TL 1-5 primarily; present at any TL with GM approval.",
+        "Components: Touch, proximity to natural material, spoken communion. Never requires manufactured components.",
+        "Source: Direct relationship with the living world — not through intermediary entities. The land itself, not spirits of the land.",
+        "Vs Shamanic: Spirit/Shamanic = relationship with spirits OF nature. Nature/Primal = relationship WITH nature directly.",
+        "Restriction: Nature/Primal powers are diminished in environments without natural material (urban TL 8+ settings: -1 to all Nature/Primal rolls). Fully functional in wilderness."
+      ],
+      "default_from_focus": []
+    },
+    {
+      "id": "runic",
+      "name": "Runic / Inscription",
+      "abilities": [
+        "int",
+        "acu"
+      ],
+      "pools_text": "Mana (preparation); activation is free",
+      "tier": "expansion",
+      "basic_cast_pool": null,
+      "text": [
+        "TL 2+. Settings with written language and a runic tradition.",
+        "Components: Written runes, sigils, inscriptions. Always physical — a rune that is not written does not exist.",
+        "Preparation: Runic powers must be prepared in advance. Activation in the moment of need is free (the rune fires). No improvisation.",
+        "Duration: A rune activates once and is spent. Permanent runes (etched in stone/metal) cost double Mana on preparation.",
+        "Cannot improvise: A Runic character cannot create a new effect in combat. They bring what they prepared."
+      ],
+      "default_from_focus": []
     },
     {
       "id": "element",
@@ -234,38 +282,6 @@
       ]
     },
     {
-      "id": "nature",
-      "name": "Nature",
-      "abilities": null,
-      "basic_cast_pool": null,
-      "rules": null,
-      "flags": [
-        "Details to be decided."
-      ]
-    },
-    {
-      "id": "psionic",
-      "name": "Psionic",
-      "abilities": [
-        "wil"
-      ],
-      "basic_cast_pool": "mana",
-      "rules": "psionic"
-    },
-    {
-      "id": "spirit",
-      "name": "Spirit",
-      "abilities": [
-        "bel",
-        "ser"
-      ],
-      "basic_cast_pool": "resolve",
-      "rules": "spiritual",
-      "default_from_focus": [
-        "channel"
-      ]
-    },
-    {
       "id": "void",
       "name": "Void",
       "abilities": null,
@@ -274,1145 +290,8 @@
       "flags": [
         "Details to be decided."
       ]
-    },
-    {
-      "id": "weird",
-      "name": "Weird",
-      "abilities": [
-        "int",
-        "acu"
-      ],
-      "basic_cast_pool": null,
-      "rules": "weird",
-      "basic_cast_note": "GM's call based on the effect described; the Weird Table still fires."
     }
   ],
-  "examples": [
-    {
-      "id": "arcane-bolt",
-      "name": "Arcane Bolt",
-      "source_text": "Arcane (Magic)",
-      "ability_text": "Intellect",
-      "effect_text": "Fire or Force",
-      "description": "A searing lance of raw magical energy launched from the caster’s fingertips.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Near · Instant · 1 box",
-          "result": "Single target, direct damage."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "1 target · Far · Instant · 2 boxes",
-          "result": "Range extends across the battlefield."
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "3 targets · Far · Instant · 3 boxes",
-          "result": "Multiple bolts from a single cast."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "6 targets · Distant · Instant · 4 boxes",
-          "result": "A barrage that crosses the scene."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "All in sight · Sight · Instant · 5 boxes",
-          "result": "Structure-level consequence."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to roll. No additional effect."
-        },
-        {
-          "boxes": "2",
-          "text": "Activate Effect free — Burning (Fire) or push 1 band (Force)."
-        },
-        {
-          "boxes": "3",
-          "text": "Push + Effect on hit; or double overage."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Scene-defining blast — GM and player determine scope."
-        }
-      ]
-    },
-    {
-      "id": "arcane-shield",
-      "name": "Arcane Shield",
-      "source_text": "Arcane (Magic)",
-      "ability_text": "Intellect / Willpower",
-      "effect_text": "Force",
-      "description": "A shimmering barrier of solidified force interposes itself between the caster and harm.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "Self · Self · 1 round",
-          "result": "+2 Deflect for 1 round."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "1 target · Near · Scene",
-          "result": "+3 Deflect until end of scene, or +2 to one Near ally."
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "All allies · Area: Close · Close · Scene",
-          "result": "+3 Deflect for all allies in Close range."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "1 target · Near · 1 attack",
-          "result": "Immune to one attack of any kind."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "All allies · Area: Near · Near · Scene",
-          "result": "All allies immune to one attack source for the scene."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to Deflect value this round."
-        },
-        {
-          "boxes": "2",
-          "text": "Force Effect free — attacker struck is pushed 1 range band."
-        },
-        {
-          "boxes": "3",
-          "text": "Reflect — on successful Deflect, attacker takes overage as damage."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Fortress — shield persists indefinitely until broken or dismissed."
-        }
-      ]
-    },
-    {
-      "id": "telekinesis",
-      "name": "Telekinesis",
-      "source_text": "Arcane (Magic) / Psionic",
-      "ability_text": "Intellect",
-      "effect_text": "Force",
-      "description": "The caster reaches out with invisible will and moves objects or creatures at range.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 object · Near · Instant",
-          "result": "Move an unattended object to Near range."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "1 target · Far · Instant · Opposed Strength",
-          "result": "Move object or willing creature; push unwilling 1 band."
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "1 target · Far · Sustained · Restrained · Opposed Strength DC 12",
-          "result": "Sustained grip — Restrained until released."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "Multiple · Far · Sustained · 2 boxes/rd · Restrained",
-          "result": "Multiple targets; Restrained + damage per round."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "Scene · Area: Scene · Sight · Scene",
-          "result": "Scene-reshaping — collapse structures, redirect projectiles."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to opposed movement roll."
-        },
-        {
-          "boxes": "2",
-          "text": "Force Effect free — push target an additional 1 band."
-        },
-        {
-          "boxes": "3",
-          "text": "Double overage on movement roll; or push + Prone."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Telekinetic storm — all loose objects become projectiles."
-        }
-      ]
-    },
-    {
-      "id": "chain-lightning",
-      "name": "Chain Lightning",
-      "source_text": "Arcane (Magic)",
-      "ability_text": "Intellect",
-      "effect_text": "Electric",
-      "description": "A bolt of electricity arcs from one enemy to the next, each strike feeding the next.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Near · Instant · 1 box",
-          "result": "Single bolt."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "2 targets · Near · Instant · 2 boxes each",
-          "result": "Arcs to second target automatically."
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "4 targets · Area: Near · Near · Instant · 2 boxes each",
-          "result": "Chains automatically between targets."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "6 targets · Area: Far · Far · Instant · 3 boxes each",
-          "result": "Conductive surfaces spread it further."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "Unlimited · Area: Sight · Sight · Instant · 3 boxes each",
-          "result": "Metal armor doubles damage."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to roll. Chain adds 1 extra target at no cost."
-        },
-        {
-          "boxes": "2",
-          "text": "Electric Effect free — first target Stunned."
-        },
-        {
-          "boxes": "3",
-          "text": "First target Stunned + Prone; chain targets take +1 box each."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Overload — all targets Paralyzed. Powered systems fail."
-        }
-      ]
-    },
-    {
-      "id": "void-tear",
-      "name": "Void Tear",
-      "source_text": "Arcane (Magic)",
-      "ability_text": "Intellect / Willpower",
-      "effect_text": "Void",
-      "description": "A rift is torn in reality itself, unmade matter spilling through to shred what it touches.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Near · Instant · 1 box",
-          "result": "Bypasses all DR."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "1 target · Far · Instant · 2 boxes",
-          "result": "Bypasses DR."
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "3 targets · Far · Instant · 3 boxes · Exposed",
-          "result": "Bypasses DR; targets gain Exposed."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "Area · Area: Far · Far · Instant · 4 boxes + 1 drain · Exposed",
-          "result": "Exposed; drains 1 box from highest pool."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "Scene · Area: Scene · Sight · Permanent",
-          "result": "Tear widens into a permanent rift."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to roll. Void bypass remains."
-        },
-        {
-          "boxes": "2",
-          "text": "Void Effect free — target gains Exposed on hit."
-        },
-        {
-          "boxes": "3",
-          "text": "Exposed + drain 1 extra box from highest pool."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Unravelling — target’s highest pool maximum reduced by 2."
-        }
-      ]
-    },
-    {
-      "id": "mend",
-      "name": "Mend",
-      "source_text": "Divine (Miracles) / Spirit-Shamanic",
-      "ability_text": "Belief / Serenity",
-      "effect_text": "Healing",
-      "description": "Warmth flows from the healer’s hands, knitting wounds and restoring depleted vitality.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Touch · Instant · Unmark 1 box",
-          "result": "Any one pool."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "1 target · Near · Instant · Unmark 2 boxes",
-          "result": "Any one pool."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "1 target · Near · Instant · Full Recovery (1 pool)",
-          "result": "Clears Healthy and Hurt from one pool."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "1 target · Near · Instant · All pools to Healthy; Broken→Impaired",
-          "result": "All pools restored."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to Heal roll. 1 extra box unmarked on success."
-        },
-        {
-          "boxes": "2",
-          "text": "Healing Effect free — unmark 1 additional box."
-        },
-        {
-          "boxes": "3",
-          "text": "Unmark 2 additional boxes; or transfer to second target at half effect."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Mass restoration — all allies in Close range receive the L4 effect."
-        }
-      ]
-    },
-    {
-      "id": "purify",
-      "name": "Purify",
-      "source_text": "Divine (Miracles) / Spirit-Shamanic",
-      "ability_text": "Belief / Serenity",
-      "effect_text": "Healing",
-      "description": "The healer burns away poison, fire, and affliction with a wave of restorative light.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Touch · Instant · Remove 1 Condition",
-          "result": "Poisoned, Burning, Frightened, or similar."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "2 targets · Near · Instant · Remove 1 Condition each",
-          "result": null
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "1 target · Near · Instant · Remove all Conditions",
-          "result": "Full cleanse."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "6 targets · Near · Instant · Remove all Conditions each",
-          "result": "Mass cleanse."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "All allies · Area: Sight · Sight · Scene · All Conditions removed",
-          "result": "Permanent afflictions suppressed for the scene."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "Condition removed even on partial success."
-        },
-        {
-          "boxes": "2",
-          "text": "Healing Effect free — unmark 1 Stamina box alongside cleanse."
-        },
-        {
-          "boxes": "3",
-          "text": "Remove Condition and unmark 2 boxes; or remove 2 Conditions from same target."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Purifying wave — all Conditions removed from all allies in Near range."
-        }
-      ]
-    },
-    {
-      "id": "lay-on-hands",
-      "name": "Lay on Hands",
-      "source_text": "Divine (Miracles) / Innate",
-      "ability_text": "Belief",
-      "effect_text": "Healing",
-      "description": "The healer’s touch carries the full weight of conviction, channelling restoration directly into a broken body.",
-      "levels": [],
-      "surge": [],
-      "flags": [
-        "No Power Level lines in the Player Book."
-      ]
-    },
-    {
-      "id": "untitled-psionic-power",
-      "name": "Untitled Psionic power",
-      "source_text": "Psionic",
-      "ability_text": "Intellect / Acuity",
-      "effect_text": "Psychic",
-      "description": "The psion reaches into a mind and reads its surface — or projects thoughts directly into it.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Touch · Scene",
-          "result": "Read surface thoughts. Target unaware."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "1 target · Near · Scene",
-          "result": "Read surface thoughts; project simple images or words."
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "1 target · Far · Scene · Opposed Willpower",
-          "result": "Deep read — access memories. Two-way with willing target."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "Multiple · Distant · Scene · Opposed DC 16",
-          "result": "Plant a false memory."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "Anyone known · Anywhere · Permanent",
-          "result": "Permanent memory alteration."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to opposed Willpower roll for deep reads."
-        },
-        {
-          "boxes": "2",
-          "text": "Gain one piece of specific information without rolling."
-        },
-        {
-          "boxes": "3",
-          "text": "Double overage on opposed roll; or plant two false impressions."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Total access — read or rewrite any memory. Target unaware."
-        }
-      ],
-      "flags": [
-        "The Player Book has no heading for this Power: the \"Boon and Bane Severity Summary\" heading sits in its place. Needs a name."
-      ]
-    },
-    {
-      "id": "dominate",
-      "name": "Dominate",
-      "source_text": "Psionic",
-      "ability_text": "Intellect / Willpower",
-      "effect_text": "Psychic",
-      "description": "The psion’s will subsumes the target’s own, reducing a thinking creature to a puppet.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Near · 1 round · Opposed Willpower",
-          "result": "One simple command."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "1 target · Near · 1 round · Opposed Willpower",
-          "result": "One complex action."
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "1 target · Far · 1 minute · Opposed Willpower (each round)",
-          "result": "Full control. Target resists each round."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "1 target · Far · Scene · Opposed Willpower",
-          "result": "Control for 1 scene. Target retains no memory."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "1 target · Sight · Permanent · Opposed Willpower",
-          "result": "Permanent conditioning — one standing order."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to Willpower opposition roll."
-        },
-        {
-          "boxes": "2",
-          "text": "Psychic Effect free — target also Frightened during domination."
-        },
-        {
-          "boxes": "3",
-          "text": "On success, target cannot resist for 2 rounds."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Absolute command — target acts against deepest values without resistance roll."
-        }
-      ]
-    },
-    {
-      "id": "psychic-shroud",
-      "name": "Psychic Shroud",
-      "source_text": "Psionic",
-      "ability_text": "Acuity / Intellect",
-      "effect_text": "Psychic",
-      "description": "The psion edits their presence from nearby minds, becoming effectively invisible to conscious perception.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "Self · 1 round",
-          "result": "+3 to Stealth rolls for 1 round."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "Self · Scene",
-          "result": "Observers forget your presence after you leave."
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "Self · Scene",
-          "result": "Full invisibility to conscious minds. Mindless unaffected."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "3 allies · Near · Scene",
-          "result": "Extend shroud to up to 3 allies."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "All allies · Area: Near · Near · Scene",
-          "result": "Entire party erased from awareness."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to Stealth rolls under the shroud."
-        },
-        {
-          "boxes": "2",
-          "text": "Psychic Effect free — one observer becomes Confused for 1 round."
-        },
-        {
-          "boxes": "3",
-          "text": "Detection by mindless creature causes Stunned instead of alarm."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Shroud persists even through aggressive action for 1 round."
-        }
-      ]
-    },
-    {
-      "id": "neural-overload",
-      "name": "Neural Overload",
-      "source_text": "Psionic",
-      "ability_text": "Intellect / Willpower",
-      "effect_text": "Psychic",
-      "description": "A wave of overclocked mental signal crashes through every mind in range, leaving them reeling.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Near · 1 round · Stunned",
-          "result": null
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "3 targets · Near · 1 round · Stunned",
-          "result": null
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "All · Area: Close · Close · 1 round · Stunned + Confused · Morale DC 12",
-          "result": "Confused: attacks random ally on fail."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "All · Area: Near · Near · 1 round · Stunned + Confused",
-          "result": "Mindless creatures Stunned regardless."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "All in sight · Area: Sight · Sight · 1 round · 2 Mana (caster) · Stunned + Confused",
-          "result": "Feedback: caster takes 2 Mana boxes."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to roll. One extra target affected."
-        },
-        {
-          "boxes": "2",
-          "text": "Psychic Effect free — one target also Frightened."
-        },
-        {
-          "boxes": "3",
-          "text": "All targets Stunned + Prone; or double overage to one target."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Cascading collapse — targets spread Confusion to adjacent characters."
-        }
-      ]
-    },
-    {
-      "id": "entangle",
-      "name": "Entangle",
-      "source_text": "Spirit-Shamanic / Divine",
-      "ability_text": "Belief / Serenity",
-      "effect_text": "Force",
-      "description": "Roots, vines, and tendrils surge from the earth, coiling around those who stand within.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Close · 1 round · Restrained · Opposed Strength DC 12",
-          "result": null
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "3 targets · Near · 1 round · Restrained",
-          "result": null
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "All · Area: Near · Near · Scene · Restrained",
-          "result": "Difficult terrain persists for the scene."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "All · Area: Far · Far · Sustained · 1 box/rd · Restrained",
-          "result": "Crushing force — 1 Stamina box per round."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "All ground · Area: Sight · Sight · Scene · 2 boxes/rd · Restrained",
-          "result": "All ground becomes difficult terrain."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to roll. Restrained persists 1 extra round."
-        },
-        {
-          "boxes": "2",
-          "text": "Force Effect free — one Restrained target pushed 1 band."
-        },
-        {
-          "boxes": "3",
-          "text": "Restrained + Prone for all; or add Toxic Effect (Poisoned on contact)."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Living cage — cannot be freed without scene-level effort."
-        }
-      ]
-    },
-    {
-      "id": "stone-skin",
-      "name": "Stone Skin",
-      "source_text": "Spirit-Shamanic / Innate",
-      "ability_text": "Belief / Serenity",
-      "effect_text": "Force",
-      "description": "The caster’s body hardens to the consistency of living rock, shrugging off blows that would fell lesser warriors.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "Self · Self · 1 round",
-          "result": "DR +2 until end of next round."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "1 target · Touch · Scene",
-          "result": "DR +3 for 1 scene."
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "1 target · Near · Scene · 1 box reflected",
-          "result": "DR +3; attacker takes 1 Stamina box on hit."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "3 targets · Near · Scene · 1 box reflected each",
-          "result": "DR +4; reflected damage on each hit."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "All allies · Area: Near · Near · Scene",
-          "result": "DR +4; blunt and slashing damage halved."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to Deflect rolls while Stone Skin is active."
-        },
-        {
-          "boxes": "2",
-          "text": "Force Effect free — attacker pushed 1 band on reflected damage."
-        },
-        {
-          "boxes": "3",
-          "text": "DR increases by +1; or extend duration to full session."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Living fortress — caster immovable. Immune to knockback."
-        }
-      ]
-    },
-    {
-      "id": "call-lightning",
-      "name": "Call Lightning",
-      "source_text": "Spirit-Shamanic / Divine",
-      "ability_text": "Belief / Serenity",
-      "effect_text": "Electric",
-      "description": "Storm clouds gather overhead at the shaman’s call, and bolts of natural lightning answer.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Near · Instant · 2 boxes",
-          "result": "Requires open sky or stormy conditions."
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "1 target · Far · Instant · 2 boxes",
-          "result": "Indoors requires gap to the sky."
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "3 targets · Far · Instant · 2 boxes each",
-          "result": "Storm intensifies — area becomes difficult terrain."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "6 targets · Distant · Instant · 3 boxes each",
-          "result": "Metal armor doubles damage."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "Unlimited · Area: Sight · Sight · Scene · 3 boxes/rd",
-          "result": "Continuous storm for 1 scene. Caster directs at will."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to roll. +1 box damage on this strike."
-        },
-        {
-          "boxes": "2",
-          "text": "Electric Effect free — first target Stunned."
-        },
-        {
-          "boxes": "3",
-          "text": "First target Stunned + Prone; chain arcs to one adjacent at half damage."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Endless tempest — enemies take damage each round. Caster cannot be targeted."
-        }
-      ]
-    },
-    {
-      "id": "natures-grasp",
-      "name": "Nature’s Grasp",
-      "source_text": "Spirit-Shamanic",
-      "ability_text": "Belief / Serenity",
-      "effect_text": "Toxic",
-      "description": "Poisonous spores, strangling vines, and acidic sap assault those who trespass in protected ground.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "1 target · Near · Sustained · Poisoned",
-          "result": null
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "3 targets · Near · Sustained · Poisoned + Restrained (Boon)",
-          "result": null
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "All · Area: Near · Near · Sustained · Poisoned + Restrained",
-          "result": "Area effect."
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "All · Area: Far · Far · Sustained · 1 box/rd · Poisoned + Restrained",
-          "result": "Crushing + toxic."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "All living · Area: Sight · Sight · Scene · 2 boxes/rd · Poisoned + Restrained",
-          "result": "Treated as a living environment."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to roll. Poisoned applies even on a tie."
-        },
-        {
-          "boxes": "2",
-          "text": "Toxic Effect free — Poisoned deals 1 immediate Stamina box."
-        },
-        {
-          "boxes": "3",
-          "text": "Poison spreads — contact risks infection (Toughness DC 12)."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Plague ground — area remains Poisoned terrain for 1 scene."
-        }
-      ]
-    },
-    {
-      "id": "primal-roar",
-      "name": "Primal Roar",
-      "source_text": "Spirit-Shamanic / Innate",
-      "ability_text": "Belief / Morale",
-      "effect_text": "Psychic",
-      "description": "A sound that is not quite human tears from the caster’s throat, carrying the fury of something ancient.",
-      "levels": [
-        {
-          "level": 1,
-          "mana": 1,
-          "profile": "All · Area: Close · Close · 1 round · Frightened · Morale DC 12",
-          "result": null
-        },
-        {
-          "level": 2,
-          "mana": 2,
-          "profile": "All · Area: Near · Near · 1 round · Frightened + flee 1 band · Morale DC 12",
-          "result": null
-        },
-        {
-          "level": 3,
-          "mana": 3,
-          "profile": "All · Area: Far · Far · 1 round · Frightened + Prone · Morale DC 14",
-          "result": null
-        },
-        {
-          "level": 4,
-          "mana": 4,
-          "profile": "All in sight · Area: Sight · Sight · 1 round · Frightened + Prone · Morale DC 14",
-          "result": "+2 to all ally rolls for 1 round."
-        },
-        {
-          "level": 5,
-          "mana": 5,
-          "profile": "All enemies · Area: Sight · Sight · 1 round · Frightened + Prone",
-          "result": "All allies receive a free Boon this round."
-        }
-      ],
-      "surge": [
-        {
-          "boxes": "1",
-          "text": "+1 to roll. Morale DC raised by +1."
-        },
-        {
-          "boxes": "2",
-          "text": "Psychic Effect free — one Frightened target also Blinded."
-        },
-        {
-          "boxes": "3",
-          "text": "Frightened targets also Confused; or allies gain +3 instead of +2."
-        },
-        {
-          "boxes": "4–5",
-          "text": "Territorial claim — enemies re-entering area must re-roll Morale DC 16."
-        }
-      ]
-    }
-  ],
-  "builder": {
-    "note": "Point budget from the Player Book (Calculating Without the Tools); layout from juggs_spell_builder_v2.html; extras from JUGGS_Spell_Builder_Mobile (DECISIONS.md).",
-    "range": [
-      {
-        "id": "close",
-        "name": "Close / Touch",
-        "detail": "Same zone or physical contact",
-        "points": 0
-      },
-      {
-        "id": "near",
-        "name": "Near",
-        "detail": "30-59 ft",
-        "points": 1
-      },
-      {
-        "id": "far",
-        "name": "Far",
-        "detail": "60+ ft",
-        "points": 2
-      },
-      {
-        "id": "sight",
-        "name": "Sight",
-        "detail": "Anywhere you can see",
-        "points": 3
-      },
-      {
-        "id": "anywhere",
-        "name": "Anywhere known",
-        "detail": "Known location, any distance",
-        "points": 5
-      }
-    ],
-    "targets": [
-      {
-        "id": "single",
-        "name": "Single target",
-        "detail": "One creature or object",
-        "points": 0
-      },
-      {
-        "id": "line",
-        "name": "Line 30 ft",
-        "detail": "All in a straight line",
-        "points": 1
-      },
-      {
-        "id": "cone",
-        "name": "Cone 15 ft",
-        "detail": "Fan-shaped burst ahead",
-        "points": 2
-      },
-      {
-        "id": "burst",
-        "name": "Burst 20 ft",
-        "detail": "Sphere centred on a point",
-        "points": 3
-      },
-      {
-        "id": "multi-3",
-        "name": "Up to 3 targets",
-        "detail": "Chosen targets",
-        "points": 3
-      },
-      {
-        "id": "multi-6",
-        "name": "Up to 6 targets",
-        "detail": "Chosen targets",
-        "points": 5
-      }
-    ],
-    "duration": [
-      {
-        "id": "instant",
-        "name": "Instant",
-        "detail": "Resolves immediately",
-        "points": 0
-      },
-      {
-        "id": "rounds",
-        "name": "1 round / level",
-        "detail": "",
-        "points": 1
-      },
-      {
-        "id": "concentration",
-        "name": "Concentration (up to 1 minute)",
-        "detail": "",
-        "points": 2
-      },
-      {
-        "id": "minutes",
-        "name": "1 minute / level",
-        "detail": "",
-        "points": 3
-      },
-      {
-        "id": "ten-minutes",
-        "name": "10 minutes / level",
-        "detail": "",
-        "points": 4
-      },
-      {
-        "id": "hours",
-        "name": "1 hour / level",
-        "detail": "",
-        "points": 5
-      }
-    ],
-    "summons": [
-      {
-        "id": "grunt",
-        "name": "Summon (Grunt)",
-        "detail": "A Grunt-tier creature for the scene",
-        "points": 4
-      },
-      {
-        "id": "rival",
-        "name": "Summon (Rival)",
-        "detail": "A Rival-tier creature for the scene",
-        "points": 8
-      }
-    ],
-    "condition_points": 1,
-    "max_conditions": 3,
-    "power_levels": [
-      {
-        "min": 0,
-        "max": 0,
-        "power_level": 0,
-        "name": "Cantrip"
-      },
-      {
-        "min": 1,
-        "max": 5,
-        "power_level": 1,
-        "name": "PL 1"
-      },
-      {
-        "min": 6,
-        "max": 10,
-        "power_level": 2,
-        "name": "PL 2"
-      },
-      {
-        "min": 11,
-        "max": 15,
-        "power_level": 3,
-        "name": "PL 3"
-      },
-      {
-        "min": 16,
-        "max": 20,
-        "power_level": 4,
-        "name": "PL 4"
-      },
-      {
-        "min": 21,
-        "max": null,
-        "power_level": 5,
-        "name": "PL 5"
-      }
-    ],
-    "effect_points": 0,
-    "effect_note": "The Effect type is declared only; the Surge level sets its strength (Surge 2 = 1-box intensity).",
-    "modifiers": [
-      {
-        "id": "focus-item",
-        "name": "Focus Item",
-        "text": "-1 point. Arcane or Divine Powers only.",
-        "points": -1,
-        "sources": [
-          "arcane",
-          "divine"
-        ]
-      },
-      {
-        "id": "entity-blessing",
-        "name": "Entity Blessing",
-        "text": "A patron adds +1 Power Level for free (Mana is paid for the lower level).",
-        "power_level_bonus": 1
-      }
-    ],
-    "cantrip_rule": "A Cantrip (0 points) costs no Mana for a practitioner: anyone with a Cast or Channel skill at rank 2 or higher. Others pay 1 Mana."
-  },
   "weird": {
     "source": "Book of Genres, Weird Magic. Tainted is tracked as Corruption (DECISIONS.md).",
     "when": "Whenever you cast a Weird Magic Power, roll d20 after the Power's success or failure is resolved. The result applies on top of the normal Power effect. A Bane (natural 1) on the cast, or a Backlash or Revelation result, adds 1 Corruption.",
@@ -6968,5 +5847,89 @@
         }
       ]
     }
-  ]
+  ],
+  "making_rule": "Start at Power Level 1: one target, Near range or closer, instant, doing one small thing. Add +1 for each upgrade. On a hit, cross boxes equal to the overage or the Power Level, whichever is higher, up to the Hit Cap.",
+  "limits_rule": "Tough targets: a Power that controls or removes a foe without crossing boxes must be at least PL 3 against a Rival, PL 4 against an Antagonist, PL 5 against a Boss. Minions can be affected at any Level. Ask the GM only for story-changing magic.",
+  "cantrip_rule": "A cantrip is PL 1, Close or Touch, one target: free with Cast or Channel at rank 2+, otherwise it costs normal Mana.",
+  "spell_rule": "Every spell can be cast at Level 1 in a small form. Choose any Step you have unlocked; its Power Level is its cost. On a hit, cross boxes equal to the overage or the Step's PL, whichever is higher.",
+  "upgrades": {
+    "reach": [
+      {
+        "id": "touch",
+        "name": "Close or Touch",
+        "pl": 0
+      },
+      {
+        "id": "near",
+        "name": "Near",
+        "pl": 0
+      },
+      {
+        "id": "far",
+        "name": "Far",
+        "pl": 1
+      },
+      {
+        "id": "distant",
+        "name": "Distant, or anything in sight",
+        "pl": 2
+      },
+      {
+        "id": "anywhere",
+        "name": "Anywhere you know",
+        "pl": 3
+      }
+    ],
+    "targets": [
+      {
+        "id": "one",
+        "name": "One target",
+        "pl": 0
+      },
+      {
+        "id": "several",
+        "name": "Several: up to 6, or one area",
+        "pl": 1
+      },
+      {
+        "id": "everyone",
+        "name": "Everyone you choose in the scene",
+        "pl": 2
+      }
+    ],
+    "duration": [
+      {
+        "id": "instant",
+        "name": "Instant",
+        "pl": 0
+      },
+      {
+        "id": "scene",
+        "name": "Lasts the scene",
+        "pl": 1
+      },
+      {
+        "id": "hours",
+        "name": "Lasts hours",
+        "pl": 2
+      }
+    ],
+    "impact": [
+      {
+        "id": "none",
+        "name": "One small thing",
+        "pl": 0
+      },
+      {
+        "id": "major",
+        "name": "Major: flight, a second effect, clearing an Injured box",
+        "pl": 1
+      },
+      {
+        "id": "scene-changing",
+        "name": "Scene-changing: banishing a foe, crossing the world",
+        "pl": 2
+      }
+    ]
+  }
 }

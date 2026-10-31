@@ -3,10 +3,10 @@
 import { loadData } from './data.js';
 import { newCharacter, clean } from './character.js';
 import * as R from './rules.js';
-import { $, esc, signed, paragraphs, options, groupedOptions, cap } from './dom.js';
+import { $, esc, signed, options, groupedOptions, cap } from './dom.js';
 import { openRoster, saveRoster, loadCharacter, saveCharacter, removeCharacter, newId, exportData, importData } from './storage.js';
 import { renderSheet } from './sheet.js';
-import { renderPowers, setDraft, toggleCondition, powerAction, resetDraft } from './tab-powers.js';
+import { renderPowers, setDraft, setPowerFilter, powerAction, resetDraft } from './tab-powers.js';
 import { renderGear, gearAction } from './tab-gear.js';
 import { renderRules } from './tab-rules.js';
 import { weirdRoll } from './weird.js';
@@ -79,6 +79,9 @@ function onChange(e) {
   if (el.dataset.rfFilter) {  // Roles & Feats filters (page state, not saved)
     setRolesFilter(el.dataset.rfFilter, readValue(el));
     render();
+  } else if (el.dataset.powerFilter) {  // spell list filters (page state, not saved)
+    setPowerFilter(el.dataset.powerFilter, readValue(el));
+    render();
   } else if (el.dataset.draft) {  // the Power being built (not saved until "Save to character")
     setDraft(D, el.dataset.draft, readValue(el));
     render();
@@ -99,6 +102,9 @@ function onInput(e) {
   if (el.dataset.rfFilter === 'query') {  // search as you type
     setRolesFilter('query', el.value);
     render();
+  } else if (el.dataset.powerFilter === 'query') {
+    setPowerFilter('query', el.value);
+    render();
   } else if (el.dataset.bind && (el.tagName === 'TEXTAREA' || el.type === 'text')) {
     setPath(state, el.dataset.bind, el.value);
     save();
@@ -110,10 +116,7 @@ function onClick(e) {
   if (!b) return;
   const d = b.dataset;
   if (d.tab) { tab = d.tab; render(); return; }
-  if (d.draftCond) {
-    toggleCondition(D, d.draftCond);
-    render();
-  } else if (d.power) {
+  if (d.power) {
     const list = powerAction(D, state, d.power, d.arg);
     if (list) { state.powers = list; update(); } else render();
   } else if (d.rf) {

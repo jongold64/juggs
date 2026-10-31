@@ -3,7 +3,7 @@
     python scripts/import_lite.py "<folder with the books>" <data folder>
 
 The books are still changing, so this can be run again; try it on a copy of data/ and compare by hand. It replaces
-data/feats.json and the "spells" list in data/powers.json. In data/specialties.json it replaces what the books give
+data/feats.json, and the "spells" and "sources" lists in data/powers.json. In data/specialties.json it replaces what the books give
 (Steps, summary, synergy text, Fallout) and keeps what they do not (bonus skills, category, synergy requirement).
 Requirements it cannot read are kept as words, which the builder shows as "check by hand".
 """
@@ -188,6 +188,40 @@ def spells_from(blocks):
     return out
 
 
+SOURCE_IDS = {'Arcane (Magic)': 'arcane', 'Divine (Miracles)': 'divine', 'Innate': 'innate', 'Psionic': 'psionic',
+              'Spirit / Shamanic': 'spirit', 'Weird Science': 'weird-science', 'Alchemical': 'alchemical',
+              'Blood Magic': 'blood-magic', 'Chi / Ki (Internal Discipline)': 'chi', 'Cybernetic': 'cybernetic',
+              'Demonic / Pact-Bound': 'demonic', 'Nature / Primal': 'nature', 'Runic / Inscription': 'runic'}
+BASIC_CAST = {'arcane': 'mana', 'psionic': 'mana', 'divine': 'resolve', 'spirit': 'resolve', 'innate': 'stamina'}
+
+
+def sources_from(blocks):
+    """The 13 Power Sources: [{id, name, abilities, pools_text, tier, text}], core ones first as in the book."""
+    out = []
+    active = False
+    cur = None
+    for b in blocks:
+        if b.heading == 1:
+            active = b.text == 'Power Sources'
+            cur = None
+        elif active and b.heading == 3 and b.text in SOURCE_IDS:
+            sid = SOURCE_IDS[b.text]
+            cur = {'id': sid, 'name': b.text.split(' (')[0], 'abilities': [], 'pools_text': '',
+                   'tier': 'core' if len(out) < 6 else 'expansion', 'basic_cast_pool': BASIC_CAST.get(sid), 'text': []}
+            out.append(cur)
+        elif active and b.heading:
+            cur = None
+        elif cur and b.kind == 'p' and b.text:
+            if b.text.startswith('Ability:'):
+                head = b.text.split(' | ')
+                cur['abilities'] = [ABILITY[w] for w in re.findall(r'\w+', head[0]) if w in ABILITY]
+                cur['pools_text'] = head[1].replace('Pools:', '').strip() if len(head) > 1 else ''
+                cur['text'].append(' | '.join(head[2:]))
+            else:
+                cur['text'].append(b.text)
+    return out
+
+
 def main(books, data):
     books, data = Path(books), Path(data)
     load = lambda n: json.loads((data / f'{n}.json').read_text(encoding='utf-8'))
@@ -222,6 +256,12 @@ def main(books, data):
 
     powers = load('powers')
     powers['spells'] = spells_from(powers_book)
+    # The books have 13 Sources. Physical (everyone) and Element and Void (the author's, details to be decided) stay.
+    kept = {s['id']: s for s in powers['sources']}
+    new = sources_from(powers_book)
+    for s in new:
+        s['default_from_focus'] = kept.get(s['id'], {}).get('default_from_focus', [])
+    powers['sources'] = [kept['physical'], *new, kept['element'], kept['void']]
     (data / 'powers.json').write_text(json.dumps(powers, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
     unread = [f['name'] for f in feats if any('text' in c for c in f['requires'])]

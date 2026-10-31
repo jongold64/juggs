@@ -2,7 +2,7 @@
 // boxes, trackers and conditions can be marked during play, and rolled values have a d20 button.
 import * as R from './rules.js';
 import { esc, signed, cap } from './dom.js';
-import { summaryFor, describe, powerName } from './tab-powers.js';
+import { describe } from './tab-powers.js';
 
 const rollBtn = (what, bonus) =>
   `<button type="button" class="roll no-print" data-roll="${esc(what)}" data-bonus="${bonus}" aria-label="Roll ${esc(what)}">d20</button>`;
@@ -169,13 +169,17 @@ export function renderSheet(D, c) {
     <h4>Feats</h4><ul class="s-list">${featList}</ul></section>`;
 
   const powerRows = c.powers.map(p => {
-    const s = summaryFor(D, c, p);
-    const ex = p.example && D.powers.examples.find(e => e.id === p.example)?.levels.find(l => l.level === p.exampleLevel);
-    return `<tr><td><b>${esc(powerName(D, p))}</b></td><td>${s.powerLevel === 0 ? 'Cantrip' : `PL ${s.effectiveLevel}`}</td><td>${s.mana}</td>
-      <td>${esc(ex ? `${ex.profile} → ${ex.result || ''}` : describe(D, p, s).replace(/ Power Level.*$| Cantrip ·.*$/, ''))}</td></tr>`;
+    const spell = D.spellsById.get(p.spell);
+    if (spell) {
+      const top = R.stepsAt(spell, c.level).pop();
+      return `<tr><td><b>${esc(spell.name)}</b></td><td>PL ${top.pl}</td><td>${R.spellStepSummary(D, c, top).mana}</td>
+        <td>${esc(top.reach)} · ${esc(top.targets)} · ${esc(top.duration)}. ${esc(top.text)}</td></tr>`;
+    }
+    const s = R.madePowerSummary(D, c, p);
+    return `<tr><td><b>${esc(p.name || 'Unnamed Power')}</b></td><td>PL ${s.powerLevel}</td><td>${s.mana}</td><td>${esc(describe(D, p))}</td></tr>`;
   }).join('');
   const powers = c.powers.length ? `<section class="s-box s-wide"><h3>Powers</h3><table class="s-powers">
-    <thead><tr><th>Power</th><th>Level</th><th>Mana</th><th>What it does</th></tr></thead><tbody>${powerRows}</tbody></table></section>` : '';
+    <thead><tr><th>Power</th><th>Top Step</th><th>Mana</th><th>What it does</th></tr></thead><tbody>${powerRows}</tbody></table></section>` : '';
 
   const trackers = `<section class="s-box"><h3>Status Trackers</h3>
     ${[['corruption', 5, 'persistent · never resets'], ['fear', 4, 'individual, acute'], ['morale', 5, 'party shared'],

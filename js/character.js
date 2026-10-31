@@ -25,7 +25,7 @@ export function newCharacter() {
     capstone: '', capstoneNote: '',     // Level 17: a free Gated Feat and a scene-level capability
     signature: { offensive: '', utility: '' },
     powerSources: [],           // declared beyond Physical and the Focus Skill defaults
-    powers: [],                 // Powers built in the Powers tab (see rules.js powerSummary for the fields)
+    powers: [],                 // Powers made or listed in the Powers tab (see the Powers section of rules.js)
     weapons: [],                // [{ name, quality, kind: 'melee' | 'ranged', effect, notes }]
     implements: [],             // [{ name, quality, notes }] — a caster's focus
     armor: null,                // { type, name } — see rules.js armorStats
@@ -54,33 +54,24 @@ function levelMap(x, ok) {
 }
 
 export function newPower() {
-  return { name: '', source: '', range: 'close', targets: 'single', duration: 'instant', effect: '', summon: '',
-           conditions: [], focusItem: false, entityBlessing: false, notes: '' };
+  return { name: '', source: '', reach: 'near', targets: 'one', duration: 'instant', impact: 'none', force: 0, effect: '', notes: '' };
 }
 
-// One Power: unknown option ids fall back to the free option.
+// One Power: a listed spell, or a made Power whose unknown upgrade ids fall back to the free option.
 export function cleanPower(D, raw) {
-  const b = D.powers.builder;
+  if (D.spellsById.has(raw.spell)) return { spell: raw.spell, notes: str(raw.notes).slice(0, 500) };
+  const u = D.powers.upgrades;
   const p = newPower();
   const pick = (list, id, d) => (list.some(o => o.id === id) ? id : d);
   p.name = str(raw.name).slice(0, 80);
   p.source = D.sourcesById.has(raw.source) ? raw.source : '';
-  p.range = pick(b.range, raw.range, 'close');
-  p.targets = pick(b.targets, raw.targets, 'single');
-  p.duration = pick(b.duration, raw.duration, 'instant');
+  p.reach = pick(u.reach, raw.reach, 'near');
+  p.targets = pick(u.targets, raw.targets, 'one');
+  p.duration = pick(u.duration, raw.duration, 'instant');
+  p.impact = pick(u.impact, raw.impact, 'none');
+  p.force = int(raw.force, 0, 0, 4);
   p.effect = D.effectsById.has(raw.effect) ? raw.effect : '';
-  p.summon = pick(b.summons, raw.summon, '');
-  p.conditions = Array.isArray(raw.conditions)
-    ? [...new Set(raw.conditions.filter(x => D.conditionsById.has(x)))].slice(0, b.max_conditions) : [];
-  p.focusItem = raw.focusItem === true;
-  p.entityBlessing = raw.entityBlessing === true;
   p.notes = str(raw.notes).slice(0, 500);
-  // A Player Book example Power added at one of its levels.
-  const ex = D.powers.examples.find(e => e.id === raw.example);
-  if (ex && ex.levels.some(l => l.level === raw.exampleLevel)) {
-    p.example = ex.id;
-    p.exampleLevel = raw.exampleLevel;
-  }
   return p;
 }
 

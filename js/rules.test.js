@@ -154,28 +154,34 @@ check('Channel Focus defaults to Spirit',
   R.powerSources(D, make({ genres: ['magic'], focus: ['channel'] })).includes('spirit'), true);
 
 // Powers
-const bolt = { source: 'arcane', range: 'near', targets: 'single', duration: 'instant', effect: 'fire', conditions: [] };
-check('Near single instant = 1 point', R.powerPoints(D, bolt), 1);
-check('1 point is PL 1', R.powerLevelFor(D, 1), 1);
-check('0 points is a Cantrip', R.powerLevelFor(D, 0), 0);
-check('6 points is PL 2', R.powerLevelFor(D, 6), 2);
-check('21 points is PL 5', R.powerLevelFor(D, 25), 5);
-check('Effect type costs nothing', R.powerPoints(D, { ...bolt, effect: 'void' }), 1);
-check('Conditions 1 point each', R.powerPoints(D, { ...bolt, conditions: ['prone', 'stunned'] }), 3);
-check('At most 3 Conditions count', R.powerPoints(D, { ...bolt, conditions: ['prone', 'stunned', 'blinded', 'slowed'] }), 4);
-check('Summon (Rival) is 8 points', R.powerPoints(D, { ...bolt, summon: 'rival' }), 9);
-check('Focus Item: -1 point for Arcane', R.powerPoints(D, { ...bolt, range: 'far', focusItem: true }), 1);
-check('Focus Item ignored for Psionic', R.powerPoints(D, { ...bolt, source: 'psionic', range: 'far', focusItem: true }), 2);
-const storm = { ...bolt, range: 'far', targets: 'multi-6', duration: 'rounds', conditions: ['prone'] };  // 2+5+1+1 = 9
-check('Storm is PL 2', R.powerSummary(D, make(), storm).powerLevel, 2);
-check('Non-Caster pays full Mana', R.powerSummary(D, make(), storm).mana, 2);
-check('Caster at Level 6 pays PL - 1', R.powerSummary(D, make({ level: 6, genres: ['magic'], role: 'caster' }), storm).mana, 1);
-check('Entity Blessing raises the level, not the cost',
-  [R.powerSummary(D, make(), { ...storm, entityBlessing: true }).effectiveLevel, R.powerSummary(D, make(), { ...storm, entityBlessing: true }).mana], [3, 2]);
-const cantrip = { ...bolt, range: 'close' };
-check('Cantrip costs 1 Mana without Cast or Channel 2+', R.powerSummary(D, make(), cantrip).mana, 1);
-check('Cantrip is free for a practitioner',
-  R.powerSummary(D, make({ genres: ['magic'], focus: ['cast-attack'] }), cantrip).mana, 0);
+const made = (changes = {}) => ({ reach: 'near', targets: 'one', duration: 'instant', impact: 'none', force: 0, ...changes });
+check('Plain Power is PL 1', R.madePowerLevel(D, made()), 1);
+check('Book example: fly for the fight is PL 3', R.madePowerLevel(D, made({ duration: 'scene', impact: 'major' })), 3);
+check('Book example: fire across the hall is PL 3', R.madePowerLevel(D, made({ reach: 'far', targets: 'several' })), 3);
+check('Force adds +1 each', R.madePowerLevel(D, made({ force: 2 })), 3);
+check('Above 5 is flagged and held at 5', (s => [s.powerLevel, s.over])(R.madePowerSummary(D, make(), made({ reach: 'anywhere', targets: 'everyone', duration: 'hours' }))), [5, true]);
+check('Max usable Power Level', [1, 4, 20].map(R.maxPowerLevel), [2, 5, 5]);
+check('No discount for a non-Caster', R.madePowerSummary(D, make({ level: 12 }), made({ force: 2 })).mana, 3);
+check('Caster at Level 12 pays PL - 2', R.madePowerSummary(D, make({ level: 12, role: 'caster' }), made({ force: 2 })).mana, 1);
+check('Channeler at Level 12 pays PL - 2', R.madePowerSummary(D, make({ level: 12, role: 'channeler' }), made({ force: 3 })).mana, 2);
+check('Cantrip costs 1 Mana without Cast or Channel 2+', R.madePowerSummary(D, make(), made({ reach: 'touch' })).mana, 1);
+check('Cantrip is free for a practitioner', R.madePowerSummary(D, make({ genres: ['magic'], focus: ['cast-attack'] }), made({ reach: 'touch' })).mana, 0);
+check('Near range is not a cantrip', R.madePowerSummary(D, make({ genres: ['magic'], focus: ['cast-attack'] }), made()).mana, 1);
+const fireball = D.spellsById.get('fireball');
+check('109 spells, 5 Steps each', [D.powers.spells.length, D.powers.spells.every(s => s.steps.length === 5)], [109, true]);
+check('Measured pace unlocks at 1, 5, 9, 13, 17', fireball.steps.map(s => s.level), [1, 5, 9, 13, 17]);
+check('Steps unlocked by level', R.stepsAt(fireball, 9).map(s => s.pl), [1, 2, 3]);
+check('Spell Step Mana with the discount', R.spellStepSummary(D, make({ level: 9, role: 'caster' }), fireball.steps[2]).mana, 2);
+check('Old example Power becomes its spell', clean(D, { powers: [{ name: 'Arcane Bolt', example: 'arcane-bolt', exampleLevel: 2 }] }).powers[0].spell, 'arcane-bolt');
+check('Old Mend example becomes Mend Wounds', clean(D, { powers: [{ example: 'mend', exampleLevel: 1 }] }).powers[0].spell, 'mend-wounds');
+const oldPower = clean(D, { powers: [{ name: 'Storm', source: 'weird', range: 'far', targets: 'multi-6', duration: 'rounds', effect: 'gravity',
+  conditions: ['stunned', 'dazed'], summon: 'grunt', focusItem: true }] }).powers[0];
+check('Old built Power maps to the upgrades', [oldPower.reach, oldPower.targets, oldPower.duration, oldPower.effect, oldPower.source],
+  ['far', 'several', 'scene', 'force', 'weird-science']);
+check('What the upgrades cannot hold goes in notes', /Summon: grunt/.test(oldPower.notes) && /Focus Item/.test(oldPower.notes), true);
+check('A migrated Power survives a second clean', clean(D, { powers: [oldPower] }).powers[0], oldPower);
+check('Power Sources: Physical + the 13 + Element and Void', D.powers.sources.length, 16);
+check('Old declared Weird becomes Weird Science', clean(D, { powerSources: ['weird', 'element'] }).powerSources, ['weird-science', 'element']);
 
 // Gear and items
 const warrior = make({ base: spread, focus, weapons: [{ name: 'Sword', quality: 'standard', kind: 'melee' }] });

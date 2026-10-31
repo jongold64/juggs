@@ -15,6 +15,13 @@ export const EFFECTS = { gravity: 'force', concussive: 'sonic', nature: 'earth' 
 const DROPPED_FEATS = new Set(['specialty-ability-2', 'specialty-ability-3', 'specialty-mastery-enhancement']);
 const SURGE_DISCIPLINES = new Set(['surge-discipline-1', 'surge-discipline-2', 'surge-discipline-3', 'surge-discipline-4']);
 
+export const SOURCES = { weird: 'weird-science' };
+// Example Powers from the old Player Book list, now spells.
+const EXAMPLE_SPELLS = { mend: 'mend-wounds', 'untitled-psionic-power': 'telepathy' };
+const OLD_REACH = { close: 'touch', near: 'near', far: 'far', sight: 'distant', anywhere: 'anywhere' };
+const OLD_TARGETS = { single: 'one', line: 'several', cone: 'several', burst: 'several', 'multi-3': 'several', 'multi-6': 'several' };
+const OLD_DURATION = { instant: 'instant', rounds: 'scene', concentration: 'scene', minutes: 'scene', 'ten-minutes': 'hours', hours: 'hours' };
+
 const rename = (map, id) => map[id] ?? id;
 const isObj = x => x && typeof x === 'object' && !Array.isArray(x);
 
@@ -29,6 +36,18 @@ function renameSkills(list) {
     seen.add(id);
     return id;
   });
+}
+
+// A Power from the old point-budget builder or example list. What the new table cannot hold goes in its notes.
+function migratePower(p) {
+  if (p.example) return { spell: rename(EXAMPLE_SPELLS, p.example), notes: p.notes || '' };
+  if (p.range === undefined) return p;
+  const conditions = (Array.isArray(p.conditions) ? p.conditions : []).map(x => rename(CONDITIONS, x));
+  const old = [conditions.length ? `Conditions: ${conditions.join(', ')}` : '', p.summon ? `Summon: ${p.summon}` : '',
+               p.focusItem ? 'Focus Item' : '', p.entityBlessing ? 'Entity Blessing' : ''].filter(Boolean).join('; ');
+  return { name: p.name, source: rename(SOURCES, p.source), reach: OLD_REACH[p.range], targets: OLD_TARGETS[p.targets],
+           duration: OLD_DURATION[p.duration], impact: conditions.length > 1 ? 'major' : 'none', force: 0,
+           effect: rename(EFFECTS, p.effect), notes: [p.notes, old && `From the old builder: ${old}.`].filter(Boolean).join(' ') };
 }
 
 function migrateFeats(feats) {
@@ -81,9 +100,9 @@ export function migrate(raw, featLevels = []) {
   }
   if (Array.isArray(c.weapons)) c.weapons = c.weapons.map(w => (isObj(w) ? { ...w, effect: rename(EFFECTS, w.effect) } : w));
   if (Array.isArray(c.powers)) {
-    c.powers = c.powers.map(p => (isObj(p) ? { ...p, effect: rename(EFFECTS, p.effect),
-      conditions: Array.isArray(p.conditions) ? [...new Set(p.conditions.map(x => rename(CONDITIONS, x)))] : p.conditions } : p));
+    c.powers = c.powers.map(p => (isObj(p) ? migratePower(p) : p));
   }
+  if (Array.isArray(c.powerSources)) c.powerSources = c.powerSources.map(s => rename(SOURCES, s));
   c.aptitude = rename(APTITUDES, c.aptitude);
   if (Array.isArray(c.specialties)) {
     c.specialties = c.specialties.map(s => (isObj(s) ? { ...s, id: rename(SPECIALTIES, s.id) } : s));
