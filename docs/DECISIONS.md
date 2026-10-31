@@ -250,6 +250,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
   creation, its five Abilities arrive at Levels 1, 5, 9, 13, 17, and a further Role uses a Feat slot, starting at the
   character's current tier. Tier changes no longer offer a Role choice, and the multiclass rule goes. Feat requirements
   change from "Role Step 3" to "Role at Veteran tier".
+- **Specialties and Feats stay separate (decided 2026-10-31, not yet applied).** No Talents. One rule is added: "Your free
+  Specialty may instead be a second Stepped Feat."
 
 - Standard Origin trait.
 - Element and Void Power Source details.
