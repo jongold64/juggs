@@ -5850,7 +5850,7 @@
   ],
   "making_rule": "Start at Power Level 1: one target, Near range or closer, instant, doing one small thing. Add +1 for each upgrade. On a hit, cross boxes equal to the overage or the Power Level, whichever is higher, up to the Hit Cap.",
   "limits_rule": "Tough targets: a Power that controls or removes a foe without crossing boxes must be at least PL 3 against a Rival, PL 4 against an Antagonist, PL 5 against a Boss. Minions can be affected at any Level. Ask the GM only for story-changing magic.",
-  "cantrip_rule": "A cantrip is PL 1, Close or Touch, one target: free with Cast or Channel at rank 3+ (Caster Role: Cast 2+), otherwise it costs normal Mana.",
+  "cantrip_rule": "A cantrip is PL 1, Close or Touch, one target: free when your Attack Ability plus Cast or Channel skill totals 3 or more, otherwise it costs normal Mana.",
   "spell_rule": "Every spell can be cast at Level 1 in a small form. Choose any Step you have unlocked; its Power Level is its cost. On a hit, cross boxes equal to the overage or the Step's PL, whichever is higher.",
   "upgrades": {
     "reach": [
