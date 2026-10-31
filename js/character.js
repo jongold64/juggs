@@ -1,5 +1,6 @@
 // The saved character: what the player chose, never what is calculated from it. clean() fills in missing fields
 // and drops unknown ids, so characters saved by older versions (or edited by hand) still load.
+import { migrate } from './migrate.js';
 
 export const VERSION = 2;
 
@@ -11,7 +12,7 @@ export function newCharacter() {
     base: { str: 3, tou: 2, agi: 2, int: 2, wil: 2, acu: 2, bel: 3, mor: 2, ser: 2 },  // 20 Build Points
     primaryDomain: '',          // only used to break a tie in Build Points
     governing: '',              // the governing Ability Score (higher cap)
-    aptitude: '', aptitudeSkills: [],   // aptitudeSkills: the two picks for Polymath
+    aptitude: '', aptitudeSkills: [],   // aptitudeSkills: the two picks for Jack-of-All-Trades
     origin: '', originChoice: '',
     focus: [],                  // the 6 chosen Focus Skills
     overlapPicks: [],           // +1 skill for each bonus skill that was already a Focus Skill
@@ -134,6 +135,7 @@ export function cleanItem(D, raw) {
 export function clean(D, raw) {
   const d = newCharacter();
   if (!isObj(raw)) return d;
+  raw = migrate(raw);
   const has = (map, id) => typeof id === 'string' && map.has(id);
   const c = d;
   c.name = str(raw.name); c.player = str(raw.player); c.concept = str(raw.concept);

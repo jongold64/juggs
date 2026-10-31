@@ -141,7 +141,7 @@ export function renderSheet(D, c) {
   const eff = id => D.effectsById.get(id)?.name || '';
   const wealth = c.wealth ?? R.startingWealth(D, c);
   const w = D.core.wealth_tiers[wealth - 1];
-  const small = `<section class="s-box"><h3>Signature Effect</h3>${field('Offensive (free on Surge 2+)', eff(c.signature.offensive))}
+  const small = `<section class="s-box"><h3>Signature Effect</h3>${field('Offensive (1-box rung free on a Surge 2+ hit)', eff(c.signature.offensive))}
       ${field('Defensive / utility', eff(c.signature.utility))}<p class="s-hint">Any other Effect: −1 to the roll.</p></section>
     <section class="s-box"><h3>Power Source</h3><p>${R.powerSources(D, c).map(s => esc(D.sourcesById.get(s).name)).join(' · ')}</p>
       <p class="s-hint">Physical always applies.</p></section>
@@ -182,10 +182,10 @@ export function renderSheet(D, c) {
        ['sanity', 4, 'horror campaigns']].map(([k, n, note]) =>
       `<div class="s-tracker"><span>${cap(k)}</span><span class="s-boxes">${trackerBoxes(c, k, n)}</span><span class="s-hint">${note}</span></div>`).join('')}
     <p class="s-hint">Corruption: Clean · Tainted 1–2 · Marked 3–4 · Claimed 5</p></section>`;
-  const conds = D.conditions.filter(x => !x.positive && x.id !== 'removed');
+  const conds = R.playConditions(D, false);
   const conditions = `<section class="s-box"><h3>Conditions</h3><div class="s-conds">${conds.map(x =>
     `<label><input type="checkbox" data-toggle="play.conditions" value="${x.id}"${c.play.conditions.includes(x.id) ? ' checked' : ''}> ${esc(x.name)}</label>`).join('')}</div>
-    <h4>Positive</h4><div class="s-conds">${D.conditions.filter(x => x.positive).map(x =>
+    <h4>Positive</h4><div class="s-conds">${R.playConditions(D, true).map(x =>
     `<label><input type="checkbox" data-toggle="play.conditions" value="${x.id}"${c.play.conditions.includes(x.id) ? ' checked' : ''}> ${esc(x.name)}</label>`).join('')}</div></section>`;
   const itemList = c.items.map(it => {
     const t = D.items.templates.find(x => x.id === it.template);

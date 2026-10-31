@@ -129,8 +129,8 @@
     }
   },
   {
-    "id": "skirmisher",
-    "name": "Skirmisher",
+    "id": "sharpshooter",
+    "name": "Sharpshooter",
     "category": "combat",
     "governing": [
       "agi"
@@ -145,7 +145,7 @@
       "condition_text": "Tactics ≥ 2",
       "effect": "Covering Fire affects up to 2 enemies instead of 1",
       "requires": {
-        "skill": "tactics",
+        "skill": "analyze",
         "rank_min": 2
       }
     },
@@ -296,8 +296,8 @@
     }
   },
   {
-    "id": "shaper",
-    "name": "Shaper",
+    "id": "weaver",
+    "name": "Weaver",
     "category": "magical",
     "governing": [
       "acu",
@@ -425,8 +425,8 @@
     }
   },
   {
-    "id": "empath",
-    "name": "Empath",
+    "id": "martyr",
+    "name": "Martyr",
     "category": "spiritual",
     "governing": [
       "ser",
@@ -442,7 +442,7 @@
       "condition_text": "Heal >= 2",
       "effect": "Surge Reading also identifies active Conditions and their source",
       "requires": {
-        "skill": "heal",
+        "skill": "channel",
         "rank_min": 2
       }
     },
@@ -561,7 +561,7 @@
     "pool": "resolve",
     "bonus_skills": [
       "persuade",
-      "inspire"
+      "lead"
     ],
     "summary": "Presence and command — the commander, the preacher, the trial lawyer.",
     "synergy": {
@@ -595,8 +595,8 @@
     }
   },
   {
-    "id": "infiltrator",
-    "name": "Infiltrator",
+    "id": "chameleon",
+    "name": "Chameleon",
     "category": "social",
     "governing": [
       "acu",
@@ -696,7 +696,7 @@
       "condition_text": "Heal >= 2",
       "effect": "Open Door also allows a free Heal roll to clear 1 Condition from a social or emotional source",
       "requires": {
-        "skill": "heal",
+        "skill": "channel",
         "rank_min": 2
       }
     },

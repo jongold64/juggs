@@ -259,13 +259,13 @@
       "Chromed",
       "Enhanced"
     ],
-    "trait": "Choose a package at creation — Optical (+1 Observe), Neural (+1 Tactics), Skeletal (+1 Endure), or Combat (+1 to one Combat skill). Vulnerable to EMP effects.",
+    "trait": "Choose a package at creation — Optical (+1 Observe), Neural (+1 Analyze), Skeletal (+1 Endure), or Combat (+1 to one Combat skill). Vulnerable to EMP effects.",
     "notes": "Improved on purpose, at a cost paid somewhere quieter.",
     "choice": {
       "name": "Package",
       "options": [
         "Optical (+1 Observe)",
-        "Neural (+1 Tactics)",
+        "Neural (+1 Analyze)",
         "Skeletal (+1 Endure)",
         "Combat (+1 to one Combat skill)"
       ]

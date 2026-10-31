@@ -538,7 +538,7 @@
       "name": "Instrument of the Bards",
       "genre": "fantasy",
       "template": "enhancement",
-      "text": "+2 to Persuade and Inspire when performed."
+      "text": "+2 to Persuade and Lead when performed."
     },
     {
       "id": "fantasy-ioun-stone",
@@ -1126,7 +1126,7 @@
       "name": "Astrogation Charts",
       "genre": "space-opera",
       "template": "enhancement",
-      "text": "+2 Pilot on any route they cover."
+      "text": "+2 Operate on any route they cover."
     },
     {
       "id": "space-opera-letter-of-marque",

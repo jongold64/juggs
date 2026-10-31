@@ -11,7 +11,7 @@
       "combat-maneuver",
       "athletics",
       "endure",
-      "tactics",
+      "analyze",
       "evasion"
     ],
     "reasoning": "Striker sharpens the attack the Role already favors; Soldier adds the Strength and Toughness to survive standing still."
@@ -28,7 +28,7 @@
       "endure",
       "combat-maneuver",
       "observe",
-      "tactics",
+      "analyze",
       "athletics"
     ],
     "reasoning": "Guardian and Sentinel both reward holding position — the Aptitude supplies Toughness and the sustained attention the work needs."
@@ -36,8 +36,8 @@
   {
     "id": "skirmisher",
     "role": "skirmisher",
-    "specialty": "skirmisher",
-    "aptitude": "duelist",
+    "specialty": "sharpshooter",
+    "aptitude": "weapon-master",
     "power_sources": [],
     "signature_effect": "force",
     "focus_skills": [
@@ -48,12 +48,12 @@
       "stealth",
       "combat-melee"
     ],
-    "reasoning": "Duelist gives the footwork; Skirmisher Specialty removes the penalty for moving and shooting in the same round."
+    "reasoning": "Weapon Master gives the footwork; Sharpshooter Specialty removes the penalty for moving and shooting in the same round."
   },
   {
     "id": "hunter",
     "role": "hunter",
-    "specialty": "skirmisher",
+    "specialty": "sharpshooter",
     "aptitude": "explorer",
     "power_sources": [],
     "signature_effect": "force",
@@ -65,7 +65,7 @@
       "athletics",
       "endure"
     ],
-    "reasoning": "Explorer supplies the tracking Ability Scores; Skirmisher keeps you at the range where a Marked target cannot close."
+    "reasoning": "Explorer supplies the tracking Ability Scores; Sharpshooter keeps you at the range where a Marked target cannot close."
   },
   {
     "id": "berserker",
@@ -106,7 +106,7 @@
   {
     "id": "scout",
     "role": "scout",
-    "specialty": "skirmisher",
+    "specialty": "sharpshooter",
     "aptitude": "operative",
     "power_sources": [],
     "signature_effect": "force",
@@ -118,7 +118,7 @@
       "athletics",
       "combat-ranged"
     ],
-    "reasoning": "Operative trains the surveillance half; Skirmisher Specialty covers the withdrawal when scouting goes wrong."
+    "reasoning": "Operative trains the surveillance half; Sharpshooter Specialty covers the withdrawal when scouting goes wrong."
   },
   {
     "id": "survivor",
@@ -164,17 +164,17 @@
     "focus_skills": [
       "persuade",
       "lead",
-      "inspire",
       "observe",
       "network",
-      "deceive"
+      "deceive",
+      "perform"
     ],
     "reasoning": "Diplomat raises Morale, Acuity, and Serenity — read the room, hold the room, absorb what the room throws back."
   },
   {
     "id": "infiltrator",
     "role": "infiltrator",
-    "specialty": "infiltrator",
+    "specialty": "chameleon",
     "aptitude": "criminal",
     "power_sources": [],
     "signature_effect": "psychic",
@@ -191,19 +191,19 @@
   {
     "id": "empath",
     "role": "empath",
-    "specialty": "empath",
+    "specialty": "martyr",
     "aptitude": "diplomat",
     "power_sources": [],
     "signature_effect": "psychic",
     "focus_skills": [
       "observe",
       "persuade",
-      "inspire",
+      "lead",
       "analyze",
       "network",
       "concentrate"
     ],
-    "reasoning": "Diplomat and Empath both run on Acuity and Serenity, which is what sustained close reading of people costs."
+    "reasoning": "Diplomat and Martyr both run on Acuity and Serenity, which is what sustained close reading of people costs."
   },
   {
     "id": "artificer",
@@ -243,7 +243,7 @@
     "id": "polymath",
     "role": "polymath",
     "specialty": "theorist",
-    "aptitude": "polymath",
+    "aptitude": "jack-of-all-trades",
     "power_sources": [],
     "signature_effect": "force",
     "focus_skills": [
@@ -254,7 +254,7 @@
       "operate",
       "survive"
     ],
-    "reasoning": "The Polymath Aptitude and Role reinforce each other — broad Ability Scores and the ability to borrow any Skill once per session."
+    "reasoning": "The Jack-of-All-Trades Aptitude and Role reinforce each other — broad Ability Scores and the ability to borrow any Skill once per encounter."
   },
   {
     "id": "caster",
@@ -288,8 +288,8 @@
       "channel",
       "endure",
       "lead",
-      "inspire",
-      "observe"
+      "observe",
+      "concentrate"
     ],
     "reasoning": "Celebrant supplies Belief and Morale; Warden turns that authority outward to protect the rest of the party.",
     "flags": [
@@ -300,7 +300,7 @@
   {
     "id": "weird",
     "role": "weird",
-    "specialty": "shaper",
+    "specialty": "weaver",
     "aptitude": "shaman",
     "power_sources": [
       "weird"
@@ -309,12 +309,12 @@
     "focus_skills": [
       "cast-attack",
       "concentrate",
-      "resist",
       "survive",
       "observe",
-      "knowledge"
+      "knowledge",
+      "sixth-sense"
     ],
-    "reasoning": "Shaman is the Aptitude nearest to untaught power; Shaper Specialty gives the chaos somewhere to land."
+    "reasoning": "Shaman is the Aptitude nearest to untaught power; Weaver Specialty gives the chaos somewhere to land."
   },
   {
     "id": "psion",
@@ -327,18 +327,18 @@
     "signature_effect": "psychic",
     "focus_skills": [
       "concentrate",
-      "resist",
       "observe",
       "analyze",
       "persuade",
-      "knowledge"
+      "knowledge",
+      "cast-attack"
     ],
     "reasoning": "Academic builds the mental discipline the Role runs on; Anchor holds you steady when the discipline is tested."
   },
   {
     "id": "shaper",
     "role": "shaper",
-    "specialty": "shaper",
+    "specialty": "weaver",
     "aptitude": "trained-by-nature",
     "power_sources": [
       "spirit"

@@ -359,7 +359,7 @@
       "backlash": "7 more boxes; casters: Catastrophic Fallout"
     }
   ],
-  "effects_rule": "The Surge level sets an Effect's strength (Surge 2 = 1-box intensity). No separate Effect cost. A non-Signature Effect is -1 to the roll. Pay from the pool you are using.",
+  "effects_rule": "Declare the type before rolling. Spend boxes before the roll (Stamina for weapons, Mana for Powers, Resolve for Spirit and social actions), paid win or lose. Non-Signature type: -1 to the roll. Your Offensive Signature's 1-box rung is free on a Surge 2+ hit, if you choose.",
   "costs_rule": "Basic Attack, Basic Cast and Basic Press are free. Anything added costs at least 1 box. Maneuvers: Mastery Floor by tier. Surge: not reduced except by Surge Discipline.",
   "object_dc": [
     {
@@ -558,5 +558,41 @@
       "channeler"
     ],
     "text": "Mana = Power Level - (Character Level / 6, rounded down), minimum 1. Caster and Channeler Roles."
-  }
+  },
+  "effect_ladder": [
+    {
+      "boxes": "1",
+      "text": "The target gains the type's condition."
+    },
+    {
+      "boxes": "2",
+      "text": "As above, and one more target in Close range gains it too."
+    },
+    {
+      "boxes": "3",
+      "text": "Every enemy in Close range gains the condition."
+    },
+    {
+      "boxes": "4–5",
+      "text": "Everyone in Near range gains the condition, and the scene changes: the fire spreads, the wall falls, the power grid dies. The GM decides what lasts."
+    }
+  ],
+  "healing_ladder": [
+    {
+      "boxes": "1",
+      "text": "Unmark 1 box from any pool."
+    },
+    {
+      "boxes": "2",
+      "text": "Unmark 2 boxes from any pool."
+    },
+    {
+      "boxes": "3",
+      "text": "Unmark all Healthy boxes (1–5) in one pool."
+    },
+    {
+      "boxes": "4–5",
+      "text": "Unmark all Healthy and Hurt boxes (1–10) in one pool."
+    }
+  ]
 }

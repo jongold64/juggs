@@ -18,7 +18,7 @@ const CHEAT = [
   ['Free basics', 'Basic Attack, Basic Cast, Basic Press cost no boxes'],
   ['Surge', '+1 to the roll and +1 Hit Cap per box, before the roll, paid win or lose; max 3 / 4 / 5 / 6 / 7 by tier'],
   ['Big Surge', '3+ boxes: on a hit the target can only Deflect; a natural 1 crosses the same boxes again'],
-  ['Effects', 'description below Surge 2; from Surge 2, Surge sets strength; off-Signature −1'],
+  ['Effects', 'declare the type, spend boxes before the roll, one ladder for every type; off-Signature −1; Signature 1-box rung free on a Surge 2+ hit'],
   ['Fallout', 'natural 1: casters Surging 5+; Specialty and Weird Fallout at Surge 3+'],
   ['Boon', 'natural 20 (wider at higher tiers): pick from the Boon Menu, 1 / 1 / 2 / 2 / 3 choices by tier; banks a Token'],
   ['Boon Menu', 'never the same twice: Momentum, +2 to all rolls until the end of your next turn · Recovery, unmark 1 box · Tempo (Seasoned+), +1 Action this round · Clarity, clear a Condition on you · Guard, +2 to Deflect and Defend until your next turn · Grace, give one of these to an ally in Near range'],
@@ -82,9 +82,16 @@ export function renderRules(D, c) {
 
   const conds = list => list.map(x => `<details class="qr-cond"><summary><b>${esc(x.name)}</b> <span class="hint">${esc(x.effect || '')}</span></summary>
     ${x.removed ? `<p class="hint">Ends: ${esc(x.removed)}</p>` : ''}${x.source ? `<p class="hint">From: ${esc(x.source)}</p>` : ''}</details>`).join('');
-  const conditions = card('Conditions', `<p class="hint">They do not stack, except Exhausted (−2 per level). Tap one for how it ends.</p>
-    ${conds(D.conditions.filter(x => !x.positive && x.id !== 'removed'))}
-    <h3>Positive</h3>${conds(D.conditions.filter(x => x.positive))}`);
+  const conditions = card('Conditions', `<p class="hint">They do not stack, except Weakened (−2 per level, to −6) and Drained (to level 3). Burning, Bleeding and Poisoned are separate. Tap one for how it ends.</p>
+    ${conds(R.playConditions(D, false))}
+    <h3>Positive</h3>${conds(R.playConditions(D, true))}
+    <details class="qr-cond"><summary><b>Supernatural</b> <span class="hint">GM reference, from the appendix</span></summary>${conds(D.conditions.filter(x => x.supernatural))}</details>`);
 
-  return cheat + menu + tiers + boons + surge + (weirdOn(c) ? weirdCard(D) : '') + maneuvers + conditions;
+  const ladder = list => table(['Boxes', 'On a hit'], list.map(r => `<tr><th scope="row">${esc(r.boxes)}</th><td>${esc(r.text)}</td></tr>`));
+  const effects = card('Effects', `<p class="hint">${esc(D.core.effects_rule)}</p>${ladder(D.core.effect_ladder)}
+    ${table(['Type', 'Condition', 'Pools', 'Usually from'], D.effects.map(e => `<tr><th scope="row">${esc(e.name)}</th><td>${esc(e.condition)}</td>
+      <td>${esc(e.pools.map(p => p[0].toUpperCase() + p.slice(1)).join(', '))}</td><td>${esc(e.use)}</td></tr>`))}
+    <h3>Healing</h3><p class="hint">A separate action: declare Heal, roll against DC 15, pay Mana or Resolve. Not on yourself in active combat.</p>${ladder(D.core.healing_ladder)}`);
+
+  return cheat + menu + tiers + boons + surge + (weirdOn(c) ? weirdCard(D) : '') + effects + maneuvers + conditions;
 }

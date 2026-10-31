@@ -67,7 +67,7 @@
           },
           {
             "focus": [
-              "language"
+              "knowledge"
             ],
             "all": false
           }
@@ -893,7 +893,7 @@
       },
       {
         "focus": [
-          "tactics"
+          "analyze"
         ],
         "all": false
       }
@@ -1199,7 +1199,7 @@
       },
       {
         "focus": [
-          "inspire"
+          "lead"
         ],
         "all": false
       }
@@ -1628,7 +1628,7 @@
       },
       {
         "focus": [
-          "resist"
+          "concentrate"
         ],
         "all": false
       }
@@ -1822,7 +1822,7 @@
       },
       {
         "focus": [
-          "resist"
+          "concentrate"
         ],
         "all": false
       },
@@ -2776,7 +2776,7 @@
       {
         "focus": [
           "persuade",
-          "inspire"
+          "lead"
         ],
         "all": false
       },
@@ -2826,8 +2826,7 @@
     "requires": [
       {
         "focus": [
-          "lead",
-          "inspire"
+          "lead"
         ],
         "all": true
       },

@@ -196,8 +196,6 @@ def main(folder):
     for e in effects.values():
         w = f'effects.json {e["id"]}'
         ck.ref(w, e.get('pools') or [], POOLS, 'pool')
-        for pools in (e.get('pools_in_sources') or {}).values():
-            ck.ref(w, pools, POOLS, 'pool')
     for c in conditions.values():
         w = f'conditions.json {c["id"]}'
         if c.get('domain') is not None:

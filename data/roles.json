@@ -7,7 +7,7 @@
     "summary": "Frontline combatant. Hits harder, takes punishment, closes fights decisively.",
     "prerequisite_text": "No prerequisite",
     "requires": [],
-    "suggested_aptitudes_text": "Soldier or Duelist background.",
+    "suggested_aptitudes_text": "Soldier or Weapon Master background.",
     "steps": [
       {
         "step": 1,
@@ -83,7 +83,7 @@
     "summary": "Hit-and-run combatant. Controls tempo through movement, never stands still.",
     "prerequisite_text": "No prerequisite",
     "requires": [],
-    "suggested_aptitudes_text": "Duelist or Outlaw background.",
+    "suggested_aptitudes_text": "Weapon Master or Outlaw background.",
     "steps": [
       {
         "step": 1,
@@ -546,7 +546,7 @@
     "summary": "Adaptability as a tactical resource. Breadth over depth — the group’s answer to problems no specialist prepared for.",
     "prerequisite_text": "No prerequisite",
     "requires": [],
-    "suggested_aptitudes_text": "Polymath or Academic background.",
+    "suggested_aptitudes_text": "Jack-of-All-Trades or Academic background.",
     "steps": [
       {
         "step": 1,
@@ -663,7 +663,7 @@
             "rank_min": 2
           },
           {
-            "skill": "heal",
+            "skill": "channel",
             "rank_min": 2
           }
         ]

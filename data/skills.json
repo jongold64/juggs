@@ -69,7 +69,7 @@
       "agi"
     ],
     "genres": [],
-    "description": "Moving unseen, sleight of hand, and disguise in action."
+    "description": "Moving unseen, hiding, and disguise in action."
   },
   {
     "id": "legerdemain",
@@ -79,7 +79,7 @@
       "agi"
     ],
     "genres": [],
-    "description": "Artful sleight of hand, stage trickery, pickpocketing, and physical misdirection."
+    "description": "Artful hands: picking locks, disarming simple traps, pickpocketing, sleight of hand, stage trickery, and Slip Free from bonds or grapples. Machines and complex devices use Operate under the Fix-It Framework."
   },
   {
     "id": "operate",
@@ -89,17 +89,7 @@
       "int"
     ],
     "genres": [],
-    "description": "Vehicles, machines, technology, crafting, and repair."
-  },
-  {
-    "id": "pilot",
-    "name": "Pilot",
-    "category": "mind",
-    "governing": [
-      "acu"
-    ],
-    "genres": [],
-    "description": "Operating vehicles and vessels at speed or under pressure."
+    "description": "Vehicles and vessels — including at speed or under pressure — machines, technology, crafting, and repair. Complex traps and devices use the Fix-It Framework; simple locks and traps use Legerdemain."
   },
   {
     "id": "knowledge",
@@ -109,20 +99,7 @@
       "int"
     ],
     "genres": [],
-    "description": "Lore, research, recall, deciphering, appraising. Also covers cultural etiquette and customs."
-  },
-  {
-    "id": "language",
-    "name": "Language",
-    "category": "mind",
-    "governing": [
-      "int"
-    ],
-    "genres": [],
-    "description": "Languages. Every character gets 2 additional languages at creation.",
-    "flags": [
-      "Description rewritten from DECISIONS.md (the \"per BP\" wording is removed); needs author text."
-    ]
+    "description": "Lore, research, recall, deciphering, appraising. Also covers cultural etiquette, customs, and languages."
   },
   {
     "id": "analyze",
@@ -132,7 +109,7 @@
       "acu"
     ],
     "genres": [],
-    "description": "Reading situations, risk assessment, and contingency planning."
+    "description": "Reading situations, risk assessment, contingency planning, combat planning, reading the battlefield, and adapting to changing conditions."
   },
   {
     "id": "observe",
@@ -152,18 +129,8 @@
       "acu"
     ],
     "genres": [],
-    "description": "Navigation, foraging, shelter, improvising from available materials, field triage, and emergency treatment. Out of combat: DC 12 clears the Injured condition (requires a Quick Rest to take effect). DC 14 treats the Poisoned condition (requires a Full Rest to clear). DC 16 stabilises the Broken condition (prevents death — does not clear the condition; Full Rest and downtime care required). Cannot address Dread or spiritual damage — those require Channel-based methods.",
+    "description": "Navigation, foraging, shelter, improvising from available materials, field triage, and emergency treatment. Out of combat: DC 12 clears the Injured condition (requires a Quick Rest to take effect). DC 14 treats the Poisoned condition (requires a Full Rest to clear). DC 16 stabilises the Broken condition (prevents death — does not clear the condition; Full Rest and downtime care required). Cannot address Dread or spiritual damage — those require Channel-based methods. Survive is the skill for mundane healing; magical healing uses Channel. Heal is the action, whichever skill rolls it.",
     "notes": "First Aid is part of Survive."
-  },
-  {
-    "id": "tactics",
-    "name": "Tactics",
-    "category": "mind",
-    "governing": [
-      "int"
-    ],
-    "genres": [],
-    "description": "Combat planning, reading the battlefield, and adapting to changing conditions."
   },
   {
     "id": "concentrate",
@@ -173,17 +140,7 @@
       "wil"
     ],
     "genres": [],
-    "description": "Maintaining focus under pressure and resisting mental assault."
-  },
-  {
-    "id": "inspire",
-    "name": "Inspire",
-    "category": "spirit",
-    "governing": [
-      "mor"
-    ],
-    "genres": [],
-    "description": "Lifting allies’ spirits, rallying wavering fighters, and acts of courage."
+    "description": "Maintaining focus under pressure, resisting mental assault, and holding firm against coercion and social pressure."
   },
   {
     "id": "lead",
@@ -193,7 +150,7 @@
       "mor"
     ],
     "genres": [],
-    "description": "Commanding groups, coordinating action, leading by example."
+    "description": "Commanding groups, coordinating action, leading by example, lifting allies’ spirits, rallying wavering fighters, and acts of courage."
   },
   {
     "id": "handle",
@@ -289,16 +246,6 @@
     ],
     "genres": [],
     "description": "Negotiating, appraising value, making deals."
-  },
-  {
-    "id": "resist",
-    "name": "Resist",
-    "category": "social",
-    "governing": [
-      "wil"
-    ],
-    "genres": [],
-    "description": "Holding firm against coercion and social pressure. Always Willpower."
   },
   {
     "id": "alchemy",
@@ -687,8 +634,8 @@
       "espionage",
       "post-apocalyptic"
     ],
-    "description": "Ground vehicles at speed — pursuit driving, evasive manoeuvring, vehicle control under fire, and high-speed navigation. Pilot covers air and sea; Drive covers road.",
-    "relation": "Supplements Pilot"
+    "description": "Ground vehicles at speed — pursuit driving, evasive manoeuvring, vehicle control under fire, and high-speed navigation. Operate covers air and sea; Drive covers road.",
+    "relation": "Supplements Operate"
   },
   {
     "id": "forgery",
@@ -941,7 +888,7 @@
       "space-opera"
     ],
     "description": "Celestial, chart, and dead-reckoning navigation for vessels operating in unmapped or hazardous territory. Covers sea, air, and space. Differs from Pilot (which is control under pressure) in that Navigate is planning and orientation. Used in Steampunk, Interstellar, Space Opera, Fantasy, Age of Sail.",
-    "relation": "Extends Pilot"
+    "relation": "Extends Operate"
   },
   {
     "id": "pilot-airship",
@@ -954,7 +901,7 @@
       "steampunk"
     ],
     "description": "Operating lighter-than-air and heavier-than-air craft in a pre-standardised technology era. Covers reading weather at altitude, emergency protocols for steam failure, and docking at aerial moorings.",
-    "relation": "Extends Pilot"
+    "relation": "Extends Operate"
   },
   {
     "id": "society",
@@ -1115,8 +1062,8 @@
       "space-opera",
       "transhumanist"
     ],
-    "description": "As base Pilot, extended to operate spacecraft, atmospheric craft, and zero-gravity manoeuvring. Includes docking, orbital mechanics, and combat manoeuvring at scale. Used in Interstellar, Space Opera, Transhumanist.",
-    "relation": "Extends Pilot"
+    "description": "As base Operate, extended to operate spacecraft, atmospheric craft, and zero-gravity manoeuvring. Includes docking, orbital mechanics, and combat manoeuvring at scale. Used in Interstellar, Space Opera, Transhumanist.",
+    "relation": "Extends Operate"
   },
   {
     "id": "sciences",
@@ -1269,7 +1216,7 @@
     "genres": [
       "post-apocalyptic"
     ],
-    "description": "Tracking and taking down mutated wildlife and hostile humans in a survival context. Combines the tracking function of Survive with the combat-preparation aspects of Tactics into a single outdoorsman skill.",
+    "description": "Tracking and taking down mutated wildlife and hostile humans in a survival context. Combines the tracking function of Survive with the combat-preparation aspects of Analyze into a single outdoorsman skill.",
     "relation": "Extends Survive"
   },
   {
@@ -1464,7 +1411,7 @@
       "dark-renaissance"
     ],
     "description": "The specific linguistic demands of the early 17th century: Latin (universal scholarly), French (diplomatic), Spanish (colonial), Arabic (North Africa/Middle East), and tribal languages of West Africa. Each language point covers one major language group.",
-    "relation": "Extends Language"
+    "relation": "Extends Knowledge"
   },
   {
     "id": "theology",
@@ -1783,7 +1730,7 @@
       "fantasy"
     ],
     "description": "Planning and executing attacks on or defense of fortified positions. Covers siege engines, castle vulnerability, supply-line interdiction.",
-    "relation": "Supplements Tactics"
+    "relation": "Supplements Analyze"
   },
   {
     "id": "shoot",
@@ -1800,22 +1747,5 @@
     ],
     "description": "Firearms specifically — pistols, rifles, shotguns, submachine guns. Covers maintenance, function-under-fire, and ammunition management. Combat (Ranged) still covers bows, thrown weapons, etc.",
     "relation": "Supplements Combat (Ranged)"
-  },
-  {
-    "id": "heal",
-    "name": "Heal",
-    "category": "spirit",
-    "governing": [
-      "bel",
-      "ser"
-    ],
-    "genres": [
-      "magic"
-    ],
-    "description": "Supernatural or empathic healing; restoring pool boxes.",
-    "flags": [
-      "Domain to be confirmed: the SRD lists Heal among Mind skills (governing Belief / Serenity); drafted as Spirit."
-    ],
-    "notes": "Only available when the Magic Genre is switched on (DECISIONS.md)."
   }
 ]

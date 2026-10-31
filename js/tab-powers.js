@@ -112,7 +112,7 @@ export function describe(D, p, sum) {
   let s = `${name} affects ${TARGET_PHRASE[p.targets]} ${RANGE_PHRASE[p.range]}`;
   s += p.duration === 'instant' ? ', resolving instantly' : `, persisting ${DURATION_PHRASE[p.duration]}`;
   if (p.summon) s += `. It calls ${SUMMON_PHRASE[p.summon]} for the scene`;
-  if (eff) s += `. It carries ${eff.name} (strength set by Surge)`;
+  if (eff) s += `. It carries ${eff.name}`;
   if (conds.length) s += `, applying ${conds.join(' + ')}`;
   s += '.';
   const level = sum.powerLevel === 0 ? 'Cantrip' : `Power Level ${sum.effectiveLevel}`;
@@ -143,8 +143,7 @@ export function renderPowers(D, c) {
   const sel = (label, field, list, blank = null) => `<div class="sb-cat"><div class="sb-label">${label}</div>
     <select data-draft="${field}">${options(opt(list), draft[field], blank)}</select></div>`;
 
-  const core = D.effects.filter(e => !e.supplemental).map(e => ({ value: e.id, label: e.name }));
-  const extra = D.effects.filter(e => e.supplemental).map(e => ({ value: e.id, label: e.name }));
+  const core = D.effects.map(e => ({ value: e.id, label: `${e.name} (${e.condition})` }));
   const effect = D.effectsById.get(draft.effect);
   const sources = D.powers.sources.filter(s => !s.universal).map(s => ({ value: s.id, label: s.name }));
 
@@ -154,8 +153,8 @@ export function renderPowers(D, c) {
     return `<button type="button" class="sb-cond${on ? ' on' : ''}" data-draft-cond="${x.id}"${full ? ' disabled' : ''}
       title="${esc(x.effect || '')}">${esc(x.name)}</button>`;
   }).join('');
-  const negative = D.conditions.filter(x => !x.positive && x.id !== 'removed');
-  const positive = D.conditions.filter(x => x.positive);
+  const negative = R.playConditions(D, false);
+  const positive = R.playConditions(D, true);
 
   const chips = [
     ['Range', optionName(b.range, draft.range), b.range.find(o => o.id === draft.range).points],
@@ -178,11 +177,11 @@ export function renderPowers(D, c) {
       ${sel('A · Range', 'range', b.range)}
       ${sel('B · Targets / Area', 'targets', b.targets)}
       ${sel('C · Duration', 'duration', b.duration)}
-      <div class="sb-cat"><div class="sb-label">D · Effect <span class="hint">(0 — Surge sets its strength)</span></div>
-        <select data-draft="effect">${groupedOptions([['Effects', core], ['Supplemental (GM approval)', extra]], draft.effect, 'None — overage only')}</select>
+      <div class="sb-cat"><div class="sb-label">D · Effect <span class="hint">(boxes on the Effect Ladder)</span></div>
+        <select data-draft="effect">${options(core, draft.effect, 'None — overage only')}</select>
         <select data-draft="summon">${options(opt(b.summons), draft.summon, 'No summon')}</select></div>
     </div>
-    ${effect ? `<div class="sb-scale">${effect.intensity.map((x, i) => `<span><b>Surge ${i + 2}${i === 3 ? '+' : ''}</b> ${esc(x.text)}</span>`).join('')}</div>` : ''}
+    ${effect ? `<div class="sb-scale">${D.core.effect_ladder.map(x => `<span><b>${esc(x.boxes)} box</b> ${esc(x.text)}</span>`).join('')}</div>` : ''}
     <div class="sb-cat"><div class="sb-label">E · Conditions <span class="hint">(${b.condition_points} point each, up to ${b.max_conditions})</span></div>
       <div class="sb-conds">${condButtons(negative)}</div>
       <div class="sb-label small">Positive</div><div class="sb-conds">${condButtons(positive)}</div></div>

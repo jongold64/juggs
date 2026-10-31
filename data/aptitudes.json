@@ -19,8 +19,8 @@
     "ability_notes": "Strength (combat training and weapons work), Toughness (physical conditioning and enduring punishment), Morale (unit cohesion, command pressure, and the confidence that comes from belonging to something larger)."
   },
   {
-    "id": "duelist",
-    "name": "Duelist",
+    "id": "weapon-master",
+    "name": "Weapon Master",
     "category": "Combat and Martial",
     "description": "You studied a specific martial tradition — fencing, kenjutsu, escrima, or something equally precise.",
     "ability_bonuses": {
@@ -240,7 +240,7 @@
     },
     "bonus_skills": [
       "lead",
-      "tactics"
+      "analyze"
     ],
     "signature_ability": "Once per encounter, grant one ally an additional Reaction this round — not an Action. The ally must be able to hear or see you.",
     "genres_text": "All genres. Officer, captain, team leader, warlord, general.",
@@ -248,8 +248,8 @@
     "ability_notes": "Morale (the personal authority that makes people follow in difficult moments), Intellect (tactical analysis, logistics, reading a battlefield or a crisis), Willpower (holding your own nerve so others can hold theirs)."
   },
   {
-    "id": "polymath",
-    "name": "Polymath",
+    "id": "jack-of-all-trades",
+    "name": "Jack-of-All-Trades",
     "category": "Social and Influence",
     "description": "Everything you encountered, you learned from. You are broadly capable and specifically curious.",
     "ability_bonuses": {
@@ -260,7 +260,7 @@
     "bonus_skills": {
       "choose": 2
     },
-    "signature_ability": "Once per session, use any Skill you are untrained in as if you have rank 2 (Focus Skill level) for one roll. You have encountered something like this before.",
+    "signature_ability": "Once per encounter, use any Skill you are untrained in as if you have rank 2 (Focus Skill level) for one roll. You have encountered something like this before.",
     "genres_text": "All genres. Renaissance person, autodidact, jack-of-all-trades.",
     "starting_wealth": 4,
     "ability_notes": "Intellect (the foundational cognitive capacity to absorb and apply knowledge across domains), Acuity (the observational habit that turns every experience into learning), Serenity (the equanimity to be a beginner repeatedly)."
@@ -277,7 +277,7 @@
     },
     "bonus_skills": [
       "athletics",
-      "pilot"
+      "operate"
     ],
     "signature_ability": "You are never at a disadvantage on unstable surfaces. You can navigate by stars, current, and wind without instruments.",
     "genres_text": "Fantasy and any setting where the role fits.",
@@ -295,8 +295,8 @@
       "int": 1
     },
     "bonus_skills": [
-      "pilot",
-      "operate"
+      "operate",
+      "observe"
     ],
     "signature_ability": "Once per session, attempt a maneuver with any vehicle that would normally be impossible given its specs. The GM determines consequences — success is possible, not guaranteed.",
     "genres_text": "Fantasy and any setting where the role fits.",
@@ -373,7 +373,7 @@
     },
     "bonus_skills": [
       "channel",
-      "inspire"
+      "lead"
     ],
     "signature_ability": "Your faith is recognized. Once per session, request aid from a related institution — shelter, information, resources, or passage — without a roll if the request is reasonable.",
     "genres_text": "Fantasy and any setting where the role fits.",

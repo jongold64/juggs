@@ -144,7 +144,7 @@
       "skill_text": "Pilot skill",
       "roll": {
         "ability": "acu",
-        "skill": "pilot"
+        "skill": "operate"
       },
       "text": "Moves the vehicle, evades, and makes all Handling checks. One Pilot per vehicle."
     },
@@ -174,7 +174,7 @@
       "skill_text": "Tactics skill",
       "roll": {
         "ability": "int",
-        "skill": "tactics"
+        "skill": "analyze"
       },
       "text": "Grants one crew member +2 to their next check. Coordinates multi-vehicle actions."
     },

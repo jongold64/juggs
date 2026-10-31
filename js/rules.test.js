@@ -62,7 +62,7 @@ check('Domain Mastery +1 at all 4+', R.domainMastery(D, allAt(4)).body, 1);
 check('Domain Mastery +2 at all 6+', R.domainMastery(D, allAt(6)).mind, 2);
 
 // Skills
-const focus = ['combat-melee', 'endure', 'athletics', 'tactics', 'observe', 'evasion'];
+const focus = ['combat-melee', 'endure', 'athletics', 'analyze', 'observe', 'evasion'];
 const fighter = make({ base: spread, focus });
 check('Focus Skill starts at 2', R.skillRank(D, fighter, 'endure'), 2);
 check('Other skill starts at 1', R.skillRank(D, fighter, 'stealth'), 1);
@@ -152,8 +152,8 @@ check('0 points is a Cantrip', R.powerLevelFor(D, 0), 0);
 check('6 points is PL 2', R.powerLevelFor(D, 6), 2);
 check('21 points is PL 5', R.powerLevelFor(D, 25), 5);
 check('Effect type costs nothing', R.powerPoints(D, { ...bolt, effect: 'void' }), 1);
-check('Conditions 1 point each', R.powerPoints(D, { ...bolt, conditions: ['prone', 'dazed'] }), 3);
-check('At most 3 Conditions count', R.powerPoints(D, { ...bolt, conditions: ['prone', 'dazed', 'blinded', 'slowed'] }), 4);
+check('Conditions 1 point each', R.powerPoints(D, { ...bolt, conditions: ['prone', 'stunned'] }), 3);
+check('At most 3 Conditions count', R.powerPoints(D, { ...bolt, conditions: ['prone', 'stunned', 'blinded', 'slowed'] }), 4);
 check('Summon (Rival) is 8 points', R.powerPoints(D, { ...bolt, summon: 'rival' }), 9);
 check('Focus Item: -1 point for Arcane', R.powerPoints(D, { ...bolt, range: 'far', focusItem: true }), 1);
 check('Focus Item ignored for Psionic', R.powerPoints(D, { ...bolt, source: 'psionic', range: 'far', focusItem: true }), 2);
@@ -218,7 +218,25 @@ check('Standard is within Struggling Wealth', R.overWealth(D, make(), 'standard'
 check('Unknown weapon quality becomes Standard', clean(D, { weapons: [{ name: 'x', quality: 'nope' }] }).weapons[0].quality, 'standard');
 check('Faculty items have no Rating', clean(D, { items: [{ template: 'faculty', rating: 3 }] }).items[0].rating, null);
 
+// Conditions and Effects
+check('15 negative conditions (three ongoing, Removed as one) + 4 positive', [R.playConditions(D, false).length, R.playConditions(D, true).length], [19, 4]);
+check('14 Effect types + Healing', D.effects.length, 15);
+check('Old conditions merge', clean(D, { play: { conditions: ['dazed', 'stunned', 'exhausted', 'invisible', 'quickened'] } }).play.conditions, ['stunned', 'weakened', 'hidden', 'hasted']);
+check('Conditions with no new home are dropped', clean(D, { play: { conditions: ['confused', 'petrified', 'doomed', 'blessed'] } }).play.conditions, []);
+check('Old supplemental Effects map or clear', [clean(D, { signature: { offensive: 'gravity' } }).signature.offensive, clean(D, { signature: { offensive: 'shadow' } }).signature.offensive], ['force', '']);
+check('Old weapon Effect maps', clean(D, { weapons: [{ name: 'x', effect: 'nature' }] }).weapons[0].effect, 'earth');
+
 // Loading old or broken saves
+check('Merged skills: 24 universal skills', D.skills.filter(s => !s.genres.length).length, 24);
+check('Old Focus Skills are renamed', clean(D, { focus: ['pilot', 'tactics', 'resist'] }).focus, ['operate', 'analyze', 'concentrate']);
+check('Two old skills merging empties a Focus slot', clean(D, { focus: ['operate', 'pilot'] }).focus, ['operate', '']);
+check('Old skill points move, and a collision frees the point',
+  clean(D, { skillPoints: { 2: ['inspire', 'lead', 'endure'] } }).skillPoints[2], ['lead', '', 'endure']);
+check('The Heal skill becomes Channel', clean(D, { focus: ['heal'] }).focus, ['channel']);
+check('Old Enhancement target is renamed', clean(D, { items: [{ template: 'enhancement', rating: 1, appliesTo: 'skill:pilot' }] }).items[0].appliesTo, 'skill:operate');
+check('Old Specialty ids are renamed', clean(D, { specialties: [{ id: 'empath', level: 1 }] }).specialties[0].id, 'martyr');
+check('Old Aptitude ids are renamed', [clean(D, { aptitude: 'duelist' }).aptitude, clean(D, { aptitude: 'polymath' }).aptitude], ['weapon-master', 'jack-of-all-trades']);
+check('Pilot Aptitude now gives Operate and Observe', D.aptitudesById.get('pilot').bonus_skills, ['operate', 'observe']);
 check('Unknown ids are dropped', clean(D, { role: 'no-such-role', feats: { 3: 'nope', 1: 'toughened' } }).feats, { 1: 'toughened' });
 check('Level is kept within 1-20', clean(D, { level: 40 }).level, 20);
 check('Missing fields get defaults', clean(D, {}).play.trackers.corruption, 0);

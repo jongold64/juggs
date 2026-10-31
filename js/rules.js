@@ -432,6 +432,9 @@ export function maneuverCost(D, level, cost) {
   return free === 'all' || cost <= free ? 0 : cost;
 }
 
+// Conditions marked on the sheet. The appendix's supernatural conditions stay in the data as GM reference.
+export const playConditions = (D, positive) => D.conditions.filter(x => !x.supernatural && x.positive === positive);
+
 // ---------------------------------------------------------------------------------------------------------------
 // Powers (the Spell Builder). A Power spec: { name, source, range, targets, duration, effect, summon,
 // conditions: [ids], focusItem, entityBlessing } — option ids from D.powers.builder.
