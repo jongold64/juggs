@@ -242,6 +242,11 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 
 ## Open — to be decided
 
+- **Roles trim (decided 2026-10-31, not yet applied to the books or the builder).** Eight Roles: Warrior, Defender,
+  Scout, Speaker, Expert (a widened Artificer: building, deduction, adaptability), Medic (moved out of the supernatural
+  group), Caster, Channeler. The other Roles become optional Archetypes: a core Role with a Specialty, Aptitude or
+  Genre. The pairings, and any Ascetic Feat, are proposals still to be approved.
+
 - Standard Origin trait.
 - Element and Void Power Source details.
 - Abjure rewrites (see Skills).
