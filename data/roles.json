@@ -12,7 +12,7 @@
       {
         "step": 1,
         "level": 1,
-        "text": "+1 to all Attack rolls when Stamina is in Fresh range (boxes 1–5)."
+        "text": "+1 to all Attack rolls when Stamina is in Healthy range (boxes 1–5)."
       },
       {
         "step": 2,
@@ -131,7 +131,7 @@
       {
         "step": 2,
         "level": 5,
-        "text": "Your Mark cannot benefit from Concealed or Invisible against you specifically."
+        "text": "Your Mark cannot benefit from Hidden against you specifically."
       },
       {
         "step": 3,
@@ -164,12 +164,12 @@
       {
         "step": 1,
         "level": 1,
-        "text": "When Stamina enters Battered range (boxes 6–10), gain +1 to all Attack rolls. When it enters Wounded range (boxes 11–14), gain +2 instead. These replace each other — they do not stack."
+        "text": "When Stamina enters Hurt range (boxes 6–10), gain +1 to all Attack rolls. When it enters Injured range (boxes 11–14), gain +2 instead. These replace each other — they do not stack."
       },
       {
         "step": 2,
         "level": 5,
-        "text": "While the Berserker bonus is active (Stamina Battered or Wounded), you cannot be Stunned or Dazed. Attacks still deal their Stamina damage — the Condition does not apply."
+        "text": "While the Berserker bonus is active (Stamina Hurt or Injured), you cannot be Stunned. Attacks still deal their Stamina damage — the Condition does not apply."
       },
       {
         "step": 3,
@@ -179,7 +179,7 @@
       {
         "step": 4,
         "level": 13,
-        "text": "Berserker bonuses increase: Battered now grants +2, Wounded now grants +3. Additionally, when Stamina enters Wounded range for the first time in an encounter, unmark 1 Stamina box immediately."
+        "text": "Berserker bonuses increase: Hurt now grants +2, Injured now grants +3. Additionally, when Stamina enters Injured range for the first time in an encounter, unmark 1 Stamina box immediately."
       },
       {
         "step": 5,
@@ -212,7 +212,7 @@
       {
         "step": 3,
         "level": 9,
-        "text": "Once per encounter, when you would gain a Condition from a physical source, negate it entirely. Stamina damage still applies. Works against Dazed, Stunned, Prone, Bleeding, Burning, Poisoned, Slowed, Restrained, Exposed. Does not work against supernatural or social Conditions."
+        "text": "Once per encounter, when you would gain a Condition from a physical source, negate it entirely. Stamina damage still applies. Works against Stunned, Prone, Bleeding, Burning, Poisoned, Slowed, Restrained, Exposed. Does not work against supernatural or social Conditions."
       },
       {
         "step": 4,
@@ -245,7 +245,7 @@
       {
         "step": 2,
         "level": 5,
-        "text": "First attack each encounter from Concealed or Invisible bypasses Defend — target may only Deflect."
+        "text": "First attack each encounter from Hidden bypasses Defend — target may only Deflect."
       },
       {
         "step": 3,
@@ -255,12 +255,12 @@
       {
         "step": 4,
         "level": 13,
-        "text": "Once per scene, apply Concealed to yourself as a free action."
+        "text": "Once per scene, apply Hidden to yourself as a free action."
       },
       {
         "step": 5,
         "level": 17,
-        "text": "Your first attack each round is always treated as coming from Concealed — target may only Deflect. Passive, no declaration needed."
+        "text": "Your first attack each round is always treated as coming from Hidden — target may only Deflect. Passive, no declaration needed."
       }
     ],
     "design_note": "Scout is environmental positioning and reconnaissance. Skirmisher is combat tempo. Hunter is pursuit. All share the Agility/Acuity base but grow into genuinely different play patterns."
@@ -359,7 +359,7 @@
       {
         "step": 2,
         "level": 5,
-        "text": "Inspire used on Close range allies costs 0 Actions once per round."
+        "text": "Lead used on Close range allies costs 0 Actions once per round."
       },
       {
         "step": 3,
@@ -649,7 +649,7 @@
     "category": "supernatural",
     "identity": "Divine or spiritual healing and authority.",
     "summary": "Divine or spiritual healing and authority. Faith-sourced restoration and supernatural protection.",
-    "prerequisite_text": "Magic Overlay required. Channel or Heal 2+ required.",
+    "prerequisite_text": "Magic Overlay required. Channel 2+ required.",
     "requires": [
       {
         "genre": [
@@ -674,7 +674,7 @@
       {
         "step": 1,
         "level": 1,
-        "text": "Spiritual Powers clear 2 Resolve (not 1). Abjure costs 1 Resolve."
+        "text": "Spiritual Powers clear 2 Resolve (not 1). Abjure costs 1 Resolve. Level Discount active on all Powers."
       },
       {
         "step": 2,
@@ -864,12 +864,12 @@
       {
         "step": 2,
         "level": 5,
-        "text": "Once per scene, clear one ongoing Condition (Bleeding, Burning, Poisoned, Dazed, Stunned, Sickened, or Exhausted 1 level) from any ally as a free action — no roll, no pool cost."
+        "text": "Once per scene, clear one ongoing Condition (Bleeding, Burning, Poisoned, Stunned, or Weakened 1 level) from any ally as a free action — no roll, no pool cost."
       },
       {
         "step": 3,
         "level": 9,
-        "text": "A successful Survive field triage check out of combat now clears the Wounded condition (boxes 11–14). Normally this requires magical healing. Requires one uninterrupted Task Block."
+        "text": "A successful Survive field triage check out of combat now clears the Injured condition (boxes 11–14). Normally this requires magical healing. Requires one uninterrupted Task Block."
       },
       {
         "step": 4,
@@ -879,10 +879,10 @@
       {
         "step": 5,
         "level": 17,
-        "text": "Once per session, perform emergency intervention on any ally at any Stamina state including Broken. No roll required. The ally transitions from Broken to Impaired immediately and can act this round. Additionally unmark all Strained boxes (6–10) from their Stamina pool. Does not require a Full Rest."
+        "text": "Once per session, perform emergency intervention on any ally at any Stamina state including Broken. No roll required. The ally can act this round but is Weakened until a Full Rest. Additionally unmark all Hurt boxes (6–10) from their Stamina pool. Does not require a Full Rest."
       }
     ],
-    "design_note": "Step 3 is the key unlock — mundane healing clearing Wounded is normally impossible without magic. This makes the Medic Role essential in non-magical genres rather than a lesser Channeler. Step 5 parallels Channeler Step 5 in scope but uses no Mana or Belief — it runs entirely from skill and Toughness."
+    "design_note": "Step 3 is the key unlock — mundane healing clearing Injured is normally impossible without magic. This makes the Medic Role essential in non-magical genres rather than a lesser Channeler. Step 5 parallels Channeler Step 5 in scope but uses no Mana or Belief — it runs entirely from skill and Toughness."
   },
   {
     "id": "netrunner",

@@ -16,17 +16,18 @@ rules data in plain JSON, and a static web app that builds characters from it.
 ## File layout
 
 - `source/` — the user's rules documents (Word, HTML, PDF). Read-only; never edit.
-  `source/JUGGS_Player_Book.docx` is the primary source (see `docs/DECISIONS.md`).
+  The Lite books in the author's WIP folder now win over them (see `docs/DECISIONS.md`).
 - `docs/DECISIONS.md` — the author's rulings on conflicts and open questions. Read it before changing rules.
 - `data/*.json` — the rules data. Drafted once by `scripts/draft_data.py`, then **edited directly** (unlike the
   Pathfinder builder, the data is not regenerated). Every record has an `id`; open issues are listed in a
   record's `flags`.
 - `scripts/` — `docx_reader.py` (reads .docx without extra libraries), `draft_data.py` (the one-time draft),
-  `validate.py` (checks the data).
+  `validate.py` (checks the data),
+  `import_lite.py` (re-imports Feats, Specialties, spells and Power Sources from the Lite books; try it on a copy of `data/`).
 - `index.html`, `css/style.css`, `js/` — the app. `js/app.js` owns the page (state, `render()`, one delegated
   change handler: controls carry `data-bind="path"`, e.g. `base.str` or `skillPoints.5.2`); `js/rules.js` holds the
-  rules as pure functions; `js/character.js` is the saved character (`clean()` migrates old saves and drops unknown
-  ids); `js/sheet.js` draws the printable sheet; `js/data.js` loads `data/*.json` and builds `…ById` maps.
+  rules as pure functions; `js/character.js` is the saved character (`clean()` migrates old saves through `js/migrate.js`
+  and drops unknown ids); `js/sheet.js` draws the printable sheet; `js/data.js` loads `data/*.json` and builds `…ById` maps.
 - `tests.html` + `js/rules.test.js` — the browser test page for `rules.js` and `character.js`.
 
 ## Run and test
@@ -60,6 +61,7 @@ python scripts/draft_data.py source drafts      # re-draft into a scratch folder
   Skirmisher, Shaper, Empath and Infiltrator are Roles and Specialties) never collide.
 - Ability Score ids: `str tou agi int wil acu bel mor ser`. Domains: `body mind spirit`. Pools: `stamina mana
   resolve`.
+- A renamed or removed id goes in `js/migrate.js`, so old saves still load.
 - Hand-entered facts missing from the sources go in the override dicts at the top of `draft_data.py`, and after
   the draft, directly in the JSON.
 - Commit when a piece of work is done; the user pushes (`! git -C C:/Users/jongo/Projects/juggs push`). The site is

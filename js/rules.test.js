@@ -233,6 +233,10 @@ check('Standard is within Struggling Wealth', R.overWealth(D, make(), 'standard'
 check('Unknown weapon quality becomes Standard', clean(D, { weapons: [{ name: 'x', quality: 'nope' }] }).weapons[0].quality, 'standard');
 check('Faculty items have no Rating', clean(D, { items: [{ template: 'faculty', rating: 3 }] }).items[0].rating, null);
 
+// Role text
+check('Roles use the current band names', JSON.stringify(D.roles).match(/Battered|Wounded range|Fresh range|Impaired/), null);
+check('Channeler Step 1 has the Level Discount', /Level Discount/.test(D.rolesById.get('channeler').steps[0].text), true);
+
 // Conditions and Effects
 check('15 negative conditions (three ongoing, Removed as one) + 4 positive', [R.playConditions(D, false).length, R.playConditions(D, true).length], [19, 4]);
 check('14 Effect types + Healing', D.effects.length, 15);

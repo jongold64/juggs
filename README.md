@@ -19,12 +19,14 @@ Then open http://localhost:8000/ in a browser. Rules checks: http://localhost:80
 ## What it does
 
 - **Character**: campaign Genres, level, name and concept (with ideas for each Role), Aptitude, Origin, the
-  20 Build Points, Primary Domain and governing Ability, starting Role (with its Suggested Build), Specialties,
+  20 Build Points, Primary Domain and governing Ability, starting Role (with its Suggested Build), a free Specialty,
   Signature Effects, Power Sources, Wealth and Reputation.
 - **Skills**: the 6 Focus Skills plus Aptitude and Specialty bonus skills, and every skill's rank, cap and total.
-- **Roles & Feats**: Role Steps, Specialty abilities and Feats held.
+- **Roles & Feats**: Role Steps, Specialties and Feats (Stepped and Gated), each shown by tier.
 - **Advancement**: level by level — skill points, Ability increases, Role advancement and Feats, with
   requirements checked (✓ met, ✗ not met, ? written in words, check by hand).
+- **Powers**: Making a Power (Power Level 1 plus upgrades), the 109 stepped spells with this character's Mana, and the
+  Power Sources.
 - **Sheet**: the two-page character sheet. Pool boxes, trackers and conditions can be marked during play, and
   rolled values have a d20 button. Print prints the sheet.
 
