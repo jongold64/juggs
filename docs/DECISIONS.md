@@ -252,6 +252,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
   change from "Role Step 3" to "Role at Veteran tier".
 - **Specialties and Feats stay separate (decided 2026-10-31, not yet applied).** No Talents. One rule is added: "Your free
   Specialty may instead be a second Stepped Feat."
+- **Aptitudes become Backgrounds (decided 2026-10-31, not yet applied).** A rename only; how they work does not change.
+  The builder keeps its saved field name, so old saves still load.
 
 - Standard Origin trait.
 - Element and Void Power Source details.
