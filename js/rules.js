@@ -473,13 +473,17 @@ export function madePowerLevel(D, p) {
 // Casters may use Powers up to Character Level + 1, to a maximum of 5.
 export const maxPowerLevel = level => Math.min(5, level + 1);
 
-// Anyone with a Cast or Channel skill at rank 2+ is a practitioner: Basic Casts and cantrips are free.
+// Anyone with a Cast or Channel skill at rank 3+ is a practitioner: Basic Casts and cantrips are free.
 export function isPractitioner(D, c, level = c.level) {
-  return ['cast-attack', 'cast-defend', 'cast-utility', 'channel'].some(s => skillRank(D, c, s, level) >= 2);
+  return ['cast-attack', 'cast-defend', 'cast-utility', 'channel'].some(s => skillRank(D, c, s, level) >= 3);
 }
 
+// Caster Step 1 keeps its written exception: Cantrips free at Cast 2+.
+const casterCantrips = (D, c) => (roleSteps(D, c).caster || 0) >= 1
+  && ['cast-attack', 'cast-defend', 'cast-utility'].some(s => skillRank(D, c, s) >= 2);
+
 function manaFor(D, c, powerLevel, cantrip) {
-  if (cantrip && isPractitioner(D, c)) return { mana: 0, discounted: false, cantrip: true };
+  if (cantrip && (isPractitioner(D, c) || casterCantrips(D, c))) return { mana: 0, discounted: false, cantrip: true };
   const discount = hasLevelDiscount(D, c);
   const mana = powerCost(D, powerLevel, c.level, discount);
   return { mana, discounted: discount && mana < powerLevel, cantrip: false };

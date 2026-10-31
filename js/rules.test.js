@@ -165,7 +165,9 @@ check('No discount for a non-Caster', R.madePowerSummary(D, make({ level: 12 }),
 check('Caster at Level 12 pays PL - 2', R.madePowerSummary(D, make({ level: 12, role: 'caster' }), made({ force: 2 })).mana, 1);
 check('Channeler at Level 12 pays PL - 2', R.madePowerSummary(D, make({ level: 12, role: 'channeler' }), made({ force: 3 })).mana, 2);
 check('Cantrip costs 1 Mana without Cast or Channel 2+', R.madePowerSummary(D, make(), made({ reach: 'touch' })).mana, 1);
-check('Cantrip is free for a practitioner', R.madePowerSummary(D, make({ genres: ['magic'], focus: ['cast-attack'] }), made({ reach: 'touch' })).mana, 0);
+check('Cantrip is free for a practitioner', R.madePowerSummary(D, make({ level: 2, genres: ['magic'], focus: ['cast-attack'], skillPoints: { 2: ['cast-attack'] } }), made({ reach: 'touch' })).mana, 0);
+check('Caster Step 1 keeps free Cantrips at Cast 2', R.madePowerSummary(D, make({ role: 'caster', genres: ['magic'], focus: ['cast-attack'] }), made({ reach: 'touch' })).mana, 0);
+check('Rank 2 is not yet a practitioner', R.madePowerSummary(D, make({ genres: ['magic'], focus: ['cast-attack'] }), made({ reach: 'touch' })).mana, 1);
 check('Near range is not a cantrip', R.madePowerSummary(D, make({ genres: ['magic'], focus: ['cast-attack'] }), made()).mana, 1);
 const fireball = D.spellsById.get('fireball');
 check('109 spells, 5 Steps each', [D.powers.spells.length, D.powers.spells.every(s => s.steps.length === 5)], [109, true]);

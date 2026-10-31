@@ -22,7 +22,10 @@ Asked of the author while updating the builder:
 - **Armor Agility penalty**: applies to Agility rolls and no longer lowers Body Deflect.
 - **Specialty bonus Focus Skills**: kept, on every Specialty held, although the Book of Feats entries omit them.
 - **Fallout**: as printed. Casters at Surge 5+; Specialty Fallout and Weird Fallout at Surge 3+.
-- **Cantrips**: free with Cast or Channel at rank 2+ (the Book of Powers' Intellect or Belief 2+ is not used).
+- **Basic Cast**: free for a practitioner, Cast or Channel at rank 3+ (author's change to the Lite wording). At rank 1
+  or 2 it costs 1 Mana minimum.
+- **Cantrips** follow the same rank 3+ (the Book of Powers' Intellect or Belief 2+ is not used), except that Caster
+  Step 1 still says "Cantrips free (Cast 2+)". To confirm.
 
 Builder choices for old saves and reference (the author did not object):
 
