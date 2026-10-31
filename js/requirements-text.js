@@ -11,11 +11,10 @@ export function reqText(D, clause) {
   if (clause.role) return `${clause.role.map(r => D.rolesById.get(r).name).join(' or ')} Role Step ${clause.step}`;
   if (clause.feat) return clause.feat.map(f => D.featsById.get(f).name).join(' or ');
   if (clause.genre) return `${clause.genre.map(g => D.genresById.get(g).name).join(' or ')} Genre`;
-  if (clause.power_level_min) return `Power Level ${clause.power_level_min}+`;
+  if (clause.power_level_min) return `${D.core.tiers[clause.power_level_min - 1].name} tier or above`;
   if (clause.reputation_min) return `Reputation ${clause.reputation_min}+`;
   if (clause.specialty) return `${clause.specialty.map(s => D.specialtiesById.get(s)?.name || s).join(' or ')} Specialty`;
   if (clause.specialty_category) return `an active ${cap(clause.specialty_category)} Specialty`;
-  if (clause.specialty_ability) return `a Specialty at ${clause.specialty_ability.replace('ability', 'Ability ')}`;
   if (clause.any) return clause.any.map(x => reqText(D, x)).join(' or ');
   return JSON.stringify(clause);
 }

@@ -11,6 +11,10 @@ export const CONDITIONS = { dazed: 'stunned', routed: 'frightened', fascinated: 
                             quickened: 'hasted', focused: 'inspired', rallied: 'inspired' };
 export const EFFECTS = { gravity: 'force', concussive: 'sonic', nature: 'earth' };
 
+// The Feats that bought Specialty Abilities are gone (they arrive by tier now); the four Surge Disciplines are one Feat.
+const DROPPED_FEATS = new Set(['specialty-ability-2', 'specialty-ability-3', 'specialty-mastery-enhancement']);
+const SURGE_DISCIPLINES = new Set(['surge-discipline-1', 'surge-discipline-2', 'surge-discipline-3', 'surge-discipline-4']);
+
 const rename = (map, id) => map[id] ?? id;
 const isObj = x => x && typeof x === 'object' && !Array.isArray(x);
 
@@ -27,7 +31,35 @@ function renameSkills(list) {
   });
 }
 
-export function migrate(raw) {
+function migrateFeats(feats) {
+  const out = {};
+  let discipline = false;
+  for (const lv of Object.keys(feats).sort((a, b) => a - b)) {
+    const f = feats[lv];
+    if (DROPPED_FEATS.has(f)) continue;
+    if (SURGE_DISCIPLINES.has(f)) {
+      if (!discipline) out[lv] = 'surge-discipline';
+      discipline = true;
+    } else out[lv] = f;
+  }
+  return out;
+}
+
+// A further Specialty now needs a Feat slot. An old free second Specialty takes the first open slot from the level it
+// was taken, then any open slot; with none open it stays where it is and the builder warns.
+function moveSpecialties(c, featLevels) {
+  if (!Array.isArray(c.specialties) || c.specialties.length < 2 || !isObj(c.feats)) return;
+  const level = Number.isInteger(c.level) ? c.level : 1;
+  const kept = c.specialties.slice(0, 1);
+  for (const s of c.specialties.slice(1)) {
+    const open = featLevels.filter(lv => lv <= level && !c.feats[lv]);
+    const slot = open.find(lv => lv >= (s?.level || 1)) ?? open[open.length - 1];
+    if (slot && s?.id) c.feats[slot] = `specialty:${s.id}`; else kept.push(s);
+  }
+  c.specialties = kept;
+}
+
+export function migrate(raw, featLevels = []) {
   if (!isObj(raw)) return raw;
   const c = { ...raw };
   if (Array.isArray(c.focus)) c.focus = renameSkills(c.focus);
@@ -56,9 +88,8 @@ export function migrate(raw) {
   if (Array.isArray(c.specialties)) {
     c.specialties = c.specialties.map(s => (isObj(s) ? { ...s, id: rename(SPECIALTIES, s.id) } : s));
   }
-  if (isObj(c.featChoices)) {
-    c.featChoices = Object.fromEntries(Object.entries(c.featChoices).map(([lv, s]) => [lv, rename(SPECIALTIES, s)]));
-  }
+  if (isObj(c.feats)) c.feats = migrateFeats(c.feats);
+  moveSpecialties(c, featLevels);
   if (typeof c.originChoice === 'string') c.originChoice = c.originChoice.replace('(+1 Tactics)', '(+1 Analyze)');
   return c;
 }

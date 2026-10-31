@@ -5,14 +5,13 @@ import { esc, paragraphs, options, cap } from './dom.js';
 import { reqStatus, mark } from './requirements-text.js';
 
 // Which part of the tab is open and the Feat filters. Page state only; not saved with the character.
-const view = { section: 'mine', query: '', domain: '', rank: '', eligible: false, category: '' };
+const view = { section: 'mine', query: '', domain: '', kind: '', eligible: false, category: '' };
 
 export function setRolesFilter(key, value) {
   view[key] = value;
 }
 
 const SECTIONS = [['mine', 'Your character'], ['roles', 'Roles'], ['specialties', 'Specialties'], ['feats', 'Feats']];
-const RANK_BOOK = { A: 'Basic', B: 'Advanced', C: 'Mastery', D: 'Legendary' };
 
 // ---------------------------------------------------------------------------------------------------------------
 // Where things can go
@@ -21,24 +20,21 @@ const RANK_BOOK = { A: 'Basic', B: 'Advanced', C: 'Mastery', D: 'Legendary' };
 // Tier-change levels up to the character's level with no Role chosen yet.
 const openRoleLevels = (D, c) => R.levelsUpTo(D.core.advancement.tier_change_levels, c.level).filter(lv => !c.roleAdvances[lv]);
 
-// Feat levels where this Feat could go: an empty slot of a high enough Rank whose requirements are not failed.
+// Feat levels where this Feat could go: an empty slot that accepts it, whose requirements are not failed.
 function featSlotsFor(D, c, f) {
   return R.levelsUpTo(D.core.advancement.feat_levels, c.level).filter(lv => !c.feats[lv]
-    && R.slotAccepts(D, lv, f) && !(lv === 1 && f.unlocks) && !(f.available_from_level > lv)
+    && R.slotAccepts(D, lv, f)
     && R.checkRequirements(f.requires, R.requirementContext(D, c, lv)).ok !== false);
 }
 
 // Buttons return true when they changed the character.
 export function rolesAction(D, c, action, arg) {
   if (action === 'section') { view.section = arg; return false; }
-  const [a, b] = String(arg).split(':');
+  const [a, ...rest] = String(arg).split(':');
+  const b = rest.join(':');
   if (action === 'start-role') { c.role = a; return true; }
   if (action === 'advance-role') { c.roleAdvances[Number(a)] = b; return true; }
-  if (action === 'take-spec') {
-    const i = Number(a);
-    c.specialties[i] = { id: b, level: i === 0 ? 1 : Math.min(c.level, Math.max(D.core.advancement.second_specialty_level, c.specialties[1]?.level || 0)) };
-    return true;
-  }
+  if (action === 'take-spec') { c.specialties[0] = { id: a, level: 1 }; return true; }
   if (action === 'take-feat') { c.feats[Number(a)] = b; return true; }
   if (action === 'drop-feat') { delete c.feats[Number(a)]; return true; }
   return false;
@@ -76,6 +72,12 @@ function stepLevels(D, c, roleId) {
   return out;
 }
 
+// The Steps of a Specialty or Stepped Feat, with the ones not yet reached greyed.
+function tierSteps(record, level) {
+  return `<ul class="steps">${record.steps.map(s => `<li class="${s.level <= level ? '' : 'locked'}"><b>${esc(s.tier)}</b>
+    <span class="hint">Level ${s.level}</span> ${esc(s.text)}${s.at_the_table ? `<div class="hint">At the table: ${esc(s.at_the_table)}</div>` : ''}</li>`).join('')}</ul>`;
+}
+
 function renderMine(D, c) {
   const steps = R.roleSteps(D, c);
   const nextTier = D.core.advancement.tier_change_levels.find(lv => lv > c.level);
@@ -86,28 +88,27 @@ function renderMine(D, c) {
   const nextNote = nextTier ? `<p class="hint">Next Role advancement: Level ${nextTier} (advance a Role you hold, or begin a new one).</p>` : '';
   const open = openRoleLevels(D, c);
 
-  const unlocked = R.specialtyAbilities(D, c);
-  const specs = R.specialtiesHeld(D, c).map(sp => {
-    const have = unlocked[sp.id] || [];
-    const row = (key, title, how) => `<li class="${have.includes(key) ? '' : 'locked'}"><b>${title}</b>
-      ${have.includes(key) ? '' : `<span class="hint">(${how})</span>`} ${esc(sp.abilities[key].text)}</li>`;
-    return `<h3>${esc(sp.name)} <span class="hint">${esc(cap(sp.category))} · ${sp.governing.map(a => D.abilitiesById.get(a).name).join(' or ')} · ${cap(sp.pool)}</span></h3>
-      <ul class="steps">${row('ability1', 'Ability 1', 'free')}${row('ability2', 'Ability 2', 'Rank A Feat, Level 3+')}${
-        row('ability3', 'Ability 3', 'Rank B Feat, Level 7+')}${row('mastery', 'Mastery Enhancement', 'Rank C Feat, Level 11+')}</ul>`;
-  }).join('') || '<p class="hint">No Specialty yet.</p>';
+  const specs = R.specialtiesHeld(D, c).map(sp =>
+    `<h3>${esc(sp.name)} <span class="hint">${esc(cap(sp.category))} · ${sp.governing.map(a => D.abilitiesById.get(a).name).join(' or ')} · ${cap(sp.pool)}</span></h3>
+      ${tierSteps(sp, c.level)}`).join('') || '<p class="hint">No Specialty yet.</p>';
 
   const feats = R.levelsUpTo(D.core.advancement.feat_levels, c.level).map(lv => {
     const f = D.featsById.get(c.feats[lv]);
-    const spec = f?.unlocks ? D.specialtiesById.get(c.featChoices[lv])?.name : '';
-    return `<li><b>Level ${lv}</b> <span class="hint">(up to Rank ${R.slotRank(D, lv)})</span> ${f
-      ? `${esc(f.name)}${spec ? ` — ${esc(spec)}` : ''} <span class="hint">Rank ${esc(f.rank)}</span> ${btn('Remove', 'drop-feat', lv)}
-         <div class="info">${paragraphs(f.text)}${f.at_the_table ? `<p class="hint">At the table: ${esc(f.at_the_table)}</p>` : ''}</div>`
+    const sp = D.specialtiesById.get(R.slotSpecialty(c.feats[lv]));
+    return `<li><b>Level ${lv}</b> ${f
+      ? `${esc(f.name)} <span class="hint">${cap(f.kind)}</span> ${btn('Remove', 'drop-feat', lv)}
+         <div class="info"><p>${esc(R.featNow(f, c.level))}</p></div>`
+      : sp ? `${esc(sp.name)} <span class="hint">Specialty, shown above</span> ${btn('Remove', 'drop-feat', lv)}`
       : `<span class="hint">empty — pick one under Feats or on the Advancement tab</span>`}</li>`;
   }).join('');
+  const capstone = D.featsById.get(c.capstone);
+  const capstoneRow = c.level >= D.core.advancement.capstone.level ? `<li><b>Capstone</b> ${capstone
+    ? `${esc(capstone.name)} <div class="info"><p>${esc(R.featNow(capstone, c.level))}</p>${c.capstoneNote ? `<p>${esc(c.capstoneNote)}</p>` : ''}</div>`
+    : '<span class="hint">empty — pick one on the Advancement tab</span>'}</li>` : '';
   return `<section class="card wide"><h2>Roles</h2>${roles}${nextNote}${open.length
       ? `<p class="warn">Role advancement not chosen at Level ${open.join(', ')}.</p>` : ''}</section>
     <section class="card wide"><h2>Specialties</h2>${specs}</section>
-    <section class="card wide"><h2>Feats</h2><ul class="feat-list">${feats}</ul></section>`;
+    <section class="card wide"><h2>Feats</h2><ul class="feat-list">${feats}${capstoneRow}</ul>${R.featProblems(D, c).map(p => `<p class="warn">${esc(p)}</p>`).join('')}</section>`;
 }
 
 function renderRoleList(D, c) {
@@ -146,67 +147,63 @@ function renderRoleList(D, c) {
 }
 
 function renderSpecialtyList(D, c) {
-  const held = c.specialties.map(s => s.id);
+  const held = R.specialtiesHeld(D, c).map(s => s.id);
   const ctx = R.requirementContext(D, c, c.level);
-  const secondOpen = c.level >= D.core.advancement.second_specialty_level && !c.specialties[1];
+  const openSlots = R.levelsUpTo(D.core.advancement.feat_levels, c.level).filter(lv => !c.feats[lv]);
   const cards = D.specialties.map(sp => {
     const syn = sp.synergy?.requires ? R.checkClause(sp.synergy.requires, ctx) : null;
     const buttons = [];
     if (!held.includes(sp.id)) {
-      if (!c.specialties[0]) buttons.push(btn('Take as your Specialty', 'take-spec', `0:${sp.id}`));
-      else if (secondOpen) buttons.push(btn('Take as second Specialty', 'take-spec', `1:${sp.id}`));
+      if (!c.specialties[0]) buttons.push(btn('Take as your free Specialty', 'take-spec', sp.id));
+      else for (const lv of openSlots) buttons.push(btn(`Take with the Level ${lv} Feat slot`, 'take-feat', `${lv}:specialty:${sp.id}`));
     }
     return `<details class="rf-card"${held.includes(sp.id) ? ' open' : ''}><summary><b>${esc(sp.name)}</b>
         <span class="hint">${esc(cap(sp.category))} · ${sp.governing.map(a => D.abilitiesById.get(a).name).join(' or ')} · ${cap(sp.pool)}</span>
         ${held.includes(sp.id) ? '<span class="good">Yours</span>' : ''}</summary>
       <p class="hint">${esc(sp.summary || '')} Bonus Focus Skills: ${sp.bonus_skills.map(s => esc(D.skillsById.get(s)?.name || s)).join(', ')}.</p>
-      <ul class="steps">${[['ability1', 'Ability 1 (free)'], ['ability2', 'Ability 2 (Rank A Feat, Level 3+)'],
-        ['ability3', 'Ability 3 (Rank B Feat, Level 7+)'], ['mastery', 'Mastery Enhancement (Rank C Feat, Level 11+)']]
-        .map(([k, t]) => `<li><b>${t}</b> ${esc(sp.abilities[k].text)}${sp.abilities[k].at_the_table
-          ? `<div class="hint">At the table: ${esc(sp.abilities[k].at_the_table)}</div>` : ''}</li>`).join('')}</ul>
+      ${tierSteps(sp, c.level)}
       <p><b>Synergy</b> (${esc(sp.synergy?.condition_text || '')}) ${syn === true ? '<span class="good">✓ you have it</span>' : syn === false ? '<span class="bad">✗ not yet</span>' : ''}:
         ${esc(sp.synergy?.effect || '')}</p>
       <p><b>Fallout</b> (Natural 1 at 3+ Surge): ${esc(sp.fallout || '')}</p>
       ${buttons.length ? `<div class="rf-buttons">${buttons.join('')}</div>` : ''}</details>`;
   }).join('');
   return `<section class="card wide"><h2>All ${D.specialties.length} Specialties</h2>
-    <p class="hint">One Specialty at creation; a second, free, from Level ${D.core.advancement.second_specialty_level}.</p>${cards}</section>`;
+    <p class="hint">${esc(D.core.advancement.specialty_rule)}</p>${cards}</section>`;
 }
 
 function renderFeatList(D, c) {
   const ctx = R.requirementContext(D, c, c.level);
   const taken = new Map(Object.entries(c.feats).map(([lv, f]) => [f, Number(lv)]));
   const q = view.query.trim().toLowerCase();
-  const domains = ['universal', 'body', 'mind', 'spirit', 'social', 'any'];
-  const list = D.feats.filter(f => (!view.domain || f.domain === view.domain) && (!view.rank || f.rank === view.rank)
+  const domains = R.FEAT_GROUPS.map(g => g[0]);
+  const list = D.feats.filter(f => (!view.domain || f.domain === view.domain) && (!view.kind || f.kind === view.kind)
     && (!q || f.name.toLowerCase().includes(q) || (f.text || '').toLowerCase().includes(q))
     && (!view.eligible || R.checkRequirements(f.requires, ctx).ok !== false))
-    .sort((a, b) => domains.indexOf(a.domain) - domains.indexOf(b.domain) || a.rank.localeCompare(b.rank) || a.name.localeCompare(b.name));
+    .sort((a, b) => domains.indexOf(a.domain) - domains.indexOf(b.domain) || a.kind.localeCompare(b.kind) || a.name.localeCompare(b.name));
   const filters = `<div class="rf-filters">
     <input type="search" id="feat-search" data-rf-filter="query" value="${esc(view.query)}" placeholder="Search Feats by name or text…" aria-label="Search Feats">
-    <select data-rf-filter="domain" aria-label="Domain">${options(domains.map(d => ({ value: d, label: d === 'any' ? 'Specialty unlocks' : cap(d) })), view.domain, 'All Domains')}</select>
-    <select data-rf-filter="rank" aria-label="Rank">${options(Object.keys(RANK_BOOK).map(r => ({ value: r, label: `Rank ${r} (${RANK_BOOK[r]})` })), view.rank, 'All Ranks')}</select>
+    <select data-rf-filter="domain" aria-label="Domain">${options(R.FEAT_GROUPS.map(([value, label]) => ({ value, label })), view.domain, 'All groups')}</select>
+    <select data-rf-filter="kind" aria-label="Stepped or Gated">${options([{ value: 'stepped', label: 'Stepped' }, { value: 'gated', label: 'Gated' }], view.kind, 'Stepped and Gated')}</select>
     <label class="check"><input type="checkbox" data-rf-filter="eligible"${view.eligible ? ' checked' : ''}> Only Feats I qualify for</label>
   </div>`;
   const cards = list.map(f => {
     const check = R.checkRequirements(f.requires, ctx);
     const at = taken.get(f.id);
-    const slots = at && !f.repeatable ? [] : featSlotsFor(D, c, f);
+    const slots = at ? [] : featSlotsFor(D, c, f);
     return `<details class="rf-card"${at ? ' open' : ''}><summary><b>${esc(f.name)}</b>
-        <span class="hint">Rank ${f.rank} · ${f.domain === 'any' ? 'Specialty' : cap(f.domain)}${f.cross_domain ? ' · cross-domain ✦' : ''}${f.repeatable ? ' · repeatable' : ''}</span>
+        <span class="hint">${cap(f.kind)} · ${esc(R.FEAT_GROUPS.find(g => g[0] === f.domain)[1])}</span>
         ${at ? `<span class="good">Taken at Level ${at}</span>` : `<span class="rf-mark">${mark(check)}</span>`}</summary>
       <p>${f.requires.length ? reqStatus(D, check) : '<span class="hint">No prerequisite.</span>'}
         ${f.prerequisite_text && f.prerequisite_text !== 'None' ? `<span class="hint">(${esc(f.prerequisite_text)})</span>` : ''}</p>
-      ${f.summary ? `<p class="hint">${esc(f.summary)}</p>` : ''}
       <div class="info">${paragraphs(f.text || '')}</div>
       ${f.at_the_table ? `<p class="hint"><b>At the table:</b> ${esc(f.at_the_table)}</p>` : ''}
-      ${f.unlocks ? '<p class="hint">Choose which Specialty it unlocks on the Advancement tab.</p>' : ''}
+      ${f.steps.length ? tierSteps(f, c.level) : ''}
       ${slots.length ? `<div class="rf-buttons">${slots.map(lv => btn(`Take at Level ${lv}`, 'take-feat', `${lv}:${f.id}`)).join('')}</div>` : ''}
     </details>`;
   }).join('');
   return `<section class="card wide"><h2>Feats <span class="hint">${list.length} of ${D.feats.length}</span></h2>
-    <p class="hint">Feats come at Levels ${D.core.advancement.feat_levels.join(', ')}. Each slot takes a Feat of its Rank or lower
-      (Rank A = Basic, B = Advanced, C = Mastery, D = Legendary). ✓ / ✗ / ? are checked at your current level.</p>
+    <p class="hint">Feats come at Levels ${D.core.advancement.feat_levels.join(', ')}. Stepped Feats fit any slot and grow by tier on their own.
+      Gated Feats need their requirement and are available from Level ${D.core.advancement.gated_from_level}. ✓ / ✗ / ? are checked at your current level.</p>
     ${filters}${cards || '<p class="hint">No Feats match.</p>'}</section>`;
 }
 

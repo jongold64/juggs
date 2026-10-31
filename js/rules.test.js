@@ -99,22 +99,31 @@ check('Either Ability', R.checkClause({ ability: ['int', 'str'], min: 4 }, ctx),
 check('Focus Skill requirement', R.checkClause({ focus: ['endure'], all: false }, ctx), true);
 check('Both Focus Skills', R.checkClause({ focus: ['endure', 'stealth'], all: true }, ctx), false);
 check('Earlier Feat counts', R.checkClause({ feat: ['toughened'] }, ctx), true);
-check('Power Level 2 at Level 7', R.checkClause({ power_level_min: 2 }, ctx), true);
+check('Seasoned tier at Level 7', R.checkClause({ power_level_min: 2 }, ctx), true);
 check('Role Step', R.checkClause({ role: ['warrior'], step: 1 }, ctx), true);
 check('Words cannot be checked', R.checkClause({ text: 'any two Mastery Feats' }, ctx), null);
 check('Any-of with one true', R.checkClause({ any: [{ ability: ['int'], min: 5 }, { power_level_min: 2 }] }, ctx), true);
-check('Second Wind prerequisites met (Toughened)',
-  R.checkRequirements(D.featsById.get('second-wind').requires, ctx).ok, true);
 check('A Feat taken at this level does not count for itself',
   R.requirementContext(D, make({ feats: { 1: 'toughened' } }), 1).feats.has('toughened'), false);
 
 // Feat slots
-check('Level 1 slot takes Rank A', R.slotAccepts(D, 1, { rank: 'A' }), true);
-check('Level 1 slot refuses Rank B', R.slotAccepts(D, 1, { rank: 'B' }), false);
-check('Level 19 slot takes Rank D', R.slotAccepts(D, 19, { rank: 'D' }), true);
-check('Level 11 slot takes a lower Rank', R.slotAccepts(D, 11, { rank: 'A' }), true);
-check('Level 17 slot refuses Rank D', R.slotAccepts(D, 17, { rank: 'D' }), false);
-check('Every Feat has a Rank', D.feats.every(f => ['A', 'B', 'C', 'D'].includes(f.rank)), true);
+const gated = D.feats.find(f => f.kind === 'gated');
+const stepped = D.feats.find(f => f.kind === 'stepped');
+check('Book counts: 83 Stepped and 49 Gated Feats', [D.feats.filter(f => f.kind === 'stepped').length, D.feats.filter(f => f.kind === 'gated').length], [83, 49]);
+check('Stepped Feats fit Level 1', R.slotAccepts(D, 1, stepped), true);
+check('Gated Feats wait for Level 11', [R.slotAccepts(D, 7, gated), R.slotAccepts(D, 11, gated)], [false, true]);
+check('A Stepped Feat shows its Steps by level', R.stepsAt(stepped, 9).length, 3);
+check('Toughened grows by tier', [1, 5, 13].map(level => R.pools(D, make({ level: level, feats: { 1: 'toughened' } })).mana.size - R.pools(D, make({ level })).mana.size), [1, 2, 3]);
+const oldSave = { level: 9, specialties: [{ id: 'striker', level: 1 }, { id: 'empath', level: 5 }],
+  feats: { 1: 'toughened', 3: 'specialty-ability-2', 7: 'surge-discipline-1' }, featChoices: { 3: 'striker' } };
+check('Old unlock Feats drop and a second Specialty takes the open slot', clean(D, oldSave).feats, { 1: 'toughened', 3: 'specialty:martyr', 7: 'surge-discipline' });
+check('The slot Specialty counts as held', R.specialtiesHeld(D, clean(D, oldSave)).map(s => s.id), ['striker', 'martyr']);
+check('Its bonus skills arrive with the slot', R.bonusSkills(D, clean(D, oldSave)).some(b => b.from === 'Martyr'), true);
+const noRoom = clean(D, { level: 5, specialties: [{ id: 'striker', level: 1 }, { id: 'guardian', level: 5 }], feats: { 1: 'toughened', 3: 'fleet' } });
+check('No open slot: the Specialty stays, with a warning', [R.specialtiesHeld(D, noRoom).length, R.featProblems(D, noRoom).length], [2, 1]);
+check('An old Gated Feat below Level 11 stays, with a warning', R.featProblems(D, clean(D, { level: 7, feats: { 7: 'ghost' } })).length, 1);
+check('Two old Surge Disciplines become one Feat', clean(D, { level: 7, feats: { 1: 'surge-discipline-1', 3: 'surge-discipline-2' } }).feats, { 1: 'surge-discipline' });
+check('Capstone is a Gated Feat, from Level 17', [clean(D, { capstone: 'toughened' }).capstone, R.featsTaken(D, make({ level: 17, capstone: gated.id })).includes(gated.id), R.featsTaken(D, make({ level: 16, capstone: gated.id })).includes(gated.id)], ['', true, false]);
 
 // Costs and standing
 check('Level Discount: none at Level 5', R.powerCost(D, 3, 5, true), 3);

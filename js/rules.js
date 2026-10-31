@@ -129,14 +129,15 @@ export function domainMastery(D, scores) {
 // Pools
 // ---------------------------------------------------------------------------------------------------------------
 
-// Toughened and Iron Body add boxes that follow the normal growth order; Defender Step 2 adds one Healthy
+// Toughened (by tier) and Iron Body add boxes that follow the normal growth order; Defender Step 2 adds one Healthy
 // Stamina box; Legendary Endurance adds two Stamina boxes at the end of Injured (DECISIONS.md).
+const TOUGHENED_BY_TIER = { novice: 1, seasoned: 2, veteran: 2, heroic: 3, legendary: 3 };
 export function poolExtras(D, c, level = c.level) {
-  const feats = new Set(featsTaken(c, level));
+  const feats = new Set(featsTaken(D, c, level));
   const steps = roleSteps(D, c, level);
   const extra = { stamina: { grow: 0, healthy: 0, injured: 0 }, mana: { grow: 0, healthy: 0, injured: 0 },
                   resolve: { grow: 0, healthy: 0, injured: 0 } };
-  if (feats.has('toughened')) for (const p of Object.values(extra)) p.grow += 1;
+  if (feats.has('toughened')) for (const p of Object.values(extra)) p.grow += TOUGHENED_BY_TIER[tierFor(D, level).id];
   if (feats.has('iron-body')) extra.stamina.grow += 3;
   if ((steps.defender || 0) >= 2) extra.stamina.healthy += 1;
   if (feats.has('legendary-endurance')) extra.stamina.injured += 2;
@@ -286,31 +287,52 @@ export function roleSteps(D, c, level = c.level) {
   return out;
 }
 
+export const FEAT_GROUPS = [['universal', 'Universal'], ['body', 'Body'], ['mind', 'Mind'], ['spirit', 'Spirit'], ['social', 'Social'],
+                           ['magic', 'Magic'], ['mastery', 'Specialty Masteries'], ['cross', 'Cross-Specialty']];
+
+// A Feat slot can hold a Feat id, or a further Specialty as "specialty:<id>".
+const SPECIALTY_SLOT = 'specialty:';
+export const slotSpecialty = value => (typeof value === 'string' && value.startsWith(SPECIALTY_SLOT) ? value.slice(SPECIALTY_SLOT.length) : null);
+
+// The free Specialty (c.specialties), plus any taken in a Feat slot.
 export function specialtiesHeld(D, c, level = c.level) {
-  return (c.specialties || []).filter(s => s && s.id && (s.level || 1) <= level)
-    .map(s => D.specialtiesById.get(s.id)).filter(Boolean);
+  const ids = (c.specialties || []).filter(s => s && s.id && (s.level || 1) <= level).map(s => s.id);
+  for (const [, f] of byLevel(c.feats, level)) if (slotSpecialty(f)) ids.push(slotSpecialty(f));
+  return [...new Set(ids)].map(id => D.specialtiesById.get(id)).filter(Boolean);
 }
 
-export function featsTaken(c, level = c.level) {
-  return byLevel(c.feats, level).map(([, f]) => f).filter(Boolean);
-}
-
-// Which Specialty abilities are unlocked: { specialtyId: ['ability1', 'ability2', ...] }.
-export function specialtyAbilities(D, c, level = c.level) {
-  const out = {};
-  for (const sp of specialtiesHeld(D, c, level)) out[sp.id] = ['ability1'];
-  for (const [lv, f] of byLevel(c.feats, level)) {
-    const feat = D.featsById.get(f);
-    const target = c.featChoices?.[lv];
-    if (feat?.unlocks && out[target]) out[target].push(feat.unlocks);
-  }
+// Feats in the character's slots, plus the Level 17 Capstone's free Gated Feat.
+export function featsTaken(D, c, level = c.level) {
+  const out = byLevel(c.feats, level).map(([, f]) => f).filter(f => f && !slotSpecialty(f));
+  if (c.capstone && level >= D.core.advancement.capstone.level) out.push(c.capstone);
   return out;
 }
 
-// Feat Ranks A-D (the book's Basic, Advanced, Mastery, Legendary). A slot takes a Feat of its Rank or lower.
-export const slotRank = (D, level) => D.core.advancement.feat_slot_max_rank?.[level] || 'A';
-export function slotAccepts(D, level, feat) {
-  return feat.rank <= slotRank(D, level);
+// The Steps of a Stepped Feat or a Specialty that have arrived by a level.
+export const stepsAt = (record, level) => (record.steps || []).filter(s => s.level <= level);
+
+// What a Feat does now: its latest Step's words, or for a Gated Feat its own.
+export function featNow(f, level) {
+  const step = stepsAt(f, level).pop();
+  if (!step || /^As written above/.test(step.text)) return f.at_the_table || f.text;
+  return step.text;
+}
+
+// Gated Feats wait for Level 11. Stepped Feats fit every slot.
+export const slotAccepts = (D, level, feat) => feat.kind !== 'gated' || level >= D.core.advancement.gated_from_level;
+
+// Things in a save that the rules no longer allow. The builder keeps them and says so.
+export function featProblems(D, c) {
+  const out = [];
+  for (const [lv, f] of byLevel(c.feats, c.level)) {
+    const feat = D.featsById.get(f);
+    if (feat && !slotAccepts(D, Number(lv), feat)) out.push(`Level ${lv}: ${feat.name} is a Gated Feat, available from Level ${D.core.advancement.gated_from_level}.`);
+  }
+  for (const s of (c.specialties || []).slice(1)) {
+    const name = D.specialtiesById.get(s.id)?.name;
+    if (name) out.push(`${name}: a further Specialty needs a Feat slot, and no slot is open.`);
+  }
+  return out;
 }
 
 // Everything a requirement check needs to know about the character at a level.
@@ -320,8 +342,8 @@ export function requirementContext(D, c, level) {
   for (const s of D.skills) skills[s.id] = skillRank(D, c, s.id, level);
   return {
     scores, skills, focus: focusInfo(D, c, level).focus, roles: roleSteps(D, c, level),
-    feats: new Set(featsTaken(c, level - 1)), genres: enabledGenres(D, c), powerLevel: tierFor(D, level).power_level,
-    reputation: reputation(D, c), specialties: specialtyAbilities(D, c, level),
+    feats: new Set(featsTaken(D, c, level - 1)), genres: enabledGenres(D, c), powerLevel: tierFor(D, level).power_level,
+    reputation: reputation(D, c), specialties: new Set(specialtiesHeld(D, c, level).map(s => s.id)),
     specialtyCategories: new Set(specialtiesHeld(D, c, level).map(s => s.category)),
   };
 }
@@ -339,9 +361,8 @@ export function checkClause(clause, ctx) {
       case 'genre': results.push(val.some(g => ctx.genres.has(g))); break;
       case 'power_level_min': results.push(ctx.powerLevel >= val); break;
       case 'reputation_min': results.push(ctx.reputation >= val); break;
-      case 'specialty': results.push(val.some(s => s in ctx.specialties)); break;
+      case 'specialty': results.push(val.some(s => ctx.specialties.has(s))); break;
       case 'specialty_category': results.push(ctx.specialtyCategories.has(val)); break;
-      case 'specialty_ability': results.push(Object.values(ctx.specialties).some(list => list.includes(val))); break;
       case 'any': {
         const r = val.map(sub => checkClause(sub, ctx));
         results.push(r.includes(true) ? true : r.includes(null) ? null : false);

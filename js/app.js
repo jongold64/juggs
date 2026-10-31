@@ -16,7 +16,7 @@ import { renderRoles, rolesAction, setRolesFilter } from './tab-roles.js';
 const TABS = ['character', 'skills', 'roles', 'advancement', 'powers', 'gear', 'sheet', 'rules'];
 export const rollBtn = (what, bonus) =>
   `<button type="button" class="roll no-print" data-roll="${esc(what)}" data-bonus="${bonus}" aria-label="Roll ${esc(what)}">d20</button>`;
-const LEVEL_MAPS = new Set(['skillPoints', 'feats', 'featChoices', 'roleAdvances', 'abilityIncreases']);
+const LEVEL_MAPS = new Set(['skillPoints', 'feats', 'roleAdvances', 'abilityIncreases']);
 
 let D = null;
 let state = null;
@@ -317,18 +317,11 @@ function renderCharacter() {
   const specOpts = [...new Set(D.specialties.map(s => s.category))].map(cat => [cap(cat), D.specialties
     .filter(s => s.category === cat).map(s => ({ value: s.id, label: s.name }))]);
   const spec1 = c.specialties[0];
-  const spec2 = c.specialties[1];
   const specInfo = s => {
     const sp = D.specialtiesById.get(s?.id);
-    return sp ? `<div class="info"><p><b>Ability 1.</b> ${esc(sp.abilities.ability1.text)}</p>
-      <p class="hint">Bonus Focus Skills: ${sp.bonus_skills.map(skillName).join(', ')} · ${esc(sp.summary || '')}</p></div>` : '';
+    return sp ? `<div class="info"><p><b>Novice.</b> ${esc(sp.steps[0].text)}</p>
+      <p class="hint">Bonus Focus Skills: ${sp.bonus_skills.map(skillName).join(', ')} · ${esc(sp.summary || '')} New Abilities arrive at Levels 5, 9, 13 and 17.</p></div>` : '';
   };
-  const second = c.level >= D.core.advancement.second_specialty_level ? `
-    <label class="field">Second Specialty (from Level ${D.core.advancement.second_specialty_level})
-      <select data-bind="specialties.1.id">${groupedOptions(specOpts, spec2?.id || '', 'None')}</select></label>
-    ${spec2 ? `<label class="row">Taken at level <select data-bind="specialties.1.level" data-type="int">${options(
-      Array.from({ length: c.level - 4 }, (_, i) => ({ value: i + 5, label: String(i + 5) })), spec2.level)}</select></label>` : ''}
-    ${specInfo(spec2)}` : '';
 
   const effectOpts = D.effects.map(e => ({ value: e.id, label: e.name }));
   const autoSources = R.powerSources(D, { ...c, powerSources: [] });
@@ -342,8 +335,10 @@ function renderCharacter() {
   const doing = card('What can you do?', `
     <label class="field">Starting Role <select data-bind="role">${groupedOptions(roleGroups, c.role, 'Choose a Role…')}</select></label>
     ${roleInfo}
-    <label class="field">Specialty (optional) <select data-bind="specialties.0.id">${groupedOptions(specOpts, spec1?.id || '', 'None')}</select></label>
-    ${specInfo(spec1)}${second}
+    <label class="field">Specialty (optional, free) <select data-bind="specialties.0.id">${groupedOptions(specOpts, spec1?.id || '', 'None')}</select></label>
+    ${specInfo(spec1)}
+    <p class="hint">Any further Specialty uses a Feat slot: take it on the Advancement or Roles &amp; Feats tab.</p>
+    ${problems(R.featProblems(D, c))}
     <div class="two-col">
       <label class="field">Signature Effect <select data-bind="signature.offensive">${options(effectOpts, c.signature.offensive, 'None')}</select></label>
       <label class="field">Defensive / utility <select data-bind="signature.utility">${options(effectOpts, c.signature.utility, 'None')}</select></label>
@@ -418,14 +413,15 @@ function featOptions(level) {
   const c = state;
   const ctx = R.requirementContext(D, c, level);
   const taken = new Set(Object.entries(c.feats).filter(([lv]) => Number(lv) !== level).map(([, f]) => f));
-  const eligible = D.feats.filter(f => R.slotAccepts(D, level, f) && (!taken.has(f.id) || f.repeatable)
-    && !(level === 1 && f.unlocks) && !(f.available_from_level > level));
-  const groups = ['universal', 'body', 'mind', 'spirit', 'social', 'any'].map(dom => [dom === 'any' ? 'Specialty' : cap(dom),
-    eligible.filter(f => f.domain === dom).sort((a, b) => a.rank.localeCompare(b.rank))
+  const held = new Set(R.specialtiesHeld(D, { ...c, feats: Object.fromEntries(Object.entries(c.feats).filter(([lv]) => Number(lv) !== level)) }).map(s => s.id));
+  const eligible = D.feats.filter(f => R.slotAccepts(D, level, f) && !taken.has(f.id));
+  const groups = R.FEAT_GROUPS.map(([dom, name]) => [name,
+    eligible.filter(f => f.domain === dom).sort((a, b) => a.kind.localeCompare(b.kind) || a.name.localeCompare(b.name))
       .map(f => {
         const check = R.checkRequirements(f.requires, ctx);
-        return { value: f.id, label: `${mark(check)} ${f.name} (Rank ${f.rank})`, disabled: check.ok === false && c.feats[level] !== f.id };
+        return { value: f.id, label: `${mark(check)} ${f.name}${f.kind === 'gated' ? ' (Gated)' : ''}`, disabled: check.ok === false && c.feats[level] !== f.id };
       })]);
+  groups.push(['A further Specialty', D.specialties.filter(s => !held.has(s.id)).map(s => ({ value: `specialty:${s.id}`, label: s.name }))]);
   return groups;
 }
 
@@ -463,12 +459,19 @@ function levelCard(level) {
   if (R.isFeatLevel(D, level)) {
     const f = D.featsById.get(c.feats[level]);
     const check = f ? R.checkRequirements(f.requires, R.requirementContext(D, c, level)) : null;
-    const specChoice = f?.unlocks ? `<label class="row">Specialty <select data-bind="featChoices.${level}">${options(
-      R.specialtiesHeld(D, c, level).map(s => ({ value: s.id, label: s.name })), c.featChoices[level] || '', 'Choose…')}</select></label>` : '';
-    parts.push(`<label class="field">Feat <span class="hint">(Rank ${R.slotRank(D, level)} or lower)</span>
+    const sp = D.specialtiesById.get(R.slotSpecialty(c.feats[level]));
+    parts.push(`<label class="field">Feat <span class="hint">(${level >= D.core.advancement.gated_from_level ? 'Stepped or Gated' : 'Stepped'})</span>
       <select data-bind="feats.${level}">${groupedOptions(featOptions(level), c.feats[level] || '', 'Choose a Feat…')}</select></label>
-      ${specChoice}
-      ${f ? `<div class="info"><p>${reqStatus(check)}</p>${paragraphs(f.text)}${f.at_the_table ? `<p class="hint">At the table: ${esc(f.at_the_table)}</p>` : ''}</div>` : ''}`);
+      ${f ? `<div class="info"><p>${reqStatus(check)}</p><p>${esc(R.featNow(f, c.level))}</p></div>` : ''}
+      ${sp ? `<div class="info"><p class="hint">Bonus Focus Skills: ${sp.bonus_skills.map(skillName).join(', ')}.</p></div>` : ''}`);
+  }
+  if (level === D.core.advancement.capstone.level) {
+    const f = D.featsById.get(c.capstone);
+    parts.push(`<label class="field">Capstone <span class="hint">one free Gated Feat, ignoring its requirements other than tier</span>
+      <select data-bind="capstone">${options(D.feats.filter(x => x.kind === 'gated').map(x => ({ value: x.id, label: x.name })), c.capstone, 'Choose a Gated Feat…')}</select></label>
+      ${f ? `<div class="info"><p>${esc(R.featNow(f, c.level))}</p></div>` : ''}
+      <label class="field">Scene-level capability <span class="hint">defined with the GM</span>
+        <input type="text" data-bind="capstoneNote" value="${esc(c.capstoneNote)}" maxlength="500"></label>`);
   }
   const gains = [];
   if (D.core.advancement.pool_increase_levels.includes(level)) gains.push('+1 to all three pools');
@@ -482,7 +485,7 @@ function renderAdvancement() {
     .filter(lv => lv > 1 || R.isFeatLevel(D, 1));
   return card('Advancement', `<p class="hint">Everything a level grants, level by level. Set the character's level on the
     Character tab. ✓ requirements met · ✗ not met · ? written in words, check by hand.</p>
-    ${problems([...R.skillPointProblems(D, state), ...R.increaseProblems(D, state)])}`, 'wide')
+    ${problems([...R.featProblems(D, state), ...R.skillPointProblems(D, state), ...R.increaseProblems(D, state)])}`, 'wide')
     + levels.map(levelCard).join('');
 }
 

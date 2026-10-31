@@ -156,13 +156,13 @@ export function renderSheet(D, c) {
     const role = D.rolesById.get(id);
     return role.steps.filter(s => s.step <= n).map(s => `<li><b>${esc(role.name)} ${s.step}</b> ${esc(s.text)}</li>`).join('');
   }).join('');
-  const unlocked = R.specialtyAbilities(D, c);
-  const specList = specs.map(sp => (unlocked[sp.id] || []).map(k => `<li><b>${esc(sp.name)} ${k === 'mastery' ? 'Mastery' : k.replace('ability', '')}</b> ${
-    esc(sp.abilities[k].text)}</li>`).join('')).join('');
+  const specList = specs.map(sp => R.stepsAt(sp, c.level).map(s => `<li><b>${esc(sp.name)} · ${esc(s.tier)}</b> ${esc(s.text)}</li>`).join('')).join('');
   const featList = R.levelsUpTo(D.core.advancement.feat_levels, c.level).map(lv => {
     const f = D.featsById.get(c.feats[lv]);
-    return `<li><b>L${lv}</b> ${f ? `${esc(f.name)} — ${esc(f.at_the_table || f.text || '')}` : ''}</li>`;
-  }).join('');
+    const sp = D.specialtiesById.get(R.slotSpecialty(c.feats[lv]));
+    return `<li><b>L${lv}</b> ${f ? `${esc(f.name)} — ${esc(R.featNow(f, c.level))}` : sp ? `${esc(sp.name)} (Specialty)` : ''}</li>`;
+  }).join('') + (D.featsById.has(c.capstone) && c.level >= D.core.advancement.capstone.level
+    ? `<li><b>Capstone</b> ${esc(D.featsById.get(c.capstone).name)} — ${esc(R.featNow(D.featsById.get(c.capstone), c.level))}${c.capstoneNote ? ` ${esc(c.capstoneNote)}` : ''}</li>` : '');
   const features = `<section class="s-box s-wide"><h3>Features, Specialty Abilities &amp; Feats</h3>
     <h4>Role Features</h4><ul class="s-list">${roleList || '<li class="s-hint">—</li>'}</ul>
     <h4>Specialty Abilities</h4><ul class="s-list">${specList || '<li class="s-hint">—</li>'}</ul>

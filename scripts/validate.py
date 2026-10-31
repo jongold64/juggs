@@ -94,8 +94,6 @@ class Checker:
                     self.clause(where, sub, ctx)
             elif key == 'specialty_category':
                 self.ref(where, val, {'combat', 'magical', 'spiritual', 'social'}, 'Specialty category')
-            elif key == 'specialty_ability':
-                self.ref(where, val, {'ability1', 'ability2', 'ability3'}, 'Specialty ability')
             elif key in ('min', 'rank_min', 'step', 'power_level_min', 'reputation_min'):
                 if not isinstance(val, int):
                     self.err(where, f'"{key}" must be a whole number')
@@ -160,8 +158,10 @@ def main(folder):
             ck.err(w, 'steps must be numbered 1-5 in order')
     for f in ctx['feats'].values():
         w = f'feats.json {f["id"]}'
-        if f.get('rank') not in ('A', 'B', 'C', 'D'):
-            ck.err(w, f'unknown Rank {f.get("rank")!r} (use A, B, C or D)')
+        if f.get('kind') not in ('stepped', 'gated'):
+            ck.err(w, f'unknown kind {f.get("kind")!r} (use stepped or gated)')
+        if f.get('kind') == 'stepped' and [s.get('level') for s in f.get('steps', [])] != [1, 5, 9, 13, 17]:
+            ck.err(w, 'a Stepped Feat needs Steps at Levels 1, 5, 9, 13, 17')
         ck.requires(w, f.get('requires', []), ctx)
     for s in ctx['specialties'].values():
         w = f'specialties.json {s["id"]}'
@@ -170,6 +170,8 @@ def main(folder):
         ck.ref(w, s.get('bonus_skills', []), skills, 'skill')
         if len(s.get('bonus_skills', [])) != 2:
             ck.err(w, 'needs exactly 2 bonus skills')
+        if [x.get('level') for x in s.get('steps', [])] != [1, 5, 9, 13, 17]:
+            ck.err(w, 'a Specialty needs Steps at Levels 1, 5, 9, 13, 17')
         syn = s.get('synergy') or {}
         if 'requires' in syn:
             ck.clause(w + ' synergy', syn['requires'], ctx)

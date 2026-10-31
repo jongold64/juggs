@@ -1516,5 +1516,5457 @@
       "Witnesses to Weird Magic, allies included, make a Horror Check DC 12 when they see it cast. The caster is exempt.",
       "The Weird Role changes these rolls: roll twice and choose (Step 1), Revelation marks no Resolve (Step 2), declare a result once per scene (Step 3), choose the Drain pool (Step 4), redirect Backlash to a visible target (Step 5)."
     ]
-  }
+  },
+  "spells": [
+    {
+      "id": "acid-arrow",
+      "name": "Acid Arrow",
+      "sources_text": "Arcane, Weird Science",
+      "effect_text": "Acid",
+      "pace": "Steady",
+      "reskin": "corrosive round",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll; at least 1 box."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Longer range; at least 2 boxes, and armor DR −1 until repaired."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "At least 3 boxes now, and 1 box more on its next turn."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "At least 4 boxes, and 1 box each round until it spends 1 Action to clean it."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 2",
+          "duration": "Scene",
+          "text": "As Step 4, two targets; at least 5 boxes each."
+        }
+      ]
+    },
+    {
+      "id": "animate-dead",
+      "name": "Animate Dead",
+      "sources_text": "Arcane, Divine, Demonic",
+      "effect_text": "Necrotic",
+      "pace": "Measured",
+      "reskin": "corpse rig",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One corpse",
+          "duration": "1 round",
+          "text": "A corpse twitches and takes one simple action."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One corpse",
+          "duration": "Scene",
+          "text": "One undead Minion serves you for the scene."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 3 corpses",
+          "duration": "Scene",
+          "text": "Three undead Minions."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6 corpses",
+          "duration": "Scene",
+          "text": "Six undead Minions, or one Rival."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6 corpses",
+          "duration": "Hours",
+          "text": "They serve for hours, and include one Antagonist-level servant, with GM approval."
+        }
+      ]
+    },
+    {
+      "id": "arcane-bolt",
+      "name": "Arcane Bolt",
+      "sources_text": "Arcane",
+      "effect_text": "Fire or Force",
+      "pace": "Quick",
+      "reskin": "blaster",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Single target, direct damage; at least 1 box."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Range extends across the battlefield; at least 2 boxes."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "Multiple bolts from a single cast; at least 3 boxes each."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Sight",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "A barrage that crosses the scene; at least 4 boxes each."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Everyone you choose",
+          "duration": "Instant",
+          "text": "A structure-level consequence; at least 5 boxes each."
+        }
+      ]
+    },
+    {
+      "id": "arcane-shield",
+      "name": "Arcane Shield",
+      "sources_text": "Arcane",
+      "effect_text": "Force",
+      "pace": "Quick",
+      "reskin": "personal force field",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "+2 Deflect for 1 round. Can be cast as a Reaction."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "+3 Deflect for the scene, or +2 for one ally in Near range."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "+3 Deflect for all allies in Close range."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "The target is immune to one attack of any kind."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "All allies in Near range are immune to one chosen attack source for the scene."
+        }
+      ]
+    },
+    {
+      "id": "banish",
+      "name": "Banish",
+      "sources_text": "Divine, Arcane",
+      "effect_text": "",
+      "pace": "Slow",
+      "reskin": "phase displacement",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Morale or Willpower. It flickers out of this world until the end of its next turn."
+        },
+        {
+          "level": 7,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "Scene",
+          "text": "Gone for the scene."
+        },
+        {
+          "level": 11,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One, up to a Rival",
+          "duration": "Scene",
+          "text": "Now works on Rivals."
+        },
+        {
+          "level": 15,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "One, up to an Antagonist",
+          "duration": "Scene",
+          "text": "The classic Banish; now works on Antagonists."
+        },
+        {
+          "level": 19,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "One, up to a Boss",
+          "duration": "Scene",
+          "text": "Now works on Bosses. A target that doesn’t belong here is sent home for good."
+        }
+      ]
+    },
+    {
+      "id": "bless",
+      "name": "Bless",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "combat stimulant",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "+1 to one ally’s rolls until the end of its next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "1 round",
+          "text": "+1 to the rolls of up to six allies."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "+1 for the scene."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "+2 for the scene."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "+2 for hours."
+        }
+      ]
+    },
+    {
+      "id": "blind",
+      "name": "Blind",
+      "sources_text": "Arcane, Divine",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "flashbang",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Opposed Toughness. The target is Blinded or Deafened until the end of its next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Lasts the scene; it repeats the roll at the end of each of its turns."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Works at longer range."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Several targets."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Lasts for hours unless cured."
+        }
+      ]
+    },
+    {
+      "id": "burning-hands",
+      "name": "Burning Hands",
+      "sources_text": "Arcane, Innate",
+      "effect_text": "Fire",
+      "pace": "Steady",
+      "reskin": "flamethrower",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll; at least 1 box."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "A fan of flame hits everyone in front of you in Close range; at least 2 boxes each."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "At least 3 boxes each."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "A long jet of flame reaches Far; at least 4 boxes each."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "At least 5 boxes each, and the area keeps burning."
+        }
+      ]
+    },
+    {
+      "id": "call-lightning",
+      "name": "Call Lightning",
+      "sources_text": "Spirit, Divine, Nature",
+      "effect_text": "Electric",
+      "pace": "Measured",
+      "reskin": "orbital arc",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Needs open sky or a storm. At least 1 box."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Indoors, needs a gap to the sky. At least 2 boxes."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "The storm builds, and the area becomes difficult terrain. At least 3 boxes each."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Sight",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Metal armor doubles the damage. At least 4 boxes each."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "A continuous storm: strike again each round for the scene as a free action."
+        }
+      ]
+    },
+    {
+      "id": "calm-emotions",
+      "name": "Calm Emotions",
+      "sources_text": "Divine, Psionic, Spirit",
+      "effect_text": "Psychic",
+      "pace": "Steady",
+      "reskin": "sedative mist",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Opposed Morale. Remove Frightened or anger from one person for a moment."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "They stay calm for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Calm a whole group. Attacking them ends it."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Works at range, and calm targets won’t start a fight."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Everyone you choose",
+          "duration": "Scene",
+          "text": "Calm an entire crowd or riot."
+        }
+      ]
+    },
+    {
+      "id": "chain-lightning",
+      "name": "Chain Lightning",
+      "sources_text": "Arcane",
+      "effect_text": "Electric",
+      "pace": "Measured",
+      "reskin": "tesla coil",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "A single bolt; at least 1 box."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 2",
+          "duration": "Instant",
+          "text": "Arcs to a second target automatically; at least 2 boxes each."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 4",
+          "duration": "Instant",
+          "text": "Chains automatically between targets; at least 3 boxes each."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Conductive surfaces spread it further; at least 4 boxes each."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Everyone you choose",
+          "duration": "Instant",
+          "text": "Metal armor doubles the damage; at least 5 boxes each."
+        }
+      ]
+    },
+    {
+      "id": "charm-person",
+      "name": "Charm Person",
+      "sources_text": "Arcane, Psionic, Innate",
+      "effect_text": "Psychic",
+      "pace": "Steady",
+      "reskin": "pheromones",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Willpower. Charmed until the end of its next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "Scene",
+          "text": "Charmed for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One, up to a Rival",
+          "duration": "Scene",
+          "text": "Now works on Rivals."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "One, up to an Antagonist",
+          "duration": "Hours",
+          "text": "Lasts for hours, and now works on Antagonists."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6, up to a Boss",
+          "duration": "Scene",
+          "text": "Several targets, and now works on Bosses."
+        }
+      ]
+    },
+    {
+      "id": "command",
+      "name": "Command",
+      "sources_text": "Divine, Psionic",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "sonic compliance",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Willpower. One word it must obey on its next turn: Halt, Drop, Flee."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 3 Minions",
+          "duration": "1 round",
+          "text": "Up to three Minions obey the same word."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One, up to a Rival",
+          "duration": "1 round",
+          "text": "Now works on Rivals."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "1 round",
+          "text": "Several targets, and now works on Antagonists."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6, up to a Boss",
+          "duration": "1 round",
+          "text": "Now works on Bosses, at longer range."
+        }
+      ]
+    },
+    {
+      "id": "comprehend-languages",
+      "name": "Comprehend Languages",
+      "sources_text": "Arcane, Divine",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "translator app",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Understand one piece of writing, including magical writing. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Understand any spoken or written language for the scene."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Hours",
+          "text": "Understand all languages for hours."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "Grant it to up to three allies, who can also be understood."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Your whole party speaks and reads every language, including codes."
+        }
+      ]
+    },
+    {
+      "id": "cone-of-cold",
+      "name": "Cone of Cold",
+      "sources_text": "Arcane, Nature",
+      "effect_text": "Cold",
+      "pace": "Slow",
+      "reskin": "cryo-blast",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll; at least 1 box."
+        },
+        {
+          "level": 7,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "A cone of frost hits everyone in front of you; at least 2 boxes each."
+        },
+        {
+          "level": 11,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Longer reach; at least 3 boxes each."
+        },
+        {
+          "level": 15,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "The classic Cone: at least 4 boxes each, and targets are Slowed for free."
+        },
+        {
+          "level": 19,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "At least 5 boxes each, and water and ground freeze over."
+        }
+      ]
+    },
+    {
+      "id": "confuse",
+      "name": "Confuse",
+      "sources_text": "Psionic, Arcane",
+      "effect_text": "Psychic",
+      "pace": "Steady",
+      "reskin": "sensory scrambler",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Willpower. The target loses its next Reaction."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Confused for 1 round."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One, up to a Rival",
+          "duration": "Scene",
+          "text": "Confused; the Willpower check to act normally is DC 14."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "Scene",
+          "text": "As Step 3 against several targets."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Up to 6, up to a Boss",
+          "duration": "Scene",
+          "text": "As Step 3 against anyone you can see, and now works on Bosses."
+        }
+      ]
+    },
+    {
+      "id": "counterspell",
+      "name": "Counterspell",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "signal spike",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One caster",
+          "duration": "Instant",
+          "text": "Reaction. Opposed casting roll: stop a Cantrip or Basic Cast."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One caster",
+          "duration": "Instant",
+          "text": "Reaction. Stop a spell of PL 2 or lower."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One caster",
+          "duration": "Instant",
+          "text": "The classic Counterspell: stop a spell of PL 3 or lower, at range."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "One caster",
+          "duration": "Instant",
+          "text": "Stop PL 4 or lower, and the caster still pays its Mana."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "One caster",
+          "duration": "Instant",
+          "text": "Stop a spell of any level, and turn it back on its caster at half effect."
+        }
+      ]
+    },
+    {
+      "id": "create-food-and-water",
+      "name": "Create Food and Water",
+      "sources_text": "Divine, Nature, Weird Science",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "matter printer",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One meal",
+          "duration": "Scene",
+          "text": "Purify or conjure one meal and a drink."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Feed up to six people for a day."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Also purify a well or a wagon of supplies."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "The food is rich: each person also unmarks 1 box."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Everyone you choose",
+          "duration": "Instant",
+          "text": "Feed a whole village."
+        }
+      ]
+    },
+    {
+      "id": "curse",
+      "name": "Curse",
+      "sources_text": "Divine, Arcane, Spirit",
+      "effect_text": "Necrotic",
+      "pace": "Steady",
+      "reskin": "nerve toxin, malware",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Opposed Morale. −1 to the target’s rolls until the end of its next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "−1 for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "−2 for the scene, and it also loses its Boons."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "−2 for up to six targets."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Lasts for hours, until a condition you name is met or Remove Curse is cast."
+        }
+      ]
+    },
+    {
+      "id": "darkness",
+      "name": "Darkness",
+      "sources_text": "Arcane, Divine, Innate",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "smoke grenade",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Shadow clings to one target: it is Blinded until the end of its next turn. Opposed Willpower."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "1 round",
+          "text": "One zone falls dark until your next turn. Everyone inside is Hidden from those outside."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "It lasts the scene, and ordinary light fails inside."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Place it at longer range; you and chosen allies can see through it."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Hours",
+          "text": "The darkness lasts for hours and spreads to two zones."
+        }
+      ]
+    },
+    {
+      "id": "death-ward",
+      "name": "Death Ward",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "emergency stabilizer",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "If the target would reach Broken this round, it stays at box 14 instead."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "As Step 1, once, any time this scene."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Hours",
+          "text": "The classic ward: once, within hours."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Hours",
+          "text": "Also immune to Drained and instant-death effects."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "Up to three people."
+        }
+      ]
+    },
+    {
+      "id": "detect-evil",
+      "name": "Detect Evil",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "threat scanner",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "1 round",
+          "text": "Sense whether evil, undead or poison is nearby. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Keep sensing for the scene, and tell which it is."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Sense at longer range, through thin walls."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Pinpoint each source, and learn its rough strength."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Hours",
+          "text": "Sense for hours, and see disguised evil for what it is."
+        }
+      ]
+    },
+    {
+      "id": "detect-magic",
+      "name": "Detect Magic",
+      "sources_text": "Arcane, Divine, Psionic",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "energy scanner",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "Learn whether magic is present nearby. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Keep sensing for the scene, and see which things are magical."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Sense at longer range and through thin walls."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Also learn each source’s Effect type and rough strength."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Hours",
+          "text": "Sense for hours, and learn what one item or spell you study does."
+        }
+      ]
+    },
+    {
+      "id": "dimension-door",
+      "name": "Dimension Door",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "jump gate",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Instant",
+          "text": "Step through a wall or barrier next to you."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "You",
+          "duration": "Instant",
+          "text": "Reappear anywhere in Near range, even out of sight."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "You",
+          "duration": "Instant",
+          "text": "The classic door: reappear anywhere in Far range."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "Take two others."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "Anywhere you can see or clearly describe."
+        }
+      ]
+    },
+    {
+      "id": "disguise-self",
+      "name": "Disguise Self",
+      "sources_text": "Arcane, Innate",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "holo-mask",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Change your clothes and features slightly. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Look like anyone of similar build. Observe DC 14 to doubt it."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Disguise someone else, including voice and scent."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "Disguise up to three people. Observe DC 16 to doubt it."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "Lasts for hours, and you can take a specific person’s appearance."
+        }
+      ]
+    },
+    {
+      "id": "dispel-magic",
+      "name": "Dispel Magic",
+      "sources_text": "Arcane, Divine, Psionic",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "signal jammer",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Opposed casting roll. End one PL 1 spell on a touched target."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "End a spell of PL 2 or lower."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "The classic Dispel: end a spell of PL 3 or lower, at range."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "End one spell of PL 4 or lower on each of several targets."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "End a spell of any level; a magic item you hit is suppressed for the scene."
+        }
+      ]
+    },
+    {
+      "id": "dominate",
+      "name": "Dominate",
+      "sources_text": "Psionic, Arcane",
+      "effect_text": "Psychic",
+      "pace": "Slow",
+      "reskin": "control implant",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Willpower. One simple command."
+        },
+        {
+          "level": 7,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "One complex action."
+        },
+        {
+          "level": 11,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One, up to a Rival",
+          "duration": "Scene",
+          "text": "Full control. It resists each round."
+        },
+        {
+          "level": 15,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "One, up to an Antagonist",
+          "duration": "Scene",
+          "text": "Control for one scene. It keeps no memory of it."
+        },
+        {
+          "level": 19,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "One, up to a Boss",
+          "duration": "Permanent",
+          "text": "With GM approval: permanent conditioning, one standing order."
+        }
+      ]
+    },
+    {
+      "id": "enchant-gear",
+      "name": "Enchant Gear",
+      "sources_text": "Arcane, Divine, Weird Science",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "field upgrade",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One object",
+          "duration": "1 round",
+          "text": "A weapon or implement gains +1 for one attack."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One object",
+          "duration": "Scene",
+          "text": "+1 quality to a weapon, implement or armor’s DR for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One object",
+          "duration": "Hours",
+          "text": "Lasts for hours."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "One object",
+          "duration": "Hours",
+          "text": "+2 quality."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "+2 quality on up to three items."
+        }
+      ]
+    },
+    {
+      "id": "enhance-ability",
+      "name": "Enhance Ability",
+      "sources_text": "Arcane, Divine, Nature",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "stim shot",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "+1 to rolls with one Ability Score until the end of the target’s next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "+1 for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "+2 for the scene."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "+2 for up to three people."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "+2 for hours."
+        }
+      ]
+    },
+    {
+      "id": "entangle",
+      "name": "Entangle",
+      "sources_text": "Spirit, Nature, Divine",
+      "effect_text": "Earth",
+      "pace": "Steady",
+      "reskin": "snare foam",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Strength. Restrained until the end of its next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 3 Minions",
+          "duration": "1 round",
+          "text": "Up to three Minions are Restrained."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6, up to a Rival",
+          "duration": "Scene",
+          "text": "The area stays difficult terrain for the scene. Now works on Rivals."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "Scene",
+          "text": "Works at range; crushing force: 1 Stamina box per round."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6, up to a Boss",
+          "duration": "Scene",
+          "text": "Now works on Bosses; 2 boxes per round."
+        }
+      ]
+    },
+    {
+      "id": "false-life",
+      "name": "False Life",
+      "sources_text": "Arcane, Blood Magic",
+      "effect_text": "Necrotic",
+      "pace": "Steady",
+      "reskin": "adrenal booster",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "Ignore the next 1 box of Stamina damage."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Ignore the next 2 boxes of Stamina damage this scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Ignore the next 3 boxes."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Hours",
+          "text": "Ignore the next 4 boxes, for hours; can be given to another."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "Ignore the next 5 boxes; up to three people."
+        }
+      ]
+    },
+    {
+      "id": "fear",
+      "name": "Fear",
+      "sources_text": "Arcane, Divine, Psionic",
+      "effect_text": "Psychic",
+      "pace": "Steady",
+      "reskin": "terror gas",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Opposed Morale. The target is Frightened until the end of its next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Frightened for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Up to six targets are Frightened."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "As Step 3 at longer range; Minions flee outright."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Rivals also flee, and targets take −4 instead of −2."
+        }
+      ]
+    },
+    {
+      "id": "feather-fall",
+      "name": "Feather Fall",
+      "sources_text": "Arcane, Nature",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "grav chute",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Cast as a Reaction. One falling target lands safely."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "1 round",
+          "text": "Saves several falling targets."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "1 round",
+          "text": "Reaches falling targets at longer range."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Targets can drift down and steer for the whole scene."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Targets stay feather-light for hours, and can also walk on water or fog."
+        }
+      ]
+    },
+    {
+      "id": "fire-bolt",
+      "name": "Fire Bolt",
+      "sources_text": "Arcane, Innate, Nature",
+      "effect_text": "Fire",
+      "pace": "Quick",
+      "reskin": "flare gun, plasma pistol",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll; at least 1 box."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Longer range; at least 2 boxes."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "At least 3 boxes, and the target’s gear smolders."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 2",
+          "duration": "Instant",
+          "text": "Two bolts; at least 4 boxes each."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "Three bolts; at least 5 boxes each."
+        }
+      ]
+    },
+    {
+      "id": "fireball",
+      "name": "Fireball",
+      "sources_text": "Arcane, Innate, Weird Science",
+      "effect_text": "Fire",
+      "pace": "Measured",
+      "reskin": "incendiary shell",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "A fist of flame. Attack roll; at least 1 box."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "A small burst. One roll against everyone in the area; at least 2 boxes each."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "The classic Fireball: at least 3 boxes each."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Hotter: at least 4 boxes each."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "An inferno: at least 5 boxes each."
+        }
+      ]
+    },
+    {
+      "id": "flame-strike",
+      "name": "Flame Strike",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "Fire or Radiant",
+      "pace": "Measured",
+      "reskin": "orbital laser",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "A pillar of holy fire. Attack roll; at least 1 box."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Longer range; at least 2 boxes."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "A wide column; at least 3 boxes each."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "At least 4 boxes each. Undead and fiends also begin Burning."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "At least 5 boxes each."
+        }
+      ]
+    },
+    {
+      "id": "fly",
+      "name": "Fly",
+      "sources_text": "Arcane, Innate, Weird Science",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "jet pack, gravity belt",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "You hover: your next move ignores the ground and falling."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "The target truly flies until the end of its next turn."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "The classic Fly: flight for the whole scene."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "The whole party flies."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "The party flies for hours."
+        }
+      ]
+    },
+    {
+      "id": "fog-cloud",
+      "name": "Fog Cloud",
+      "sources_text": "Arcane, Nature",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "smoke screen",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "A puff of fog: one creature is Hidden until the end of its next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "1 round",
+          "text": "One zone of fog until your next turn. Everyone inside is Hidden from outside."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "The fog lasts the scene."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Place it at longer range; you can move it one band each round, or make it choking."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Hours",
+          "text": "Two zones of fog for hours."
+        }
+      ]
+    },
+    {
+      "id": "force-dart",
+      "name": "Force Dart",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "Force",
+      "pace": "Quick",
+      "reskin": "smart round",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "No attack roll and no defense: crosses exactly 1 box. No overage, and it cannot Surge."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Crosses exactly 2 boxes."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "Three darts, split as you like."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 4",
+          "duration": "Instant",
+          "text": "Four darts, at longer range."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 5",
+          "duration": "Instant",
+          "text": "Five darts, split as you like."
+        }
+      ]
+    },
+    {
+      "id": "freedom-of-movement",
+      "name": "Freedom of Movement",
+      "sources_text": "Divine, Nature, Arcane",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "servo harness",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "Ignore difficult terrain and being Slowed until your next turn."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Also slip Restrained, grapples and bonds."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "The classic form: move freely for the scene, even underwater."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "Up to three people."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "Lasts for hours, and magic can’t hold them in place."
+        }
+      ]
+    },
+    {
+      "id": "freeze-solid",
+      "name": "Freeze Solid",
+      "sources_text": "Arcane, Nature",
+      "effect_text": "Cold",
+      "pace": "Measured",
+      "reskin": "cryo foam",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Slowed, and no Reactions."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Restrained."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One, up to a Rival",
+          "duration": "Scene",
+          "text": "Opposed Strength to break free. Frozen: Restrained, and 1 Stamina box per round until freed."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "Scene",
+          "text": "As Step 3 against several targets."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "One, up to a Boss",
+          "duration": "Scene",
+          "text": "Encased: Restrained until freed by scene-level effort."
+        }
+      ]
+    },
+    {
+      "id": "gaseous-form",
+      "name": "Gaseous Form",
+      "sources_text": "Arcane, Innate, Weird Science",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "phase suit",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "Your body thins: ignore Restrained and squeeze through a tight gap."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "You become mist until the end of your next turn: Physical attacks do half damage."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "The classic form: mist for the scene. You can’t attack or cast, and you can seep through cracks."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "Up to three people."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Up to six people, and you can speak and cast while mist."
+        }
+      ]
+    },
+    {
+      "id": "grease",
+      "name": "Grease",
+      "sources_text": "Arcane, Weird Science",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "slick foam",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One object",
+          "duration": "1 round",
+          "text": "A held item slips: opposed Agility, or the holder drops it."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "1 round",
+          "text": "A slick zone until your next turn: anyone in it must pass Agility DC 12 or fall Prone."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "It lasts the scene; Agility DC 14."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Place it at longer range, and you may ignite it: anyone inside begins Burning."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Hours",
+          "text": "Two zones that last for hours; Agility DC 16."
+        }
+      ]
+    },
+    {
+      "id": "greater-restoration",
+      "name": "Greater Restoration",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "Healing",
+      "pace": "Slow",
+      "reskin": "clinical regen tank",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Remove one Condition."
+        },
+        {
+          "level": 7,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Remove all Conditions."
+        },
+        {
+          "level": 11,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Also clear Drained, or end one curse."
+        },
+        {
+          "level": 15,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "Clear all Conditions and Injured boxes on up to three people."
+        },
+        {
+          "level": 19,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Up to six people, and a Broken target can act without penalty."
+        }
+      ]
+    },
+    {
+      "id": "guidance",
+      "name": "Guidance",
+      "sources_text": "Divine, Spirit, Nature",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "tactical uplink",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "The target gains +1 to its next roll. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "+2 to one roll, at range."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "+2 to one roll each for up to three allies."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "+2 to one roll each for up to six allies."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Lasts for hours, and each target may choose after seeing the die."
+        }
+      ]
+    },
+    {
+      "id": "gust-of-wind",
+      "name": "Gust of Wind",
+      "sources_text": "Arcane, Nature",
+      "effect_text": "Air",
+      "pace": "Steady",
+      "reskin": "pressure blast",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Opposed Strength. Push the target 1 band."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "Push everyone in Close range 1 band, and blow out flames and fog."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "A long blast: push everyone in a line 1 band."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "The wind keeps blowing: moving against it costs 1 extra Action."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "A gale: Prone as well as pushed, and flyers are grounded."
+        }
+      ]
+    },
+    {
+      "id": "haste",
+      "name": "Haste",
+      "sources_text": "Arcane, Psionic, Weird Science",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "reflex booster",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "+1 Reaction until the end of the target’s next turn."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "The target is Hasted (+1 Action) until the end of its next turn."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "The classic Haste: Hasted for the scene."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "Up to three allies are Hasted."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Up to six allies are Hasted."
+        }
+      ]
+    },
+    {
+      "id": "heal",
+      "name": "Heal",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "Healing",
+      "pace": "Slow",
+      "reskin": "surgical nanites",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Unmark 1 box and remove one minor Condition."
+        },
+        {
+          "level": 7,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Unmark all Healthy boxes in one pool."
+        },
+        {
+          "level": 11,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Unmark all Healthy and Hurt boxes in one pool."
+        },
+        {
+          "level": 15,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "The classic Heal: unmark every box in one pool up to Injured, and remove all Conditions."
+        },
+        {
+          "level": 19,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "All pools to Healthy. A Broken target can act, Weakened until a Full Rest."
+        }
+      ]
+    },
+    {
+      "id": "hideous-laughter",
+      "name": "Hideous Laughter",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "Psychic",
+      "pace": "Steady",
+      "reskin": "laughing gas",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Willpower. The target loses 1 Action to helpless giggling."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "It falls Prone laughing and loses all Actions until its next turn."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One, up to a Rival",
+          "duration": "1 round",
+          "text": "Now works on Rivals."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "One, up to an Antagonist",
+          "duration": "Scene",
+          "text": "It repeats the roll each turn, and now works on Antagonists."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "Scene",
+          "text": "Several targets."
+        }
+      ]
+    },
+    {
+      "id": "hold",
+      "name": "Hold",
+      "sources_text": "Arcane, Divine, Psionic",
+      "effect_text": "Psychic",
+      "pace": "Steady",
+      "reskin": "neural lock",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Willpower. Restrained until the end of its next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "Scene",
+          "text": "Restrained; it repeats the roll at the end of each of its turns."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One, up to a Rival",
+          "duration": "Scene",
+          "text": "Now works on Rivals, at range."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "Scene",
+          "text": "Several targets, and now works on Antagonists."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6, up to a Boss",
+          "duration": "Scene",
+          "text": "Now works on Bosses, and targets repeat the roll only every other turn."
+        }
+      ]
+    },
+    {
+      "id": "lay-on-hands",
+      "name": "Lay on Hands",
+      "sources_text": "Divine, Innate",
+      "effect_text": "Healing",
+      "pace": "Quick",
+      "reskin": "field medic",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "No roll: unmark 1 box from any pool."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "No roll: unmark 2 boxes, or remove Poisoned or Bleeding."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "No roll: unmark 3 boxes, or remove one Condition."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "No roll: unmark 4 boxes, and remove one Condition."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "No roll: unmark 5 boxes, and remove all Conditions."
+        }
+      ]
+    },
+    {
+      "id": "lesser-restoration",
+      "name": "Lesser Restoration",
+      "sources_text": "Divine, Nature, Spirit",
+      "effect_text": "Healing",
+      "pace": "Steady",
+      "reskin": "antidote",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Remove Bleeding or Poisoned."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Also remove Blinded, Deafened, Slowed or one level of Weakened."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Works at range, and also cures an ordinary disease."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "Up to three people."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Up to six people, and each is immune to poison for the scene."
+        }
+      ]
+    },
+    {
+      "id": "light",
+      "name": "Light",
+      "sources_text": "Any Source",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "chem-light, drone lamp",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One object",
+          "duration": "Scene",
+          "text": "The object glows like a torch. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One object",
+          "duration": "Scene",
+          "text": "Place the light at a distance, or let it float where you direct it."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Up to six lights, or light a whole area."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "The light turns harsh: one target of your choice is also Blinded."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Everyone you choose",
+          "duration": "Instant",
+          "text": "Sunburst: everyone you choose is Blinded, and undead cross at least 5 boxes."
+        }
+      ]
+    },
+    {
+      "id": "lightning-bolt",
+      "name": "Lightning Bolt",
+      "sources_text": "Arcane, Weird Science",
+      "effect_text": "Electric",
+      "pace": "Measured",
+      "reskin": "arc cannon",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll; at least 1 box."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "A long bolt; at least 2 boxes."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "The classic bolt: a line through several targets; at least 3 boxes each."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "At least 4 boxes each, and powered gear fails for a round."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "At least 5 boxes each, and targets are also Stunned for free."
+        }
+      ]
+    },
+    {
+      "id": "locate-creature",
+      "name": "Locate Creature",
+      "sources_text": "Arcane, Divine, Nature",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "tracker net",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One object",
+          "duration": "Scene",
+          "text": "Sense the direction of a known object nearby."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Sense the direction of an object or creature you know."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Sight",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Find it across a city."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Anywhere",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Learn the direction to anyone you know, anywhere."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Anywhere",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Follow them for the scene, and catch a glimpse of their surroundings."
+        }
+      ]
+    },
+    {
+      "id": "mage-armor",
+      "name": "Mage Armor",
+      "sources_text": "Arcane, Innate",
+      "effect_text": "Force",
+      "pace": "Steady",
+      "reskin": "smart-fabric vest",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "DR +1 until the end of your next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "DR +1 for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "DR +2 for the scene."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "DR +2 for up to three allies."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "DR +2 for hours."
+        }
+      ]
+    },
+    {
+      "id": "mend-wounds",
+      "name": "Mend Wounds",
+      "sources_text": "Divine, Spirit, Nature",
+      "effect_text": "Healing",
+      "pace": "Quick",
+      "reskin": "trauma kit, nanite shot",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Roll against DC 15. Unmark boxes equal to the overage or 1."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Heal at range, at least 2 boxes."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "One roll heals several allies, at least 3 boxes each."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "As Step 3, at least 4 boxes each, and each can also clear one Injured box."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Everyone you choose",
+          "duration": "Instant",
+          "text": "Everyone you choose is healed, at least 5 boxes each."
+        }
+      ]
+    },
+    {
+      "id": "mending",
+      "name": "Mending",
+      "sources_text": "Arcane, Divine, Weird Science",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "nano-repair",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One object",
+          "duration": "Instant",
+          "text": "Repair a small break in a mundane object. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One object",
+          "duration": "Instant",
+          "text": "Repair a person-sized object, or restore armor’s lost DR."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One object",
+          "duration": "Instant",
+          "text": "Repair at range, including a broken weapon or machine part."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Repair several objects, or a vehicle-sized one."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Repair a wall, a bridge, or a broken magic item."
+        }
+      ]
+    },
+    {
+      "id": "message",
+      "name": "Message",
+      "sources_text": "Arcane, Psionic, Spirit",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "earpiece, burst transmitter",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Whisper to one person; only they hear it. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Whisper across a battlefield, and they can answer."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Sight",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Reach anyone you can see, even through glass."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Anywhere",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Send a short message to anyone you know, anywhere."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Anywhere",
+          "targets": "Up to 6",
+          "duration": "1 round",
+          "text": "Send it to several people you know, and they can answer."
+        }
+      ]
+    },
+    {
+      "id": "meteor-storm",
+      "name": "Meteor Storm",
+      "sources_text": "Arcane, Divine",
+      "effect_text": "Fire or Force",
+      "pace": "Epic",
+      "reskin": "orbital strike",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "A single burning stone. Attack roll; at least 1 box."
+        },
+        {
+          "level": 9,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "A stone from high above, at long range; at least 2 boxes."
+        },
+        {
+          "level": 13,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "A cluster of stones; at least 3 boxes each."
+        },
+        {
+          "level": 17,
+          "pl": 4,
+          "reach": "Sight",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Anywhere you can see; at least 4 boxes each."
+        },
+        {
+          "level": 20,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Everyone you choose",
+          "duration": "Instant",
+          "text": "The full storm: at least 5 boxes each, and the battlefield is ruined."
+        }
+      ]
+    },
+    {
+      "id": "minor-illusion",
+      "name": "Minor Illusion",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "hologram, sound spoofer",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One sound or image",
+          "duration": "1 round",
+          "text": "A brief sound or a small still image. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "A moving image with sound, about person-sized."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "A larger illusion, placed further away. Observe DC 14 to doubt it."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Several figures, or a whole room’s appearance. Observe DC 16 to doubt it."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Lasts for hours and reacts on its own. Observe DC 18 to doubt it."
+        }
+      ]
+    },
+    {
+      "id": "minor-magic",
+      "name": "Minor Magic",
+      "sources_text": "Any Source",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "pocket multitool",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One object",
+          "duration": "Scene",
+          "text": "A small trick: clean, warm, mark, chill, or flavor something. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One object",
+          "duration": "Scene",
+          "text": "Works at range, and small marks can stay hidden until you reveal them."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Affect several objects or a small room at once."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Tricks last for hours."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Works at longer range; one trick is lasting until you end it."
+        }
+      ]
+    },
+    {
+      "id": "mirror-image",
+      "name": "Mirror Image",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "decoy projector",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "A blur of you: attackers take −1 until the end of your next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Two images. Each attack that misses you by 4 or less destroys one."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Three images, and attackers take −2 while any remain."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "Give two images each to up to three allies."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "Images are back to full at the start of each of your turns, once per scene."
+        }
+      ]
+    },
+    {
+      "id": "misty-step",
+      "name": "Misty Step",
+      "sources_text": "Arcane, Psionic, Innate",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "blink belt",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Instant",
+          "text": "Move within your zone as a free action, leaving a Contested Zone without penalty."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Instant",
+          "text": "Blink to any spot in Near range as a free action."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "You",
+          "duration": "Instant",
+          "text": "Blink to any spot in Far range you can see."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "Take two others with you."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Take the whole party."
+        }
+      ]
+    },
+    {
+      "id": "natures-grasp",
+      "name": "Nature’s Grasp",
+      "sources_text": "Spirit, Nature",
+      "effect_text": "Toxic",
+      "pace": "Measured",
+      "reskin": "bio-toxin vines",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Poisoned."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "1 round",
+          "text": "Up to three targets are Poisoned; a Boon also Restrains them."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6, up to a Rival",
+          "duration": "Scene",
+          "text": "An area effect: Poisoned and Restrained."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "Scene",
+          "text": "Crushing and toxic: 1 box per round as well."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6, up to a Boss",
+          "duration": "Scene",
+          "text": "Treated as a living enemy; 2 boxes per round."
+        }
+      ]
+    },
+    {
+      "id": "neural-overload",
+      "name": "Neural Overload",
+      "sources_text": "Psionic",
+      "effect_text": "Psychic",
+      "pace": "Measured",
+      "reskin": "EMP for brains",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Stunned."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 3 Minions",
+          "duration": "1 round",
+          "text": "Up to three Minions are Stunned."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6, up to a Rival",
+          "duration": "1 round",
+          "text": "Morale DC 12: Stunned and Confused."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "1 round",
+          "text": "As Step 3; mindless creatures are Stunned regardless."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Up to 6, up to a Boss",
+          "duration": "1 round",
+          "text": "Everyone in sight. Feedback: you cross 2 Mana boxes."
+        }
+      ]
+    },
+    {
+      "id": "paralyze",
+      "name": "Paralyze",
+      "sources_text": "Arcane, Weird Science",
+      "effect_text": "Electric",
+      "pace": "Measured",
+      "reskin": "stun beam",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Stunned until the end of its next turn."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Stunned and knocked Prone."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One, up to a Rival",
+          "duration": "1 round",
+          "text": "Paralyzed: Stunned for 2 full rounds."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "1 round",
+          "text": "As Step 3 against several targets."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6, up to a Boss",
+          "duration": "Scene",
+          "text": "System collapse: powered systems fail, and one target is incapacitated for the scene."
+        }
+      ]
+    },
+    {
+      "id": "petrify",
+      "name": "Petrify",
+      "sources_text": "Arcane, Innate",
+      "effect_text": "Earth",
+      "pace": "Slow",
+      "reskin": "hardening foam",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Slowed."
+        },
+        {
+          "level": 7,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Restrained."
+        },
+        {
+          "level": 11,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One, up to a Rival",
+          "duration": "Scene",
+          "text": "Opposed Toughness. Stiffening: Restrained and −2 to all Agility rolls."
+        },
+        {
+          "level": 15,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "One, up to an Antagonist",
+          "duration": "Scene",
+          "text": "Petrified: cannot take any action; DR +4; cannot be Broken by physical damage while petrified."
+        },
+        {
+          "level": 19,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "One, up to a Boss",
+          "duration": "Permanent",
+          "text": "Stone until dispelled, healed by a PL 3+ Radiant Power, or freed by a counter-ritual."
+        }
+      ]
+    },
+    {
+      "id": "plane-shift",
+      "name": "Plane Shift",
+      "sources_text": "Arcane, Divine, Spirit",
+      "effect_text": "",
+      "pace": "Slow",
+      "reskin": "dimensional drive",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "Glimpse another plane: Hidden for a moment, and ignore walls."
+        },
+        {
+          "level": 7,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Sense the nearest thin place between worlds, and speak through it."
+        },
+        {
+          "level": 11,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Open a brief window: you can reach or see across, but not travel."
+        },
+        {
+          "level": 15,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "The classic Plane Shift: take your party to another world you know."
+        },
+        {
+          "level": 19,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "One, up to a Boss",
+          "duration": "Instant",
+          "text": "Opposed Morale: exile an unwilling enemy to another plane."
+        }
+      ]
+    },
+    {
+      "id": "polymorph",
+      "name": "Polymorph",
+      "sources_text": "Arcane, Nature, Weird Science",
+      "effect_text": "",
+      "pace": "Slow",
+      "reskin": "gene-splice serum",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "Grow claws, gills or wings for a moment: one small trait until your next turn."
+        },
+        {
+          "level": 7,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "A willing target takes one useful animal trait for the scene."
+        },
+        {
+          "level": 11,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "A willing target becomes a beast, using its speed, senses and natural attacks."
+        },
+        {
+          "level": 15,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "One, up to an Antagonist",
+          "duration": "Scene",
+          "text": "The classic Polymorph: opposed Toughness turns an enemy into something harmless."
+        },
+        {
+          "level": 19,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "One, up to a Boss",
+          "duration": "Hours",
+          "text": "Either form lasts for hours, and now works on Bosses."
+        }
+      ]
+    },
+    {
+      "id": "primal-roar",
+      "name": "Primal Roar",
+      "sources_text": "Spirit, Innate",
+      "effect_text": "Psychic",
+      "pace": "Measured",
+      "reskin": "sonic terror",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Morale DC 12 or Frightened."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "1 round",
+          "text": "Everyone in Near: Frightened, and they flee 1 band."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "1 round",
+          "text": "Morale DC 14: Frightened and Prone."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "1 round",
+          "text": "As Step 3, and allies gain +2 to rolls this round."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "1 round",
+          "text": "All enemies: Frightened and Prone, and all allies gain a free Boon this round."
+        }
+      ]
+    },
+    {
+      "id": "protection-from-evil",
+      "name": "Protection from Evil",
+      "sources_text": "Divine, Arcane, Spirit",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "warding field",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "+2 to Deflect against one kind of foe you name: undead, fiends, or similar."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "As Step 1 for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "The target also cannot be Charmed or controlled by those foes."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "A circle protects everyone inside it."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "The circle lasts for hours, and those foes cannot enter it."
+        }
+      ]
+    },
+    {
+      "id": "psychic-shroud",
+      "name": "Psychic Shroud",
+      "sources_text": "Psionic",
+      "effect_text": "Psychic",
+      "pace": "Steady",
+      "reskin": "memetic cloak",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "+3 to Stealth rolls for 1 round."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Observers forget your presence after you leave."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Full invisibility to conscious minds. Mindless creatures are unaffected."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "Extend the shroud to up to three allies."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "The entire party is erased from awareness."
+        }
+      ]
+    },
+    {
+      "id": "purify",
+      "name": "Purify",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "Healing",
+      "pace": "Quick",
+      "reskin": "detox shot",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Remove one Condition: Poisoned, Burning, Frightened or similar."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 2",
+          "duration": "Instant",
+          "text": "Remove one Condition from each of two targets."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "A full cleanse: remove all Conditions."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "A mass cleanse: remove all Conditions from each."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Everyone you choose",
+          "duration": "Instant",
+          "text": "All allies are cleansed, and Afflictions are suppressed for the scene."
+        }
+      ]
+    },
+    {
+      "id": "raise-the-dead",
+      "name": "Raise the Dead",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "",
+      "pace": "Epic",
+      "reskin": "full neural restore",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "A dying target stops dying."
+        },
+        {
+          "level": 9,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "A Broken target can act again, Weakened until a Full Rest."
+        },
+        {
+          "level": 13,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Call back someone who died within the last round."
+        },
+        {
+          "level": 17,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Call back someone who died within the last day. They gain a Soul Scar."
+        },
+        {
+          "level": 20,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Permanent",
+          "text": "With GM approval, the recently dead return with a Soul Scar. Once per campaign, if ever."
+        }
+      ]
+    },
+    {
+      "id": "ray-of-frost",
+      "name": "Ray of Frost",
+      "sources_text": "Arcane, Nature",
+      "effect_text": "Cold",
+      "pace": "Quick",
+      "reskin": "cryo beam",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll; at least 1 box."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "At least 2 boxes, and the target is Slowed until the end of its next turn."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "As Step 2 at longer range; at least 3 boxes."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "At least 4 boxes, and the target loses its Reactions until its next turn."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 3",
+          "duration": "1 round",
+          "text": "Hits up to three targets, as Step 4; at least 5 boxes each."
+        }
+      ]
+    },
+    {
+      "id": "remove-curse",
+      "name": "Remove Curse",
+      "sources_text": "Divine, Arcane, Spirit",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "system purge",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Learn if the target is cursed, and how. Lessen a curse’s penalty by 1 for the scene."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Suppress one curse for the scene."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "The classic Remove Curse: end one curse. Opposed against its caster if they live."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "End a curse on up to three people, or on a cursed item."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "End every curse on several people, and remove one stage of Doom or another Affliction, with GM approval."
+        }
+      ]
+    },
+    {
+      "id": "resist-elements",
+      "name": "Resist Elements",
+      "sources_text": "Divine, Nature, Arcane",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "environment suit",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Comfortable in harsh heat or cold."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "DR 2 against one Effect type: Fire, Cold, Electric, Acid or Sonic."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Hours",
+          "text": "Lasts for hours."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Hours",
+          "text": "DR 4 against that type."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Protects the whole party."
+        }
+      ]
+    },
+    {
+      "id": "reveal-truth",
+      "name": "Reveal Truth",
+      "sources_text": "Divine, Arcane, Psionic",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "full-spectrum visor",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "See through one illusion or disguise."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "See through illusions for the scene."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "Also see Hidden creatures, secret doors and true forms."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "Grant it to up to three allies."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "The whole party sees the truth for hours."
+        }
+      ]
+    },
+    {
+      "id": "sanctuary",
+      "name": "Sanctuary",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "non-combatant beacon",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Attackers must pass Morale DC 12 to target the protected one. Ends if the target attacks."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Lasts the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Morale DC 14, cast at range."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "Protects up to three people."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Morale DC 16, and up to six people."
+        }
+      ]
+    },
+    {
+      "id": "scorching-ray",
+      "name": "Scorching Ray",
+      "sources_text": "Arcane, Innate",
+      "effect_text": "Fire",
+      "pace": "Steady",
+      "reskin": "burst laser",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll; at least 1 box."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 2",
+          "duration": "Instant",
+          "text": "Two rays, split as you like; at least 2 boxes each."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 2",
+          "duration": "Instant",
+          "text": "Longer range; at least 3 boxes each."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "Three rays; at least 4 boxes each."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "At least 5 boxes each, and targets begin Burning for free."
+        }
+      ]
+    },
+    {
+      "id": "see-invisibility",
+      "name": "See Invisibility",
+      "sources_text": "Arcane, Divine, Psionic",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "thermal goggles",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "Ignore Hidden for one attack or Observe roll."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Scene",
+          "text": "See Hidden creatures for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Grant it to someone else, and see through illusions on a successful Observe."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "Up to three people."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Everyone in the party, and Hidden creatures nearby are revealed to all."
+        }
+      ]
+    },
+    {
+      "id": "shield-of-faith",
+      "name": "Shield of Faith",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "Radiant",
+      "pace": "Steady",
+      "reskin": "kinetic barrier",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "+1 Deflect until the end of the target’s next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "+1 Deflect for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "+2 Deflect for the scene, at range."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "+2 Deflect for up to three allies."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "+3 Deflect for up to six allies."
+        }
+      ]
+    },
+    {
+      "id": "shocking-grasp",
+      "name": "Shocking Grasp",
+      "sources_text": "Arcane, Innate",
+      "effect_text": "Electric",
+      "pace": "Quick",
+      "reskin": "stun glove",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll; at least 1 box. +2 to the roll against metal armor."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "At least 2 boxes, and the target loses its next Reaction."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "At least 3 boxes."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 2",
+          "duration": "Instant",
+          "text": "The current jumps to a second target; at least 4 boxes each."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "Jumps to a third; at least 5 boxes each, and powered gear fails for a round."
+        }
+      ]
+    },
+    {
+      "id": "silence",
+      "name": "Silence",
+      "sources_text": "Divine, Arcane",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "sound damper",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Opposed Willpower. The target is Silenced until the end of its next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "1 round",
+          "text": "No sound in one zone until your next turn. Anyone inside is Silenced."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "The silence lasts the scene, and can be centered on an object."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Place it at longer range, and you choose who inside can still be heard."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Hours",
+          "text": "The silence lasts for hours."
+        }
+      ]
+    },
+    {
+      "id": "sleep",
+      "name": "Sleep",
+      "sources_text": "Arcane, Nature, Psionic",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "tranquilizer",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Willpower. It nods off until the end of its next turn, or until hit."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Up to 6 Minions",
+          "duration": "1 round",
+          "text": "Up to six Minions nod off."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6, up to a Rival",
+          "duration": "1 round",
+          "text": "Now works on Rivals."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "1 round",
+          "text": "Now works on Antagonists, at range."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "Scene",
+          "text": "Sleepers stay down for the scene unless hit or shaken awake."
+        }
+      ]
+    },
+    {
+      "id": "slow",
+      "name": "Slow",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "nerve inhibitor",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Opposed Willpower. Slowed until the end of its next turn."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Slowed for the scene; it repeats the roll each turn."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "The classic Slow: up to six targets are Slowed for the scene."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Longer range, and targets also lose 1 Action each round."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Targets also lose all Reactions."
+        }
+      ]
+    },
+    {
+      "id": "speak-with-animals",
+      "name": "Speak with Animals",
+      "sources_text": "Nature, Spirit, Innate",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "bio-translator",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Understand one animal’s mood and simple intent."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Talk with one animal for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Talk with several animals, and ask them for a small favor."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Talk for hours, and call nearby animals to you."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Also talk with plants and fungi, and animals will fight for you once."
+        }
+      ]
+    },
+    {
+      "id": "speak-with-dead",
+      "name": "Speak with Dead",
+      "sources_text": "Divine, Spirit, Demonic",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "memory extraction",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One corpse",
+          "duration": "1 round",
+          "text": "Sense how it died and its final emotion."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One corpse",
+          "duration": "Scene",
+          "text": "Ask one question; it may answer truly or evade."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One corpse",
+          "duration": "Scene",
+          "text": "Ask three questions."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "One corpse",
+          "duration": "Scene",
+          "text": "Ask five questions; even a skull or fragment will do."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "One corpse",
+          "duration": "Hours",
+          "text": "Talk freely, and it can’t refuse to answer."
+        }
+      ]
+    },
+    {
+      "id": "spider-climb",
+      "name": "Spider Climb",
+      "sources_text": "Arcane, Nature",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "gecko gloves",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "The target climbs a sheer wall this round without a roll."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Climb walls and ceilings for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Hours",
+          "text": "Lasts for hours."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "Up to three people."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "The whole party."
+        }
+      ]
+    },
+    {
+      "id": "spirit-weapon",
+      "name": "Spirit Weapon",
+      "sources_text": "Divine, Spirit",
+      "effect_text": "Force or Radiant",
+      "pace": "Steady",
+      "reskin": "combat drone",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "A floating weapon makes one attack using your casting roll; at least 1 box."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "It lasts the scene and attacks once per round as a free action; at least 2 boxes."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "It reaches further; at least 3 boxes."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "At least 4 boxes."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 2",
+          "duration": "Scene",
+          "text": "Two weapons; at least 5 boxes each."
+        }
+      ]
+    },
+    {
+      "id": "stone-skin",
+      "name": "Stone Skin",
+      "sources_text": "Spirit, Innate, Nature",
+      "effect_text": "Earth",
+      "pace": "Measured",
+      "reskin": "ablative plating",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "DR +2 until the end of your next round."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "DR +3 for the scene."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "DR +3, and an attacker who hits takes 1 Stamina box."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Scene",
+          "text": "DR +4 for three targets, with the same reflected damage."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "DR +4 for all allies in Near range, and Physical damage is halved."
+        }
+      ]
+    },
+    {
+      "id": "suggestion",
+      "name": "Suggestion",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "Psychic",
+      "pace": "Steady",
+      "reskin": "subliminal signal",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Willpower. It follows one reasonable suggestion for a moment."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "Scene",
+          "text": "It follows the suggestion for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One, up to a Rival",
+          "duration": "Scene",
+          "text": "Now works on Rivals."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "Scene",
+          "text": "Several targets, and now works on Antagonists."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "One, up to a Boss",
+          "duration": "Hours",
+          "text": "Lasts for hours, and now works on Bosses."
+        }
+      ]
+    },
+    {
+      "id": "summon-creature",
+      "name": "Summon Creature",
+      "sources_text": "Arcane, Divine, Nature, Spirit",
+      "effect_text": "",
+      "pace": "Measured",
+      "reskin": "drop-pod drone",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "A small creature appears and takes one action."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "Scene",
+          "text": "It stays and fights for the scene."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 3 Minions",
+          "duration": "Scene",
+          "text": "Three Minions, or one Rival."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6 Minions",
+          "duration": "Scene",
+          "text": "Six Minions, or two Rivals, or one Antagonist."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 6 Minions",
+          "duration": "Hours",
+          "text": "They stay for hours, or you call a powerful being who may want something in return."
+        }
+      ]
+    },
+    {
+      "id": "telekinesis",
+      "name": "Telekinesis",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "Force",
+      "pace": "Measured",
+      "reskin": "tractor beam",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One object",
+          "duration": "Instant",
+          "text": "Move an unattended object within Near range."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Move an object or willing creature; opposed Strength to push the unwilling 1 band."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One, up to a Rival",
+          "duration": "Scene",
+          "text": "A sustained grip: Restrained until it wins an opposed Strength roll."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6, up to an Antagonist",
+          "duration": "Scene",
+          "text": "Several targets are Restrained, taking 2 boxes per round."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Everyone you choose",
+          "duration": "Instant",
+          "text": "Reshape the scene: collapse structures and turn projectiles aside."
+        }
+      ]
+    },
+    {
+      "id": "telepathy",
+      "name": "Telepathy",
+      "sources_text": "Psionic",
+      "effect_text": "Psychic",
+      "pace": "Steady",
+      "reskin": "neural link",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Read surface thoughts. The target is unaware."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Read surface thoughts; project simple images or words."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Opposed Willpower: a deep read of memories. Two-way with a willing target."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Opposed Willpower: plant a false memory, or link a group mind to mind."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Anywhere",
+          "targets": "One known",
+          "duration": "Instant",
+          "text": "With GM approval: permanent memory alteration, against anyone you know."
+        }
+      ]
+    },
+    {
+      "id": "teleport",
+      "name": "Teleport",
+      "sources_text": "Arcane, Psionic, Weird Science",
+      "effect_text": "",
+      "pace": "Epic",
+      "reskin": "matter transmitter",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "Instant",
+          "text": "A short hop within your zone."
+        },
+        {
+          "level": 9,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "You",
+          "duration": "Instant",
+          "text": "Jump to a place you can see at Far range."
+        },
+        {
+          "level": 13,
+          "pl": 3,
+          "reach": "Sight",
+          "targets": "You",
+          "duration": "Instant",
+          "text": "Jump as far as you can see."
+        },
+        {
+          "level": 17,
+          "pl": 4,
+          "reach": "Sight",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "Take your party, or cross a city."
+        },
+        {
+          "level": 20,
+          "pl": 5,
+          "reach": "Anywhere",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "The classic Teleport: take your party anywhere you know."
+        }
+      ]
+    },
+    {
+      "id": "thunderwave",
+      "name": "Thunderwave",
+      "sources_text": "Arcane, Nature",
+      "effect_text": "Sonic",
+      "pace": "Steady",
+      "reskin": "sonic cannon",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll; at least 1 box."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "A burst hits everyone in Close range; at least 2 boxes each, and they’re pushed 1 band."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "At least 3 boxes each, and objects shatter."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "Centered at range; at least 4 boxes each, and targets are Deafened for free."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Instant",
+          "text": "At least 5 boxes each, and walls crack."
+        }
+      ]
+    },
+    {
+      "id": "true-strike",
+      "name": "True Strike",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "targeting computer",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "+2 to your next attack roll."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "+4 to your next attack roll."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "+4 to one ally’s next attack roll, or +6 to your own."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "1 round",
+          "text": "+4 to the next attack roll for up to three allies."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "1 round",
+          "text": "As Step 4, and those attacks can only be Deflected."
+        }
+      ]
+    },
+    {
+      "id": "truth-sense",
+      "name": "Truth Sense",
+      "sources_text": "Divine, Psionic",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "lie detector",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Opposed Willpower. Learn whether one statement is a deliberate lie."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Check everything one person says this scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Check everyone in a conversation."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Targets cannot speak a deliberate lie; they know they’re under the spell."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "Lasts for hours, and it works through illusion and magic disguise."
+        }
+      ]
+    },
+    {
+      "id": "unseen-hand",
+      "name": "Unseen Hand",
+      "sources_text": "Arcane, Psionic",
+      "effect_text": "",
+      "pace": "Quick",
+      "reskin": "manipulator drone",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One object",
+          "duration": "Scene",
+          "text": "Move a light object, open a door, or pull a lever. Free for casters as a Cantrip."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One object",
+          "duration": "Scene",
+          "text": "Works at longer range, and handles delicate tasks like picking a pocket or lock."
+        },
+        {
+          "level": 5,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 3 objects",
+          "duration": "Scene",
+          "text": "Three hands at once, or one that lifts a person-sized load."
+        },
+        {
+          "level": 7,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 3 objects",
+          "duration": "Scene",
+          "text": "A hand can also hold one Minion Restrained (opposed Strength)."
+        },
+        {
+          "level": 9,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Up to 3 objects",
+          "duration": "Scene",
+          "text": "Works anywhere you can see, and holds up to an Antagonist."
+        }
+      ]
+    },
+    {
+      "id": "unseen-servant",
+      "name": "Unseen Servant",
+      "sources_text": "Arcane",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "utility bot",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "An invisible helper carries, cleans and fetches light objects."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "It can carry a person-sized load."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Hours",
+          "text": "Lasts for hours, and it can give a free assist (+2) once per scene."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "Three servants."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "Servants work far from you and can carry a person."
+        }
+      ]
+    },
+    {
+      "id": "vampiric-touch",
+      "name": "Vampiric Touch",
+      "sources_text": "Arcane, Blood Magic",
+      "effect_text": "Necrotic",
+      "pace": "Measured",
+      "reskin": "bio-siphon",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll; at least 1 box. You unmark 1 box."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "At least 2 boxes. You unmark half the boxes crossed."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "At least 3 boxes."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "At range; at least 4 boxes. You unmark all the boxes crossed."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Near",
+          "targets": "Up to 2",
+          "duration": "Instant",
+          "text": "Two targets; at least 5 boxes each."
+        }
+      ]
+    },
+    {
+      "id": "vanish",
+      "name": "Vanish",
+      "sources_text": "Arcane, Psionic, Innate",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "active camouflage",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Self",
+          "targets": "You",
+          "duration": "1 round",
+          "text": "You are Hidden until the end of your next turn, or until you attack or cast."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "The target is Hidden for the scene, until they attack or cast."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Attacking no longer ends it."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 6",
+          "duration": "Scene",
+          "text": "Hide the whole party."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "The party stays Hidden for hours."
+        }
+      ]
+    },
+    {
+      "id": "void-tear",
+      "name": "Void Tear",
+      "sources_text": "Arcane",
+      "effect_text": "Void",
+      "pace": "Slow",
+      "reskin": "singularity round",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "At least 1 box. Bypasses all DR."
+        },
+        {
+          "level": 7,
+          "pl": 2,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Longer range; at least 2 boxes. Bypasses DR."
+        },
+        {
+          "level": 11,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "Up to 3",
+          "duration": "Instant",
+          "text": "At least 3 boxes each. Bypasses DR, and targets are Exposed."
+        },
+        {
+          "level": 15,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Up to 6",
+          "duration": "Instant",
+          "text": "At least 4 boxes each; Exposed; drains 1 box from each target’s highest pool."
+        },
+        {
+          "level": 19,
+          "pl": 5,
+          "reach": "Sight",
+          "targets": "Everyone you choose",
+          "duration": "Permanent",
+          "text": "With GM approval: the tear widens into a lasting rift."
+        }
+      ]
+    },
+    {
+      "id": "wall-of-fire",
+      "name": "Wall of Fire",
+      "sources_text": "Arcane, Nature, Divine",
+      "effect_text": "Fire",
+      "pace": "Slow",
+      "reskin": "napalm line",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One zone edge",
+          "duration": "1 round",
+          "text": "A line of flame. Anyone crossing it takes 1 box."
+        },
+        {
+          "level": 7,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One zone edge",
+          "duration": "Scene",
+          "text": "It burns for the scene; crossing it costs at least 2 boxes."
+        },
+        {
+          "level": 11,
+          "pl": 3,
+          "reach": "Far",
+          "targets": "One zone edge",
+          "duration": "Scene",
+          "text": "Placed at range; at least 3 boxes."
+        },
+        {
+          "level": 15,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "The classic Wall: a ring or long wall; at least 4 boxes, and those crossing begin Burning."
+        },
+        {
+          "level": 19,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "At least 5 boxes."
+        }
+      ]
+    },
+    {
+      "id": "water-breathing",
+      "name": "Water Breathing",
+      "sources_text": "Arcane, Nature, Divine",
+      "effect_text": "Water",
+      "pace": "Steady",
+      "reskin": "rebreather",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "1 round",
+          "text": "Hold your breath without limit for a round: ignore drowning and choking."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Scene",
+          "text": "Breathe water and foul air for the scene."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Hours",
+          "text": "Lasts for hours."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Touch",
+          "targets": "Up to 3",
+          "duration": "Hours",
+          "text": "Up to three people."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Touch",
+          "targets": "Up to 6",
+          "duration": "Hours",
+          "text": "The whole party, and they move freely underwater."
+        }
+      ]
+    },
+    {
+      "id": "web",
+      "name": "Web",
+      "sources_text": "Arcane, Nature",
+      "effect_text": "",
+      "pace": "Steady",
+      "reskin": "adhesive foam",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Near",
+          "targets": "One Minion",
+          "duration": "1 round",
+          "text": "Opposed Agility. Sticky strands: Slowed until the end of its next turn."
+        },
+        {
+          "level": 3,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "1 round",
+          "text": "A webbed zone until your next turn. Minions in it are Restrained (Strength DC 12 to escape)."
+        },
+        {
+          "level": 7,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "It lasts the scene, and Rivals are held too."
+        },
+        {
+          "level": 11,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Scene",
+          "text": "Works at range. Antagonists are held too; Strength DC 14. The webs burn away if lit, dealing 1 box."
+        },
+        {
+          "level": 15,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "Area",
+          "duration": "Hours",
+          "text": "Bosses are held too; two zones that last for hours."
+        }
+      ]
+    },
+    {
+      "id": "wither",
+      "name": "Wither",
+      "sources_text": "Arcane, Divine — supernatural Sources only",
+      "effect_text": "Necrotic",
+      "pace": "Measured",
+      "reskin": "radiation burst",
+      "steps": [
+        {
+          "level": 1,
+          "pl": 1,
+          "reach": "Touch",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Attack roll. Drained 1, until a Full Rest."
+        },
+        {
+          "level": 5,
+          "pl": 2,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Drained 2, at range."
+        },
+        {
+          "level": 9,
+          "pl": 3,
+          "reach": "Near",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "Drained 3."
+        },
+        {
+          "level": 13,
+          "pl": 4,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Instant",
+          "text": "All pool maximums −2. Drained 3 lasts until divine healing and a Full Rest."
+        },
+        {
+          "level": 17,
+          "pl": 5,
+          "reach": "Far",
+          "targets": "One",
+          "duration": "Permanent",
+          "text": "With GM approval: one pool’s maximum is permanently reduced by 2."
+        }
+      ]
+    }
+  ]
 }

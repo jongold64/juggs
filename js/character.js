@@ -18,11 +18,11 @@ export function newCharacter() {
     overlapPicks: [],           // +1 skill for each bonus skill that was already a Focus Skill
     role: '',                   // starting Role (Step 1 at Level 1)
     roleAdvances: {},           // tier-change level -> Role id (advance it, or start it at Step 1)
-    specialties: [],            // [{ id, level }] — the first at Level 1, a second from Level 5
+    specialties: [],            // [{ id, level }] — the free one; any further Specialty sits in a Feat slot
     abilityIncreases: {},       // even level -> Ability Score id
     skillPoints: {},            // level -> [skill ids], 6 per level from Level 2
-    feats: {},                  // Feat level -> Feat id
-    featChoices: {},            // Feat level -> Specialty id, for the "Specialty: Ability 2/3/Mastery" Feats
+    feats: {},                  // Feat level -> Feat id, or "specialty:<id>" for a further Specialty
+    capstone: '', capstoneNote: '',     // Level 17: a free Gated Feat and a scene-level capability
     signature: { offensive: '', utility: '' },
     powerSources: [],           // declared beyond Physical and the Focus Skill defaults
     powers: [],                 // Powers built in the Powers tab (see rules.js powerSummary for the fields)
@@ -135,7 +135,7 @@ export function cleanItem(D, raw) {
 export function clean(D, raw) {
   const d = newCharacter();
   if (!isObj(raw)) return d;
-  raw = migrate(raw);
+  raw = migrate(raw, D.core.advancement.feat_levels);
   const has = (map, id) => typeof id === 'string' && map.has(id);
   const c = d;
   c.name = str(raw.name); c.player = str(raw.player); c.concept = str(raw.concept);
@@ -161,8 +161,10 @@ export function clean(D, raw) {
   for (const lv of Object.keys(c.skillPoints)) {
     c.skillPoints[lv] = c.skillPoints[lv].map(s => (has(D.skillsById, s) ? s : '')).slice(0, 6);
   }
-  c.feats = levelMap(raw.feats, f => has(D.featsById, f));
-  c.featChoices = levelMap(raw.featChoices, s => has(D.specialtiesById, s));
+  c.feats = levelMap(raw.feats, f => has(D.featsById, f)
+    || (typeof f === 'string' && f.startsWith('specialty:') && has(D.specialtiesById, f.slice(10))));
+  c.capstone = D.featsById.get(raw.capstone)?.kind === 'gated' ? raw.capstone : '';
+  c.capstoneNote = str(raw.capstoneNote).slice(0, 500);
   if (isObj(raw.signature)) {
     for (const k of ['offensive', 'utility']) c.signature[k] = has(D.effectsById, raw.signature[k]) ? raw.signature[k] : '';
   }
