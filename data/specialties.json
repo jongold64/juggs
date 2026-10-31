@@ -582,8 +582,16 @@
       "condition_text": "Channel or Survive >= 2",
       "effect": "Surge Reading also identifies active Conditions and their source",
       "requires": {
-        "skill": "channel",
-        "rank_min": 2
+        "any": [
+          {
+            "skill": "channel",
+            "rank_min": 2
+          },
+          {
+            "skill": "survive",
+            "rank_min": 2
+          }
+        ]
       }
     },
     "fallout": "You take on the target’s emotional state — gain the same Condition they have. If none, gain Charmed directed at them for the rest of the scene.",
@@ -920,8 +928,16 @@
       "condition_text": "Channel or Survive >= 2",
       "effect": "Open Door also allows a free Channel or Survive roll to clear 1 Condition from a social or emotional source",
       "requires": {
-        "skill": "channel",
-        "rank_min": 2
+        "any": [
+          {
+            "skill": "channel",
+            "rank_min": 2
+          },
+          {
+            "skill": "survive",
+            "rank_min": 2
+          }
+        ]
       }
     },
     "fallout": "The target feels manipulated even if your intent was genuine. Trust Bond (if held with this character) suspended for the rest of the session. NPC disposition drops one step.",

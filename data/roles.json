@@ -649,7 +649,7 @@
     "category": "supernatural",
     "identity": "Divine or spiritual healing and authority.",
     "summary": "Divine or spiritual healing and authority. Faith-sourced restoration and supernatural protection.",
-    "prerequisite_text": "Magic Overlay required. Channel 2+ required.",
+    "prerequisite_text": "Magic Overlay required. Channel or Survive 2+ required.",
     "requires": [
       {
         "genre": [
@@ -663,7 +663,7 @@
             "rank_min": 2
           },
           {
-            "skill": "channel",
+            "skill": "survive",
             "rank_min": 2
           }
         ]
