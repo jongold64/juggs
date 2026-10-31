@@ -246,6 +246,10 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
   Scout, Speaker, Expert (a widened Artificer: building, deduction, adaptability), Medic (moved out of the supernatural
   group), Ascetic, Caster, Channeler. The other Roles become optional Archetypes: a core Role with a Specialty, Aptitude
   or Genre. The pairings are proposals still to be approved.
+- **Roles become Stepped (decided 2026-10-31, not yet applied).** Each Role works like a Specialty: the first is free at
+  creation, its five Abilities arrive at Levels 1, 5, 9, 13, 17, and a further Role uses a Feat slot, starting at the
+  character's current tier. Tier changes no longer offer a Role choice, and the multiclass rule goes. Feat requirements
+  change from "Role Step 3" to "Role at Veteran tier".
 
 - Standard Origin trait.
 - Element and Void Power Source details.
