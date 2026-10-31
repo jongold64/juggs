@@ -254,6 +254,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
   Specialty may instead be a second Stepped Feat."
 - **Aptitudes become Backgrounds (decided 2026-10-31, not yet applied).** A rename only; how they work does not change.
   The builder keeps its saved field name, so old saves still load.
+- **Deafened stays its own condition** (decided 2026-10-31). No change needed.
 
 - Standard Origin trait.
 - Element and Void Power Source details.
