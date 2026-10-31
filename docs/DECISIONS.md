@@ -255,9 +255,12 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 - **Aptitudes become Backgrounds (decided 2026-10-31, not yet applied).** A rename only; how they work does not change.
   The builder keeps its saved field name, so old saves still load.
 - **Deafened stays its own condition** (decided 2026-10-31). No change needed.
+- **Element and Void (decided 2026-10-31, not yet applied).** Element is absorbed into the expansion Sources; the closest is
+  Nature / Primal, which is the proposed home for old saves. Void stays as its own Source: negative energy, from Space or
+  "the Old Ones". Its rules are still to be approved.
 
 - Standard Origin trait.
-- Element and Void Power Source details.
+- Void Power Source details.
 - Abjure rewrites (see Skills).
 - The Channeler Suggested Build's sixth Focus Skill (Abjure was one of the six).
 - Side-by-side pool layout on the sheet — the author will judge it once the sheet exists.
