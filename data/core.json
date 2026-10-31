@@ -11,16 +11,17 @@
       "actions": 1,
       "reactions": 1,
       "boon_threshold": 20,
-      "boon_choices": 0,
+      "boon_choices": 1,
       "surge_max": 3,
       "focus_skill_cap": 3,
       "other_skill_cap": 2,
       "governing_ability_cap": 5,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": 0,
-      "bane": "Regression: -2 to all rolls until end of next turn. Nothing else.",
-      "momentum_turns": 1,
-      "pool_transfer_max": 6
+      "deflect_bonus": 0,
+      "hit_cap": 6,
+      "governing_domain_cap": 5,
+      "bane_choices": 0
     },
     {
       "id": "seasoned",
@@ -40,9 +41,10 @@
       "governing_ability_cap": 7,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": 1,
-      "bane": "All above + a Complication (narrative obstacle - not a second mechanical penalty).",
-      "momentum_turns": 2,
-      "pool_transfer_max": 8
+      "deflect_bonus": 2,
+      "hit_cap": 7,
+      "governing_domain_cap": 5,
+      "bane_choices": 1
     },
     {
       "id": "veteran",
@@ -62,9 +64,10 @@
       "governing_ability_cap": 9,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": 2,
-      "bane": "All above + one context-based Condition (GM selects). Combat physical: Prone or Stunned. Caster interrupted: Silenced or Drained (1 level). Stealth failure: Exposed. Social loss: Charmed or Fascinated. Movement failure: Slowed. Resist failure vs mental: Confused (1 round).",
-      "momentum_turns": 3,
-      "pool_transfer_max": 10
+      "deflect_bonus": 4,
+      "hit_cap": 8,
+      "governing_domain_cap": 6,
+      "bane_choices": 2
     },
     {
       "id": "heroic",
@@ -84,9 +87,10 @@
       "governing_ability_cap": 11,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": 3,
-      "bane": "All above + resource waste (Stamina or Mana spent on the triggering Action is lost this scene). GM may apply a second Condition if fiction strongly supports it. Suggested pairings: Prone + Exposed; Silenced + Drained; Slowed + Frightened. Never three from one Bane.",
-      "momentum_turns": 4,
-      "pool_transfer_max": 12
+      "deflect_bonus": 6,
+      "hit_cap": 9,
+      "governing_domain_cap": 6,
+      "bane_choices": 2
     },
     {
       "id": "legendary",
@@ -106,9 +110,10 @@
       "governing_ability_cap": 13,
       "other_ability_cap": 5,
       "mastery_floor_free_up_to": "all",
-      "bane": "All above + enemy makes one free Reaction attack immediately. Plus one typed Effect at 1-box potency at no pool cost - the Bane pays it. Fire: Burning. Necrotic: Drained 1. Psychic: Frightened or Charmed. Toxic: Poisoned. Void: Exposed + pool drain. Dark power: Doomed 1.",
-      "momentum_turns": 5,
-      "pool_transfer_max": 14
+      "deflect_bonus": 8,
+      "hit_cap": 10,
+      "governing_domain_cap": 6,
+      "bane_choices": 3
     }
   ],
   "creation": {
@@ -233,19 +238,14 @@
   },
   "domain_mastery": [
     {
-      "name": "Basic",
-      "all_at_least": 2,
-      "bonus": 1
-    },
-    {
       "name": "Expert",
       "all_at_least": 4,
-      "bonus": 2
+      "bonus": 1
     },
     {
       "name": "Superior",
       "all_at_least": 6,
-      "bonus": 3
+      "bonus": 2
     }
   ],
   "initiative": {
@@ -268,8 +268,13 @@
       }
     ]
   },
-  "deflect": "10 + the Domain's Deflect Ability (Agility, Acuity, Serenity), plus armor/shield DR where it applies.",
+  "deflect": "10 + the Domain's Deflect Ability (Agility, Acuity, Serenity) + the tier bonus. Armor does not raise it: DR comes off the damage.",
   "boon_menu": [
+    {
+      "id": "momentum",
+      "name": "Momentum",
+      "effect": "+2 to all your rolls until the end of your next turn"
+    },
     {
       "id": "recovery",
       "name": "Recovery",
@@ -300,84 +305,62 @@
     {
       "boxes": 0,
       "roll_bonus": "none",
-      "effect_intensity": "none",
-      "fallout": "none"
+      "hit_cap_rise": 0,
+      "big_surge": false,
+      "backlash": "None"
     },
     {
       "boxes": 1,
       "roll_bonus": "+1",
-      "effect_intensity": "none",
-      "fallout": "none"
+      "hit_cap_rise": 1,
+      "big_surge": false,
+      "backlash": "None"
     },
     {
       "boxes": 2,
       "roll_bonus": "+2",
-      "effect_intensity": "1-box, minimal",
-      "fallout": "none"
+      "hit_cap_rise": 2,
+      "big_surge": false,
+      "backlash": "None"
     },
     {
       "boxes": 3,
       "roll_bonus": "+3",
-      "effect_intensity": "2-box, moderate",
-      "fallout": "Minor — +1 pool box crossed"
+      "hit_cap_rise": 3,
+      "big_surge": true,
+      "backlash": "3 more boxes"
     },
     {
       "boxes": 4,
       "roll_bonus": "+4",
-      "effect_intensity": "3-box, strong",
-      "fallout": "Moderate — +2 boxes and one Condition"
+      "hit_cap_rise": 4,
+      "big_surge": true,
+      "backlash": "4 more boxes"
     },
     {
       "boxes": 5,
       "roll_bonus": "+5",
-      "effect_intensity": "4-box, maximum",
-      "fallout": "Major — +3 boxes and Corruption +1"
+      "hit_cap_rise": 5,
+      "big_surge": true,
+      "backlash": "5 more boxes; casters: Major Fallout"
     },
     {
       "boxes": 6,
       "roll_bonus": "+6",
-      "effect_intensity": "5-box, overwhelming",
-      "fallout": "Severe — +4 boxes, one Condition, Corruption +1"
+      "hit_cap_rise": 6,
+      "big_surge": true,
+      "backlash": "6 more boxes; casters: Severe Fallout"
     },
     {
       "boxes": 7,
       "roll_bonus": "+7",
-      "effect_intensity": "6-box, scene-defining",
-      "fallout": "Catastrophic — +5 boxes, two Conditions, Corruption +2"
+      "hit_cap_rise": 7,
+      "big_surge": true,
+      "backlash": "7 more boxes; casters: Catastrophic Fallout"
     }
   ],
   "effects_rule": "The Surge level sets an Effect's strength (Surge 2 = 1-box intensity). No separate Effect cost. A non-Signature Effect is -1 to the roll. Pay from the pool you are using.",
   "costs_rule": "Basic Attack, Basic Cast and Basic Press are free. Anything added costs at least 1 box. Maneuvers: Mastery Floor by tier. Surge: not reduced except by Surge Discipline.",
-  "skill_mastery": [
-    {
-      "rank": "1 (untrained)",
-      "dc_reduction": "-0"
-    },
-    {
-      "rank": "2 (Focus at creation)",
-      "dc_reduction": "-1"
-    },
-    {
-      "rank": "3 (Novice Focus cap)",
-      "dc_reduction": "-2"
-    },
-    {
-      "rank": "4 (Seasoned Focus cap)",
-      "dc_reduction": "-3"
-    },
-    {
-      "rank": "5 (Veteran Focus cap)",
-      "dc_reduction": "-4"
-    },
-    {
-      "rank": "6 (Heroic Focus cap / Legendary other)",
-      "dc_reduction": "-5"
-    },
-    {
-      "rank": "7 (Legendary Focus cap)",
-      "dc_reduction": "-6"
-    }
-  ],
   "object_dc": [
     {
       "quality": "Improvised / Flimsy",
@@ -534,17 +517,46 @@
     }
   ],
   "pool_transfer": {
-    "text": "Once per encounter, as a free action, spend boxes from any pool to restore boxes in any other at 2 for 1. Most boxes spent: 6 at Novice, rising by 2 per tier (6 / 8 / 10 / 12 / 14).",
+    "text": "Once per encounter, as a free action, spend boxes from any pool to restore boxes in any other: every 2 spent restores 1, up to 5 restored.",
     "rate": 2,
-    "max_spent_by_tier": "tiers[].pool_transfer_max"
+    "max_restored": 5
   },
-  "boon_rule": "A Boon always gives Momentum: +2 to all rolls until the end of your next turn at Novice, lasting one extra turn per tier. From Seasoned you also choose from the Boon Menu (tier boon_choices).",
-  "momentum": {
-    "name": "Momentum",
-    "effect": "+2 to all rolls, until the end of your next turn at Novice and one turn longer per tier. Every Boon gives it; it is no longer a Boon Menu choice."
-  },
-  "regression": {
-    "name": "Regression",
-    "effect": "The -2 to all rolls from a Bane (natural 1), until the end of your next turn. The same at every tier."
+  "boon_rule": "A Boon triggers when the natural die meets your tier's threshold. Choose from the Boon Menu (tier boon_choices), never the same option twice. Tempo needs Seasoned or above.",
+  "hit_cap": "One hit crosses at most 5 + tier number boxes, after armor. Each Surge box raises that hit's cap by 1. Healing has no cap.",
+  "bane_menu": [
+    {
+      "id": "complication",
+      "name": "Complication",
+      "effect": "Something goes wrong in the fiction: a weapon jams, a rope frays, an alarm sounds."
+    },
+    {
+      "id": "opening",
+      "name": "Opening",
+      "effect": "One enemy in range makes a free attack against you."
+    },
+    {
+      "id": "spent",
+      "name": "Spent",
+      "effect": "Lose the boxes you spent on this roll's Surge or Effect a second time."
+    },
+    {
+      "id": "shaken",
+      "name": "Shaken",
+      "effect": "You gain one condition that fits what you were doing."
+    },
+    {
+      "id": "exposed",
+      "name": "Exposed",
+      "effect": "You are Exposed until the end of your next turn."
+    }
+  ],
+  "bane_rule": "A natural 1 always triggers a Bane: -2 to all rolls until the end of your next turn. From Seasoned the GM also picks from the Bane Menu (tier bane_choices), never the same option twice. A Boon Token can cancel it.",
+  "level_discount": {
+    "divisor": 6,
+    "roles": [
+      "caster",
+      "channeler"
+    ],
+    "text": "Mana = Power Level - (Character Level / 6, rounded down), minimum 1. Caster and Channeler Roles."
   }
 }

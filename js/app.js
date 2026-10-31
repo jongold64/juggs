@@ -175,10 +175,10 @@ let toastTimer = null;
 function roll(what, bonus) {
   const die = 1 + Math.floor(Math.random() * 20);
   const tier = R.tierFor(D, state.level);
-  const turns = tier.momentum_turns === 1 ? 'until the end of your next turn' : `for ${tier.momentum_turns} turns`;
-  const boon = ` — Boon! Momentum: +2 to your rolls ${turns}${
-    tier.boon_choices ? `, and choose ${tier.boon_choices === 1 ? 'one' : tier.boon_choices} from the Boon Menu` : ''}`;
-  const note = die === 1 ? ' — Bane (natural 1): Regression, −2 to your rolls until the end of your next turn'
+  const boon = ` — Boon! Choose ${tier.boon_choices === 1 ? 'one' : tier.boon_choices} from the Boon Menu`;
+  const bane = ` — Bane (natural 1): −2 to your rolls until the end of your next turn${
+    tier.bane_choices ? `, and the GM picks ${tier.bane_choices === 1 ? 'one' : tier.bane_choices} from the Bane Menu` : ''}`;
+  const note = die === 1 ? bane
     : die >= tier.boon_threshold ? boon : '';
   showToast(`<b>${esc(what)}</b>: d20 (${die}) ${signed(bonus)} = <b>${die + bonus}</b>${esc(note)}`);
 }
@@ -300,7 +300,7 @@ function renderCharacter() {
       : `<b>${cap(top[0])}</b>`}</label>
     <label class="row">Governing Ability <select data-bind="governing">${options(
       R.ABILITIES.map(a => ({ value: a, label: abilityName(a) })), c.governing, 'Choose…')}</select></label>
-    <p class="hint">The governing Ability's cap rises each tier (5 → 13); every other Score stops at 5.</p>
+    <p class="hint">The governing Ability's cap rises each tier (5 → 13); every other Score stops at 5, or 6 from Veteran in the governing Ability's Domain.</p>
     <p>Domain Mastery: ${R.DOMAINS.map(d => `${cap(d)} ${signed(mastery[d])}`).join(' · ')}</p>`);
 
   // Role, Specialty, Signature Effects, Power Sources, Wealth
@@ -393,19 +393,19 @@ function renderSkills() {
   const scores = R.abilityScores(D, c);
   const byCat = ['body', 'mind', 'spirit', 'social'].map(cat => [cat, skills.filter(s => s.category === cat)]);
   const table = byCat.filter(([, list]) => list.length).map(([cat, list]) => `
-    <tr class="domain-row"><th colspan="6">${cap(cat)}</th></tr>` + list.map(s => {
+    <tr class="domain-row"><th colspan="5">${cap(cat)}</th></tr>` + list.map(s => {
       const rank = R.skillRank(D, c, s.id);
       const ab = R.skillAbility(D, c, s.id, scores);
       return `<tr${focus.has(s.id) ? ' class="focus"' : ''}><td class="left">${focus.has(s.id) ? '★ ' : ''}${esc(s.name)}${
         s.genres.length ? ` <span class="hint">${esc(s.genres.map(g => D.genresById.get(g).name).join(', '))}</span>` : ''}</td>
         <td>${ab ? esc(abilityName(ab)) : ''}</td><td>${rank}</td><td class="hint">${R.skillCap(D, c, s.id)}</td>
-        <td><b>${ab ? signed(R.skillTotal(D, c, s.id)) : ''}</b></td><td class="hint">${R.skillMastery(rank) ? `DC −${R.skillMastery(rank)}` : ''}</td></tr>`;
+        <td><b>${ab ? signed(R.skillTotal(D, c, s.id)) : ''}</b></td></tr>`;
     }).join('')).join('');
   const list = card('Skills', `
-    <p class="hint">Total = Ability Score + rank + Domain Mastery. Skill Mastery lowers fixed task DCs. Spend skill points
+    <p class="hint">Total = Ability Score + rank + Domain Mastery. Spend skill points
       on the Advancement tab.</p>
     <div class="table-wrap"><table class="skills"><thead><tr><th class="left">Skill</th><th>Ability</th><th>Rank</th><th>Cap</th>
-      <th>Total</th><th>Mastery</th></tr></thead><tbody>${table}</tbody></table></div>
+      <th>Total</th></tr></thead><tbody>${table}</tbody></table></div>
     ${problems(R.skillPointProblems(D, c))}`, 'wide');
   return picks + list;
 }

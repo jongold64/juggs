@@ -120,23 +120,21 @@ export function renderGear(D, c, rollBtn) {
   // Armor and shield
   const info = R.armorInfo(D, c);
   const a = c.armor || {};
-  const weight = D.gear.armor_weights.find(w => w.id === a.weight);
-  const armorQuality = D.gear.quality.filter(q => q.armor_dr_base > 0);
+  const type = D.gear.armor_types.find(t => t.id === a.type);
   const armorCard = `<section class="card wide"><h2>Armor &amp; Shield</h2>
     <div class="gear-main">
-      <input type="text" data-bind="armor.name" value="${esc(a.name || '')}" placeholder="${esc(weight ? weight.examples.split(',')[0] : 'Armor name')}"
-        aria-label="Armor name"${weight ? '' : ' disabled'}>
-      <select data-bind="armor.weight" aria-label="Armor weight">${options(D.gear.armor_weights.map(w => ({ value: w.id,
-        label: `${w.name} (Agility ${w.agility_penalty || 0}${w.dr_bonus ? `, DR +${w.dr_bonus}` : ''})` })), a.weight || '', 'No armor')}</select>
-      <select data-bind="armor.quality" aria-label="Armor quality"${weight ? '' : ' disabled'}>${options(armorQuality.map(q => ({ value: q.id,
-        label: `${q.name} (DR ${q.armor_dr_base}${q.armor_fit ? ', fits: 1 less penalty' : ''})` })), a.quality || 'standard')}</select>
+      <input type="text" data-bind="armor.name" value="${esc(a.name || '')}" placeholder="${esc(type ? type.examples.split(',')[0] : 'Armor name')}"
+        aria-label="Armor name"${type ? '' : ' disabled'}>
+      <select data-bind="armor.type" aria-label="Armor type">${options(D.gear.armor_types.map(t => ({ value: t.id,
+        label: `${t.name} (DR ${t.dr}${t.agility_penalty ? `, Agility ${t.agility_penalty}` : ''})` })), a.type || '', 'No armor')}</select>
       <select data-bind="shield" aria-label="Shield">${options(D.gear.shields.map(s => ({ value: s.id,
         label: `${s.name} (DR ${s.dr})` })), c.shield, 'No shield')}</select>
     </div>
-    ${weight ? `<p class="hint">${esc(weight.name)}: ${esc(weight.examples)}. ${overWarn(a.quality)}</p>` : ''}
-    ${info.ascetic && weight ? '<p class="warn">Ascetic: armor gives no benefit and no penalty.</p>' : ''}
+    ${type ? `<p class="hint">${esc(type.name)}: ${esc(type.examples)}. ${R.armorOverWealth(D, c, type.id)
+      ? '<span class="warn">Above your Wealth ceiling — needs a story reason or a Wealth check.</span>' : ''}</p>` : ''}
+    ${info.ascetic && type ? '<p class="warn">Ascetic: armor gives no benefit and no penalty.</p>' : ''}
     <p><b>DR ${info.dr}</b> ${info.parts.length ? `<span class="hint">(${info.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')})</span>` : ''}
-      → Body Defend ${signed(info.dr)}, Body Deflect ${signed(info.dr + info.agilityPenalty)}${
+      → comes off Stamina damage${
       info.agilityPenalty ? ` · <b>Agility rolls ${info.agilityPenalty}</b>` : ''}</p>
     <p class="hint">${esc(D.gear.rules.armor)} ${info.shield?.benefit ? esc(info.shield.benefit) : ''}</p>
   </section>`;

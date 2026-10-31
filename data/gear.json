@@ -1,68 +1,50 @@
 {
   "rules": {
     "weapons": "Weapons add +0 to +5 to Attack rolls. Melee uses Strength, ranged uses Agility, unless the fiction supports another Ability Score. Items stack with weapon quality.",
-    "armor": "Armor is a weight and a quality. Quality sets DR (Light 1, Standard 2, Quality 3, Masterwork 4, Legendary 5); Heavy and Powered add +1 (max DR 5). Weight sets the Agility penalty (Light 0, Medium -1, Heavy -2, Powered 0); Masterwork and Legendary armor fits better: 1 less penalty. DR (armor, shield, Defender, Ward items) adds to the Body Defend roll and the Body Deflect number; the Agility penalty applies to Agility rolls and also lowers Body Deflect. Armor absorbs more than it dodges."
+    "armor": "Armor and shield DR comes off incoming Stamina damage, before the Hit Cap. It does not raise Defend or Deflect. Agility penalties apply to Agility rolls."
   },
   "quality": [
     {
       "id": "improvised",
       "name": "Improvised",
       "weapon_bonus": 0,
-      "armor_dr": "no DR",
       "min_wealth_tier": 1,
-      "examples": "Table leg, hide wrap, makeshift shield. Anyone at any Wealth Tier.",
-      "armor_dr_base": 0,
-      "armor_fit": 0
+      "examples": "Table leg, hide wrap, makeshift shield. Anyone at any Wealth Tier."
     },
     {
       "id": "light",
       "name": "Light",
       "weapon_bonus": 1,
-      "armor_dr": "DR 1",
       "min_wealth_tier": 2,
-      "examples": "Dagger, padded vest. Functional but unremarkable.",
-      "armor_dr_base": 1,
-      "armor_fit": 0
+      "examples": "Dagger, padded vest. Functional but unremarkable."
     },
     {
       "id": "standard",
       "name": "Standard",
       "weapon_bonus": 2,
-      "armor_dr": "DR 2-3",
       "min_wealth_tier": 3,
-      "examples": "Sword, chain shirt, handgun. Default for working professionals.",
-      "armor_dr_base": 2,
-      "armor_fit": 0
+      "examples": "Sword, chain shirt, handgun. Default for working professionals."
     },
     {
       "id": "quality",
       "name": "Quality",
       "weapon_bonus": 3,
-      "armor_dr": "DR 3-4",
       "min_wealth_tier": 5,
-      "examples": "Named blade, flak jacket, precision bow. Noticeably better.",
-      "armor_dr_base": 3,
-      "armor_fit": 0
+      "examples": "Named blade, flak jacket, precision bow. Noticeably better."
     },
     {
       "id": "masterwork",
       "name": "Masterwork",
       "weapon_bonus": 4,
-      "armor_dr": "DR 4-5",
       "min_wealth_tier": 6,
-      "examples": "Exceptional craftsmanship, rare technology, combat armor.",
-      "armor_dr_base": 4,
-      "armor_fit": 1
+      "examples": "Exceptional craftsmanship, rare technology, combat armor."
     },
     {
       "id": "legendary",
       "name": "Legendary",
       "weapon_bonus": 5,
-      "armor_dr": "DR 5",
       "min_wealth_tier": 7,
-      "examples": "Artifact, exo-suit, one-of-a-kind. Access is the constraint.",
-      "armor_dr_base": 5,
-      "armor_fit": 1
+      "examples": "Artifact, exo-suit, one-of-a-kind. Access is the constraint."
     }
   ],
   "weapons": [
@@ -485,36 +467,6 @@
       "reference": "GURPS TL12"
     }
   ],
-  "armor_weights": [
-    {
-      "id": "light",
-      "name": "Light",
-      "dr_bonus": 0,
-      "agility_penalty": 0,
-      "examples": "Leather, padded vest, buff coat, light tactical gear"
-    },
-    {
-      "id": "medium",
-      "name": "Medium",
-      "dr_bonus": 0,
-      "agility_penalty": -1,
-      "examples": "Chain shirt, brigandine, flak jacket, tactical vest"
-    },
-    {
-      "id": "heavy",
-      "name": "Heavy",
-      "dr_bonus": 1,
-      "agility_penalty": -2,
-      "examples": "Plate, full harness, combat armor, blast suit"
-    },
-    {
-      "id": "powered",
-      "name": "Powered",
-      "dr_bonus": 1,
-      "agility_penalty": 0,
-      "examples": "Exo-suit, powered armor (technology negates the penalty)"
-    }
-  ],
   "armor_examples": [
     {
       "id": "no-armor",
@@ -597,5 +549,47 @@
       "notes": "Obsolete by 1660s. Expensive. Treated as curiosity."
     }
   ],
-  "armor_examples_note": "Named armors from the SRD, for reference. The builder uses weight + quality."
+  "armor_examples_note": "Named armors from the SRD, for reference. The builder uses the five armor types.",
+  "armor_types": [
+    {
+      "id": "light",
+      "name": "Light",
+      "dr": 1,
+      "agility_penalty": 0,
+      "min_wealth_tier": 2,
+      "examples": "Leather, padded vest, buff coat, light tactical gear"
+    },
+    {
+      "id": "medium",
+      "name": "Medium",
+      "dr": 2,
+      "agility_penalty": -1,
+      "min_wealth_tier": 3,
+      "examples": "Chain shirt, brigandine, flak jacket, tactical vest"
+    },
+    {
+      "id": "heavy",
+      "name": "Heavy",
+      "dr": 3,
+      "agility_penalty": -2,
+      "min_wealth_tier": 5,
+      "examples": "Plate, full harness, combat armor, blast suit"
+    },
+    {
+      "id": "powered",
+      "name": "Powered or Masterwork",
+      "dr": 4,
+      "agility_penalty": 0,
+      "min_wealth_tier": 6,
+      "examples": "Exo-suit, powered armor (technology negates the penalty)"
+    },
+    {
+      "id": "legendary",
+      "name": "Legendary",
+      "dr": 5,
+      "agility_penalty": 0,
+      "min_wealth_tier": 7,
+      "examples": "Artifact armor, enchanted plate, one-of-a-kind"
+    }
+  ]
 }

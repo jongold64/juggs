@@ -125,9 +125,9 @@ export function describe(D, p, sum) {
 
 function exampleSummary(D, c, p) {
   const level = p.exampleLevel;
-  const caster = R.isCaster(D, c);
+  const caster = R.hasLevelDiscount(D, c);
   return { points: null, powerLevel: level, effectiveLevel: level,
-           mana: R.powerCost(level, R.tierFor(D, c.level).power_level, caster), discounted: caster };
+           mana: R.powerCost(D, level, c.level, caster), discounted: caster };
 }
 
 export function summaryFor(D, c, p) {

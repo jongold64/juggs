@@ -76,14 +76,14 @@ export function renderSheet(D, c) {
     const slot = R.SLOT_ABILITY[dom];
     const defend = R.defendBonus(D, c, dom);
     return `<tr class="dom-${dom}"><th>${cap(dom)}</th><td><b>${R.deflectFor(D, c, dom)}</b> <span class="s-hint">${esc(D.abilitiesById.get(slot.deflect).name)}${
-      dom === 'body' && armor.dr ? ' + DR' : ''}${dom === 'body' && armor.agilityPenalty ? ' − armor' : ''}</span></td>
-      <td><b>${signed(defend)}</b> ${rollBtn(`Defend (${cap(dom)})`, defend)} <span class="s-hint">${esc(D.abilitiesById.get(slot.defend).name)}${dom === 'body' && armor.dr ? ' + DR' : ''}</span></td></tr>`;
+      tier.deflect_bonus ? ` + ${tier.deflect_bonus} tier` : ''}</span></td>
+      <td><b>${signed(defend)}</b> ${rollBtn(`Defend (${cap(dom)})`, defend)} <span class="s-hint">${esc(D.abilitiesById.get(slot.defend).name)}</span></td></tr>`;
   }).join('');
   const defenses = `<section class="s-box s-compact"><h3>Defenses</h3>
     <div class="s-statline"><span>Initiative <b>${signed(init)}</b> ${rollBtn('Initiative', init)}</span>
-      <span>Actions / Reactions <b>${tier.actions} / ${tier.reactions}</b></span><span>Surge max <b>${tier.surge_max}</b></span></div>
+      <span>Actions / Reactions <b>${tier.actions} / ${tier.reactions}</b></span><span>Surge max <b>${tier.surge_max}</b></span><span>Hit Cap <b>${tier.hit_cap}</b></span></div>
     <table class="s-def"><thead><tr><th></th><th>Deflect</th><th>Defend</th></tr></thead><tbody>${defRows}</tbody></table>
-    <p class="s-armor"><b>DR ${armor.dr}</b>${armor.parts.length ? ` <span class="s-hint">${armor.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')}</span>` : ''}${
+    <p class="s-armor"><b>DR ${armor.dr}</b> <span class="s-hint">off Stamina damage</span>${armor.parts.length ? ` <span class="s-hint">${armor.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')}</span>` : ''}${
       armor.agilityPenalty ? ` · <b>Agility rolls ${armor.agilityPenalty}</b>` : ''}</p></section>`;
 
   // Weapons and implements: one line each
@@ -106,13 +106,11 @@ export function renderSheet(D, c) {
     <thead><tr><th>Name</th><th>Quality</th><th>Effect</th><th>Attack / Cast</th></tr></thead><tbody>${weaponRows}</tbody></table></section>` : '';
 
   // Boon: one line, the menu inline
-  const SHORT = { recovery: 'unmark 1 box', tempo: '+1 Action this round', clarity: 'clear a Condition on you',
+  const SHORT = { momentum: '+2 to all rolls until the end of your next turn', recovery: 'unmark 1 box', tempo: '+1 Action this round', clarity: 'clear a Condition on you',
                   guard: '+2 Deflect and Defend', grace: 'give one to an ally in Near range' };
-  const momentum = tier.momentum_turns === 1 ? 'until the end of your next turn' : `for ${tier.momentum_turns} turns`;
   const boonBox = `<section class="s-box s-wide s-compact"><h3>Boon <span class="s-hint">natural ${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span></h3>
-    <p class="s-boon-line"><b>Momentum</b> +2 to all rolls ${momentum}${tier.boon_choices
-      ? ` · pick <b>${tier.boon_choices === 1 ? 'one' : tier.boon_choices}</b> (never the same twice):` : ' · from Seasoned, also pick from:'}
-      ${D.core.boon_menu.map(b => `<span class="s-boon-opt"><b>${esc(b.name)}</b> ${esc(SHORT[b.id] || b.effect)}</span>`).join(' · ')}</p></section>`;
+    <p class="s-boon-line">Pick <b>${tier.boon_choices === 1 ? 'one' : tier.boon_choices}</b> (never the same twice):
+      ${R.boonMenu(D, c.level).map(b => `<span class="s-boon-opt"><b>${esc(b.name)}</b> ${esc(SHORT[b.id] || b.effect)}</span>`).join(' · ')}</p></section>`;
 
   // Pools, side by side
   const pools = R.pools(D, c);

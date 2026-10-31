@@ -1,7 +1,7 @@
 // The saved character: what the player chose, never what is calculated from it. clean() fills in missing fields
 // and drops unknown ids, so characters saved by older versions (or edited by hand) still load.
 
-export const VERSION = 1;
+export const VERSION = 2;
 
 export function newCharacter() {
   return {
@@ -27,7 +27,7 @@ export function newCharacter() {
     powers: [],                 // Powers built in the Powers tab (see rules.js powerSummary for the fields)
     weapons: [],                // [{ name, quality, kind: 'melee' | 'ranged', effect, notes }]
     implements: [],             // [{ name, quality, notes }] — a caster's focus
-    armor: null,                // { weight, quality, name } — see rules.js armorStats
+    armor: null,                // { type, name } — see rules.js armorStats
     shield: '',                 // id in data/gear.json shields
     items: [],                  // [{ name, template, rating, appliesTo, descriptors, genre, notes }]
     wealth: null, reputation: null,     // null = the starting default
@@ -96,23 +96,20 @@ export function itemTargets(D) {
   ];
 }
 
-// Worn armor: { weight, quality, name } or null. Saves from before armor had a weight and quality stored the id of a
-// named armor; those become the nearest weight and quality.
+// Worn armor: { type, name } or null. Older saves stored the id of a named armor, or a weight and a quality; those
+// become the nearest type.
 export function cleanArmor(D, raw) {
   if (typeof raw === 'string' && raw) {
     const old = D.gear.armor_examples.find(a => a.id === raw);
     if (!old || !old.dr) return null;
-    const weight = old.agility_penalty <= -2 ? 'heavy' : old.agility_penalty === -1 ? 'medium' : 'light';
-    const base = old.dr - (weight === 'heavy' ? 1 : 0);
-    const quality = D.gear.quality.find(q => q.armor_dr_base === base)?.id || 'standard';
-    return { weight, quality, name: old.name.replace(/\s*\(.*\)$/, '') };
+    const type = old.agility_penalty <= -2 ? 'heavy' : old.agility_penalty === -1 ? 'medium'
+      : old.dr >= 5 ? 'legendary' : old.dr >= 4 ? 'powered' : 'light';
+    return { type, name: old.name.replace(/\s*\(.*\)$/, '') };
   }
-  if (!isObj(raw) || !D.gear.armor_weights.some(w => w.id === raw.weight)) return null;
-  return {
-    weight: raw.weight,
-    quality: D.gear.quality.some(q => q.id === raw.quality && q.armor_dr_base > 0) ? raw.quality : 'standard',
-    name: str(raw.name).slice(0, 80),
-  };
+  if (!isObj(raw)) return null;
+  const type = raw.type ?? (raw.quality === 'legendary' ? 'legendary' : raw.quality === 'masterwork' ? 'powered' : raw.weight);
+  if (!D.gear.armor_types.some(t => t.id === type)) return null;
+  return { type, name: str(raw.name).slice(0, 80) };
 }
 
 export function newItem() {

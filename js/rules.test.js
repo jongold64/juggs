@@ -53,11 +53,13 @@ check('Even-level increases count', R.abilityScores(D, make({ level: 4, base: sp
 check('Increase at an odd level is ignored', R.abilityScores(D, make({ level: 3, base: spread,
   abilityIncreases: { 3: 'int' } })).int, 2);
 check('Governing Ability cap at Seasoned is 7', R.abilityCap(D, make({ governing: 'str' }), 'str', 5), 7);
-check('Other Ability cap stays 5', R.abilityCap(D, make({ governing: 'str' }), 'tou', 20), 5);
-check('Domain Mastery: all Body 2+ is +1, Spirit with a 1 is 0',
-  R.domainMastery(D, spread), { body: 1, mind: 1, spirit: 0 });
-check('Domain Mastery +2 at all 4+',
-  R.domainMastery(D, { str: 4, tou: 4, agi: 5, int: 1, wil: 1, acu: 1, bel: 1, mor: 1, ser: 1 }).body, 2);
+check('Other Ability cap stays 5', R.abilityCap(D, make({ governing: 'str' }), 'int', 20), 5);
+check('Other two Scores in the governing Domain cap at 6 from Veteran',
+  [R.abilityCap(D, make({ governing: 'str' }), 'tou', 8), R.abilityCap(D, make({ governing: 'str' }), 'tou', 9)], [5, 6]);
+check('Domain Mastery: below 4 gives nothing', R.domainMastery(D, spread), { body: 0, mind: 0, spirit: 0 });
+const allAt = n => Object.fromEntries(R.ABILITIES.map(a => [a, n]));
+check('Domain Mastery +1 at all 4+', R.domainMastery(D, allAt(4)).body, 1);
+check('Domain Mastery +2 at all 6+', R.domainMastery(D, allAt(6)).mind, 2);
 
 // Skills
 const focus = ['combat-melee', 'endure', 'athletics', 'tactics', 'observe', 'evasion'];
@@ -69,7 +71,7 @@ check('Overlap with a Focus Skill is recorded', R.focusInfo(D, make({ focus, apt
 check('Overlap +1 goes to the picked skill',
   R.skillRank(D, make({ focus, aptitude: 'savage', overlapPicks: ['stealth'] }), 'stealth'), 2);
 check('Skill points add ranks', R.skillRank(D, make({ level: 2, focus, skillPoints: { 2: ['endure'] } }), 'endure'), 3);
-check('Skill total = Ability + rank + Domain Mastery', R.skillTotal(D, fighter, 'combat-melee'), 4 + 2 + 1);
+check('Skill total = Ability + rank + Domain Mastery', R.skillTotal(D, fighter, 'combat-melee'), 4 + 2);
 check('Persuade uses the Primary Domain Attack Score', R.skillAbility(D, fighter, 'persuade', spread), 'str');
 check('Novice Focus cap is 3', R.skillCap(D, fighter, 'endure', 1), 3);
 check('Novice other cap is 2', R.skillCap(D, fighter, 'stealth', 1), 2);
@@ -81,7 +83,6 @@ check('Genre skills hidden without their Genre', R.availableSkills(D, make()).so
 check('Magic Genre shows Channel', R.availableSkills(D, make({ genres: ['magic'] })).some(s => s.id === 'channel'), true);
 check('Weird Magic needs Magic on too',
   R.availableSkills(D, make({ genres: ['weird-magic'] })).some(s => s.id === 'weird-control'), false);
-check('Skill Mastery at rank 5 is 4', R.skillMastery(5), 4);
 
 // Roles
 check('Starting Role is Step 1', R.roleSteps(D, make({ role: 'warrior' })), { warrior: 1 });
@@ -116,15 +117,26 @@ check('Level 17 slot refuses Rank D', R.slotAccepts(D, 17, { rank: 'D' }), false
 check('Every Feat has a Rank', D.feats.every(f => ['A', 'B', 'C', 'D'].includes(f.rank)), true);
 
 // Costs and standing
-check('Caster Power cost: PL 3 at Novice is 2', R.powerCost(3, 1, true), 2);
-check('Caster Power cost never below 1', R.powerCost(2, 5, true), 1);
-check('Non-Caster pays the full Power Level', R.powerCost(3, 2, false), 3);
+check('Level Discount: none at Level 5', R.powerCost(D, 3, 5, true), 3);
+check('Level Discount: PL 3 at Level 9 is 2', R.powerCost(D, 3, 9, true), 2);
+check('Level Discount: PL 5 at Level 18 is 2', R.powerCost(D, 5, 18, true), 2);
+check('Level Discount never below 1', R.powerCost(D, 2, 18, true), 1);
+check('No discount pays the full Power Level', R.powerCost(D, 3, 18, false), 3);
+check('Casters and Channelers have the Level Discount',
+  ['caster', 'channeler', 'warrior'].map(role => R.hasLevelDiscount(D, make({ role }))), [true, true, false]);
+check('Hit Cap is 5 + tier number', D.core.tiers.map(t => t.hit_cap), [6, 7, 8, 9, 10]);
+check('Surge raises the Hit Cap', R.hitCap(D, 9, 3), 11);
+check('Deflect tier bonus', D.core.tiers.map(t => t.deflect_bonus), [0, 2, 4, 6, 8]);
+check('Deflect adds the tier bonus', R.deflectFor(D, make({ base: spread, level: 9 }), 'mind'), 10 + 2 + 4);
+check('Boon Menu has no Tempo at Novice', R.boonMenu(D, 1).some(b => b.id === 'tempo'), false);
+check('Boon choices by tier', D.core.tiers.map(t => t.boon_choices), [1, 1, 2, 2, 3]);
+check('Bane Menu choices by tier', D.core.tiers.map(t => t.bane_choices), [0, 1, 2, 2, 3]);
 check('Novice pays Maneuver cost', R.maneuverCost(D, 1, 1), 1);
 check('Seasoned: 1-cost Maneuver free', R.maneuverCost(D, 5, 1), 0);
 check('Seasoned: 2-cost Maneuver full', R.maneuverCost(D, 5, 2), 2);
 check('Legendary: all Maneuvers free', R.maneuverCost(D, 17, 3), 0);
 check('Deflect = 10 + Domain Deflect Score', R.deflect(spread, 'mind'), 12);
-check('Initiative bonus: Agility + Body Mastery', R.initiativeBonus(D, make({ base: spread })), 3 + 1);
+check('Initiative bonus: Agility + Body Mastery', R.initiativeBonus(D, make({ base: spread })), 3);
 check('Starting Wealth defaults to Struggling', R.startingWealth(D, make()), 3);
 check('Noble starts Wealthy', R.startingWealth(D, make({ aptitude: 'noble' })), 6);
 check('Noble starts at Reputation 2', R.reputation(D, make({ aptitude: 'noble' })), 2);
@@ -148,7 +160,7 @@ check('Focus Item ignored for Psionic', R.powerPoints(D, { ...bolt, source: 'psi
 const storm = { ...bolt, range: 'far', targets: 'multi-6', duration: 'rounds', conditions: ['prone'] };  // 2+5+1+1 = 9
 check('Storm is PL 2', R.powerSummary(D, make(), storm).powerLevel, 2);
 check('Non-Caster pays full Mana', R.powerSummary(D, make(), storm).mana, 2);
-check('Caster at Novice pays PL - 1', R.powerSummary(D, make({ genres: ['magic'], role: 'caster' }), storm).mana, 1);
+check('Caster at Level 6 pays PL - 1', R.powerSummary(D, make({ level: 6, genres: ['magic'], role: 'caster' }), storm).mana, 1);
 check('Entity Blessing raises the level, not the cost',
   [R.powerSummary(D, make(), { ...storm, entityBlessing: true }).effectiveLevel, R.powerSummary(D, make(), { ...storm, entityBlessing: true }).mana], [3, 2]);
 const cantrip = { ...bolt, range: 'close' };
@@ -158,12 +170,12 @@ check('Cantrip is free for a practitioner',
 
 // Gear and items
 const warrior = make({ base: spread, focus, weapons: [{ name: 'Sword', quality: 'standard', kind: 'melee' }] });
-check('Sword attack = Str 4 + Mastery 1 + Combat (Melee) 2 + Standard 2',
-  R.weaponAttack(D, warrior, warrior.weapons[0]).total, 9);
+check('Sword attack = Str 4 + Combat (Melee) 2 + Standard 2',
+  R.weaponAttack(D, warrior, warrior.weapons[0]).total, 8);
 const bow = { name: 'Bow', quality: 'quality', kind: 'ranged' };
-check('Ranged uses Agility and Combat (Ranged)', R.weaponAttack(D, make({ base: spread, focus }), bow).total, 3 + 1 + 1 + 3);
+check('Ranged uses Agility and Combat (Ranged)', R.weaponAttack(D, make({ base: spread, focus }), bow).total, 3 + 1 + 3);
 check('Attack Enhancement stacks with quality', R.weaponAttack(D, make({ base: spread, focus,
-  items: [{ name: 'Flame Tongue', template: 'enhancement', rating: 3, appliesTo: 'attack' }] }), warrior.weapons[0]).total, 12);
+  items: [{ name: 'Flame Tongue', template: 'enhancement', rating: 3, appliesTo: 'attack' }] }), warrior.weapons[0]).total, 11);
 check('Only the highest Enhancement counts', R.enhancements(make({ items: [
   { template: 'enhancement', rating: 2, appliesTo: 'attack' }, { template: 'enhancement', rating: 4, appliesTo: 'attack' }] })).attack, 4);
 check('Skill Enhancement adds to that skill', R.skillTotal(D, make({ base: spread, focus,
@@ -181,27 +193,22 @@ const belt = make({ base: spread, level: 2, abilityIncreases: { 2: 'str' },
   items: [{ template: 'enhancement', rating: 2, appliesTo: 'ability:str' }] });
 check('Ability Score Enhancement adds to the Score', R.abilityScores(D, belt).str, 4 + 1 + 2);
 check('Item bonus does not count against the advancement cap', R.increaseProblems(D, belt), []);
-const lowBelief = { ...spread, str: 3, mor: 2 };  // Belief 1 is the only Spirit Score below 2
-check('Without the item, no Spirit Mastery', R.domainMastery(D, R.abilityScores(D, make({ base: lowBelief }))).spirit, 0);
-check('Ability Score Enhancement counts for Domain Mastery', R.domainMastery(D, R.abilityScores(D, make({ base: lowBelief,
-  items: [{ template: 'enhancement', rating: 1, appliesTo: 'ability:bel' }] }))).spirit, 1);
+check('Without the item, no Spirit Mastery', R.domainMastery(D, { ...allAt(4), bel: 3 }).spirit, 0);
+check('Ability Score Enhancement counts for Domain Mastery', R.domainMastery(D, R.abilityScores(D, make({ base: { ...allAt(2), mor: 4, ser: 4 },
+  items: [{ template: 'enhancement', rating: 2, appliesTo: 'ability:bel' }] }))).spirit, 1);
 check('Legendary quality from Very Wealthy (Tier 7)', R.overWealth(D, make({ wealth: 7 }), 'legendary'), false);
 const armored = make({ base: spread, armor: 'medium-armor', shield: 'buckler' });  // old save: DR 2 + 1, Agility -1
-check('DR adds to Body Deflect, armor penalty lowers it', R.deflectFor(D, armored, 'body'), 10 + 3 + 3 - 1);
-const wear = (weight, quality) => R.armorInfo(D, make({ armor: { weight, quality } }));
-check('Light Standard armor: DR 2, no penalty', [wear('light', 'standard').dr, wear('light', 'standard').agilityPenalty], [2, 0]);
-check('Heavy Standard armor: DR 3, Agility -2', [wear('heavy', 'standard').dr, wear('heavy', 'standard').agilityPenalty], [3, -2]);
-check('Heavy Masterwork armor: DR 5, Agility -1', [wear('heavy', 'masterwork').dr, wear('heavy', 'masterwork').agilityPenalty], [5, -1]);
-check('Heavy Legendary armor stops at DR 5', wear('heavy', 'legendary').dr, 5);
-check('Medium Masterwork armor fits: no penalty', wear('medium', 'masterwork').agilityPenalty, 0);
-check('Powered armor: no penalty', wear('powered', 'standard').agilityPenalty, 0);
-check('Heavy Standard: Body Deflect +1 net', R.deflectFor(D, make({ base: spread, armor: { weight: 'heavy', quality: 'standard' } }), 'body')
-  - R.deflectFor(D, make({ base: spread }), 'body'), 1);
-check('Ascetic gets no DR from armor', R.armorInfo(D, make({ role: 'ascetic', armor: { weight: 'heavy', quality: 'standard' } })).dr, 0);
-check('Old saved armor id becomes weight + quality', clean(D, { armor: 'heavy-armor' }).armor.weight, 'heavy');
-check('No armor', clean(D, { armor: { weight: '' } }).armor, null);
-check('DR adds to the Body Defend roll', R.defendBonus(D, armored, 'body') - R.defendBonus(D, make({ base: spread }), 'body'), 3);
-check('DR does not add to Mind Deflect', R.deflectFor(D, armored, 'mind'), 12);
+const wear = type => R.armorInfo(D, make({ armor: { type } }));
+check('Armor DR 1 to 5 by type', ['light', 'medium', 'heavy', 'powered', 'legendary'].map(t => wear(t).dr), [1, 2, 3, 4, 5]);
+check('Agility penalty by type', ['light', 'medium', 'heavy', 'powered', 'legendary'].map(t => wear(t).agilityPenalty), [0, -1, -2, 0, 0]);
+check('Ascetic gets no DR from armor', R.armorInfo(D, make({ role: 'ascetic', armor: { type: 'heavy' } })).dr, 0);
+check('Old saved armor id becomes a type', clean(D, { armor: 'heavy-armor' }).armor.type, 'heavy');
+check('Old weight and quality become a type', clean(D, { armor: { weight: 'heavy', quality: 'standard' } }).armor.type, 'heavy');
+check('Old Masterwork armor becomes Powered or Masterwork', clean(D, { armor: { weight: 'light', quality: 'masterwork' } }).armor.type, 'powered');
+check('Old Legendary armor stays Legendary', clean(D, { armor: { weight: 'heavy', quality: 'legendary' } }).armor.type, 'legendary');
+check('No armor', clean(D, { armor: { type: '' } }).armor, null);
+check('DR no longer adds to the Defend roll', R.defendBonus(D, armored, 'body') - R.defendBonus(D, make({ base: spread }), 'body'), 0);
+check('Armor no longer changes Body Deflect', R.deflectFor(D, armored, 'body'), R.deflectFor(D, make({ base: spread }), 'body'));
 check('Enhanced armor can add to Spirit Deflect', R.deflectFor(D, make({ base: spread,
   items: [{ template: 'enhancement', rating: 2, appliesTo: 'deflect:spirit' }] }), 'spirit'), 14);
 check('A Mind-only Enhancement leaves Body alone', R.deflectFor(D, make({ base: spread,

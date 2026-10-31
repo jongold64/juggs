@@ -77,7 +77,9 @@ export function abilityScores(D, c, level = c.level, { withGear = true } = {}) {
 
 export function abilityCap(D, c, ability, level = c.level) {
   const tier = tierFor(D, level);
-  return ability === c.governing ? tier.governing_ability_cap : tier.other_ability_cap;
+  if (ability === c.governing) return tier.governing_ability_cap;
+  // From Veteran, the other two Scores in the governing Ability's Domain cap at 6, so Superior Mastery can be reached.
+  return DOMAIN_OF[ability] === DOMAIN_OF[c.governing] ? tier.governing_domain_cap : tier.other_ability_cap;
 }
 
 // Problems with the creation spread, as sentences.
@@ -112,7 +114,7 @@ export function increaseProblems(D, c) {
   return out;
 }
 
-// Domain Mastery: +1 / +2 / +3 when all three Scores in a Domain reach 2 / 4 / 6.
+// Domain Mastery: +1 / +2 when all three Scores in a Domain reach 4 / 6.
 export function domainMastery(D, scores) {
   const out = {};
   for (const d of DOMAINS) {
@@ -252,9 +254,6 @@ export function skillTotal(D, c, skill, level = c.level) {
   return scores[ability] + skillRank(D, c, skill, level) + mastery + gearRollBonus(D, c, ability, skill);
 }
 
-// Skill Mastery: fixed-DC tasks are 1 easier per rank above 1.
-export const skillMastery = rank => Math.max(0, rank - 1);
-
 // Problems with the skill points spent at each level.
 export function skillPointProblems(D, c) {
   const out = [];
@@ -371,9 +370,16 @@ export function checkRequirements(clauses, ctx) {
 // Defenses, costs, standing
 // ---------------------------------------------------------------------------------------------------------------
 
+// The tier bonus is on top: see deflectFor.
 export function deflect(scores, domain) {
   return 10 + scores[SLOT_ABILITY[domain].deflect];
 }
+
+// The Boon Menu at a level: Tempo opens at Seasoned.
+export const boonMenu = (D, level) => D.core.boon_menu.filter(b => b.id !== 'tempo' || level >= 5);
+
+// One hit crosses at most this many boxes, after armor. Each Surge box raises it for that hit.
+export const hitCap = (D, level, surge = 0) => tierFor(D, level).hit_cap + surge;
 
 // Bonus added to d20 for a roll with an Ability Score: the Score plus its Domain's Mastery bonus.
 export function rollBonus(D, scores, ability) {
@@ -386,33 +392,38 @@ export function initiativeBonus(D, c, level = c.level) {
   return rollBonus(D, scores, ability) + gearRollBonus(D, c, ability);
 }
 
-// DR (armor, shield, Defender, Ward items) works through the roll: it adds to the Body Defend roll and the Body
-// Deflect number, and is not taken off Stamina damage. Mind and Spirit get a bonus only from items that name them.
-export const bodyDR = (D, c, domain) => (domain === 'body' ? armorInfo(D, c).dr : 0);
-
 // Enhancements to Defend or Deflect: "defend" / "deflect" cover all three Domains, "defend:mind" one Domain.
 const domainEnh = (c, kind, domain) => {
   const enh = enhancements(c);
   return Math.max(enh[kind] || 0, enh[`${kind}:${domain}`] || 0);
 };
 
-// Defend roll for a Domain: Defend Ability + Domain Mastery + DR (Body) + Defend Enhancement + gear on the Ability.
+// Defend roll for a Domain: Defend Ability + Domain Mastery + Defend Enhancement + gear on the Ability.
 export function defendBonus(D, c, domain) {
   const scores = abilityScores(D, c);
   const ability = SLOT_ABILITY[domain].defend;
-  return rollBonus(D, scores, ability) + bodyDR(D, c, domain) + domainEnh(c, 'defend', domain) + gearRollBonus(D, c, ability);
+  return rollBonus(D, scores, ability) + domainEnh(c, 'defend', domain) + gearRollBonus(D, c, ability);
 }
 
-// Deflect threshold for a Domain: 10 + Deflect Ability + DR and the armor's Agility penalty (Body) + a Deflect
-// Enhancement. Heavy armor absorbs more than it dodges.
-export function deflectFor(D, c, domain) {
-  const armorPenalty = domain === 'body' ? armorInfo(D, c).agilityPenalty : 0;
-  return deflect(abilityScores(D, c), domain) + bodyDR(D, c, domain) + armorPenalty + domainEnh(c, 'deflect', domain);
+// Deflect threshold for a Domain: 10 + Deflect Ability + tier bonus + a Deflect Enhancement. Armor does not change
+// it: DR comes off the damage instead.
+export function deflectFor(D, c, domain, level = c.level) {
+  return deflect(abilityScores(D, c, level), domain) + tierFor(D, level).deflect_bonus + domainEnh(c, 'deflect', domain);
 }
 
-// Mana for a Power: Casters pay the Power Level minus their tier's Power Level, minimum 1; others pay in full.
-export function powerCost(powerLevel, tierPowerLevel, isCaster) {
-  return isCaster ? Math.max(1, powerLevel - tierPowerLevel) : powerLevel;
+// Mana for a Power: the Roles with the Level Discount pay Power Level - (Level / 6, rounded down), minimum 1; others
+// pay in full.
+export function levelDiscount(D, level) {
+  return Math.floor(level / D.core.level_discount.divisor);
+}
+
+export function powerCost(D, powerLevel, level, discounted) {
+  return discounted ? Math.max(1, powerLevel - levelDiscount(D, level)) : powerLevel;
+}
+
+export function hasLevelDiscount(D, c, level = c.level) {
+  const steps = roleSteps(D, c, level);
+  return D.core.level_discount.roles.some(r => (steps[r] || 0) >= 1);
 }
 
 // A Maneuver's cost after the tier's Mastery Floor (Seasoned: 1-cost free, ... Legendary: all free).
@@ -460,8 +471,8 @@ export function powerSummary(D, c, p) {
   if (powerLevel === 0) {
     mana = isPractitioner(D, c) ? 0 : 1;
   } else {
-    const caster = isCaster(D, c);
-    mana = powerCost(powerLevel, tierFor(D, c.level).power_level, caster);
+    const caster = hasLevelDiscount(D, c);
+    mana = powerCost(D, powerLevel, c.level, caster);
     discounted = caster && mana < powerLevel;
   }
   return { points, powerLevel, effectiveLevel, mana, discounted };
@@ -484,21 +495,14 @@ export function enhancements(c) {
   return out;
 }
 
-// Worn armor from its weight and quality: { name, dr, agilityPenalty } or null. Quality sets DR, Heavy and Powered
-// add +1 (max 5); weight sets the Agility penalty, 1 less for Masterwork and Legendary armor.
+// Worn armor from its type: { name, dr, agilityPenalty } or null.
 export function armorStats(D, armor) {
-  if (!armor?.weight) return null;
-  const w = D.gear.armor_weights.find(x => x.id === armor.weight);
-  const q = D.gear.quality.find(x => x.id === armor.quality);
-  if (!w || !q) return null;
-  return {
-    name: armor.name || `${w.name} armor`,
-    dr: Math.min(5, q.armor_dr_base + w.dr_bonus),
-    agilityPenalty: Math.min(0, w.agility_penalty + q.armor_fit),
-  };
+  const t = D.gear.armor_types.find(x => x.id === armor?.type);
+  if (!t) return null;
+  return { name: armor.name || `${t.name} armor`, dr: t.dr, agilityPenalty: t.agility_penalty };
 }
 
-// Armor, shield, Defender Steps and Ward items (all DR count). See bodyDR and deflectFor for how they are used.
+// Armor, shield, Defender Steps and Ward items (all DR count). DR comes off Stamina damage.
 // The Ascetic gains no benefit and no penalty from armor.
 export function armorInfo(D, c, level = c.level) {
   const ascetic = (roleSteps(D, c, level).ascetic || 0) >= 1;
@@ -553,6 +557,11 @@ export function overWealth(D, c, qualityId) {
   const q = D.gear.quality.find(x => x.id === qualityId);
   const wealth = c.wealth ?? startingWealth(D, c);
   return q ? q.min_wealth_tier > wealth : false;
+}
+
+export function armorOverWealth(D, c, typeId) {
+  const t = D.gear.armor_types.find(x => x.id === typeId);
+  return t ? t.min_wealth_tier > (c.wealth ?? startingWealth(D, c)) : false;
 }
 
 export function startingWealth(D, c) {
