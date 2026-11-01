@@ -42,7 +42,8 @@ Book text the builder does not follow, for the author to fix:
 - Creation Step 3 still says Willpower for Mind Deflect and Initiative = primary Attack Ability.
 
 The afflictions data is not shown in the app and has not been updated for the new Doom Affliction. Vehicles keep their
-design, with Pilot and Tactics station rolls moved to Operate and Analyze.
+design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunners roll Combat (Ranged) (decided
+2026-11-01).
 
 ## Sources
 

@@ -212,7 +212,7 @@
       "id": "fire",
       "name": "Fire",
       "station": "Gunner",
-      "effect": "Attack with one weapon System. Uses Gunnery, not personal Combat."
+      "effect": "Attack with one weapon System. Uses Combat (Ranged)."
     },
     {
       "id": "repair",
@@ -242,12 +242,12 @@
     {
       "heat": "3-4",
       "band": "Warm",
-      "effect": "-1 to all Gunnery checks."
+      "effect": "-1 to all gunner rolls."
     },
     {
       "heat": "5-6",
       "band": "Hot",
-      "effect": "-2 to Gunnery. Pilot takes 1 Stamina box per round."
+      "effect": "-2 to gunner rolls. Pilot takes 1 Stamina box per round."
     },
     {
       "heat": "7-8",
