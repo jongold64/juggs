@@ -270,6 +270,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
     with no check. Other Sources keep the book's Void Effect check (Arcane DC 14, Divine DC 12, Innate and Spirit exempt).
   - **Opposition**: Divine Powers (positive energy) and Nature / Primal Earth Effects count as 1 Power Level higher
     against Void-sourced targets. Positive Energy is not a separate Effect. Void casters can be Abjured.
+    It applies only to Powers aimed at the target, costs no extra Mana, and can reach PL 6. Void-sourced means the Void
+    Source for player characters and the GM's call for NPCs. Banish's Step text needs a line saying so.
   - **Demonic is separate**: Demonic is a deal with something that wants you; Void is contact with something that does
     not care. A patron who bargains, like The Bound, is Demonic. Pantara's Void is ignored for now (work in progress).
 
