@@ -107,7 +107,7 @@ export function renderSheet(D, c) {
 
   // Boon: one line, the menu inline
   const SHORT = { momentum: '+2 to all rolls until the end of your next turn', recovery: 'unmark 1 box', tempo: '+1 Action, once per round', clarity: 'clear a Condition on you',
-                  guard: '+2 Deflect and Defend', opening: 'next ally on the target +2', 'break-through': 'hit ignores DR',
+                  guard: '+2 Deflect and Defend', opening: 'next ally on the target +2', 'break-through': 'hit ignores DR, once per round',
                   reset: 'regain a Reaction, once per round', 'read-the-room': 'one true answer', grace: 'give one to an ally in Near range' };
   const boonBox = `<section class="s-box s-wide s-compact"><h3>Boon <span class="s-hint">natural ${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span></h3>
     <p class="s-boon-line">Pick <b>${tier.boon_choices === 1 ? 'one' : tier.boon_choices}</b> (never the same twice):

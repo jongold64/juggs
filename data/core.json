@@ -291,7 +291,7 @@
     {
       "id": "break-through",
       "name": "Break Through",
-      "effect": "This hit ignores the target’s armor DR"
+      "effect": "This hit ignores the target’s armor DR, once per round"
     },
     {
       "id": "reset",
