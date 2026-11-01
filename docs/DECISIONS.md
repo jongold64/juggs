@@ -272,6 +272,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
   - Channeler Step 1 loses its Abjure cost, Legendary is unchanged, and Rule 3 and the Holy Relic need rewording.
 - **Spent does not stack with backlash (decided 2026-10-31, not yet applied).** "Spent doesn't repeat boxes already crossed by
   backlash." It still charges Surges of 1 or 2 boxes, and Effect boxes on the same roll.
+- **Seven Feat slots stay** (decided 2026-10-31), at Levels 1, 3, 7, 11, 15, 17, 19, so players can take something outside a
+  narrow build. Specialties and Roles growing free does leave characters stronger; watch that in play.
 - **Deafened stays its own condition** (decided 2026-10-31). No change needed.
 - **Element and Void (decided 2026-10-31, not yet applied).** Element is absorbed into the expansion Sources; the closest is
   Nature / Primal, which is the proposed home for old saves. Void stays as its own Source: negative energy, from Space or
