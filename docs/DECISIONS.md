@@ -40,7 +40,8 @@ Book text the builder did not follow, for the author to fix:
 - Chapter 1's "What Overage Does" still says an Effect becomes mechanical at Surge 2. The Effect Ladder wins.
 - Knowledge still says "two additional languages per BP". Everyone gets 2 extra languages.
 - Creation Step 3 still says Willpower for Mind Deflect and Initiative = primary Attack Ability.
-- The Channeler Suggested Build lists Abjure as a Focus Skill, so the builder's preset has five.
+- The Channeler Suggested Build still lists Abjure as a Focus Skill. The author chose Survive to replace it, and the
+  builder's preset uses Survive; the Player Book's two lists are not yet edited.
 
 The afflictions data is not shown in the app and has not been updated for the new Doom Affliction. Vehicles keep their
 design, with Pilot and Tactics station rolls moved to Operate and Analyze.
@@ -280,7 +281,6 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 - Standard Origin trait.
 - Void Power Source details.
 - Abjure rewrites (see Skills).
-- The Channeler Suggested Build's sixth Focus Skill (Abjure was one of the six).
 - Side-by-side pool layout on the sheet — the author will judge it once the sheet exists.
 - **Weird Role Step 2** is kept as written for now ("Revelation fills 0 Resolve. Corruption check DC 12 (not 14)").
   Its DC 14 Corruption check comes from the older d8 Weird Table (Back to Basics); the current d20 table (Book of
