@@ -244,7 +244,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
-- **Material moved (decided 2026-11-01).** Afflictions and Investigation are in the GM Guide; Period Equipment and Tech Levels are in
+- **Material moved (decided 2026-11-01).** Afflictions are in the GM Guide; Investigation stays in the Player Book for players; Period Equipment and Tech Levels are in
   the Book of Genres. The Player Book keeps short pointers.
 - **Wealth (decided 2026-11-01).** No BP cost: with GM approval a character may start one tier above or below their default. Cash on
   Hand = Wealth Tier × the multiplier. Chit conversion: one purchase covers as many lower-tier purchases as its multiplier
