@@ -254,6 +254,11 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
   Specialty may instead be a second Stepped Feat."
 - **Aptitudes become Backgrounds (decided 2026-10-31, not yet applied).** A rename only; how they work does not change.
   The builder keeps its saved field name, so old saves still load.
+- **Chase Boons use the Boon Menu (decided 2026-10-31, not yet applied).** Momentum, +2 to all rolls until the end of your
+  next turn; Recovery, unmark 1 box; Tempo (Seasoned+), move two bands this round; Clarity, clear a Condition or shake off a
+  Complication; Guard, +2 against the next hazard or Attack Calling; Grace, give one to an ally in the chase. Legendary only:
+  End the Chase, the quarry vanishes (distance resets to Far) or the pursuer cuts them off (distance jumps to Close). The
+  cumulative tier list goes.
 - **Deafened stays its own condition** (decided 2026-10-31). No change needed.
 - **Element and Void (decided 2026-10-31, not yet applied).** Element is absorbed into the expansion Sources; the closest is
   Nature / Primal, which is the proposed home for old saves. Void stays as its own Source: negative energy, from Space or
@@ -261,8 +266,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
   - Ability Intellect or Willpower; pools Mana / Stamina; Basic Cast crosses Stamina. Origin chosen at creation: Space
     (impersonal) or the Old Ones (may notice you). No visible components. Learned from forbidden texts or contact.
   - The Void Effect never takes the -1 for being non-Signature.
-  - **Corruption**: the Void Effect check is made only on a Bane (natural 1), for every Source except Innate and Spirit,
-    which stay exempt. Read as replacing the check on every use; Arcane and Void DC 14, Divine DC 12.
+  - **Corruption**: a Void-source caster gains Corruption +1 automatically on a Bane (natural 1) when using Void power,
+    with no check. Other Sources keep the book's Void Effect check (Arcane DC 14, Divine DC 12, Innate and Spirit exempt).
   - **Opposition**: Divine Powers (positive energy) and Nature / Primal Earth Effects count as 1 Power Level higher
     against Void-sourced targets. Positive Energy is not a separate Effect. Void casters can be Abjured.
   - **Demonic is separate**: Demonic is a deal with something that wants you; Void is contact with something that does
