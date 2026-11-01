@@ -151,6 +151,7 @@ check('Hit Cap is 5 + tier number', D.core.tiers.map(t => t.hit_cap), [6, 7, 8, 
 check('Surge raises the Hit Cap', R.hitCap(D, 9, 3), 11);
 check('Deflect tier bonus', D.core.tiers.map(t => t.deflect_bonus), [0, 2, 4, 6, 8]);
 check('Deflect adds the tier bonus', R.deflectFor(D, make({ base: spread, level: 9 }), 'mind'), 10 + 2 + 4);
+check('Cash on Hand is Wealth Tier × multiplier', [1, 3, 8].map(w => R.cashOnHand(D, w)), [1, 24, 2048]);
 check('Boon Menu has no Tempo at Novice', R.boonMenu(D, 1).some(b => b.id === 'tempo'), false);
 check('Boon choices by tier', D.core.tiers.map(t => t.boon_choices), [1, 1, 2, 2, 3]);
 check('Bane Menu choices by tier', D.core.tiers.map(t => t.bane_choices), [0, 1, 2, 2, 3]);

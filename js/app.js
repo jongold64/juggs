@@ -358,7 +358,7 @@ function renderCharacter() {
       <label class="field">Reputation <select data-bind="reputation" data-type="int">${options(
         [0, 1, 2, 3, 4, 5].map(n => ({ value: n, label: String(n) })), R.reputation(D, c))}</select></label>
     </div>
-    <p class="hint">${esc(D.core.wealth_tiers[wealth - 1].gear_ceiling)} · Cash on Hand ${esc(D.core.wealth_tiers[wealth - 1].cash_on_hand)}</p>
+    <p class="hint">${esc(D.core.wealth_tiers[wealth - 1].gear_ceiling)} · Cash on Hand ${R.cashOnHand(D, wealth)} · Default Tier ${R.startingWealth(D, c)}; one tier either way with GM approval</p>
     <label class="field">Languages <span class="hint">(${D.core.creation.extra_languages} extra at creation)</span>
       <input type="text" data-bind="languages" value="${esc(c.languages)}"></label>
     <label class="field">Gear <textarea data-bind="gear" rows="3">${esc(c.gear)}</textarea></label>

@@ -74,7 +74,7 @@ export function renderGear(D, c, rollBtn) {
     ? `<span class="warn">Above your Wealth ceiling — needs a story reason or a Wealth check.</span>` : '');
 
   const wealthCard = `<section class="card wide"><h2>Wealth</h2>
-    <p>Tier ${wealth} · <b>${esc(tier.name)}</b> · Gear ceiling: ${esc(tier.gear_ceiling)} · Cash on Hand ${esc(tier.cash_on_hand)}</p>
+    <p>Tier ${wealth} · <b>${esc(tier.name)}</b> · Gear ceiling: ${esc(tier.gear_ceiling)} · Cash on Hand ${R.cashOnHand(D, wealth)}</p>
     <p class="hint">Change the Wealth Tier on the Character tab. ${esc(D.gear.rules.weapons)}</p></section>`;
 
   // Weapons

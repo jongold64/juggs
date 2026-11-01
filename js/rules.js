@@ -591,6 +591,9 @@ export function armorOverWealth(D, c, typeId) {
   return t ? t.min_wealth_tier > (c.wealth ?? startingWealth(D, c)) : false;
 }
 
+// Cash on Hand = Wealth Tier × the tier's multiplier (stored as "x8").
+export const cashOnHand = (D, wealth) => wealth * Number(D.core.wealth_tiers[wealth - 1].cash_on_hand.slice(1));
+
 export function startingWealth(D, c) {
   const apt = D.aptitudesById.get(c.aptitude);
   return apt?.starting_wealth ?? D.core.creation.starting_wealth;

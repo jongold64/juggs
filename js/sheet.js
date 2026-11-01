@@ -143,7 +143,7 @@ export function renderSheet(D, c) {
       ${field('Defensive / utility', eff(c.signature.utility))}<p class="s-hint">Any other Effect: −1 to the roll.</p></section>
     <section class="s-box"><h3>Power Source</h3><p>${R.powerSources(D, c).map(s => esc(D.sourcesById.get(s).name)).join(' · ')}</p>
       <p class="s-hint">Physical always applies.</p></section>
-    <section class="s-box"><h3>Wealth &amp; Standing</h3>${field('Wealth Tier', `${wealth} · ${w.name}`)}${field('Cash on Hand', w.cash_on_hand)}
+    <section class="s-box"><h3>Wealth &amp; Standing</h3>${field('Wealth Tier', `${wealth} · ${w.name}`)}${field('Cash on Hand', R.cashOnHand(D, wealth))}
       ${field('Reputation', String(R.reputation(D, c)))}</section>`;
 
   const page1 = `<div class="sheet-page"><div class="s-title"><b>JUGGS</b> Jon's Universal Genre Gaming System · Character Sheet<span>d20 + Ability + Skill</span></div>

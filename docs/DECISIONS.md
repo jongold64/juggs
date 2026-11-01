@@ -245,7 +245,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 ## Second trim
 
 - **Wealth (decided 2026-11-01).** No BP cost: with GM approval a character may start one tier above or below their default. Cash on
-  Hand = Wealth Tier × the multiplier.
+  Hand = Wealth Tier × the multiplier. Chit conversion: one purchase covers as many lower-tier purchases as its multiplier
+  divided by theirs.
 - **Caster Step 2 is Shaped Casting (decided 2026-11-01).** Once per scene, add one upgrade to a Power without raising its Mana
   cost; its Level still rises, to at most 5. The general limit (Character Level + 1, maximum 5) stays.
 - **Boon Tokens are gone (decided 2026-11-01).** A Natural 1 while one of your Boons is still active (until the end of your next
