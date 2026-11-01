@@ -262,6 +262,14 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
   cumulative tier list goes.
 - **Supernatural conditions move to the GM Guide Lite (decided 2026-10-31, not yet applied to the books).** The Player Book
   lists 15 + 4. The builder already keeps the seven off the sheet, as GM reference on Quick Rules.
+- **Abjure stays an action, not a skill (decided 2026-10-31, not yet applied).** Available from Seasoned tier to a Channeler (spiritual
+  ones included), or to anyone with Belief 3+ and 1 point in Channel. The roll is unchanged: Belief vs the entity's Morale.
+  - **Channeler**: 2 Resolve at Seasoned, 1 at Veteran, 0 once per scene at Heroic. It can be repeated in a scene, at a
+    cumulative -1 to the roll for each earlier use that scene. On 5+ overage the entity gains Removed (Spirit).
+  - **Others**: 2 Resolve, once per scene. Success makes the entity Frightened; 5+ overage does nothing more.
+  - **Abjurer's Authority** gives others Removed (Spirit) on 5+ overage and works from Seasoned. Its 1 fewer Resolve stays,
+    and they remain limited to once per scene. To confirm.
+  - Channeler Step 1 loses its Abjure cost, Legendary is unchanged, and Rule 3 and the Holy Relic need rewording.
 - **Deafened stays its own condition** (decided 2026-10-31). No change needed.
 - **Element and Void (decided 2026-10-31, not yet applied).** Element is absorbed into the expansion Sources; the closest is
   Nature / Primal, which is the proposed home for old saves. Void stays as its own Source: negative energy, from Space or
