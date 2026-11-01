@@ -516,8 +516,8 @@
       "effect": "Something goes wrong in the fiction: a weapon jams, a rope frays, an alarm sounds."
     },
     {
-      "id": "opening",
-      "name": "Opening",
+      "id": "left-open",
+      "name": "Left Open",
       "effect": "One enemy in range makes a free attack against you."
     },
     {

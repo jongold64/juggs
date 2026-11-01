@@ -120,7 +120,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Boon**: choose from the Boon Menu (Momentum, Recovery, Tempo from Seasoned, Clarity, Guard, Grace): one choice at
   Novice and Seasoned, two at Veteran and Heroic, three at Legendary, never the same twice.
 - **Bane**: −2 to all rolls until the end of your next turn at every tier. From Seasoned the GM also picks from the
-  Bane Menu (Complication, Opening, Spent, Shaken, Exposed): one, two, two, three. A Boon Token can cancel a Bane.
+  Bane Menu (Complication, Left Open, Spent, Shaken, Exposed): one, two, two, three. A Boon Token can cancel a Bane.
 
 ## Pools
 
@@ -244,6 +244,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Player Book cleanup (2026-11-01).** Repeated sections removed; the Opening Bane is now Left Open and the Press option of
+  Combined Attack is now Corner, so no two rules share a name. Social Deflect uses the tier bonus everywhere, not Reputation.
 - **Heal unmarks the overage (decided 2026-11-01).** Overage or Power Level, whichever is higher, with no cap. The
   fixed-amount Healing chart is gone. Cost is the Power's cost, less any Level Discount, minimum 1. Doom's "one rung
   lower" became "unmarks 2 fewer boxes".
