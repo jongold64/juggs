@@ -233,6 +233,52 @@
           "takes": "Loss of humanity. The character passes to GM control and joins the Fair Folk. Something that looks like them may come back. It will not be them."
         }
       ]
+    },
+    {
+      "id": "doom",
+      "name": "Doom",
+      "domain": "spirit",
+      "contracted_by": "A powerful curse, a divine judgment, or a bargain with something dark. Some Fallout results also advance Doom by one stage.",
+      "incubation": "None. Doom takes hold the moment it is laid.",
+      "cure": "Ritual cleansing — Channel DC 16 + current stage, one hour — removes one stage. From Stage 4, only divine intervention can remove a stage. Stage 5 cannot be cured.",
+      "stages": [
+        {
+          "stage": 0,
+          "name": "Marked",
+          "gives": "You sense danger to yourself: +1 to Sixth Sense rolls.",
+          "takes": "Nothing yet — but the GM knows."
+        },
+        {
+          "stage": 1,
+          "name": "Shadowed",
+          "gives": "+1 Morale. You have stopped fearing the end.",
+          "takes": "Broken now comes at box 14 in every pool."
+        },
+        {
+          "stage": 2,
+          "name": "Hunted",
+          "gives": "Once per scene, reroll a failed Fear or Horror check.",
+          "takes": "Broken at box 13."
+        },
+        {
+          "stage": 3,
+          "name": "Condemned",
+          "gives": "Immune to Frightened.",
+          "takes": "Broken at box 12. Healing Effects on you work one rung lower."
+        },
+        {
+          "stage": 4,
+          "name": "Fated",
+          "gives": "Once per session, act normally for one round after reaching Broken.",
+          "takes": "Broken at box 11."
+        },
+        {
+          "stage": 5,
+          "name": "Claimed",
+          "gives": "—",
+          "takes": "The next time any pool reaches Broken, the character dies. End of play."
+        }
+      ]
     }
   ]
 }

@@ -43,7 +43,7 @@ Book text the builder does not follow, for the author to fix:
 - Knowledge still says "two additional languages per BP". Everyone gets 2 extra languages.
 - Creation Step 3 still says Willpower for Mind Deflect and Initiative = primary Attack Ability.
 
-The afflictions data is not shown in the app and has not been updated for the new Doom Affliction. Vehicles keep their
+The afflictions data is not shown in the app; it now includes the Doom Affliction (added 2026-11-01). Vehicles keep their
 design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunners roll Combat (Ranged) (decided
 2026-11-01).
 
