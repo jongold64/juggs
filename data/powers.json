@@ -1172,7 +1172,7 @@
           "reach": "Near",
           "targets": "One Minion",
           "duration": "1 round",
-          "text": "Confused for 1 round."
+          "text": "Confused for 1 round: at the start of its turn, it rolls Willpower vs DC 12 or loses its Actions this turn. It can still Deflect."
         },
         {
           "level": 7,

@@ -242,6 +242,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Confused (decided 2026-11-01).** A Power result, defined under the Confuse Power: at the start of its turn the target
+  rolls Willpower against DC 12 or the DC the Power lists; on a failure it loses its Actions this turn, and can still Deflect.
 - **Encounter Points (decided 2026-11-01).** The GM Guide now sizes fights by points: each hero is 10, opponents have
   points by tier, and enemy ÷ party sets the difficulty (0.75 to 1 is the challenging fight). It is a GM tool, so the
   builder does not use it.
