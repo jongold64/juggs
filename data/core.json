@@ -536,7 +536,7 @@
       "effect": "You are Exposed until the end of your next turn."
     }
   ],
-  "bane_rule": "A natural 1 always triggers a Bane: -2 to all rolls until the end of your next turn. From Seasoned the GM also picks from the Bane Menu (tier bane_choices), never the same option twice. A Boon Token can cancel it.",
+  "bane_rule": "A natural 1 always triggers a Bane: -2 to all rolls until the end of your next turn. From Seasoned the GM also picks from the Bane Menu (tier bane_choices), never the same option twice. No Bane while one of your Boons is still active (until the end of your next turn after the Boon): it counts only as a roll of 1. A Big Surge's backlash and Fallout still apply.",
   "level_discount": {
     "divisor": 6,
     "roles": [

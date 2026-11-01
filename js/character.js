@@ -33,7 +33,7 @@ export function newCharacter() {
     items: [],                  // [{ name, template, rating, appliesTo, descriptors, genre, notes }]
     wealth: null, reputation: null,     // null = the starting default
     languages: '', gear: '', notes: '',
-    play: { marked: { stamina: 0, mana: 0, resolve: 0 }, conditions: [], boonTokens: 0,
+    play: { marked: { stamina: 0, mana: 0, resolve: 0 }, conditions: [],
             trackers: { corruption: 0, fear: 0, morale: 0, sanity: 0 } },
   };
 }
@@ -180,7 +180,6 @@ export function clean(D, raw) {
     const p = raw.play;
     if (isObj(p.marked)) for (const k of Object.keys(d.play.marked)) c.play.marked[k] = int(p.marked[k], 0, 0, 40);
     c.play.conditions = Array.isArray(p.conditions) ? p.conditions.filter(x => has(D.conditionsById, x)) : [];
-    c.play.boonTokens = int(p.boonTokens, 0, 0, 99);
     if (isObj(p.trackers)) {
       for (const k of Object.keys(d.play.trackers)) c.play.trackers[k] = int(p.trackers[k], 0, 0, 5);
     }

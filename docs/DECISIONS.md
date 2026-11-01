@@ -120,7 +120,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Boon**: choose from the Boon Menu (Momentum, Recovery, Tempo from Seasoned, Clarity, Guard, Grace): one choice at
   Novice and Seasoned, two at Veteran and Heroic, three at Legendary, never the same twice.
 - **Bane**: −2 to all rolls until the end of your next turn at every tier. From Seasoned the GM also picks from the
-  Bane Menu (Complication, Left Open, Spent, Shaken, Exposed): one, two, two, three. A Boon Token can cancel a Bane.
+  Bane Menu (Complication, Left Open, Spent, Shaken, Exposed): one, two, two, three. A Natural 1 is no Bane while your Boon is active.
 
 ## Pools
 
@@ -244,6 +244,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Boon Tokens are gone (decided 2026-11-01).** A Natural 1 while one of your Boons is still active (until the end of your next
+  turn after the Boon) is no Bane, only a roll of 1. Big Surge backlash and Fallout still apply.
 - **New Warrior Steps (decided 2026-11-01).** Step 2 Battle-Hardened: a Natural 1 on an attack draws no Bane Menu pick, only the
   −2. Step 4 Relentless: once per round, 2 free Surge boxes on one attack, counting as Surge 2 for the Signature Effect. Step 5
   Unstoppable: once per round, after a hit, one Basic Attack at no Action cost.

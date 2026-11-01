@@ -49,9 +49,6 @@ export function renderSheet(D, c) {
   // Identity: two rows
   const identity = `<section class="s-box s-wide s-compact"><h3>Identity</h3><div class="sf-grid six">
     ${field('Character name', c.name, 'span2')}
-    <div class="sf s-tokens"><span class="sf-label">Boon Tokens</span><span class="sf-value"><b>${c.play.boonTokens}</b>
-      <button type="button" class="tiny no-print" data-step="play.boonTokens" data-by="-1" aria-label="Spend a Boon Token">−</button>
-      <button type="button" class="tiny no-print" data-step="play.boonTokens" data-by="1" aria-label="Bank a Boon Token">+</button></span></div>
     ${field('Player', c.player)}${field('Level', `${c.level} · ${tier.name}`)}${field('Genre', genres)}
     ${field('Concept', c.concept, 'span2')}${field('Role', roleNames)}${field('Specialty', specs.map(s => s.name).join(', '))}
     ${field('Background', apt?.name)}${field('Origin', origin ? `${origin.name}${c.originChoice ? ` (${c.originChoice})` : ''}` : '')}</div></section>`;
