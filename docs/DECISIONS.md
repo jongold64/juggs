@@ -243,8 +243,9 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 
 - **Pools stay 15/15/15 (decided 2026-11-01).** Unequal pools by Domain (20/15/10) were simulated and turned down.
 - **No Guard stays (decided 2026-10-31).** The Cheat Code from the One Page sheets is now in the Lite Player Book: at
-  Seasoned tier and above, trade any number of Reactions for one extra Action each, declared and used in the current
-  round. Deflect still protects you. It was not in the builder and adds nothing to it.
+  Seasoned tier and above, twice per encounter on your turn, mark 1 box from the pool you are using and trade one
+  Reaction for one extra Action this round. Deflect still protects you. (An unlimited, free version was simulated
+  first and was far too strong.) It was not in the builder and adds nothing to it.
 - **Roles trim (decided and applied 2026-10-31).** Nine Roles: Warrior, Defender,
   Scout, Speaker, Expert (a widened Artificer: building, deduction, adaptability), Medic (moved out of the supernatural
   group), Ascetic, Caster, Channeler. The other Roles become optional Archetypes: a core Role with a Specialty, Aptitude
