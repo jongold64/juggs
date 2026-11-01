@@ -241,6 +241,9 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 
 ## Second trim
 
+- **No Guard stays (decided 2026-10-31).** The Cheat Code from the One Page sheets is now in the Lite Player Book: at
+  Seasoned tier and above, trade one Reaction for one extra Action, declared and used in the current round. Deflect
+  still protects you. It was not in the builder and adds nothing to it.
 - **Roles trim (decided and applied 2026-10-31).** Nine Roles: Warrior, Defender,
   Scout, Speaker, Expert (a widened Artificer: building, deduction, adaptability), Medic (moved out of the supernatural
   group), Ascetic, Caster, Channeler. The other Roles become optional Archetypes: a core Role with a Specialty, Aptitude
