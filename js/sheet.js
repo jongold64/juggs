@@ -106,7 +106,7 @@ export function renderSheet(D, c) {
     <thead><tr><th>Name</th><th>Quality</th><th>Effect</th><th>Attack / Cast</th></tr></thead><tbody>${weaponRows}</tbody></table></section>` : '';
 
   // Boon: one line, the menu inline
-  const SHORT = { momentum: '+2 to all rolls until the end of your next turn', recovery: 'unmark 1 box', tempo: '+1 Action this round', clarity: 'clear a Condition on you',
+  const SHORT = { momentum: '+2 to all rolls until the end of your next turn', recovery: 'unmark 1 box', tempo: '+1 Action, once per round', clarity: 'clear a Condition on you',
                   guard: '+2 Deflect and Defend', opening: 'next ally on the target +2', 'break-through': 'hit ignores DR',
                   reset: 'regain a Reaction, once per round', 'read-the-room': 'one true answer', grace: 'give one to an ally in Near range' };
   const boonBox = `<section class="s-box s-wide s-compact"><h3>Boon <span class="s-hint">natural ${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`}</span></h3>
