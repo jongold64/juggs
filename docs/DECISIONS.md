@@ -241,6 +241,9 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 
 ## Second trim
 
+- **Four new Boons (decided 2026-11-01).** Opening, the next ally to attack the same target this round gets +2; Break
+  Through, this hit ignores armor DR; Reset, regain one spent Reaction, once per round; Read the Room, one true answer
+  from the GM. Chase versions are in the Player Book.
 - **Tempo is once per round (decided 2026-11-01).** A Boon's extra Action can no longer chain into more.
 - **NPC numbers are built for six heroes (decided 2026-11-01).** Antagonist and Boss Boxes and Actions are 1.5 times the
   old four-hero numbers; Rivals and Minions are unchanged, with about one Rival per hero. For four heroes, use
