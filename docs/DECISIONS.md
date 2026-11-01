@@ -259,6 +259,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
   Complication; Guard, +2 against the next hazard or Attack Calling; Grace, give one to an ally in the chase. Legendary only:
   End the Chase, the quarry vanishes (distance resets to Far) or the pursuer cuts them off (distance jumps to Close). The
   cumulative tier list goes.
+- **Supernatural conditions move to the GM Guide Lite (decided 2026-10-31, not yet applied to the books).** The Player Book
+  lists 15 + 4. The builder already keeps the seven off the sheet, as GM reference on Quick Rules.
 - **Deafened stays its own condition** (decided 2026-10-31). No change needed.
 - **Element and Void (decided 2026-10-31, not yet applied).** Element is absorbed into the expansion Sources; the closest is
   Nature / Primal, which is the proposed home for old saves. Void stays as its own Source: negative energy, from Space or
