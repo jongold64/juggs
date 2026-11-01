@@ -562,23 +562,5 @@
       "boxes": "4–5",
       "text": "Everyone in Near range gains the condition, and the scene changes: the fire spreads, the wall falls, the power grid dies. The GM decides what lasts."
     }
-  ],
-  "healing_ladder": [
-    {
-      "boxes": "1",
-      "text": "Unmark 1 box from any pool."
-    },
-    {
-      "boxes": "2",
-      "text": "Unmark 2 boxes from any pool."
-    },
-    {
-      "boxes": "3",
-      "text": "Unmark all Healthy boxes (1–5) in one pool."
-    },
-    {
-      "boxes": "4–5",
-      "text": "Unmark all Healthy and Hurt boxes (1–10) in one pool."
-    }
   ]
 }

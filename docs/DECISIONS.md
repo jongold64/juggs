@@ -244,6 +244,9 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Heal unmarks the overage (decided 2026-11-01).** Overage or Power Level, whichever is higher, with no cap. The
+  fixed-amount Healing chart is gone. Cost is the Power's cost, less any Level Discount, minimum 1. Doom's "one rung
+  lower" became "unmarks 2 fewer boxes".
 - **Confused (decided 2026-11-01).** A Power result, defined under the Confuse Power: at the start of its turn the target
   rolls Willpower against DC 12 or the DC the Power lists; on a failure it loses its Actions this turn, and can still Deflect.
 - **Encounter Points (decided 2026-11-01).** The GM Guide now sizes fights by points: each hero is 10, opponents have

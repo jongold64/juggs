@@ -92,7 +92,7 @@ export function renderRules(D, c) {
   const effects = card('Effects', `<p class="hint">${esc(D.core.effects_rule)}</p>${ladder(D.core.effect_ladder)}
     ${table(['Type', 'Condition', 'Pools', 'Usually from'], D.effects.map(e => `<tr><th scope="row">${esc(e.name)}</th><td>${esc(e.condition)}</td>
       <td>${esc(e.pools.map(p => p[0].toUpperCase() + p.slice(1)).join(', '))}</td><td>${esc(e.use)}</td></tr>`))}
-    <h3>Healing</h3><p class="hint">A separate action: declare Heal, roll against DC 15, pay Mana or Resolve. Not on yourself in active combat.</p>${ladder(D.core.healing_ladder)}`);
+    <h3>Healing</h3><p class="hint">A separate action: declare Heal, roll against DC 15, pay the Power's cost from Mana or Resolve, and unmark the overage or the Power Level, whichever is higher, with no cap. Not on yourself in active combat.</p>`);
 
   return cheat + menu + tiers + boons + surge + (weirdOn(c) ? weirdCard(D) : '') + effects + maneuvers + conditions;
 }

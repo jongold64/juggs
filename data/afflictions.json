@@ -264,7 +264,7 @@
           "stage": 3,
           "name": "Condemned",
           "gives": "Immune to Frightened.",
-          "takes": "Broken at box 12. Healing Effects on you work one rung lower."
+          "takes": "Broken at box 12. Healing on you unmarks 2 fewer boxes."
         },
         {
           "stage": 4,
