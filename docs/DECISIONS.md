@@ -241,6 +241,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 
 ## Second trim
 
+- **Pools stay 15/15/15 (decided 2026-11-01).** Unequal pools by Domain (20/15/10) were simulated and turned down.
 - **No Guard stays (decided 2026-10-31).** The Cheat Code from the One Page sheets is now in the Lite Player Book: at
   Seasoned tier and above, trade any number of Reactions for one extra Action each, declared and used in the current
   round. Deflect still protects you. It was not in the builder and adds nothing to it.
