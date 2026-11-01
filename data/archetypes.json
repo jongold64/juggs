@@ -1,0 +1,234 @@
+[
+  {
+    "id": "skirmisher",
+    "name": "Skirmisher",
+    "role": "scout",
+    "specialty": "sharpshooter",
+    "aptitude": "weapon-master",
+    "signature_effect": "force",
+    "focus_skills": [
+      "combat-ranged",
+      "evasion",
+      "athletics",
+      "observe",
+      "stealth",
+      "combat-melee"
+    ],
+    "power_sources": []
+  },
+  {
+    "id": "hunter",
+    "name": "Hunter",
+    "role": "scout",
+    "specialty": "sharpshooter",
+    "aptitude": "explorer",
+    "signature_effect": "force",
+    "focus_skills": [
+      "combat-ranged",
+      "observe",
+      "survive",
+      "stealth",
+      "athletics",
+      "endure"
+    ],
+    "power_sources": [],
+    "feat": "marked-prey"
+  },
+  {
+    "id": "berserker",
+    "name": "Berserker",
+    "role": "warrior",
+    "specialty": "striker",
+    "aptitude": "savage",
+    "signature_effect": "force",
+    "focus_skills": [
+      "combat-melee",
+      "athletics",
+      "endure",
+      "intimidate",
+      "survive",
+      "evasion"
+    ],
+    "power_sources": [],
+    "feat": "battle-fury"
+  },
+  {
+    "id": "survivor",
+    "name": "Survivor",
+    "role": "defender",
+    "specialty": "guardian",
+    "aptitude": "nomad",
+    "signature_effect": "force",
+    "focus_skills": [
+      "endure",
+      "survive",
+      "athletics",
+      "observe",
+      "evasion",
+      "handle"
+    ],
+    "power_sources": []
+  },
+  {
+    "id": "wayfinder",
+    "name": "Wayfinder",
+    "role": "scout",
+    "specialty": "seeker",
+    "aptitude": "explorer",
+    "signature_effect": "force",
+    "focus_skills": [
+      "survive",
+      "observe",
+      "knowledge",
+      "athletics",
+      "handle",
+      "endure"
+    ],
+    "power_sources": []
+  },
+  {
+    "id": "infiltrator",
+    "name": "Infiltrator",
+    "role": "speaker",
+    "specialty": "chameleon",
+    "aptitude": "criminal",
+    "signature_effect": "psychic",
+    "focus_skills": [
+      "stealth",
+      "deceive",
+      "legerdemain",
+      "observe",
+      "persuade",
+      "network"
+    ],
+    "power_sources": []
+  },
+  {
+    "id": "empath",
+    "name": "Empath",
+    "role": "speaker",
+    "specialty": "confidant",
+    "aptitude": "diplomat",
+    "signature_effect": "psychic",
+    "focus_skills": [
+      "observe",
+      "persuade",
+      "lead",
+      "analyze",
+      "network",
+      "concentrate"
+    ],
+    "power_sources": []
+  },
+  {
+    "id": "investigator",
+    "name": "Investigator",
+    "role": "expert",
+    "specialty": "seeker",
+    "aptitude": "academic",
+    "signature_effect": "psychic",
+    "focus_skills": [
+      "observe",
+      "analyze",
+      "knowledge",
+      "persuade",
+      "stealth",
+      "network"
+    ],
+    "power_sources": []
+  },
+  {
+    "id": "polymath",
+    "name": "Polymath",
+    "role": "expert",
+    "specialty": "broker",
+    "aptitude": "jack-of-all-trades",
+    "signature_effect": "force",
+    "focus_skills": [
+      "knowledge",
+      "analyze",
+      "observe",
+      "persuade",
+      "operate",
+      "survive"
+    ],
+    "power_sources": []
+  },
+  {
+    "id": "netrunner",
+    "name": "Netrunner",
+    "role": "expert",
+    "specialty": "chameleon",
+    "aptitude": "operative",
+    "signature_effect": "electric",
+    "focus_skills": [
+      "hack",
+      "operate",
+      "observe",
+      "analyze",
+      "stealth",
+      "knowledge"
+    ],
+    "power_sources": [],
+    "feat": "net-diver"
+  },
+  {
+    "id": "psion",
+    "name": "Psion",
+    "role": "caster",
+    "specialty": "anchor",
+    "aptitude": "academic",
+    "signature_effect": "psychic",
+    "focus_skills": [
+      "concentrate",
+      "observe",
+      "analyze",
+      "persuade",
+      "knowledge",
+      "cast-attack"
+    ],
+    "power_sources": [
+      "psionic"
+    ]
+  },
+  {
+    "id": "shaper",
+    "name": "Shaper",
+    "role": "caster",
+    "specialty": "weaver",
+    "aptitude": "trained-by-nature",
+    "signature_effect": "cold",
+    "focus_skills": [
+      "cast-utility",
+      "survive",
+      "channel",
+      "observe",
+      "endure",
+      "handle"
+    ],
+    "power_sources": [
+      "nature"
+    ]
+  },
+  {
+    "id": "weird",
+    "name": "Weird",
+    "role": "caster",
+    "specialty": "weaver",
+    "aptitude": "shaman",
+    "signature_effect": "void",
+    "focus_skills": [
+      "cast-attack",
+      "concentrate",
+      "survive",
+      "observe",
+      "knowledge",
+      "sixth-sense"
+    ],
+    "power_sources": [
+      "weird-science"
+    ],
+    "feat": "weird-touched",
+    "genre": "weird-magic"
+  }
+]

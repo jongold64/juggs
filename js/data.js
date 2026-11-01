@@ -1,7 +1,7 @@
 // Loads data/*.json once and adds lookup maps (D.skillsById and so on). Every module gets the same object.
 
 const FILES = ['core', 'abilities', 'skills', 'genres', 'roles', 'presets', 'aptitudes', 'origins', 'specialties',
-               'feats', 'effects', 'conditions', 'powers', 'maneuvers', 'concepts', 'gear', 'items'];
+               'archetypes', 'feats', 'effects', 'conditions', 'powers', 'maneuvers', 'concepts', 'gear', 'items'];
 
 export function prepare(raw) {
   const D = { ...raw };
@@ -9,7 +9,7 @@ export function prepare(raw) {
   D.abilitiesById = index(raw.abilities.abilities);
   D.domainsById = index(raw.abilities.domains);
   for (const name of ['skills', 'genres', 'roles', 'presets', 'aptitudes', 'origins', 'specialties', 'feats',
-                      'effects', 'conditions', 'maneuvers', 'concepts']) {
+                      'effects', 'conditions', 'maneuvers', 'concepts', 'archetypes']) {
     D[`${name}ById`] = index(raw[name]);
   }
   D.sourcesById = index(raw.powers.sources);

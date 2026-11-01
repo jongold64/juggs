@@ -8,7 +8,7 @@ export function reqText(D, clause) {
   if (clause.ability) return `${clause.ability.map(ability).join(' or ')} ${clause.min}+`;
   if (clause.skill) return `${skill(clause.skill)} rank ${clause.rank_min}+`;
   if (clause.focus) return `${clause.focus.map(skill).join(clause.all ? ' and ' : ' or ')} as Focus Skill`;
-  if (clause.role) return `${clause.role.map(r => D.rolesById.get(r).name).join(' or ')} Role Step ${clause.step}`;
+  if (clause.role) return `${clause.role.map(r => D.rolesById.get(r).name).join(' or ')} Role`;
   if (clause.feat) return clause.feat.map(f => D.featsById.get(f).name).join(' or ');
   if (clause.genre) return `${clause.genre.map(g => D.genresById.get(g).name).join(' or ')} Genre`;
   if (clause.power_level_min) return `${D.core.tiers[clause.power_level_min - 1].name} tier or above`;

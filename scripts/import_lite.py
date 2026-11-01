@@ -51,6 +51,12 @@ class Reader:
             return [{'power_level_min': TIERS[m[1]]}]
         if part in ('Magic Overlay', 'Magic Genre'):
             return [{'genre': ['magic']}]
+        if part == 'Weird Magic Overlay':
+            return [{'genre': ['weird-magic']}]
+        m = re.fullmatch(r'(.+?) Role(?: at (Novice|Seasoned|Veteran|Heroic|Legendary) tier)?', part)
+        if m and all(n in self.roles for n in m[1].split(' or ')):
+            clause = [{'role': [self.roles[n] for n in m[1].split(' or ')], 'step': 1}]
+            return clause + ([{'power_level_min': TIERS[m[2]]}] if m[2] else [])
         m = re.fullmatch(r'((?:\w+ \d\+)(?: or \w+ \d\+)*)', part)
         if m:
             bits = re.findall(r'(\w+) (\d)\+', part)
@@ -62,9 +68,6 @@ class Reader:
         m = re.fullmatch(r'(.+?) as a Focus Skill', part)
         if m and m[1] in self.skills:
             return [{'focus': [self.skills[m[1]]], 'all': False}]
-        m = re.fullmatch(r'(.+?) Role Step (\d)', part)
-        if m and m[1] in self.roles:
-            return [{'role': [self.roles[m[1]]], 'step': int(m[2])}]
         m = re.fullmatch(r'(.+?) at (Novice|Seasoned|Veteran|Heroic|Legendary) tier(?: or above)?', part)
         if m and m[1] in self.specialties:
             return [{'specialty': [self.specialties[m[1]]]}, {'power_level_min': TIERS[m[2]]}]
@@ -73,8 +76,8 @@ class Reader:
         m = re.fullmatch(r'An? (Combat|Magical|Spiritual|Social) Specialty and an? (Combat|Magical|Spiritual|Social) Specialty', part)
         if m:
             return [{'specialty_category': m[1].lower()}, {'specialty_category': m[2].lower()}]
-        if part in self.feats:
-            return [{'feat': [self.feats[part]]}]
+        if all(n in self.feats for n in part.split(' or ')):
+            return [{'feat': [self.feats[n] for n in part.split(' or ')]}]
         return None
 
     def read(self, text):
@@ -191,12 +194,13 @@ def spells_from(blocks):
 SOURCE_IDS = {'Arcane (Magic)': 'arcane', 'Divine (Miracles)': 'divine', 'Innate': 'innate', 'Psionic': 'psionic',
               'Spirit / Shamanic': 'spirit', 'Weird Science': 'weird-science', 'Alchemical': 'alchemical',
               'Blood Magic': 'blood-magic', 'Chi / Ki (Internal Discipline)': 'chi', 'Cybernetic': 'cybernetic',
-              'Demonic / Pact-Bound': 'demonic', 'Nature / Primal': 'nature', 'Runic / Inscription': 'runic'}
-BASIC_CAST = {'arcane': 'mana', 'psionic': 'mana', 'divine': 'resolve', 'spirit': 'resolve', 'innate': 'stamina'}
+              'Demonic / Pact-Bound': 'demonic', 'Nature / Primal': 'nature', 'Runic / Inscription': 'runic',
+              'Void': 'void'}
+BASIC_CAST = {'arcane': 'mana', 'psionic': 'mana', 'divine': 'resolve', 'spirit': 'resolve', 'innate': 'stamina', 'void': 'stamina'}
 
 
 def sources_from(blocks):
-    """The 13 Power Sources: [{id, name, abilities, pools_text, tier, text}], core ones first as in the book."""
+    """The 14 Power Sources: [{id, name, abilities, pools_text, tier, text}], core ones first as in the book."""
     out = []
     active = False
     cur = None
@@ -207,7 +211,7 @@ def sources_from(blocks):
         elif active and b.heading == 3 and b.text in SOURCE_IDS:
             sid = SOURCE_IDS[b.text]
             cur = {'id': sid, 'name': b.text.split(' (')[0], 'abilities': [], 'pools_text': '',
-                   'tier': 'core' if len(out) < 6 else 'expansion', 'basic_cast_pool': BASIC_CAST.get(sid), 'text': []}
+                   'tier': 'core' if len(out) < 6 else 'own Source' if sid == 'void' else 'expansion', 'basic_cast_pool': BASIC_CAST.get(sid), 'text': []}
             out.append(cur)
         elif active and b.heading:
             cur = None
@@ -256,12 +260,12 @@ def main(books, data):
 
     powers = load('powers')
     powers['spells'] = spells_from(powers_book)
-    # The books have 13 Sources. Physical (everyone) and Element and Void (the author's, details to be decided) stay.
+    # Physical (everyone) is not in the books' list.
     kept = {s['id']: s for s in powers['sources']}
     new = sources_from(powers_book)
     for s in new:
         s['default_from_focus'] = kept.get(s['id'], {}).get('default_from_focus', [])
-    powers['sources'] = [kept['physical'], *new, kept['element'], kept['void']]
+    powers['sources'] = [kept['physical'], *new]
     (data / 'powers.json').write_text(json.dumps(powers, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
     unread = [f['name'] for f in feats if any('text' in c for c in f['requires'])]

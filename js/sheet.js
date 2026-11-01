@@ -40,7 +40,7 @@ export function renderSheet(D, c) {
   const mastery = R.domainMastery(D, scores);
   const primary = R.primaryDomain(c);
   const steps = R.roleSteps(D, c);
-  const roleNames = Object.entries(steps).map(([id, n]) => `${D.rolesById.get(id).name} ${n}`).join(', ');
+  const roleNames = Object.keys(steps).map(id => D.rolesById.get(id).name).join(', ');
   const specs = R.specialtiesHeld(D, c);
   const apt = D.aptitudesById.get(c.aptitude);
   const origin = D.originsById.get(c.origin);
@@ -54,7 +54,7 @@ export function renderSheet(D, c) {
       <button type="button" class="tiny no-print" data-step="play.boonTokens" data-by="1" aria-label="Bank a Boon Token">+</button></span></div>
     ${field('Player', c.player)}${field('Level', `${c.level} · ${tier.name}`)}${field('Genre', genres)}
     ${field('Concept', c.concept, 'span2')}${field('Role', roleNames)}${field('Specialty', specs.map(s => s.name).join(', '))}
-    ${field('Aptitude', apt?.name)}${field('Origin', origin ? `${origin.name}${c.originChoice ? ` (${c.originChoice})` : ''}` : '')}</div></section>`;
+    ${field('Background', apt?.name)}${field('Origin', origin ? `${origin.name}${c.originChoice ? ` (${c.originChoice})` : ''}` : '')}</div></section>`;
 
   // Ability Scores: the three Domains side by side
   const abilityCols = R.DOMAINS.map(dom => {
@@ -154,13 +154,14 @@ export function renderSheet(D, c) {
   // Page 2: features
   const roleList = Object.entries(steps).map(([id, n]) => {
     const role = D.rolesById.get(id);
-    return role.steps.filter(s => s.step <= n).map(s => `<li><b>${esc(role.name)} ${s.step}</b> ${esc(s.text)}</li>`).join('');
+    return R.stepsAt(role, c.level).map(s => `<li><b>${esc(role.name)} · ${esc(s.tier)}</b> ${esc(s.text)}</li>`).join('');
   }).join('');
   const specList = specs.map(sp => R.stepsAt(sp, c.level).map(s => `<li><b>${esc(sp.name)} · ${esc(s.tier)}</b> ${esc(s.text)}</li>`).join('')).join('');
   const featList = R.levelsUpTo(D.core.advancement.feat_levels, c.level).map(lv => {
     const f = D.featsById.get(c.feats[lv]);
     const sp = D.specialtiesById.get(R.slotSpecialty(c.feats[lv]));
-    return `<li><b>L${lv}</b> ${f ? `${esc(f.name)} — ${esc(R.featNow(f, c.level))}` : sp ? `${esc(sp.name)} (Specialty)` : ''}</li>`;
+    const role = D.rolesById.get(R.slotRole(c.feats[lv]));
+    return `<li><b>L${lv}</b> ${f ? `${esc(f.name)} — ${esc(R.featNow(f, c.level))}` : sp ? `${esc(sp.name)} (Specialty)` : role ? `${esc(role.name)} (Role)` : ''}</li>`;
   }).join('') + (D.featsById.has(c.capstone) && c.level >= D.core.advancement.capstone.level
     ? `<li><b>Capstone</b> ${esc(D.featsById.get(c.capstone).name)} — ${esc(R.featNow(D.featsById.get(c.capstone), c.level))}${c.capstoneNote ? ` ${esc(c.capstoneNote)}` : ''}</li>` : '');
   const features = `<section class="s-box s-wide"><h3>Features, Specialty Abilities &amp; Feats</h3>

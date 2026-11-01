@@ -34,7 +34,7 @@ check('Toughened adds a box to each pool', R.pools(D, make({ feats: { 1: 'toughe
 check('Legendary Endurance: +2 Stamina at the end of Injured',
   sizes(R.pools(D, make({ level: 11, feats: { 11: 'legendary-endurance' } })).stamina.bands), [6, 6, 6, 1]);
 check('Defender Step 2 adds a Healthy Stamina box',
-  sizes(R.pools(D, make({ level: 5, role: 'defender', roleAdvances: { 5: 'defender' } })).stamina.bands), [7, 5, 4, 1]);
+  sizes(R.pools(D, make({ level: 5, role: 'defender' })).stamina.bands), [7, 5, 4, 1]);
 check('Band for 12 marked boxes of 15', R.bandAt(R.poolBands(D, 0), 12).id, 'injured');
 
 // Ability Scores
@@ -85,11 +85,25 @@ check('Weird Magic needs Magic on too',
   R.availableSkills(D, make({ genres: ['weird-magic'] })).some(s => s.id === 'weird-control'), false);
 
 // Roles
+check('Nine Roles and thirteen Archetypes', [D.roles.length, D.archetypes.length], [9, 13]);
 check('Starting Role is Step 1', R.roleSteps(D, make({ role: 'warrior' })), { warrior: 1 });
-check('Advancing at tier changes', R.roleSteps(D, make({ level: 13, role: 'warrior',
-  roleAdvances: { 5: 'warrior', 9: 'berserker', 13: 'warrior' } })), { warrior: 3, berserker: 1 });
-check('Advances above the level do not count',
-  R.roleSteps(D, make({ level: 6, role: 'warrior', roleAdvances: { 5: 'warrior', 9: 'warrior' } })), { warrior: 2 });
+check('A Role has the Steps its tier has reached', R.roleSteps(D, make({ level: 13, role: 'warrior' })), { warrior: 4 });
+check('A further Role sits in a Feat slot at the current tier',
+  R.roleSteps(D, make({ level: 9, role: 'warrior', feats: { 7: 'role:defender' } })), { warrior: 3, defender: 3 });
+check('Not before its slot', R.roleSteps(D, make({ level: 5, role: 'warrior', feats: { 7: 'role:defender' } })), { warrior: 2 });
+check('Old Role advancement: same Role just drops', clean(D, { level: 9, role: 'warrior', roleAdvances: { 5: 'warrior', 9: 'warrior' } }).feats, {});
+check('Old second Role takes an open slot', clean(D, { level: 9, role: 'warrior', roleAdvances: { 5: 'defender' } }).feats, { 7: 'role:defender' });
+check('Cut Role becomes its core Role', clean(D, { role: 'investigator' }).role, 'expert');
+check('Artificer becomes Expert', clean(D, { role: 'artificer' }).role, 'expert');
+check('Cut Role keeps its Feat', (x => [x.role, x.feats[1]])(clean(D, { role: 'hunter' })), ['scout', 'marked-prey']);
+check('No open slot: it goes in the notes', /battle-fury/.test(clean(D, { role: 'berserker', feats: { 1: 'toughened' } }).notes), true);
+check('A second clean changes nothing', (x => clean(D, x))(clean(D, { level: 9, role: 'hunter', roleAdvances: { 5: 'defender' } })).feats, clean(D, { level: 9, role: 'hunter', roleAdvances: { 5: 'defender' } }).feats);
+check('Old Element Source becomes Nature', clean(D, { powerSources: ['element'] }).powerSources, ['nature']);
+check('Second Stepped Feat instead of a free Specialty', R.featsTaken(D, make({ bonusFeat: 'toughened' })), ['toughened']);
+check('Not alongside a free Specialty', make({ bonusFeat: 'toughened', specialties: [{ id: 'striker', level: 1 }] }).bonusFeat, '');
+check('It must be Stepped', make({ bonusFeat: 'ghost' }).bonusFeat, '');
+check('Frenzy replaces the Berserker Feat', [D.featsById.has('frenzy'), D.featsById.has('berserker')], [true, false]);
+check('Feat requiring a Role', R.checkRequirements(D.featsById.get('combat-triage').requires, R.requirementContext(D, make({ role: 'medic', focus: ['survive'] }), 1)).ok, true);
 
 // Requirements
 const ctx = R.requirementContext(D, make({ base: spread, focus, level: 7, role: 'warrior', feats: { 1: 'toughened' } }), 7);
@@ -109,7 +123,7 @@ check('A Feat taken at this level does not count for itself',
 // Feat slots
 const gated = D.feats.find(f => f.kind === 'gated');
 const stepped = D.feats.find(f => f.kind === 'stepped');
-check('Book counts: 83 Stepped and 49 Gated Feats', [D.feats.filter(f => f.kind === 'stepped').length, D.feats.filter(f => f.kind === 'gated').length], [83, 49]);
+check('Book counts: 87 Stepped and 49 Gated Feats', [D.feats.filter(f => f.kind === 'stepped').length, D.feats.filter(f => f.kind === 'gated').length], [87, 49]);
 check('Stepped Feats fit Level 1', R.slotAccepts(D, 1, stepped), true);
 check('Gated Feats wait for Level 11', [R.slotAccepts(D, 7, gated), R.slotAccepts(D, 11, gated)], [false, true]);
 check('A Stepped Feat shows its Steps by level', R.stepsAt(stepped, 9).length, 3);
@@ -186,8 +200,8 @@ check('Old built Power maps to the upgrades', [oldPower.reach, oldPower.targets,
   ['far', 'several', 'scene', 'force', 'weird-science']);
 check('What the upgrades cannot hold goes in notes', /Summon: grunt/.test(oldPower.notes) && /Focus Item/.test(oldPower.notes), true);
 check('A migrated Power survives a second clean', clean(D, { powers: [oldPower] }).powers[0], oldPower);
-check('Power Sources: Physical + the 13 + Element and Void', D.powers.sources.length, 16);
-check('Old declared Weird becomes Weird Science', clean(D, { powerSources: ['weird', 'element'] }).powerSources, ['weird-science', 'element']);
+check('Power Sources: Physical + the 13 + Void', D.powers.sources.length, 15);
+check('Old declared Weird becomes Weird Science', clean(D, { powerSources: ['weird', 'void'] }).powerSources, ['weird-science', 'void']);
 
 // Gear and items
 const warrior = make({ base: spread, focus, weapons: [{ name: 'Sword', quality: 'standard', kind: 'melee' }] });

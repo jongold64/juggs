@@ -23,6 +23,7 @@ const CHEAT = [
   ['Boon', 'natural 20 (wider at higher tiers): pick from the Boon Menu, 1 / 1 / 2 / 2 / 3 choices by tier; banks a Token'],
   ['Boon Menu', 'never the same twice: Momentum, +2 to all rolls until the end of your next turn · Recovery, unmark 1 box · Tempo (Seasoned+), +1 Action this round · Clarity, clear a Condition on you · Guard, +2 to Deflect and Defend until your next turn · Grace, give one of these to an ally in Near range'],
   ['Bane', 'natural 1: −2 to all rolls until the end of your next turn; from Seasoned the GM also picks from the Bane Menu; a Boon Token cancels it'],
+  ['Abjure', 'from Seasoned: a Channeler, or Belief 3+ and Channel 1. Belief vs Morale. Channeler: repeatable at −1 per earlier use in the scene; others: once per scene. Removed on 5+ overage needs Channeler or Abjurer\'s Authority'],
   ['Pools', '15 boxes; Hurt 6–10 −1, Injured 11–14 −2 (that Domain), last box Broken'],
   ['Rest', 'Quick: Healthy boxes · Full: Healthy and Hurt · Broken: magic + Full Rest'],
   ['Heal', 'd20 + Belief or Serenity + Channel vs DC 15; overage or Power Level unmarks boxes; mundane healing uses Survive'],
@@ -30,7 +31,7 @@ const CHEAT = [
   ['Helping', 'free +2, or spend an Action / Reaction for +4; two helpers at most'],
   ['Movement', 'next zone free; farther 1 Action; leaving a Contested zone without an Action = Bane'],
   ['Social', 'pick an approach; Press / Hold / Deflect; total overage sets the result'],
-  ['Levels', '6 skill points, +1 Score on even levels, Feats at 1 / 3 / 7 / 11 / 15 / 17 / 19, a Role Step at 5 / 9 / 13 / 17'],
+  ['Levels', '6 skill points, +1 Score on even levels, Feats at 1 / 3 / 7 / 11 / 15 / 17 / 19, Roles, Specialties and Stepped Feats grow at 5 / 9 / 13 / 17'],
 ];
 
 const table = (head, rows, cls = '') => `<div class="table-wrap"><table class="qr-table ${cls}">

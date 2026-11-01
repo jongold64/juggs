@@ -15,7 +15,12 @@ export const EFFECTS = { gravity: 'force', concussive: 'sonic', nature: 'earth' 
 const DROPPED_FEATS = new Set(['specialty-ability-2', 'specialty-ability-3', 'specialty-mastery-enhancement']);
 const SURGE_DISCIPLINES = new Set(['surge-discipline-1', 'surge-discipline-2', 'surge-discipline-3', 'surge-discipline-4']);
 
-export const SOURCES = { weird: 'weird-science' };
+export const SOURCES = { weird: 'weird-science', element: 'nature' };
+// The Roles that became Archetypes: their core Role, and the Stepped Feat that keeps a signature rule.
+export const ROLES = { skirmisher: 'scout', hunter: 'scout', berserker: 'warrior', survivor: 'defender', wayfinder: 'scout',
+                       infiltrator: 'speaker', empath: 'speaker', artificer: 'expert', investigator: 'expert', polymath: 'expert',
+                       weird: 'caster', psion: 'caster', shaper: 'caster', netrunner: 'expert' };
+const ROLE_FEATS = { hunter: 'marked-prey', berserker: 'battle-fury', netrunner: 'net-diver', weird: 'weird-touched' };
 // Example Powers from the old Player Book list, now spells.
 const EXAMPLE_SPELLS = { mend: 'mend-wounds', 'untitled-psionic-power': 'telepathy' };
 const OLD_REACH = { close: 'touch', near: 'near', far: 'far', sight: 'distant', anywhere: 'anywhere' };
@@ -64,15 +69,47 @@ function migrateFeats(feats) {
   return out;
 }
 
+// The first open Feat slot from a level, then any open slot. Null when none is open.
+function openSlot(c, featLevels, from) {
+  const level = Number.isInteger(c.level) ? c.level : 1;
+  const open = featLevels.filter(lv => lv <= level && !c.feats[lv]);
+  return open.find(lv => lv >= from) ?? open[open.length - 1] ?? null;
+}
+
+// Roles no longer advance at tier changes. A cut Role becomes its core Role; a further Role and a cut Role's Feat each
+// need a Feat slot. What does not fit goes in the notes, so the player can see it was there.
+function migrateRoles(c, featLevels) {
+  if (!c.role && !isObj(c.roleAdvances) && !(c.role in ROLES)) return;
+  const old = [[1, c.role], ...Object.entries(isObj(c.roleAdvances) ? c.roleAdvances : {}).map(([lv, r]) => [Number(lv), r])]
+    .filter(([lv, r]) => r && lv <= (c.level || 1)).sort((a, b) => a[0] - b[0]);
+  delete c.roleAdvances;
+  if (!old.length) return;
+  c.feats = isObj(c.feats) ? c.feats : {};
+  c.role = rename(ROLES, c.role || old[0][1]);
+  const wanted = [];
+  const seen = new Set([c.role]);
+  for (const [lv, r] of old) {
+    const now = rename(ROLES, r);
+    if (!seen.has(now)) { seen.add(now); wanted.push([lv, `role:${now}`]); }
+    if (ROLE_FEATS[r] && !Object.values(c.feats).includes(ROLE_FEATS[r])) wanted.push([lv, ROLE_FEATS[r]]);
+  }
+  const lost = [];
+  for (const [lv, value] of wanted) {
+    const slot = openSlot(c, featLevels, lv);
+    if (slot) c.feats[slot] = value; else lost.push(value.replace('role:', ''));
+  }
+  if (lost.length) {
+    c.notes = [c.notes, `Old save: no Feat slot was open for ${lost.join(', ')}.`].filter(Boolean).join('\n');
+  }
+}
+
 // A further Specialty now needs a Feat slot. An old free second Specialty takes the first open slot from the level it
 // was taken, then any open slot; with none open it stays where it is and the builder warns.
 function moveSpecialties(c, featLevels) {
   if (!Array.isArray(c.specialties) || c.specialties.length < 2 || !isObj(c.feats)) return;
-  const level = Number.isInteger(c.level) ? c.level : 1;
   const kept = c.specialties.slice(0, 1);
   for (const s of c.specialties.slice(1)) {
-    const open = featLevels.filter(lv => lv <= level && !c.feats[lv]);
-    const slot = open.find(lv => lv >= (s?.level || 1)) ?? open[open.length - 1];
+    const slot = openSlot(c, featLevels, s?.level || 1);
     if (slot && s?.id) c.feats[slot] = `specialty:${s.id}`; else kept.push(s);
   }
   c.specialties = kept;
@@ -108,6 +145,7 @@ export function migrate(raw, featLevels = []) {
     c.specialties = c.specialties.map(s => (isObj(s) ? { ...s, id: rename(SPECIALTIES, s.id) } : s));
   }
   if (isObj(c.feats)) c.feats = migrateFeats(c.feats);
+  migrateRoles(c, featLevels);
   moveSpecialties(c, featLevels);
   if (typeof c.originChoice === 'string') c.originChoice = c.originChoice.replace('(+1 Tactics)', '(+1 Analyze)');
   return c;

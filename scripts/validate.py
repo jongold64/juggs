@@ -261,6 +261,17 @@ def main(folder):
             ck.err(w, 'frame must be 0-5')
     ck.flags += len(veh.get('flags', []))
 
+    for a in ck.records('archetypes.json', ck.load('archetypes.json') or []).values():
+        w = f'archetypes.json {a["id"]}'
+        ck.ref(w, a.get('role'), ctx['roles'], 'Role')
+        ck.ref(w, a.get('specialty'), ctx['specialties'], 'Specialty')
+        ck.ref(w, a.get('aptitude'), aptitudes, 'Background')
+        ck.ref(w, a.get('focus_skills', []), skills, 'skill')
+        ck.ref(w, a.get('power_sources', []), sources, 'Power Source')
+        if a.get('feat'):
+            ck.ref(w, a['feat'], ctx['feats'], 'Feat')
+        if a.get('genre'):
+            ck.ref(w, a['genre'], ctx['genres'], 'Genre')
     for c in ck.records('concepts.json', ck.load('concepts.json') or [], required=('id',)).values():
         ck.ref(f'concepts.json {c["id"]}', c.get('role'), ctx['roles'], 'Role')
 

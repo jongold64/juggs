@@ -164,7 +164,7 @@
       13,
       17
     ],
-    "role_advancement": "At each tier change: advance a Role you hold by one Step, or begin a new Role at Step 1.",
+    "role_advancement": "Every Role you hold gains its next Step at each tier change, with nothing to choose. A further Role uses a Feat slot and starts at your current tier.",
     "focus_skill_swap": "At each tier change you may replace one Focus Skill with another.",
     "feat_levels": [
       1,
@@ -181,7 +181,7 @@
     },
     "governing_ability": "Any of the nine. Can be changed once per tier with GM approval.",
     "gated_from_level": 11,
-    "specialty_rule": "Your first Specialty is free at creation. Any further Specialty uses a Feat slot. Its Abilities arrive by tier."
+    "specialty_rule": "Your first Specialty is free at creation, and may instead be a second Stepped Feat. Any further Specialty uses a Feat slot. Its Abilities arrive by tier."
   },
   "pools": {
     "start": 15,
@@ -503,7 +503,7 @@
     {
       "id": "spent",
       "name": "Spent",
-      "effect": "Lose the boxes you spent on this roll's Surge or Effect a second time."
+      "effect": "Lose the boxes you spent on this roll's Surge or Effect a second time. Spent doesn't repeat boxes already crossed by backlash."
     },
     {
       "id": "shaken",

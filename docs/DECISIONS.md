@@ -15,8 +15,8 @@ Asked of the author while updating the builder:
 
 - **Deflect tier bonus**: +2 per tier (+0, +2, +4, +6, +8), including social Deflect.
 - **Boon**: as the Lite book. Momentum is a Boon Menu pick, until the end of your next turn; one choice at Novice.
-- **Power Sources**: Physical, the Book of Powers' 13, **and Element and Void**, kept although the book does not have
-  them. Element and Void details are still to be decided. Old saves: Weird becomes Weird Science.
+- **Power Sources**: Physical, the Book of Powers' 13, and **Void**. Element is absorbed (old saves: Nature / Primal). Old
+  saves: Weird becomes Weird Science.
 - **Level Discount**: Casters **and Channelers**. The Lite Channeler Role does not say so; the builder adds it to
   Step 1 and `core.json` `level_discount.roles` holds the list.
 - **Armor Agility penalty**: applies to Agility rolls and no longer lowers Body Deflect.
@@ -35,20 +35,18 @@ Builder choices for old saves and reference (the author did not object):
 - `js/migrate.js` holds every old id and where it went. Feats, Specialties, spells and Sources come from the books
   through `scripts/import_lite.py`, which can be run again when the text changes.
 
-Book text the builder did not follow, for the author to fix:
+Book text the builder does not follow, for the author to fix:
 
 - Chapter 1's "What Overage Does" still says an Effect becomes mechanical at Surge 2. The Effect Ladder wins.
 - Knowledge still says "two additional languages per BP". Everyone gets 2 extra languages.
 - Creation Step 3 still says Willpower for Mind Deflect and Initiative = primary Attack Ability.
-- The Channeler Suggested Build still lists Abjure as a Focus Skill. The author chose Survive to replace it, and the
-  builder's preset uses Survive; the Player Book's two lists are not yet edited.
 
 The afflictions data is not shown in the app and has not been updated for the new Doom Affliction. Vehicles keep their
 design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 
 ## Sources
 
-- The WIP books win every conflict: `JUGGS_Player_Book_Lite.docx`, `JUGGS_Book_of_Feats.docx`,
+- The WIP books (with the second trim applied) win every conflict: `JUGGS_Player_Book_Lite.docx`, `JUGGS_Book_of_Feats.docx`,
   `JUGGS_Book_of_Powers.docx`, with their decisions files. After them: `source/JUGGS_Player_Book.docx`,
   `JUGGS_SRD_Updated.html`, then the dedicated books (`JUGGS_Items.docx`, `JUGGS_Vehicles.docx`,
   `JUGGS_Book_of_Genres.docx`), then older documents.
@@ -97,7 +95,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 - **Feat slots**: Levels 1, 3, 7, 11, 15, 17, 19.
 - **Level 17 Capstone**: one free Gated Feat, ignoring its requirements other than tier, and a scene-level capability
   defined with the GM. It is on top of the Level 17 Feat slot.
-- **Roles**: five Steps, using the wording in the Player Book's "All 22 Roles" section.
+- **Roles**: five Steps by tier, as Stepped Feats (see Second trim).
 
 ## Combat and defenses
 
@@ -179,7 +177,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 - **Physical** is the Power Source every character has.
 - The others are the Book of Powers' 13 (Arcane, Divine, Innate, Psionic, Spirit / Shamanic, Weird Science, then the
   expansions Alchemical, Blood Magic, Chi / Ki, Cybernetic, Demonic / Pact-Bound, Nature / Primal, Runic / Inscription)
-  plus **Element** and **Void**, whose details are *to be decided*.
+  plus **Void**, its own Source (rules under Second trim).
 - Defaults from Focus Skills: **Cast → Arcane**, **Channel → Spirit**.
 
 ## Powers
@@ -241,28 +239,30 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 - Vehicles get their own tab once the character sheet is built.
 - The Gunner station rolls **Agility + Combat (Ranged)**.
 
-## Open — to be decided
+## Second trim
 
-- **Roles trim (decided 2026-10-31, not yet applied to the books or the builder).** Nine Roles: Warrior, Defender,
+- **Roles trim (decided and applied 2026-10-31).** Nine Roles: Warrior, Defender,
   Scout, Speaker, Expert (a widened Artificer: building, deduction, adaptability), Medic (moved out of the supernatural
   group), Ascetic, Caster, Channeler. The other Roles become optional Archetypes: a core Role with a Specialty, Aptitude
-  or Genre. The pairings are proposals still to be approved.
-- **Roles become Stepped (decided 2026-10-31, not yet applied).** Each Role works like a Specialty: the first is free at
+  or Genre. The Expert Role replaces Artificer, Investigator and Polymath. Four Roles keep their Steps as Stepped Feats: Battle Fury, Marked
+  Prey, Net Diver, Weird Touched. The Mastery Feat Berserker is now Frenzy; Berserker's Threshold keeps its "At the table" version;
+  hurt Attack bonuses do not stack.
+- **Roles become Stepped (applied 2026-10-31).** Each Role works like a Specialty: the first is free at
   creation, its five Abilities arrive at Levels 1, 5, 9, 13, 17, and a further Role uses a Feat slot, starting at the
   character's current tier. Tier changes no longer offer a Role choice, and the multiclass rule goes. Feat requirements
   change from "Role Step 3" to "Role at Veteran tier".
-- **Specialties and Feats stay separate (decided 2026-10-31, not yet applied).** No Talents. One rule is added: "Your free
+- **Specialties and Feats stay separate (applied 2026-10-31).** No Talents. One rule is added: "Your free
   Specialty may instead be a second Stepped Feat."
-- **Aptitudes become Backgrounds (decided 2026-10-31, not yet applied).** A rename only; how they work does not change.
+- **Aptitudes become Backgrounds (applied 2026-10-31).** A rename only; how they work does not change.
   The builder keeps its saved field name, so old saves still load.
-- **Chase Boons use the Boon Menu (decided 2026-10-31, not yet applied).** Momentum, +2 to all rolls until the end of your
+- **Chase Boons use the Boon Menu (applied 2026-10-31).** Momentum, +2 to all rolls until the end of your
   next turn; Recovery, unmark 1 box; Tempo (Seasoned+), move two bands this round; Clarity, clear a Condition or shake off a
   Complication; Guard, +2 against the next hazard or Attack Calling; Grace, give one to an ally in the chase. Legendary only:
   End the Chase, the quarry vanishes (distance resets to Far) or the pursuer cuts them off (distance jumps to Close). The
   cumulative tier list goes.
-- **Supernatural conditions move to the GM Guide Lite (decided 2026-10-31, not yet applied to the books).** The Player Book
+- **Supernatural conditions move to the GM Guide Lite (applied 2026-10-31).** The Player Book
   lists 15 + 4. The builder already keeps the seven off the sheet, as GM reference on Quick Rules.
-- **Abjure stays an action, not a skill (decided 2026-10-31, not yet applied).** Available from Seasoned tier to a Channeler (spiritual
+- **Abjure stays an action, not a skill (applied 2026-10-31).** Available from Seasoned tier to a Channeler (spiritual
   ones included), or to anyone with Belief 3+ and 1 point in Channel. The roll is unchanged: Belief vs the entity's Morale.
   - **Channeler**: 2 Resolve at Seasoned, 1 at Veteran, 0 once per scene at Heroic. It can be repeated in a scene, at a
     cumulative -1 to the roll for each earlier use that scene. On 5+ overage the entity gains Removed (Spirit).
@@ -270,12 +270,12 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
   - **Abjurer's Authority** gives others Removed (Spirit) on 5+ overage and works from Seasoned. Its 1 fewer Resolve stays,
     and they remain limited to once per scene.
   - Channeler Step 1 loses its Abjure cost, Legendary is unchanged, and Rule 3 and the Holy Relic need rewording.
-- **Spent does not stack with backlash (decided 2026-10-31, not yet applied).** "Spent doesn't repeat boxes already crossed by
+- **Spent does not stack with backlash (applied 2026-10-31).** "Spent doesn't repeat boxes already crossed by
   backlash." It still charges Surges of 1 or 2 boxes, and Effect boxes on the same roll.
 - **Seven Feat slots stay** (decided 2026-10-31), at Levels 1, 3, 7, 11, 15, 17, 19, so players can take something outside a
   narrow build. Specialties and Roles growing free does leave characters stronger; watch that in play.
 - **Deafened stays its own condition** (decided 2026-10-31). No change needed.
-- **Element and Void (decided 2026-10-31, not yet applied).** Element is absorbed into the expansion Sources; the closest is
+- **Element and Void (applied 2026-10-31).** Element is absorbed into the expansion Sources; the closest is
   Nature / Primal, which is the proposed home for old saves. Void stays as its own Source: negative energy, from Space or
   "the Old Ones". Its rules:
   - Ability Intellect or Willpower; pools Mana / Stamina; Basic Cast crosses Stamina. Origin chosen at creation: Space
@@ -291,7 +291,6 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
     not care. A patron who bargains, like The Bound, is Demonic. Pantara's Void is ignored for now (work in progress).
 
 - Standard Origin trait.
-- Void Power Source details.
 - Abjure rewrites (see Skills).
 - Side-by-side pool layout on the sheet — the author will judge it once the sheet exists.
 - **Weird Role Step 2** is kept as written for now ("Revelation fills 0 Resolve. Corruption check DC 12 (not 14)").

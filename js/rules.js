@@ -58,7 +58,7 @@ export function aptitudeBonuses(D, c) {
   return apt ? apt.ability_bonuses : {};
 }
 
-// Ability Scores at a level: 20 BP spread + Aptitude bonuses + even-level increases, plus Ability Score
+// Ability Scores at a level: 20 BP spread + Background bonuses + even-level increases, plus Ability Score
 // Enhancement items (which add to the Score itself). `withGear: false` leaves the items out — the advancement caps
 // apply to what the character built, not to what they carry.
 export function abilityScores(D, c, level = c.level, { withGear = true } = {}) {
@@ -95,7 +95,7 @@ export function creationProblems(D, c) {
     if (v < cr.ability_min) out.push(`${name} must be at least ${cr.ability_min}.`);
     if (v > cr.ability_max) out.push(`${name} can be at most ${cr.ability_max} from Build Points.`);
     if (v + (apt[a] || 0) > cr.ability_max_with_bonuses) {
-      out.push(`${name} can be at most ${cr.ability_max_with_bonuses} with the Aptitude bonus.`);
+      out.push(`${name} can be at most ${cr.ability_max_with_bonuses} with the Background bonus.`);
     }
   }
   return out;
@@ -196,7 +196,7 @@ export function availableSkills(D, c) {
   return D.skills.filter(s => !s.gm_only && (!s.genres.length || s.genres.some(g => on.has(g))));
 }
 
-// Bonus Focus Skills from the Aptitude and Specialties held at a level, with where each came from. A Specialty
+// Bonus Focus Skills from the Background and Specialties held at a level, with where each came from. A Specialty
 // taken later gives its bonus skills from the level it is taken.
 export function bonusSkills(D, c, level = c.level) {
   const out = [];
@@ -276,23 +276,24 @@ export function skillPointProblems(D, c) {
 // Roles, Specialties, Feats
 // ---------------------------------------------------------------------------------------------------------------
 
-// Role Steps held at a level: { roleId: steps }. The starting Role is Step 1 at Level 1; each tier change adds a
-// Step to the Role picked there (a new Role starts at Step 1).
+// Role Steps held at a level: { roleId: steps }. Roles work as Stepped Feats: the first is free, a further one sits in
+// a Feat slot, and every Role held has the Steps its tier has reached.
 export function roleSteps(D, c, level = c.level) {
+  const steps = D.core.tiers.indexOf(tierFor(D, level)) + 1;
   const out = {};
-  if (c.role) out[c.role] = 1;
-  for (const [lv, r] of byLevel(c.roleAdvances, level)) {
-    if (r && isTierChange(D, Number(lv))) out[r] = Math.min(5, (out[r] || 0) + 1);
-  }
+  if (c.role) out[c.role] = steps;
+  for (const [, f] of byLevel(c.feats, level)) if (slotRole(f)) out[slotRole(f)] = steps;
   return out;
 }
 
 export const FEAT_GROUPS = [['universal', 'Universal'], ['body', 'Body'], ['mind', 'Mind'], ['spirit', 'Spirit'], ['social', 'Social'],
                            ['magic', 'Magic'], ['mastery', 'Specialty Masteries'], ['cross', 'Cross-Specialty']];
 
-// A Feat slot can hold a Feat id, or a further Specialty as "specialty:<id>".
+// A Feat slot can hold a Feat id, a further Specialty as "specialty:<id>", or a further Role as "role:<id>".
 const SPECIALTY_SLOT = 'specialty:';
+const ROLE_SLOT = 'role:';
 export const slotSpecialty = value => (typeof value === 'string' && value.startsWith(SPECIALTY_SLOT) ? value.slice(SPECIALTY_SLOT.length) : null);
+export const slotRole = value => (typeof value === 'string' && value.startsWith(ROLE_SLOT) ? value.slice(ROLE_SLOT.length) : null);
 
 // The free Specialty (c.specialties), plus any taken in a Feat slot.
 export function specialtiesHeld(D, c, level = c.level) {
@@ -301,9 +302,10 @@ export function specialtiesHeld(D, c, level = c.level) {
   return [...new Set(ids)].map(id => D.specialtiesById.get(id)).filter(Boolean);
 }
 
-// Feats in the character's slots, plus the Level 17 Capstone's free Gated Feat.
+// Feats in the character's slots, the Stepped Feat taken instead of a free Specialty, and the Level 17 Capstone.
 export function featsTaken(D, c, level = c.level) {
-  const out = byLevel(c.feats, level).map(([, f]) => f).filter(f => f && !slotSpecialty(f));
+  const out = byLevel(c.feats, level).map(([, f]) => f).filter(f => f && !slotSpecialty(f) && !slotRole(f));
+  if (c.bonusFeat) out.push(c.bonusFeat);
   if (c.capstone && level >= D.core.advancement.capstone.level) out.push(c.capstone);
   return out;
 }

@@ -2,7 +2,7 @@
 // and drops unknown ids, so characters saved by older versions (or edited by hand) still load.
 import { migrate } from './migrate.js';
 
-export const VERSION = 2;
+export const VERSION = 3;
 
 export function newCharacter() {
   return {
@@ -16,12 +16,12 @@ export function newCharacter() {
     origin: '', originChoice: '',
     focus: [],                  // the 6 chosen Focus Skills
     overlapPicks: [],           // +1 skill for each bonus skill that was already a Focus Skill
-    role: '',                   // starting Role (Step 1 at Level 1)
-    roleAdvances: {},           // tier-change level -> Role id (advance it, or start it at Step 1)
+    role: '',                   // the free Role; a further Role sits in a Feat slot
     specialties: [],            // [{ id, level }] — the free one; any further Specialty sits in a Feat slot
     abilityIncreases: {},       // even level -> Ability Score id
     skillPoints: {},            // level -> [skill ids], 6 per level from Level 2
-    feats: {},                  // Feat level -> Feat id, or "specialty:<id>" for a further Specialty
+    bonusFeat: '',              // a Stepped Feat taken instead of the free Specialty
+    feats: {},                  // Feat level -> Feat id, "specialty:<id>" or "role:<id>"
     capstone: '', capstoneNote: '',     // Level 17: a free Gated Feat and a scene-level capability
     signature: { offensive: '', utility: '' },
     powerSources: [],           // declared beyond Physical and the Focus Skill defaults
@@ -142,7 +142,6 @@ export function clean(D, raw) {
   c.focus = Array.isArray(raw.focus) ? raw.focus.map(s => (has(D.skillsById, s) ? s : '')).slice(0, 6) : [];
   c.overlapPicks = Array.isArray(raw.overlapPicks) ? raw.overlapPicks.map(s => (has(D.skillsById, s) ? s : '')) : [];
   c.role = has(D.rolesById, raw.role) ? raw.role : '';
-  c.roleAdvances = levelMap(raw.roleAdvances, r => has(D.rolesById, r));
   c.specialties = Array.isArray(raw.specialties)
     ? raw.specialties.filter(s => isObj(s) && has(D.specialtiesById, s.id))
       .map(s => ({ id: s.id, level: int(s.level, 1, 1, 20) })).slice(0, 2)
@@ -153,7 +152,9 @@ export function clean(D, raw) {
     c.skillPoints[lv] = c.skillPoints[lv].map(s => (has(D.skillsById, s) ? s : '')).slice(0, 6);
   }
   c.feats = levelMap(raw.feats, f => has(D.featsById, f)
-    || (typeof f === 'string' && f.startsWith('specialty:') && has(D.specialtiesById, f.slice(10))));
+    || (typeof f === 'string' && f.startsWith('specialty:') && has(D.specialtiesById, f.slice(10)))
+    || (typeof f === 'string' && f.startsWith('role:') && has(D.rolesById, f.slice(5))));
+  c.bonusFeat = !c.specialties.length && D.featsById.get(raw.bonusFeat)?.kind === 'stepped' ? raw.bonusFeat : '';
   c.capstone = D.featsById.get(raw.capstone)?.kind === 'gated' ? raw.capstone : '';
   c.capstoneNote = str(raw.capstoneNote).slice(0, 500);
   if (isObj(raw.signature)) {

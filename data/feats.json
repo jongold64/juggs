@@ -680,6 +680,44 @@
     ]
   },
   {
+    "id": "battle-fury",
+    "name": "Battle Fury",
+    "kind": "stepped",
+    "domain": "body",
+    "magic": false,
+    "prerequisite_text": "None",
+    "text": "The escalating rage of a fighter who gets more dangerous as the situation worsens.",
+    "at_the_table": "",
+    "steps": [
+      {
+        "tier": "Novice",
+        "level": 1,
+        "text": "When Stamina enters Hurt range (boxes 6–10), gain +1 to all Attack rolls. When it enters Injured range (boxes 11–14), gain +2 instead. These replace each other — they do not stack."
+      },
+      {
+        "tier": "Seasoned",
+        "level": 5,
+        "text": "While the bonus is active (Stamina Hurt or Injured), you cannot be Stunned. Attacks still deal their Stamina damage — the Condition does not apply."
+      },
+      {
+        "tier": "Veteran",
+        "level": 9,
+        "text": "Once per encounter, when a single hit crosses at least 2 Stamina boxes, make one free Attack against the attacker as a Reaction. No Action cost. Declare after damage is applied."
+      },
+      {
+        "tier": "Heroic",
+        "level": 13,
+        "text": "The bonuses increase: Hurt now grants +2, Injured now grants +3. Additionally, when Stamina enters Injured range for the first time in an encounter, unmark 1 Stamina box immediately."
+      },
+      {
+        "tier": "Legendary",
+        "level": 17,
+        "text": "Once per session, enter a full Berserk state until end of scene. Attack rolls use the higher of Strength or Toughness. No single hit can reduce Stamina below 1 box — each hit can reach 1, not past it. When the state ends, cross 3 Stamina boxes immediately."
+      }
+    ],
+    "requires": []
+  },
+  {
     "id": "brutal-strike",
     "name": "Brutal Strike",
     "kind": "stepped",
@@ -911,13 +949,51 @@
     ]
   },
   {
+    "id": "marked-prey",
+    "name": "Marked Prey",
+    "kind": "stepped",
+    "domain": "body",
+    "magic": false,
+    "prerequisite_text": "None",
+    "text": "Relentless pursuit of one target at a time.",
+    "at_the_table": "",
+    "steps": [
+      {
+        "tier": "Novice",
+        "level": 1,
+        "text": "Designate one creature as your Mark as a free action. +2 to all Observe, Track, and Attack rolls against your Mark. One Mark at a time."
+      },
+      {
+        "tier": "Seasoned",
+        "level": 5,
+        "text": "Your Mark cannot benefit from Hidden against you specifically."
+      },
+      {
+        "tier": "Veteran",
+        "level": 9,
+        "text": "Once per encounter, your attack against your Mark ignores DR entirely."
+      },
+      {
+        "tier": "Heroic",
+        "level": 13,
+        "text": "When your Mark moves, you may move up to 1 range band toward them as a free Reaction, once per round."
+      },
+      {
+        "tier": "Legendary",
+        "level": 17,
+        "text": "Your first attack each scene against your Mark automatically hits — no roll. Treated as the minimum needed to succeed."
+      }
+    ],
+    "requires": []
+  },
+  {
     "id": "modular-design",
     "name": "Modular Design",
     "kind": "stepped",
     "domain": "body",
     "magic": false,
-    "prerequisite_text": "Artificer Role Step 1, Intellect 2+",
-    "text": "Your modifications (from Artificer Role Step 2) can now be swapped in or out as a Free Action once per round. You may maintain up to two active modifications simultaneously — one offensive, one defensive or utility. Switching which modification is active does not cost an Action.",
+    "prerequisite_text": "Expert Role, Intellect 2+",
+    "text": "Your modifications (from the Expert Role at Seasoned tier) can now be swapped in or out as a Free Action once per round. You may maintain up to two active modifications simultaneously — one offensive, one defensive or utility. Switching which modification is active does not cost an Action.",
     "at_the_table": "",
     "steps": [
       {
@@ -949,7 +1025,7 @@
     "requires": [
       {
         "role": [
-          "artificer"
+          "expert"
         ],
         "step": 1
       },
@@ -967,8 +1043,8 @@
     "kind": "stepped",
     "domain": "body",
     "magic": false,
-    "prerequisite_text": "Artificer Role Step 1, Intellect 2+",
-    "text": "Push a weapon, piece of equipment, or vehicle beyond its rated specifications for one scene. The item gains +2 to its effective Rating or output (GM defines the specific mechanical expression for the item type). At the end of the scene, make an Operate Check vs DC 12 — on a failure, the item degrades one Quality tier. On a natural 1, it fails entirely and requires Artificer Role Step 1 repair to restore.",
+    "prerequisite_text": "Expert Role, Intellect 2+",
+    "text": "Push a weapon, piece of equipment, or vehicle beyond its rated specifications for one scene. The item gains +2 to its effective Rating or output (GM defines the specific mechanical expression for the item type). At the end of the scene, make an Operate Check vs DC 12 — on a failure, the item degrades one Quality tier. On a natural 1, it fails entirely and requires Expert Role repair to restore.",
     "at_the_table": "",
     "steps": [
       {
@@ -1000,7 +1076,7 @@
     "requires": [
       {
         "role": [
-          "artificer"
+          "expert"
         ],
         "step": 1
       },
@@ -1070,8 +1146,8 @@
     "domain": "body",
     "magic": false,
     "prerequisite_text": "Acuity 2+, Observe as a Focus Skill",
-    "text": "Designate one creature as your Mark as a Free Action. Your attacks against your Mark ignore the Hidden condition — the −4 penalty does not apply. Only one Mark at a time; reassigning costs another Free Action. If you also have the Hunter Role, this stacks with the Hunter’s Step 2 benefit.",
-    "at_the_table": "Free Action to Mark. Attacks vs Mark ignore Hidden. One Mark at a time. Stacks with Hunter Role Step 2 (which also denies Hidden). Both must be taken separately.",
+    "text": "Designate one creature as your Mark as a Free Action. Your attacks against your Mark ignore the Hidden condition — the −4 penalty does not apply. Only one Mark at a time; reassigning costs another Free Action. If you also have Marked Prey, this stacks with its Seasoned Step benefit.",
+    "at_the_table": "Free Action to Mark. Attacks vs Mark ignore Hidden. One Mark at a time. Stacks with Marked Prey at Seasoned tier (which also denies Hidden). Both must be taken separately.",
     "steps": [
       {
         "tier": "Novice",
@@ -1120,7 +1196,7 @@
     "kind": "stepped",
     "domain": "body",
     "magic": false,
-    "prerequisite_text": "Artificer Role Step 1, Intellect 2+, Operate as a Focus Skill",
+    "prerequisite_text": "Expert Role, Intellect 2+, Operate as a Focus Skill",
     "text": "The Task Block requirement for field repairs is eliminated for items of Standard quality or below. You can fabricate basic tools, devices, or structural repairs in a single Action during combat — the output functions for the scene but degrades to Flimsy quality after. Between scenes, full-quality repairs complete in one minute rather than one Task Block.",
     "at_the_table": "",
     "steps": [
@@ -1153,7 +1229,7 @@
     "requires": [
       {
         "role": [
-          "artificer"
+          "expert"
         ],
         "step": 1
       },
@@ -1273,8 +1349,8 @@
     "kind": "stepped",
     "domain": "body",
     "magic": false,
-    "prerequisite_text": "Artificer Role Step 1, Survive as a Focus Skill",
-    "text": "You can treat any scavenged materials as Standard quality components for the purpose of the Artificer Role’s fabrication abilities, regardless of their actual condition. Once per session, identify a discarded or broken object’s potential — the GM tells you one non-obvious useful function it could serve if repurposed.",
+    "prerequisite_text": "Expert Role, Survive as a Focus Skill",
+    "text": "You can treat any scavenged materials as Standard quality components for the purpose of the Expert Role’s fabrication abilities, regardless of their actual condition. Once per session, identify a discarded or broken object’s potential — the GM tells you one non-obvious useful function it could serve if repurposed.",
     "at_the_table": "",
     "steps": [
       {
@@ -1306,7 +1382,7 @@
     "requires": [
       {
         "role": [
-          "artificer"
+          "expert"
         ],
         "step": 1
       },
@@ -1661,7 +1737,7 @@
     "kind": "stepped",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Netrunner Role Step 1, Acuity 2+",
+    "prerequisite_text": "Net Diver, Acuity 2+",
     "text": "When any system or opponent attempts a counter-hack or trace against you, make an opposed Hack Check as a Free Reaction — no Action cost. On success, the counter-hack fails entirely and you learn the attacker’s network address or system location. Once per scene, you may pre-load a countermeasure before entering a known hostile network: the first counter-hack against you this scene automatically fails.",
     "at_the_table": "",
     "steps": [
@@ -1693,10 +1769,9 @@
     ],
     "requires": [
       {
-        "role": [
-          "netrunner"
-        ],
-        "step": 1
+        "feat": [
+          "net-diver"
+        ]
       },
       {
         "ability": [
@@ -1763,8 +1838,8 @@
     "kind": "stepped",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Medic Role Step 1, Survive as a Focus Skill",
-    "text": "Your in-combat stabilization (from Medic Role Step 1) now also clears one of the following Conditions as part of the same Free Action: Bleeding, Burning, or Poisoned. This does not require a roll. Additionally, when you use Survive for field triage, you may attempt it on yourself as well as allies — no penalty for self-treatment.",
+    "prerequisite_text": "Medic Role, Survive as a Focus Skill",
+    "text": "Your in-combat stabilization (from the Medic Role) now also clears one of the following Conditions as part of the same Free Action: Bleeding, Burning, or Poisoned. This does not require a roll. Additionally, when you use Survive for field triage, you may attempt it on yourself as well as allies — no penalty for self-treatment.",
     "at_the_table": "",
     "steps": [
       {
@@ -1916,7 +1991,7 @@
     "kind": "stepped",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Netrunner Role Step 1, Stealth or Operate as a Focus Skill, Acuity 2+",
+    "prerequisite_text": "Net Diver, Stealth or Operate as a Focus Skill, Acuity 2+",
     "text": "Your network presence generates no traceable signature while this Feat is active. Passive security systems cannot detect your intrusion — only active countermeasure protocols with a rating of 3+ can spot you, and only if they make an opposed Check. Activating or deactivating Ghost Protocol is a Free Action.",
     "at_the_table": "",
     "steps": [
@@ -1948,7 +2023,7 @@
     ],
     "requires": [
       {
-        "text": "Netrunner Role Step 1, Stealth or Operate as a Focus Skill, Acuity 2+"
+        "text": "Net Diver, Stealth or Operate as a Focus Skill, Acuity 2+"
       }
     ]
   },
@@ -2151,12 +2226,54 @@
     ]
   },
   {
+    "id": "net-diver",
+    "name": "Net Diver",
+    "kind": "stepped",
+    "domain": "mind",
+    "magic": false,
+    "prerequisite_text": "Cyberpunk, Transhumanist, Interstellar, or Space Opera Genre, Intellect 2+",
+    "text": "Digital infiltration and network combat.",
+    "at_the_table": "",
+    "steps": [
+      {
+        "tier": "Novice",
+        "level": 1,
+        "text": "Hack skill rolls gain +2. When using the Fix-It Framework for digital tasks, Phase 1 (Diagnose) automatically succeeds — skip straight to Phase 2 without a roll or Complication risk."
+      },
+      {
+        "tier": "Seasoned",
+        "level": 5,
+        "text": "Once per scene, access any networked system within Near range without physical interface — you connect remotely. If the system has active countermeasures, you learn their rating before committing."
+      },
+      {
+        "tier": "Veteran",
+        "level": 9,
+        "text": "When a Hack roll succeeds with overage 3+, choose one: extract all available data, disable the system for the scene, or plant a persistent backdoor the GM cannot remove without a full scene of countermeasures."
+      },
+      {
+        "tier": "Heroic",
+        "level": 13,
+        "text": "In settings with neural interface, engage in direct network combat — opposed Intellect + Hack vs target system rating. Overage damages system integrity (treat as a Mana pool, 10 boxes). Broken integrity: system permanently offline until physically repaired. Hack rolls against neural-linked opponents deal Mana damage on overage."
+      },
+      {
+        "tier": "Legendary",
+        "level": 17,
+        "text": "Once per session, execute a Master Intrusion affecting any digital system or network you have previously accessed, regardless of current location. No roll required for access. The GM sets a Difficulty for any specific consequence within the system — roll against it normally."
+      }
+    ],
+    "requires": [
+      {
+        "text": "Cyberpunk, Transhumanist, Interstellar, or Space Opera Genre, Intellect 2+"
+      }
+    ]
+  },
+  {
     "id": "neural-overload",
     "name": "Neural Overload",
     "kind": "stepped",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Netrunner Role Step 1, Intellect 2+",
+    "prerequisite_text": "Net Diver, Intellect 2+",
     "text": "Once per encounter, as an Action, target one networked or augmented opponent in Near range. Make a Hack Check opposed by their Willpower Score. On success: the target gains the Stunned condition for one round and loses their next Action. On overage 3+: they also lose a Reaction. This has no effect on targets with no cybernetic implants or networked equipment.",
     "at_the_table": "",
     "steps": [
@@ -2188,10 +2305,9 @@
     ],
     "requires": [
       {
-        "role": [
-          "netrunner"
-        ],
-        "step": 1
+        "feat": [
+          "net-diver"
+        ]
       },
       {
         "ability": [
@@ -2252,7 +2368,7 @@
     "kind": "stepped",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Medic Role Step 1, Intellect 2+",
+    "prerequisite_text": "Medic Role, Intellect 2+",
     "text": "Given access to a medical kit or scavenged materials and one minute, prepare a compound targeting one specific Condition. The compound clears that Condition instantly on application — no roll required. You may prepare a number of compounds between scenes equal to your Intellect Score. Unused compounds expire at session end. Each compound is single-use and targets only the Condition it was prepared for.",
     "at_the_table": "",
     "steps": [
@@ -2354,7 +2470,7 @@
     "kind": "stepped",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Medic Role Step 1, Acuity 2+",
+    "prerequisite_text": "Medic Role, Acuity 2+",
     "text": "During any uninterrupted Task Block outside combat, make a Survive Check vs DC 10. On success: restore 3 Stamina boxes to one ally rather than the standard 2, and your patient clears one Condition of your choice. On overage 3+: restore 4 boxes instead and clear two Conditions. Critical failures (natural 1 on this check) restore only 1 box — surgical precision requires focus.",
     "at_the_table": "",
     "steps": [
@@ -2405,7 +2521,7 @@
     "kind": "stepped",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Netrunner Role Step 1, Hack as a Focus Skill, Intellect 2+",
+    "prerequisite_text": "Net Diver, Hack as a Focus Skill, Intellect 2+",
     "text": "When you make a Hack Check against a networked system and succeed, you may choose one additional effect beyond your declared goal at no extra cost: extract a cached data fragment, leave a passive monitoring routine, or reduce the system’s countermeasure rating by 1 (minimum 1) for the rest of the scene. Each effect is chosen after the roll succeeds.",
     "at_the_table": "",
     "steps": [
@@ -2437,10 +2553,9 @@
     ],
     "requires": [
       {
-        "role": [
-          "netrunner"
-        ],
-        "step": 1
+        "feat": [
+          "net-diver"
+        ]
       },
       {
         "focus": [
@@ -2504,6 +2619,55 @@
           "analyze"
         ],
         "all": false
+      }
+    ]
+  },
+  {
+    "id": "weird-touched",
+    "name": "Weird Touched",
+    "kind": "stepped",
+    "domain": "mind",
+    "magic": false,
+    "prerequisite_text": "Magic Overlay, Weird Magic Overlay",
+    "text": "Chaotic, tradition-less magic, where the chaos is the identity and not a side effect.",
+    "at_the_table": "",
+    "steps": [
+      {
+        "tier": "Novice",
+        "level": 1,
+        "text": "Weird Table access. Roll twice per cast, choose result. Grants Corruption 1 on first use."
+      },
+      {
+        "tier": "Seasoned",
+        "level": 5,
+        "text": "Revelation (roll 8) fills 0 Resolve. Corruption check DC reduced to 12 (from 14)."
+      },
+      {
+        "tier": "Veteran",
+        "level": 9,
+        "text": "Once per scene, declare a Weird Table result instead of rolling."
+      },
+      {
+        "tier": "Heroic",
+        "level": 13,
+        "text": "When the Drain result (4) fires on the Weird Table, choose which pool is drained instead of random."
+      },
+      {
+        "tier": "Legendary",
+        "level": 17,
+        "text": "When the Backlash result (1) fires on the Weird Table, redirect the effect to one visible target."
+      }
+    ],
+    "requires": [
+      {
+        "genre": [
+          "magic"
+        ]
+      },
+      {
+        "genre": [
+          "weird-magic"
+        ]
       }
     ]
   },
@@ -3364,8 +3528,8 @@
     "domain": "social",
     "magic": false,
     "prerequisite_text": "Serenity 2+, Concentrate as a Focus Skill",
-    "text": "By default, no mundane attempt to read your emotional state succeeds — not Observe rolls, not Empath Role passive awareness, not the Rapid Read Social Maneuver. Your face and body communicate only what you choose. You may voluntarily make yourself readable at any time. Supernatural empathy that reads minds or emotions still functions. This is social control, not mental shielding.",
-    "at_the_table": "All mundane emotional-read attempts against you auto-fail. Empath Role Step 1 passive awareness does not trigger on you unless you choose to be readable. Supernatural empathy unaffected. Toggle readable/unreadable at will.",
+    "text": "By default, no mundane attempt to read your emotional state succeeds — not Observe rolls, not passive emotional awareness, not the Rapid Read Social Maneuver. Your face and body communicate only what you choose. You may voluntarily make yourself readable at any time. Supernatural empathy that reads minds or emotions still functions. This is social control, not mental shielding.",
+    "at_the_table": "All mundane emotional-read attempts against you auto-fail. Passive emotional awareness does not trigger on you unless you choose to be readable. Supernatural empathy unaffected. Toggle readable/unreadable at will.",
     "steps": [
       {
         "tier": "Novice",
@@ -3446,13 +3610,13 @@
     "kind": "gated",
     "domain": "universal",
     "magic": false,
-    "prerequisite_text": "Fleet, Stealth as a Focus Skill, Agility 4+, Veteran tier, or Scout Role Step 3",
+    "prerequisite_text": "Fleet, Stealth as a Focus Skill, Agility 4+, Veteran tier, or Scout Role at Veteran tier",
     "text": "Once per scene, you may become Hidden as a Free Action. No Power source required, no Mana cost. The invisibility lasts until you make an attack roll or the scene ends, whichever comes first. This is not magic — it is the perfected application of stillness, shadow, and movement learned over a career.",
     "at_the_table": "Declare as Free Action. Gain Hidden condition. Ends immediately on any Attack roll (before or after the roll). Ends at scene end if not used for attack. No pool cost. Once per scene.",
     "steps": [],
     "requires": [
       {
-        "text": "Fleet, Stealth as a Focus Skill, Agility 4+, Veteran tier, or Scout Role Step 3"
+        "text": "Fleet, Stealth as a Focus Skill, Agility 4+, Veteran tier, or Scout Role at Veteran tier"
       }
     ]
   },
@@ -3499,13 +3663,13 @@
     "kind": "gated",
     "domain": "body",
     "magic": false,
-    "prerequisite_text": "Cleave at Veteran tier or above, Strength 4+, or Warrior Role Step 3",
+    "prerequisite_text": "Cleave at Veteran tier or above, Strength 4+, or Warrior Role at Veteran tier",
     "text": "Your melee attacks ignore Damage Reduction entirely. DR from armor, shields, natural toughness, magical protection, and any other physical source does not apply against your strikes. This is not a bypass activated by spending resources — it is the permanent result of technique and force refined to the point where physical protection becomes conceptually irrelevant.",
     "at_the_table": "All your melee attacks ignore all DR from all sources. Passive, permanent, always on. Does not affect pool-based damage resistance or supernatural protection that is not listed as DR.",
     "steps": [],
     "requires": [
       {
-        "text": "Cleave at Veteran tier or above, Strength 4+, or Warrior Role Step 3"
+        "text": "Cleave at Veteran tier or above, Strength 4+, or Warrior Role at Veteran tier"
       }
     ]
   },
@@ -3543,7 +3707,7 @@
     "domain": "body",
     "magic": false,
     "prerequisite_text": "Toughness 4+, Heroic tier, and a story marker: you carry a Wound Scar",
-    "text": "When your Stamina pool drops below half its maximum, you gain +2 to all Attack rolls. This bonus increases to +3 when Stamina drops to box 13 or higher (Injured threshold). This is not voluntary — it activates automatically. Berserker is always on when the condition is met. It cannot be suppressed.",
+    "text": "The first time your Stamina enters the Injured range in an encounter, make one free Attack against any target in range, at no Action or Stamina cost. Your Broken threshold also moves to box 17.",
     "at_the_table": "Broken at box 17 instead of 15. On first entry into Injured range per encounter: one free Attack vs any target in range. No Action, no Stamina. Triggers once per encounter regardless of how many times you pass through Injured.",
     "steps": [],
     "requires": [
@@ -3601,13 +3765,34 @@
     "kind": "gated",
     "domain": "body",
     "magic": false,
-    "prerequisite_text": "Overclock or Modular Design, Artificer Role Step 3, Intellect 4+, Veteran tier",
+    "prerequisite_text": "Overclock or Modular Design, Expert Role at Veteran tier, Intellect 4+, Veteran tier",
     "text": "Between sessions, create or designate one item as your Masterwork. Work with the GM to define a single unique rule for the Masterwork item — something it does that no standard item of its type can do. The Masterwork cannot be replicated and cannot be confiscated permanently (you can always rebuild it given one Task Block and available materials). You may have only one Masterwork at a time.",
     "at_the_table": "",
     "steps": [],
     "requires": [
       {
-        "text": "Overclock or Modular Design, Artificer Role Step 3, Intellect 4+, Veteran tier"
+        "feat": [
+          "overclock",
+          "modular-design"
+        ]
+      },
+      {
+        "role": [
+          "expert"
+        ],
+        "step": 1
+      },
+      {
+        "power_level_min": 3
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
       }
     ]
   },
@@ -3633,13 +3818,27 @@
     "kind": "gated",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Neural Overload or Adaptive Countermeasures, Netrunner Role Step 3, Veteran tier",
+    "prerequisite_text": "Neural Overload or Adaptive Countermeasures, Net Diver at Veteran tier, Veteran tier",
     "text": "Once per session, identify and exploit an unknown vulnerability in any networked system — security rating is irrelevant, countermeasures are bypassed, and access is immediate. The intrusion succeeds automatically. The GM determines what is available inside the system; you determine what you do with the access. After the session, the vulnerability is patched — this Feat cannot be used on the same system twice.",
     "at_the_table": "",
     "steps": [],
     "requires": [
       {
-        "text": "Neural Overload or Adaptive Countermeasures, Netrunner Role Step 3, Veteran tier"
+        "feat": [
+          "neural-overload",
+          "adaptive-countermeasures"
+        ]
+      },
+      {
+        "feat": [
+          "net-diver"
+        ]
+      },
+      {
+        "power_level_min": 3
+      },
+      {
+        "power_level_min": 3
       }
     ]
   },
@@ -3649,13 +3848,34 @@
     "kind": "gated",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Pharmacology or Surgical Precision, Medic Role Step 3, Intellect 4+, Veteran tier",
+    "prerequisite_text": "Pharmacology or Surgical Precision, Medic Role at Veteran tier, Intellect 4+, Veteran tier",
     "text": "Once per scene, clear the Broken condition from one ally without a Full Rest — requires one uninterrupted minute of treatment and a Survive Check vs DC 14. On success: the ally is restored to Injured range (boxes 11–14 unmarked) and clears one Condition. On overage 3+: they are restored to Hurt range instead. This is the non-magical equivalent of the Channeler Role’s Step 5 restoration ability.",
     "at_the_table": "",
     "steps": [],
     "requires": [
       {
-        "text": "Pharmacology or Surgical Precision, Medic Role Step 3, Intellect 4+, Veteran tier"
+        "feat": [
+          "pharmacology",
+          "surgical-precision"
+        ]
+      },
+      {
+        "role": [
+          "medic"
+        ],
+        "step": 1
+      },
+      {
+        "power_level_min": 3
+      },
+      {
+        "ability": [
+          "int"
+        ],
+        "min": 4
+      },
+      {
+        "power_level_min": 3
       }
     ]
   },
@@ -3894,13 +4114,13 @@
     ]
   },
   {
-    "id": "berserker",
-    "name": "Berserker",
+    "id": "frenzy",
+    "name": "Frenzy",
     "kind": "gated",
     "domain": "mastery",
     "magic": false,
     "prerequisite_text": "Striker at Veteran tier or above",
-    "text": "When your Stamina pool drops below half its maximum, you gain +2 to all Attack rolls. This bonus increases to +3 when Stamina drops to box 13 or higher (Injured threshold). This is not voluntary — it activates automatically. Berserker is always on when the condition is met. It cannot be suppressed.",
+    "text": "When your Stamina pool drops below half its maximum, you gain +2 to all Attack rolls. This bonus increases to +3 when Stamina drops to box 13 or higher (Injured threshold). This is not voluntary — it activates automatically. Frenzy is always on when the condition is met. It cannot be suppressed.",
     "at_the_table": "",
     "steps": [],
     "requires": [
@@ -4160,14 +4380,14 @@
     "kind": "stepped",
     "domain": "magic",
     "magic": true,
-    "prerequisite_text": "Belief 2+, Magic Overlay",
-    "text": "When your Abjure roll succeeds with overage 5+, the supernatural entity gains Removed (Spirit) for the rest of the session — not just the scene. This is a significant escalation from the normal rule, which suppresses for the scene. Additionally, Abjure costs 1 fewer Resolve box than normal (minimum 1). You have refined the authority behind the act.",
+    "prerequisite_text": "Belief 3+, Magic Overlay",
+    "text": "When your Abjure roll succeeds with overage 5+, the supernatural entity gains Removed (Spirit) for the rest of the session — not just the scene. This is a significant escalation from the normal rule, which suppresses for the scene. Additionally, Abjure costs 1 fewer Resolve box than normal (minimum 1). You have refined the authority behind the act. Without the Channeler Role, this Feat is how you gain Removed (Spirit) on overage 5+, and you remain limited to one Abjure per scene.",
     "at_the_table": "Abjure with overage 5+: entity gains Removed (Spirit) for session (not scene). Abjure costs 1 fewer Resolve (min 1). Both effects apply on the same successful Abjure. No change to the Abjure roll itself.",
     "steps": [
       {
         "tier": "Novice",
         "level": 1,
-        "text": "Abjure costs 1 fewer Resolve, minimum 1."
+        "text": "Abjure opens at Seasoned tier, so this Step gives nothing yet."
       },
       {
         "tier": "Seasoned",
@@ -4195,7 +4415,7 @@
         "ability": [
           "bel"
         ],
-        "min": 2
+        "min": 3
       },
       {
         "genre": [
@@ -4311,7 +4531,7 @@
     "kind": "stepped",
     "domain": "magic",
     "magic": true,
-    "prerequisite_text": "Caster or Channeler Role Step 1, Strength or Agility 2+",
+    "prerequisite_text": "Caster or Channeler Role, Strength or Agility 2+",
     "text": "Your physical Surge ceiling increases by 1 box when using Combat (Melee) or Combat (Ranged) skills — you can commit one more Surge box than your tier normally allows. Additionally, once per encounter, use a physical Maneuver as a Free Action (no Stamina cost, no Mastery Floor required) immediately after completing a successful Cast or Channel action.",
     "at_the_table": "",
     "steps": [
@@ -4343,7 +4563,7 @@
     ],
     "requires": [
       {
-        "text": "Caster or Channeler Role Step 1, Strength or Agility 2+"
+        "text": "Caster or Channeler Role, Strength or Agility 2+"
       }
     ]
   },
@@ -4399,8 +4619,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Belief 2+, Magic Overlay",
-    "text": "You may now use Healing Powers up to Level 2, paying full cost. You receive no Channeler discount and cannot take Channeler Role Steps. Your healing is genuine in this range — you can restore meaningful capacity, clear Hurt boxes, address Poisoned or Bleeding conditions. The divine source answers when you call. It is simply not your primary relationship.",
-    "at_the_table": "Healing Powers up to Level 2. Full cost. No Channeler discount. Cannot take Channeler Role Steps while this Feat is held. Available from Level 9.",
+    "text": "You may now use Healing Powers up to Level 2, paying full cost. You receive no Channeler discount and cannot take the Channeler Role. Your healing is genuine in this range — you can restore meaningful capacity, clear Hurt boxes, address Poisoned or Bleeding conditions. The divine source answers when you call. It is simply not your primary relationship.",
+    "at_the_table": "Healing Powers up to Level 2. Full cost. No Channeler discount. Cannot take the Channeler Role while this Feat is held. Available from Level 9.",
     "steps": [
       {
         "tier": "Novice",
@@ -4490,7 +4710,7 @@
     "kind": "stepped",
     "domain": "magic",
     "magic": true,
-    "prerequisite_text": "Caster or Channeler Role Step 1, Strength or Agility 2+",
+    "prerequisite_text": "Caster or Channeler Role, Strength or Agility 2+",
     "text": "Gain Combat (Melee) or Combat (Ranged) as a Focus Skill (your choice) even if it was not selected at creation. Your Deflect calculation may now use the higher of your Agility Score or Willpower Score — whichever is naturally higher from your build. You are no longer considered untrained in physical combat for the purpose of Maneuver access.",
     "at_the_table": "",
     "steps": [
@@ -4522,7 +4742,7 @@
     ],
     "requires": [
       {
-        "text": "Caster or Channeler Role Step 1, Strength or Agility 2+"
+        "text": "Caster or Channeler Role, Strength or Agility 2+"
       }
     ]
   },
@@ -4533,8 +4753,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Intellect 2+ or Belief 2+, Magic Overlay",
-    "text": "You may now use Powers up to Level 2, paying full Mana cost and Surge costs with no discount. You receive no Level Discount of any kind. You cannot take Caster, Channeler, or Weird Role Steps while you hold this Feat — your relationship with magic is deliberate practice, not innate identity. You are the warrior-mage: real capability, real cost, never the efficiency of a dedicated caster.",
-    "at_the_table": "Powers up to Level 2 available. Full Mana and Surge costs — no discount. Cannot take Caster, Channeler, or Weird Role Steps while this Feat is held. If those Role Steps are already held, consult GM for conflict resolution. Available from Level 9.",
+    "text": "You may now use Powers up to Level 2, paying full Mana cost and Surge costs with no discount. You receive no Level Discount of any kind. You cannot take the Caster or Channeler Role while you hold this Feat — your relationship with magic is deliberate practice, not innate identity. You are the warrior-mage: real capability, real cost, never the efficiency of a dedicated caster.",
+    "at_the_table": "Powers up to Level 2 available. Full Mana and Surge costs — no discount. Cannot take the Caster or Channeler Role while this Feat is held. If those Roles are already held, consult GM for conflict resolution. Available from Level 9.",
     "steps": [
       {
         "tier": "Novice",
@@ -4668,8 +4888,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Power Access, Intellect 4+ or Belief 4+, Heroic tier+",
-    "text": "You may now use Powers up to Level 4, paying full cost. You also gain one Level Discount point — a single reduction to Mana costs that does not stack with Caster discounts and applies to your highest-cost cast per scene. You still cannot take Caster, Channeler, or Weird Role Steps. At this tier your magic is undeniably real — limited and costly, but real. This is the ceiling of the warrior-mage path within the Feat system.",
-    "at_the_table": "Powers up to Level 4. Full cost minus 1 Mana on one cast per scene (the highest-cost one). Still cannot take Caster, Channeler, or Weird Role Steps. Available from Level 13.",
+    "text": "You may now use Powers up to Level 4, paying full cost. You also gain one Level Discount point — a single reduction to Mana costs that does not stack with Caster discounts and applies to your highest-cost cast per scene. You still cannot take the Caster or Channeler Role. At this tier your magic is undeniably real — limited and costly, but real. This is the ceiling of the warrior-mage path within the Feat system.",
+    "at_the_table": "Powers up to Level 4. Full cost minus 1 Mana on one cast per scene (the highest-cost one). Still cannot take the Caster or Channeler Role. Available from Level 13.",
     "steps": [],
     "requires": [
       {
@@ -4712,8 +4932,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Divine Intervention, Belief 4+, Heroic tier+",
-    "text": "You may now use Healing and Protection Powers up to Level 4, paying full cost. You gain one Level Discount point — one Mana reduction on your highest-cost healing or protection cast per scene. You still cannot take Channeler Role Steps. Your faith is genuine enough that the source answers with real power. The conversation is real. It is simply not the central relationship of your identity.",
-    "at_the_table": "Healing and Protection Powers up to Level 4. Full cost minus 1 Mana on one cast per scene (the highest-cost qualifying cast). Cannot take Channeler Role Steps. Available from Level 13.",
+    "text": "You may now use Healing and Protection Powers up to Level 4, paying full cost. You gain one Level Discount point — one Mana reduction on your highest-cost healing or protection cast per scene. You still cannot take the Channeler Role. Your faith is genuine enough that the source answers with real power. The conversation is real. It is simply not the central relationship of your identity.",
+    "at_the_table": "Healing and Protection Powers up to Level 4. Full cost minus 1 Mana on one cast per scene (the highest-cost qualifying cast). Cannot take the Channeler Role. Available from Level 13.",
     "steps": [],
     "requires": [
       {
@@ -4739,8 +4959,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Active Magical Specialty, Intellect 4+, Veteran tier+",
-    "text": "Your Surge costs for all Powers are reduced by 1 Mana box, to a minimum of 1. This stacks with the Caster Role’s Step 3 (which reduces the Surge cost on your primary cast school by 1). A dedicated Caster who takes this Feat becomes notably more resource-efficient — the combination represents mastery of the cost structure of magical power.",
-    "at_the_table": "All Surge costs reduced by 1 Mana box (min 1 per Surge box). Stacks with Caster Role Step 3 on the relevant school. Permanent. Applies to all schools of casting.",
+    "text": "Your Surge costs for all Powers are reduced by 1 Mana box, to a minimum of 1. This stacks with the Caster Role at Veteran tier (which reduces the Surge cost on your primary cast school by 1). A dedicated Caster who takes this Feat becomes notably more resource-efficient — the combination represents mastery of the cost structure of magical power.",
+    "at_the_table": "All Surge costs reduced by 1 Mana box (min 1 per Surge box). Stacks with the Caster Role at Veteran tier on the relevant school. Permanent. Applies to all schools of casting.",
     "steps": [],
     "requires": [
       {

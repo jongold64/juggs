@@ -272,24 +272,27 @@
       "default_from_focus": []
     },
     {
-      "id": "element",
-      "name": "Element",
-      "abilities": null,
-      "basic_cast_pool": null,
-      "rules": null,
-      "flags": [
-        "Details to be decided."
-      ]
-    },
-    {
       "id": "void",
       "name": "Void",
-      "abilities": null,
-      "basic_cast_pool": null,
-      "rules": null,
-      "flags": [
-        "Details to be decided."
-      ]
+      "abilities": [
+        "int",
+        "wil"
+      ],
+      "pools_text": "Mana / Stamina",
+      "tier": "own Source",
+      "basic_cast_pool": "stamina",
+      "text": [
+        "Any setting where something lies beyond the world.",
+        "Origin: Choose where it comes from at creation. Space: the empty dark between worlds, impersonal, wanting nothing. The Old Ones: vast minds outside the world, who may notice you and whom the GM may call on.",
+        "Components: None visible. Light dims and sound dulls around the caster.",
+        "Basic Cast: Crosses Stamina. Void is a negative energy that unmakes the physical.",
+        "Corruption: On a Bane while using Void power, gain Corruption +1 automatically, with no check. A Void caster makes no other Void Effect check.",
+        "Void Mastery: The Void Effect never takes the −1 for being non-Signature.",
+        "Opposition: Divine Powers (positive energy) and Nature / Primal Powers with an Earth Effect count 1 Power Level higher against Void-sourced targets. You can be Abjured.",
+        "Learning: It can’t be taught safely. It is learned from forbidden texts, or from contact.",
+        "Void is contact with something that does not care about you. A deal with something that wants you is Demonic / Pact-Bound."
+      ],
+      "default_from_focus": []
     }
   ],
   "weird": {
@@ -627,7 +630,7 @@
           "reach": "Near",
           "targets": "One, up to a Rival",
           "duration": "Scene",
-          "text": "Now works on Rivals."
+          "text": "Now works on Rivals. A target Opposition applies to counts as one tier lower."
         },
         {
           "level": 15,
