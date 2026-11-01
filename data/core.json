@@ -299,8 +299,8 @@
       "effect": "Regain one spent Reaction, once per round"
     },
     {
-      "id": "read-the-room",
-      "name": "Read the Room",
+      "id": "keen-eye",
+      "name": "Keen Eye",
       "effect": "Ask the GM one question about the scene or a target, and get a true answer"
     },
     {
