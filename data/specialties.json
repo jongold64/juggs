@@ -321,7 +321,7 @@
       {
         "tier": "Veteran",
         "level": 9,
-        "text": "Overflow Conduit: Once per session, when you cast at 5 Surge boxes, the Power does not consume those Surge boxes from your pool — they are refunded after the cast resolves. Additionally, any Fallout that would trigger from this cast is reduced one severity step (Catastrophic becomes Severe, Severe becomes Moderate, Moderate is negated). The sheer volume of power passing through you simply moves on.",
+        "text": "Overflow Conduit: Once per session, when you cast at 5 Surge boxes, the Power does not consume those Surge boxes from your pool — they are refunded after the cast resolves. Additionally, any Fallout that would trigger from this cast is reduced one severity step (Catastrophic becomes Severe, Severe becomes Major, Major is negated). The sheer volume of power passing through you simply moves on.",
         "at_the_table": "Once per session. Must declare at 5 Surge boxes before rolling. Boxes are refunded after the roll resolves — they are spent for the roll and then returned. Fallout reduction applies to the same cast."
       },
       {

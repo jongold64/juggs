@@ -21,7 +21,9 @@ Asked of the author while updating the builder:
   Step 1 and `core.json` `level_discount.roles` holds the list.
 - **Armor Agility penalty**: applies to Agility rolls and no longer lowers Body Deflect.
 - **Specialty bonus Focus Skills**: kept, on every Specialty held, although the Book of Feats entries omit them.
-- **Fallout**: as printed. Casters at Surge 5+; Specialty Fallout and Weird Fallout at Surge 3+.
+- **Fallout**: as printed. Casters at Surge 5+; Specialty Fallout and Weird Fallout at Surge 3+. One caster ladder
+  (decided 2026-11-01): Major (5, +3 boxes), Severe (6, +4 and one Condition), Catastrophic (7, +5 and two Conditions),
+  reducing a step at a time to none. Voidtouched crosses 2 extra Mana boxes on a Natural 1 on any Cast.
 - **Basic Cast**: free for a practitioner, anyone whose Attack Ability plus Cast or Channel skill totals 3 or more
   (author's change; a Focus Skill always qualifies). A lower total costs 1 Mana minimum. Cantrips use the same test.
   Both books now say this. Caster Step 1's "Cantrips free (Cast 2+)" is left as written, since Cast 2+ always qualifies.
