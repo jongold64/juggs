@@ -268,8 +268,10 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
     cumulative -1 to the roll for each earlier use that scene. On 5+ overage the entity gains Removed (Spirit).
   - **Others**: 2 Resolve, once per scene. Success makes the entity Frightened; 5+ overage does nothing more.
   - **Abjurer's Authority** gives others Removed (Spirit) on 5+ overage and works from Seasoned. Its 1 fewer Resolve stays,
-    and they remain limited to once per scene. To confirm.
+    and they remain limited to once per scene.
   - Channeler Step 1 loses its Abjure cost, Legendary is unchanged, and Rule 3 and the Holy Relic need rewording.
+- **Spent does not stack with backlash (decided 2026-10-31, not yet applied).** "Spent doesn't repeat boxes already crossed by
+  backlash." It still charges Surges of 1 or 2 boxes, and Effect boxes on the same roll.
 - **Deafened stays its own condition** (decided 2026-10-31). No change needed.
 - **Element and Void (decided 2026-10-31, not yet applied).** Element is absorbed into the expansion Sources; the closest is
   Nature / Primal, which is the proposed home for old saves. Void stays as its own Source: negative energy, from Space or
