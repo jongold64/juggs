@@ -18,7 +18,7 @@
       {
         "step": 2,
         "level": 5,
-        "text": "When Combat Fallout triggers, choose the Condition applied to you — it must be a standard Condition.",
+        "text": "Battle-Hardened: When you roll a Natural 1 on an attack, the GM doesn’t pick from the Bane Menu. You take only the −2.",
         "tier": "Seasoned"
       },
       {
@@ -30,13 +30,13 @@
       {
         "step": 4,
         "level": 13,
-        "text": "Once per round, one Combat Maneuver costs 0 Stamina. Declare before rolling. The effect still applies.",
+        "text": "Relentless: Once per round, add 2 free Surge boxes to one attack. This counts as Surge 2 for your Signature Effect.",
         "tier": "Heroic"
       },
       {
         "step": 5,
         "level": 17,
-        "text": "On a Boon (threshold 13–20 at Legendary), all Combat Maneuvers this round cost 0 Stamina.",
+        "text": "Unstoppable: Once per round, after you hit, make one Basic Attack at no Action cost.",
         "tier": "Legendary"
       }
     ],

@@ -157,7 +157,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Maneuvers** use the tier Mastery Floor: Seasoned makes 1-cost Maneuvers free, Veteran 2-cost, Heroic 3-cost,
   Legendary all.
 - **Surge** is not reduced by the Mastery Floor. Surge Discipline is the only Surge discount.
-- These stay **free** as written exceptions: Mastery Floor free Maneuvers, Warrior Step 4, Caster Steps 4–5,
+- These stay **free** as written exceptions: Mastery Floor free Maneuvers, Caster Steps 4–5,
   Invoker's Total Output, Conduit's Overflow Conduit.
 
 ## Skills
@@ -244,6 +244,9 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **New Warrior Steps (decided 2026-11-01).** Step 2 Battle-Hardened: a Natural 1 on an attack draws no Bane Menu pick, only the
+  −2. Step 4 Relentless: once per round, 2 free Surge boxes on one attack, counting as Surge 2 for the Signature Effect. Step 5
+  Unstoppable: once per round, after a hit, one Basic Attack at no Action cost.
 - **Player Book cleanup (2026-11-01).** Repeated sections removed; the Opening Bane is now Left Open and the Press option of
   Combined Attack is now Corner, so no two rules share a name. Social Deflect uses the tier bonus everywhere, not Reputation.
 - **Heal unmarks the overage (decided 2026-11-01).** Overage or Power Level, whichever is higher, with no cap. The
