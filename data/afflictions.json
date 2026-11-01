@@ -171,13 +171,13 @@
         {
           "stage": 3,
           "name": "The Hunger",
-          "gives": "+2 Agility. Once per scene, a bite attack that ignores DR and applies Paralyzed on overage 3+.",
+          "gives": "+2 Agility. Once per scene, a bite attack that ignores DR and applies Stunned on overage 3+.",
           "takes": "Willpower check vs DC 13 when exposed to fresh corpses or you feed. Feeding on the dead grants Corruption +1."
         },
         {
           "stage": 4,
           "name": "Carrion-Kin",
-          "gives": "Fast Movement, DR 1, and immunity to Frightened and Sickened.",
+          "gives": "Fast Movement, DR 1, and immunity to Frightened and Weakened.",
           "takes": "You can no longer digest anything but corpse-flesh. Without it, 2 Stamina boxes per day. −3 Morale."
         },
         {
