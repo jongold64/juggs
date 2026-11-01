@@ -241,6 +241,9 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 
 ## Second trim
 
+- **Encounter Points (decided 2026-11-01).** The GM Guide now sizes fights by points: each hero is 10, opponents have
+  points by tier, and enemy ÷ party sets the difficulty (0.75 to 1 is the challenging fight). It is a GM tool, so the
+  builder does not use it.
 - **Four new Boons (decided 2026-11-01).** Opening, the next ally to attack the same target this round gets +2; Break
   Through, this hit ignores armor DR; Reset, regain one spent Reaction, once per round; Read the Room, one true answer
   from the GM. Chase versions are in the Player Book.
