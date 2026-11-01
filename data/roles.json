@@ -313,7 +313,7 @@
       {
         "step": 2,
         "level": 5,
-        "text": "Maximum usable Power Level = Character Level + 1 (cap 5).",
+        "text": "Shaped Casting: Once per scene, add one upgrade to a Power without raising its Mana cost. The Power’s Level still rises, and cannot go above 5.",
         "tier": "Seasoned"
       },
       {

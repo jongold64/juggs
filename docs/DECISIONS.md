@@ -244,6 +244,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Caster Step 2 is Shaped Casting (decided 2026-11-01).** Once per scene, add one upgrade to a Power without raising its Mana
+  cost; its Level still rises, to at most 5. The general limit (Character Level + 1, maximum 5) stays.
 - **Boon Tokens are gone (decided 2026-11-01).** A Natural 1 while one of your Boons is still active (until the end of your next
   turn after the Boon) is no Bane, only a roll of 1. Big Surge backlash and Fallout still apply.
 - **New Warrior Steps (decided 2026-11-01).** Step 2 Battle-Hardened: a Natural 1 on an attack draws no Bane Menu pick, only the
