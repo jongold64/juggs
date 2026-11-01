@@ -271,7 +271,7 @@
     {
       "id": "tempo",
       "name": "Tempo",
-      "effect": "One additional Action this round (Seasoned tier and above)"
+      "effect": "One additional Action this round, once per round (Seasoned tier and above)"
     },
     {
       "id": "clarity",

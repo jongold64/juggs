@@ -241,6 +241,10 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze.
 
 ## Second trim
 
+- **Tempo is once per round (decided 2026-11-01).** A Boon's extra Action can no longer chain into more.
+- **NPC numbers are built for six heroes (decided 2026-11-01).** Antagonist and Boss Boxes and Actions are 1.5 times the
+  old four-hero numbers; Rivals and Minions are unchanged, with about one Rival per hero. For four heroes, use
+  two-thirds, rounding Actions up. The NPC table is in the books, not the builder.
 - **Pools stay 15/15/15 (decided 2026-11-01).** Unequal pools by Domain (20/15/10) were simulated and turned down.
 - **No Guard stays (decided 2026-10-31).** The Cheat Code from the One Page sheets is now in the Lite Player Book: at
   Seasoned tier and above, twice per encounter on your turn, mark 1 box from the pool you are using and trade one
