@@ -244,6 +244,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Chase Tactics (decided 2026-11-02).** A chase's Callings are now Chase Tactics: Attack Tactic, Press Tactic and Speed Tactic.
 - **Luck Roll (decided 2026-11-02).** Luck is no longer a skill (23 universal skills). When fate alone decides, the GM may call a
   Luck Roll: d20 + Serenity, no skill; players can't call one. The character sheet shows the Luck bonus on the Defenses card, by DR.
 - **Origin Notes merged (decided 2026-11-02).** Each Origin's one-line description now sits under its name in the main Origin table;
@@ -338,7 +339,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
   The builder keeps its saved field name, so old saves still load.
 - **Chase Boons use the Boon Menu (applied 2026-10-31).** Momentum, +2 to all rolls until the end of your
   next turn; Recovery, unmark 1 box; Tempo (Seasoned+), move two bands this round; Clarity, clear a Condition or shake off a
-  Complication; Guard, +2 against the next hazard or Attack Calling; Grace, give one to an ally in the chase. Legendary only:
+  Complication; Guard, +2 against the next hazard or Attack Tactic; Grace, give one to an ally in the chase. Legendary only:
   End the Chase, the quarry vanishes (distance resets to Far) or the pursuer cuts them off (distance jumps to Close). The
   cumulative tier list goes.
 - **Supernatural conditions move to the GM Guide Lite (applied 2026-10-31).** The Player Book
