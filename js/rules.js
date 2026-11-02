@@ -24,6 +24,12 @@ export function tierFor(D, level) {
   return D.core.tiers.find(t => level >= t.levels[0] && level <= t.levels[1]) || D.core.tiers[0];
 }
 
+// Novice 1 to Legendary 5.
+export const tierNumber = (D, level) => D.core.tiers.indexOf(tierFor(D, level)) + 1;
+
+// Each Signature Effect type gives DR equal to the tier number against damage of that type.
+export const signatureDR = (D, c) => tierNumber(D, c.level);
+
 // Levels at or below `level` where something happens.
 export const levelsUpTo = (list, level) => list.filter(lv => lv <= level);
 export const isTierChange = (D, level) => D.core.advancement.tier_change_levels.includes(level);
