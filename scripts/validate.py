@@ -268,6 +268,7 @@ def main(folder):
         ck.ref(w, a.get('aptitude'), aptitudes, 'Background')
         ck.ref(w, a.get('focus_skills', []), skills, 'skill')
         ck.ref(w, a.get('power_sources', []), sources, 'Power Source')
+        ck.ref(w, a.get('signature_effect'), {**effects, **maneuvers}, 'Effect or Maneuver')
         if a.get('feat'):
             ck.ref(w, a['feat'], ctx['feats'], 'Feat')
         if a.get('genre'):

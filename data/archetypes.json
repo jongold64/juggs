@@ -70,6 +70,45 @@
     "power_sources": []
   },
   {
+    "id": "fighter",
+    "name": "Fighter",
+    "role": "warrior",
+    "specialty": "guardian",
+    "aptitude": "soldier",
+    "signature_effect": "knockdown",
+    "focus_skills": [
+      "combat-melee",
+      "combat-maneuver",
+      "athletics",
+      "endure",
+      "intimidate",
+      "lead"
+    ],
+    "power_sources": [],
+    "feat": "weapon-specialist"
+  },
+  {
+    "id": "paladin",
+    "name": "Paladin",
+    "role": "defender",
+    "specialty": "warden",
+    "aptitude": "celebrant",
+    "signature_effect": "radiant",
+    "focus_skills": [
+      "combat-melee",
+      "endure",
+      "lead",
+      "channel",
+      "concentrate",
+      "persuade"
+    ],
+    "power_sources": [
+      "divine"
+    ],
+    "feat": "channel-access",
+    "genre": "magic"
+  },
+  {
     "id": "wayfinder",
     "name": "Wayfinder",
     "role": "scout",
@@ -85,6 +124,42 @@
       "endure"
     ],
     "power_sources": []
+  },
+  {
+    "id": "rogue",
+    "name": "Rogue",
+    "role": "scout",
+    "specialty": "duelist",
+    "aptitude": "criminal",
+    "signature_effect": "feint",
+    "focus_skills": [
+      "stealth",
+      "combat-melee",
+      "evasion",
+      "legerdemain",
+      "deceive",
+      "observe"
+    ],
+    "power_sources": [],
+    "feat": "shadow-step"
+  },
+  {
+    "id": "ranger",
+    "name": "Ranger",
+    "role": "scout",
+    "specialty": "sharpshooter",
+    "aptitude": "trained-by-nature",
+    "signature_effect": "aimed-shot",
+    "focus_skills": [
+      "combat-ranged",
+      "survive",
+      "stealth",
+      "observe",
+      "handle",
+      "athletics"
+    ],
+    "power_sources": [],
+    "feat": "steady-aim"
   },
   {
     "id": "infiltrator",

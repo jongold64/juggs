@@ -244,6 +244,9 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **New Archetypes (decided 2026-11-02).** Fighter (Warrior, Guardian, Soldier, Weapon Specialist, Knockdown), Paladin (Defender,
+  Warden, Celebrant, Divine, Channel Access, Radiant, Magic Genre), Rogue (Scout, Duelist, Criminal, Shadow Step, Feint) and Ranger
+  (Scout, Sharpshooter, Trained by Nature, Steady Aim, Aimed Shot). An Archetype's Signature may be an Effect or a Maneuver.
 - **Signature Maneuver (decided 2026-11-02).** Each character picks one Signature, an Effect or a Combat Maneuver. A Signature
   Maneuver is added free on a Surge 2+ hit (no Stamina, no extra roll; its own requirement applies), and no one can use it on you
   while you can act. Bosses stand up from Prone for free at the start of their turn. Expanded Signature may add a Maneuver (it works
