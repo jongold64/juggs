@@ -244,6 +244,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Reputation stays out of combat (decided 2026-11-02).** It no longer adds to Initiative and has no combat effect; it remains a social rule.
 - **Upper Hand (decided 2026-11-02).** Ties favor heroes on every opposed roll between a hero and an enemy: no boxes are crossed,
   but the hero gets the Upper Hand and the enemy takes -2 on its next roll. Rolls against a fixed DC are not opposed rolls.
 - **Initiative variants (decided 2026-11-02, replaces parts of the next two entries).** The alternatives are called Variants, not Methods.

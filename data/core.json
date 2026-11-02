@@ -237,7 +237,7 @@
     }
   ],
   "initiative": {
-    "roll": "d20 + the primary Domain's Deflect Ability (+ Reputation when opponents know the character)",
+    "roll": "d20 + the primary Domain's Deflect Ability",
     "methods": [
       {
         "id": "roll",
