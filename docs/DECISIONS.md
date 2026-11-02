@@ -244,6 +244,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Origin Notes merged (decided 2026-11-02).** Each Origin's one-line description now sits under its name in the main Origin table;
+  the separate Origin Notes table is gone.
 - **Healer Archetypes (decided 2026-11-02).** Cleric (Channeler, Martyr, Celebrant, Divine, Unshakeable Faith, Healing, Magic Genre),
   Spirit Healer (Channeler, Anchor, Shaman Background, Spirit, Steady Presence, Healing, Magic Genre), Field Medic (Medic, Martyr, Healer, Rapid Recovery)
   and Combat Medic (Medic, Guardian, Soldier, Second Wind, Knockdown).
