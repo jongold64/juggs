@@ -247,12 +247,12 @@
       {
         "id": "pick-your-place",
         "name": "Pick Your Place",
-        "text": "Pick from 30, 26, 22, 18, 14, 10, continuing down in fours. No duplicates."
+        "text": "Pick from 30, 26, 22, 18, 14, 10, continuing down in fours. No duplicates. Spotlight: the table may agree that one hero goes first each round; the rest follow in picked order from the top. Heroes only."
       },
       {
-        "id": "roll-and-swap",
-        "name": "Roll and Swap",
-        "text": "Everyone rolls as normal, then the table swaps numbers freely."
+        "id": "sides",
+        "name": "Sides",
+        "text": "The highest hero's Initiative against the GM's d20 + the party's tier bonus. The winning side takes all its turns first, in any order. Ties go to the heroes."
       }
     ]
   },
