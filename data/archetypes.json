@@ -248,6 +248,42 @@
     "feat": "net-diver"
   },
   {
+    "id": "field-medic",
+    "name": "Field Medic",
+    "role": "medic",
+    "specialty": "martyr",
+    "aptitude": "healer",
+    "signature_effect": "force",
+    "focus_skills": [
+      "survive",
+      "observe",
+      "analyze",
+      "endure",
+      "evasion",
+      "persuade"
+    ],
+    "power_sources": [],
+    "feat": "rapid-recovery"
+  },
+  {
+    "id": "combat-medic",
+    "name": "Combat Medic",
+    "role": "medic",
+    "specialty": "guardian",
+    "aptitude": "soldier",
+    "signature_effect": "knockdown",
+    "focus_skills": [
+      "survive",
+      "combat-melee",
+      "endure",
+      "observe",
+      "athletics",
+      "combat-maneuver"
+    ],
+    "power_sources": [],
+    "feat": "second-wind"
+  },
+  {
     "id": "psion",
     "name": "Psion",
     "role": "caster",
@@ -305,5 +341,47 @@
     ],
     "feat": "weird-touched",
     "genre": "weird-magic"
+  },
+  {
+    "id": "cleric",
+    "name": "Cleric",
+    "role": "channeler",
+    "specialty": "martyr",
+    "aptitude": "celebrant",
+    "signature_effect": "healing",
+    "focus_skills": [
+      "channel",
+      "concentrate",
+      "observe",
+      "persuade",
+      "lead",
+      "endure"
+    ],
+    "power_sources": [
+      "divine"
+    ],
+    "feat": "unshakeable-faith",
+    "genre": "magic"
+  },
+  {
+    "id": "shaman",
+    "name": "Shaman",
+    "role": "channeler",
+    "specialty": "anchor",
+    "aptitude": "shaman",
+    "signature_effect": "healing",
+    "focus_skills": [
+      "channel",
+      "survive",
+      "handle",
+      "concentrate",
+      "observe",
+      "sixth-sense"
+    ],
+    "power_sources": [
+      "spirit"
+    ],
+    "feat": "steady-presence",
+    "genre": "magic"
   }
 ]

@@ -85,7 +85,7 @@ check('Weird Magic needs Magic on too',
   R.availableSkills(D, make({ genres: ['weird-magic'] })).some(s => s.id === 'weird-control'), false);
 
 // Roles
-check('Nine Roles and seventeen Archetypes', [D.roles.length, D.archetypes.length], [9, 17]);
+check('Nine Roles and twenty-one Archetypes', [D.roles.length, D.archetypes.length], [9, 21]);
 check('Archetype Signatures are Effects or Maneuvers', D.archetypes.every(x => D.effectsById.has(x.signature_effect) || D.maneuversById.has(x.signature_effect)), true);
 check('Starting Role is Step 1', R.roleSteps(D, make({ role: 'warrior' })), { warrior: 1 });
 check('A Role has the Steps its tier has reached', R.roleSteps(D, make({ level: 13, role: 'warrior' })), { warrior: 4 });
