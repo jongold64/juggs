@@ -247,7 +247,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Chase Boons (decided 2026-11-02).** In a chase: Momentum also turns a tie into a win; Recovery unmarks 1 Stamina box or ignores
   the next hazard; Keen Eye reveals the next obstacle or hazard with +2 against it; Grace can carry an ally in your zone along;
   Reset lets you declare your Chase Tactic after the opponent next round.
-- **Chase Tactics (decided 2026-11-02).** A chase's Callings are now Chase Tactics: Attack Tactic, Press Tactic and Speed Tactic.
+- **Chase Tactics (decided 2026-11-02).** A chase's Callings are now Chase Tactics: Attack, Influence and Speed. The Influence Tactic
+  (once Press) rolls the approach's Attack Ability + a social skill (Persuade, Deceive, Intimidate or Lead), as in social conflict.
 - **Luck Roll (decided 2026-11-02).** Luck is no longer a skill (23 universal skills). When fate alone decides, the GM may call a
   Luck Roll: d20 + Serenity, no skill; players can't call one. The character sheet shows the Luck bonus on the Defenses card, by DR.
 - **Origin Notes merged (decided 2026-11-02).** Each Origin's one-line description now sits under its name in the main Origin table;
