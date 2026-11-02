@@ -27,6 +27,9 @@ export function tierFor(D, level) {
 // Novice 1 to Legendary 5.
 export const tierNumber = (D, level) => D.core.tiers.indexOf(tierFor(D, level)) + 1;
 
+// A Luck Roll, called by the GM when fate alone decides: d20 + Serenity, no skill.
+export const luckBonus = (D, c, level = c.level) => abilityScores(D, c, level).ser;
+
 // Each Signature Effect type gives DR equal to the tier number against damage of that type.
 export const signatureDR = (D, c) => tierNumber(D, c.level);
 

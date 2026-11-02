@@ -163,17 +163,6 @@
     "description": "Calming animals and tense situations; providing grounded perspective."
   },
   {
-    "id": "luck",
-    "name": "Luck",
-    "category": "spirit",
-    "governing": [
-      "ser"
-    ],
-    "genres": [],
-    "description": "GM-called only. The GM calls for a Luck roll when an outcome is entirely outside the character’s influence and fate plays a genuine role — a random patrol arrives, a structure collapses, a stranger makes an unpredictable choice. Players may not initiate Luck rolls. Roll d20 + Serenity; the GM adjudicates the result.",
-    "gm_only": true
-  },
-  {
     "id": "sixth-sense",
     "name": "Sixth Sense",
     "category": "spirit",

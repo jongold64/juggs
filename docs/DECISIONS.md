@@ -244,6 +244,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Luck Roll (decided 2026-11-02).** Luck is no longer a skill (23 universal skills). When fate alone decides, the GM may call a
+  Luck Roll: d20 + Serenity, no skill; players can't call one. The character sheet shows the Luck bonus on the Defenses card, by DR.
 - **Origin Notes merged (decided 2026-11-02).** Each Origin's one-line description now sits under its name in the main Origin table;
   the separate Origin Notes table is gone.
 - **Healer Archetypes (decided 2026-11-02).** Cleric (Channeler, Martyr, Celebrant, Divine, Unshakeable Faith, Healing, Magic Genre),

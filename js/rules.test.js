@@ -277,7 +277,9 @@ check('Old supplemental Effects map or clear', [clean(D, { signature: { offensiv
 check('Old weapon Effect maps', clean(D, { weapons: [{ name: 'x', effect: 'nature' }] }).weapons[0].effect, 'earth');
 
 // Loading old or broken saves
-check('Merged skills: 24 universal skills', D.skills.filter(s => !s.genres.length).length, 24);
+check('Merged skills: 23 universal skills (Luck is a Luck Roll)', D.skills.filter(s => !s.genres.length).length, 23);
+check('Luck Roll is d20 + Serenity', R.luckBonus(D, make()), R.abilityScores(D, make()).ser);
+check('Old Luck skill points are dropped', clean(D, { skillPoints: { 2: ['luck', 'trade'] } }).skillPoints[2], ['', 'trade']);
 check('Old Focus Skills are renamed', clean(D, { focus: ['pilot', 'tactics', 'resist'] }).focus, ['operate', 'analyze', 'concentrate']);
 check('Two old skills merging empties a Focus slot', clean(D, { focus: ['operate', 'pilot'] }).focus, ['operate', '']);
 check('Old skill points move, and a collision frees the point',

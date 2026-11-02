@@ -1,8 +1,9 @@
 // Old ids in saved characters and what they are called now. clean() in character.js runs these first, so characters
 // saved before the Lite rules still load. Anything with no new home is simply dropped by clean().
 
+// Luck is no longer a skill (it is a Luck Roll, d20 + Serenity): '' empties its slot.
 export const SKILLS = { pilot: 'operate', language: 'knowledge', tactics: 'analyze', inspire: 'lead', resist: 'concentrate',
-                        heal: 'channel' };
+                        heal: 'channel', luck: '' };
 export const SPECIALTIES = { skirmisher: 'sharpshooter', shaper: 'weaver', empath: 'martyr', infiltrator: 'chameleon' };
 export const APTITUDES = { duelist: 'weapon-master', polymath: 'jack-of-all-trades' };
 

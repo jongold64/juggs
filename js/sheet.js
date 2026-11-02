@@ -69,6 +69,7 @@ export function renderSheet(D, c) {
   // Defenses: one stats line, then Deflect / Defend per Domain
   const init = R.initiativeBonus(D, c);
   const armor = R.armorInfo(D, c);
+  const luck = R.luckBonus(D, c);
   const defRows = R.DOMAINS.map(dom => {
     const slot = R.SLOT_ABILITY[dom];
     const defend = R.defendBonus(D, c, dom);
@@ -81,7 +82,8 @@ export function renderSheet(D, c) {
       <span>Actions / Reactions <b>${tier.actions} / ${tier.reactions}</b></span><span>Surge max <b>${tier.surge_max}</b></span><span>Hit Cap <b>${tier.hit_cap}</b></span></div>
     <table class="s-def"><thead><tr><th></th><th>Deflect</th><th>Defend</th></tr></thead><tbody>${defRows}</tbody></table>
     <p class="s-armor"><b>DR ${armor.dr}</b> <span class="s-hint">off Stamina damage</span>${armor.parts.length ? ` <span class="s-hint">${armor.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')}</span>` : ''}${
-      armor.agilityPenalty ? ` · <b>Agility rolls ${armor.agilityPenalty}</b>` : ''}</p></section>`;
+      armor.agilityPenalty ? ` · <b>Agility rolls ${armor.agilityPenalty}</b>` : ''}
+      · <b>Luck ${signed(luck)}</b> ${rollBtn('Luck', luck)} <span class="s-hint">GM calls it</span></p></section>`;
 
   // Weapons and implements: one line each
   const effName = id => D.effectsById.get(id)?.name || '';
