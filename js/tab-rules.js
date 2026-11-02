@@ -13,7 +13,6 @@ const CHEAT = [
   ['Attack', '1 Action; target Defends (1 Reaction, roll) or Deflects (free, 10 + Deflect Score + tier bonus)'],
   ['Hit Cap', 'one hit crosses at most 5 + tier number boxes, after armor; each Surge box raises it for that hit; healing has no cap'],
   ['Armor', 'DR comes off Stamina damage; it does not raise Defend or Deflect'],
-  ['Combined Attack', 'each extra Action on one attack: +2 to the roll and one option: Effect (1-box rung free), Maneuver, Pierce (ignore armor DR) or Corner (target can only Deflect)'],
   ['Minions', 'in the target\'s zone, they fall at the rate of your total overage, which ignores the Hit Cap; each lasts as many hits as the party\'s tier number'],
   ['Free basics', 'Basic Attack, Basic Cast, Basic Press cost no boxes'],
   ['Surge', '+1 to the roll and +1 Hit Cap per box, before the roll, paid win or lose; max 3 / 4 / 5 / 6 / 7 by tier'],

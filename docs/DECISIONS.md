@@ -244,6 +244,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Combined Attack cut (decided 2026-11-01).** Extra Actions can no longer be spent on one attack, so its Effect, Maneuver,
+  Pierce and Corner options are gone too. In simulation, two plain attacks out-damaged it even with no Hit Cap.
 - **Material moved (decided 2026-11-01).** Afflictions are in the GM Guide; Investigation stays in the Player Book for players; Period Equipment and Tech Levels are in
   the Book of Genres. The Player Book keeps short pointers.
 - **Wealth (decided 2026-11-01).** No BP cost: with GM approval a character may start one tier above or below their default. Cash on
