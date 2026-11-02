@@ -139,8 +139,11 @@ export function renderSheet(D, c) {
   const eff = id => D.effectsById.get(id)?.name || '';
   const wealth = c.wealth ?? R.startingWealth(D, c);
   const w = D.core.wealth_tiers[wealth - 1];
-  const small = `<section class="s-box"><h3>Signature Effect</h3>${field('Type (1-box rung free on a Surge 2+ hit)', eff(c.signature.offensive))}
-      <p class="s-hint">DR ${R.signatureDR(D, c)} against damage of each Signature type. Any other Effect: −1 to the roll.</p></section>
+  const man = D.maneuversById.get(c.signature.offensive);
+  const small = `<section class="s-box"><h3>Signature</h3>${man
+    ? `${field('Maneuver (free on a Surge 2+ hit)', man.name)}<p class="s-hint">No one can use it on you while you can act.</p>`
+    : `${field('Effect (1-box rung free on a Surge 2+ hit)', eff(c.signature.offensive))}
+      <p class="s-hint">DR ${R.signatureDR(D, c)} against damage of each Signature type. Any other Effect: −1 to the roll.</p>`}</section>
     <section class="s-box"><h3>Power Source</h3><p>${R.powerSources(D, c).map(s => esc(D.sourcesById.get(s).name)).join(' · ')}</p>
       <p class="s-hint">Physical always applies.</p></section>
     <section class="s-box"><h3>Wealth &amp; Standing</h3>${field('Wealth Tier', `${wealth} · ${w.name}`)}${field('Cash on Hand', R.cashOnHand(D, wealth))}

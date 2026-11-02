@@ -244,6 +244,10 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Signature Maneuver (decided 2026-11-02).** Each character picks one Signature, an Effect or a Combat Maneuver. A Signature
+  Maneuver is added free on a Surge 2+ hit (no Stamina, no extra roll; its own requirement applies), and no one can use it on you
+  while you can act. Bosses stand up from Prone for free at the start of their turn. Expanded Signature may add a Maneuver (it works
+  from Seasoned on). The Combat Maneuvers list is now printed in the Book of Feats.
 - **One Signature Effect (decided 2026-11-02).** The optional Defensive / Utility Signature is cut. Expanded Signature, whose Novice Step
   already removes the -1 for one extra type, moves from the Book of Powers to the Book of Feats as a Universal Stepped Feat.
 - **Signature DR (decided 2026-11-02).** Each Signature Effect type a character has gives DR equal to the tier number (1 to 5) against

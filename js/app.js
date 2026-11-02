@@ -344,8 +344,9 @@ function renderCharacter() {
       [name, D.feats.filter(f => f.domain === dom && f.kind === 'stepped').map(f => ({ value: f.id, label: f.name }))]), c.bonusFeat, 'None')}</select></label>`}
     <p class="hint">Any further Specialty uses a Feat slot: take it on the Advancement or Roles &amp; Feats tab.</p>
     ${problems(R.featProblems(D, c))}
-    <label class="field">Signature Effect <select data-bind="signature.offensive">${options(effectOpts, c.signature.offensive, 'None')}</select></label>
-    <p class="hint">Any other Effect is −1 to the roll. The Expanded Signature Feat adds more.</p>
+    <label class="field">Signature <select data-bind="signature.offensive">${groupedOptions([['Effects', effectOpts],
+      ['Maneuvers', D.maneuvers.map(m => ({ value: m.id, label: m.name }))]], c.signature.offensive, 'None')}</select></label>
+    <p class="hint">An Effect or a Maneuver, free on a Surge 2+ hit. Any other Effect is −1 to the roll. The Expanded Signature Feat adds more.</p>
     <p><b>Power Sources</b> <span class="hint">Physical always applies.</span></p><div class="genre-grid">${sourceBoxes}</div>`, 'wide');
 
   const standing = card('Final details', `

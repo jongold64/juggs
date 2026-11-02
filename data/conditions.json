@@ -7,7 +7,7 @@
     "ability": "agi",
     "effect": "−2 to Attack. Melee attackers gain +2 against you.",
     "source": null,
-    "removed": "spend 1 Action or Reaction to stand."
+    "removed": "spend 1 Action or Reaction to stand. A Boss stands for free at the start of its turn."
   },
   {
     "id": "restrained",

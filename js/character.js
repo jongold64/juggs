@@ -158,7 +158,8 @@ export function clean(D, raw) {
   c.capstone = D.featsById.get(raw.capstone)?.kind === 'gated' ? raw.capstone : '';
   c.capstoneNote = str(raw.capstoneNote).slice(0, 500);
   if (isObj(raw.signature)) {
-    c.signature.offensive = has(D.effectsById, raw.signature.offensive) ? raw.signature.offensive : '';
+    const sig = raw.signature.offensive;   // an Effect id or a Maneuver id
+    c.signature.offensive = has(D.effectsById, sig) || has(D.maneuversById, sig) ? sig : '';
   }
   c.powerSources = Array.isArray(raw.powerSources) ? raw.powerSources.filter(s => has(D.sourcesById, s)) : [];
   c.powers = Array.isArray(raw.powers) ? raw.powers.filter(isObj).map(p => cleanPower(D, p)).slice(0, 100) : [];
