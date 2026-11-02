@@ -244,6 +244,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Stepped Feat Steps add up (decided 2026-11-02).** Each Step adds to the ones before it, unless it says "instead."
 - **Pool Transfer becomes a Feat (decided 2026-11-02).** No longer a rule for everyone. A Universal Stepped Feat: once per encounter, on
   your turn, move any number of marked boxes one for one between pools, never marking a last box. Seasoned: also right after taking
   damage. Veteran: also clears one Condition of the unmarked pool's Domain. Heroic: twice per encounter. Legendary: may mark a last box.
