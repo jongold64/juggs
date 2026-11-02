@@ -277,6 +277,9 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Initiative variants (decided 2026-11-02, replaces parts of the next two entries).** The alternatives are called Variants, not Methods.
   Initiative Feats apply to the normal roll and to Sides, not to Pick Your Place (no claiming 30). Seize the Moment is used only when the
   scene calls for it, not every round.
+- **Enemy Initiative (decided 2026-11-02, replaces "Deflect - 10" for Sides).** Minions, Rivals and Antagonists don't roll: they act
+  at a fixed Initiative of Deflect - tier bonus, shown in a new Initiative column on the NPC table. A Boss rolls d20 + (Deflect - 10 -
+  tier bonus). In Sides, the enemies use their best Initiative, or a Boss's roll.
 - **Initiative ties and Seize the Moment (decided 2026-11-02).** Initiative ties between a hero and an enemy go to the hero. In Sides the GM
   adds the highest enemy's Deflect - 10 (replacing the tier bonus). Seize the Moment works with any method and puts the hero ahead of
   every enemy, even one that rolled higher. Under Pick Your Place, a hero with a Feat that adds to Initiative may claim 30 first.
