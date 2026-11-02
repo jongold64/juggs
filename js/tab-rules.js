@@ -26,7 +26,6 @@ const CHEAT = [
   ['Pools', '15 boxes; Hurt 6–10 −1, Injured 11–14 −2 (that Domain), last box Broken'],
   ['Rest', 'Quick: Healthy boxes · Full: Healthy and Hurt · Broken: magic + Full Rest'],
   ['Heal', 'd20 + Belief or Serenity + Channel vs DC 15; overage or Power Level unmarks boxes; mundane healing uses Survive'],
-  ['Pool Transfer', 'once per encounter, free: any pool to any other at 2 spent for 1 restored, up to 5 restored'],
   ['Helping', 'free +2, or spend an Action / Reaction for +4; two helpers at most'],
   ['Movement', 'next zone free; farther 1 Action; leaving a Contested zone without an Action = Bane'],
   ['Social', 'pick an approach; Press / Hold / Deflect; total overage sets the result'],

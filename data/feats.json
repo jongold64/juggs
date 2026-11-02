@@ -253,6 +253,44 @@
     ]
   },
   {
+    "id": "pool-transfer",
+    "name": "Pool Transfer",
+    "kind": "stepped",
+    "domain": "universal",
+    "magic": false,
+    "prerequisite_text": "None",
+    "text": "Once per encounter, as a free action on your turn, move any number of marked boxes from one pool to another: unmark them in the first pool and mark the same number in the second. You can’t mark a pool’s last box this way.",
+    "at_the_table": "Declare on your turn. Unmark boxes in one pool and mark the same number in another, one for one. Stop before any pool’s last box. Resets at encounter end.",
+    "steps": [
+      {
+        "tier": "Novice",
+        "level": 1,
+        "text": "As written above."
+      },
+      {
+        "tier": "Seasoned",
+        "level": 5,
+        "text": "You may also use it right after taking damage, not only on your turn."
+      },
+      {
+        "tier": "Veteran",
+        "level": 9,
+        "text": "When you move boxes, also clear one Condition of the Domain whose pool you unmark."
+      },
+      {
+        "tier": "Heroic",
+        "level": 13,
+        "text": "Twice per encounter."
+      },
+      {
+        "tier": "Legendary",
+        "level": 17,
+        "text": "You may mark a pool’s last box."
+      }
+    ],
+    "requires": []
+  },
+  {
     "id": "rapid-recovery",
     "name": "Rapid Recovery",
     "kind": "stepped",

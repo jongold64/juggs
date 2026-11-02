@@ -502,11 +502,6 @@
     "max": 5,
     "start": 1
   },
-  "pool_transfer": {
-    "text": "Once per encounter, as a free action, spend boxes from any pool to restore boxes in any other: every 2 spent restores 1, up to 5 restored.",
-    "rate": 2,
-    "max_restored": 5
-  },
   "boon_rule": "A Boon triggers when the natural die meets your tier's threshold. Choose from the Boon Menu (tier boon_choices), never the same option twice. Tempo needs Seasoned or above.",
   "hit_cap": "One hit crosses at most 5 + tier number boxes, after armor. Each Surge box raises that hit's cap by 1. Healing has no cap.",
   "bane_menu": [

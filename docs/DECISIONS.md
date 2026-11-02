@@ -244,6 +244,9 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Pool Transfer becomes a Feat (decided 2026-11-02).** No longer a rule for everyone. A Universal Stepped Feat: once per encounter, on
+  your turn, move any number of marked boxes one for one between pools, never marking a last box. Seasoned: also right after taking
+  damage. Veteran: also clears one Condition of the unmarked pool's Domain. Heroic: twice per encounter. Legendary: may mark a last box.
 - **Genre skills (decided 2026-11-01).** Raised with skill points under the same tier caps as other skills, not XP.
 - **Combined Attack cut (decided 2026-11-01).** Extra Actions can no longer be spent on one attack, so its Effect, Maneuver,
   Pierce and Corner options are gone too. In simulation, two plain attacks out-damaged it even with no Hit Cap.
