@@ -499,9 +499,11 @@ export function madePowerSummary(D, c, p) {
   return { rawLevel, powerLevel, over: rawLevel > 5, ...manaFor(D, c, powerLevel, cantrip) };
 }
 
-// A Step of a spell: { level, pl, reach, targets, ... }.
+// A Step of a spell: { level, pl, reach, targets, ... }. A cantrip is PL 1 on one target or yourself at Touch or Close;
+// the utility tricks that reach Near or sense an area say "Free for casters as a Cantrip" in their text.
 export function spellStepSummary(D, c, step) {
-  const cantrip = step.pl === 1 && /^(Touch|Close)$/.test(step.reach) && /^One\b/.test(step.targets);
+  const cantrip = step.pl === 1 && (/Free for casters as a Cantrip/.test(step.text)
+    || (/^(Touch|Close|Self)$/.test(step.reach) && /^(One\b|You$)/.test(step.targets)));
   return { powerLevel: step.pl, ...manaFor(D, c, step.pl, cantrip) };
 }
 

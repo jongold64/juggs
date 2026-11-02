@@ -244,6 +244,10 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Cantrips (decided 2026-11-02).** One definition, in the Book of Powers: PL 1 on one target or yourself, free for a practitioner
+  (others pay normal Mana), no Surge. Attacks, heals and Conditions are Touch or Close and cross at least 1 box on a hit; utility tricks
+  reach Near, and one that only senses may cover an area. Caster Role Step 1 drops "Cantrips free (Cast 2+)" (every Caster is already
+  a practitioner).
 - **Reputation stays out of combat (decided 2026-11-02).** It no longer adds to Initiative and has no combat effect; it remains a social rule.
 - **Upper Hand (decided 2026-11-02).** Ties favor heroes on every opposed roll between a hero and an enemy: no boxes are crossed,
   but the hero gets the Upper Hand and the enemy takes -2 on its next roll. Rolls against a fixed DC are not opposed rolls.
