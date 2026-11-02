@@ -8,7 +8,7 @@ const HOW_TO_PLAY = 'https://claude.ai/code/artifact/5ea00859-2298-46d0-b0ad-aaf
 
 // The cheat sheet from the How to Play doc.
 const CHEAT = [
-  ['The roll', 'd20 + Ability + Skill (+ gear, + Domain Mastery); the margin is overage, 1 overage = 1 box'],
+  ['The roll', 'd20 + Ability + Skill (+ gear, + Domain Mastery); the margin is overage, 1 overage = 1 box; when a hero ties an enemy, the hero gets the Upper Hand: the enemy takes −2 on its next roll'],
   ['Declare first', 'attack, defend, heal, press or task — before the die lands'],
   ['Attack', '1 Action; target Defends (1 Reaction, roll) or Deflects (free, 10 + Deflect Score + tier bonus)'],
   ['Hit Cap', 'one hit crosses at most 5 + tier number boxes, after armor; each Surge box raises it for that hit; healing has no cap'],
