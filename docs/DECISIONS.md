@@ -244,7 +244,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
-- **Initiative methods (decided 2026-11-02).** Roll and Swap is cut. Pick Your Place gains a Spotlight: each round the table may agree
+- **Initiative methods (decided 2026-11-02).** Roll and Swap is cut. Pick Your Place gains Seize the Moment: each round the table may agree
   one hero goes first, the rest follow in picked order from the top; the hero stays first while keeping the drama or a buff going.
   Heroes only. New method, Sides: the highest hero Initiative against the GM's d20 + the party's tier bonus; the winning side takes
   all its turns first, in any order; ties go to the heroes.
