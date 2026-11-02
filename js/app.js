@@ -263,6 +263,9 @@ function renderCharacter() {
       ${choice?.options ? `<label class="row">${esc(choice.name)} <select data-bind="originChoice">${options(
         choice.options.map(o => ({ value: o, label: cap(o) })), c.originChoice, 'Choose…')}</select></label>`
         : choice ? `<label class="field">${esc(choice.name)} <input type="text" data-bind="originChoice" value="${esc(c.originChoice)}"></label>` : ''}
+      ${Array.from({ length: origin.skill_picks || 0 }, (_, i) => `<label class="row">+1 rank to <select data-bind="originPicks.${i}">${
+        options(R.availableSkills(D, c).map(s => ({ value: s.id, label: s.name }))
+          .filter(s => s.value === c.originPicks[i] || !c.originPicks.includes(s.value)), c.originPicks[i] || '', 'Pick a skill…')}</select></label>`).join('')}
       <p class="hint">${esc(origin.notes || '')} (${esc(origin.analogs.join(', '))})</p></div>`;
   }
   const background = card('Background and Origin', `

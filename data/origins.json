@@ -7,12 +7,9 @@
       "Human",
       "Baseline"
     ],
-    "trait": null,
+    "trait": "Adaptable: +1 rank in any two skills at creation, under the normal caps. Once per session, treat any one Skill as a Focus Skill for a single roll.",
     "notes": "The adaptable baseline. No specialization and no ceiling.",
-    "old_trait": "Choose two additional Focus Skills at creation instead of one trait. Once per session, treat any one Skill as a Focus Skill for a single roll.",
-    "flags": [
-      "Trait to be decided (Origins no longer give Focus Skills)."
-    ]
+    "skill_picks": 2
   },
   {
     "id": "stoneborn",

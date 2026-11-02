@@ -14,6 +14,7 @@ export function newCharacter() {
     governing: '',              // the governing Ability Score (higher cap)
     aptitude: '', aptitudeSkills: [],   // aptitudeSkills: the two picks for Jack-of-All-Trades
     origin: '', originChoice: '',
+    originPicks: [],            // +1 rank to each, for an Origin with skill_picks (Standard's Adaptable)
     focus: [],                  // the 6 chosen Focus Skills
     overlapPicks: [],           // +1 skill for each bonus skill that was already a Focus Skill
     role: '',                   // the free Role; a further Role sits in a Feat slot
@@ -139,6 +140,8 @@ export function clean(D, raw) {
   c.aptitudeSkills = Array.isArray(raw.aptitudeSkills) ? raw.aptitudeSkills.map(s => (has(D.skillsById, s) ? s : '')).slice(0, 2) : [];
   c.origin = has(D.originsById, raw.origin) ? raw.origin : '';
   c.originChoice = str(raw.originChoice);
+  const picks = D.originsById.get(c.origin)?.skill_picks || 0;
+  c.originPicks = Array.isArray(raw.originPicks) ? raw.originPicks.map(s => (has(D.skillsById, s) ? s : '')).slice(0, picks) : [];
   c.focus = Array.isArray(raw.focus) ? raw.focus.map(s => (has(D.skillsById, s) ? s : '')).slice(0, 6) : [];
   c.overlapPicks = Array.isArray(raw.overlapPicks) ? raw.overlapPicks.map(s => (has(D.skillsById, s) ? s : '')) : [];
   c.role = has(D.rolesById, raw.role) ? raw.role : '';

@@ -234,6 +234,8 @@ export function skillRank(D, c, skill, level = c.level) {
   const cr = D.core.creation;
   let rank = focus.has(skill) ? cr.focus_skill_start : cr.other_skill_start;
   rank += overlaps.filter((o, i) => (c.overlapPicks || [])[i] === skill).length;
+  const picks = D.originsById.get(c.origin)?.skill_picks || 0;
+  rank += (c.originPicks || []).slice(0, picks).filter(s => s === skill).length;
   for (const [, list] of byLevel(c.skillPoints, level)) rank += (list || []).filter(s => s === skill).length;
   return rank;
 }

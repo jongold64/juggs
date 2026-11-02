@@ -71,8 +71,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - The player then picks **6 Focus Skills** (rank 2). Every other skill starts at rank 1.
 - **Aptitude and Specialty bonus skills are extra Focus Skills**, on top of the 6, and use the Focus cap. If one
   overlaps a Focus Skill already chosen, +1 to any other skill instead.
-- **Origins give no Focus Skills.** The Standard Origin's "two additional Focus Skills" trait is out of date; its
-  trait is *to be decided*.
+- **Origins give no Focus Skills.** The Standard Origin's trait is **Adaptable** (decided 2026-11-02): +1 rank in any two
+  skills at creation, under the normal caps; once per session, treat any one Skill as a Focus Skill for a single roll.
 - **Origins**: the Player Book's 25, which change no Ability Scores. (The SRD's 26 with +1/−1 is wrong, and so is
   Creation Step 1's "apply its Ability bonus".)
 - **Street Survivor** stays as both an Aptitude and an Origin for now.
@@ -369,7 +369,6 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
   - **Demonic is separate**: Demonic is a deal with something that wants you; Void is contact with something that does
     not care. A patron who bargains, like The Bound, is Demonic. Pantara's Void is ignored for now (work in progress).
 
-- Standard Origin trait.
 - Abjure rewrites (see Skills).
 - Side-by-side pool layout on the sheet — the author will judge it once the sheet exists.
 - **Weird Role Step 2** is kept as written for now ("Revelation fills 0 Resolve. Corruption check DC 12 (not 14)").

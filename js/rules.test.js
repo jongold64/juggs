@@ -193,6 +193,9 @@ const fireball = D.spellsById.get('fireball');
 check('109 spells, 5 Steps each', [D.powers.spells.length, D.powers.spells.every(s => s.steps.length === 5)], [109, true]);
 check('Measured pace unlocks at 1, 5, 9, 13, 17', fireball.steps.map(s => s.level), [1, 5, 9, 13, 17]);
 check('Steps unlocked by level', R.stepsAt(fireball, 9).map(s => s.pl), [1, 2, 3]);
+check('Standard Origin: +1 rank to each of two picked skills', [R.skillRank(D, make({ origin: 'standard', originPicks: ['trade', 'perform'] }), 'trade') - R.skillRank(D, make(), 'trade'),
+  R.skillRank(D, make({ origin: 'standard', originPicks: ['trade', 'perform'] }), 'perform') - R.skillRank(D, make(), 'perform')], [1, 1]);
+check('Other Origins keep no skill picks', clean(D, { origin: 'stoneborn', originPicks: ['trade'] }).originPicks, []);
 check('A Maneuver can be the Signature', [clean(D, { signature: { offensive: 'knockdown' } }).signature.offensive, clean(D, { signature: { offensive: 'nonsense' } }).signature.offensive], ['knockdown', '']);
 check('Signature DR is the tier number', [1, 5, 9, 13, 17].map(level => R.signatureDR(D, make({ level }))), [1, 2, 3, 4, 5]);
 const caster1 = make({ genres: ['magic'], focus: ['cast-attack'] });
