@@ -23,7 +23,7 @@ export function newCharacter() {
     bonusFeat: '',              // a Stepped Feat taken instead of the free Specialty
     feats: {},                  // Feat level -> Feat id, "specialty:<id>" or "role:<id>"
     capstone: '', capstoneNote: '',     // Level 17: a free Gated Feat and a scene-level capability
-    signature: { offensive: '', utility: '' },
+    signature: { offensive: '' },
     powerSources: [],           // declared beyond Physical and the Focus Skill defaults
     powers: [],                 // Powers made or listed in the Powers tab (see the Powers section of rules.js)
     weapons: [],                // [{ name, quality, kind: 'melee' | 'ranged', effect, notes }]
@@ -158,7 +158,7 @@ export function clean(D, raw) {
   c.capstone = D.featsById.get(raw.capstone)?.kind === 'gated' ? raw.capstone : '';
   c.capstoneNote = str(raw.capstoneNote).slice(0, 500);
   if (isObj(raw.signature)) {
-    for (const k of ['offensive', 'utility']) c.signature[k] = has(D.effectsById, raw.signature[k]) ? raw.signature[k] : '';
+    c.signature.offensive = has(D.effectsById, raw.signature.offensive) ? raw.signature.offensive : '';
   }
   c.powerSources = Array.isArray(raw.powerSources) ? raw.powerSources.filter(s => has(D.sourcesById, s)) : [];
   c.powers = Array.isArray(raw.powers) ? raw.powers.filter(isObj).map(p => cleanPower(D, p)).slice(0, 100) : [];

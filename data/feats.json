@@ -45,6 +45,48 @@
     ]
   },
   {
+    "id": "expanded-signature",
+    "name": "Expanded Signature",
+    "kind": "stepped",
+    "domain": "universal",
+    "magic": false,
+    "prerequisite_text": "A declared Offensive Signature Effect",
+    "text": "Declare one more Offensive Signature Effect. It works exactly like your first: no penalty to use, and on a Surge 2+ hit you may fire its 1-box rung for free (one Signature per hit). Choose a type that fits your Power Source or concept; it can be changed between sessions with GM approval.",
+    "at_the_table": "",
+    "steps": [
+      {
+        "tier": "Novice",
+        "level": 1,
+        "text": "One extra Effect type carries no −1 penalty, though it has no free rung."
+      },
+      {
+        "tier": "Seasoned",
+        "level": 5,
+        "text": "As written above."
+      },
+      {
+        "tier": "Veteran",
+        "level": 9,
+        "text": "Once per scene, your free rung can be the 2-box rung."
+      },
+      {
+        "tier": "Heroic",
+        "level": 13,
+        "text": "Twice per scene."
+      },
+      {
+        "tier": "Legendary",
+        "level": 17,
+        "text": "A third Offensive Signature Effect."
+      }
+    ],
+    "requires": [
+      {
+        "text": "A declared Offensive Signature Effect"
+      }
+    ]
+  },
+  {
     "id": "first-move",
     "name": "First Move",
     "kind": "stepped",
@@ -4697,48 +4739,6 @@
         "genre": [
           "magic"
         ]
-      }
-    ]
-  },
-  {
-    "id": "expanded-signature",
-    "name": "Expanded Signature",
-    "kind": "stepped",
-    "domain": "magic",
-    "magic": true,
-    "prerequisite_text": "A declared Offensive Signature Effect",
-    "text": "Declare one more Offensive Signature Effect. It works exactly like your first: no penalty to use, and on a Surge 2+ hit you may fire its 1-box rung for free (one Signature per hit). Choose a type that fits your Power Source or concept; it can be changed between sessions with GM approval.",
-    "at_the_table": "",
-    "steps": [
-      {
-        "tier": "Novice",
-        "level": 1,
-        "text": "One extra Effect type carries no −1 penalty, though it has no free rung."
-      },
-      {
-        "tier": "Seasoned",
-        "level": 5,
-        "text": "As written above."
-      },
-      {
-        "tier": "Veteran",
-        "level": 9,
-        "text": "Once per scene, your free rung can be the 2-box rung."
-      },
-      {
-        "tier": "Heroic",
-        "level": 13,
-        "text": "Twice per scene."
-      },
-      {
-        "tier": "Legendary",
-        "level": 17,
-        "text": "A third Offensive Signature Effect."
-      }
-    ],
-    "requires": [
-      {
-        "text": "A declared Offensive Signature Effect"
       }
     ]
   },

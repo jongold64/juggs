@@ -244,6 +244,8 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **One Signature Effect (decided 2026-11-02).** The optional Defensive / Utility Signature is cut. Expanded Signature, whose Novice Step
+  already removes the -1 for one extra type, moves from the Book of Powers to the Book of Feats as a Universal Stepped Feat.
 - **Signature DR (decided 2026-11-02).** Each Signature Effect type a character has gives DR equal to the tier number (1 to 5) against
   damage of that type, including its Condition's damage over time (Burning for Fire). It adds to armor DR.
 - **Cantrips (decided 2026-11-02).** One definition, in the Book of Powers: PL 1 on one target or yourself, free for a practitioner
