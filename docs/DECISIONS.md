@@ -244,6 +244,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Second trim
 
+- **Genre skills (decided 2026-11-01).** Raised with skill points under the same tier caps as other skills, not XP.
 - **Combined Attack cut (decided 2026-11-01).** Extra Actions can no longer be spent on one attack, so its Effect, Maneuver,
   Pierce and Corner options are gone too. In simulation, two plain attacks out-damaged it even with no Hit Cap.
 - **Material moved (decided 2026-11-01).** Afflictions are in the GM Guide; Investigation stays in the Player Book for players; Period Equipment and Tech Levels are in
