@@ -63,11 +63,8 @@
       "bonus": 0,
       "type": "Physical",
       "range": "Close",
-      "properties": "Chairs, bottles, tools. Brawler Role: +1.",
-      "source_doc": "JUGGS_SRD_Updated.html",
-      "flags": [
-        "\"Brawler Role\" — Brawler is a Specialty."
-      ]
+      "properties": "Chairs, bottles, tools. Brawler Specialty: +1.",
+      "source_doc": "JUGGS_SRD_Updated.html"
     },
     {
       "id": "light-weapon",

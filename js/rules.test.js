@@ -196,6 +196,10 @@ check('Steps unlocked by level', R.stepsAt(fireball, 9).map(s => s.pl), [1, 2, 3
 check('Standard Origin: +1 rank to each of two picked skills', [R.skillRank(D, make({ origin: 'standard', originPicks: ['trade', 'perform'] }), 'trade') - R.skillRank(D, make(), 'trade'),
   R.skillRank(D, make({ origin: 'standard', originPicks: ['trade', 'perform'] }), 'perform') - R.skillRank(D, make(), 'perform')], [1, 1]);
 check('Other Origins keep no skill picks', clean(D, { origin: 'stoneborn', originPicks: ['trade'] }).originPicks, []);
+check('Expanded Signature: 1 extra (Effect only) at Novice, Maneuvers from Seasoned, 2 at Legendary',
+  [1, 5, 17].map(level => R.extraSignatureSlots(D, make({ level, feats: { 1: 'expanded-signature' } })))
+    .map(s => [s.count, s.maneuvers]), [[1, false], [1, true], [2, true]]);
+check('No extra Signatures without the Feat', R.extraSignatureSlots(D, make()).count, 0);
 check('A Maneuver can be the Signature', [clean(D, { signature: { offensive: 'knockdown' } }).signature.offensive, clean(D, { signature: { offensive: 'nonsense' } }).signature.offensive], ['knockdown', '']);
 check('Signature DR is the tier number', [1, 5, 9, 13, 17].map(level => R.signatureDR(D, make({ level }))), [1, 2, 3, 4, 5]);
 const caster1 = make({ genres: ['magic'], focus: ['cast-attack'] });

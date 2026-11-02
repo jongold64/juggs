@@ -30,6 +30,13 @@ export const tierNumber = (D, level) => D.core.tiers.indexOf(tierFor(D, level)) 
 // A Luck Roll, called by the GM when fate alone decides: d20 + Serenity, no skill.
 export const luckBonus = (D, c, level = c.level) => abilityScores(D, c, level).ser;
 
+// Extra Signatures from the Expanded Signature Feat: one from Novice (an Effect only until Seasoned, with no free rung),
+// a second at Legendary. Returns how many slots and whether Maneuvers may fill them.
+export function extraSignatureSlots(D, c, level = c.level) {
+  if (!featsTaken(D, c, level).includes('expanded-signature')) return { count: 0, maneuvers: false };
+  return { count: level >= 17 ? 2 : 1, maneuvers: level >= 5 };
+}
+
 // Each Signature Effect type gives DR equal to the tier number against damage of that type.
 export const signatureDR = (D, c) => tierNumber(D, c.level);
 

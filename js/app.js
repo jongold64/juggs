@@ -350,6 +350,13 @@ function renderCharacter() {
     <label class="field">Signature <select data-bind="signature.offensive">${groupedOptions([['Effects', effectOpts],
       ['Maneuvers', D.maneuvers.map(m => ({ value: m.id, label: m.name }))]], c.signature.offensive, 'None')}</select></label>
     <p class="hint">An Effect or a Maneuver, free on a Surge 2+ hit. Any other Effect is −1 to the roll. The Expanded Signature Feat adds more.</p>
+    ${(() => {
+      const slots = R.extraSignatureSlots(D, c);
+      const groups = [['Effects', effectOpts], ...(slots.maneuvers ? [['Maneuvers', D.maneuvers.map(m => ({ value: m.id, label: m.name }))]] : [])];
+      return Array.from({ length: slots.count }, (_, i) => `<label class="field">Expanded Signature ${slots.count > 1 ? i + 1 : ''}
+        <select data-bind="signature.extra.${i}">${groupedOptions(groups, c.signature.extra[i] || '', 'None')}</select></label>`).join('')
+        + (slots.count && !slots.maneuvers ? '<p class="hint">At Novice the extra type only avoids the −1; it works fully, and may be a Maneuver, from Seasoned.</p>' : '');
+    })()}
     <p><b>Power Sources</b> <span class="hint">Physical always applies.</span></p><div class="genre-grid">${sourceBoxes}</div>`, 'wide');
 
   const standing = card('Final details', `
