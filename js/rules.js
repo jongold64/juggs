@@ -37,7 +37,8 @@ export function extraSignatureSlots(D, c, level = c.level) {
   return { count: level >= 17 ? 2 : 1, maneuvers: level >= 5 };
 }
 
-// Each Signature Effect type gives DR equal to the tier number against damage of that type.
+// Each Signature Effect type gives DR equal to the tier number against damage of that type; a Healing Signature
+// gives it against Void and Necrotic damage instead.
 export const signatureDR = (D, c) => tierNumber(D, c.level);
 
 // Levels at or below `level` where something happens.
