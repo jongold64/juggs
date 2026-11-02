@@ -247,7 +247,7 @@
       {
         "id": "pick-your-place",
         "name": "Pick Your Place",
-        "text": "Pick from 30, 26, 22, 18, 14, 10, continuing down in fours. No duplicates. A hero with a Feat that adds to Initiative may claim 30 first."
+        "text": "Pick from 30, 26, 22, 18, 14, 10, continuing down in fours. No duplicates. Feats that add to Initiative don't apply."
       },
       {
         "id": "sides",
@@ -255,7 +255,7 @@
         "text": "The highest hero's Initiative against the GM's d20 + the highest enemy's Deflect - 10. The winning side takes all its turns first, in any order. Ties go to the heroes."
       }
     ],
-    "seize_the_moment": "Any method: at the start of each round the table may agree that one hero goes first, ahead of every enemy, even if an enemy rolled higher. The rest follow in the usual order. The hero stays first while keeping the drama or a buff going. Heroes only."
+    "seize_the_moment": "Any variant, only when the scene calls for it: at the start of a round the table may agree that one hero goes first, ahead of every enemy, even if an enemy rolled higher. The rest follow in the usual order. The hero can stay first while keeping the drama or a buff going. Heroes only."
   },
   "deflect": "10 + the Domain's Deflect Ability (Agility, Acuity, Serenity) + the tier bonus. Armor does not raise it: DR comes off the damage.",
   "boon_menu": [
