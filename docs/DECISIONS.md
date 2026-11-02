@@ -245,7 +245,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 ## Second trim
 
 - **Healer Archetypes (decided 2026-11-02).** Cleric (Channeler, Martyr, Celebrant, Divine, Unshakeable Faith, Healing, Magic Genre),
-  Shaman (Channeler, Anchor, Shaman, Spirit, Steady Presence, Healing, Magic Genre), Field Medic (Medic, Martyr, Healer, Rapid Recovery)
+  Spirit Healer (Channeler, Anchor, Shaman Background, Spirit, Steady Presence, Healing, Magic Genre), Field Medic (Medic, Martyr, Healer, Rapid Recovery)
   and Combat Medic (Medic, Guardian, Soldier, Second Wind, Knockdown).
 - **New Archetypes (decided 2026-11-02).** Fighter (Warrior, Guardian, Soldier, Weapon Specialist, Knockdown), Paladin (Defender,
   Warden, Celebrant, Divine, Channel Access, Radiant, Magic Genre), Rogue (Scout, Duelist, Criminal, Shadow Step, Feint) and Ranger

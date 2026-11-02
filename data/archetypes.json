@@ -364,8 +364,8 @@
     "genre": "magic"
   },
   {
-    "id": "shaman",
-    "name": "Shaman",
+    "id": "spirit-healer",
+    "name": "Spirit Healer",
     "role": "channeler",
     "specialty": "anchor",
     "aptitude": "shaman",
