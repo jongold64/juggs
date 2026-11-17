@@ -468,3 +468,6 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Ascetic Specialty (decided 2026-11-17):** Synergy is a choice made when taking it: Concentrate 2+ (+1 on the
   Seasoned free strike), Serenity 3+ (Deflect uses the highest of Toughness, Agility or Serenity) or Athletics 2+ (the
   free strike may follow a 1-band move). Fallout: Prone until the start of your next turn, unless you mark 1 Stamina box.
+- **Combat Triage gives the free Tend (decided 2026-11-17):** the old Medic Novice ability moves into the Feat: once per
+  round, Tend one ally as a Free Action with no roll, stabilizing them and clearing Bleeding, Burning or Poisoned.
+  The Leader Role stays as drafted.

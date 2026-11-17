@@ -1747,8 +1747,8 @@
     "domain": "mind",
     "magic": false,
     "prerequisite_text": "Leader Role, Survive as a Focus Skill",
-    "text": "Your in-combat stabilization now also clears one of the following Conditions as part of the same Free Action: Bleeding, Burning, or Poisoned. This does not require a roll. Additionally, when you use Survive for field triage, you may attempt it on yourself as well as allies — no penalty for self-treatment.",
-    "at_the_table": "",
+    "text": "Once per round, Tend one ally in combat as a Free Action: they are stabilized with no roll, and one of Bleeding, Burning or Poisoned clears. When you use Survive for field triage, you may also treat yourself, with no penalty for self-treatment.",
+    "at_the_table": "Once per round, Free Action, no roll: stabilize one ally and clear Bleeding, Burning or Poisoned.",
     "steps": [
       {
         "tier": "Novice",
