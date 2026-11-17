@@ -973,5 +973,61 @@
         "at_the_table": ""
       }
     ]
+  },
+  {
+    "id": "artificer",
+    "name": "Artificer",
+    "category": "technical",
+    "governing": [
+      "int",
+      "acu"
+    ],
+    "pool": "mana",
+    "bonus_skills": [
+      "operate",
+      "analyze"
+    ],
+    "summary": "Builder and tinkerer — the inventor, the field engineer, the gadgeteer, the one who makes the tool the job needs.",
+    "synergy": {
+      "condition_text": "Operate ≥ 2",
+      "effect": "Jury-Rig gadgets last until the end of the scene instead of one use",
+      "requires": {
+        "skill": "operate",
+        "rank_min": 2
+      }
+    },
+    "fallout": "The device fails spectacularly: it breaks, and everyone in Close range, including you, takes 1 Stamina box.",
+    "steps": [
+      {
+        "tier": "Novice",
+        "level": 1,
+        "text": "Tinker: Repair an item of Standard quality or below in one Action, as a Basic; it works for the scene, then drops to Flimsy until repaired properly. Jury-Rig: Once per scene, build a Rank 1 gadget from whatever is lying around, free: a smoke puff, a lockpick, a light, a noise-maker, a tripwire. It works once. (Synergy: lasts the scene) Salvage Eye: Once per session, the GM tells you one useful, non-obvious thing a broken object could do.",
+        "at_the_table": "Tinker and Jury-Rig are free. Salvage Eye is a question to the GM, not a roll."
+      },
+      {
+        "tier": "Seasoned",
+        "level": 5,
+        "text": "Modifications: Keep two modifications going at once (each a +1 to one item, GM-approved), and swap which is active as a Free Action once per round.",
+        "at_the_table": ""
+      },
+      {
+        "tier": "Veteran",
+        "level": 9,
+        "text": "Overclock: Once per scene, push an item, weapon or vehicle for the scene: +2 to its Rating or output. Afterwards, Operate DC 12, or it drops one quality tier.",
+        "at_the_table": ""
+      },
+      {
+        "tier": "Heroic",
+        "level": 13,
+        "text": "Master Builder: Items with a Rating take you half the time to build, and you may share one modification with an ally’s gear. Scavenged materials count as Quality.",
+        "at_the_table": ""
+      },
+      {
+        "tier": "Legendary",
+        "level": 17,
+        "text": "Masterpiece: Build one named item one Rank above your highest, or with one free Descriptor. It is yours, and it grows: it gains a Descriptor at the end of each later session, up to three. Your Jury-Rig gadgets no longer break.",
+        "at_the_table": ""
+      }
+    ]
   }
 ]

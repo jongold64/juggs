@@ -27,6 +27,7 @@ const CHEAT = [
   ['Pools', '15 boxes; Hurt 6–10 −1, Injured 11–14 −2 (that Domain), last box Broken'],
   ['Rest', 'Quick: Healthy boxes · Full: Healthy and Hurt · Broken: magic + Full Rest'],
   ['Heal', 'd20 + Belief or Serenity + Channel vs DC 15; overage or Rank unmarks boxes; mundane healing uses Survive'],
+  ['Crafting', 'ordinary things are a Basic: Operate or Craft vs the quality DC (8 / 10 / 13 / 16 / 19 / 23); an item with a Rating is a Technique of that Rank, paid in Mana; Wealth Tier must reach Rating + 2'],
   ['Helping', 'free +2, or spend an Action / Reaction for +4; two helpers at most'],
   ['Movement', 'next zone free; farther 1 Action; leaving a Contested zone without an Action = Bane'],
   ['Social', 'pick an approach; Press / Hold / Deflect; total overage sets the result'],

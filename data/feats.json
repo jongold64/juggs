@@ -1067,108 +1067,6 @@
     "requires": []
   },
   {
-    "id": "modular-design",
-    "name": "Modular Design",
-    "kind": "stepped",
-    "domain": "body",
-    "magic": false,
-    "prerequisite_text": "Expert Role, Intellect 2+",
-    "text": "Your modifications (from the Expert Role at Seasoned tier) can now be swapped in or out as a Free Action once per round. You may maintain up to two active modifications simultaneously — one offensive, one defensive or utility. Switching which modification is active does not cost an Action.",
-    "at_the_table": "",
-    "steps": [
-      {
-        "tier": "Novice",
-        "level": 1,
-        "text": "Swap a modification as a 1-Action task between fights."
-      },
-      {
-        "tier": "Seasoned",
-        "level": 5,
-        "text": "As written above."
-      },
-      {
-        "tier": "Veteran",
-        "level": 9,
-        "text": "Three active modifications."
-      },
-      {
-        "tier": "Heroic",
-        "level": 13,
-        "text": "Share one modification with an ally’s gear."
-      },
-      {
-        "tier": "Legendary",
-        "level": 17,
-        "text": "Four active modifications."
-      }
-    ],
-    "requires": [
-      {
-        "role": [
-          "expert"
-        ],
-        "step": 1
-      },
-      {
-        "ability": [
-          "int"
-        ],
-        "min": 2
-      }
-    ]
-  },
-  {
-    "id": "overclock",
-    "name": "Overclock",
-    "kind": "stepped",
-    "domain": "body",
-    "magic": false,
-    "prerequisite_text": "Expert Role, Intellect 2+",
-    "text": "Push a weapon, piece of equipment, or vehicle beyond its rated specifications for one scene. The item gains +2 to its effective Rating or output (GM defines the specific mechanical expression for the item type). At the end of the scene, make an Operate Check vs DC 12 — on a failure, the item degrades one Quality tier. On a natural 1, it fails entirely and requires Expert Role repair to restore.",
-    "at_the_table": "",
-    "steps": [
-      {
-        "tier": "Novice",
-        "level": 1,
-        "text": "Push an item for one round: +1 to its output. Operate DC 12 afterward, or it degrades one Quality tier."
-      },
-      {
-        "tier": "Seasoned",
-        "level": 5,
-        "text": "As written above."
-      },
-      {
-        "tier": "Veteran",
-        "level": 9,
-        "text": "DC 10."
-      },
-      {
-        "tier": "Heroic",
-        "level": 13,
-        "text": "+3 output."
-      },
-      {
-        "tier": "Legendary",
-        "level": 17,
-        "text": "Only a Natural 1 degrades it."
-      }
-    ],
-    "requires": [
-      {
-        "role": [
-          "expert"
-        ],
-        "step": 1
-      },
-      {
-        "ability": [
-          "int"
-        ],
-        "min": 2
-      }
-    ]
-  },
-  {
     "id": "pickpockets-instinct",
     "name": "Pickpocket’s Instinct",
     "kind": "stepped",
@@ -1271,63 +1169,6 @@
     ]
   },
   {
-    "id": "rapid-fabrication",
-    "name": "Rapid Fabrication",
-    "kind": "stepped",
-    "domain": "body",
-    "magic": false,
-    "prerequisite_text": "Expert Role, Intellect 2+, Operate as a Focus Skill",
-    "text": "The Task Block requirement for field repairs is eliminated for items of Standard quality or below. You can fabricate basic tools, devices, or structural repairs in a single Action during combat — the output functions for the scene but degrades to Flimsy quality after. Between scenes, full-quality repairs complete in one minute rather than one Task Block.",
-    "at_the_table": "",
-    "steps": [
-      {
-        "tier": "Novice",
-        "level": 1,
-        "text": "As written above."
-      },
-      {
-        "tier": "Seasoned",
-        "level": 5,
-        "text": "Field-made items last until the end of the session."
-      },
-      {
-        "tier": "Veteran",
-        "level": 9,
-        "text": "Also covers Quality items."
-      },
-      {
-        "tier": "Heroic",
-        "level": 13,
-        "text": "Two fabrications in one Action."
-      },
-      {
-        "tier": "Legendary",
-        "level": 17,
-        "text": "Field-made items don’t degrade."
-      }
-    ],
-    "requires": [
-      {
-        "role": [
-          "expert"
-        ],
-        "step": 1
-      },
-      {
-        "ability": [
-          "int"
-        ],
-        "min": 2
-      },
-      {
-        "focus": [
-          "operate"
-        ],
-        "all": false
-      }
-    ]
-  },
-  {
     "id": "reckless-assault",
     "name": "Reckless Assault",
     "kind": "stepped",
@@ -1418,57 +1259,6 @@
       {
         "focus": [
           "combat-ranged"
-        ],
-        "all": false
-      }
-    ]
-  },
-  {
-    "id": "salvage-expert",
-    "name": "Salvage Expert",
-    "kind": "stepped",
-    "domain": "body",
-    "magic": false,
-    "prerequisite_text": "Expert Role, Survive as a Focus Skill",
-    "text": "You can treat any scavenged materials as Standard quality components for the purpose of the Expert Role’s fabrication abilities, regardless of their actual condition. Once per session, identify a discarded or broken object’s potential — the GM tells you one non-obvious useful function it could serve if repurposed.",
-    "at_the_table": "",
-    "steps": [
-      {
-        "tier": "Novice",
-        "level": 1,
-        "text": "As written above."
-      },
-      {
-        "tier": "Seasoned",
-        "level": 5,
-        "text": "Twice per session."
-      },
-      {
-        "tier": "Veteran",
-        "level": 9,
-        "text": "Scavenged materials count as Quality components."
-      },
-      {
-        "tier": "Heroic",
-        "level": 13,
-        "text": "You always find useful parts, no roll, wherever anything was built."
-      },
-      {
-        "tier": "Legendary",
-        "level": 17,
-        "text": "Scavenged materials count as Masterwork components."
-      }
-    ],
-    "requires": [
-      {
-        "role": [
-          "expert"
-        ],
-        "step": 1
-      },
-      {
-        "focus": [
-          "survive"
         ],
         "all": false
       }
@@ -3848,15 +3638,14 @@
     "kind": "gated",
     "domain": "body",
     "magic": false,
-    "prerequisite_text": "Overclock or Modular Design, Expert Role at Veteran tier, Intellect 4+, Veteran tier",
+    "prerequisite_text": "Artificer Specialty, Expert Role at Veteran tier, Intellect 4+, Veteran tier",
     "text": "Between sessions, create or designate one item as your Masterwork. Work with the GM to define a single unique rule for the Masterwork item — something it does that no standard item of its type can do. The Masterwork cannot be replicated and cannot be confiscated permanently (you can always rebuild it given one Task Block and available materials). You may have only one Masterwork at a time.",
     "at_the_table": "",
     "steps": [],
     "requires": [
       {
-        "feat": [
-          "overclock",
-          "modular-design"
+        "specialty": [
+          "artificer"
         ]
       },
       {

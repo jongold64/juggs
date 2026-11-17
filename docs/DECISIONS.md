@@ -424,3 +424,21 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Caster Step 1:** +1 to Cast and Channel attack rolls while Mana is Healthy (boxes 1-5). Channeler Step 1 keeps
   "Spiritual Powers clear 2 Resolve"; its Level Discount half goes.
 - **Surge is renamed Effort (decided 2026-11-17).** Same rule, new name everywhere.
+
+## Roles by job (direction, 2026-11-17)
+
+- **Seven Roles planned (not yet applied):** Striker, Defender, Leader, Controller (4e's four combat jobs), Infiltrator
+  (stealth, scouting, locks), Face (social), and **Expert kept as the seventh Role** (knowledge, deduction, building).
+  Concepts become a Role plus a Specialty (thief = Infiltrator + Duelist, spy = Face + Chameleon). The Striker
+  Specialty would need a new name.
+
+## Crafting and the Artificer (draft agreed, 2026-11-17; not yet in the books)
+
+- **Crafting rule:** making or repairing an ordinary thing is a Basic: d20 + Ability + Operate (or Craft) against the
+  object's quality DC (8/10/13/16/19/23), with time by quality, tools, materials, and gear no better than your Wealth
+  Tier buys. Building an item with a Rating is a Technique of Rank = Rating (Descriptors are upgrades, +1 each), capped
+  by tier; DC by its Rank's quality row; paid in **Mana** (the Mind pool) less the tier discount. **Materials:** Wealth
+  Tier must reach Rating + 2, and Rank 4-5 items also need a rare component placed in the story.
+- **Artificer Specialty** (Intellect or Acuity, Mana; Operate, Analyze): Tinker, Jury-Rig and Salvage Eye at Novice;
+  Modifications at Seasoned; Overclock at Veteran; Master Builder at Heroic; Masterpiece at Legendary. The four Expert
+  Feats (Modular Design, Overclock, Rapid Fabrication, Salvage Expert) fold into it and are removed (ids to migrate.js).

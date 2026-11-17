@@ -15,6 +15,8 @@ export const EFFECTS = { gravity: 'force', concussive: 'sonic', nature: 'earth' 
 // The Feats that bought Specialty Abilities are gone (they arrive by tier now); the four Surge Disciplines are one Feat.
 const DROPPED_FEATS = new Set(['specialty-ability-2', 'specialty-ability-3', 'specialty-mastery-enhancement']);
 const SURGE_DISCIPLINES = new Set(['surge-discipline-1', 'surge-discipline-2', 'surge-discipline-3', 'surge-discipline-4']);
+// The four Expert crafting Feats became the Artificer Specialty: the first one held becomes that Specialty.
+const ARTIFICER_FEATS = new Set(['modular-design', 'overclock', 'rapid-fabrication', 'salvage-expert']);
 
 export const SOURCES = { weird: 'weird-science', element: 'nature' };
 // The Roles that became Archetypes: their core Role, and the Stepped Feat that keeps a signature rule.
@@ -58,13 +60,16 @@ function migratePower(p) {
 
 function migrateFeats(feats) {
   const out = {};
-  let discipline = false;
+  let discipline = false, artificer = false;
   for (const lv of Object.keys(feats).sort((a, b) => a - b)) {
     const f = feats[lv];
     if (DROPPED_FEATS.has(f)) continue;
     if (SURGE_DISCIPLINES.has(f)) {
       if (!discipline) out[lv] = 'surge-discipline';
       discipline = true;
+    } else if (ARTIFICER_FEATS.has(f)) {
+      if (!artificer) out[lv] = 'specialty:artificer';
+      artificer = true;
     } else out[lv] = f;
   }
   return out;

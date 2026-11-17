@@ -124,7 +124,7 @@ check('A Feat taken at this level does not count for itself',
 // Feat slots
 const gated = D.feats.find(f => f.kind === 'gated');
 const stepped = D.feats.find(f => f.kind === 'stepped');
-check('Book counts: 88 Stepped and 49 Gated Feats', [D.feats.filter(f => f.kind === 'stepped').length, D.feats.filter(f => f.kind === 'gated').length], [88, 49]);
+check('Book counts: 84 Stepped and 49 Gated Feats', [D.feats.filter(f => f.kind === 'stepped').length, D.feats.filter(f => f.kind === 'gated').length], [84, 49]);
 check('Stepped Feats fit Level 1', R.slotAccepts(D, 1, stepped), true);
 check('Gated Feats wait for Level 11', [R.slotAccepts(D, 7, gated), R.slotAccepts(D, 11, gated)], [false, true]);
 check('A Stepped Feat shows its Steps by level', R.stepsAt(stepped, 9).length, 3);
@@ -137,6 +137,8 @@ check('Its bonus skills arrive with the slot', R.bonusSkills(D, clean(D, oldSave
 const noRoom = clean(D, { level: 5, specialties: [{ id: 'striker', level: 1 }, { id: 'guardian', level: 5 }], feats: { 1: 'toughened', 3: 'fleet' } });
 check('No open slot: the Specialty stays, with a warning', [R.specialtiesHeld(D, noRoom).length, R.featProblems(D, noRoom).length], [2, 1]);
 check('An old Gated Feat below Level 11 stays, with a warning', R.featProblems(D, clean(D, { level: 7, feats: { 7: 'ghost' } })).length, 1);
+check('Old Expert crafting Feats become the Artificer Specialty', clean(D, { level: 7, role: 'expert', feats: { 1: 'toughened', 3: 'overclock', 7: 'modular-design' } }).feats, { 1: 'toughened', 3: 'specialty:artificer' });
+check('Artificer is a technical Specialty paid in Mana', [D.specialtiesById.get('artificer').category, D.specialtiesById.get('artificer').pool], ['technical', 'mana']);
 check('Two old Surge Disciplines become one Feat', clean(D, { level: 7, feats: { 1: 'surge-discipline-1', 3: 'surge-discipline-2' } }).feats, { 1: 'surge-discipline' });
 check('Capstone is a Gated Feat, from Level 17', [clean(D, { capstone: 'toughened' }).capstone, R.featsTaken(D, make({ level: 17, capstone: gated.id })).includes(gated.id), R.featsTaken(D, make({ level: 16, capstone: gated.id })).includes(gated.id)], ['', true, false]);
 
