@@ -334,7 +334,7 @@
     "genres": [
       "magic"
     ],
-    "description": "Ritual, detection, utility, and information Powers. Extended casting time (30 min minimum). Cannot be used Effort on in the same way as combat casting."
+    "description": "Ritual, detection, utility, and information Powers. Extended casting time (30 min minimum). Cannot use Effort in the same way as combat casting."
   },
   {
     "id": "channel",

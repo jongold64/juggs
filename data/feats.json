@@ -4514,8 +4514,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Intellect 2+ or Belief 2+, Magic Overlay",
-    "text": "You gain access to a single Level 1 Power with no Mana cost — a cantrip. You cannot use Effort it. You cannot add Effects to it. The specific manifestation is defined when you take this Feat: a flicker of fire, a spark of light, a small levitation, a whisper across distance. The effect is minor and defined. This is the first step on the warrior-to-mage path: one small repeatable magical act, earned through training rather than identity.",
-    "at_the_table": "One specific Level 1 Power, defined at Feat acquisition, usable at no Mana cost. No Effort. No Effects. GM approves the specific manifestation. This is not a general casting ability — it is one specific thing you can do.",
+    "text": "You gain access to a single Rank 1 Power with no Mana cost — a cantrip. You cannot use Effort on it. You cannot add Effects to it. The specific manifestation is defined when you take this Feat: a flicker of fire, a spark of light, a small levitation, a whisper across distance. The effect is minor and defined. This is the first step on the warrior-to-mage path: one small repeatable magical act, earned through training rather than identity.",
+    "at_the_table": "One specific Rank 1 Power, defined at Feat acquisition, usable at no Mana cost. No Effort. No Effects. GM approves the specific manifestation. This is not a general casting ability — it is one specific thing you can do.",
     "steps": [
       {
         "tier": "Novice",
@@ -4525,17 +4525,17 @@
       {
         "tier": "Seasoned",
         "level": 5,
-        "text": "A second Level 1 Power, defined the same way."
+        "text": "A second Rank 1 Power, defined the same way."
       },
       {
         "tier": "Veteran",
         "level": 9,
-        "text": "You may use Effort these Powers."
+        "text": "You may use Effort on these Powers."
       },
       {
         "tier": "Heroic",
         "level": 13,
-        "text": "A third Level 1 Power, and you may add Effects."
+        "text": "A third Rank 1 Power, and you may add Effects."
       },
       {
         "tier": "Legendary",
@@ -4565,8 +4565,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Belief 2+, Magic Overlay",
-    "text": "You gain access to a single Level 1 Healing Power, paying full Mana cost. You cannot use Effort it. The effect is limited: the healing roll unmars up to 2 boxes from the target’s chosen pool. This is the fighter who has learned to lay hands — not channel miracles, not perform divine acts, but offer a trained, earnest act of healing that costs real resources and produces real results.",
-    "at_the_table": "One Level 1 Healing Power available. Full Mana cost. No Effort. Unmarks up to 2 boxes from one pool (target’s choice). Requires a healing roll against DC 15. One defined manifestation, chosen when Feat is taken.",
+    "text": "You gain access to a single Rank 1 Healing Power, paying full Mana cost. You cannot use Effort on it. The effect is limited: the healing roll unmars up to 2 boxes from the target’s chosen pool. This is the fighter who has learned to lay hands — not channel miracles, not perform divine acts, but offer a trained, earnest act of healing that costs real resources and produces real results.",
+    "at_the_table": "One Rank 1 Healing Power available. Full Mana cost. No Effort. Unmarks up to 2 boxes from one pool (target’s choice). Requires a healing roll against DC 15. One defined manifestation, chosen when Feat is taken.",
     "steps": [
       {
         "tier": "Novice",
@@ -4576,12 +4576,12 @@
       {
         "tier": "Seasoned",
         "level": 5,
-        "text": "You may also choose one Level 1 protection Power."
+        "text": "You may also choose one Rank 1 protection Power."
       },
       {
         "tier": "Veteran",
         "level": 9,
-        "text": "You may use Effort these Powers."
+        "text": "You may use Effort on these Powers."
       },
       {
         "tier": "Heroic",
@@ -4800,12 +4800,12 @@
       {
         "tier": "Novice",
         "level": 1,
-        "text": "Choose one Level 1 Power and cast it, paying full Mana."
+        "text": "Choose one Rank 1 Power and cast it, paying full Mana."
       },
       {
         "tier": "Seasoned",
         "level": 5,
-        "text": "Any Level 1 Power, paying full Mana and Effort."
+        "text": "Any Rank 1 Power, paying full Mana and Effort."
       },
       {
         "tier": "Veteran",
@@ -4957,8 +4957,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Power Unleashed or any Mastery-tier Magical Specialty Feat, Legendary tier+",
-    "text": "Once per session, cast any Power you know at any Level with no Mana cost. Effort costs still apply if you choose to use Effort. This is the warrior-mage’s single moment of unrestricted magical expression — the culmination of a career spent practicing something you were told was not yours. You were wrong. The cost (Effort, if any) remains because commitment to power is its own price.",
-    "at_the_table": "Once per session: cast any known Power at any Level, 0 Mana cost. Effort costs apply if declared. One use resets each session. Cannot exceed Level 5 regardless of this Feat.",
+    "text": "Once per session, cast any Power you know at any Rank with no Mana cost. Effort costs still apply if you choose to use Effort. This is the warrior-mage’s single moment of unrestricted magical expression — the culmination of a career spent practicing something you were told was not yours. You were wrong. The cost (Effort, if any) remains because commitment to power is its own price.",
+    "at_the_table": "Once per session: cast any known Power at any Rank, 0 Mana cost. Effort costs apply if declared. One use resets each session. Cannot exceed Rank 5 regardless of this Feat.",
     "steps": [],
     "requires": [
       {
