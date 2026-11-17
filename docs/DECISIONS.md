@@ -462,3 +462,6 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Encounter Points with the Technique ladder (checked 2026-11-17):** simulated, fights run about a third of a band
   easier than before the ladder (Hard 91% won, Deadly 59%, Likely wipe 23%). The author is fine with this; the GM
   Guide bands stay as they are until play shows otherwise.
+- **Weird Touched, Seasoned Step (decided 2026-11-17):** "Revelation fills 0 Resolve and adds no Corruption" (replaces
+  the dead Corruption-check half). The Feat now names Weird Table results (Revelation, Drain, Backlash) instead of the
+  old d8 numbers. This settles the Weird Role Step 2 note above.

@@ -2548,7 +2548,7 @@
       {
         "tier": "Seasoned",
         "level": 5,
-        "text": "Revelation (roll 8) fills 0 Resolve. Corruption check DC reduced to 12 (from 14)."
+        "text": "Revelation fills 0 Resolve and adds no Corruption."
       },
       {
         "tier": "Veteran",
@@ -2558,12 +2558,12 @@
       {
         "tier": "Heroic",
         "level": 13,
-        "text": "When the Drain result (4) fires on the Weird Table, choose which pool is drained instead of random."
+        "text": "When the Drain result fires on the Weird Table, choose which pool is drained instead of random."
       },
       {
         "tier": "Legendary",
         "level": 17,
-        "text": "When the Backlash result (1) fires on the Weird Table, redirect the effect to one visible target."
+        "text": "When the Backlash result fires on the Weird Table, redirect the effect to one visible target."
       }
     ],
     "requires": [
@@ -2577,9 +2577,6 @@
           "weird-magic"
         ]
       }
-    ],
-    "flags": [
-      "Seasoned Step (\"Corruption check DC reduced to 12\") does nothing since Corruption checks were removed (2026-11-17); needs a new Step."
     ]
   },
   {
