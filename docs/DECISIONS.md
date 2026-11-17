@@ -442,3 +442,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Artificer Specialty** (Intellect or Acuity, Mana; Operate, Analyze): Tinker, Jury-Rig and Salvage Eye at Novice;
   Modifications at Seasoned; Overclock at Veteran; Master Builder at Heroic; Masterpiece at Legendary. The four Expert
   Feats (Modular Design, Overclock, Rapid Fabrication, Salvage Expert) fold into it and are removed (ids to migrate.js).
+- **Domain Adaptability (decided 2026-11-17):** a Universal Stepped Feat, not a rule for everyone. Novice: once per scene,
+  pay one Technique from a different pool; Seasoned: twice; Veteran: one chosen pool always; Heroic: Effort too;
+  Legendary: any pool, and split one cost between two. Simulated as a rule for everyone, it made Boss fights 10-30 points
+  easier and tipped damage toward fighters.

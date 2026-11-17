@@ -124,7 +124,7 @@ check('A Feat taken at this level does not count for itself',
 // Feat slots
 const gated = D.feats.find(f => f.kind === 'gated');
 const stepped = D.feats.find(f => f.kind === 'stepped');
-check('Book counts: 84 Stepped and 49 Gated Feats', [D.feats.filter(f => f.kind === 'stepped').length, D.feats.filter(f => f.kind === 'gated').length], [84, 49]);
+check('Book counts: 85 Stepped and 49 Gated Feats', [D.feats.filter(f => f.kind === 'stepped').length, D.feats.filter(f => f.kind === 'gated').length], [85, 49]);
 check('Stepped Feats fit Level 1', R.slotAccepts(D, 1, stepped), true);
 check('Gated Feats wait for Level 11', [R.slotAccepts(D, 7, gated), R.slotAccepts(D, 11, gated)], [false, true]);
 check('A Stepped Feat shows its Steps by level', R.stepsAt(stepped, 9).length, 3);

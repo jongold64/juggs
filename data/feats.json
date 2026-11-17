@@ -45,6 +45,44 @@
     ]
   },
   {
+    "id": "domain-adaptability",
+    "name": "Domain Adaptability",
+    "kind": "stepped",
+    "domain": "universal",
+    "magic": false,
+    "prerequisite_text": "None",
+    "text": "Once per scene, pay one Technique’s boxes from a different pool than its Domain’s: a fighter can pay Mana for a Knockdown and keep Stamina fresh. The roll doesn’t change.",
+    "at_the_table": "Declare before rolling. The Technique costs the same; only the pool it comes from changes.",
+    "steps": [
+      {
+        "tier": "Novice",
+        "level": 1,
+        "text": "As written above."
+      },
+      {
+        "tier": "Seasoned",
+        "level": 5,
+        "text": "Twice per scene."
+      },
+      {
+        "tier": "Veteran",
+        "level": 9,
+        "text": "Choose one other pool: you can always pay Techniques from it."
+      },
+      {
+        "tier": "Heroic",
+        "level": 13,
+        "text": "Effort boxes can come from that pool too."
+      },
+      {
+        "tier": "Legendary",
+        "level": 17,
+        "text": "Pay from any pool, and split one cost between two pools."
+      }
+    ],
+    "requires": []
+  },
+  {
     "id": "expanded-signature",
     "name": "Expanded Signature",
     "kind": "stepped",
