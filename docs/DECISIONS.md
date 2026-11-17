@@ -455,3 +455,5 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Abjure placed (decided 2026-11-17):** anyone with Belief 3+ and Channel 1 may Abjure from Seasoned, once per scene, for
   2 Resolve. The Channeler extras move into the **Abjurer's Authority** Feat: Removed on 5+ overage (session-long), 1 fewer
   Resolve, repeat Abjures in a scene at −1 per earlier use, and at Heroic one free Abjure per scene.
+- **SRD retired (2026-11-17):** `JUGGS_SRD_Updated.html` moved to `WIP/_Backups` as `JUGGS_SRD_Updated_Retired.html`.
+  The Lite books are the rules; earlier rulings that cite the SRD stand as written.
