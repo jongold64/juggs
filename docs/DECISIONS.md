@@ -457,3 +457,5 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
   Resolve, repeat Abjures in a scene at −1 per earlier use, and at Heroic one free Abjure per scene.
 - **SRD retired (2026-11-17):** `JUGGS_SRD_Updated.html` moved to `WIP/_Backups` as `JUGGS_SRD_Updated_Retired.html`.
   The Lite books are the rules; earlier rulings that cite the SRD stand as written.
+- **Specialty Fallout at 3+ (decided 2026-11-17):** a Specialty's Fallout triggers on a Natural 1 at 3 or more Effort
+  boxes, as the builder already said. The Book of Feats and Book of Powers now agree. Caster Fallout stays at 5+.
