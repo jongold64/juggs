@@ -452,3 +452,6 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Abjure: undecided** until the author has seen the seven Roles. For now anyone with Belief 3+ and Channel 1 may
   Abjure once per scene from Seasoned; the Channeler's extras (repeat at -1, cheaper by tier, Removed on 5+ overage) have
   no home and are flagged.
+- **Abjure placed (decided 2026-11-17):** anyone with Belief 3+ and Channel 1 may Abjure from Seasoned, once per scene, for
+  2 Resolve. The Channeler extras move into the **Abjurer's Authority** Feat: Removed on 5+ overage (session-long), 1 fewer
+  Resolve, repeat Abjures in a scene at −1 per earlier use, and at Heroic one free Abjure per scene.

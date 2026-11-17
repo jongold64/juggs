@@ -4291,8 +4291,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Belief 3+, Magic Overlay",
-    "text": "When your Abjure roll succeeds with overage 5+, the supernatural entity gains Removed (Spirit) for the rest of the session — not just the scene. This is a significant escalation from the normal rule, which suppresses for the scene. Additionally, Abjure costs 1 fewer Resolve box than normal (minimum 1). You have refined the authority behind the act. This Feat is how you gain Removed (Spirit) on overage 5+, and you remain limited to one Abjure per scene.",
-    "at_the_table": "Abjure with overage 5+: entity gains Removed (Spirit) for session (not scene). Abjure costs 1 fewer Resolve (min 1). Both effects apply on the same successful Abjure. No change to the Abjure roll itself.",
+    "text": "When your Abjure roll succeeds with overage 5+, the supernatural entity gains Removed (Spirit) for the rest of the session — not just the scene. Abjure costs you 1 fewer Resolve box (minimum 1), and you may Abjure more than once per scene, at −1 to the roll for each earlier use that scene. Without this Feat, Abjure gives no Removed result and works once per scene.",
+    "at_the_table": "Abjure with overage 5+: entity gains Removed (Spirit) for the session. Abjure costs 1 fewer Resolve (min 1). Repeat Abjures in a scene at −1 per earlier use.",
     "steps": [
       {
         "tier": "Novice",
@@ -4312,7 +4312,7 @@
       {
         "tier": "Heroic",
         "level": 13,
-        "text": "Triggers at overage 3+."
+        "text": "Triggers at overage 3+, and once per scene an Abjure costs no Resolve."
       },
       {
         "tier": "Legendary",
