@@ -387,3 +387,23 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
   Its DC 14 Corruption check comes from the older d8 Weird Table (Back to Basics); the current d20 table (Book of
   Genres) adds Corruption automatically, so the DC half has nothing to change. Removing or rewriting it is undecided.
   The Weird Role text also still uses the d8 numbers (Revelation 8, Drain 4, Backlash 1), read as the named results.
+
+## Casting trim (2026-11-17)
+
+- **Corruption comes from Banes (decided 2026-11-17).** Every Corruption check is gone: the Void Effect check (Arcane
+  DC 14, Divine DC 12), Pact-Bound's DC 10 + Power Level, forced Blood Magic's DC 16, the dark-side Force check (DC 12)
+  and the GM-called overreach check. Instead, a Bane on a roll that uses forbidden power gives Corruption +1 automatically,
+  at every tier, listed under the Bane Menu. Forbidden power: Void, Pact-Bound Powers, forced Blood Magic, a faith Source
+  turned against its values, dark-side use, and other overreach the GM calls. Fallout and Mythos Lore still add
+  Corruption as written. This replaces the Void Effect check kept under Second trim.
+- **Faith Sources (decided 2026-11-17).** The Book of Powers' "Spiritual Magic" rules cover both Divine and Spirit /
+  Shamanic: they can only be Deflected, have backlash 1 lighter, Fallout turns inward, a successful cast clears 1 of the
+  caster's Resolve boxes, and they can't be taught or copied.
+- **Source backlash differences kept (decided 2026-11-17)**, in one column of the Power Source table: Arcane 1 heavier,
+  Fallout outward; Divine and Spirit 1 lighter, Fallout inward; Psionic Fallout in the mind.
+- **Power Level Scope table rewritten (decided 2026-11-17)** to match Making a Power, which is the rule.
+- **Exemptions kept (decided 2026-11-17).** A Void Effect used by an Innate or Spirit / Shamanic caster is not forbidden
+  power. Every other Source's Void power is.
+- **Basic Cast pools (decided 2026-11-17).** Weird Science, Alchemical, Blood Magic, Chi / Ki, Cybernetic, Nature / Primal
+  and Runic cross Stamina; Demonic / Pact-Bound crosses Resolve.
+- **Weird Magic Feat, Seasoned Step** ("Corruption check DC reduced to 12") does nothing now; flagged for a new Step later.

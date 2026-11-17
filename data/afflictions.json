@@ -1,7 +1,7 @@
 {
   "rules": [
     "Do not advance a stage as punishment for a failed roll. Advance it when the player reaches for the Affliction’s power because it was the best option available — that is the moment the bargain tightens. A player who never uses what the Affliction gives them should be able to hold at their current stage indefinitely.",
-    "Afflictions and Corruption are separate tracks and do not interact, with one exception: feeding, shifting, or otherwise indulging an Affliction in a way that harms an innocent is exactly the kind of overreach a GM may call for a Corruption check."
+    "Afflictions and Corruption are separate tracks and do not interact, with one exception: feeding, shifting, or otherwise indulging an Affliction in a way that harms an innocent is exactly the kind of overreach a GM may call forbidden power: a Bane on it gives Corruption +1."
   ],
   "afflictions": [
     {

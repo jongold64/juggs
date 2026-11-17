@@ -260,7 +260,7 @@
     "description": "The Space Opera Genre features Force-equivalent powers and the specific social ecology of a galaxy-spanning conflict. Force skills use the same Magic Genre framework with Power Source set to Innate (the Force is biological and transcendent simultaneously, not studied or divine). Enable Magic Genre alongside this Genre for Force use.",
     "notes": [
       "Force skills are Magic Genre skills with a different Power Source label. A Force-sensitive character uses Belief for offensive Force use the same way a Cleric uses Belief for Channel — the mechanical system is identical; only the narrative wrapper differs.",
-      "The dark side mechanic is handled through the Corruption Status Tracker: each use of Force (Attack) driven by anger, hatred, or despair rather than necessity triggers a Corruption check (DC 12). This creates the slow slide toward the dark side without a separate subsystem."
+      "The dark side mechanic is handled through the Corruption Status Tracker: each use of Force (Attack) driven by anger, hatred, or despair rather than necessity is forbidden power, so a Bane on it gives Corruption +1. This creates the slow slide toward the dark side without a separate subsystem."
     ],
     "skills": [
       "diplomacy",

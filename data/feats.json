@@ -2749,6 +2749,9 @@
           "weird-magic"
         ]
       }
+    ],
+    "flags": [
+      "Seasoned Step (\"Corruption check DC reduced to 12\") does nothing since Corruption checks were removed (2026-11-17); needs a new Step."
     ]
   },
   {

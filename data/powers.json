@@ -20,13 +20,8 @@
       "tier": "core",
       "basic_cast_pool": "mana",
       "text": [
-        "Any setting with a magic tradition. TL 1+.",
-        "Components: Gestures, spoken words, runes, ritual components. Always visible.",
-        "Learning: Arcane powers can be taught, copied, and learned from written sources.",
-        "Disruption: Silenced prevents verbal components (Cast DC 10 to continue). Restrained at -2.",
-        "Void: Using Void Effect via Arcane requires Corruption check DC 14 regardless of Surge level. | Visible to others: Any bystander can see Arcane in use.",
-        "Counterable: Arcane can be Abjured. Spirit/Shamanic cannot.",
-        "The most common Power Source in fantasy settings. Arcane magic is systematic — it follows rules that can be discovered and codified. A character with Arcane can, in principle, teach another character Arcane."
+        "Backlash 1 heavier; Fallout outward: the GM sets an environmental consequence that escapes into the world.",
+        "Gestures, spoken words, runes and components, always visible to any bystander. It can be taught, copied and learned from writing; a witness can identify a cast with Analyze DC 12 and, with study, reproduce it. Silenced stops it unless you pass Cast DC 10; Restrained is −2. A target who is also an Arcane caster may Defend against it with Willpower, not just Deflect. Casting offers no Resolve comfort. Can be Abjured."
       ],
       "default_from_focus": [
         "cast-attack",
@@ -45,13 +40,9 @@
       "tier": "core",
       "basic_cast_pool": "resolve",
       "text": [
-        "Any setting with a faith tradition. TL 1+.",
-        "Components: Holy symbols, prayer, laying on hands. Faith-powered.",
-        "Source: Power comes from genuine faith, not the deity directly. A crisis of faith Drains Mana -2 until resolved.",
-        "Void: Divine characters who use Void Effect must make a Corruption check DC 12 (lower than Arcane — doctrine may permit it).",
-        "Healing: Only Power Source with native access to Healing Effect at no additional cost flag. | Cannot be Silenced: Prayer is internal — Silenced condition does not prevent Divine use.",
-        "Abjurable: Divine can be Abjured. Innate cannot.",
-        "Divine power does not require the deity's conscious approval for each action — it is stored faith, not a direct phone line. A character can use Divine powers while their deity sleeps, is absent, or does not exist."
+        "Backlash 1 lighter; Fallout inward: you gain Removed (Spirit) for d4 hours, until the bond with your Source is repaired.",
+        "Faith Source: can’t be Defended, only Deflected (Deflect Ability, no skill). A successful cast clears 1 of your own Resolve boxes, unless used against your faith’s values. Can’t be copied, transcribed or learned by watching.",
+        "Holy symbols, prayer, laying on hands. The power is your own stored faith, not the deity’s approval for each act; a crisis of faith Drains Mana −2 until resolved. Can’t be Silenced. Native access to the Healing Effect. Authority over the Supernatural: a Divine Power aimed at an undead, demonic, spirit-touched or Void-sourced target counts as 1 Power Level higher, at no extra Mana, and can reach Power Level 6. Can be Abjured."
       ],
       "default_from_focus": []
     },
@@ -63,13 +54,8 @@
       "tier": "core",
       "basic_cast_pool": "stamina",
       "text": [
-        "Any setting. TL 1+. ML 0 possible for subtle innate abilities.",
-        "Components: None. Biological, bloodline, or cosmic gift. No words, no gestures.",
-        "Learning: Cannot be taught. Cannot be copied. Narrative source defines what is possible.",
-        "Suppression: Innate cannot be Abjured. It can be Negated by specific powers designed for it.",
-        "Versatility: Uses whatever Ability fits the specific power. A fire-blooded character uses STR for fire breath; a telepath uses INT. | No Corruption check: Innate Void use does not trigger Corruption.",
-        "Setting-specific: GM defines the narrative source at character creation.",
-        "Innate is the broadest Power Source — it covers dragons, mutants, superheroes, blessed bloodlines, alien physiology, and anything else that cannot be explained by training or faith. The specific Ability is chosen at character creation and does not change."
+        "Standard backlash.",
+        "No components: a bloodline, biological or cosmic gift. It can’t be taught or copied. It uses whatever Ability fits the power, chosen at creation and never changed, and the GM sets its source with you. Can’t be Abjured, only Negated by Powers made for it. Its Void Effects are not forbidden power."
       ],
       "default_from_focus": []
     },
@@ -84,13 +70,8 @@
       "tier": "core",
       "basic_cast_pool": "mana",
       "text": [
-        "Settings with ML 2+. Present in high-tech settings as standard.",
-        "Components: Silent. No visible manifestation. No words, no gestures, no components.",
-        "Mindless immunity: Creatures with no Intellect (Constructs, undead without minds) may be immune to Psychic Effects at 1-3 boxes via Psionic. GM adjudicates.",
-        "Suppression: Psionic cannot be Silenced. It can be blocked by psionic shielding (specific powers or TL 9+ technology).",
-        "Social: Psionic is the only Power Source that can be used in social situations without detection. | Undetectable: No visible tell unless the character chooses to make one.",
-        "Detection: Other psionics can detect psionic activity at ACU DC 13.",
-        "The silent Power Source. Psionic characters frequently have to decide whether to reveal their abilities or use them covertly. In settings where psionics are feared or regulated (Shadowrun, Dark Sun, many sci-fi settings), this becomes a major character and social factor."
+        "Standard backlash; Fallout in the mind: mental broadcast, burnout, echo or feedback.",
+        "Silent, with no visible tell unless you choose one, so it is the only Source usable in a social scene without being noticed. Can’t be Silenced, but psionic shielding (specific Powers or TL 9+ technology) blocks it, and lead shielding blocks Telepathy. Other psionics detect its use at Acuity DC 13. Creatures with no mind may be immune to its Psychic Effects at 1–3 boxes."
       ],
       "default_from_focus": []
     },
@@ -105,13 +86,9 @@
       "tier": "core",
       "basic_cast_pool": "resolve",
       "text": [
-        "Settings with animist or shamanic traditions. TL 1+.",
-        "Components: Varies — ritual objects, offerings, spoken bargains, drumming, dance.",
-        "Source: Power is bargained or gifted from external entities (spirits, ancestors, nature forces). The power is not yours alone.",
-        "Entity agenda: The GM may introduce entity complications. A spirit that granted power may later want something in return.",
-        "Abjure immunity: Spirit/Shamanic powers cannot be Abjured (the spirit is not casting — the character is relaying). | Entity relationship: Character must maintain relationship with source entity.",
-        "No Void Corruption: Spirit/Shamanic Void use does not trigger the Arcane Corruption check.",
-        "Distinct from Divine: Divine power comes from the character's own faith. Shamanic power comes from an agreement with something outside. The entity can renege. The entity can upgrade the deal. The entity has opinions about how its power is used."
+        "Backlash 1 lighter; Fallout inward: you gain Removed (Spirit) for d4 hours, until the bond with your Source is repaired.",
+        "Faith Source: can’t be Defended, only Deflected (Deflect Ability, no skill). A successful cast clears 1 of your own Resolve boxes, unless used against your faith’s values. Can’t be copied, transcribed or learned by watching.",
+        "Ritual objects, offerings, spoken bargains, drumming, dance. The power is gifted by spirits, ancestors or forces of nature, not your own, so you must keep that relationship: the entity may want something in return, and can renege on the deal or improve it. Can’t be Abjured, since the spirit, not you, is casting. Its Void Effects are not forbidden power."
       ],
       "default_from_focus": [
         "channel"
@@ -126,15 +103,10 @@
       ],
       "pools_text": "Mana / Stamina",
       "tier": "core",
-      "basic_cast_pool": null,
+      "basic_cast_pool": "stamina",
       "text": [
-        "TL 5+. Cannot be used at TL 1-4 without GM exception.",
-        "Components: Gadgets, serums, devices, formulae. Always has a physical component.",
-        "Preparation: Most Weird Science powers require preparation time outside of combat (GM discretion, typically 10 minutes to 1 hour for complex devices).",
-        "Destruction: Physical gadgets can be targeted (DR 0, Stamina 6 for a standard device). If destroyed, the power is unavailable until rebuilt.",
-        "Reproducible: Weird Science can be explained and replicated by anyone with sufficient Intellect and materials. It is technology, not magic. | No Corruption: Weird Science has no Corruption track.",
-        "TL-limited: Specific devices only available at appropriate Technology Level.",
-        "Weird Science is technology that should not work yet does — it is D&D's Artificer, GURPS' gadgeteer, Shadowrun' s technomancer adjacent. Distinct from Arcane because it is repeatable, physical, and teachable to anyone regardless of Ability. The character's Intellect determines reliability and power, not some innate gift."
+        "Standard backlash.",
+        "TL 5+. Always a physical gadget, serum, device or formula, most needing 10 minutes to an hour of preparation out of combat. A gadget can be targeted (DR 0, 6 Stamina) and is unusable until rebuilt. Anyone with the Intellect and the materials can learn it. It has no Corruption track."
       ],
       "default_from_focus": []
     },
@@ -146,13 +118,9 @@
       ],
       "pools_text": "Stamina (physical lab work); Mana (reactive formulas)",
       "tier": "expansion",
-      "basic_cast_pool": null,
+      "basic_cast_pool": "stamina",
       "text": [
-        "TL 3+. Pre-industrial chemistry settings, fantasy apothecary traditions.",
-        "Components: Prepared substances — potions, bombs, salves, reagents. Must be crafted in advance.",
-        "Preparation: All Alchemical powers are crafted out of combat. Activation in combat is instantaneous (draw and use).",
-        "Supply limit: Characters carry a limited number of prepared substances (GM sets inventory cap, typically 3-6 per scene).",
-        "No Mana pool cost: Alchemical activation costs Stamina (physical exertion of use), not Mana. The preparation was the hard part."
+        "TL 3+. Potions, bombs, salves and reagents crafted out of combat; drawing and using one is instant. Carry 3–6 per scene (the GM sets it). Activation costs Stamina, not Mana: the preparation was the hard part."
       ],
       "default_from_focus": []
     },
@@ -165,13 +133,9 @@
       ],
       "pools_text": "Stamina (life force as fuel)",
       "tier": "expansion",
-      "basic_cast_pool": null,
+      "basic_cast_pool": "stamina",
       "text": [
-        "Any TL / ML with a tradition of sacrifice. Often restricted or forbidden.",
-        "Cost structure: Instead of spending Mana, Blood Magic powers cost Stamina boxes directly. 1 Stamina = 1 Mana for Power purposes.",
-        "No Mana required: A Blood Magic character does not need a Mana pool. Stamina serves as the fuel.",
-        "Pool risk: Stamina spent on Blood Magic counts as damage taken — it crosses boxes and may trigger Hurt/Injured thresholds.",
-        "Corruption: Using Blood Magic on an unwilling target's blood (forced sacrifice) requires a Corruption check DC 16."
+        "Spend Stamina boxes as Mana, one for one, with no Mana pool needed. Those boxes count as damage taken and can make you Hurt or Injured. Using an unwilling target’s blood is forbidden power. Often restricted or forbidden by law."
       ],
       "default_from_focus": []
     },
@@ -185,13 +149,9 @@
       ],
       "pools_text": "Stamina (physical mastery)",
       "tier": "expansion",
-      "basic_cast_pool": null,
+      "basic_cast_pool": "stamina",
       "text": [
-        "Any TL. Requires trained discipline — not a gift.",
-        "Components: None. Internal. Breath control, body movement, trained focus.",
-        "Source: Trained discipline, not bloodline gift. Anyone can learn with sufficient time (GM sets training requirements).",
-        "Vs Innate: Innate = you were born with it. Chi = you trained for it. Mechanically similar, narratively opposite.",
-        "Suppression: Chi cannot be Abjured. It can be disrupted by specific anti-ki techniques (other Chi practitioners or specific Powers)."
+        "No components: breath, movement and trained focus. Innate is what you were born with; Chi is what you trained for, and anyone can learn it with time. Can’t be Abjured, only disrupted by anti-ki techniques."
       ],
       "default_from_focus": []
     },
@@ -204,13 +164,9 @@
       ],
       "pools_text": "Mana (system processing); Stamina (physical enhancement)",
       "tier": "expansion",
-      "basic_cast_pool": null,
+      "basic_cast_pool": "stamina",
       "text": [
-        "TL 8+. Implanted technology — not carried, not destroyable without surgery.",
-        "Components: Implanted technology. No preparation required — always active or on-demand.",
-        "Vs Weird Science: Weird Science = external gadgets. Cybernetic = implanted. Cybernetics cannot be dropped, pickpocketed, or targeted separately without surgery.",
-        "Disruption: Electric Effect at 3+ boxes can disrupt Cybernetic powers (system short-out). EMP disables all Cybernetic powers for the scene.",
-        "Humanity cost: High-Cybernetic characters may develop social penalties at GM discretion (TL 9+ settings with Humanity mechanics)."
+        "TL 8+. Implanted, always on or on demand, and can’t be dropped, stolen or targeted without surgery. An Electric Effect at 3+ boxes can short it out; an EMP disables it for the scene. Heavy implants may bring social penalties (GM)."
       ],
       "default_from_focus": []
     },
@@ -223,13 +179,9 @@
       ],
       "pools_text": "Mana / Resolve (and sometimes Stamina — see notes)",
       "tier": "expansion",
-      "basic_cast_pool": null,
+      "basic_cast_pool": "resolve",
       "text": [
-        "Any setting with supernatural entities willing to make deals.",
-        "Components: Varies by pact terms. Often involves a symbol, trigger word, or ritual gesture.",
-        "Source: Power granted by a demonic, infernal, or significantly powerful entity. The deal was bad. The character may not know how bad.",
-        "Corruption: Every use of Pact-Bound powers requires a Corruption check (DC 10 + Power Level). This is not negotiable. It is in the contract.",
-        "Vs Shamanic: Spirit/Shamanic = entity can be reasoned with. Demonic = entity has a fixed agenda and the contract is non-negotiable."
+        "Power from a demonic or infernal entity with a fixed agenda, through a symbol, trigger word or gesture the pact sets. The deal was bad, and the contract can’t be renegotiated. Every Pact-Bound Power is forbidden power."
       ],
       "default_from_focus": []
     },
@@ -242,13 +194,9 @@
       ],
       "pools_text": "Mana / Stamina",
       "tier": "expansion",
-      "basic_cast_pool": null,
+      "basic_cast_pool": "stamina",
       "text": [
-        "Settings with a living natural world. TL 1-5 primarily; present at any TL with GM approval.",
-        "Components: Touch, proximity to natural material, spoken communion. Never requires manufactured components.",
-        "Source: Direct relationship with the living world — not through intermediary entities. The land itself, not spirits of the land.",
-        "Vs Shamanic: Spirit/Shamanic = relationship with spirits OF nature. Nature/Primal = relationship WITH nature directly.",
-        "Restriction: Nature/Primal powers are diminished in environments without natural material (urban TL 8+ settings: -1 to all Nature/Primal rolls). Fully functional in wilderness."
+        "Touch, nearness to natural material and spoken communion, never manufactured components: a bond with the land itself, not its spirits. −1 to its rolls in urban TL 8+ settings. An Earth Effect counts 1 Power Level higher against Void-sourced targets."
       ],
       "default_from_focus": []
     },
@@ -261,13 +209,9 @@
       ],
       "pools_text": "Mana (preparation); activation is free",
       "tier": "expansion",
-      "basic_cast_pool": null,
+      "basic_cast_pool": "stamina",
       "text": [
-        "TL 2+. Settings with written language and a runic tradition.",
-        "Components: Written runes, sigils, inscriptions. Always physical — a rune that is not written does not exist.",
-        "Preparation: Runic powers must be prepared in advance. Activation in the moment of need is free (the rune fires). No improvisation.",
-        "Duration: A rune activates once and is spent. Permanent runes (etched in stone/metal) cost double Mana on preparation.",
-        "Cannot improvise: A Runic character cannot create a new effect in combat. They bring what they prepared."
+        "TL 2+. Runes, sigils and inscriptions written in advance; a rune fires for free, once, then is spent. Permanent runes etched in stone or metal cost double Mana to prepare. You can’t improvise a new effect in combat: you bring what you prepared."
       ],
       "default_from_focus": []
     },
@@ -282,14 +226,8 @@
       "tier": "own Source",
       "basic_cast_pool": "stamina",
       "text": [
-        "Any setting where something lies beyond the world.",
-        "Origin: Choose where it comes from at creation. Space: the empty dark between worlds, impersonal, wanting nothing. The Old Ones: vast minds outside the world, who may notice you and whom the GM may call on.",
-        "Components: None visible. Light dims and sound dulls around the caster.",
-        "Basic Cast: Crosses Stamina. Void is a negative energy that unmakes the physical.",
-        "Corruption: On a Bane while using Void power, gain Corruption +1 automatically, with no check. A Void caster makes no other Void Effect check.",
-        "Void Mastery: The Void Effect never takes the −1 for being non-Signature.",
-        "Opposition: Divine Powers (positive energy) and Nature / Primal Powers with an Earth Effect count 1 Power Level higher against Void-sourced targets. You can be Abjured.",
-        "Learning: It can’t be taught safely. It is learned from forbidden texts, or from contact.",
+        "Standard backlash.",
+        "Choose its origin at creation: Space, the empty dark between worlds, impersonal and wanting nothing; or the Old Ones, vast minds outside the world who may notice you and whom the GM may call on. No visible components: light dims and sound dulls around you. A Void Basic Cast crosses Stamina, since Void unmakes the physical. All Void power is forbidden power. The Void Effect never takes the −1 for being non-Signature. Divine Powers and Nature / Primal Earth Effects count 1 Power Level higher against Void-sourced targets. It can’t be taught safely: it is learned from forbidden texts or from contact. Can be Abjured.",
         "Void is contact with something that does not care about you. A deal with something that wants you is Demonic / Pact-Bound."
       ],
       "default_from_focus": []
@@ -5934,5 +5872,6 @@
         "pl": 2
       }
     ]
-  }
+  },
+  "corruption_rule": "A Bane on a roll that uses forbidden power gives Corruption +1, automatically, at every tier. Forbidden power is Void power (except a Void Effect used by an Innate or Spirit / Shamanic caster), a Pact-Bound Power, Blood Magic using an unwilling target’s blood, a faith Source turned against its values, and any other overreach the GM calls. Fallout adds Corruption too: Major +1, Severe +1, Catastrophic +2. There are no Corruption checks."
 }
