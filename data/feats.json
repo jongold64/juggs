@@ -51,7 +51,7 @@
     "domain": "universal",
     "magic": false,
     "prerequisite_text": "A declared Offensive Signature Effect",
-    "text": "Declare one more Offensive Signature Effect. It works exactly like your first: no penalty to use, and on a Surge 2+ hit you may fire its 1-box rung for free (one Signature per hit). Choose a type that fits your Power Source or concept; it can be changed between sessions with GM approval.",
+    "text": "Declare one more Offensive Signature Effect. It works exactly like your first: no penalty to use, and on an Effort 2+ hit you may fire its 1-box rung for free (one Signature per hit). Choose a type that fits your Power Source or concept; it can be changed between sessions with GM approval.",
     "at_the_table": "",
     "steps": [
       {
@@ -678,23 +678,23 @@
   },
   {
     "id": "surge-discipline",
-    "name": "Surge Discipline",
+    "name": "Effort Discipline",
     "kind": "stepped",
     "domain": "universal",
     "magic": false,
     "prerequisite_text": "None",
-    "text": "Makes Surging cheaper without making it safer. You still commit the full number of boxes for the roll bonus and Fallout severity; you simply pay fewer. A Surge always costs at least 1 box. A Legendary character committing 7 boxes pays 3 and still faces Catastrophic Fallout on a Natural 1.",
+    "text": "Makes using Effort cheaper without making it safer. You still commit the full number of boxes for the roll bonus and Fallout severity; you simply pay fewer. An Effort always costs at least 1 box. A Legendary character committing 7 boxes pays 3 and still faces Catastrophic Fallout on a Natural 1.",
     "at_the_table": "",
     "steps": [
       {
         "tier": "Novice",
         "level": 1,
-        "text": "Once per scene, pay 1 box less for a Surge."
+        "text": "Once per scene, pay 1 box less for an Effort."
       },
       {
         "tier": "Seasoned",
         "level": 5,
-        "text": "Pay 1 box less for any Surge."
+        "text": "Pay 1 box less for any Effort."
       },
       {
         "tier": "Veteran",
@@ -4350,7 +4350,7 @@
     "domain": "cross",
     "magic": false,
     "prerequisite_text": "A Combat Specialty and a Magical Specialty, Veteran tier",
-    "text": "Once per round, you may cast a PL 1 or 2 Power as a free action immediately before or after a melee attack, paying the normal Mana cost. The cast does not use an Action. The magic and the steel land in the same moment.",
+    "text": "Once per round, you may cast a Rank 1 or 2 Power as a free action immediately before or after a melee attack, paying the normal Mana cost. The cast does not use an Action. The magic and the steel land in the same moment.",
     "at_the_table": "",
     "steps": [],
     "requires": [
@@ -4514,8 +4514,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Intellect 2+ or Belief 2+, Magic Overlay",
-    "text": "You gain access to a single Level 1 Power with no Mana cost — a cantrip. You cannot Surge it. You cannot add Effects to it. The specific manifestation is defined when you take this Feat: a flicker of fire, a spark of light, a small levitation, a whisper across distance. The effect is minor and defined. This is the first step on the warrior-to-mage path: one small repeatable magical act, earned through training rather than identity.",
-    "at_the_table": "One specific Level 1 Power, defined at Feat acquisition, usable at no Mana cost. No Surge. No Effects. GM approves the specific manifestation. This is not a general casting ability — it is one specific thing you can do.",
+    "text": "You gain access to a single Level 1 Power with no Mana cost — a cantrip. You cannot use Effort it. You cannot add Effects to it. The specific manifestation is defined when you take this Feat: a flicker of fire, a spark of light, a small levitation, a whisper across distance. The effect is minor and defined. This is the first step on the warrior-to-mage path: one small repeatable magical act, earned through training rather than identity.",
+    "at_the_table": "One specific Level 1 Power, defined at Feat acquisition, usable at no Mana cost. No Effort. No Effects. GM approves the specific manifestation. This is not a general casting ability — it is one specific thing you can do.",
     "steps": [
       {
         "tier": "Novice",
@@ -4530,7 +4530,7 @@
       {
         "tier": "Veteran",
         "level": 9,
-        "text": "You may Surge these Powers."
+        "text": "You may use Effort these Powers."
       },
       {
         "tier": "Heroic",
@@ -4540,7 +4540,7 @@
       {
         "tier": "Legendary",
         "level": 17,
-        "text": "Each can be cast at PL 2 by paying its Mana."
+        "text": "Each can be cast at Rank 2 by paying its Mana."
       }
     ],
     "requires": [
@@ -4565,8 +4565,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Belief 2+, Magic Overlay",
-    "text": "You gain access to a single Level 1 Healing Power, paying full Mana cost. You cannot Surge it. The effect is limited: the healing roll unmars up to 2 boxes from the target’s chosen pool. This is the fighter who has learned to lay hands — not channel miracles, not perform divine acts, but offer a trained, earnest act of healing that costs real resources and produces real results.",
-    "at_the_table": "One Level 1 Healing Power available. Full Mana cost. No Surge. Unmarks up to 2 boxes from one pool (target’s choice). Requires a healing roll against DC 15. One defined manifestation, chosen when Feat is taken.",
+    "text": "You gain access to a single Level 1 Healing Power, paying full Mana cost. You cannot use Effort it. The effect is limited: the healing roll unmars up to 2 boxes from the target’s chosen pool. This is the fighter who has learned to lay hands — not channel miracles, not perform divine acts, but offer a trained, earnest act of healing that costs real resources and produces real results.",
+    "at_the_table": "One Level 1 Healing Power available. Full Mana cost. No Effort. Unmarks up to 2 boxes from one pool (target’s choice). Requires a healing roll against DC 15. One defined manifestation, chosen when Feat is taken.",
     "steps": [
       {
         "tier": "Novice",
@@ -4581,7 +4581,7 @@
       {
         "tier": "Veteran",
         "level": 9,
-        "text": "You may Surge these Powers."
+        "text": "You may use Effort these Powers."
       },
       {
         "tier": "Heroic",
@@ -4591,7 +4591,7 @@
       {
         "tier": "Legendary",
         "level": 17,
-        "text": "Your Healing Power can be cast at PL 2 by paying its Mana."
+        "text": "Your Healing Power can be cast at Rank 2 by paying its Mana."
       }
     ],
     "requires": [
@@ -4615,7 +4615,7 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Caster or Channeler Role, Strength or Agility 2+",
-    "text": "Your physical Surge ceiling increases by 1 box when using Combat (Melee) or Combat (Ranged) skills — you can commit one more Surge box than your tier normally allows. Additionally, once per encounter, use a physical Maneuver as a Free Action (no Stamina cost, no Mastery Floor required) immediately after completing a successful Cast or Channel action.",
+    "text": "Your physical Effort ceiling increases by 1 box when using Combat (Melee) or Combat (Ranged) skills — you can commit one more Effort box than your tier normally allows. Additionally, once per encounter, use a physical Maneuver as a Free Action (no Stamina cost) immediately after completing a successful Cast or Channel action.",
     "at_the_table": "",
     "steps": [
       {
@@ -4702,18 +4702,18 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Belief 2+, Magic Overlay",
-    "text": "You may now use Healing Powers up to Level 2, paying full cost. You receive no Channeler discount and cannot take the Channeler Role. Your healing is genuine in this range — you can restore meaningful capacity, clear Hurt boxes, address Poisoned or Bleeding conditions. The divine source answers when you call. It is simply not your primary relationship.",
-    "at_the_table": "Healing Powers up to Level 2. Full cost. No Channeler discount. Cannot take the Channeler Role while this Feat is held. Available from Level 9.",
+    "text": "You may now use Healing Powers up to Rank 2, paying full cost. You get no tier discount on them and cannot take the Channeler Role. Your healing is genuine in this range — you can restore meaningful capacity, clear Hurt boxes, address Poisoned or Bleeding conditions. The divine source answers when you call. It is simply not your primary relationship.",
+    "at_the_table": "Healing Powers up to Rank 2. Full cost. No tier discount. Cannot take the Channeler Role while this Feat is held. Available from Level 9.",
     "steps": [
       {
         "tier": "Novice",
         "level": 1,
-        "text": "One Level 1 Healing Power, paying full cost."
+        "text": "One Rank 1 Healing Power, paying full cost."
       },
       {
         "tier": "Seasoned",
         "level": 5,
-        "text": "Any Level 1 Healing Power, paying full cost."
+        "text": "Any Rank 1 Healing Power, paying full cost."
       },
       {
         "tier": "Veteran",
@@ -4728,7 +4728,7 @@
       {
         "tier": "Legendary",
         "level": 17,
-        "text": "Healing Powers up to Level 3."
+        "text": "Healing Powers up to Rank 3."
       }
     ],
     "requires": [
@@ -4794,8 +4794,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Intellect 2+ or Belief 2+, Magic Overlay",
-    "text": "You may now use Powers up to Level 2, paying full Mana cost and Surge costs with no discount. You receive no Level Discount of any kind. You cannot take the Caster or Channeler Role while you hold this Feat — your relationship with magic is deliberate practice, not innate identity. You are the warrior-mage: real capability, real cost, never the efficiency of a dedicated caster.",
-    "at_the_table": "Powers up to Level 2 available. Full Mana and Surge costs — no discount. Cannot take the Caster or Channeler Role while this Feat is held. If those Roles are already held, consult GM for conflict resolution. Available from Level 9.",
+    "text": "You may now use Powers up to Rank 2, paying full Mana and Effort costs: you get no tier discount on them. You cannot take the Caster or Channeler Role while you hold this Feat — your relationship with magic is deliberate practice, not innate identity. You are the warrior-mage: real capability, real cost, never the efficiency of a dedicated caster.",
+    "at_the_table": "Powers up to Rank 2 available. Full Mana and Effort costs, no tier discount. Cannot take the Caster or Channeler Role while this Feat is held. If those Roles are already held, consult GM for conflict resolution. Available from Level 9.",
     "steps": [
       {
         "tier": "Novice",
@@ -4805,7 +4805,7 @@
       {
         "tier": "Seasoned",
         "level": 5,
-        "text": "Any Level 1 Power, paying full Mana and Surge."
+        "text": "Any Level 1 Power, paying full Mana and Effort."
       },
       {
         "tier": "Veteran",
@@ -4815,7 +4815,7 @@
       {
         "tier": "Heroic",
         "level": 13,
-        "text": "Powers up to Level 3, paying full cost."
+        "text": "Powers up to Rank 3, paying full cost."
       },
       {
         "tier": "Legendary",
@@ -4929,8 +4929,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Power Access, Intellect 4+ or Belief 4+, Heroic tier+",
-    "text": "You may now use Powers up to Level 4, paying full cost. You also gain one Level Discount point — a single reduction to Mana costs that does not stack with Caster discounts and applies to your highest-cost cast per scene. You still cannot take the Caster or Channeler Role. At this tier your magic is undeniably real — limited and costly, but real. This is the ceiling of the warrior-mage path within the Feat system.",
-    "at_the_table": "Powers up to Level 4. Full cost minus 1 Mana on one cast per scene (the highest-cost one). Still cannot take the Caster or Channeler Role. Available from Level 13.",
+    "text": "You may now use Powers up to Rank 4, paying full cost, except that your highest-cost cast each scene costs 1 Mana less. You still cannot take the Caster or Channeler Role. At this tier your magic is undeniably real — limited and costly, but real. This is the ceiling of the warrior-mage path within the Feat system.",
+    "at_the_table": "Powers up to Rank 4. Full cost minus 1 Mana on one cast per scene (the highest-cost one). Still cannot take the Caster or Channeler Role. Available from Level 13.",
     "steps": [],
     "requires": [
       {
@@ -4957,8 +4957,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Power Unleashed or any Mastery-tier Magical Specialty Feat, Legendary tier+",
-    "text": "Once per session, cast any Power you know at any Level with no Mana cost. Surge costs still apply if you choose to Surge. This is the warrior-mage’s single moment of unrestricted magical expression — the culmination of a career spent practicing something you were told was not yours. You were wrong. The cost (Surge, if any) remains because commitment to power is its own price.",
-    "at_the_table": "Once per session: cast any known Power at any Level, 0 Mana cost. Surge costs apply if declared. One use resets each session. Cannot exceed Level 5 regardless of this Feat.",
+    "text": "Once per session, cast any Power you know at any Level with no Mana cost. Effort costs still apply if you choose to use Effort. This is the warrior-mage’s single moment of unrestricted magical expression — the culmination of a career spent practicing something you were told was not yours. You were wrong. The cost (Effort, if any) remains because commitment to power is its own price.",
+    "at_the_table": "Once per session: cast any known Power at any Level, 0 Mana cost. Effort costs apply if declared. One use resets each session. Cannot exceed Level 5 regardless of this Feat.",
     "steps": [],
     "requires": [
       {
@@ -4973,8 +4973,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Divine Intervention, Belief 4+, Heroic tier+",
-    "text": "You may now use Healing and Protection Powers up to Level 4, paying full cost. You gain one Level Discount point — one Mana reduction on your highest-cost healing or protection cast per scene. You still cannot take the Channeler Role. Your faith is genuine enough that the source answers with real power. The conversation is real. It is simply not the central relationship of your identity.",
-    "at_the_table": "Healing and Protection Powers up to Level 4. Full cost minus 1 Mana on one cast per scene (the highest-cost qualifying cast). Cannot take the Channeler Role. Available from Level 13.",
+    "text": "You may now use Healing and Protection Powers up to Rank 4, paying full cost, except that your highest-cost healing or protection cast each scene costs 1 Mana less. You still cannot take the Channeler Role. Your faith is genuine enough that the source answers with real power. The conversation is real. It is simply not the central relationship of your identity.",
+    "at_the_table": "Healing and Protection Powers up to Rank 4. Full cost minus 1 Mana on one cast per scene (the highest-cost qualifying cast). Cannot take the Channeler Role. Available from Level 13.",
     "steps": [],
     "requires": [
       {
@@ -4995,13 +4995,13 @@
   },
   {
     "id": "power-surge-mastery",
-    "name": "Power Surge Mastery",
+    "name": "Power Effort Mastery",
     "kind": "gated",
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Active Magical Specialty, Intellect 4+, Veteran tier+",
-    "text": "Your Surge costs for all Powers are reduced by 1 Mana box, to a minimum of 1. This stacks with the Caster Role at Veteran tier (which reduces the Surge cost on your primary cast school by 1). A dedicated Caster who takes this Feat becomes notably more resource-efficient — the combination represents mastery of the cost structure of magical power.",
-    "at_the_table": "All Surge costs reduced by 1 Mana box (min 1 per Surge box). Stacks with the Caster Role at Veteran tier on the relevant school. Permanent. Applies to all schools of casting.",
+    "text": "Your Effort costs for all Powers are reduced by 1 Mana box, to a minimum of 1. This stacks with the Caster Role at Veteran tier (which reduces the Effort cost on your primary cast school by 1). A dedicated Caster who takes this Feat becomes notably more resource-efficient — the combination represents mastery of the cost structure of magical power.",
+    "at_the_table": "All Effort costs reduced by 1 Mana box (min 1 per Effort box). Stacks with the Caster Role at Veteran tier on the relevant school. Permanent. Applies to all schools of casting.",
     "steps": [],
     "requires": [
       {
@@ -5016,8 +5016,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Precision Caster, Intellect 5+, Legendary tier+",
-    "text": "Once per session, your next Power automatically hits every intended target and misses every intended exclusion, regardless of any rolls. Declare all targets and all exclusions. The effect resolves. No attack roll, no defense, no Deflect. Surge costs still apply. This is the Theorist’s ideal: a Power executed so precisely that chance becomes irrelevant.\nSPIRIT FEATS — Belief · Morale · Serenity — Faith, courage, and spiritual authority",
-    "at_the_table": "Once per session: next Power auto-hits all declared targets, auto-misses all declared exclusions. No attack roll. Defenders cannot Deflect or Defend. Surge costs apply. Declare before resolving.",
+    "text": "Once per session, your next Power automatically hits every intended target and misses every intended exclusion, regardless of any rolls. Declare all targets and all exclusions. The effect resolves. No attack roll, no defense, no Deflect. Effort costs still apply. This is the Theorist’s ideal: a Power executed so precisely that chance becomes irrelevant.\nSPIRIT FEATS — Belief · Morale · Serenity — Faith, courage, and spiritual authority",
+    "at_the_table": "Once per session: next Power auto-hits all declared targets, auto-misses all declared exclusions. No attack roll. Defenders cannot Deflect or Defend. Effort costs apply. Declare before resolving.",
     "steps": [],
     "requires": [
       {
@@ -5155,7 +5155,7 @@
     "domain": "mastery",
     "magic": true,
     "prerequisite_text": "Weaver at Veteran tier or above",
-    "text": "Once per scene, when you use Adaptive Range, you may also change the Power's Area — from single target to Close range burst (or vice versa) at the same Power Level. The area change costs 1 additional Mana.",
+    "text": "Once per scene, when you use Adaptive Range, you may also change the Power's Area — from single target to Close range burst (or vice versa) at the same Rank. The area change costs 1 additional Mana.",
     "at_the_table": "",
     "steps": [],
     "requires": [

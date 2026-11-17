@@ -214,9 +214,7 @@ def main(folder):
     for s in ck.records('powers.json spells', powers.get('spells', [])).values():
         w = f'powers.json spell {s["id"]}'
         if [x.get('pl') for x in s.get('steps', [])] != [1, 2, 3, 4, 5]:
-            ck.err(w, 'steps must be Power Levels 1-5 in order')
-        if s.get('steps') and s['steps'][0].get('level') != 1:
-            ck.err(w, 'every spell starts at Level 1')
+            ck.err(w, 'steps must be Ranks 1-5 in order (Step N is the Rank N form)')
 
     for s in sources.values():
         w = f'powers.json source {s["id"]}'

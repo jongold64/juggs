@@ -1,4 +1,4 @@
-// The Powers tab: Making a Power (start at Power Level 1, add upgrades), the character's Powers, the stepped spell list
+// The Powers tab: Making a Power (start at Rank 1, add upgrades), the character's Powers, the stepped spell list
 // and the Power Sources, all from the Book of Powers. Casting is freeform: "My Powers" is a shortcut list, not spells
 // known.
 import * as R from './rules.js';
@@ -10,7 +10,7 @@ import { weirdOn, weirdCard } from './weird.js';
 let draft = null;
 let editing = null;
 // The spell list's filters. Page state only; not saved with the character.
-const view = { query: '', pace: '', unlocked: false };
+const view = { query: '', unlocked: false };
 
 export function setPowerFilter(key, value) {
   view[key] = value;
@@ -68,7 +68,7 @@ export function describe(D, p) {
   return `${parts.join(' · ')}${eff ? ` · ${eff.name}` : ''}${p.notes ? `. ${p.notes}` : ''}`;
 }
 
-const manaNote = s => (s.cantrip ? 'free cantrip' : s.discounted ? `Level Discount (base ${s.powerLevel})` : 'base cost');
+const manaNote = s => (s.cantrip ? 'free cantrip' : s.discounted ? `tier discount (base ${s.powerLevel})` : 'base cost');
 
 // ---------------------------------------------------------------------------------------------------------------
 // Drawing
@@ -101,12 +101,12 @@ function makeCard(D, c) {
         <select data-draft="effect">${options(effects, draft.effect, 'None')}</select></div>
     </div>
     <div class="sb-result">
-      <div><span class="sb-rl">Level</span><span class="sb-rv big">PL ${sum.powerLevel}</span></div>
+      <div><span class="sb-rl">Rank</span><span class="sb-rv big">${sum.powerLevel}</span></div>
       <div><span class="sb-rl">Mana for you</span><span class="sb-rv">${sum.mana}</span><span class="sb-rs">${esc(manaNote(sum))}</span></div>
-      <div><span class="sb-rl">On a hit</span><span class="sb-rv">≥ ${sum.powerLevel}</span><span class="sb-rs">overage or PL, up to the Hit Cap</span></div>
+      <div><span class="sb-rl">On a hit</span><span class="sb-rv">≥ ${sum.powerLevel}</span><span class="sb-rs">overage or Rank, up to the Hit Cap</span></div>
       <div class="sb-chips">${chips.map(([k, p]) => `<span class="sb-chip">${esc(k)} <b>+${p}</b></span>`).join('')}</div>
-      ${sum.over ? `<p class="warn">PL ${sum.rawLevel} is above the maximum of 5: cut an upgrade.</p>` : ''}
-      ${sum.powerLevel > R.maxPowerLevel(c.level) ? `<p class="warn">Above PL ${R.maxPowerLevel(c.level)}, the most a caster can use at Level ${c.level}.</p>` : ''}
+      ${sum.over ? `<p class="warn">Rank ${sum.rawLevel} is above the maximum of 5: cut an upgrade.</p>` : ''}
+      ${sum.powerLevel > R.rankCap(D, c.level) ? `<p class="warn">Above Rank ${R.rankCap(D, c.level)}, the highest you can use at ${esc(R.tierFor(D, c.level).name)} tier.</p>` : ''}
       <div class="sb-buttons">
         <button type="button" class="primary" data-power="save">${editing !== null ? 'Save changes' : 'Save to character'}</button>
         <button type="button" data-power="new">${editing !== null ? 'Cancel' : 'Clear'}</button>
@@ -118,10 +118,10 @@ function makeCard(D, c) {
 }
 
 function stepTable(D, c, spell) {
-  return `<div class="table-wrap"><table class="qr-table"><thead><tr><th>Level</th><th>PL</th><th>Mana</th><th>Reach · Targets · Duration</th><th>What it does</th></tr></thead>
+  return `<div class="table-wrap"><table class="qr-table"><thead><tr><th>Step / Rank</th><th>Mana</th><th>Reach · Targets · Duration</th><th>What it does</th></tr></thead>
     <tbody>${spell.steps.map(s => {
       const m = R.spellStepSummary(D, c, s);
-      return `<tr${s.level > c.level ? ' class="beyond"' : ''}><th scope="row">${s.level}</th><td>${s.pl}</td><td>${m.mana}</td>
+      return `<tr${s.pl > R.rankCap(D, c.level) ? ' class="beyond"' : ''}><th scope="row">${s.pl}</th><td>${m.mana}</td>
         <td>${esc(s.reach)} · ${esc(s.targets)} · ${esc(s.duration)}</td><td>${esc(s.text)}</td></tr>`;
     }).join('')}</tbody></table></div>`;
 }
@@ -130,35 +130,34 @@ function mineCard(D, c) {
   const rows = c.powers.map((p, i) => {
     const spell = D.spellsById.get(p.spell);
     if (spell) {
-      const top = R.stepsAt(spell, c.level).pop();
+      const top = R.spellStepsAt(D, spell, c.level).pop();
       const m = R.spellStepSummary(D, c, top);
-      return `<li><b>${esc(spell.name)}</b> <span class="hint">PL ${top.pl} at most · ${m.mana} Mana · ${esc(spell.pace)}</span>
+      return `<li><b>${esc(spell.name)}</b> <span class="hint">Rank ${top.pl} at most · ${m.mana} Mana</span>
         <div class="info">${esc(top.reach)} · ${esc(top.targets)} · ${esc(top.duration)}. ${esc(top.text)}</div>
         <button type="button" class="tiny" data-power="delete" data-arg="${i}">Remove</button></li>`;
     }
     const s = R.madePowerSummary(D, c, p);
     const src = D.sourcesById.get(p.source)?.name;
-    return `<li><b>${esc(powerName(D, p))}</b> <span class="hint">PL ${s.powerLevel} · ${s.mana} Mana${src ? ` · ${esc(src)}` : ''}</span>
+    return `<li><b>${esc(powerName(D, p))}</b> <span class="hint">Rank ${s.powerLevel} · ${s.mana} Mana${src ? ` · ${esc(src)}` : ''}</span>
       <div class="info">${esc(describe(D, p))}</div>
       <button type="button" class="tiny" data-power="edit" data-arg="${i}">Edit</button>
       <button type="button" class="tiny" data-power="delete" data-arg="${i}">Remove</button></li>`;
   }).join('');
   return `<section class="card wide"><h2>${esc(c.name || 'This character')}'s Powers</h2>
     <p class="hint">A shortcut list: casting is freeform, so any Power can be cast without being listed here.
-      ${R.hasLevelDiscount(D, c) ? `Your Level Discount is −${R.levelDiscount(D, c.level)} Mana, minimum 1.` : 'Only Casters and Channelers have the Level Discount.'}</p>
+      At ${esc(R.tierFor(D, c.level).name)} tier you use Rank ${R.rankCap(D, c.level)} at most, and Techniques cost ${R.tierFor(D, c.level).technique_discount ? `${R.tierFor(D, c.level).technique_discount} less` : 'their Rank'}, minimum 1.</p>
     ${rows ? `<ul class="power-list">${rows}</ul>` : '<p class="hint">None yet. Make one above or add a spell below.</p>'}</section>`;
 }
 
 function spellCard(D, c) {
   const q = view.query.trim().toLowerCase();
   const list = D.powers.spells.filter(s => (!q || `${s.name} ${s.sources_text} ${s.effect_text}`.toLowerCase().includes(q))
-    && (!view.pace || s.pace === view.pace) && (!view.unlocked || R.stepsAt(s, c.level).length > 1));
-  const paces = ['Quick', 'Steady', 'Measured', 'Slow', 'Epic'];
+    && (!view.unlocked || R.spellStepsAt(D, s, c.level).length > 1));
   const held = new Set(c.powers.map(p => p.spell));
   const cards = list.map(s => {
-    const have = R.stepsAt(s, c.level).length;
+    const have = R.spellStepsAt(D, s, c.level).length;
     return `<details class="rf-card"><summary><b>${esc(s.name)}</b>
-        <span class="hint">${esc(s.sources_text)}${s.effect_text ? ` · ${esc(s.effect_text)}` : ''} · ${esc(s.pace)} · Step ${have} of ${s.steps.length}</span>
+        <span class="hint">${esc(s.sources_text)}${s.effect_text ? ` · ${esc(s.effect_text)}` : ''} · Step ${have} of ${s.steps.length}</span>
         ${held.has(s.id) ? '<span class="good">Listed</span>' : ''}</summary>
       ${stepTable(D, c, s)}
       ${s.reskin ? `<p class="hint">Reskin: ${esc(s.reskin)}</p>` : ''}
@@ -169,8 +168,7 @@ function spellCard(D, c) {
     <p class="hint">${esc(D.powers.spell_rule)}</p>
     <div class="rf-filters">
       <input type="search" id="spell-search" data-power-filter="query" value="${esc(view.query)}" placeholder="Search by name, Source or Effect…" aria-label="Search spells">
-      <select data-power-filter="pace" aria-label="Pace">${options(paces.map(p => ({ value: p, label: p })), view.pace, 'All paces')}</select>
-      <label class="check"><input type="checkbox" data-power-filter="unlocked"${view.unlocked ? ' checked' : ''}> Past Step 1 at my level</label>
+      <label class="check"><input type="checkbox" data-power-filter="unlocked"${view.unlocked ? ' checked' : ''}> Past Step 1 at my tier</label>
     </div>
     ${cards || '<p class="hint">No spells match.</p>'}</section>`;
 }

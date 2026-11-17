@@ -407,3 +407,20 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Basic Cast pools (decided 2026-11-17).** Weird Science, Alchemical, Blood Magic, Chi / Ki, Cybernetic, Nature / Primal
   and Runic cross Stamina; Demonic / Pact-Bound crosses Resolve.
 - **Weird Magic Feat, Seasoned Step** ("Corruption check DC reduced to 12") does nothing now; flagged for a new Step later.
+
+## Technique ladder (2026-11-17)
+
+- **Adopted (decided 2026-11-17), may still need work.** Basics (Basic Attack, Basic Cast, Basic Press, and any plain
+  skill use) are free. A Basic is one plain use of a skill, in or out of combat; a Technique is a Basic with upgrades.
+  Every Maneuver, Power and social gambit is a Technique: Rank 1 (one target, Near or closer, or Close for a melee
+  weapon, instant, one small thing) plus +1 Rank per upgrade (Reach, Targets, Duration, Impact, Force, the old Making a
+  Power table). Pay Rank boxes from the pool of the Domain used; on a hit cross the overage or the Rank, whichever is
+  higher, up to the Hit Cap. A weapon sets martial Reach; Several means up to 6 targets for everyone.
+- **Rank cap and cost by tier:** Novice 2, Seasoned 3, Veteran 4, Heroic 5, Legendary 5. Cost = Rank minus 0/1/2/3/4 by
+  tier, minimum 1. Replaces the Mastery Floor, the Caster Level Discount, "Powers up to Character Level + 1", and spell
+  Pace. Simulated: fighters and casters deal the same damage (within about 10%) in every fight type tested.
+- **Spell Steps:** a spell's Step N is its Rank N form, open once the Rank cap allows. Pace and unlock levels go.
+- **Combat Maneuvers** are ready-made Techniques; their old box cost is their Rank.
+- **Caster Step 1:** +1 to Cast and Channel attack rolls while Mana is Healthy (boxes 1-5). Channeler Step 1 keeps
+  "Spiritual Powers clear 2 Resolve"; its Level Discount half goes.
+- **Surge is renamed Effort (decided 2026-11-17).** Same rule, new name everywhere.

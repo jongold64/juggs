@@ -17,7 +17,8 @@
       "other_skill_cap": 2,
       "governing_ability_cap": 5,
       "other_ability_cap": 5,
-      "mastery_floor_free_up_to": 0,
+      "technique_rank_cap": 2,
+      "technique_discount": 0,
       "deflect_bonus": 0,
       "hit_cap": 6,
       "governing_domain_cap": 5,
@@ -40,7 +41,8 @@
       "other_skill_cap": 3,
       "governing_ability_cap": 7,
       "other_ability_cap": 5,
-      "mastery_floor_free_up_to": 1,
+      "technique_rank_cap": 3,
+      "technique_discount": 1,
       "deflect_bonus": 2,
       "hit_cap": 7,
       "governing_domain_cap": 5,
@@ -63,7 +65,8 @@
       "other_skill_cap": 4,
       "governing_ability_cap": 9,
       "other_ability_cap": 5,
-      "mastery_floor_free_up_to": 2,
+      "technique_rank_cap": 4,
+      "technique_discount": 2,
       "deflect_bonus": 4,
       "hit_cap": 8,
       "governing_domain_cap": 6,
@@ -86,7 +89,8 @@
       "other_skill_cap": 5,
       "governing_ability_cap": 11,
       "other_ability_cap": 5,
-      "mastery_floor_free_up_to": 3,
+      "technique_rank_cap": 5,
+      "technique_discount": 3,
       "deflect_bonus": 6,
       "hit_cap": 9,
       "governing_domain_cap": 6,
@@ -109,7 +113,8 @@
       "other_skill_cap": 6,
       "governing_ability_cap": 13,
       "other_ability_cap": 5,
-      "mastery_floor_free_up_to": "all",
+      "technique_rank_cap": 5,
+      "technique_discount": 4,
       "deflect_bonus": 8,
       "hit_cap": 10,
       "governing_domain_cap": 6,
@@ -368,8 +373,8 @@
       "backlash": "7 more boxes; casters: Catastrophic Fallout"
     }
   ],
-  "effects_rule": "Declare the type before rolling. Spend boxes before the roll (Stamina for weapons, Mana for Powers, Resolve for Spirit and social actions), paid win or lose. Non-Signature type: -1 to the roll. Your Offensive Signature's 1-box rung is free on a Surge 2+ hit, if you choose.",
-  "costs_rule": "Basic Attack, Basic Cast and Basic Press are free. Anything added costs at least 1 box. Maneuvers: Mastery Floor by tier. Surge: not reduced except by Surge Discipline.",
+  "effects_rule": "Declare the type before rolling. Spend boxes before the roll (Stamina for weapons, Mana for Powers, Resolve for Spirit and social actions), paid win or lose. Non-Signature type: -1 to the roll. Your Offensive Signature's 1-box rung is free on an Effort 2+ hit, if you choose.",
+  "costs_rule": "Basic Attack, Basic Cast and Basic Press are free. Anything added costs at least 1 box. Techniques: Rank less the tier discount (0 / 1 / 2 / 3 / 4), minimum 1. Effort: not reduced except by Effort Discipline.",
   "object_dc": [
     {
       "quality": "Improvised / Flimsy",
@@ -504,7 +509,7 @@
     "start": 1
   },
   "boon_rule": "A Boon triggers when the natural die meets your tier's threshold. Choose from the Boon Menu (tier boon_choices), never the same option twice. Tempo needs Seasoned or above.",
-  "hit_cap": "One hit crosses at most 5 + tier number boxes, after armor. Each Surge box raises that hit's cap by 1. Healing has no cap.",
+  "hit_cap": "One hit crosses at most 5 + tier number boxes, after armor. Each Effort box raises that hit's cap by 1. Healing has no cap.",
   "bane_menu": [
     {
       "id": "complication",
@@ -519,7 +524,7 @@
     {
       "id": "spent",
       "name": "Spent",
-      "effect": "Lose the boxes you spent on this roll's Surge or Effect a second time. Spent doesn't repeat boxes already crossed by backlash."
+      "effect": "Lose the boxes you spent on this roll's Effort or Effect a second time. Spent doesn't repeat boxes already crossed by backlash."
     },
     {
       "id": "shaken",
@@ -532,15 +537,7 @@
       "effect": "You are Exposed until the end of your next turn."
     }
   ],
-  "bane_rule": "A natural 1 always triggers a Bane: -2 to all rolls until the end of your next turn. From Seasoned the GM also picks from the Bane Menu (tier bane_choices), never the same option twice. No Bane while one of your Boons is still active (until the end of your next turn after the Boon): it counts only as a roll of 1. A Big Surge's backlash and Fallout still apply.",
-  "level_discount": {
-    "divisor": 6,
-    "roles": [
-      "caster",
-      "channeler"
-    ],
-    "text": "Mana = Power Level - (Character Level / 6, rounded down), minimum 1. Caster and Channeler Roles."
-  },
+  "bane_rule": "A natural 1 always triggers a Bane: -2 to all rolls until the end of your next turn. From Seasoned the GM also picks from the Bane Menu (tier bane_choices), never the same option twice. No Bane while one of your Boons is still active (until the end of your next turn after the Boon): it counts only as a roll of 1. A Big Effort's backlash and Fallout still apply.",
   "effect_ladder": [
     {
       "boxes": "1",
@@ -558,5 +555,6 @@
       "boxes": "4–5",
       "text": "Everyone in Near range gains the condition, and the scene changes: the fire spreads, the wall falls, the power grid dies. The GM decides what lasts."
     }
-  ]
+  ],
+  "technique_rule": "Basics are free: a Basic is one plain use of a skill, in or out of combat. A Technique is a Basic with upgrades: Rank 1 (one target, Near or closer, or Close for a melee weapon, instant, one small thing), +1 Rank per upgrade. Pay Rank boxes, less your tier discount, minimum 1, from the pool of the Domain you are using, hit or miss. On a hit, cross the overage or the Rank, whichever is higher, up to the Hit Cap. Highest Rank: Novice 2, Seasoned 3, Veteran 4, Heroic and Legendary 5."
 }

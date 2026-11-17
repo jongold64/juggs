@@ -27,7 +27,7 @@
       {
         "tier": "Novice",
         "level": 1,
-        "text": "Brutal Surge: 3-box Surge grants +1 additional Stamina damage on hit, on top of normal overage. Knockback (free): On any hit, spend 1 Stamina (no Surge) to push the target 1 range band. Reckless: When you take Stamina damage, your next attack this round gains +1. (Synergy: +2)",
+        "text": "Brutal Effort: 3-box Effort grants +1 additional Stamina damage on hit, on top of normal overage. Knockback (free): On any hit, spend 1 Stamina (no Effort) to push the target 1 range band. Reckless: When you take Stamina damage, your next attack this round gains +1. (Synergy: +2)",
         "at_the_table": "Three discrete options — use any combination on the same action."
       },
       {
@@ -45,13 +45,13 @@
       {
         "tier": "Heroic",
         "level": 13,
-        "text": "Brutal Surge Enhancement: 3-box Surge now grants +2 additional Stamina damage (instead of +1), and on a Boon the Surge damage increases to +3. The bonus stacks with Reckless.",
+        "text": "Brutal Effort Enhancement: 3-box Effort now grants +2 additional Stamina damage (instead of +1), and on a Boon the Effort damage increases to +3. The bonus stacks with Reckless.",
         "at_the_table": ""
       },
       {
         "tier": "Legendary",
         "level": 17,
-        "text": "Apex Predator: Once per session, when you reduce a target to Broken with a melee attack, you may immediately make one additional free attack against a different target within Close range. This free attack counts as a separate action for Surge purposes but costs no Action. Apex Predator triggers on Broken — the target need not be unconscious.",
+        "text": "Apex Predator: Once per session, when you reduce a target to Broken with a melee attack, you may immediately make one additional free attack against a different target within Close range. This free attack counts as a separate action for Effort purposes but costs no Action. Apex Predator triggers on Broken — the target need not be unconscious.",
         "at_the_table": ""
       }
     ]
@@ -296,7 +296,7 @@
     "summary": "Direct channeling — the vessel, the one who lets power flow through rather than shaping it.",
     "synergy": {
       "condition_text": "Toughness >= 3",
-      "effect": "Surge Transfer also clears 1 Stamina box from the recipient",
+      "effect": "Effort Transfer also clears 1 Stamina box from the recipient",
       "requires": {
         "ability": [
           "tou"
@@ -309,20 +309,20 @@
       {
         "tier": "Novice",
         "level": 1,
-        "text": "Surge Transfer: When you Surge (3+ boxes), redirect the Surge bonus to an adjacent ally’s next roll this round. (Synergy: also clears 1 Stamina) Resonance: Cast with the same Effect type as your last successful cast this scene: pool cost -1 (min 0). Channel Overflow: When you cast at PL 5+, spend 1 additional Mana to extend duration by 1 step at no PL cost.",
-        "at_the_table": "Surge Transfer and Resonance can both apply on the same cast. Channel Overflow requires PL5 base cost — the additional Mana is on top of that."
+        "text": "Effort Transfer: When you use Effort (3+ boxes), redirect the Effort bonus to an adjacent ally’s next roll this round. (Synergy: also clears 1 Stamina) Resonance: Cast with the same Effect type as your last successful cast this scene: pool cost -1 (min 0). Channel Overflow: When you cast at Rank 5+, spend 1 additional Mana to extend duration by 1 step at no Rank cost.",
+        "at_the_table": "Effort Transfer and Resonance can both apply on the same cast. Channel Overflow requires Rank 5 base cost — the additional Mana is on top of that."
       },
       {
         "tier": "Seasoned",
         "level": 5,
-        "text": "Shared Vessel: When you cast a Power, you may designate one ally within Close range as a co-channel. That ally may spend Mana boxes to contribute to the cast’s Surge — at a 2:1 rate (they spend 2, you gain 1 Surge). The ally’s Surge boxes come from their own Mana pool. Combined Surge cannot exceed your tier maximum. No Action cost to the ally — this is a free choice they make when you declare the cast.",
-        "at_the_table": "The ally contributes voluntarily when the cast is declared. They pay 2 Mana per 1 Surge box contributed. Your cap is still your tier maximum. The ally does not roll."
+        "text": "Shared Vessel: When you cast a Power, you may designate one ally within Close range as a co-channel. That ally may spend Mana boxes to contribute to the cast’s Effort — at a 2:1 rate (they spend 2, you gain 1 Effort). The ally’s Effort boxes come from their own Mana pool. Combined Effort cannot exceed your tier maximum. No Action cost to the ally — this is a free choice they make when you declare the cast.",
+        "at_the_table": "The ally contributes voluntarily when the cast is declared. They pay 2 Mana per 1 Effort box contributed. Your cap is still your tier maximum. The ally does not roll."
       },
       {
         "tier": "Veteran",
         "level": 9,
-        "text": "Overflow Conduit: Once per session, when you cast at 5 Surge boxes, the Power does not consume those Surge boxes from your pool — they are refunded after the cast resolves. Additionally, any Fallout that would trigger from this cast is reduced one severity step (Catastrophic becomes Severe, Severe becomes Major, Major is negated). The sheer volume of power passing through you simply moves on.",
-        "at_the_table": "Once per session. Must declare at 5 Surge boxes before rolling. Boxes are refunded after the roll resolves — they are spent for the roll and then returned. Fallout reduction applies to the same cast."
+        "text": "Overflow Conduit: Once per session, when you cast at 5 Effort boxes, the Power does not consume those Effort boxes from your pool — they are refunded after the cast resolves. Additionally, any Fallout that would trigger from this cast is reduced one severity step (Catastrophic becomes Severe, Severe becomes Major, Major is negated). The sheer volume of power passing through you simply moves on.",
+        "at_the_table": "Once per session. Must declare at 5 Effort boxes before rolling. Boxes are refunded after the roll resolves — they are spent for the roll and then returned. Fallout reduction applies to the same cast."
       },
       {
         "tier": "Heroic",
@@ -333,7 +333,7 @@
       {
         "tier": "Legendary",
         "level": 17,
-        "text": "Infinite Flow: Once per session, declare Infinite Flow. For one full scene, your Surge Transfer costs no boxes — you redirect Surge bonuses freely, as many times as you Surge, to any allies within Near range. The scene ends normally or when you choose to close the Flow. If you are reduced to Broken while Infinite Flow is active, it closes immediately.",
+        "text": "Infinite Flow: Once per session, declare Infinite Flow. For one full scene, your Effort Transfer costs no boxes — you redirect Effort bonuses freely, as many times as you use Effort, to any allies within Near range. The scene ends normally or when you choose to close the Flow. If you are reduced to Broken while Infinite Flow is active, it closes immediately.",
         "at_the_table": ""
       }
     ]
@@ -353,7 +353,7 @@
     "summary": "Systematic and precise — the scholar, the one who understands the mechanics of what they are doing.",
     "synergy": {
       "condition_text": "Analyze >= 2",
-      "effect": "Counterspell auto-succeeds vs PL 3 or below",
+      "effect": "Counterspell auto-succeeds vs Rank 3 or below",
       "requires": {
         "skill": "analyze",
         "rank_min": 2
@@ -364,7 +364,7 @@
       {
         "tier": "Novice",
         "level": 1,
-        "text": "Counterspell: Spend 1 Mana and make an opposed Intellect roll when an opponent casts. On success, the Power fails. (Synergy: auto-success vs PL3 or below) Prepared Formula: Once per scene, cast one pre-prepared Power as a free action. Declare during any rest. Reduce Fallout: When you would suffer Casting Fallout, make Intellect DC 12. On success, reduce severity by one step.",
+        "text": "Counterspell: Spend 1 Mana and make an opposed Intellect roll when an opponent casts. On success, the Power fails. (Synergy: auto-success vs Rank 3 or below) Prepared Formula: Once per scene, cast one pre-prepared Power as a free action. Declare during any rest. Reduce Fallout: When you would suffer Casting Fallout, make Intellect DC 12. On success, reduce severity by one step.",
         "at_the_table": "Counterspell is a Reaction — it uses your Reaction for the round. Prepared Formula requires the Power to be declared specifically during the preceding rest."
       },
       {
@@ -376,19 +376,19 @@
       {
         "tier": "Veteran",
         "level": 9,
-        "text": "Perfect Recall: Once per session, you may cast any Power you know that you have successfully cast in a previous session — at its exact previous specifications (same PL, same Effect) — at no Mana cost. The Power fires from memory as if the formula had never been more natural. Additionally, for the rest of the scene after using Perfect Recall, your Prepared Formula slot recharges — you may prepare a new Power during any lull in action (no rest required).",
+        "text": "Perfect Recall: Once per session, you may cast any Power you know that you have successfully cast in a previous session — at its exact previous specifications (same Rank, same Effect) — at no Mana cost. The Power fires from memory as if the formula had never been more natural. Additionally, for the rest of the scene after using Perfect Recall, your Prepared Formula slot recharges — you may prepare a new Power during any lull in action (no rest required).",
         "at_the_table": "Once per session. The recalled Power must have been successfully cast at some point in a prior session — not this session. After using Perfect Recall, Prepared Formula recharges for the rest of the scene (usable once more)."
       },
       {
         "tier": "Heroic",
         "level": 13,
-        "text": "Counterspell Enhancement: On a successful Counterspell, you may immediately redirect the countered Power back at the original caster at half potency (half PL, round down). No additional roll or Mana cost. The original roll is used against the caster’s own Deflect.",
+        "text": "Counterspell Enhancement: On a successful Counterspell, you may immediately redirect the countered Power back at the original caster at half potency (half Rank, round down). No additional roll or Mana cost. The original roll is used against the caster’s own Deflect.",
         "at_the_table": ""
       },
       {
         "tier": "Legendary",
         "level": 17,
-        "text": "Grand Formula: Once per session, spend a Quick Rest to prepare a Grand Formula: a Power at Power Level 6 or 7, beyond the standard ceiling. The Grand Formula is cast as a Prepared Formula (free action, no Surge required) and costs Mana equal to its Power Level. The effect is determined by the Power's type at that extended level — the GM and player agree on the effect before preparation. Grand Formula requires the GM's advance approval for the specific effect.",
+        "text": "Grand Formula: Once per session, spend a Quick Rest to prepare a Grand Formula: a Power at Rank 6 or 7, beyond the standard ceiling. The Grand Formula is cast as a Prepared Formula (free action, no Effort required) and costs Mana equal to its Rank. The effect is determined by the Power's type at that extended level — the GM and player agree on the effect before preparation. Grand Formula requires the GM's advance approval for the specific effect.",
         "at_the_table": ""
       }
     ]
@@ -420,7 +420,7 @@
       {
         "tier": "Novice",
         "level": 1,
-        "text": "Redirect: After a Power hits, spend 1 Mana to change the Effect type before applying the result. Same PL and cost. (Synergy: free action once/round) Layered Effect: When you spend 2+ boxes on an Effect, split across two Effect types (1 box each). Both apply at 1-box potency. Adaptive Range: Once per scene, cast at one range band beyond stated range at no added cost.",
+        "text": "Redirect: After a Power hits, spend 1 Mana to change the Effect type before applying the result. Same Rank and cost. (Synergy: free action once/round) Layered Effect: When you spend 2+ boxes on an Effect, split across two Effect types (1 box each). Both apply at 1-box potency. Adaptive Range: Once per scene, cast at one range band beyond stated range at no added cost.",
         "at_the_table": "Redirect changes the Effect type after the hit is confirmed — after the roll, before damage is applied. Layered Effect is declared before the cast."
       },
       {
@@ -432,8 +432,8 @@
       {
         "tier": "Veteran",
         "level": 9,
-        "text": "Shape Reality: Once per session, cast any Power you know with the following changes simultaneously applied: any range band, any Effect type available in the Genre, any combination of targets you can legally affect. Mana cost is the Power’s base PL cost plus 3. Surge is available normally. This is the Weaver’s defining moment — the moment when all the flexibility resolves into a single perfectly composed effect.",
-        "at_the_table": "Once per session. Cost: PL + 3 Mana. All three modifications (range, Effect type, targeting) apply simultaneously. Surge available as normal. The Power still uses its base roll and resolves normally."
+        "text": "Shape Reality: Once per session, cast any Power you know with the following changes simultaneously applied: any range band, any Effect type available in the Genre, any combination of targets you can legally affect. Mana cost is the Power’s base Rank cost plus 3. Effort is available normally. This is the Weaver’s defining moment — the moment when all the flexibility resolves into a single perfectly composed effect.",
+        "at_the_table": "Once per session. Cost: Rank + 3 Mana. All three modifications (range, Effect type, targeting) apply simultaneously. Effort available as normal. The Power still uses its base roll and resolves normally."
       },
       {
         "tier": "Heroic",
@@ -444,7 +444,7 @@
       {
         "tier": "Legendary",
         "level": 17,
-        "text": "Architect of Reality: Once per session, when you cast a Power, you may freely choose its Effect type, Area, Range, and Duration without paying additional costs for each change. Every variable of the Power is under your control for this one cast. Mana cost is still the base Power Level.",
+        "text": "Architect of Reality: Once per session, when you cast a Power, you may freely choose its Effect type, Area, Range, and Duration without paying additional costs for each change. Every variable of the Power is under your control for this one cast. Mana cost is still the base Rank.",
         "at_the_table": ""
       }
     ]
@@ -478,7 +478,7 @@
       {
         "tier": "Novice",
         "level": 1,
-        "text": "Amplify: Spend 1 additional Mana before rolling to increase Power Level by 1. Once per cast. (Synergy: allies in Near also benefit on their next cast) Overcharge: When you roll a Boon on a casting roll, immediately cast the same Power again at no Mana cost. Same Effect and PL. Reaction. Penetrate: Your Powers ignore DR from mundane armor. At Veteran+ (Level 9+), also reduce magical DR by 2.",
+        "text": "Amplify: Spend 1 additional Mana before rolling to increase Rank by 1. Once per cast. (Synergy: allies in Near also benefit on their next cast) Overcharge: When you roll a Boon on a casting roll, immediately cast the same Power again at no Mana cost. Same Effect and Rank. Reaction. Penetrate: Your Powers ignore DR from mundane armor. At Veteran+ (Level 9+), also reduce magical DR by 2.",
         "at_the_table": "Amplify and Overcharge can chain — if the Overcharge cast also Boons, it triggers again (maximum once per scene total). Penetrate is passive."
       },
       {
@@ -490,19 +490,19 @@
       {
         "tier": "Veteran",
         "level": 9,
-        "text": "Total Output: Once per session, when you cast a Power, pay no Surge cost for up to 5 Surge boxes. The boxes are declared and the roll benefits from the full Surge bonus, but no Mana boxes are crossed for those Surge boxes. The Power’s base Mana cost still applies. Fallout rules still apply on a Natural 1 — the power was that large regardless of the cost.",
-        "at_the_table": "Once per session. Up to 5 Surge boxes declared free. Base Mana cost paid normally. Fallout triggers on Natural 1 as if the Surge boxes had been paid — the risk is real. Cannot be combined with Overflow Conduit on the same cast."
+        "text": "Total Output: Once per session, when you cast a Power, pay no Effort cost for up to 5 Effort boxes. The boxes are declared and the roll benefits from the full Effort bonus, but no Mana boxes are crossed for those Effort boxes. The Power’s base Mana cost still applies. Fallout rules still apply on a Natural 1 — the power was that large regardless of the cost.",
+        "at_the_table": "Once per session. Up to 5 Effort boxes declared free. Base Mana cost paid normally. Fallout triggers on Natural 1 as if the Effort boxes had been paid — the risk is real. Cannot be combined with Overflow Conduit on the same cast."
       },
       {
         "tier": "Heroic",
         "level": 13,
-        "text": "Amplify Enhancement: Amplify now increases Power Level by 2 (instead of 1) for the additional 1 Mana cost. The cap is still PL 5 — this allows you to jump two levels with one Mana if you are not already at the ceiling.",
+        "text": "Amplify Enhancement: Amplify now increases Rank by 2 (instead of 1) for the additional 1 Mana cost. The cap is still Rank 5 — this allows you to jump two levels with one Mana if you are not already at the ceiling.",
         "at_the_table": ""
       },
       {
         "tier": "Legendary",
         "level": 17,
-        "text": "Cataclysm: Once per session, spend 5 Mana to cast Cataclysm: a Power Level 5 Area effect (Near range burst centered on a point you can see) that deals your normal Power damage to all targets in the area and applies one Effect of your choice at 3-box potency. Every target Defends or Deflects separately. Costs no additional Action beyond the cast. Cataclysm is always Arcane Magic regardless of your Power Source.",
+        "text": "Cataclysm: Once per session, spend 5 Mana to cast Cataclysm: a Rank 5 Area effect (Near range burst centered on a point you can see) that deals your normal Power damage to all targets in the area and applies one Effect of your choice at 3-box potency. Every target Defends or Deflects separately. Costs no additional Action beyond the cast. Cataclysm is always Arcane Magic regardless of your Power Source.",
         "at_the_table": ""
       }
     ]
@@ -580,7 +580,7 @@
     "summary": "Deep attunement — the healer, the one who reads what others cannot hide.",
     "synergy": {
       "condition_text": "Channel or Survive >= 2",
-      "effect": "Surge Reading also identifies active Conditions and their source",
+      "effect": "Effort Reading also identifies active Conditions and their source",
       "requires": {
         "any": [
           {
@@ -599,8 +599,8 @@
       {
         "tier": "Novice",
         "level": 1,
-        "text": "Surge Reading: As a free action, read one target within Near range — current pool levels and any Conditions. (Synergy: also learn source and remaining duration) Commune: Once per scene, spend 10 minutes with a willing person to clear one persistent Condition (Drained 3, Charmed). Resolve DC 12 for tier 2+. Reflected Pain: When an ally within Close range takes Stamina damage, you may take 1 of those boxes yourself. No roll, no cost.",
-        "at_the_table": "Surge Reading is entirely free. Commune requires a rest or significant downtime. Reflected Pain is voluntary — declare when the ally marks the box."
+        "text": "Effort Reading: As a free action, read one target within Near range — current pool levels and any Conditions. (Synergy: also learn source and remaining duration) Commune: Once per scene, spend 10 minutes with a willing person to clear one persistent Condition (Drained 3, Charmed). Resolve DC 12 for tier 2+. Reflected Pain: When an ally within Close range takes Stamina damage, you may take 1 of those boxes yourself. No roll, no cost.",
+        "at_the_table": "Effort Reading is entirely free. Commune requires a rest or significant downtime. Reflected Pain is voluntary — declare when the ally marks the box."
       },
       {
         "tier": "Seasoned",
@@ -611,7 +611,7 @@
       {
         "tier": "Veteran",
         "level": 9,
-        "text": "Full Empathy: Once per session, choose one ally within Near range. Until end of scene: you know their exact pool states at all times without Surge Reading, any Condition applied to them is also applied to you at half severity (round down), and once during the scene you may negate one instance of damage to them entirely by spending 3 Resolve yourself. No roll. The negation must be declared before the damage boxes are marked.",
+        "text": "Full Empathy: Once per session, choose one ally within Near range. Until end of scene: you know their exact pool states at all times without Effort Reading, any Condition applied to them is also applied to you at half severity (round down), and once during the scene you may negate one instance of damage to them entirely by spending 3 Resolve yourself. No roll. The negation must be declared before the damage boxes are marked.",
         "at_the_table": "Once per session. Three effects: automatic pool awareness (passive), shared Condition at half severity (automatic), and one complete damage negation (3 Resolve, declared before marking). The Condition sharing is involuntary — you cannot opt out of it once Full Empathy is active."
       },
       {
@@ -623,7 +623,7 @@
       {
         "tier": "Legendary",
         "level": 17,
-        "text": "One With All: Once per session, spend 10 minutes in meditation with your group. You establish a Shared Awareness: for the rest of the session, you and all consenting allies within Near range always know each other's current pool levels and Conditions without needing Surge Reading. The awareness persists even when separated.",
+        "text": "One With All: Once per session, spend 10 minutes in meditation with your group. You establish a Shared Awareness: for the rest of the session, you and all consenting allies within Near range always know each other's current pool levels and Conditions without needing Effort Reading. The awareness persists even when separated.",
         "at_the_table": ""
       }
     ]
@@ -717,7 +717,7 @@
       {
         "tier": "Seasoned",
         "level": 5,
-        "text": "Name the Thing: Once per scene, when you have used Liminal Sense to detect a supernatural entity or object, spend 2 Resolve and make a Belief roll (DC 14). On success, the GM tells you exactly what it is — its nature, general power level, and any special vulnerabilities or immunities it has. On failure, you learn one true thing about it. This information is accurate; the GM cannot withhold or distort it.",
+        "text": "Name the Thing: Once per scene, when you have used Liminal Sense to detect a supernatural entity or object, spend 2 Resolve and make a Belief roll (DC 14). On success, the GM tells you exactly what it is — its nature, general Rank, and any special vulnerabilities or immunities it has. On failure, you learn one true thing about it. This information is accurate; the GM cannot withhold or distort it.",
         "at_the_table": "Requires prior Liminal Sense detection of the same entity or object this scene. Belief roll DC 14. Success: full nature, power, vulnerabilities. Failure: one accurate fact. The GM must be honest."
       },
       {
@@ -769,8 +769,8 @@
       {
         "tier": "Novice",
         "level": 1,
-        "text": "Surge Momentum: When you roll a Boon on a social roll, the next social roll by any ally in the scene gains +2. Presence Lock: On a successful Persuade or Lead with overage 5+, the target cannot take hostile action against you until end of scene unless attacked first. Address the Room: Once per scene, spend 1 Resolve to make your next social roll affect all NPCs in the scene. Each resists separately. (Synergy: allied PCs also gain +1 to next social roll)",
-        "at_the_table": "Surge Momentum transfers to one ally of your choice. Presence Lock is narrative — it ends if you initiate hostility. Address the Room hits all NPCs simultaneously with one roll."
+        "text": "Effort Momentum: When you roll a Boon on a social roll, the next social roll by any ally in the scene gains +2. Presence Lock: On a successful Persuade or Lead with overage 5+, the target cannot take hostile action against you until end of scene unless attacked first. Address the Room: Once per scene, spend 1 Resolve to make your next social roll affect all NPCs in the scene. Each resists separately. (Synergy: allied PCs also gain +1 to next social roll)",
+        "at_the_table": "Effort Momentum transfers to one ally of your choice. Presence Lock is narrative — it ends if you initiate hostility. Address the Room hits all NPCs simultaneously with one roll."
       },
       {
         "tier": "Seasoned",
@@ -787,7 +787,7 @@
       {
         "tier": "Heroic",
         "level": 13,
-        "text": "Surge Momentum Enhancement: Surge Momentum now grants +3 (instead of +2) to the ally’s next roll, and may benefit up to two allies instead of one.",
+        "text": "Effort Momentum Enhancement: Effort Momentum now grants +3 (instead of +2) to the ally’s next roll, and may benefit up to two allies instead of one.",
         "at_the_table": ""
       },
       {

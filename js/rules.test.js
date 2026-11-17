@@ -17,7 +17,7 @@ const make = (changes = {}) => clean(D, { ...newCharacter(), ...changes });
 check('Level 1 is Novice', R.tierFor(D, 1).id, 'novice');
 check('Level 9 is Veteran', R.tierFor(D, 9).id, 'veteran');
 check('Level 20 is Legendary', R.tierFor(D, 20).id, 'legendary');
-check('Veteran Surge maximum is 5', R.tierFor(D, 9).surge_max, 5);
+check('Veteran Effort maximum is 5', R.tierFor(D, 9).surge_max, 5);
 check('Heroic Boon threshold is 15', R.tierFor(D, 13).boon_threshold, 15);
 
 // Pools: extra boxes go Healthy, Hurt, Injured, repeating; Broken is the last box.
@@ -141,25 +141,20 @@ check('Two old Surge Disciplines become one Feat', clean(D, { level: 7, feats: {
 check('Capstone is a Gated Feat, from Level 17', [clean(D, { capstone: 'toughened' }).capstone, R.featsTaken(D, make({ level: 17, capstone: gated.id })).includes(gated.id), R.featsTaken(D, make({ level: 16, capstone: gated.id })).includes(gated.id)], ['', true, false]);
 
 // Costs and standing
-check('Level Discount: none at Level 5', R.powerCost(D, 3, 5, true), 3);
-check('Level Discount: PL 3 at Level 9 is 2', R.powerCost(D, 3, 9, true), 2);
-check('Level Discount: PL 5 at Level 18 is 2', R.powerCost(D, 5, 18, true), 2);
-check('Level Discount never below 1', R.powerCost(D, 2, 18, true), 1);
-check('No discount pays the full Power Level', R.powerCost(D, 3, 18, false), 3);
-check('Casters and Channelers have the Level Discount',
-  ['caster', 'channeler', 'warrior'].map(role => R.hasLevelDiscount(D, make({ role }))), [true, true, false]);
+check('Technique cost: full Rank at Novice', R.techniqueCost(D, 2, 1), 2);
+check('Technique cost: Rank 3 at Level 9 is 1', R.techniqueCost(D, 3, 9), 1);
+check('Technique cost: Rank 5 at Level 13 is 2', R.techniqueCost(D, 5, 13), 2);
+check('Technique cost never below 1', R.techniqueCost(D, 2, 18), 1);
+check('Highest Rank by tier', [1, 5, 9, 13, 17].map(level => R.rankCap(D, level)), [2, 3, 4, 5, 5]);
 check('Hit Cap is 5 + tier number', D.core.tiers.map(t => t.hit_cap), [6, 7, 8, 9, 10]);
-check('Surge raises the Hit Cap', R.hitCap(D, 9, 3), 11);
+check('Effort raises the Hit Cap', R.hitCap(D, 9, 3), 11);
 check('Deflect tier bonus', D.core.tiers.map(t => t.deflect_bonus), [0, 2, 4, 6, 8]);
 check('Deflect adds the tier bonus', R.deflectFor(D, make({ base: spread, level: 9 }), 'mind'), 10 + 2 + 4);
 check('Cash on Hand is Wealth Tier × multiplier', [1, 3, 8].map(w => R.cashOnHand(D, w)), [1, 24, 2048]);
 check('Boon Menu has no Tempo at Novice', R.boonMenu(D, 1).some(b => b.id === 'tempo'), false);
 check('Boon choices by tier', D.core.tiers.map(t => t.boon_choices), [1, 1, 2, 2, 3]);
 check('Bane Menu choices by tier', D.core.tiers.map(t => t.bane_choices), [0, 1, 2, 2, 3]);
-check('Novice pays Maneuver cost', R.maneuverCost(D, 1, 1), 1);
-check('Seasoned: 1-cost Maneuver free', R.maneuverCost(D, 5, 1), 0);
-check('Seasoned: 2-cost Maneuver full', R.maneuverCost(D, 5, 2), 2);
-check('Legendary: all Maneuvers free', R.maneuverCost(D, 17, 3), 0);
+check('Maneuvers are Techniques: Rank = old cost', D.maneuvers.filter(m => m.rank).map(m => m.rank).every(r => r === 1 || r === 2), true);
 check('Deflect = 10 + Domain Deflect Score', R.deflect(spread, 'mind'), 12);
 check('Initiative bonus: Agility + Body Mastery', R.initiativeBonus(D, make({ base: spread })), 3);
 check('Starting Wealth defaults to Struggling', R.startingWealth(D, make()), 3);
@@ -171,15 +166,14 @@ check('Channel Focus defaults to Spirit',
 
 // Powers
 const made = (changes = {}) => ({ reach: 'near', targets: 'one', duration: 'instant', impact: 'none', force: 0, ...changes });
-check('Plain Power is PL 1', R.madePowerLevel(D, made()), 1);
-check('Book example: fly for the fight is PL 3', R.madePowerLevel(D, made({ duration: 'scene', impact: 'major' })), 3);
-check('Book example: fire across the hall is PL 3', R.madePowerLevel(D, made({ reach: 'far', targets: 'several' })), 3);
+check('Plain Power is Rank 1', R.madePowerLevel(D, made()), 1);
+check('Book example: fly for the fight is Rank 3', R.madePowerLevel(D, made({ duration: 'scene', impact: 'major' })), 3);
+check('Book example: fire across the hall is Rank 3', R.madePowerLevel(D, made({ reach: 'far', targets: 'several' })), 3);
 check('Force adds +1 each', R.madePowerLevel(D, made({ force: 2 })), 3);
 check('Above 5 is flagged and held at 5', (s => [s.powerLevel, s.over])(R.madePowerSummary(D, make(), made({ reach: 'anywhere', targets: 'everyone', duration: 'hours' }))), [5, true]);
-check('Max usable Power Level', [1, 4, 20].map(R.maxPowerLevel), [2, 5, 5]);
-check('No discount for a non-Caster', R.madePowerSummary(D, make({ level: 12 }), made({ force: 2 })).mana, 3);
-check('Caster at Level 12 pays PL - 2', R.madePowerSummary(D, make({ level: 12, role: 'caster' }), made({ force: 2 })).mana, 1);
-check('Channeler at Level 12 pays PL - 2', R.madePowerSummary(D, make({ level: 12, role: 'channeler' }), made({ force: 3 })).mana, 2);
+check('Everyone gets the tier discount', R.madePowerSummary(D, make({ level: 12 }), made({ force: 2 })).mana, 1);
+check('Caster at Level 12 pays Rank - 2', R.madePowerSummary(D, make({ level: 12, role: 'caster' }), made({ force: 2 })).mana, 1);
+check('Channeler at Level 12 pays Rank - 2', R.madePowerSummary(D, make({ level: 12, role: 'channeler' }), made({ force: 3 })).mana, 2);
 check('Cantrip costs 1 Mana without Cast or Channel 2+', R.madePowerSummary(D, make(), made({ reach: 'touch' })).mana, 1);
 const lowMagic = { ...spread, int: 1, bel: 1 };
 check('Practitioner: Focus Cast with Ability 1 totals 3', R.isPractitioner(D, make({ base: lowMagic, genres: ['magic'], focus: ['cast-attack'] })), true);
@@ -191,8 +185,7 @@ check('Cantrip costs 1 Mana below a total of 3', R.madePowerSummary(D, make({ ba
 check('Near range is not a cantrip', R.madePowerSummary(D, make({ genres: ['magic'], focus: ['cast-attack'] }), made()).mana, 1);
 const fireball = D.spellsById.get('fireball');
 check('109 spells, 5 Steps each', [D.powers.spells.length, D.powers.spells.every(s => s.steps.length === 5)], [109, true]);
-check('Measured pace unlocks at 1, 5, 9, 13, 17', fireball.steps.map(s => s.level), [1, 5, 9, 13, 17]);
-check('Steps unlocked by level', R.stepsAt(fireball, 9).map(s => s.pl), [1, 2, 3]);
+check('Spell Steps open by Rank cap', [1, 5, 9, 13].map(level => R.spellStepsAt(D, fireball, level).length), [2, 3, 4, 5]);
 check('Standard Origin: +1 rank to each of two picked skills', [R.skillRank(D, make({ origin: 'standard', originPicks: ['trade', 'perform'] }), 'trade') - R.skillRank(D, make(), 'trade'),
   R.skillRank(D, make({ origin: 'standard', originPicks: ['trade', 'perform'] }), 'perform') - R.skillRank(D, make(), 'perform')], [1, 1]);
 check('Other Origins keep no skill picks', clean(D, { origin: 'stoneborn', originPicks: ['trade'] }).originPicks, []);
@@ -205,8 +198,8 @@ check('Signature DR is the tier number', [1, 5, 9, 13, 17].map(level => R.signat
 const caster1 = make({ genres: ['magic'], focus: ['cast-attack'] });
 check('Near utility cantrip is free for a practitioner', R.spellStepSummary(D, caster1, D.spellsById.get('message').steps[0]).mana, 0);
 check('Self cantrip is free for a practitioner', R.spellStepSummary(D, caster1, D.spellsById.get('disguise-self').steps[0]).mana, 0);
-check('Near PL 1 attack is not a cantrip', R.spellStepSummary(D, caster1, D.spellsById.get('counterspell').steps[0]).mana, 1);
-check('Spell Step Mana with the discount', R.spellStepSummary(D, make({ level: 9, role: 'caster' }), fireball.steps[2]).mana, 2);
+check('Near Rank 1 attack is not a cantrip', R.spellStepSummary(D, caster1, D.spellsById.get('counterspell').steps[0]).mana, 1);
+check('Spell Step Mana with the tier discount', R.spellStepSummary(D, make({ level: 9, role: 'caster' }), fireball.steps[2]).mana, 1);
 check('Old example Power becomes its spell', clean(D, { powers: [{ name: 'Arcane Bolt', example: 'arcane-bolt', exampleLevel: 2 }] }).powers[0].spell, 'arcane-bolt');
 check('Old Mend example becomes Mend Wounds', clean(D, { powers: [{ example: 'mend', exampleLevel: 1 }] }).powers[0].spell, 'mend-wounds');
 const oldPower = clean(D, { powers: [{ name: 'Storm', source: 'weird', range: 'far', targets: 'multi-6', duration: 'rounds', effect: 'gravity',
@@ -270,7 +263,7 @@ check('Faculty items have no Rating', clean(D, { items: [{ template: 'faculty', 
 
 // Role text
 check('Roles use the current band names', JSON.stringify(D.roles).match(/Battered|Wounded range|Fresh range|Impaired/), null);
-check('Channeler Step 1 has the Level Discount', /Level Discount/.test(D.rolesById.get('channeler').steps[0].text), true);
+check('Caster Step 1: +1 while Mana is Healthy', /Mana is Healthy/.test(D.rolesById.get('caster').steps[0].text), true);
 
 // Conditions and Effects
 check('15 negative conditions (three ongoing, Removed as one) + 4 positive', [R.playConditions(D, false).length, R.playConditions(D, true).length], [19, 4]);

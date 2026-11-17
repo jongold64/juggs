@@ -150,7 +150,7 @@ function renderSpecialtyList(D, c) {
       ${tierSteps(sp, c.level)}
       <p><b>Synergy</b> (${esc(sp.synergy?.condition_text || '')}) ${syn === true ? '<span class="good">✓ you have it</span>' : syn === false ? '<span class="bad">✗ not yet</span>' : ''}:
         ${esc(sp.synergy?.effect || '')}</p>
-      <p><b>Fallout</b> (Natural 1 at 3+ Surge): ${esc(sp.fallout || '')}</p>
+      <p><b>Fallout</b> (Natural 1 at 3+ Effort): ${esc(sp.fallout || '')}</p>
       ${buttons.length ? `<div class="rf-buttons">${buttons.join('')}</div>` : ''}</details>`;
   }).join('');
   return `<section class="card wide"><h2>All ${D.specialties.length} Specialties</h2>

@@ -79,7 +79,7 @@ export function renderSheet(D, c) {
   }).join('');
   const defenses = `<section class="s-box s-compact"><h3>Defenses</h3>
     <div class="s-statline"><span>Initiative <b>${signed(init)}</b> ${rollBtn('Initiative', init)}</span>
-      <span>Actions / Reactions <b>${tier.actions} / ${tier.reactions}</b></span><span>Surge max <b>${tier.surge_max}</b></span><span>Hit Cap <b>${tier.hit_cap}</b></span></div>
+      <span>Actions / Reactions <b>${tier.actions} / ${tier.reactions}</b></span><span>Effort max <b>${tier.surge_max}</b></span><span>Hit Cap <b>${tier.hit_cap}</b></span></div>
     <table class="s-def"><thead><tr><th></th><th>Deflect</th><th>Defend</th></tr></thead><tbody>${defRows}</tbody></table>
     <p class="s-armor"><b>DR ${armor.dr}</b> <span class="s-hint">off Stamina damage</span>${armor.parts.length ? ` <span class="s-hint">${armor.parts.map(([n, v]) => `${esc(n)} ${v}`).join(' + ')}</span>` : ''}${
       armor.agilityPenalty ? ` · <b>Agility rolls ${armor.agilityPenalty}</b>` : ''}
@@ -146,8 +146,8 @@ export function renderSheet(D, c) {
   const extras = c.signature.extra.slice(0, R.extraSignatureSlots(D, c).count).filter(Boolean).map(sigName);
   const extraField = extras.length ? field('Expanded Signature', extras.join(' · ')) : '';
   const small = `<section class="s-box"><h3>Signature</h3>${man
-    ? `${field('Maneuver (free on a Surge 2+ hit)', man.name)}<p class="s-hint">No one can use it on you while you can act.</p>`
-    : `${field('Effect (1-box rung free on a Surge 2+ hit)', eff(c.signature.offensive))}
+    ? `${field('Maneuver (free on an Effort 2+ hit)', man.name)}<p class="s-hint">No one can use it on you while you can act.</p>`
+    : `${field('Effect (1-box rung free on an Effort 2+ hit)', eff(c.signature.offensive))}
       <p class="s-hint">DR ${R.signatureDR(D, c)} against damage of each Signature type${
         [c.signature.offensive, ...c.signature.extra].includes('healing') ? ' (Healing: against Void and Necrotic)' : ''}. Any other Effect: −1 to the roll.</p>`}${extraField}</section>
     <section class="s-box"><h3>Power Source</h3><p>${R.powerSources(D, c).map(s => esc(D.sourcesById.get(s).name)).join(' · ')}</p>
@@ -179,12 +179,12 @@ export function renderSheet(D, c) {
   const powerRows = c.powers.map(p => {
     const spell = D.spellsById.get(p.spell);
     if (spell) {
-      const top = R.stepsAt(spell, c.level).pop();
-      return `<tr><td><b>${esc(spell.name)}</b></td><td>PL ${top.pl}</td><td>${R.spellStepSummary(D, c, top).mana}</td>
+      const top = R.spellStepsAt(D, spell, c.level).pop();
+      return `<tr><td><b>${esc(spell.name)}</b></td><td>Rank ${top.pl}</td><td>${R.spellStepSummary(D, c, top).mana}</td>
         <td>${esc(top.reach)} · ${esc(top.targets)} · ${esc(top.duration)}. ${esc(top.text)}</td></tr>`;
     }
     const s = R.madePowerSummary(D, c, p);
-    return `<tr><td><b>${esc(p.name || 'Unnamed Power')}</b></td><td>PL ${s.powerLevel}</td><td>${s.mana}</td><td>${esc(describe(D, p))}</td></tr>`;
+    return `<tr><td><b>${esc(p.name || 'Unnamed Power')}</b></td><td>Rank ${s.powerLevel}</td><td>${s.mana}</td><td>${esc(describe(D, p))}</td></tr>`;
   }).join('');
   const powers = c.powers.length ? `<section class="s-box s-wide"><h3>Powers</h3><table class="s-powers">
     <thead><tr><th>Power</th><th>Top Step</th><th>Mana</th><th>What it does</th></tr></thead><tbody>${powerRows}</tbody></table></section>` : '';

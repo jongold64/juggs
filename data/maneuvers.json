@@ -2,82 +2,90 @@
   {
     "id": "knockdown",
     "name": "Knockdown",
-    "cost_text": "1 Stamina",
+    "cost_text": "Rank 1",
     "effect": "Target becomes Prone on hit. Requires overage 2+.",
     "cost": {
       "boxes": 1,
       "pool": "stamina"
-    }
+    },
+    "rank": 1
   },
   {
     "id": "disarm",
     "name": "Disarm",
-    "cost_text": "1 Stamina",
+    "cost_text": "Rank 1",
     "effect": "Target drops held weapon on hit. Opposed Strength.",
     "cost": {
       "boxes": 1,
       "pool": "stamina"
-    }
+    },
+    "rank": 1
   },
   {
     "id": "feint",
     "name": "Feint",
-    "cost_text": "1 Stamina",
+    "cost_text": "Rank 1",
     "effect": "Target’s next Defend vs you is at −2.",
     "cost": {
       "boxes": 1,
       "pool": "stamina"
-    }
+    },
+    "rank": 1
   },
   {
     "id": "called-shot",
     "name": "Called Shot",
-    "cost_text": "2 Stamina",
+    "cost_text": "Rank 2",
     "effect": "Declare a specific location. On hit: apply relevant Condition (Blinded, Restrained, etc.).",
     "cost": {
       "boxes": 2,
       "pool": "stamina"
-    }
+    },
+    "rank": 2
   },
   {
     "id": "overrun",
     "name": "Overrun",
-    "cost_text": "1 Stamina",
+    "cost_text": "Rank 1",
     "effect": "Move through a target’s zone. Target may Defend or be pushed.",
     "cost": {
       "boxes": 1,
       "pool": "stamina"
-    }
+    },
+    "rank": 1
   },
   {
     "id": "shield-bash",
     "name": "Shield Bash",
-    "cost_text": "1 Stamina",
+    "cost_text": "Rank 1",
     "effect": "Requires shield. +1 attack; target Prone on overage 3+.",
     "cost": {
       "boxes": 1,
       "pool": "stamina"
-    }
+    },
+    "rank": 1
   },
   {
     "id": "aimed-shot",
     "name": "Aimed Shot",
-    "cost_text": "1 Stamina",
+    "cost_text": "Rank 1",
     "effect": "Spend 1 Action aiming. Next ranged attack this round +2, ignores partial cover.",
     "cost": {
       "boxes": 1,
       "pool": "stamina"
-    }
+    },
+    "rank": 1
   },
   {
     "id": "flurry",
     "name": "Flurry",
-    "cost_text": "2 Stamina",
+    "cost_text": "Rank 2",
     "effect": "Make two attacks at −1 each. Both use the same Action.",
     "cost": {
       "boxes": 2,
       "pool": "stamina"
-    }
+    },
+    "rank": 2
   },
   {
     "id": "counter",
@@ -92,11 +100,12 @@
   {
     "id": "shove",
     "name": "Shove",
-    "cost_text": "1 Stamina",
+    "cost_text": "Rank 1",
     "effect": "Opposed Strength. On win: push target 1 band and Prone.",
     "cost": {
       "boxes": 1,
       "pool": "stamina"
-    }
+    },
+    "rank": 1
   }
 ]

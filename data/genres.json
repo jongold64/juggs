@@ -69,7 +69,7 @@
     "description": "The Cthulhu Genre is Horror with additional specificity: the Great Old Ones, the Mythos, and the specific horror of cosmic insignificance. It adds the Mythos Lore skill and the unique rule that accumulating Mythos knowledge increases Corruption — knowing too much is itself a form of contamination. Enable this Genre alongside Horror for full Lovecraftian play.",
     "notes": [
       "Mythos Lore is the only skill in any Genre that has a permanent mechanical cost for increasing. This is intentional and thematic — knowledge of the Mythos is contamination, not education.",
-      "The Cthulhu Genre assumes the Magic Genre is NOT enabled by default in most Cthulhu campaigns. Mythos-sourced Powers exist in the fiction but should be rare, costly, and deeply connected to the Tainted track rather than the standard Power Level system."
+      "The Cthulhu Genre assumes the Magic Genre is NOT enabled by default in most Cthulhu campaigns. Mythos-sourced Powers exist in the fiction but should be rare, costly, and deeply connected to the Tainted track rather than the standard Rank system."
     ],
     "skills": [
       "exorcism",
@@ -88,7 +88,7 @@
   {
     "id": "weird-magic",
     "name": "Weird Magic",
-    "description": "The Weird Magic Genre layers on top of the Magic Genre. It adds the d20 Weird Table (rolled after every cast), the Weird Fallout table (Natural 1 at 3+ Surge), and the Weird Tainted track. A Weird Magic practitioner did not study their power, was not called to it, and has no community that shares it. Something found them. This Genre requires the Magic Genre to also be enabled.",
+    "description": "The Weird Magic Genre layers on top of the Magic Genre. It adds the d20 Weird Table (rolled after every cast), the Weird Fallout table (Natural 1 at 3+ Effort), and the Weird Tainted track. A Weird Magic practitioner did not study their power, was not called to it, and has no community that shares it. Something found them. This Genre requires the Magic Genre to also be enabled.",
     "notes": [
       "Weird Magic has only two unique skills because it is primarily defined by the Weird Table and Tainted track mechanics in the System Mechanics section, not by a skill expansion.",
       "All Magic Genre skills are available to Weird Magic practitioners. The difference is in what happens after they cast, not how they cast.",

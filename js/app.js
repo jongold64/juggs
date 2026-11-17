@@ -226,7 +226,7 @@ function renderCharacter() {
     <label class="row">Level <select data-bind="level" data-type="int">${options(
       Array.from({ length: 20 }, (_, i) => ({ value: i + 1, label: `${i + 1} (${R.tierFor(D, i + 1).name})` })), c.level)}</select></label>
     <p class="hint">${esc(tier.name)}: ${tier.actions} Action / ${tier.reactions} Reaction, Boon on ${
-      tier.boon_threshold === 20 ? 'a natural 20' : `${tier.boon_threshold}–20`}, Surge up to ${tier.surge_max}.</p>`, 'wide');
+      tier.boon_threshold === 20 ? 'a natural 20' : `${tier.boon_threshold}–20`}, Effort up to ${tier.surge_max}.</p>`, 'wide');
 
   const role = D.rolesById.get(c.role);
   const concepts = role ? (D.conceptsById.get(role.id)?.concepts || []) : [];
@@ -349,7 +349,7 @@ function renderCharacter() {
     ${problems(R.featProblems(D, c))}
     <label class="field">Signature <select data-bind="signature.offensive">${groupedOptions([['Effects', effectOpts],
       ['Maneuvers', D.maneuvers.map(m => ({ value: m.id, label: m.name }))]], c.signature.offensive, 'None')}</select></label>
-    <p class="hint">An Effect or a Maneuver, free on a Surge 2+ hit. Any other Effect is −1 to the roll. The Expanded Signature Feat adds more.</p>
+    <p class="hint">An Effect or a Maneuver, free on an Effort 2+ hit. Any other Effect is −1 to the roll. The Expanded Signature Feat adds more.</p>
     ${(() => {
       const slots = R.extraSignatureSlots(D, c);
       const groups = [['Effects', effectOpts], ...(slots.maneuvers ? [['Maneuvers', D.maneuvers.map(m => ({ value: m.id, label: m.name }))]] : [])];

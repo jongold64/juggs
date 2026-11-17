@@ -334,7 +334,7 @@
     "genres": [
       "magic"
     ],
-    "description": "Ritual, detection, utility, and information Powers. Extended casting time (30 min minimum). Cannot be Surged in the same way as combat casting."
+    "description": "Ritual, detection, utility, and information Powers. Extended casting time (30 min minimum). Cannot be used Effort on in the same way as combat casting."
   },
   {
     "id": "channel",
@@ -402,7 +402,7 @@
       "magic",
       "psionics"
     ],
-    "description": "Telekinesis, pyrokinesis, and physical matter manipulation at a distance. Power Level determines scale.",
+    "description": "Telekinesis, pyrokinesis, and physical matter manipulation at a distance. Rank determines scale.",
     "relation": "As Magic Genre"
   },
   {

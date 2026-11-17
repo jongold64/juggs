@@ -1,7 +1,7 @@
 {
   "rules": {
     "structure": "Structure = Frame x 5 unless the entry says otherwise. It works like Stamina.",
-    "surge": "A vehicle's Surge ceiling is its Frame. Surge generates Heat in vehicles that track it.",
+    "surge": "A vehicle's Effort ceiling is its Frame. Effort generates Heat in vehicles that track it.",
     "crew": "Every crew member acts on their own initiative using their own Actions."
   },
   "flags": [
@@ -222,9 +222,9 @@
     },
     {
       "id": "surge",
-      "name": "Surge",
+      "name": "Effort",
       "station": "Pilot",
-      "effect": "Commit Structure boxes before rolling for +1 each, exactly as a character Surges Stamina. Generates Heat in vehicles that track it."
+      "effect": "Commit Structure boxes before rolling for +1 each, exactly as a character spends Stamina on Effort. Generates Heat in vehicles that track it."
     },
     {
       "id": "eject",

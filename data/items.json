@@ -37,16 +37,16 @@
       "id": "reservoir",
       "name": "Reservoir",
       "summary": "Holds Powers or Effects and spends them as charges.",
-      "grants": "A number of charges equal to Rating, refreshing at dawn or on a Full Rest. Each charge casts a stored Power at a fixed Power Level, or applies a stored Effect.",
-      "rating": "Rating 1 = 1 charge, PL 1 · Rating 3 = 3 charges, PL 3 · Rating 5 = 5 charges, PL 5. The wielder does not need the Cast skill; the item supplies the roll at 10 + Rating.",
+      "grants": "A number of charges equal to Rating, refreshing at dawn or on a Full Rest. Each charge casts a stored Power at a fixed Rank, or applies a stored Effect.",
+      "rating": "Rating 1 = 1 charge, Rank 1 · Rating 3 = 3 charges, Rank 3 · Rating 5 = 5 charges, Rank 5. The wielder does not need the Cast skill; the item supplies the roll at 10 + Rating.",
       "examples": "Wand of Fireballs, Staff of Healing, Ring of Spell Storing, Necklace of Fireballs, Horn of Blasting, staves and wands generally",
       "has_rating": true,
       "rating_values": {
-        "1": "1 charges, PL 1",
-        "2": "2 charges, PL 2",
-        "3": "3 charges, PL 3",
-        "4": "4 charges, PL 4",
-        "5": "5 charges, PL 5"
+        "1": "1 charges, Rank 1",
+        "2": "2 charges, Rank 2",
+        "3": "3 charges, Rank 3",
+        "4": "4 charges, Rank 4",
+        "5": "5 charges, Rank 5"
       }
     },
     {
@@ -1432,7 +1432,7 @@
       },
       {
         "question": "How strong, 1 to 5?",
-        "decides": "The Rating. Match it to the Power Level the party could already reach — an item should not outrun the tier."
+        "decides": "The Rating. Match it to the Rank the party could already reach — an item should not outrun the tier."
       },
       {
         "question": "What makes it interesting to own?",

@@ -1,5 +1,5 @@
 // The Quick Rules tab: the How to Play cheat sheet plus the tables a player looks up mid-session, with the
-// character's tier highlighted and Maneuver costs after their Mastery Floor.
+// character's tier highlighted and Maneuver costs at their tier.
 import * as R from './rules.js';
 import { esc, signed } from './dom.js';
 import { weirdOn, weirdCard } from './weird.js';
@@ -11,21 +11,22 @@ const CHEAT = [
   ['The roll', 'd20 + Ability + Skill (+ gear, + Domain Mastery); the margin is overage, 1 overage = 1 box; when a hero ties an enemy, the hero gets the Upper Hand: the enemy takes −2 on its next roll'],
   ['Declare first', 'attack, defend, heal, press or task — before the die lands'],
   ['Attack', '1 Action; target Defends (1 Reaction, roll) or Deflects (free, 10 + Deflect Score + tier bonus)'],
-  ['Hit Cap', 'one hit crosses at most 5 + tier number boxes, after armor; each Surge box raises it for that hit; healing has no cap'],
+  ['Hit Cap', 'one hit crosses at most 5 + tier number boxes, after armor; each Effort box raises it for that hit; healing has no cap'],
   ['Armor', 'DR comes off Stamina damage; it does not raise Defend or Deflect'],
   ['Minions', 'in the target\'s zone, they fall at the rate of your total overage, which ignores the Hit Cap; each lasts as many hits as the party\'s tier number'],
-  ['Free basics', 'Basic Attack, Basic Cast, Basic Press cost no boxes'],
-  ['Surge', '+1 to the roll and +1 Hit Cap per box, before the roll, paid win or lose; max 3 / 4 / 5 / 6 / 7 by tier'],
-  ['Big Surge', '3+ boxes: on a hit the target can only Deflect; a natural 1 crosses the same boxes again'],
-  ['Effects', 'declare the type, spend boxes before the roll, one ladder for every type; off-Signature −1; Signature 1-box rung free on a Surge 2+ hit'],
-  ['Fallout', 'natural 1: casters Surging 5+; Specialty and Weird Fallout at Surge 3+'],
+  ['Basics', 'free: one plain use of a skill, in or out of combat (Basic Attack, Basic Cast, Basic Press, picking a lock)'],
+  ['Techniques', 'a Basic with upgrades: Rank 1 + 1 per upgrade; pay Rank boxes less your tier discount (min 1); on a hit cross the overage or the Rank; highest Rank 2 / 3 / 4 / 5 / 5 by tier'],
+  ['Effort', '+1 to the roll and +1 Hit Cap per box, before the roll, paid win or lose; max 3 / 4 / 5 / 6 / 7 by tier'],
+  ['Big Effort', '3+ boxes: on a hit the target can only Deflect; a natural 1 crosses the same boxes again'],
+  ['Effects', 'declare the type, spend boxes before the roll, one ladder for every type; off-Signature −1; Signature 1-box rung free on an Effort 2+ hit'],
+  ['Fallout', 'natural 1: casters using 5+ Effort; Specialty and Weird Fallout at Effort 3+'],
   ['Boon', 'natural 20 (wider at higher tiers): pick from the Boon Menu, 1 / 1 / 2 / 2 / 3 choices by tier'],
   ['Boon Menu', 'never the same twice: Momentum, +2 to all rolls until the end of your next turn · Recovery, unmark 1 box · Tempo (Seasoned+), +1 Action, once per round · Clarity, clear a Condition on you · Guard, +2 to Deflect and Defend until your next turn · Opening, next ally to attack the same target this round gets +2 · Break Through, this hit ignores armor DR, once per round · Reset, regain one spent Reaction, once per round · Keen Eye, one true answer from the GM · Grace, give one of these to an ally in Near range'],
   ['Bane', 'natural 1: −2 to all rolls until the end of your next turn; from Seasoned the GM also picks from the Bane Menu; no Bane while your Boon is still active'],
   ['Abjure', 'from Seasoned: a Channeler, or Belief 3+ and Channel 1. Belief vs Morale. Channeler: repeatable at −1 per earlier use in the scene; others: once per scene. Removed on 5+ overage needs Channeler or Abjurer\'s Authority'],
   ['Pools', '15 boxes; Hurt 6–10 −1, Injured 11–14 −2 (that Domain), last box Broken'],
   ['Rest', 'Quick: Healthy boxes · Full: Healthy and Hurt · Broken: magic + Full Rest'],
-  ['Heal', 'd20 + Belief or Serenity + Channel vs DC 15; overage or Power Level unmarks boxes; mundane healing uses Survive'],
+  ['Heal', 'd20 + Belief or Serenity + Channel vs DC 15; overage or Rank unmarks boxes; mundane healing uses Survive'],
   ['Helping', 'free +2, or spend an Action / Reaction for +4; two helpers at most'],
   ['Movement', 'next zone free; farther 1 Action; leaving a Contested zone without an Action = Bane'],
   ['Social', 'pick an approach; Press / Hold / Deflect; total overage sets the result'],
@@ -46,16 +47,15 @@ export function renderRules(D, c) {
   const menu = card('Boon Menu', `<p>On a Boon you pick <b>${tier.boon_choices === 1 ? 'one' : tier.boon_choices}</b> of these (never the same one twice):</p>
     <ul class="qr-menu">${R.boonMenu(D, c.level).map(b => `<li><b>${esc(b.name)}</b> ${esc(b.effect)}</li>`).join('')}</ul>`);
 
-  const free = t => (t.mastery_floor_free_up_to === 'all' ? 'all' : t.mastery_floor_free_up_to ? `${t.mastery_floor_free_up_to}-box` : '—');
   const tiers = card(`Tiers <span class="hint">you are ${esc(tier.name)}, Level ${c.level}</span>`, table(
-    ['Tier', 'Levels', 'Actions / Reactions', 'Boon on', 'Boon choices', 'Bane Menu', 'Deflect bonus', 'Hit Cap', 'Surge max',
-     'Skill caps (Focus / other)', 'Governing cap', 'Free Maneuvers'],
+    ['Tier', 'Levels', 'Actions / Reactions', 'Boon on', 'Boon choices', 'Bane Menu', 'Deflect bonus', 'Hit Cap', 'Effort max',
+     'Skill caps (Focus / other)', 'Governing cap', 'Highest Rank', 'Technique cost'],
     D.core.tiers.map(t => `<tr${t.id === tier.id ? ' class="current"' : ''}><th scope="row">${esc(t.name)}</th>
       <td>${t.levels[0]}–${t.levels[1]}</td><td>${t.actions} / ${t.reactions}</td>
       <td>${t.boon_threshold === 20 ? '20' : `${t.boon_threshold}–20`}</td>
       <td>${t.boon_choices}</td><td>${t.bane_choices || '—'}</td><td>${signed(t.deflect_bonus)}</td><td>${t.hit_cap}</td>
       <td>${t.surge_max}</td><td>${t.focus_skill_cap} / ${t.other_skill_cap}</td><td>${t.governing_ability_cap}</td>
-      <td>${free(t)}</td></tr>`), 'tiers'));
+      <td>${t.technique_rank_cap}</td><td>${t.technique_discount ? `Rank − ${t.technique_discount}` : 'Rank'}</td></tr>`), 'tiers'));
 
   const boons = card('Boons and Banes', `
     <p><b>Boon</b> (natural ${tier.boon_threshold === 20 ? '20' : `${tier.boon_threshold}–20`} for you):
@@ -65,17 +65,17 @@ export function renderRules(D, c) {
       : 'From Seasoned the GM also picks from this menu (never the same twice):'}</p>
     <ul class="qr-menu">${D.core.bane_menu.map(b => `<li><b>${esc(b.name)}</b> ${esc(b.effect)}</li>`).join('')}</ul>`);
 
-  const surge = card('Surge and Fallout', table(['Boxes', 'Roll', 'Hit Cap', 'On a hit', 'Natural 1'],
+  const surge = card('Effort and Fallout', table(['Boxes', 'Roll', 'Hit Cap', 'On a hit', 'Natural 1'],
     D.core.surge.filter(s => s.boxes > 0).map(s => `<tr${s.boxes > tier.surge_max ? ' class="beyond"' : ''}><th scope="row">${s.boxes}</th>
       <td>${esc(s.roll_bonus)}</td><td>+${s.hit_cap_rise}</td><td>${s.big_surge ? 'Target can only Deflect' : '—'}</td><td>${esc(s.backlash)}</td></tr>`))
-    + `<p class="hint">Greyed rows are beyond your Surge maximum of ${tier.surge_max}. Pay from the pool you are using.</p>`);
+    + `<p class="hint">Greyed rows are beyond your Effort maximum of ${tier.surge_max}. Pay from the pool you are using.</p>`);
 
-  const maneuvers = card('Maneuvers <span class="hint">cost for you after the Mastery Floor</span>', table(['Maneuver', 'Cost', 'For you', 'Effect'],
+  const maneuvers = card('Maneuvers <span class="hint">ready-made Techniques; cost for you at your tier</span>', table(['Maneuver', 'Rank', 'For you', 'Effect'],
     D.maneuvers.map(m => {
       const boxes = m.cost?.boxes;
-      const mine = boxes ? R.maneuverCost(D, c.level, boxes) : null;
+      const mine = boxes ? R.techniqueCost(D, boxes, c.level) : null;
       return `<tr><th scope="row">${esc(m.name)}</th><td>${esc(m.cost_text)}</td>
-        <td>${boxes ? (mine === 0 ? '<b class="good">free</b>' : `${mine} Stamina`) : esc(m.cost_text)}</td><td>${esc(m.effect)}</td></tr>`;
+        <td>${boxes ? `${mine} Stamina` : esc(m.cost_text)}</td><td>${esc(m.effect)}</td></tr>`;
     })));
 
   const conds = list => list.map(x => `<details class="qr-cond"><summary><b>${esc(x.name)}</b> <span class="hint">${esc(x.effect || '')}</span></summary>

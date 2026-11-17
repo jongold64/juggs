@@ -420,7 +420,7 @@ export function deflect(scores, domain) {
 // The Boon Menu at a level: Tempo opens at Seasoned.
 export const boonMenu = (D, level) => D.core.boon_menu.filter(b => b.id !== 'tempo' || level >= 5);
 
-// One hit crosses at most this many boxes, after armor. Each Surge box raises it for that hit.
+// One hit crosses at most this many boxes, after armor. Each Effort box raises it for that hit.
 export const hitCap = (D, level, surge = 0) => tierFor(D, level).hit_cap + surge;
 
 // Bonus added to d20 for a roll with an Ability Score: the Score plus its Domain's Mastery bonus.
@@ -453,25 +453,12 @@ export function deflectFor(D, c, domain, level = c.level) {
   return deflect(abilityScores(D, c, level), domain) + tierFor(D, level).deflect_bonus + domainEnh(c, 'deflect', domain);
 }
 
-// Mana for a Power: the Roles with the Level Discount pay Power Level - (Level / 6, rounded down), minimum 1; others
-// pay in full.
-export function levelDiscount(D, level) {
-  return Math.floor(level / D.core.level_discount.divisor);
-}
+// Techniques (Maneuvers, Powers, social gambits): Rank 1 plus one per upgrade. The tier sets the highest Rank and the
+// discount; a Technique costs Rank - discount boxes, minimum 1, from the pool of the Domain used.
+export const rankCap = (D, level) => tierFor(D, level).technique_rank_cap;
 
-export function powerCost(D, powerLevel, level, discounted) {
-  return discounted ? Math.max(1, powerLevel - levelDiscount(D, level)) : powerLevel;
-}
-
-export function hasLevelDiscount(D, c, level = c.level) {
-  const steps = roleSteps(D, c, level);
-  return D.core.level_discount.roles.some(r => (steps[r] || 0) >= 1);
-}
-
-// A Maneuver's cost after the tier's Mastery Floor (Seasoned: 1-cost free, ... Legendary: all free).
-export function maneuverCost(D, level, cost) {
-  const free = tierFor(D, level).mastery_floor_free_up_to;
-  return free === 'all' || cost <= free ? 0 : cost;
+export function techniqueCost(D, rank, level) {
+  return Math.max(1, rank - tierFor(D, level).technique_discount);
 }
 
 // Conditions marked on the sheet. The appendix's supernatural conditions stay in the data as GM reference.
@@ -484,15 +471,15 @@ export const playConditions = (D, positive) => D.conditions.filter(x => !x.super
 
 const upgradePL = (list, id) => list.find(o => o.id === id)?.pl || 0;
 
-// Power Level 1, +1 per upgrade. Above 5 the player cuts an upgrade; rawLevel keeps the sum for the warning.
+// Rank 1, +1 per upgrade. Above 5 the player cuts an upgrade; rawLevel keeps the sum for the warning.
 export function madePowerLevel(D, p) {
   const u = D.powers.upgrades;
   return 1 + upgradePL(u.reach, p.reach) + upgradePL(u.targets, p.targets) + upgradePL(u.duration, p.duration)
     + upgradePL(u.impact, p.impact) + (p.force || 0);
 }
 
-// Casters may use Powers up to Character Level + 1, to a maximum of 5.
-export const maxPowerLevel = level => Math.min(5, level + 1);
+// A spell's Step N is its Rank N form: the Steps up to the tier's highest Rank are open.
+export const spellStepsAt = (D, spell, level) => spell.steps.filter(s => s.pl <= rankCap(D, level));
 
 // A practitioner's Attack Ability + Cast or Channel rank totals 3 or more: Basic Casts and cantrips are free. Those
 // skills only exist with the Magic Genre on.
@@ -506,9 +493,8 @@ export function isPractitioner(D, c, level = c.level) {
 
 function manaFor(D, c, powerLevel, cantrip) {
   if (cantrip && isPractitioner(D, c)) return { mana: 0, discounted: false, cantrip: true };
-  const discount = hasLevelDiscount(D, c);
-  const mana = powerCost(D, powerLevel, c.level, discount);
-  return { mana, discounted: discount && mana < powerLevel, cantrip: false };
+  const mana = techniqueCost(D, powerLevel, c.level);
+  return { mana, discounted: mana < powerLevel, cantrip: false };
 }
 
 export function madePowerSummary(D, c, p) {
@@ -518,7 +504,7 @@ export function madePowerSummary(D, c, p) {
   return { rawLevel, powerLevel, over: rawLevel > 5, ...manaFor(D, c, powerLevel, cantrip) };
 }
 
-// A Step of a spell: { level, pl, reach, targets, ... }. A cantrip is PL 1 on one target or yourself at Touch or Close;
+// A Step of a spell: { pl, reach, targets, ... } (pl is its Rank). A cantrip is Rank 1 on one target or yourself at Touch or Close;
 // the utility tricks that reach Near or sense an area say "Free for casters as a Cantrip" in their text.
 export function spellStepSummary(D, c, step) {
   const cantrip = step.pl === 1 && (/Free for casters as a Cantrip/.test(step.text)

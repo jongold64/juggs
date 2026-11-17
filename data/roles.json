@@ -30,7 +30,7 @@
       {
         "step": 4,
         "level": 13,
-        "text": "Relentless: Once per round, add 2 free Surge boxes to one attack. This counts as Surge 2 for your Signature Effect.",
+        "text": "Relentless: Once per round, add 2 free Effort boxes to one attack. This counts as Effort 2 for your Signature Effect.",
         "tier": "Heroic"
       },
       {
@@ -307,7 +307,7 @@
       {
         "step": 1,
         "level": 1,
-        "text": "Level Discount active on all Powers.",
+        "text": "+1 to Cast and Channel attack rolls while Mana is Healthy (boxes 1–5).",
         "tier": "Novice"
       },
       {
@@ -319,23 +319,23 @@
       {
         "step": 3,
         "level": 9,
-        "text": "Surge cost on primary Cast school reduced by 1 box (minimum 1).",
+        "text": "Effort cost on primary Cast school reduced by 1 box (minimum 1).",
         "tier": "Veteran"
       },
       {
         "step": 4,
         "level": 13,
-        "text": "Once per scene, cast one Power at Level 1 or Level 2 for free — no Mana, no Surge cost.",
+        "text": "Once per scene, cast one Power at Level 1 or Level 2 for free — no Mana, no Effort cost.",
         "tier": "Heroic"
       },
       {
         "step": 5,
         "level": 17,
-        "text": "Once per session, cast any Power at any Level for free. No Mana cost. Surge is not free — if Surged, those boxes are still paid.",
+        "text": "Once per session, cast any Power at any Level for free. No Mana cost. Effort is not free — if Effort is used, those boxes are still paid.",
         "tier": "Legendary"
       }
     ],
-    "design_note": "A single framework covers Wizard, Sorcerer, and Warlock concepts. No spell slots — Mana pool plus Level Discount. The cantrip rule means dedicated casters never pay for baseline magical attacks."
+    "design_note": "A single framework covers Wizard, Sorcerer, and Warlock concepts. No spell slots — Mana pool plus tier discount. The cantrip rule means dedicated casters never pay for baseline magical attacks."
   },
   {
     "id": "channeler",
@@ -368,7 +368,7 @@
       {
         "step": 1,
         "level": 1,
-        "text": "Spiritual Powers clear 2 Resolve (not 1). Level Discount active on all Powers.",
+        "text": "Spiritual Powers clear 2 Resolve (not 1).",
         "tier": "Novice"
       },
       {
@@ -386,7 +386,7 @@
       {
         "step": 4,
         "level": 13,
-        "text": "Abjure costs 0 Resolve once per scene. Additionally, all Spiritual Powers automatically gain the Authority Over Supernatural bonus (+1 effective Power Level vs supernatural targets).",
+        "text": "Abjure costs 0 Resolve once per scene. Additionally, all Spiritual Powers automatically gain the Authority Over Supernatural bonus (+1 effective Rank vs supernatural targets).",
         "tier": "Heroic"
       },
       {
