@@ -459,3 +459,6 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
   The Lite books are the rules; earlier rulings that cite the SRD stand as written.
 - **Specialty Fallout at 3+ (decided 2026-11-17):** a Specialty's Fallout triggers on a Natural 1 at 3 or more Effort
   boxes, as the builder already said. The Book of Feats and Book of Powers now agree. Caster Fallout stays at 5+.
+- **Encounter Points with the Technique ladder (checked 2026-11-17):** simulated, fights run about a third of a band
+  easier than before the ladder (Hard 91% won, Deadly 59%, Likely wipe 23%). The author is fine with this; the GM
+  Guide bands stay as they are until play shows otherwise.
