@@ -85,29 +85,29 @@ check('Weird Magic needs Magic on too',
   R.availableSkills(D, make({ genres: ['weird-magic'] })).some(s => s.id === 'weird-control'), false);
 
 // Roles
-check('Nine Roles and twenty-one Archetypes', [D.roles.length, D.archetypes.length], [9, 21]);
+check('Seven Roles and twenty-two Archetypes', [D.roles.length, D.archetypes.length], [7, 22]);
 check('Archetype Signatures are Effects or Maneuvers', D.archetypes.every(x => D.effectsById.has(x.signature_effect) || D.maneuversById.has(x.signature_effect)), true);
-check('Starting Role is Step 1', R.roleSteps(D, make({ role: 'warrior' })), { warrior: 1 });
-check('A Role has the Steps its tier has reached', R.roleSteps(D, make({ level: 13, role: 'warrior' })), { warrior: 4 });
+check('Starting Role is Step 1', R.roleSteps(D, make({ role: 'striker' })), { striker: 1 });
+check('A Role has the Steps its tier has reached', R.roleSteps(D, make({ level: 13, role: 'striker' })), { striker: 4 });
 check('A further Role sits in a Feat slot at the current tier',
-  R.roleSteps(D, make({ level: 9, role: 'warrior', feats: { 7: 'role:defender' } })), { warrior: 3, defender: 3 });
-check('Not before its slot', R.roleSteps(D, make({ level: 5, role: 'warrior', feats: { 7: 'role:defender' } })), { warrior: 2 });
+  R.roleSteps(D, make({ level: 9, role: 'striker', feats: { 7: 'role:defender' } })), { striker: 3, defender: 3 });
+check('Not before its slot', R.roleSteps(D, make({ level: 5, role: 'striker', feats: { 7: 'role:defender' } })), { striker: 2 });
 check('Old Role advancement: same Role just drops', clean(D, { level: 9, role: 'warrior', roleAdvances: { 5: 'warrior', 9: 'warrior' } }).feats, {});
 check('Old second Role takes an open slot', clean(D, { level: 9, role: 'warrior', roleAdvances: { 5: 'defender' } }).feats, { 7: 'role:defender' });
 check('Cut Role becomes its core Role', clean(D, { role: 'investigator' }).role, 'expert');
 check('Artificer becomes Expert', clean(D, { role: 'artificer' }).role, 'expert');
-check('Cut Role keeps its Feat', (x => [x.role, x.feats[1]])(clean(D, { role: 'hunter' })), ['scout', 'marked-prey']);
+check('Cut Role keeps its Feat', (x => [x.role, x.feats[1]])(clean(D, { role: 'hunter' })), ['infiltrator', 'marked-prey']);
 check('No open slot: it goes in the notes', /battle-fury/.test(clean(D, { role: 'berserker', feats: { 1: 'toughened' } }).notes), true);
 check('A second clean changes nothing', (x => clean(D, x))(clean(D, { level: 9, role: 'hunter', roleAdvances: { 5: 'defender' } })).feats, clean(D, { level: 9, role: 'hunter', roleAdvances: { 5: 'defender' } }).feats);
 check('Old Element Source becomes Nature', clean(D, { powerSources: ['element'] }).powerSources, ['nature']);
 check('Second Stepped Feat instead of a free Specialty', R.featsTaken(D, make({ bonusFeat: 'toughened' })), ['toughened']);
-check('Not alongside a free Specialty', make({ bonusFeat: 'toughened', specialties: [{ id: 'striker', level: 1 }] }).bonusFeat, '');
+check('Not alongside a free Specialty', make({ bonusFeat: 'toughened', specialties: [{ id: 'basher', level: 1 }] }).bonusFeat, '');
 check('It must be Stepped', make({ bonusFeat: 'ghost' }).bonusFeat, '');
 check('Frenzy replaces the Berserker Feat', [D.featsById.has('frenzy'), D.featsById.has('berserker')], [true, false]);
-check('Feat requiring a Role', R.checkRequirements(D.featsById.get('combat-triage').requires, R.requirementContext(D, make({ role: 'medic', focus: ['survive'] }), 1)).ok, true);
+check('Feat requiring a Role', R.checkRequirements(D.featsById.get('combat-triage').requires, R.requirementContext(D, make({ role: 'leader', focus: ['survive'] }), 1)).ok, true);
 
 // Requirements
-const ctx = R.requirementContext(D, make({ base: spread, focus, level: 7, role: 'warrior', feats: { 1: 'toughened' } }), 7);
+const ctx = R.requirementContext(D, make({ base: spread, focus, level: 7, role: 'striker', feats: { 1: 'toughened' } }), 7);
 check('Ability requirement met', R.checkClause({ ability: ['str'], min: 3 }, ctx), true);
 check('Ability requirement failed', R.checkClause({ ability: ['int'], min: 3 }, ctx), false);
 check('Either Ability', R.checkClause({ ability: ['int', 'str'], min: 4 }, ctx), true);
@@ -115,7 +115,7 @@ check('Focus Skill requirement', R.checkClause({ focus: ['endure'], all: false }
 check('Both Focus Skills', R.checkClause({ focus: ['endure', 'stealth'], all: true }, ctx), false);
 check('Earlier Feat counts', R.checkClause({ feat: ['toughened'] }, ctx), true);
 check('Seasoned tier at Level 7', R.checkClause({ power_level_min: 2 }, ctx), true);
-check('Role Step', R.checkClause({ role: ['warrior'], step: 1 }, ctx), true);
+check('Role Step', R.checkClause({ role: ['striker'], step: 1 }, ctx), true);
 check('Words cannot be checked', R.checkClause({ text: 'any two Mastery Feats' }, ctx), null);
 check('Any-of with one true', R.checkClause({ any: [{ ability: ['int'], min: 5 }, { power_level_min: 2 }] }, ctx), true);
 check('A Feat taken at this level does not count for itself',
@@ -132,7 +132,7 @@ check('Toughened grows by tier', [1, 5, 13].map(level => R.pools(D, make({ level
 const oldSave = { level: 9, specialties: [{ id: 'striker', level: 1 }, { id: 'empath', level: 5 }],
   feats: { 1: 'toughened', 3: 'specialty-ability-2', 7: 'surge-discipline-1' }, featChoices: { 3: 'striker' } };
 check('Old unlock Feats drop and a second Specialty takes the open slot', clean(D, oldSave).feats, { 1: 'toughened', 3: 'specialty:martyr', 7: 'surge-discipline' });
-check('The slot Specialty counts as held', R.specialtiesHeld(D, clean(D, oldSave)).map(s => s.id), ['striker', 'martyr']);
+check('The slot Specialty counts as held', R.specialtiesHeld(D, clean(D, oldSave)).map(s => s.id), ['basher', 'martyr']);
 check('Its bonus skills arrive with the slot', R.bonusSkills(D, clean(D, oldSave)).some(b => b.from === 'Martyr'), true);
 const noRoom = clean(D, { level: 5, specialties: [{ id: 'striker', level: 1 }, { id: 'guardian', level: 5 }], feats: { 1: 'toughened', 3: 'fleet' } });
 check('No open slot: the Specialty stays, with a warning', [R.specialtiesHeld(D, noRoom).length, R.featProblems(D, noRoom).length], [2, 1]);
@@ -229,7 +229,7 @@ check('Armor DR', R.armorInfo(D, make({ armor: 'medium-armor', shield: 'buckler'
 check('Medium armor: Agility rolls -1', R.armorInfo(D, make({ armor: 'medium-armor' })).agilityPenalty, -1);
 check('Armor penalty lowers Agility skills', R.skillTotal(D, make({ base: spread, armor: 'heavy-armor' }), 'stealth')
   - R.skillTotal(D, make({ base: spread }), 'stealth'), -2);
-check('Ascetic ignores armor penalty', R.armorInfo(D, make({ role: 'ascetic', armor: 'heavy-armor' })).agilityPenalty, 0);
+check('Ascetic ignores armor penalty', R.armorInfo(D, make({ specialties: [{ id: 'ascetic', level: 1 }], armor: 'heavy-armor' })).agilityPenalty, 0);
 check('Defender Step 1 adds DR 1', R.armorInfo(D, make({ role: 'defender' })).dr, 1);
 check('Ward item adds DR', R.armorInfo(D, make({ items: [{ template: 'ward', rating: 2, appliesTo: 'dr' }] })).dr, 2);
 check('Deflect Enhancement raises Deflect', R.deflectFor(D, make({ base: spread,
@@ -246,7 +246,7 @@ const armored = make({ base: spread, armor: 'medium-armor', shield: 'buckler' })
 const wear = type => R.armorInfo(D, make({ armor: { type } }));
 check('Armor DR 1 to 5 by type', ['light', 'medium', 'heavy', 'powered', 'legendary'].map(t => wear(t).dr), [1, 2, 3, 4, 5]);
 check('Agility penalty by type', ['light', 'medium', 'heavy', 'powered', 'legendary'].map(t => wear(t).agilityPenalty), [0, -1, -2, 0, 0]);
-check('Ascetic gets no DR from armor', R.armorInfo(D, make({ role: 'ascetic', armor: { type: 'heavy' } })).dr, 0);
+check('Ascetic gets no DR from armor', R.armorInfo(D, make({ specialties: [{ id: 'ascetic', level: 1 }], armor: { type: 'heavy' } })).dr, 0);
 check('Old saved armor id becomes a type', clean(D, { armor: 'heavy-armor' }).armor.type, 'heavy');
 check('Old weight and quality become a type', clean(D, { armor: { weight: 'heavy', quality: 'standard' } }).armor.type, 'heavy');
 check('Old Masterwork armor becomes Powered or Masterwork', clean(D, { armor: { weight: 'light', quality: 'masterwork' } }).armor.type, 'powered');
@@ -265,7 +265,10 @@ check('Faculty items have no Rating', clean(D, { items: [{ template: 'faculty', 
 
 // Role text
 check('Roles use the current band names', JSON.stringify(D.roles).match(/Battered|Wounded range|Fresh range|Impaired/), null);
-check('Caster Step 1: +1 while Mana is Healthy', /Mana is Healthy/.test(D.rolesById.get('caster').steps[0].text), true);
+check('Seven Roles', D.roles.map(r => r.id), ['striker', 'defender', 'leader', 'controller', 'infiltrator', 'face', 'expert']);
+check('Old Roles become their job', ['warrior', 'scout', 'speaker', 'caster', 'channeler', 'medic'].map(role => clean(D, { role }).role), ['striker', 'infiltrator', 'face', 'controller', 'leader', 'leader']);
+check('Old Ascetic becomes Striker with the Ascetic Specialty', (x => [x.role, x.specialties.map(s => s.id)])(clean(D, { role: 'ascetic' })), ['striker', ['ascetic']]);
+check('Old Striker Specialty is Basher, and a further old Role in a slot is renamed', (x => [x.specialties[0].id, x.feats[3]])(clean(D, { level: 3, role: 'warrior', specialties: [{ id: 'striker', level: 1 }], feats: { 3: 'role:scout' } })), ['basher', 'role:infiltrator']);
 
 // Conditions and Effects
 check('15 negative conditions (three ongoing, Removed as one) + 4 positive', [R.playConditions(D, false).length, R.playConditions(D, true).length], [19, 4]);

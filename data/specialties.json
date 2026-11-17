@@ -1,7 +1,7 @@
 [
   {
-    "id": "striker",
-    "name": "Striker",
+    "id": "basher",
+    "name": "Basher",
     "category": "combat",
     "governing": [
       "str"
@@ -278,6 +278,66 @@
         "text": "Juggernaut: Once per scene, declare a Charge: move up to 3 range bands in a straight line and make an unarmed attack at the end of the movement. Every enemy in your path must make a Toughness DC 14 check or be pushed 1 range band aside and fall Prone. The final target of your attack takes double overage from the Charge strike, ignoring the Hit Cap. The Charge movement does not cost an Action. The attack at the end does.",
         "at_the_table": ""
       }
+    ]
+  },
+  {
+    "id": "ascetic",
+    "name": "Ascetic",
+    "category": "combat",
+    "governing": [
+      "str",
+      "agi"
+    ],
+    "pool": "stamina",
+    "bonus_skills": [
+      "athletics",
+      "concentrate"
+    ],
+    "summary": "Physical and spiritual perfection — unarmed and unarmored by choice, the body as the instrument.",
+    "synergy": {
+      "condition_text": "Concentrate ≥ 2",
+      "effect": "The Seasoned free strike gains +1 to the roll",
+      "requires": {
+        "skill": "concentrate",
+        "rank_min": 2
+      }
+    },
+    "fallout": "Your form breaks: you are Prone until the start of your next turn.",
+    "prerequisite_text": "Gains no benefit from wearing armor (and no penalty either).",
+    "steps": [
+      {
+        "tier": "Novice",
+        "level": 1,
+        "text": "Unarmed strikes use the higher of Strength or Agility as their Attack bonus — equivalent to a Standard weapon. Never treated as Improvised. Deflect uses the higher of Toughness or Agility.",
+        "at_the_table": ""
+      },
+      {
+        "tier": "Seasoned",
+        "level": 5,
+        "text": "Once per round, after any unarmed attack — hit or miss — make one additional unarmed strike as a free action against the same or an adjacent target. Declare after seeing the first result.",
+        "at_the_table": ""
+      },
+      {
+        "tier": "Veteran",
+        "level": 9,
+        "text": "Once per encounter, when you would gain a Condition from a physical source, negate it entirely. Stamina damage still applies. Works against Stunned, Prone, Bleeding, Burning, Poisoned, Slowed, Restrained, Exposed. Does not work against supernatural or social Conditions.",
+        "at_the_table": ""
+      },
+      {
+        "tier": "Heroic",
+        "level": 13,
+        "text": "Unarmed strikes ignore DR entirely. Passive, always on. Additionally, the Step 2 free strike can now target any creature in Close range.",
+        "at_the_table": ""
+      },
+      {
+        "tier": "Legendary",
+        "level": 17,
+        "text": "Once per session, enter a state of perfect stillness for one full round. You cannot be targeted by any attack, Power, or effect. You take no actions. At the end of that round, your next attack ignores all active Conditions on the target and cannot be Deflected — only Defended against.",
+        "at_the_table": ""
+      }
+    ],
+    "flags": [
+      "Synergy and Fallout are new (2026-11-17, from the Ascetic Role); the author should confirm them."
     ]
   },
   {

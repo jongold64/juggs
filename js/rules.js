@@ -539,7 +539,7 @@ export function armorStats(D, armor) {
 // Armor, shield, Defender Steps and Ward items (all DR count). DR comes off Stamina damage.
 // The Ascetic gains no benefit and no penalty from armor.
 export function armorInfo(D, c, level = c.level) {
-  const ascetic = (roleSteps(D, c, level).ascetic || 0) >= 1;
+  const ascetic = specialtiesHeld(D, c, level).some(s => s.id === 'ascetic');
   const armor = ascetic ? null : armorStats(D, c.armor);
   const shield = D.gear.shields.find(s => s.id === c.shield);
   const steps = roleSteps(D, c, level).defender || 0;

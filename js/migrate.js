@@ -4,7 +4,7 @@
 // Luck is no longer a skill (it is a Luck Roll, d20 + Serenity): '' empties its slot.
 export const SKILLS = { pilot: 'operate', language: 'knowledge', tactics: 'analyze', inspire: 'lead', resist: 'concentrate',
                         heal: 'channel', luck: '' };
-export const SPECIALTIES = { skirmisher: 'sharpshooter', shaper: 'weaver', empath: 'martyr', infiltrator: 'chameleon' };
+export const SPECIALTIES = { skirmisher: 'sharpshooter', shaper: 'weaver', empath: 'martyr', infiltrator: 'chameleon', striker: 'basher' };
 export const APTITUDES = { duelist: 'weapon-master', polymath: 'jack-of-all-trades' };
 
 export const CONDITIONS = { dazed: 'stunned', routed: 'frightened', fascinated: 'charmed', exhausted: 'weakened',
@@ -19,10 +19,13 @@ const SURGE_DISCIPLINES = new Set(['surge-discipline-1', 'surge-discipline-2', '
 const ARTIFICER_FEATS = new Set(['modular-design', 'overclock', 'rapid-fabrication', 'salvage-expert']);
 
 export const SOURCES = { weird: 'weird-science', element: 'nature' };
-// The Roles that became Archetypes: their core Role, and the Stepped Feat that keeps a signature rule.
-export const ROLES = { skirmisher: 'scout', hunter: 'scout', berserker: 'warrior', survivor: 'defender', wayfinder: 'scout',
-                       infiltrator: 'speaker', empath: 'speaker', artificer: 'expert', investigator: 'expert', polymath: 'expert',
-                       weird: 'caster', psion: 'caster', shaper: 'caster', netrunner: 'expert' };
+// Old Roles and what they are now: the nine Lite Roles became seven jobs (2026-11-17), and the Roles that had already
+// become Archetypes follow them. The very old Infiltrator Role is now the new Infiltrator, so it is not renamed.
+export const ROLES = { warrior: 'striker', ascetic: 'striker', scout: 'infiltrator', speaker: 'face', caster: 'controller',
+                       channeler: 'leader', medic: 'leader',
+                       skirmisher: 'infiltrator', hunter: 'infiltrator', berserker: 'striker', survivor: 'defender',
+                       wayfinder: 'infiltrator', empath: 'face', artificer: 'expert', investigator: 'expert', polymath: 'expert',
+                       weird: 'controller', psion: 'controller', shaper: 'controller', netrunner: 'expert' };
 const ROLE_FEATS = { hunter: 'marked-prey', berserker: 'battle-fury', netrunner: 'net-diver', weird: 'weird-touched' };
 // Example Powers from the old Player Book list, now spells.
 const EXAMPLE_SPELLS = { mend: 'mend-wounds', 'untitled-psionic-power': 'telepathy' };
@@ -67,6 +70,10 @@ function migrateFeats(feats) {
     if (SURGE_DISCIPLINES.has(f)) {
       if (!discipline) out[lv] = 'surge-discipline';
       discipline = true;
+    } else if (typeof f === 'string' && f.startsWith('role:')) {
+      out[lv] = `role:${rename(ROLES, f.slice(5))}`;
+    } else if (typeof f === 'string' && f.startsWith('specialty:')) {
+      out[lv] = `specialty:${rename(SPECIALTIES, f.slice(10))}`;
     } else if (ARTIFICER_FEATS.has(f)) {
       if (!artificer) out[lv] = 'specialty:artificer';
       artificer = true;
@@ -107,6 +114,17 @@ function migrateRoles(c, featLevels) {
   if (lost.length) {
     c.notes = [c.notes, `Old save: no Feat slot was open for ${lost.join(', ')}.`].filter(Boolean).join('\n');
   }
+}
+
+// The Ascetic Role became a Specialty: it takes the free Specialty if that is empty, or an open Feat slot.
+function keepAscetic(c, featLevels) {
+  c.specialties = Array.isArray(c.specialties) ? c.specialties : [];
+  c.feats = isObj(c.feats) ? c.feats : {};
+  if (c.specialties.some(s => s?.id === 'ascetic') || Object.values(c.feats).includes('specialty:ascetic')) return;
+  if (!c.specialties.length) { c.specialties = [{ id: 'ascetic', level: 1 }]; return; }
+  const slot = openSlot(c, featLevels, 1);
+  if (slot) c.feats[slot] = 'specialty:ascetic';
+  else c.notes = [c.notes, 'Old save: the Ascetic Role is now a Specialty, and no Feat slot was open for it.'].filter(Boolean).join('\n');
 }
 
 // A further Specialty now needs a Feat slot. An old free second Specialty takes the first open slot from the level it
@@ -150,8 +168,10 @@ export function migrate(raw, featLevels = []) {
   if (Array.isArray(c.specialties)) {
     c.specialties = c.specialties.map(s => (isObj(s) ? { ...s, id: rename(SPECIALTIES, s.id) } : s));
   }
+  const wasAscetic = c.role === 'ascetic' || (isObj(c.feats) && Object.values(c.feats).includes('role:ascetic'));
   if (isObj(c.feats)) c.feats = migrateFeats(c.feats);
   migrateRoles(c, featLevels);
+  if (wasAscetic) keepAscetic(c, featLevels);
   moveSpecialties(c, featLevels);
   if (typeof c.originChoice === 'string') c.originChoice = c.originChoice.replace('(+1 Tactics)', '(+1 Analyze)');
   return c;

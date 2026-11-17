@@ -446,3 +446,9 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
   pay one Technique from a different pool; Seasoned: twice; Veteran: one chosen pool always; Heroic: Effort too;
   Legendary: any pool, and split one cost between two. Simulated as a rule for everyone, it made Boss fights 10-30 points
   easier and tipped damage toward fighters.
+- **Seven Roles applied (decided 2026-11-17)** with the drafted Steps: Striker (was Warrior), Defender, Leader (Medic,
+  Channeler and Speaker's Lead), Controller (was Caster, for any Technique), Infiltrator (was Scout), Face (was Speaker),
+  Expert. **Ascetic becomes a Combat Specialty** with its old Steps. **The Striker Specialty is renamed Basher.**
+- **Abjure: undecided** until the author has seen the seven Roles. For now anyone with Belief 3+ and Channel 1 may
+  Abjure once per scene from Seasoned; the Channeler's extras (repeat at -1, cheaper by tier, Removed on 5+ overage) have
+  no home and are flagged.

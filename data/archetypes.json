@@ -2,7 +2,7 @@
   {
     "id": "skirmisher",
     "name": "Skirmisher",
-    "role": "scout",
+    "role": "infiltrator",
     "specialty": "sharpshooter",
     "aptitude": "weapon-master",
     "signature_effect": "force",
@@ -19,7 +19,7 @@
   {
     "id": "hunter",
     "name": "Hunter",
-    "role": "scout",
+    "role": "infiltrator",
     "specialty": "sharpshooter",
     "aptitude": "explorer",
     "signature_effect": "force",
@@ -37,8 +37,8 @@
   {
     "id": "berserker",
     "name": "Berserker",
-    "role": "warrior",
-    "specialty": "striker",
+    "role": "striker",
+    "specialty": "basher",
     "aptitude": "savage",
     "signature_effect": "force",
     "focus_skills": [
@@ -72,7 +72,7 @@
   {
     "id": "fighter",
     "name": "Fighter",
-    "role": "warrior",
+    "role": "striker",
     "specialty": "guardian",
     "aptitude": "soldier",
     "signature_effect": "knockdown",
@@ -86,6 +86,23 @@
     ],
     "power_sources": [],
     "feat": "weapon-specialist"
+  },
+  {
+    "id": "monk",
+    "name": "Monk",
+    "role": "striker",
+    "specialty": "ascetic",
+    "aptitude": "temple-trained",
+    "signature_effect": "force",
+    "focus_skills": [
+      "combat-melee",
+      "athletics",
+      "evasion",
+      "endure",
+      "concentrate",
+      "channel"
+    ],
+    "power_sources": []
   },
   {
     "id": "paladin",
@@ -111,7 +128,7 @@
   {
     "id": "wayfinder",
     "name": "Wayfinder",
-    "role": "scout",
+    "role": "infiltrator",
     "specialty": "seeker",
     "aptitude": "explorer",
     "signature_effect": "force",
@@ -128,7 +145,7 @@
   {
     "id": "rogue",
     "name": "Rogue",
-    "role": "scout",
+    "role": "infiltrator",
     "specialty": "duelist",
     "aptitude": "criminal",
     "signature_effect": "feint",
@@ -146,7 +163,7 @@
   {
     "id": "ranger",
     "name": "Ranger",
-    "role": "scout",
+    "role": "infiltrator",
     "specialty": "sharpshooter",
     "aptitude": "trained-by-nature",
     "signature_effect": "aimed-shot",
@@ -162,9 +179,9 @@
     "feat": "steady-aim"
   },
   {
-    "id": "infiltrator",
-    "name": "Infiltrator",
-    "role": "speaker",
+    "id": "spy",
+    "name": "Spy",
+    "role": "face",
     "specialty": "chameleon",
     "aptitude": "criminal",
     "signature_effect": "psychic",
@@ -181,7 +198,7 @@
   {
     "id": "empath",
     "name": "Empath",
-    "role": "speaker",
+    "role": "face",
     "specialty": "confidant",
     "aptitude": "diplomat",
     "signature_effect": "psychic",
@@ -250,7 +267,7 @@
   {
     "id": "field-medic",
     "name": "Field Medic",
-    "role": "medic",
+    "role": "leader",
     "specialty": "martyr",
     "aptitude": "healer",
     "signature_effect": "force",
@@ -268,7 +285,7 @@
   {
     "id": "combat-medic",
     "name": "Combat Medic",
-    "role": "medic",
+    "role": "leader",
     "specialty": "guardian",
     "aptitude": "soldier",
     "signature_effect": "knockdown",
@@ -286,7 +303,7 @@
   {
     "id": "psion",
     "name": "Psion",
-    "role": "caster",
+    "role": "controller",
     "specialty": "anchor",
     "aptitude": "academic",
     "signature_effect": "psychic",
@@ -305,7 +322,7 @@
   {
     "id": "shaper",
     "name": "Shaper",
-    "role": "caster",
+    "role": "controller",
     "specialty": "weaver",
     "aptitude": "trained-by-nature",
     "signature_effect": "cold",
@@ -324,7 +341,7 @@
   {
     "id": "weird",
     "name": "Weird",
-    "role": "caster",
+    "role": "controller",
     "specialty": "weaver",
     "aptitude": "shaman",
     "signature_effect": "void",
@@ -345,7 +362,7 @@
   {
     "id": "cleric",
     "name": "Cleric",
-    "role": "channeler",
+    "role": "leader",
     "specialty": "martyr",
     "aptitude": "celebrant",
     "signature_effect": "healing",
@@ -366,7 +383,7 @@
   {
     "id": "spirit-healer",
     "name": "Spirit Healer",
-    "role": "channeler",
+    "role": "leader",
     "specialty": "anchor",
     "aptitude": "shaman",
     "signature_effect": "healing",

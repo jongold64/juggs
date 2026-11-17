@@ -1,8 +1,8 @@
 [
   {
-    "id": "warrior",
-    "role": "warrior",
-    "specialty": "striker",
+    "id": "striker",
+    "role": "striker",
+    "specialty": "basher",
     "aptitude": "soldier",
     "power_sources": [],
     "signature_effect": "force",
@@ -14,7 +14,7 @@
       "analyze",
       "evasion"
     ],
-    "reasoning": "Striker sharpens the attack the Role already favors; Soldier adds the Strength and Toughness to survive standing still."
+    "reasoning": "Basher sharpens the attack the Role already favors; Soldier adds the Strength and Toughness to survive standing still."
   },
   {
     "id": "defender",
@@ -34,28 +34,45 @@
     "reasoning": "Guardian and Sentinel both reward holding position — the Background supplies Toughness and the sustained attention the work needs."
   },
   {
-    "id": "ascetic",
-    "role": "ascetic",
-    "specialty": "anchor",
-    "aptitude": "temple-trained",
-    "power_sources": [
-      "spirit"
-    ],
-    "signature_effect": "radiant",
+    "id": "leader",
+    "role": "leader",
+    "specialty": "martyr",
+    "aptitude": "healer",
+    "power_sources": [],
+    "signature_effect": "healing",
     "focus_skills": [
-      "combat-melee",
-      "athletics",
-      "evasion",
+      "survive",
+      "handle",
+      "analyze",
+      "observe",
       "endure",
-      "concentrate",
-      "channel"
+      "knowledge"
     ],
-    "reasoning": "Temple Trained is the only Background that raises Belief, Toughness, and Willpower at once — exactly what a dual-source martial practice runs on."
+    "reasoning": "Healer is the Background written for this Role; Martyr adds the attunement to read what an ally needs."
   },
   {
-    "id": "scout",
-    "role": "scout",
-    "specialty": "sharpshooter",
+    "id": "controller",
+    "role": "controller",
+    "specialty": "invoker",
+    "aptitude": "academic",
+    "power_sources": [
+      "arcane"
+    ],
+    "signature_effect": "fire",
+    "focus_skills": [
+      "cast-attack",
+      "cast-utility",
+      "concentrate",
+      "knowledge",
+      "analyze",
+      "observe"
+    ],
+    "reasoning": "Academic raises Intellect, Acuity and Willpower together; Invoker turns that into area Techniques that land."
+  },
+  {
+    "id": "infiltrator",
+    "role": "infiltrator",
+    "specialty": "duelist",
     "aptitude": "operative",
     "power_sources": [],
     "signature_effect": "force",
@@ -67,11 +84,11 @@
       "athletics",
       "combat-ranged"
     ],
-    "reasoning": "Operative trains the surveillance half; Sharpshooter Specialty covers the withdrawal when scouting goes wrong."
+    "reasoning": "Operative trains the surveillance half; Duelist covers the knife-work when the job goes wrong."
   },
   {
-    "id": "speaker",
-    "role": "speaker",
+    "id": "face",
+    "role": "face",
     "specialty": "orator",
     "aptitude": "diplomat",
     "power_sources": [],
@@ -102,64 +119,5 @@
       "persuade"
     ],
     "reasoning": "Engineer supplies the Intellect and Acuity the Role runs on; Seeker adds the perception to read a scene before acting on it."
-  },
-  {
-    "id": "caster",
-    "role": "caster",
-    "specialty": "conduit",
-    "aptitude": "academic",
-    "power_sources": [
-      "arcane"
-    ],
-    "signature_effect": "fire",
-    "focus_skills": [
-      "cast-attack",
-      "cast-utility",
-      "concentrate",
-      "knowledge",
-      "analyze",
-      "observe"
-    ],
-    "reasoning": "Academic raises Intellect, Acuity, and Willpower together, covering casting, targeting, and holding concentration under pressure."
-  },
-  {
-    "id": "channeler",
-    "role": "channeler",
-    "specialty": "warden",
-    "aptitude": "celebrant",
-    "power_sources": [
-      "spirit"
-    ],
-    "signature_effect": "radiant",
-    "focus_skills": [
-      "channel",
-      "endure",
-      "lead",
-      "observe",
-      "concentrate",
-      "survive"
-    ],
-    "reasoning": "Celebrant supplies Belief and Morale; Warden turns that authority outward to protect the rest of the party.",
-    "flags": [
-      "Book says \"Spiritual / Divine\"; drafted as Spirit.",
-      "Abjure replaced by Channel, which is already listed; sixth Focus Skill to be decided."
-    ]
-  },
-  {
-    "id": "medic",
-    "role": "medic",
-    "specialty": "warden",
-    "aptitude": "healer",
-    "power_sources": [],
-    "signature_effect": "healing",
-    "focus_skills": [
-      "survive",
-      "handle",
-      "analyze",
-      "observe",
-      "endure",
-      "knowledge"
-    ],
-    "reasoning": "Healer is the Background written for this Role; Warden extends the same protective instinct into a combat round."
   }
 ]

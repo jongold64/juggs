@@ -1,10 +1,10 @@
 [
   {
-    "id": "warrior",
-    "name": "Warrior",
+    "id": "striker",
+    "name": "Striker",
     "category": "combat",
-    "identity": "Frontline combatant.",
-    "summary": "Frontline combatant. Hits harder, takes punishment, closes fights decisively.",
+    "identity": "Damage dealer.",
+    "summary": "Damage dealer. Hits hardest and finishes fights: the warrior, the duelist, the blaster.",
     "prerequisite_text": "No prerequisite",
     "requires": [],
     "suggested_aptitudes_text": "Soldier or Weapon Master background.",
@@ -24,7 +24,7 @@
       {
         "step": 3,
         "level": 9,
-        "text": "Once per encounter, reroll a Maneuver attack after paying the Stamina cost. Take the second result.",
+        "text": "Once per encounter, reroll a Technique attack after paying its cost. Take the second result.",
         "tier": "Veteran"
       },
       {
@@ -40,7 +40,7 @@
         "tier": "Legendary"
       }
     ],
-    "design_note": "Warrior gets stronger when fresh. Berserker inverts this — gets stronger when hurt. They are complementary, not redundant."
+    "design_note": "Striker gets stronger when fresh. The Basher Specialty and the Battle Fury Feat lean the other way, toward fighting hurt."
   },
   {
     "id": "defender",
@@ -86,74 +86,117 @@
     "design_note": "Defender is outward-facing — protects others. Survivor is inward-facing — cannot be stopped. Both are defensive identities but mechanically and narratively distinct."
   },
   {
-    "id": "ascetic",
-    "name": "Ascetic",
-    "category": "combat",
-    "identity": "Physical and spiritual perfection unified.",
-    "summary": "Physical and spiritual perfection unified. Unarmed and unarmored by choice — the body is the instrument.",
-    "prerequisite_text": "No prerequisite. Gains no benefit from wearing armor (and no penalty either).",
+    "id": "leader",
+    "name": "Leader",
+    "category": "support",
+    "identity": "Holds the group together.",
+    "summary": "Holds the group together: heals, helps and rallies. The medic, the cleric, the captain.",
+    "prerequisite_text": "No prerequisite",
     "requires": [],
-    "suggested_aptitudes_text": "Savage, Sentinel, Celebrant, or Shaman. See also Temple Trained (suggested new Background).",
+    "suggested_aptitudes_text": "Healer, Celebrant or Diplomat background.",
     "steps": [
       {
         "step": 1,
         "level": 1,
-        "text": "Unarmed strikes use the higher of Strength or Agility as their Attack bonus — equivalent to a Standard weapon. Never treated as Improvised. Deflect uses the higher of Toughness or Agility.",
+        "text": "Rally: Once per round, a committed assist (+4) costs you no Action. When you heal or Tend, unmark 1 extra box.",
         "tier": "Novice"
       },
       {
         "step": 2,
         "level": 5,
-        "text": "Once per round, after any unarmed attack — hit or miss — make one additional unarmed strike as a free action against the same or an adjacent target. Declare after seeing the first result.",
+        "text": "Once per scene, clear one ongoing Condition (Bleeding, Burning, Poisoned, Stunned, or Weakened 1 level) from any ally as a free action — no roll, no pool cost.",
         "tier": "Seasoned"
       },
       {
         "step": 3,
         "level": 9,
-        "text": "Once per encounter, when you would gain a Condition from a physical source, negate it entirely. Stamina damage still applies. Works against Stunned, Prone, Bleeding, Burning, Poisoned, Slowed, Restrained, Exposed. Does not work against supernatural or social Conditions.",
+        "text": "A successful out-of-combat Tend (one uninterrupted Task Block) clears the Injured condition (boxes 11–14), which normally needs magical healing.",
         "tier": "Veteran"
       },
       {
         "step": 4,
         "level": 13,
-        "text": "Unarmed strikes ignore DR entirely. Passive, always on. Additionally, the Step 2 free strike can now target any creature in Close range.",
+        "text": "Lead on an ally in Close range costs no Action once per round, and allies in Near range get +1 to Defend while you can act.",
         "tier": "Heroic"
       },
       {
         "step": 5,
         "level": 17,
-        "text": "Once per session, enter a state of perfect stillness for one full round. You cannot be targeted by any attack, Power, or effect. You take no actions. At the end of that round, your next attack ignores all active Conditions on the target and cannot be Deflected — only Defended against.",
+        "text": "Once per session, bring an ally at any Stamina state, even Broken, back into the fight. No roll. They can act this round but are Weakened until a Full Rest, and their Hurt boxes (6–10) clear.",
         "tier": "Legendary"
       }
     ],
-    "design_note": "Step 5 stillness is not invisibility — attackers can see the Ascetic, they simply cannot reach them. The follow-up attack is the payoff. Once per session keeps it a signature moment, not a routine."
+    "design_note": "Leader keeps others going. It works with or without magic: a field medic, a priest and a ship’s captain are all Leaders."
   },
   {
-    "id": "scout",
-    "name": "Scout",
-    "category": "exploration",
-    "identity": "Mobile awareness.",
-    "summary": "Mobile awareness. Controls positioning and knows the terrain before anyone else.",
+    "id": "controller",
+    "name": "Controller",
+    "category": "combat",
+    "identity": "Shapes the battlefield.",
+    "summary": "Shapes the battlefield: areas, Conditions and position. The battle mage, the trapper, the tactician.",
     "prerequisite_text": "No prerequisite",
     "requires": [],
-    "suggested_aptitudes_text": "Operative or Explorer background.",
+    "suggested_aptitudes_text": "Academic, Scientist or Engineer background.",
     "steps": [
       {
         "step": 1,
         "level": 1,
-        "text": "Disengage free once per round. +2 to all Observe rolls outside combat.",
+        "text": "Shaped Technique: Once per scene, add one upgrade to a Technique without raising its cost. Its Rank still rises and can’t pass your highest Rank.",
         "tier": "Novice"
       },
       {
         "step": 2,
         "level": 5,
-        "text": "First attack each encounter from Hidden bypasses Defend — target may only Deflect.",
+        "text": "Conditions you apply with a Technique last until the end of the target’s next turn after they would end.",
         "tier": "Seasoned"
       },
       {
         "step": 3,
         "level": 9,
-        "text": "Once per scene, move up to 2 range bands as a free action.",
+        "text": "Effort on area Techniques (Several or Everyone) costs 1 box less, minimum 1.",
+        "tier": "Veteran"
+      },
+      {
+        "step": 4,
+        "level": 13,
+        "text": "Once per scene, use one Rank 1 or Rank 2 Technique for free — no boxes, no Effort cost.",
+        "tier": "Heroic"
+      },
+      {
+        "step": 5,
+        "level": 17,
+        "text": "Once per session, use any Technique for free. Effort is still paid if you use it.",
+        "tier": "Legendary"
+      }
+    ],
+    "design_note": "Controller was the Caster: now any Technique counts, so a trapper or a tactician fits as well as a wizard."
+  },
+  {
+    "id": "infiltrator",
+    "name": "Infiltrator",
+    "category": "exploration",
+    "identity": "Goes where others can’t.",
+    "summary": "Goes where others can’t: stealth, scouting, locks and traps. The thief, the scout, the burglar.",
+    "prerequisite_text": "No prerequisite",
+    "requires": [],
+    "suggested_aptitudes_text": "Operative, Criminal or Explorer background.",
+    "steps": [
+      {
+        "step": 1,
+        "level": 1,
+        "text": "Disengage free once per round. +2 to Observe, Stealth and Legerdemain rolls outside combat.",
+        "tier": "Novice"
+      },
+      {
+        "step": 2,
+        "level": 5,
+        "text": "First attack each encounter from Hidden bypasses Defend — the target may only Deflect.",
+        "tier": "Seasoned"
+      },
+      {
+        "step": 3,
+        "level": 9,
+        "text": "Once per scene, move up to 2 range bands as a free action, or open a lock or trap of Standard quality or below with no roll.",
         "tier": "Veteran"
       },
       {
@@ -165,18 +208,18 @@
       {
         "step": 5,
         "level": 17,
-        "text": "Your first attack each round is always treated as coming from Hidden — target may only Deflect. Passive, no declaration needed.",
+        "text": "Your first attack each round is always treated as coming from Hidden — the target may only Deflect. Passive, no declaration needed.",
         "tier": "Legendary"
       }
     ],
-    "design_note": "Scout is environmental positioning and reconnaissance. Skirmisher is combat tempo. Hunter is pursuit. All share the Agility/Acuity base but grow into genuinely different play patterns."
+    "design_note": "Infiltrator was the Scout, widened to thieves and burglars. The spy is a Face with the Chameleon Specialty."
   },
   {
-    "id": "speaker",
-    "name": "Speaker",
+    "id": "face",
+    "name": "Face",
     "category": "social",
-    "identity": "Social authority through Reputation and genuine leadership.",
-    "summary": "Social authority through Reputation and genuine leadership.",
+    "identity": "Talks for the group.",
+    "summary": "Talks for the group: persuades, deceives and reads people. The diplomat, the con artist, the negotiator.",
     "prerequisite_text": "No prerequisite. Typically pairs with high Morale and social Focus Skills.",
     "requires": [],
     "suggested_aptitudes_text": "Diplomat or Noble background.",
@@ -190,7 +233,7 @@
       {
         "step": 2,
         "level": 5,
-        "text": "Lead used on Close range allies costs 0 Actions once per round.",
+        "text": "Once per scene, take a second social action (Press or Hold) without spending an Action.",
         "tier": "Seasoned"
       },
       {
@@ -212,7 +255,7 @@
         "tier": "Legendary"
       }
     ],
-    "design_note": "Speaker wins by being themselves more effectively. Infiltrator wins by not being themselves at all. Empath wins by knowing what the other person actually wants. Three social identities, three different methods."
+    "design_note": "Face was the Speaker. Its free Lead action moved to the Leader."
   },
   {
     "id": "expert",
@@ -264,181 +307,5 @@
       }
     ],
     "design_note": "Expert replaces Artificer, Investigator and Polymath. The Archetypes show how to lean toward one of them."
-  },
-  {
-    "id": "caster",
-    "name": "Caster",
-    "category": "supernatural",
-    "identity": "Arcane magic, learned or innate.",
-    "summary": "Arcane magic, learned or innate. Grows toward unrestricted power at lower cost.",
-    "prerequisite_text": "Magic Overlay required. Cast skill 2+ required. Intellect 2+ or Belief 2+.",
-    "requires": [
-      {
-        "genre": [
-          "magic"
-        ]
-      },
-      {
-        "any": [
-          {
-            "skill": "cast-attack",
-            "rank_min": 2
-          },
-          {
-            "skill": "cast-defend",
-            "rank_min": 2
-          },
-          {
-            "skill": "cast-utility",
-            "rank_min": 2
-          }
-        ]
-      },
-      {
-        "ability": [
-          "int",
-          "bel"
-        ],
-        "min": 2
-      }
-    ],
-    "suggested_aptitudes_text": "Academic or Scientist background.",
-    "steps": [
-      {
-        "step": 1,
-        "level": 1,
-        "text": "+1 to Cast and Channel attack rolls while Mana is Healthy (boxes 1–5).",
-        "tier": "Novice"
-      },
-      {
-        "step": 2,
-        "level": 5,
-        "text": "Shaped Casting: Once per scene, add one upgrade to a Power without raising its Mana cost. The Power’s Level still rises, and cannot go above 5.",
-        "tier": "Seasoned"
-      },
-      {
-        "step": 3,
-        "level": 9,
-        "text": "Effort cost on primary Cast school reduced by 1 box (minimum 1).",
-        "tier": "Veteran"
-      },
-      {
-        "step": 4,
-        "level": 13,
-        "text": "Once per scene, cast one Power at Level 1 or Level 2 for free — no Mana, no Effort cost.",
-        "tier": "Heroic"
-      },
-      {
-        "step": 5,
-        "level": 17,
-        "text": "Once per session, cast any Power at any Rank for free. No Mana cost. Effort is not free — if Effort is used, those boxes are still paid.",
-        "tier": "Legendary"
-      }
-    ],
-    "design_note": "A single framework covers Wizard, Sorcerer, and Warlock concepts. No spell slots — Mana pool plus tier discount. The cantrip rule means dedicated casters never pay for baseline magical attacks."
-  },
-  {
-    "id": "channeler",
-    "name": "Channeler",
-    "category": "supernatural",
-    "identity": "Divine or spiritual healing and authority.",
-    "summary": "Divine or spiritual healing and authority. Faith-sourced restoration and supernatural protection.",
-    "prerequisite_text": "Magic Overlay required. Channel or Survive 2+ required.",
-    "requires": [
-      {
-        "genre": [
-          "magic"
-        ]
-      },
-      {
-        "any": [
-          {
-            "skill": "channel",
-            "rank_min": 2
-          },
-          {
-            "skill": "survive",
-            "rank_min": 2
-          }
-        ]
-      }
-    ],
-    "suggested_aptitudes_text": "Celebrant or Shaman background.",
-    "steps": [
-      {
-        "step": 1,
-        "level": 1,
-        "text": "Spiritual Powers clear 2 Resolve (not 1).",
-        "tier": "Novice"
-      },
-      {
-        "step": 2,
-        "level": 5,
-        "text": "Corruption points 1–2 clear per Full Rest with prayer. You gain Abjure: 2 Resolve; each earlier use this scene is −1 to the roll.",
-        "tier": "Seasoned"
-      },
-      {
-        "step": 3,
-        "level": 9,
-        "text": "Spiritual Fallout duration reduced to 1 hour. No relational requirement. Abjure costs 1 Resolve.",
-        "tier": "Veteran"
-      },
-      {
-        "step": 4,
-        "level": 13,
-        "text": "Abjure costs 0 Resolve once per scene. Additionally, all Spiritual Powers automatically gain the Authority Over Supernatural bonus (+1 effective Rank vs supernatural targets).",
-        "tier": "Heroic"
-      },
-      {
-        "step": 5,
-        "level": 17,
-        "text": "Once per session, nullify any supernatural effect targeting any ally within Near range. Declare after the effect’s success is determined, before consequences apply. No Mana, no Resolve, no roll.",
-        "tier": "Legendary"
-      }
-    ],
-    "design_note": "No deity is required by the rules — Channeler describes the mechanical relationship, not the theology. A warrior-priest, a shamanic healer, and a faith-based field medic all qualify."
-  },
-  {
-    "id": "medic",
-    "name": "Medic",
-    "category": "knowledge",
-    "identity": "Secular technical healing.",
-    "summary": "Secular technical healing. Surgery, trauma care, and pharmacology — keeps the group functional without supernatural resources.",
-    "prerequisite_text": "No prerequisite. No magic overlay required. Pairs with Toughness and Acuity.",
-    "requires": [],
-    "suggested_aptitudes_text": "Healer or Scientist background.",
-    "steps": [
-      {
-        "step": 1,
-        "level": 1,
-        "text": "Your Tend action in combat automatically succeeds on one ally per round at no Action cost — you stabilize without rolling. Out of combat, Survive field triage DC is reduced by 4 (DC 8 instead of DC 12).",
-        "tier": "Novice"
-      },
-      {
-        "step": 2,
-        "level": 5,
-        "text": "Once per scene, clear one ongoing Condition (Bleeding, Burning, Poisoned, Stunned, or Weakened 1 level) from any ally as a free action — no roll, no pool cost.",
-        "tier": "Seasoned"
-      },
-      {
-        "step": 3,
-        "level": 9,
-        "text": "A successful Survive field triage check out of combat now clears the Injured condition (boxes 11–14). Normally this requires magical healing. Requires one uninterrupted Task Block.",
-        "tier": "Veteran"
-      },
-      {
-        "step": 4,
-        "level": 13,
-        "text": "Once per scene, in-combat triage unmars 2 Stamina boxes. Roll d20 + Toughness + Survive or Medic vs DC 12. On success: 2 boxes. On failure: 1 box. No pool cost to you.",
-        "tier": "Heroic"
-      },
-      {
-        "step": 5,
-        "level": 17,
-        "text": "Once per session, perform emergency intervention on any ally at any Stamina state including Broken. No roll required. The ally can act this round but is Weakened until a Full Rest. Additionally unmark all Hurt boxes (6–10) from their Stamina pool. Does not require a Full Rest.",
-        "tier": "Legendary"
-      }
-    ],
-    "design_note": "Step 3 is the key unlock — mundane healing clearing Injured is normally impossible without magic. This makes the Medic Role essential in non-magical genres rather than a lesser Channeler. Step 5 parallels Channeler Step 5 in scope but uses no Mana or Belief — it runs entirely from skill and Toughness."
   }
 ]

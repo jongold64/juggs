@@ -1747,7 +1747,7 @@
     "domain": "mind",
     "magic": false,
     "prerequisite_text": "Medic Role, Survive as a Focus Skill",
-    "text": "Your in-combat stabilization (from the Medic Role) now also clears one of the following Conditions as part of the same Free Action: Bleeding, Burning, or Poisoned. This does not require a roll. Additionally, when you use Survive for field triage, you may attempt it on yourself as well as allies — no penalty for self-treatment.",
+    "text": "Your in-combat stabilization now also clears one of the following Conditions as part of the same Free Action: Bleeding, Burning, or Poisoned. This does not require a roll. Additionally, when you use Survive for field triage, you may attempt it on yourself as well as allies — no penalty for self-treatment.",
     "at_the_table": "",
     "steps": [
       {
@@ -1779,7 +1779,7 @@
     "requires": [
       {
         "role": [
-          "medic"
+          "leader"
         ],
         "step": 1
       },
@@ -2309,7 +2309,7 @@
     "requires": [
       {
         "role": [
-          "medic"
+          "leader"
         ],
         "step": 1
       },
@@ -2411,7 +2411,7 @@
     "requires": [
       {
         "role": [
-          "medic"
+          "leader"
         ],
         "step": 1
       },
@@ -3758,7 +3758,7 @@
     "kind": "gated",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Pharmacology or Surgical Precision, Medic Role at Veteran tier, Intellect 4+, Veteran tier",
+    "prerequisite_text": "Pharmacology or Surgical Precision, Leader Role at Veteran tier, Intellect 4+, Veteran tier",
     "text": "Once per scene, clear the Broken condition from one ally without a Full Rest — requires one uninterrupted minute of treatment and a Survive Check vs DC 14. On success: the ally is restored to Injured range (boxes 11–14 unmarked) and clears one Condition. On overage 3+: they are restored to Hurt range instead. This is the non-magical equivalent of the Channeler Role’s Step 5 restoration ability.",
     "at_the_table": "",
     "steps": [],
@@ -3771,7 +3771,7 @@
       },
       {
         "role": [
-          "medic"
+          "leader"
         ],
         "step": 1
       },
@@ -4036,7 +4036,7 @@
     "requires": [
       {
         "specialty": [
-          "striker"
+          "basher"
         ]
       },
       {
@@ -4291,7 +4291,7 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Belief 3+, Magic Overlay",
-    "text": "When your Abjure roll succeeds with overage 5+, the supernatural entity gains Removed (Spirit) for the rest of the session — not just the scene. This is a significant escalation from the normal rule, which suppresses for the scene. Additionally, Abjure costs 1 fewer Resolve box than normal (minimum 1). You have refined the authority behind the act. Without the Channeler Role, this Feat is how you gain Removed (Spirit) on overage 5+, and you remain limited to one Abjure per scene.",
+    "text": "When your Abjure roll succeeds with overage 5+, the supernatural entity gains Removed (Spirit) for the rest of the session — not just the scene. This is a significant escalation from the normal rule, which suppresses for the scene. Additionally, Abjure costs 1 fewer Resolve box than normal (minimum 1). You have refined the authority behind the act. This Feat is how you gain Removed (Spirit) on overage 5+, and you remain limited to one Abjure per scene.",
     "at_the_table": "Abjure with overage 5+: entity gains Removed (Spirit) for session (not scene). Abjure costs 1 fewer Resolve (min 1). Both effects apply on the same successful Abjure. No change to the Abjure roll itself.",
     "steps": [
       {
@@ -4529,8 +4529,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Belief 2+, Magic Overlay",
-    "text": "You may now use Healing Powers up to Rank 2, paying full cost. You get no tier discount on them and cannot take the Channeler Role. Your healing is genuine in this range — you can restore meaningful capacity, clear Hurt boxes, address Poisoned or Bleeding conditions. The divine source answers when you call. It is simply not your primary relationship.",
-    "at_the_table": "Healing Powers up to Rank 2. Full cost. No tier discount. Cannot take the Channeler Role while this Feat is held. Available from Level 9.",
+    "text": "You may now use Healing Powers up to Rank 2, paying full cost. You get no tier discount on them. Your healing is genuine in this range — you can restore meaningful capacity, clear Hurt boxes, address Poisoned or Bleeding conditions. The divine source answers when you call. It is simply not your primary relationship.",
+    "at_the_table": "Healing Powers up to Rank 2. Full cost. No tier discount. Available from Level 9.",
     "steps": [
       {
         "tier": "Novice",
@@ -4621,8 +4621,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Intellect 2+ or Belief 2+, Magic Overlay",
-    "text": "You may now use Powers up to Rank 2, paying full Mana and Effort costs: you get no tier discount on them. You cannot take the Caster or Channeler Role while you hold this Feat — your relationship with magic is deliberate practice, not innate identity. You are the warrior-mage: real capability, real cost, never the efficiency of a dedicated caster.",
-    "at_the_table": "Powers up to Rank 2 available. Full Mana and Effort costs, no tier discount. Cannot take the Caster or Channeler Role while this Feat is held. If those Roles are already held, consult GM for conflict resolution. Available from Level 9.",
+    "text": "You may now use Powers up to Rank 2, paying full Mana and Effort costs: you get no tier discount on them. Your relationship with magic is deliberate practice, not innate identity. You are the warrior-mage: real capability, real cost, never the efficiency of a dedicated caster.",
+    "at_the_table": "Powers up to Rank 2 available. Full Mana and Effort costs, no tier discount. Available from Level 9.",
     "steps": [
       {
         "tier": "Novice",
@@ -4756,7 +4756,7 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Power Access, Intellect 4+ or Belief 4+, Heroic tier+",
-    "text": "You may now use Powers up to Rank 4, paying full cost, except that your highest-cost cast each scene costs 1 Mana less. You still cannot take the Caster or Channeler Role. At this tier your magic is undeniably real — limited and costly, but real. This is the ceiling of the warrior-mage path within the Feat system.",
+    "text": "You may now use Powers up to Rank 4, paying full cost, except that your highest-cost cast each scene costs 1 Mana less. At this tier your magic is undeniably real — limited and costly, but real. This is the ceiling of the warrior-mage path within the Feat system.",
     "at_the_table": "Powers up to Rank 4. Full cost minus 1 Mana on one cast per scene (the highest-cost one). Still cannot take the Caster or Channeler Role. Available from Level 13.",
     "steps": [],
     "requires": [
@@ -4800,7 +4800,7 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Divine Intervention, Belief 4+, Heroic tier+",
-    "text": "You may now use Healing and Protection Powers up to Rank 4, paying full cost, except that your highest-cost healing or protection cast each scene costs 1 Mana less. You still cannot take the Channeler Role. Your faith is genuine enough that the source answers with real power. The conversation is real. It is simply not the central relationship of your identity.",
+    "text": "You may now use Healing and Protection Powers up to Rank 4, paying full cost, except that your highest-cost healing or protection cast each scene costs 1 Mana less. Your faith is genuine enough that the source answers with real power. The conversation is real. It is simply not the central relationship of your identity.",
     "at_the_table": "Healing and Protection Powers up to Rank 4. Full cost minus 1 Mana on one cast per scene (the highest-cost qualifying cast). Cannot take the Channeler Role. Available from Level 13.",
     "steps": [],
     "requires": [
@@ -4827,8 +4827,8 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Active Magical Specialty, Intellect 4+, Veteran tier+",
-    "text": "Your Effort costs for all Powers are reduced by 1 Mana box, to a minimum of 1. This stacks with the Caster Role at Veteran tier (which reduces the Effort cost on your primary cast school by 1). A dedicated Caster who takes this Feat becomes notably more resource-efficient — the combination represents mastery of the cost structure of magical power.",
-    "at_the_table": "All Effort costs reduced by 1 Mana box (min 1 per Effort box). Stacks with the Caster Role at Veteran tier on the relevant school. Permanent. Applies to all schools of casting.",
+    "text": "Your Effort costs for all Powers are reduced by 1 Mana box, to a minimum of 1. This stacks with the Controller Role at Veteran tier (which reduces Effort on area Techniques by 1). A dedicated Caster who takes this Feat becomes notably more resource-efficient — the combination represents mastery of the cost structure of magical power.",
+    "at_the_table": "All Effort costs reduced by 1 Mana box (min 1 per Effort box). Stacks with the Controller Role at Veteran tier on area Techniques. Permanent. Applies to all schools of casting.",
     "steps": [],
     "requires": [
       {
@@ -4924,7 +4924,7 @@
     "domain": "magic",
     "magic": true,
     "prerequisite_text": "Combat Conditioning, Strength or Agility 4+, Heroic tier+",
-    "text": "Your physical pool (Stamina) maximum increases by 3 boxes permanently. When both Stamina and Mana (or Resolve) pools are active in the same round, you may split Actions between them freely — using one pool for a Cast action and another for a Combat action in the same round is no longer subject to the standard “one primary action type per round” limitation. The Caster who reaches Iron Body is genuinely dangerous in close quarters.",
+    "text": "Your physical pool (Stamina) maximum increases by 3 boxes permanently. When both Stamina and Mana (or Resolve) pools are active in the same round, you may split Actions between them freely — using one pool for a Cast action and another for a Combat action in the same round is no longer subject to the standard “one primary action type per round” limitation. The caster who reaches Iron Body is genuinely dangerous in close quarters.",
     "at_the_table": "",
     "steps": [],
     "requires": [
