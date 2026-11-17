@@ -295,14 +295,28 @@
     ],
     "summary": "Physical and spiritual perfection — unarmed and unarmored by choice, the body as the instrument.",
     "synergy": {
-      "condition_text": "Concentrate ≥ 2",
-      "effect": "The Seasoned free strike gains +1 to the roll",
+      "condition_text": "choose one when you take it: Concentrate ≥ 2, Serenity ≥ 3 or Athletics ≥ 2",
+      "effect": "Concentrate ≥ 2: the Seasoned free strike gains +1 to the roll. Serenity ≥ 3: Deflect uses the highest of Toughness, Agility or Serenity. Athletics ≥ 2: the free strike may come after moving 1 range band.",
       "requires": {
-        "skill": "concentrate",
-        "rank_min": 2
+        "any": [
+          {
+            "skill": "concentrate",
+            "rank_min": 2
+          },
+          {
+            "ability": [
+              "ser"
+            ],
+            "min": 3
+          },
+          {
+            "skill": "athletics",
+            "rank_min": 2
+          }
+        ]
       }
     },
-    "fallout": "Your form breaks: you are Prone until the start of your next turn.",
+    "fallout": "Your form breaks: you are Prone until the start of your next turn, unless you mark 1 Stamina box to keep your feet.",
     "prerequisite_text": "Gains no benefit from wearing armor (and no penalty either).",
     "steps": [
       {
@@ -335,9 +349,6 @@
         "text": "Once per session, enter a state of perfect stillness for one full round. You cannot be targeted by any attack, Power, or effect. You take no actions. At the end of that round, your next attack ignores all active Conditions on the target and cannot be Deflected — only Defended against.",
         "at_the_table": ""
       }
-    ],
-    "flags": [
-      "Synergy and Fallout are new (2026-11-17, from the Ascetic Role); the author should confirm them."
     ]
   },
   {

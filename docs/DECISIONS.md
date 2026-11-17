@@ -465,3 +465,6 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Weird Touched, Seasoned Step (decided 2026-11-17):** "Revelation fills 0 Resolve and adds no Corruption" (replaces
   the dead Corruption-check half). The Feat now names Weird Table results (Revelation, Drain, Backlash) instead of the
   old d8 numbers. This settles the Weird Role Step 2 note above.
+- **Ascetic Specialty (decided 2026-11-17):** Synergy is a choice made when taking it: Concentrate 2+ (+1 on the
+  Seasoned free strike), Serenity 3+ (Deflect uses the highest of Toughness, Agility or Serenity) or Athletics 2+ (the
+  free strike may follow a 1-band move). Fallout: Prone until the start of your next turn, unless you mark 1 Stamina box.
