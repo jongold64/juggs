@@ -102,7 +102,7 @@
       "domain": "body",
       "contracted_by": "The touch of a bound or preserved undead, or the violation of a warded tomb.",
       "incubation": "Immediate. A Toughness check vs DC 16 at the moment of contact prevents it.",
-      "cure": "Restoration performed by a Channeler with Belief 4+, on consecrated ground, removing one stage per attempt. Each attempt costs the healer 3 Resolve boxes that do not recover until a Full Rest.",
+      "cure": "Restoration performed by a character with Belief 4+ and the Channel skill, on consecrated ground, removing one stage per attempt. Each attempt costs the healer 3 Resolve boxes that do not recover until a Full Rest.",
       "stages": [
         {
           "stage": 0,

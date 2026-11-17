@@ -174,8 +174,8 @@ check('Book example: fire across the hall is Rank 3', R.madePowerLevel(D, made({
 check('Force adds +1 each', R.madePowerLevel(D, made({ force: 2 })), 3);
 check('Above 5 is flagged and held at 5', (s => [s.powerLevel, s.over])(R.madePowerSummary(D, make(), made({ reach: 'anywhere', targets: 'everyone', duration: 'hours' }))), [5, true]);
 check('Everyone gets the tier discount', R.madePowerSummary(D, make({ level: 12 }), made({ force: 2 })).mana, 1);
-check('Caster at Level 12 pays Rank - 2', R.madePowerSummary(D, make({ level: 12, role: 'caster' }), made({ force: 2 })).mana, 1);
-check('Channeler at Level 12 pays Rank - 2', R.madePowerSummary(D, make({ level: 12, role: 'channeler' }), made({ force: 3 })).mana, 2);
+check('Controller at Level 12 pays Rank - 2', R.madePowerSummary(D, make({ level: 12, role: 'controller' }), made({ force: 2 })).mana, 1);
+check('Leader at Level 12 pays Rank - 2', R.madePowerSummary(D, make({ level: 12, role: 'leader' }), made({ force: 3 })).mana, 2);
 check('Cantrip costs 1 Mana without Cast or Channel 2+', R.madePowerSummary(D, make(), made({ reach: 'touch' })).mana, 1);
 const lowMagic = { ...spread, int: 1, bel: 1 };
 check('Practitioner: Focus Cast with Ability 1 totals 3', R.isPractitioner(D, make({ base: lowMagic, genres: ['magic'], focus: ['cast-attack'] })), true);
@@ -201,7 +201,7 @@ const caster1 = make({ genres: ['magic'], focus: ['cast-attack'] });
 check('Near utility cantrip is free for a practitioner', R.spellStepSummary(D, caster1, D.spellsById.get('message').steps[0]).mana, 0);
 check('Self cantrip is free for a practitioner', R.spellStepSummary(D, caster1, D.spellsById.get('disguise-self').steps[0]).mana, 0);
 check('Near Rank 1 attack is not a cantrip', R.spellStepSummary(D, caster1, D.spellsById.get('counterspell').steps[0]).mana, 1);
-check('Spell Step Mana with the tier discount', R.spellStepSummary(D, make({ level: 9, role: 'caster' }), fireball.steps[2]).mana, 1);
+check('Spell Step Mana with the tier discount', R.spellStepSummary(D, make({ level: 9, role: 'controller' }), fireball.steps[2]).mana, 1);
 check('Old example Power becomes its spell', clean(D, { powers: [{ name: 'Arcane Bolt', example: 'arcane-bolt', exampleLevel: 2 }] }).powers[0].spell, 'arcane-bolt');
 check('Old Mend example becomes Mend Wounds', clean(D, { powers: [{ example: 'mend', exampleLevel: 1 }] }).powers[0].spell, 'mend-wounds');
 const oldPower = clean(D, { powers: [{ name: 'Storm', source: 'weird', range: 'far', targets: 'multi-6', duration: 'rounds', effect: 'gravity',

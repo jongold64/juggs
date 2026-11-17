@@ -28,7 +28,7 @@
     "description": "The Magic and Powers Genre gates all casting and channelling skills. It covers arcane magic, divine power, innate supernatural ability, and psionic disciplines within a single framework. Psionics and divine power use the same Genre because they share the fundamental mechanic — a trained or innate relationship with a non-physical force — and differ only in source and flavor, not in game mechanics.",
     "notes": [
       "Psionics and arcane magic use the same Genre because they share all mechanics — the only difference is narrative source. A telepath and a wizard both use Psi (Sense) / Cast (Utility) for the same type of Power, just described differently.",
-      "Caster Role and Channeler Role both require this Genre to be enabled. Without the Magic Genre, no Cast or Channel skills exist and no Powers can be used.",
+      "Without the Magic Genre, no Cast or Channel skills exist and no Powers can be used.",
       "The Weird Magic Genre (below) is a separate addition that layers on top of this Genre, not a replacement for it."
     ],
     "skills": [

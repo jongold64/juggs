@@ -1746,7 +1746,7 @@
     "kind": "stepped",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Medic Role, Survive as a Focus Skill",
+    "prerequisite_text": "Leader Role, Survive as a Focus Skill",
     "text": "Your in-combat stabilization now also clears one of the following Conditions as part of the same Free Action: Bleeding, Burning, or Poisoned. This does not require a roll. Additionally, when you use Survive for field triage, you may attempt it on yourself as well as allies — no penalty for self-treatment.",
     "at_the_table": "",
     "steps": [
@@ -2276,7 +2276,7 @@
     "kind": "stepped",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Medic Role, Intellect 2+",
+    "prerequisite_text": "Leader Role, Intellect 2+",
     "text": "Given access to a medical kit or scavenged materials and one minute, prepare a compound targeting one specific Condition. The compound clears that Condition instantly on application — no roll required. You may prepare a number of compounds between scenes equal to your Intellect Score. Unused compounds expire at session end. Each compound is single-use and targets only the Condition it was prepared for.",
     "at_the_table": "",
     "steps": [
@@ -2378,7 +2378,7 @@
     "kind": "stepped",
     "domain": "mind",
     "magic": false,
-    "prerequisite_text": "Medic Role, Acuity 2+",
+    "prerequisite_text": "Leader Role, Acuity 2+",
     "text": "During any uninterrupted Task Block outside combat, make a Survive Check vs DC 10. On success: restore 3 Stamina boxes to one ally rather than the standard 2, and your patient clears one Condition of your choice. On overage 3+: restore 4 boxes instead and clear two Conditions. Critical failures (natural 1 on this check) restore only 1 box — surgical precision requires focus.",
     "at_the_table": "",
     "steps": [
@@ -3521,13 +3521,13 @@
     "kind": "gated",
     "domain": "universal",
     "magic": false,
-    "prerequisite_text": "Fleet, Stealth as a Focus Skill, Agility 4+, Veteran tier, or Scout Role at Veteran tier",
+    "prerequisite_text": "Fleet, Stealth as a Focus Skill, Agility 4+, Veteran tier, or Infiltrator Role at Veteran tier",
     "text": "Once per scene, you may become Hidden as a Free Action. No Power source required, no Mana cost. The invisibility lasts until you make an attack roll or the scene ends, whichever comes first. This is not magic — it is the perfected application of stillness, shadow, and movement learned over a career.",
     "at_the_table": "Declare as Free Action. Gain Hidden condition. Ends immediately on any Attack roll (before or after the roll). Ends at scene end if not used for attack. No pool cost. Once per scene.",
     "steps": [],
     "requires": [
       {
-        "text": "Fleet, Stealth as a Focus Skill, Agility 4+, Veteran tier, or Scout Role at Veteran tier"
+        "text": "Fleet, Stealth as a Focus Skill, Agility 4+, Veteran tier, or Infiltrator Role at Veteran tier"
       }
     ]
   },
@@ -3574,13 +3574,13 @@
     "kind": "gated",
     "domain": "body",
     "magic": false,
-    "prerequisite_text": "Cleave at Veteran tier or above, Strength 4+, or Warrior Role at Veteran tier",
+    "prerequisite_text": "Cleave at Veteran tier or above, Strength 4+, or Striker Role at Veteran tier",
     "text": "Your melee attacks ignore Damage Reduction entirely. DR from armor, shields, natural toughness, magical protection, and any other physical source does not apply against your strikes. This is not a bypass activated by spending resources — it is the permanent result of technique and force refined to the point where physical protection becomes conceptually irrelevant.",
     "at_the_table": "All your melee attacks ignore all DR from all sources. Passive, permanent, always on. Does not affect pool-based damage resistance or supernatural protection that is not listed as DR.",
     "steps": [],
     "requires": [
       {
-        "text": "Cleave at Veteran tier or above, Strength 4+, or Warrior Role at Veteran tier"
+        "text": "Cleave at Veteran tier or above, Strength 4+, or Striker Role at Veteran tier"
       }
     ]
   },
@@ -3759,7 +3759,7 @@
     "domain": "mind",
     "magic": false,
     "prerequisite_text": "Pharmacology or Surgical Precision, Leader Role at Veteran tier, Intellect 4+, Veteran tier",
-    "text": "Once per scene, clear the Broken condition from one ally without a Full Rest — requires one uninterrupted minute of treatment and a Survive Check vs DC 14. On success: the ally is restored to Injured range (boxes 11–14 unmarked) and clears one Condition. On overage 3+: they are restored to Hurt range instead. This is the non-magical equivalent of the Channeler Role’s Step 5 restoration ability.",
+    "text": "Once per scene, clear the Broken condition from one ally without a Full Rest — requires one uninterrupted minute of treatment and a Survive Check vs DC 14. On success: the ally is restored to Injured range (boxes 11–14 unmarked) and clears one Condition. On overage 3+: they are restored to Hurt range instead. This is the non-magical equivalent of magical restoration.",
     "at_the_table": "",
     "steps": [],
     "requires": [
@@ -4441,7 +4441,7 @@
     "kind": "stepped",
     "domain": "magic",
     "magic": true,
-    "prerequisite_text": "Caster or Channeler Role, Strength or Agility 2+",
+    "prerequisite_text": "Cast or Channel as a Focus Skill, Strength or Agility 2+",
     "text": "Your physical Effort ceiling increases by 1 box when using Combat (Melee) or Combat (Ranged) skills — you can commit one more Effort box than your tier normally allows. Additionally, once per encounter, use a physical Maneuver as a Free Action (no Stamina cost) immediately after completing a successful Cast or Channel action.",
     "at_the_table": "",
     "steps": [
@@ -4473,7 +4473,7 @@
     ],
     "requires": [
       {
-        "text": "Caster or Channeler Role, Strength or Agility 2+"
+        "text": "Cast or Channel as a Focus Skill, Strength or Agility 2+"
       }
     ]
   },
@@ -4578,7 +4578,7 @@
     "kind": "stepped",
     "domain": "magic",
     "magic": true,
-    "prerequisite_text": "Caster or Channeler Role, Strength or Agility 2+",
+    "prerequisite_text": "Cast or Channel as a Focus Skill, Strength or Agility 2+",
     "text": "Gain Combat (Melee) or Combat (Ranged) as a Focus Skill (your choice) even if it was not selected at creation. Your Deflect calculation may now use the higher of your Agility Score or Willpower Score — whichever is naturally higher from your build. You are no longer considered untrained in physical combat for the purpose of Maneuver access.",
     "at_the_table": "",
     "steps": [
@@ -4610,7 +4610,7 @@
     ],
     "requires": [
       {
-        "text": "Caster or Channeler Role, Strength or Agility 2+"
+        "text": "Cast or Channel as a Focus Skill, Strength or Agility 2+"
       }
     ]
   },
@@ -4757,7 +4757,7 @@
     "magic": true,
     "prerequisite_text": "Power Access, Intellect 4+ or Belief 4+, Heroic tier+",
     "text": "You may now use Powers up to Rank 4, paying full cost, except that your highest-cost cast each scene costs 1 Mana less. At this tier your magic is undeniably real — limited and costly, but real. This is the ceiling of the warrior-mage path within the Feat system.",
-    "at_the_table": "Powers up to Rank 4. Full cost minus 1 Mana on one cast per scene (the highest-cost one). Still cannot take the Caster or Channeler Role. Available from Level 13.",
+    "at_the_table": "Powers up to Rank 4. Full cost minus 1 Mana on one cast per scene (the highest-cost one). Available from Level 13.",
     "steps": [],
     "requires": [
       {
@@ -4801,7 +4801,7 @@
     "magic": true,
     "prerequisite_text": "Divine Intervention, Belief 4+, Heroic tier+",
     "text": "You may now use Healing and Protection Powers up to Rank 4, paying full cost, except that your highest-cost healing or protection cast each scene costs 1 Mana less. Your faith is genuine enough that the source answers with real power. The conversation is real. It is simply not the central relationship of your identity.",
-    "at_the_table": "Healing and Protection Powers up to Rank 4. Full cost minus 1 Mana on one cast per scene (the highest-cost qualifying cast). Cannot take the Channeler Role. Available from Level 13.",
+    "at_the_table": "Healing and Protection Powers up to Rank 4. Full cost minus 1 Mana on one cast per scene (the highest-cost qualifying cast). Available from Level 13.",
     "steps": [],
     "requires": [
       {

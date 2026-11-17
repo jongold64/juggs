@@ -346,7 +346,7 @@
     "genres": [
       "magic"
     ],
-    "description": "Divine, spiritual, or empathic Power direction. Includes all healing Powers. The primary skill for Channeler Role characters.",
+    "description": "Divine, spiritual, or empathic Power direction. Includes all healing Powers. The primary skill for healers and faith casters.",
     "notes": "Only available when the Magic Genre is switched on (DECISIONS.md)."
   },
   {
