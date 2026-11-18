@@ -32,6 +32,7 @@ export function newCharacter() {
     armor: null,                // { type, name } — see rules.js armorStats
     shield: '',                 // id in data/gear.json shields
     items: [],                  // [{ name, template, rating, appliesTo, descriptors, genre, notes }]
+    vehicles: [],               // [{ id: catalog id, name: the crew's name for it }]
     wealth: null, reputation: null,     // null = the starting default
     repCircle: '', repOpposed: '',      // where you're known (+1 Reputation) and the circle opposed to it (−1, min 0)
     languages: '', gear: '', notes: '',
@@ -183,6 +184,10 @@ export function clean(D, raw) {
   c.wealth = raw.wealth === null ? null : int(raw.wealth, null, 1, 8);
   c.reputation = raw.reputation === null ? null : int(raw.reputation, null, 0, 5);
   c.repCircle = str(raw.repCircle).slice(0, 80); c.repOpposed = str(raw.repOpposed).slice(0, 80);
+  const vehicleIds = new Set((D.vehicles?.catalog || []).map(v => v.id));
+  c.vehicles = Array.isArray(raw.vehicles)
+    ? raw.vehicles.filter(v => isObj(v) && vehicleIds.has(v.id)).slice(0, 10).map(v => ({ id: v.id, name: str(v.name).slice(0, 60) }))
+    : [];
   c.languages = str(raw.languages); c.gear = str(raw.gear); c.notes = str(raw.notes);
   if (isObj(raw.play)) {
     const p = raw.play;

@@ -624,3 +624,71 @@ export function powerSources(D, c) {
   for (const s of c.powerSources || []) out.add(s);
   return [...out];
 }
+
+// ---------------------------------------------------------------------------------------------------------------
+// Vehicles: a vehicle is built from Systems, each with a Rating and a track of boxes in the pool bands.
+// ---------------------------------------------------------------------------------------------------------------
+
+// Bands for a vehicle track of `total` boxes: Broken is the last box; the rest split evenly over Healthy, Hurt and
+// Injured, extras to Healthy first, then Hurt. Same shape as poolBands.
+export function vehicleBands(D, total) {
+  const rest = Math.max(0, total - 1);
+  const per = [Math.ceil(rest / 3), Math.ceil((rest - Math.ceil(rest / 3)) / 2)];
+  const counts = [per[0], per[1], rest - per[0] - per[1], 1];
+  let n = 1;
+  return D.core.pools.bands.map((b, i) => {
+    const band = { id: b.id, name: b.name, from: n, to: n + counts[i] - 1, penalty: b.penalty, boxes: counts[i] };
+    n += counts[i];
+    return band;
+  });
+}
+
+// Boxes on one System's track: Hull by size (a Capital Section has section_boxes), Power Rating x 2 + 3, the rest
+// Rating + 3 with at least 4.
+export function systemBoxes(size, system) {
+  if (system.system === 'hull') return size.hull_boxes ?? size.section_boxes;
+  if (system.system === 'power') return system.rating * 2 + 3;
+  return Math.max(4, system.rating + 3);
+}
+
+// The numbers a vehicle's Systems give it.
+export function vehicleStats(D, v) {
+  const size = D.vehicles.sizes.find(s => s.id === v.size);
+  const rating = id => v.systems.find(s => s.system === id)?.rating;
+  const power = rating('power');
+  return {
+    size,
+    armor: rating('hull') ?? 0,
+    speed: rating('drive') ?? 0,
+    handling: (rating('controls') ?? 0) - size.handling_penalty,
+    power: power ?? null,
+    effortMax: power ?? size.step,
+    effortFrom: power == null ? 'Hull' : 'Power',
+  };
+}
+
+// Vehicle Deflect with this character at the controls: 10 + Acuity + the tier bonus + Handling.
+export function vehicleDeflect(D, c, v, level = c.level) {
+  return 10 + abilityScores(D, c, level).acu + tierFor(D, level).deflect_bonus + vehicleStats(D, v).handling;
+}
+
+// The tracks to draw: one per System, or for a Capital vehicle four Hull Sections and no other tracks.
+export function vehicleTracks(D, v) {
+  const { size } = vehicleStats(D, v);
+  const sysById = Object.fromEntries(D.vehicles.systems.map(s => [s.id, s]));
+  if (size.sections) {
+    return size.sections.map(sec => ({ label: `${sec.name} Section`, note: sec.holds,
+                                       bands: vehicleBands(D, size.section_boxes) }));
+  }
+  return v.systems.map(s => ({ label: s.name ? `${s.name} (${sysById[s.system].name})` : sysById[s.system].name,
+                               system: s, bands: vehicleBands(D, systemBoxes(size, s)) }));
+}
+
+// A crew station's roll for this character: the station's Ability + skill rank + that Domain's Mastery + gear.
+// The vehicle adds Handling (Pilot) or the Weapon's Rating (Gunner) on top.
+export function stationRoll(D, c, station, level = c.level) {
+  const scores = abilityScores(D, c, level);
+  const { ability, skill } = station.roll;
+  return scores[ability] + skillRank(D, c, skill, level) + domainMastery(D, scores)[DOMAIN_OF[ability]]
+    + gearRollBonus(D, c, ability, skill);
+}

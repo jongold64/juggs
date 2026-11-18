@@ -27,7 +27,7 @@ rules data in plain JSON, and a static web app that builds characters from it.
 - `index.html`, `css/style.css`, `js/` — the app. `js/app.js` owns the page (state, `render()`, one delegated
   change handler: controls carry `data-bind="path"`, e.g. `base.str` or `skillPoints.5.2`); `js/rules.js` holds the
   rules as pure functions; `js/character.js` is the saved character (`clean()` migrates old saves through `js/migrate.js`
-  and drops unknown ids); `js/sheet.js` draws the printable sheet; `js/data.js` loads `data/*.json` and builds `…ById` maps.
+  and drops unknown ids); `js/sheet.js` draws the printable sheet (page 3 lists vehicles, from `js/tab-vehicles.js`); `js/data.js` loads `data/*.json` and builds `…ById` maps.
 - `tests.html` + `js/rules.test.js` — the browser test page for `rules.js` and `character.js`.
 
 ## Run and test

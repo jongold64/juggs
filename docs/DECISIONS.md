@@ -227,7 +227,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 ## Vehicles (structure)
 
 - A **Motorcycle** has 7 Structure boxes: Healthy 2, Hurt 2, Injured 2, Broken 1.
-- The rest of the vehicle design is **in progress** by the author. Leave vehicles alone until they say otherwise.
+- The rest of the vehicle design was settled on 2026-11-18 (see **Vehicles** below): sizes Light to Capital, Systems as pools.
 - Ward alternatives to DR keep their Items-book Ratings: halve one Effect type (1+), immunity to one Condition (3+),
   immunity to one Effect type (5).
 
@@ -239,8 +239,24 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 
 ## Vehicles
 
-- Vehicles get their own tab once the character sheet is built.
+- Vehicles have their own tab (added 2026-11-18) and print on page 3 of the sheet.
 - The Gunner station rolls **Agility + Combat (Ranged)**.
+- **Vehicle Deflect (decided 2026-11-18):** 10 + the pilot's Acuity + the pilot's tier bonus + Handling. Evade adds +2.
+- **Hit Cap on vehicle hits (decided 2026-11-18):** the gunner's Hit Cap (5 + tier) limits the overage first, then the Scale
+  Rule doubles or halves it, then Armor comes off.
+- **Builder (decided 2026-11-18):** add a Vehicles tab (catalog filtered by Genre; the chosen vehicle prints on the sheet).
+- **Size categories (2026-11-18):** to be redesigned. Keep the Healthy / Hurt / Injured / Broken bands, but redefine the
+  sizes and what each can do. Frame x 5 Structure is retired with them.
+- **Systems as pools (decided 2026-11-18):** a vehicle is built from Systems (Hull, Drive, Controls, Power, Weapons, Sensors,
+  Shields, Comms, Life Support, Cargo). Each has a Rating (what it does: Hull = Armor, Drive = Speed, Controls = Handling
+  minus a size penalty, Weapon = attack bonus) and its own track in Healthy / Hurt / Injured / Broken bands. Hurt -1, Injured
+  -2 to rolls that use that System; Broken = offline. Hull boxes by size (Light 7, Medium 10, Heavy 15, Massive 20; Capital
+  uses Sections); Power has Rating x 2 + 3 boxes; every other System has Rating + 3. Power is the vehicle's Mana: Effort and
+  weapon strain are paid from it, and it replaces Heat (unmarks 2 boxes in a round with no firing or full Speed). Vehicles
+  with no Power pay Effort from Hull. The earlier per-vehicle capabilities list stays as each vehicle's capabilities.
+- **System hit table (decided 2026-11-18):** d20, keeping the single-d20 mechanic. When a hit crosses 3+ boxes, roll d20 and that
+  System takes the boxes: 1-3 Drive, 4-8 a Weapon (attacker picks), 9-13 Hull, 14-15 Controls and the crew area is Breached,
+  16-18 Power, 19 another System (attacker picks), 20 any System (attacker picks). A missing System sends the boxes to Hull.
 
 ## Second trim
 

@@ -8,12 +8,13 @@ import { openRoster, saveRoster, loadCharacter, saveCharacter, removeCharacter, 
 import { renderSheet } from './sheet.js';
 import { renderPowers, setDraft, setPowerFilter, powerAction, resetDraft } from './tab-powers.js';
 import { renderGear, gearAction } from './tab-gear.js';
+import { renderVehicles, vehicleAction } from './tab-vehicles.js';
 import { renderRules } from './tab-rules.js';
 import { weirdRoll } from './weird.js';
 import { reqStatus as reqStatusText, mark } from './requirements-text.js';
 import { renderRoles, rolesAction, setRolesFilter } from './tab-roles.js';
 
-const TABS = ['character', 'skills', 'roles', 'advancement', 'powers', 'gear', 'sheet', 'rules'];
+const TABS = ['character', 'skills', 'roles', 'advancement', 'powers', 'gear', 'vehicles', 'sheet', 'rules'];
 export const rollBtn = (what, bonus) =>
   `<button type="button" class="roll no-print" data-roll="${esc(what)}" data-bonus="${bonus}" aria-label="Roll ${esc(what)}">d20</button>`;
 const LEVEL_MAPS = new Set(['skillPoints', 'feats', 'abilityIncreases']);
@@ -123,6 +124,8 @@ function onClick(e) {
     if (rolesAction(D, state, d.rf, d.arg)) update(); else render();
   } else if (d.gear) {
     if (gearAction(D, state, d.gear, d.arg, id => $(id)?.value)) update();
+  } else if (d.vehicle) {
+    if (vehicleAction(D, state, d.vehicle, d.arg, id => $(id)?.value)) update();
   } else if (d.copy) {
     const text = $(d.copy)?.textContent || '';
     navigator.clipboard?.writeText(text).then(() => { b.textContent = 'Copied'; }, () => {});
@@ -531,6 +534,7 @@ function render() {
   });
   panel.innerHTML = { character: renderCharacter, skills: renderSkills, roles: () => renderRoles(D, c), advancement: renderAdvancement,
                       powers: () => renderPowers(D, c), gear: () => renderGear(D, c, rollBtn),
+                      vehicles: () => renderVehicles(D, c, rollBtn),
                       sheet: () => renderSheet(D, c), rules: () => renderRules(D, c) }[tab]();
   window.scrollTo(0, scroll);
 }

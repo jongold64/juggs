@@ -341,3 +341,10 @@ details.example li { margin: 4px 0; }
   .s-pool-boxes .box { width: auto; height: auto; }
   .s-title, .s-box h3 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+
+/* Vehicles */
+.v-systems { width: 100%; border-collapse: collapse; margin: .4rem 0; font-size: .92em; }
+.v-systems th, .v-systems td { text-align: left; padding: 2px 6px; border-bottom: 1px solid #e2ddd2; vertical-align: middle; }
+.v-track { white-space: nowrap; }
+.v-track .box { display: inline-block; margin-right: 2px; vertical-align: middle; }
+.v-caps { margin: .3rem 0 0 1.1rem; padding: 0; }

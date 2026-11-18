@@ -252,11 +252,38 @@ def main(folder):
             ck.ref(f'vehicles.json station {st["id"]}', roll['ability'], abilities, 'Ability Score')
             ck.ref(f'vehicles.json station {st["id"]}', roll['skill'], skills, 'skill')
     ck.records('vehicles.json actions', veh.get('actions', []))
+    sizes = ck.records('vehicles.json sizes', veh.get('sizes', []))
+    vsystems = ck.records('vehicles.json systems', veh.get('systems', []))
+    vtypes = ck.records('vehicles.json types', veh.get('types', []))
+    for t in vtypes.values():
+        ck.ref(f'vehicles.json type {t["id"]}', [x for x in t.get('must', []) + t.get('usually', []) + t.get('never', [])
+                                                 if x != 'crew'], vsystems, 'vehicle System')
     for v in ck.records('vehicles.json catalog', veh.get('catalog', [])).values():
         w = f'vehicles.json {v["id"]}'
         ck.ref(w, v.get('genres', []), ctx['genres'], 'Genre')
-        if not 0 <= v.get('frame', -1) <= 5:
-            ck.err(w, 'frame must be 0-5')
+        ck.ref(w, v.get('size'), sizes, 'vehicle size')
+        ck.ref(w, v.get('type'), vtypes, 'vehicle type')
+        held = [s.get('system') for s in v.get('systems', [])]
+        ck.ref(w, held, vsystems, 'vehicle System')
+        size, typ = sizes.get(v.get('size')), vtypes.get(v.get('type'))
+        for s in v.get('systems', []):
+            r = s.get('rating')
+            if not isinstance(r, int) or not 0 <= r <= 5:
+                ck.err(w, f'{s.get("system")} Rating must be 0-5')
+            elif size and s.get('system') in ('hull', 'weapon', 'shields') and r > size['cap']:
+                ck.err(w, f'{s.get("system")} Rating {r} is over the {size["name"]} cap of {size["cap"]}')
+            elif s.get('system') == 'drive' and r > 4:
+                ck.err(w, 'Drive (Speed) is at most 4')
+        for one in ('hull', 'drive', 'controls', 'power'):
+            if held.count(one) > 1:
+                ck.err(w, f'more than one {one}')
+        if typ:
+            for need in typ.get('must', []):
+                if need not in held:
+                    ck.err(w, f'a {typ["name"]} must have {need}')
+            for bad in typ.get('never', []):
+                if bad in held:
+                    ck.err(w, f'a {typ["name"]} never has {bad}')
     ck.flags += len(veh.get('flags', []))
 
     for a in ck.records('archetypes.json', ck.load('archetypes.json') or []).values():

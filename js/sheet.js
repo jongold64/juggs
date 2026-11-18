@@ -3,6 +3,7 @@
 import * as R from './rules.js';
 import { esc, signed, cap } from './dom.js';
 import { describe } from './tab-powers.js';
+import { trackBoxes, systemLine } from './tab-vehicles.js';
 
 const rollBtn = (what, bonus) =>
   `<button type="button" class="roll no-print" data-roll="${esc(what)}" data-bonus="${bonus}" aria-label="Roll ${esc(what)}">d20</button>`;
@@ -217,5 +218,31 @@ export function renderSheet(D, c) {
 
   const page2 = `<div class="sheet-page"><div class="s-title"><b>JUGGS</b> Features · Trackers · Gear · Notes<span>Page 2</span></div>
     ${features}${powers}<div class="s-row">${trackers}${conditions}</div><div class="s-row">${notes}</div></div>`;
-  return page1 + page2;
+  return page1 + page2 + vehiclePage(D, c);
+}
+
+// Page 3, only when the character has vehicles: each one's numbers, Systems with their tracks, and capabilities.
+function vehiclePage(D, c) {
+  if (!c.vehicles.length) return '';
+  const V = D.vehicles;
+  const blocks = c.vehicles.map(ref => {
+    const v = V.catalog.find(x => x.id === ref.id);
+    const st = R.vehicleStats(D, v);
+    const tracks = R.vehicleTracks(D, v);
+    const sysName = s => s.name || V.systems.find(x => x.id === s.system).name;
+    const rows = (st.size.sections
+      ? tracks.map(t => `<tr><td><b>${esc(t.label)}</b></td><td></td><td>holds ${esc(t.note)}</td><td class="v-track">${trackBoxes(t.bands)}</td></tr>`)
+        .concat(v.systems.map(s => `<tr><td>${esc(sysName(s))}</td><td>${s.rating}</td><td>${esc(systemLine(D, v, s))}</td><td></td></tr>`))
+      : tracks.map(t => `<tr><td><b>${esc(sysName(t.system))}</b></td><td>${t.system.rating}</td><td>${esc(systemLine(D, v, t.system))}</td>
+          <td class="v-track">${trackBoxes(t.bands)}</td></tr>`)).join('');
+    return `<section class="s-box s-wide"><h3>${esc(ref.name || v.name)} <span class="s-hint">${esc(ref.name ? `${v.name} · ` : '')}${
+      esc(st.size.name)} · Speed ${st.speed} · Handling ${signed(st.handling)} · Armor ${st.armor} · Deflect ${R.vehicleDeflect(D, c, v)}
+      · Effort up to ${st.effortMax} from ${st.effortFrom}</span></h3>
+      <table class="s-powers v-systems"><thead><tr><th>System</th><th>Rating</th><th>What it does</th><th>Track</th></tr></thead><tbody>${rows}</tbody></table>
+      ${v.capabilities.length ? `<p class="s-hint">${v.capabilities.map(k => `<b>${esc(k.name)}.</b> ${esc(k.text)}`).join(' ')}</p>` : ''}</section>`;
+  }).join('');
+  const hit = V.hit_table.map(h => `${h.low === h.high ? h.low : `${h.low}–${h.high}`} ${esc(h.text.split(',')[0].split(' (')[0])}`).join(' · ');
+  return `<div class="sheet-page"><div class="s-title"><b>JUGGS</b> Vehicles<span>Page 3</span></div>${blocks}
+    <section class="s-box s-wide s-compact"><h3>System hit <span class="s-hint">d20 when a hit crosses 3+ boxes</span></h3><p class="s-hint">${hit}</p>
+    <p class="s-hint">Hurt −1 · Injured −2 to rolls that use that System · Broken: offline. Power is the vehicle’s Mana: Effort and strain mark it; it unmarks 2 in a quiet round.</p></section></div>`;
 }

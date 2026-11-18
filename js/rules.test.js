@@ -12,6 +12,7 @@ import './tab-gear.js';
 import './tab-powers.js';
 import './tab-roles.js';
 import './tab-rules.js';
+import './tab-vehicles.js';
 
 const results = [];
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
@@ -305,9 +306,27 @@ check('Unknown ids are dropped', clean(D, { role: 'no-such-role', feats: { 3: 'n
 check('Level is kept within 1-20', clean(D, { level: 40 }).level, 20);
 check('Missing fields get defaults', clean(D, {}).play.trackers.corruption, 0);
 
+// Vehicles
+const covers = rows => [...Array(20)].every((_, i) => rows.filter(r => i + 1 >= r.min && i + 1 <= r.max).length === 1);
+const veh = id => D.vehicles.catalog.find(v => v.id === id);
+check('Vehicle track of 7: 2/2/2/1', sizes(R.vehicleBands(D, 7)), [2, 2, 2, 1]);
+check('Vehicle track of 15 matches a starting pool', sizes(R.vehicleBands(D, 15)), [5, 5, 4, 1]);
+check('Vehicle track of 20: 7/6/6/1', sizes(R.vehicleBands(D, 20)), [7, 6, 6, 1]);
+check('Vehicle track of 4: one box per band', sizes(R.vehicleBands(D, 4)), [1, 1, 1, 1]);
+check('Motorcycle Hull has 7 boxes', R.vehicleTracks(D, veh('motorcycle'))[0].bands.at(-1).to, 7);
+check('Motorcycle: Speed 4, Handling +3, Armor 0', (({ speed, handling, armor }) => [speed, handling, armor])(R.vehicleStats(D, veh('motorcycle'))), [4, 3, 0]);
+check('Line Mech: Handling 0, Power 3 has 9 boxes, Autocannon 2 has 5',
+  [R.vehicleStats(D, veh('line-mech')).handling, ...R.vehicleTracks(D, veh('line-mech')).filter(t => ['power', 'weapon'].includes(t.system.system))
+    .slice(0, 2).map(t => t.bands.at(-1).to)], [0, 9, 5]);
+check('No Power: Effort comes from Hull, up to the size step', (({ effortMax, effortFrom }) => [effortMax, effortFrom])(R.vehicleStats(D, veh('sailing-ship'))), [4, 'Hull']);
+check('A Capital vehicle has four 15-box Sections', R.vehicleTracks(D, veh('corvette')).map(t => t.bands.at(-1).to), [15, 15, 15, 15]);
+check('Vehicle Deflect = 10 + Acuity + tier bonus + Handling',
+  R.vehicleDeflect(D, make({ base: spread }), veh('motorcycle')), 10 + R.abilityScores(D, make({ base: spread })).acu + R.tierFor(D, 1).deflect_bonus + 3);
+check('d20 System hit table covers 1-20 once each', covers(D.vehicles.hit_table.map(h => ({ min: h.low, max: h.high }))), true);
+check('Saved vehicles keep known ids only', clean(D, { vehicles: [{ id: 'motorcycle', name: 'Bess' }, { id: 'nope' }] }).vehicles, [{ id: 'motorcycle', name: 'Bess' }]);
+
 // Weird Table
 const W = D.powers.weird;
-const covers = rows => [...Array(20)].every((_, i) => rows.filter(r => i + 1 >= r.min && i + 1 <= r.max).length === 1);
 check('Weird Table covers 1-20 once each', covers(W.table), true);
 check('Weird Fallout covers 1-20 once each', covers(W.fallout), true);
 check('Weird Drain covers 1-20 once each', covers(W.table.find(r => r.drain).drain), true);
