@@ -33,6 +33,7 @@ export function newCharacter() {
     shield: '',                 // id in data/gear.json shields
     items: [],                  // [{ name, template, rating, appliesTo, descriptors, genre, notes }]
     wealth: null, reputation: null,     // null = the starting default
+    repCircle: '', repOpposed: '',      // where you're known (+1 Reputation) and the circle opposed to it (−1, min 0)
     languages: '', gear: '', notes: '',
     play: { marked: { stamina: 0, mana: 0, resolve: 0 }, conditions: [],
             trackers: { corruption: 0, fear: 0, morale: 0, sanity: 0 } },
@@ -181,6 +182,7 @@ export function clean(D, raw) {
   c.items = Array.isArray(raw.items) ? raw.items.filter(isObj).slice(0, 60).map(it => cleanItem(D, it)) : [];
   c.wealth = raw.wealth === null ? null : int(raw.wealth, null, 1, 8);
   c.reputation = raw.reputation === null ? null : int(raw.reputation, null, 0, 5);
+  c.repCircle = str(raw.repCircle).slice(0, 80); c.repOpposed = str(raw.repOpposed).slice(0, 80);
   c.languages = str(raw.languages); c.gear = str(raw.gear); c.notes = str(raw.notes);
   if (isObj(raw.play)) {
     const p = raw.play;

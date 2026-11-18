@@ -366,6 +366,12 @@ function renderCharacter() {
       <label class="field">Reputation <select data-bind="reputation" data-type="int">${options(
         [0, 1, 2, 3, 4, 5].map(n => ({ value: n, label: String(n) })), R.reputation(D, c))}</select></label>
     </div>
+    <div class="two-col">
+      <label class="field">Known among <span class="hint">(+1 Reputation there)</span>
+        <input type="text" data-bind="repCircle" value="${esc(c.repCircle)}" placeholder="the docks, a guild, a noble house" maxlength="80"></label>
+      <label class="field">Opposed circle <span class="hint">(−1 there, minimum 0)</span>
+        <input type="text" data-bind="repOpposed" value="${esc(c.repOpposed)}" placeholder="the city watch, a rival house" maxlength="80"></label>
+    </div>
     <p class="hint">${esc(D.core.wealth_tiers[wealth - 1].gear_ceiling)} · Cash on Hand ${R.cashOnHand(D, wealth)} · Default Tier ${R.startingWealth(D, c)}; one tier either way with GM approval</p>
     <label class="field">Languages <span class="hint">(${D.core.creation.extra_languages} extra at creation)</span>
       <input type="text" data-bind="languages" value="${esc(c.languages)}"></label>

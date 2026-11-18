@@ -23,7 +23,7 @@ const CHEAT = [
   ['Boon', 'natural 20 (wider at higher tiers): pick from the Boon Menu, 1 / 1 / 2 / 2 / 3 choices by tier'],
   ['Boon Menu', 'never the same twice: Momentum, +2 to all rolls until the end of your next turn · Recovery, unmark 1 box · Tempo (Seasoned+), +1 Action, once per round · Clarity, clear a Condition on you · Guard, +2 to Deflect and Defend until your next turn · Opening, next ally to attack the same target this round gets +2 · Break Through, this hit ignores armor DR, once per round · Reset, regain one spent Reaction, once per round · Keen Eye, one true answer from the GM · Grace, give one of these to an ally in Near range'],
   ['Bane', 'natural 1: −2 to all rolls until the end of your next turn; from Seasoned the GM also picks from the Bane Menu; no Bane while your Boon is still active'],
-  ['Abjure', 'from Seasoned: Belief 3+ and Channel 1. Belief vs Morale, 2 Resolve, once per scene. Abjurer's Authority adds Removed on 5+ overage and repeats at −1 per earlier use'],
+  ['Abjure', 'from Seasoned: Belief 3+ and Channel 1. Belief vs Morale, 2 Resolve, once per scene. Abjurer’s Authority adds Removed on 5+ overage and repeats at −1 per earlier use'],
   ['Pools', '15 boxes; Hurt 6–10 −1, Injured 11–14 −2 (that Domain), last box Broken'],
   ['Rest', 'Quick: Healthy boxes · Full: Healthy and Hurt · Broken: magic + Full Rest'],
   ['Heal', 'd20 + Belief or Serenity + Channel vs DC 15; overage or Rank unmarks boxes; mundane healing uses Survive'],

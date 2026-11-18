@@ -153,7 +153,9 @@ export function renderSheet(D, c) {
     <section class="s-box"><h3>Power Source</h3><p>${R.powerSources(D, c).map(s => esc(D.sourcesById.get(s).name)).join(' · ')}</p>
       <p class="s-hint">Physical always applies.</p></section>
     <section class="s-box"><h3>Wealth &amp; Standing</h3>${field('Wealth Tier', `${wealth} · ${w.name}`)}${field('Cash on Hand', R.cashOnHand(D, wealth))}
-      ${field('Reputation', String(R.reputation(D, c)))}</section>`;
+      ${field('Reputation', String(R.reputation(D, c)))}
+      ${c.repCircle ? field(`Among ${c.repCircle}`, String(R.reputation(D, c) + 1)) : ''}
+      ${c.repOpposed ? field(`Among ${c.repOpposed}`, String(Math.max(0, R.reputation(D, c) - 1))) : ''}</section>`;
 
   const page1 = `<div class="sheet-page"><div class="s-title"><b>JUGGS</b> Jon's Universal Genre Gaming System · Character Sheet<span>d20 + Ability + Skill</span></div>
     ${identity}<div class="s-row">${abilities}${defenses}</div>${boonBox}${poolRow}${weaponBox}${skillBox}<div class="s-row s-three">${small}</div></div>`;

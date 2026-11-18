@@ -471,3 +471,7 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **Combat Triage gives the free Tend (decided 2026-11-17):** the old Medic Novice ability moves into the Feat: once per
   round, Tend one ally as a Free Action with no roll, stabilizing them and clearing Bleeding, Burning or Poisoned.
   The Leader Role stays as drafted.
+- **Circumstantial Reputation (decided 2026-11-17):** every character names one circle where they are known, from their
+  Origin or Background (the street, a company, a noble house, a temple, a crew): Reputation counts 1 higher there and 1
+  lower (minimum 0) in the circle opposed to it. Highborn keeps its flat Reputation 2, as does the Noble Background.
+  Replaces the Player Book's one-off notes for Street Survivor and Corporate Asset.

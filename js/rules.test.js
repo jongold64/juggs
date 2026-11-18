@@ -161,6 +161,7 @@ check('Deflect = 10 + Domain Deflect Score', R.deflect(spread, 'mind'), 12);
 check('Initiative bonus: Agility + Body Mastery', R.initiativeBonus(D, make({ base: spread })), 3);
 check('Starting Wealth defaults to Struggling', R.startingWealth(D, make()), 3);
 check('Noble starts Wealthy', R.startingWealth(D, make({ aptitude: 'noble' })), 6);
+check('Reputation circles are kept and trimmed', (x => [x.repCircle, x.repOpposed.length])(clean(D, { repCircle: 'the docks', repOpposed: 'x'.repeat(120) })), ['the docks', 80]);
 check('Noble starts at Reputation 2', R.reputation(D, make({ aptitude: 'noble' })), 2);
 check('Physical is always a Power Source', R.powerSources(D, make()), ['physical']);
 check('Channel Focus defaults to Spirit',
