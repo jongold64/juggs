@@ -257,6 +257,10 @@ design, with Pilot and Tactics station rolls moved to Operate and Analyze. Gunne
 - **System hit table (decided 2026-11-18):** d20, keeping the single-d20 mechanic. When a hit crosses 3+ boxes, roll d20 and that
   System takes the boxes: 1-3 Drive, 4-8 a Weapon (attacker picks), 9-13 Hull, 14-15 Controls and the crew area is Breached,
   16-18 Power, 19 another System (attacker picks), 20 any System (attacker picks). A missing System sends the boxes to Hull.
+- **Catalog approved (2026-11-18)** as drafted, with three rulings: every weapon that draws on Power (every energy weapon,
+  and every mech weapon) has a strain cost (Starfighter Twin Lasers 1, Corvette Turbolasers 2); anything with an engine has
+  Power equal to its size step (named Engine), so only muscle, wind and oar vehicles pay Effort from Hull; the Siege Mech's
+  Siege Cannon is strain 3. Handling changes stand: River Barge -1, Siege Tower -2, Escape Pod 0, Bunker Crawler -2.
 
 ## Second trim
 

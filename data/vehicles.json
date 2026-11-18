@@ -7,16 +7,13 @@
     "deflect": "Vehicle Deflect = 10 + the pilot’s Acuity + the pilot’s tier bonus + Handling. Evade adds +2.",
     "hit_cap": "The gunner’s Hit Cap (5 + tier) limits the overage first; then the Scale Rule doubles or halves it; then Armor (and Shields) come off.",
     "damage": "A hit crosses Hull boxes. When a hit crosses 3 or more boxes, roll d20 on the System Hit table: that System takes the boxes instead. A vehicle without that System puts them on Hull. On a Capital vehicle, every hit rolls for the Section.",
-    "effort": "Effort: commit Power boxes before rolling, +1 each, up to the Power Rating. A vehicle with no Power commits Hull boxes, up to its size step (Light 1 … Capital 5).",
-    "strain": "Strain: a weapon’s strain cost marks Power boxes each time it fires, and moving at full Speed marks 1. In a round with neither, Power unmarks 2 boxes. Strain replaces Heat.",
+    "effort": "Effort: commit Power boxes before rolling, +1 each, up to the Power Rating. A vehicle with no Power (muscle, wind or oars) commits Hull boxes, up to its size step (Light 1 … Capital 5).",
+    "strain": "Strain: a weapon that draws on Power (every energy weapon, and every mech weapon) lists a strain cost and marks that many Power boxes each time it fires; moving at full Speed marks 1. In a round with neither, Power unmarks 2 boxes. Weapons with ammunition may list shots instead. Strain replaces Heat.",
     "crew": "Every crew member acts on their own initiative using their own Actions.",
     "scale": "Compare sizes, counting a character on foot as one size below Light. The Scale Rule resolves before Armor.",
     "scale_breaking": "Scale-Breaking weapons ignore the two-size floor and do half damage instead of none: the anti-tank rocket, the shaped charge, the boarding torpedo."
   },
-  "flags": [
-    "Drafted by Claude 2026-11-18 from the approved design; author to review the catalog Ratings for Power, Cargo, Sensors, Comms, Life Support and Shields, the weapon Ratings, and the band-penalty and Broken effects of each System.",
-    "Handling changed where Controls could not go below 0: River Barge: Handling -2 -> -1; Siege Tower: Handling -3 -> -2; Escape Pod: Handling -2 -> 0; Bunker Crawler: Handling -3 -> -2."
-  ],
+  "flags": [],
   "sizes": [
     {
       "id": "light",
@@ -128,7 +125,7 @@
     {
       "id": "power",
       "name": "Power",
-      "aka": "reactor, boiler, battery, aether cell",
+      "aka": "engine, reactor, boiler, battery, aether cell",
       "boxes": "power",
       "rating": "The vehicle’s Mana. Effort ceiling = Rating. Effort and weapon strain mark Power boxes.",
       "penalty": "Firing a weapon with a strain cost, and any roll with Effort committed.",
@@ -214,6 +211,7 @@
         "controls"
       ],
       "usually": [
+        "power",
         "cargo"
       ],
       "never": [],
@@ -230,6 +228,7 @@
         "cargo"
       ],
       "usually": [
+        "power",
         "comms"
       ],
       "never": [],
@@ -246,6 +245,7 @@
         "cargo"
       ],
       "usually": [
+        "power",
         "sensors",
         "weapon"
       ],
@@ -315,6 +315,7 @@
         "weapon"
       ],
       "usually": [
+        "power",
         "sensors",
         "comms"
       ],
@@ -539,7 +540,7 @@
       "id": "surge",
       "name": "Effort",
       "station": "Pilot",
-      "effect": "Commit Power boxes before rolling for +1 each, up to the Power Rating (no Power: Hull boxes, up to the size step)."
+      "effect": "Commit Power boxes before rolling for +1 each, up to the Power Rating (no Power — muscle, wind or oars — Hull boxes, up to the size step)."
     },
     {
       "id": "eject",
@@ -771,6 +772,11 @@
           "rating": 3
         },
         {
+          "system": "power",
+          "rating": 1,
+          "name": "Engine"
+        },
+        {
           "system": "cargo",
           "rating": 1
         }
@@ -804,6 +810,11 @@
         {
           "system": "controls",
           "rating": 2
+        },
+        {
+          "system": "power",
+          "rating": 2,
+          "name": "Engine"
         },
         {
           "system": "cargo",
@@ -840,6 +851,11 @@
         {
           "system": "controls",
           "rating": 1
+        },
+        {
+          "system": "power",
+          "rating": 2,
+          "name": "Engine"
         },
         {
           "system": "cargo",
@@ -929,6 +945,11 @@
         {
           "system": "controls",
           "rating": 3
+        },
+        {
+          "system": "power",
+          "rating": 2,
+          "name": "Engine"
         },
         {
           "system": "cargo",
@@ -1055,6 +1076,11 @@
         {
           "system": "controls",
           "rating": 1
+        },
+        {
+          "system": "power",
+          "rating": 3,
+          "name": "Engine"
         },
         {
           "system": "cargo",
@@ -1461,7 +1487,8 @@
         {
           "system": "weapon",
           "name": "Twin Lasers",
-          "rating": 2
+          "rating": 2,
+          "strain": 1
         },
         {
           "system": "weapon",
@@ -1578,7 +1605,8 @@
         {
           "system": "weapon",
           "name": "Turbolasers",
-          "rating": 3
+          "rating": 3,
+          "strain": 2
         },
         {
           "system": "weapon",
@@ -1659,6 +1687,11 @@
         {
           "system": "controls",
           "rating": 2
+        },
+        {
+          "system": "power",
+          "rating": 1,
+          "name": "Engine"
         }
       ],
       "capabilities": [
@@ -1693,6 +1726,11 @@
         {
           "system": "controls",
           "rating": 1
+        },
+        {
+          "system": "power",
+          "rating": 4,
+          "name": "Engine"
         },
         {
           "system": "cargo",
@@ -1740,6 +1778,11 @@
         {
           "system": "controls",
           "rating": 1
+        },
+        {
+          "system": "power",
+          "rating": 3,
+          "name": "Engine"
         },
         {
           "system": "weapon",
@@ -1820,6 +1863,11 @@
         {
           "system": "controls",
           "rating": 0
+        },
+        {
+          "system": "power",
+          "rating": 3,
+          "name": "Engine"
         },
         {
           "system": "cargo",
@@ -2014,7 +2062,7 @@
           "system": "weapon",
           "name": "Siege Cannon",
           "rating": 4,
-          "strain": 4,
+          "strain": 3,
           "shots": 3,
           "scale_breaking": true
         }
