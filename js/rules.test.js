@@ -3,6 +3,15 @@ import { loadData } from './data.js';
 import { newCharacter, clean } from './character.js';
 import * as R from './rules.js';
 import { weirdResult } from './weird.js';
+// The screen modules are imported only so a syntax error in one fails this page too. app.js renders on load, so it is
+// left out, but these cover the modules it imports.
+import './storage.js';
+import './requirements-text.js';
+import './sheet.js';
+import './tab-gear.js';
+import './tab-powers.js';
+import './tab-roles.js';
+import './tab-rules.js';
 
 const results = [];
 const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
